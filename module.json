@@ -3,8 +3,8 @@
     "title": "Phil's Day/Night Cycle",
     "version": "1.0.0",
     "compatibility": {
-        "minimum": "11",
-        "verified": "12"
+        "minimum": "12",
+        "verified": "13"
     },
     "authors": [
         {
@@ -37,5 +37,5 @@
     "description": "A simple module to display the time of day on a segmented disk.",
     "url": "https://github.com/phil/phils-day-night-cycle",
     "manifest": "https://github.com/phil/phils-day-night-cycle/releases/latest/download/module.json",
-    "download": "https://github.com/phil/phils-day-night-cycle/releases/download/1.0.0/module.zip"
+    "download": "https://github.com/phil/phils-day-night-cycle/releases/latest/download/module.zip"
 }
