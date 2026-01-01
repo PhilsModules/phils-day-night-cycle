@@ -16,6 +16,14 @@ _Bring your world to life with a beautiful, immersive clock widget._
 
 <br>
 
+<br>
+
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/assets/logo.png" alt="Clock Preview" width="700">
+
+</div>
+
+<br>
+
 <a href="#-deutsche-anleitung"><img src="https://img.shields.io/badge/%20-Deutsche_Anleitung-black?style=for-the-badge&logo=germany&logoColor=red" alt="Deutsche Anleitung"></a> <a href="#-english-instructions"><img src="https://img.shields.io/badge/%20-English_Instructions-black?style=for-the-badge&logo=united-kingdom&logoColor=white" alt="English Instructions"></a>
 
 </div>
@@ -148,3 +156,4 @@ In the module settings you can:
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
