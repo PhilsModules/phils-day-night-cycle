@@ -1,0 +1,45 @@
+<div class="pdnc-day-viewer-container">
+    <header class="pdnc-day-header">
+        <h2>{{dateKey}}</h2>
+        <div class="pdnc-header-decoration"></div>
+        <button type="button" data-action="addEvent" title="{{localize 'PDNC.AddEvent'}}"
+            style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #c5a059; font-size: 1.2em; cursor: pointer; transition: color 0.2s;">
+            <i class="fas fa-plus"></i>
+        </button>
+    </header>
+
+    <div class="pdnc-events-scroll">
+        {{#if hasEvents}}
+        <ul class="pdnc-event-list">
+            {{#each events}}
+            <li class="pdnc-event-card {{this.type}}" data-action="editEvent" data-index="{{@index}}">
+                <div class="pdnc-event-icon-wrapper">
+                    {{#if (eq this.type "gm")}}<i class="fas fa-user-secret"></i>{{/if}}
+                    {{#if (eq this.type "player")}}<i class="fas fa-feather-alt"></i>{{/if}}
+                    {{#if (eq this.type "event")}}<i class="fas fa-scroll"></i>{{/if}}
+                </div>
+                <div class="pdnc-event-details">
+                    <span class="pdnc-event-type-label">
+                        {{#if (eq this.type "gm")}}{{localize "PDNC.TypeGM"}}{{/if}}
+                        {{#if (eq this.type "player")}}{{localize "PDNC.TypePlayer"}}{{/if}}
+                        {{#if (eq this.type "event")}}{{localize "PDNC.TypeEvent"}}{{/if}}
+                    </span>
+                    <p class="pdnc-event-title">{{this.title}}</p>
+                    {{#if this.description}}
+                    <p class="pdnc-event-description">{{this.description}}</p>
+                    {{/if}}
+                </div>
+                <div class="pdnc-edit-hint">
+                    <i class="fas fa-edit"></i>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <div class="pdnc-empty-state">
+            <i class="fas fa-wind"></i>
+            <p>{{localize "PDNC.EmptyDay"}}</p>
+        </div>
+        {{/if}}
+    </div>
+</div>

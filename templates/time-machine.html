@@ -1,0 +1,31 @@
+<form autocomplete="off" onsubmit="event.preventDefault();">
+    <div class="pdnc-nav-grid">
+        <div class="pdnc-form-group">
+            <label>{{localize "PDNC.TimeDay"}}</label>
+            <input type="number" id="pdnc-nav-day" value="{{currentDay}}" min="1" max="31">
+        </div>
+        <div class="pdnc-form-group" style="flex: 2;">
+            <label>{{localize "PDNC.Month"}}</label>
+            <div class="pdnc-select-wrapper">
+                <select id="pdnc-nav-month">
+                    {{#each months}}
+                    <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+                    {{/each}}
+                </select>
+                <i class="fas fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="pdnc-form-group">
+            <label>{{localize "PDNC.Year"}}</label>
+            <input type="number" id="pdnc-nav-year" value="{{currentYear}}">
+        </div>
+    </div>
+    <p class="pdnc-nav-help">
+        {{localize "PDNC.TimeMachineHelp"}}
+    </p>
+    <div class="pdnc-form-group" style="align-items: center; margin-top: 10px;">
+        <button type="button" name="submit" class="pdnc-btn-save">
+            <i class='fas fa-hourglass-start'></i> {{localize "PDNC.SetWorldTime"}}
+        </button>
+    </div>
+</form>

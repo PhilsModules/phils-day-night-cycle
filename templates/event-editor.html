@@ -1,0 +1,58 @@
+<div class="pdnc-event-editor-layout">
+    <div class="pdnc-editor-header">
+        <div class="pdnc-editor-icon">
+            <i
+                class="fas {{#if (eq defaultType 'gm')}}fa-user-secret{{else}}{{#if (eq defaultType 'player')}}fa-feather-alt{{else}}fa-scroll{{/if}}{{/if}}"></i>
+        </div>
+        <div class="pdnc-editor-title-input">
+            <label>{{localize "PDNC.Title"}}</label>
+            <input type="text" name="title" value="{{title}}" placeholder="{{localize 'PDNC.Title'}}" autofocus
+                required />
+        </div>
+    </div>
+
+    <div class="pdnc-editor-body">
+        <div class="pdnc-form-group-row">
+            <div class="pdnc-form-group">
+                <label><i class="fas fa-tag"></i> {{localize "PDNC.Type"}}</label>
+                <div class="pdnc-select-wrapper">
+                    <select name="type">
+                        <option value="event" {{#if (eq defaultType "event" )}}selected{{/if}}>{{localize
+                            "PDNC.TypeEvent"}}</option>
+                        {{#if isGM}}
+                        <option value="gm" {{#if (eq defaultType "gm" )}}selected{{/if}}>{{localize "PDNC.TypeGM"}}
+                        </option>
+                        {{/if}}
+                        {{#if canCreate}}
+                        <option value="player" {{#if (eq defaultType "player" )}}selected{{/if}}>{{localize
+                            "PDNC.TypePlayer"}}</option>
+                        {{/if}}
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+            <!-- Future extensibility: Time or Duration could go here -->
+        </div>
+
+        <div class="pdnc-form-group full-height">
+            <label><i class="fas fa-align-left"></i> {{localize "PDNC.Description"}}</label>
+            <textarea name="description" placeholder="{{localize 'PDNC.Description'}}..."
+                rows="8">{{description}}</textarea>
+        </div>
+    </div>
+
+    <footer class="pdnc-editor-footer">
+        {{#if isEditing}}
+        <button type="button" data-action="delete" class="pdnc-btn-delete">
+            <i class="fas fa-trash"></i> {{localize "PDNC.Delete"}}
+        </button>
+        {{else}}
+        <!-- Spacer for alignment when delete button is missing -->
+        <div class="pdnc-spacer"></div>
+        {{/if}}
+
+        <button type="submit" name="save" class="pdnc-btn-save">
+            <i class="fas fa-save"></i> {{localize "PDNC.Save"}}
+        </button>
+    </footer>
+</div>

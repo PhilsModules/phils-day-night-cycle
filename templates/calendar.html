@@ -1,0 +1,37 @@
+<div class="pdnc-calendar-root">
+    <header class="pdnc-calendar-header">
+        <button data-action="prevMonth"><i class="fas fa-chevron-left"></i></button>
+        <div class="pdnc-date-display-wrapper">
+            <h2 class="pdnc-date-title" title="Change Date">{{monthName}} {{year}}</h2>
+        </div>
+        <button data-action="nextMonth"><i class="fas fa-chevron-right"></i></button>
+    </header>
+
+    <div class="pdnc-calendar-weekdays">
+        {{#each weekdays}}
+        <div class="pdnc-weekday">{{this}}</div>
+        {{/each}}
+    </div>
+
+    <div class="pdnc-calendar-grid">
+        {{#each days}}
+        <div class="pdnc-day {{#if this.isCurrent}}current{{/if}} {{#if this.isEmpty}}empty{{/if}}" {{#unless
+            this.isEmpty}} data-action="dayClick" data-action-contextmenu="dayContext" data-day="{{this.number}}"
+            data-datekey="{{this.dateKey}}" {{/unless}}>
+
+            {{#unless this.isEmpty}}
+            <span class="pdnc-day-number">{{this.number}}</span>
+            <div class="pdnc-day-events">
+                {{#each this.events}}
+                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}"></div>
+                {{/each}}
+            </div>
+            {{/unless}}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="pdnc-calendar-footer">
+        <p>{{localize "PDNC.OpenCalendar"}}</p> <!-- Or better hint? "Click a day..." -> let's make a new key -->
+    </div>
+</div>

@@ -1,0 +1,1038 @@
+:root {
+    --pdnc-size: 220px;
+    --pdnc-disk-size: 200px;
+    --pdnc-font: "Signika", sans-serif;
+}
+
+#phils-day-night-cycle-container {
+    position: fixed;
+    bottom: 25px;
+    right: 310px;
+    width: var(--pdnc-size);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+    /* Enable interaction for dragging */
+    cursor: grab;
+    z-index: 50;
+    font-family: var(--pdnc-font);
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    transition: opacity 0.3s ease;
+}
+
+/* 
+  The Disk Container
+  Adds a metallic/dark bezel effect
+*/
+.pdnc-disk {
+    width: var(--pdnc-disk-size);
+    height: var(--pdnc-disk-size);
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 10px;
+
+    /* Outer Bezel/Rim removed */
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    /* Keep just a soft shadow for lift */
+    /* Inner shadow for depth */
+
+    /* The Clock Face Image */
+    background-image: url('../assets/clock.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Glassy overlay to give it a lens look */
+.pdnc-disk::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Separator lines between segments (optional look) */
+.pdnc-disk::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    /* This radial gradient creates a 'hole' in the middle if we wanted a ring, 
+     but here we just use it to darken the very center or add texture */
+    background: transparent;
+    z-index: 1;
+}
+
+/* The Clock Hand (Hour) */
+.pdnc-hand {
+    position: absolute;
+    bottom: 50%;
+    /* Pivot at center */
+    left: 50%;
+    top: auto;
+    /* Reset top */
+    width: 5px;
+    /* Slightly thinner than 6px */
+    margin-left: -2.5px;
+    height: 55px;
+    /* Fixed length, roughly 55% of radius (90px) */
+    background: #c5a059;
+    border: 1px solid #3e2b14;
+    /* Darker outline */
+    /* Black border */
+    border-radius: 4px;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    z-index: 5;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* The Minute Hand */
+.pdnc-hand-minute {
+    position: absolute;
+    bottom: 50%;
+    /* Pivot at center */
+    left: 50%;
+    top: auto;
+    /* Reset top */
+    width: 4px;
+    /* Thicker than 3px */
+    margin-left: -2px;
+    height: 85px;
+    /* Longer, roughly 83% of radius (90px) */
+    background: #c5a059;
+    border: 1px solid #3e2b14;
+    border-radius: 4px;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    z-index: 6;
+    /* Above hour hand (5) */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Hand Tip - Removed per user request */
+.pdnc-hand::after,
+.pdnc-hand-minute::after {
+    content: none;
+}
+
+/* Center Cap (The pivot point) */
+.pdnc-center-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    /* Slightly smaller to match fine hand */
+    height: 10px;
+    background: #c5a059;
+    /* Bronze match */
+    border: 1px solid #3e2b14;
+    /* Dark border match */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.pdnc-labels-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    z-index: 4;
+    /* Below hand (5) but above bg */
+}
+
+.pdnc-segment-label {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: -10px;
+    /* Center alignment adjustment */
+    margin-left: -10px;
+    text-shadow: 0 0 3px black;
+    pointer-events: none;
+}
+
+/* Text Display Area */
+.pdnc-time-display {
+    background: linear-gradient(to bottom, rgba(20, 20, 25, 0.9), rgba(10, 10, 15, 0.95));
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 170px;
+    /* Increased from 140px to fit controls */
+    position: relative;
+    /* Ensure z-index is lower than disk hand if overlapping? No, disk is separate. */
+}
+
+.pdnc-time-display::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    /* Border triangle - sits slightly higher */
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #444;
+    /* Matches box border */
+}
+
+.pdnc-time-display::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -6px;
+    /* Fill triangle - sits on top of border triangle */
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #1a1a1e;
+    /* Matches box bg approx */
+}
+
+.pdnc-phase-icon {
+    font-size: 1.6em;
+    display: block;
+    margin-bottom: 2px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+.pdnc-phase-text {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #ffcc00;
+    /* Goldish for text */
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+.pdnc-clock-text {
+    font-size: 0.9em;
+    color: #aaa;
+    font-family: monospace;
+}
+
+.pdnc-date-text {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 5px;
+    font-family: var(--pdnc-font);
+}
+
+.pdnc-toggle-btn {
+    cursor: pointer;
+    color: #666;
+    margin-left: 8px;
+    font-size: 0.9em;
+    transition: color 0.2s;
+}
+
+.pdnc-toggle-btn:hover,
+.pdnc-toggle-btn.active {
+    color: #c5a059;
+}
+
+.pdnc-disk.hidden {
+    display: none;
+}
+
+.pdnc-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-btn {
+    background: transparent;
+    color: #c5a059;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 10px;
+    font-weight: bold;
+    font-family: var(--pdnc-font);
+    transition: all 0.2s ease;
+}
+
+.pdnc-btn:hover {
+    background: rgba(197, 160, 89, 0.15);
+    border-color: #c5a059;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-input {
+    width: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #c5a059;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    font-family: var(--pdnc-font);
+    font-size: 0.95em;
+    transition: border 0.2s ease;
+}
+
+.pdnc-input:focus {
+    outline: none;
+    border-color: #c5a059;
+}
+
+.pdnc-select {
+    background: rgba(0, 0, 0, 0.4);
+    color: #c5a059;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 4px;
+    padding: 5px 8px;
+    min-width: 70px;
+    font-family: var(--pdnc-font);
+    cursor: pointer;
+    transition: border 0.2s ease;
+}
+
+.pdnc-select:hover {
+    border-color: rgba(197, 160, 89, 0.6);
+}
+
+.pdnc-select:focus {
+    outline: none;
+    border-color: #c5a059;
+}
+
+.pdnc-select option {
+    background: #1a1a1a;
+    color: #c5a059;
+    padding: 5px;
+}
+
+/* Tooltip Styles */
+.pdnc-tooltip {
+    position: absolute;
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(4px);
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #fff;
+    font-family: var(--pdnc-font);
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transform: translate(-50%, -120%);
+    /* Center above cursor */
+}
+
+.pdnc-tooltip.visible {
+    opacity: 1;
+}
+
+.pdnc-tooltip-phase {
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 2px;
+}
+
+.pdnc-tooltip-time {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* --- Calendar Application --- */
+#phils-calendar-app {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+.pdnc-calendar-window .window-content {
+    background: url('../assets/clock.webp');
+    /* Reuse clock background or plain dark? Plain dark is better for readability. */
+    background-size: cover;
+    background: #1a1a1a;
+    color: #eee;
+}
+
+.pdnc-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pdnc-calendar-title h2 {
+    margin: 0;
+    border: none;
+    color: #c5a059;
+}
+
+.pdnc-calendar-title h3 {
+    margin: 0;
+    font-weight: normal;
+    border: none;
+    font-size: 0.9em;
+    color: #999;
+}
+
+.pdnc-calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #555;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    color: #c5a059;
+}
+
+.pdnc-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    flex: 1;
+}
+
+.pdnc-day {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 4px;
+    min-height: 60px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pdnc-day:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #777;
+}
+
+.pdnc-day.current {
+    background: rgba(197, 160, 89, 0.3);
+    border-color: #c5a059;
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.4);
+}
+
+.pdnc-day.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.pdnc-day-number {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.pdnc-day-events {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+
+.pdnc-event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3498db;
+    border: 1px solid #fff;
+}
+
+.pdnc-event-dot.gm {
+    background: #e74c3c;
+    /* Red for GM */
+}
+
+.pdnc-event-dot.player {
+    background: #2ecc71;
+    /* Green for Player */
+}
+
+/* Context Menu */
+.pdnc-context-menu {
+    position: fixed;
+    z-index: 9999;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 4px 0;
+    min-width: 150px;
+}
+
+.pdnc-context-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #eee;
+    font-size: 14px;
+}
+
+.pdnc-context-item:hover {
+    background: #333;
+    color: #fff;
+}
+
+.pdnc-context-item i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    color: #c5a059;
+}
+
+/* --- Day Viewer Premium UI --- */
+#phils-calendar-day-view {
+    min-width: 320px;
+    height: auto !important;
+    /* Allow dynamic height */
+    max-height: 80vh;
+}
+
+#phils-calendar-day-view .window-content {
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.95), rgba(10, 10, 12, 0.98));
+    color: #eee;
+    padding: 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid #c5a059;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.pdnc-day-viewer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 300px;
+}
+
+.pdnc-day-header {
+    background: linear-gradient(to bottom, rgba(197, 160, 89, 0.1), transparent);
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pdnc-day-header h2 {
+    margin: 0;
+    font-family: var(--pdnc-font);
+    color: #c5a059;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pdnc-header-decoration {
+    width: 60px;
+    height: 2px;
+    background: #c5a059;
+    margin: 8px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 5px #c5a059;
+}
+
+.pdnc-date-display-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pdnc-date-title {
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pdnc-date-title:hover {
+    background: rgba(197, 160, 89, 0.2);
+    color: #c5a059;
+}
+
+.pdnc-events-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #c5a059 #1a1a1a;
+}
+
+.pdnc-event-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pdnc-event-card {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pdnc-event-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(197, 160, 89, 0.4);
+    transform: translateX(2px);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pdnc-event-card.gm {
+    border-left: 3px solid #e74c3c;
+}
+
+.pdnc-event-card.player {
+    border-left: 3px solid #2ecc71;
+}
+
+.pdnc-event-card.event {
+    border-left: 3px solid #c5a059;
+}
+
+.pdnc-event-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    font-size: 14px;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.pdnc-event-card.gm .pdnc-event-icon-wrapper {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.pdnc-event-card.player .pdnc-event-icon-wrapper {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.pdnc-event-card.event .pdnc-event-icon-wrapper {
+    color: #c5a059;
+    background: rgba(197, 160, 89, 0.1);
+}
+
+.pdnc-event-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pdnc-event-type-label {
+    font-size: 0.75em;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.pdnc-event-title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #eee;
+    line-height: 1.2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+}
+
+.pdnc-event-description {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.3;
+}
+
+.pdnc-edit-hint {
+    color: #555;
+    opacity: 0;
+    transition: all 0.2s ease;
+    width: 20px;
+    text-align: center;
+}
+
+.pdnc-event-card:hover .pdnc-edit-hint {
+    opacity: 0.7;
+    color: #c5a059;
+}
+
+.pdnc-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+.pdnc-empty-state i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+.pdnc-empty-state p {
+    font-size: 0.9em;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* --- Event Editor Premium UI --- */
+.pdnc-event-editor-window .window-content {
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.98), rgba(10, 10, 12, 0.99)) !important;
+    background-image: none !important;
+    color: #eee;
+    padding: 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid #c5a059;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.pdnc-event-editor-window .window-header {
+    background: rgba(10, 10, 12, 0.95) !important;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    color: #c5a059;
+    box-shadow: none !important;
+    flex: 0 0 auto;
+}
+
+.pdnc-event-editor-window .window-header .window-title {
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+}
+
+.pdnc-event-editor-window .window-header .window-close {
+    color: #aaa;
+}
+
+.pdnc-event-editor-window .window-header .window-close:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+.pdnc-event-editor-window form {
+    height: 100%;
+}
+
+/* Navigation Window */
+.pdnc-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.pdnc-nav-grid input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #eee;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    font-family: var(--pdnc-font);
+}
+
+.pdnc-nav-grid input:focus {
+    outline: none;
+    border-color: #c5a059;
+    box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-nav-help {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+    padding: 0 10px;
+}
+
+.pdnc-event-editor-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.pdnc-editor-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.pdnc-editor-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #c5a059;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+}
+
+.pdnc-editor-title-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pdnc-editor-title-input label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.pdnc-editor-title-input input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.4em;
+    font-family: var(--pdnc-font);
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.pdnc-editor-title-input input:focus {
+    outline: none;
+    border-color: #c5a059;
+    box-shadow: none;
+}
+
+.pdnc-editor-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pdnc-form-group-row {
+    display: flex;
+    gap: 20px;
+}
+
+.pdnc-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.pdnc-form-group.full-height {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdnc-form-group label {
+    font-size: 0.9em;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pdnc-form-group label i {
+    color: #c5a059;
+    width: 16px;
+    text-align: center;
+}
+
+/* Custom Select */
+.pdnc-select-wrapper {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.pdnc-select-wrapper:hover {
+    border-color: rgba(197, 160, 89, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.pdnc-select-wrapper select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #eee;
+    padding: 0 12px;
+    height: 38px;
+    line-height: 38px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    font-family: var(--pdnc-font);
+}
+
+/* Darken standard dropdown options */
+.pdnc-select-wrapper select option {
+    background: #1a1a1a;
+    color: #eee;
+    padding: 10px;
+}
+
+.pdnc-select-wrapper select:focus {
+    outline: none;
+}
+
+.pdnc-select-wrapper .fa-caret-down {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c5a059;
+    pointer-events: none;
+}
+
+/* Custom Textarea */
+.pdnc-editor-body textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #ddd;
+    padding: 12px;
+    resize: none;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    /* Fill remaining height */
+    font-family: var(--pdnc-font);
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.pdnc-editor-body textarea:focus {
+    outline: none;
+    border-color: #c5a059;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer & Buttons */
+.pdnc-editor-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pdnc-spacer {
+    flex: 1;
+}
+
+.pdnc-btn-save,
+.pdnc-btn-delete {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-family: var(--pdnc-font);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.pdnc-btn-save {
+    background: linear-gradient(to bottom, #c5a059, #a07e3a);
+    color: #1a1a1a;
+    border: 1px solid #c5a059;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.pdnc-btn-save:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.pdnc-btn-delete {
+    background: transparent;
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.pdnc-btn-delete:hover {
+    background: rgba(231, 76, 60, 0.1);
+    border-color: #e74c3c;
+    color: #ff6b6b;
+}
