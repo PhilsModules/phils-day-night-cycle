@@ -5,7 +5,7 @@
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
 ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
+[![Version](https://img.shields.io/badge/Version-2.0.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
 [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
@@ -13,14 +13,6 @@
 **Bringe Leben in deine Welt mit einem wunderschönen, immersiven Uhr-Widget.**
 <br>
 _Bring your world to life with a beautiful, immersive clock widget._
-
-<br>
-
-<br>
-
-<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/assets/logo.png" alt="Clock Preview" width="700">
-
-</div>
 
 <br>
 
@@ -46,11 +38,14 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu, die sich autom
 
 ## 🚀 Funktionen
 
-- 🎨 **Wunderschönes Design:** Ein hochwertiges, "Premium"-Look Widget, das sich perfekt in Fantasy-Settings einfügt.
-- 🖼️ **Custom Images:** Lade dein eigenes Bild für das Zifferblatt hoch! (Neu in v1.0.0)
-- 🖱️ **Drag & Drop:** Platziere die Uhr überall auf deinem Bildschirm. Sie merkt sich ihre Position pixelgenau.
-- 📅 **Kalender-Integration:** Klicke auf die Uhr, um einen vollwertigen Kalender zu öffnen.
-- 📝 **Notizen & Events:** Erstelle öffentliche Ereignisse, GM-Notizen oder Gruppen-Notizen direkt im Kalender.
+- 🌦️ **Volles Wettersystem:** Simuliert realistisches Wetter (Temperatur, Wind, Luftfeuchtigkeit) basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen!
+- 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch Regen, Schnee, Nebel oder Sturm-Effekte in deiner Szene.
+- 💡 **Smarte Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
+- 🎨 **Wunderschönes Design:** Ein hochwertiges, "Premium"-Look Widget mit integrierter Wetteranzeige.
+- 🖼️ **Custom Images:** Lade dein eigenes Bild für das Zifferblatt hoch!
+- 🖱️ **Drag & Drop:** Platziere die Uhr überall auf deinem Bildschirm.
+- 📅 **Kalender-Integration:** Ein Klick öffnet den vollwertigen Kalender mit automatischem "Wetterbericht"-Logbuch.
+- 📝 **Notizen & Events:** Erstelle öffentliche Ereignisse, GM-Notizen oder Gruppen-Notizen.
 - 🕰️ **Zeitreise:** Nutze die "Zeitmaschine", um zu jedem beliebigen Datum zu springen (GM Only).
 - 🌍 **System-Support:** Unterstützt Golarion (PF2e), Harptos (D&D 5e) und den Gregorianischen Kalender.
 
@@ -89,6 +84,7 @@ In den Moduleinstellungen kannst du:
 - Das Kalendersystem ändern (Golarion, Harptos, etc.).
 - Das Hintergrundbild der Uhr ändern.
 - Zeit- und Datumsversatz einstellen.
+- **Wettersystem an-/ausschalten:** Deaktiviere das gesamte Wetter und Licht-System, falls du nur die Uhr/Kalender nutzen möchtest.
 
 ---
 
@@ -100,11 +96,14 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 
 ## 🚀 Key Features
 
-- 🎨 **Beautiful Design:** A high-quality, "premium" look widget that fits perfectly into fantasy settings.
-- 🖼️ **Custom Images:** Upload your own image for the clock face! (New in v1.0.0)
-- 🖱️ **Drag & Drop:** Place the clock anywhere on your screen. It remembers its exact position.
-- 📅 **Calendar Integration:** Click the clock to open a fully featured in-game calendar.
-- 📝 **Notes & Events:** Create public events, GM notes, or party notes directly in the calendar.
+- 🌦️ **Full Weather System:** Simulates realistic weather (temp, wind, humidity) based on climate zones with over 1200 unique weather descriptions!
+- 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog, or Storm effects to your scene.
+- 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season, and cloud cover.
+- 🎨 **Beautiful Design:** A high-quality, "premium" look widget with integrated weather display.
+- 🖼️ **Custom Images:** Upload your own image for the clock face!
+- 🖱️ **Drag & Drop:** Place the clock anywhere on your screen.
+- 📅 **Calendar Integration:** Click to open the fully featured calendar, complete with automatic daily "Weather Reports".
+- 📝 **Notes & Events:** Create public events, GM notes, or party notes.
 - 🕰️ **Time Travel:** Use the "Time Machine" to jump to any specific date (GM Only).
 - 🌍 **System Support:** Supports Golarion (PF2e), Harptos (D&D 5e), and Gregorian calendars.
 
@@ -143,6 +142,7 @@ In the module settings you can:
 - Change the calendar system (Golarion, Harptos, etc.).
 - Change the clock background image.
 - Set time and date offsets.
+- **Toggle Weather System:** Disable the entire weather/lighting system if you only want the Clock/Calendar features.
 
 ---
 
@@ -156,4 +156,3 @@ In the module settings you can:
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-

@@ -1,6 +1,8 @@
 import { PhilsCalendarApp } from "./calendar-app.js";
 import { CalendarSystem } from "./calendar-system.js";
 import { CalendarDB } from "./calendar-db.js";
+import { WeatherSystem } from "./weather-system.js";
+import { LightingSystem } from "./lighting-system.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -161,7 +163,104 @@ class PhilsDayNightCycle {
             default: false
         });
 
-        Hooks.on("updateWorldTime", () => this.updateClock());
+        // Weather Settings
+        game.settings.register(MODULE_ID, "enableWeather", {
+            name: game.i18n.localize("PDNC.SettingEnableWeatherName"),
+            hint: game.i18n.localize("PDNC.SettingEnableWeatherHint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: () => {
+                this.updateClock();
+                if (!game.user.isGM) return;
+                // If disabled, maybe reset scene?
+                // For now, next update loop will handle it (or stop handling it).
+            }
+        });
+
+        const climateChoices = WeatherSystem.getClimateList();
+        game.settings.register(MODULE_ID, "climateZone", {
+            name: game.i18n.localize("PDNC.SettingClimateZoneName"),
+            hint: game.i18n.localize("PDNC.SettingClimateZoneHint"),
+            scope: "world",
+            config: true,
+            type: String,
+            choices: climateChoices,
+            default: "marine_west_coast"
+        });
+
+        game.settings.register(MODULE_ID, "seasonConfig", {
+            name: "Season Configuration",
+            scope: "world",
+            config: false,
+            type: Object,
+            default: {
+                spring: { month: 2, day: 20 },
+                summer: { month: 5, day: 21 },
+                autumn: { month: 8, day: 22 },
+                winter: { month: 11, day: 21 }
+            }
+        });
+
+        game.settings.registerMenu(MODULE_ID, "seasonConfigMenu", {
+            name: "Season Config",
+            label: game.i18n.localize("PDNC.OpenSeasonConfig"),
+            hint: game.i18n.localize("PDNC.SettingSeasonConfigHint"),
+            icon: "fas fa-calendar-alt",
+            type: SeasonConfigApp,
+            restricted: true
+        });
+
+        game.settings.register(MODULE_ID, "lastWeatherGenerationTime", {
+            name: "Last Weather Gen Time",
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 0
+        });
+        
+        game.settings.register(MODULE_ID, "lastWeatherDateId", {
+            name: "Last Weather Date ID",
+            scope: "world",
+            config: false,
+            type: String,
+            default: ""
+        });
+
+        game.settings.register(MODULE_ID, "currentWeather", {
+            name: "Current Weather Data",
+            scope: "world",
+            config: false,
+            type: Object,
+            default: {
+                tempMin: 0,
+                tempMax: 0,
+                text: "",
+                description: "", // Full weather text
+                fx: null, // Weather FX type
+                generated: false
+            }
+        });
+
+        game.settings.register(MODULE_ID, "autoLighting", {
+            name: game.i18n.localize("PDNC.SettingAutoLightingName"),
+            hint: game.i18n.localize("PDNC.SettingAutoLightingHint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true
+        });
+
+        Hooks.on("updateWorldTime", (worldTime, dt) => {
+             this.updateClock();
+             if (game.user.isGM) {
+                 if (game.settings.get(MODULE_ID, "enableWeather")) {
+                     WeatherSystem.generateDailyWeather();
+                     LightingSystem.update(game.time.worldTime); 
+                 }
+             }
+        });
 
         // Expose API for Macros
         window.PhilsDayNightCycle = {
@@ -221,6 +320,7 @@ class PhilsDayNightCycle {
         const uiContainer = document.createElement("div");
         uiContainer.id = "phils-day-night-cycle-container";
 
+        // Added Weather Icon and Temp to HTML structure
         uiContainer.innerHTML = `
       <div class="pdnc-disk">
         <div class="pdnc-hand"></div>
@@ -229,11 +329,19 @@ class PhilsDayNightCycle {
         <div class="pdnc-labels-container"></div>
       </div>
       <div class="pdnc-time-display">
+
         <span class="pdnc-phase-icon"></span>
         <div class="pdnc-phase-text"></div>
-        <div class="pdnc-clock-line" style="display: flex; justify-content: center; align-items: center;">
-            <i class="fas fa-clock pdnc-toggle-btn" title="${game.i18n.localize("PDNC.ToggleClock")}" style="margin-right: 5px; margin-left: 0;"></i>
-            <div class="pdnc-clock-text"></div>
+        <div class="pdnc-phase-text"></div>
+        <div class="pdnc-clock-line" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+            <div class="pdnc-clock-group" style="display: flex; align-items: center; gap: 4px;">
+                <i class="fas fa-clock pdnc-toggle-btn" title="${game.i18n.localize("PDNC.ToggleClock")}" style="margin-left: 0;"></i>
+                <div class="pdnc-clock-text"></div>
+            </div>
+            <div class="pdnc-weather-group" style="display: flex; align-items: center; gap: 4px; display: none;">
+                <i class="fas fa-cloud-sun pdnc-weather-icon" title="${game.i18n.localize("PDNC.Weather")}" style="cursor: pointer; opacity: 0.8;"></i>
+                <span class="pdnc-temp-text" style="font-size: 0.9em; opacity: 0.8;"></span>
+            </div>
         </div>
         <div class="pdnc-date-text"></div>
         <div class="pdnc-controls" style="display: none;">
@@ -259,6 +367,10 @@ class PhilsDayNightCycle {
         this.clockText = uiContainer.querySelector(".pdnc-clock-text");
         this.dateText = uiContainer.querySelector(".pdnc-date-text");
         this.controls = uiContainer.querySelector(".pdnc-controls");
+        
+        // Weather Elements
+        this.weatherIcon = uiContainer.querySelector(".pdnc-weather-icon");
+        this.tempText = uiContainer.querySelector(".pdnc-temp-text");
 
         // Check Permissions for Controls
         if (game.user.isGM || game.settings.get(MODULE_ID, "playerAdvanceTime")) {
@@ -311,6 +423,25 @@ class PhilsDayNightCycle {
             new PhilsCalendarApp().render(true);
         });
         this.dateText.style.cursor = "pointer";
+        
+        // Open Weather on Click (Icon)
+        this.weatherIcon.addEventListener("click", () => {
+            const weather = game.settings.get(MODULE_ID, "currentWeather");
+            if(weather && weather.description) {
+                // Use standard Dialog instead of prompt to avoid unhandled promise rejection on close
+                new Dialog({
+                    title: game.i18n.localize("PDNC.WeatherForecast"),
+                    content: `<p style="text-align:center; font-size: 1.1em; margin: 10px 0;">${weather.description}</p>`,
+                    buttons: {
+                        ok: {
+                            icon: '<i class="fas fa-check"></i>',
+                            label: "OK"
+                        }
+                    },
+                    default: "ok"
+                }).render(true);
+            }
+        });
 
         // Time Controls
         const btnRewind = this.controls.querySelector('[data-action="rewind"]');
@@ -526,8 +657,8 @@ class PhilsDayNightCycle {
         const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset");
         worldTime += (offsetMinutes * 60);
 
-        console.log("PDNC Debug | Day Offset:", offsetDays, "Time Offset:", offsetMinutes);
-        console.log("PDNC Debug | Original Time:", game.time.worldTime, "Adjusted Time:", worldTime);
+        // console.log("PDNC Debug | Day Offset:", offsetDays, "Time Offset:", offsetMinutes);
+        // console.log("PDNC Debug | Original Time:", game.time.worldTime, "Adjusted Time:", worldTime);
 
         // Calculate seconds elapsed in the current day
         // Assuming a standard 24h day = 86400 seconds
@@ -570,6 +701,30 @@ class PhilsDayNightCycle {
         if (this.dateText && this.calendar) {
             const dateData = this.calendar.getDate(worldTime); // Use adjusted worldTime
             this.dateText.textContent = `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`;
+        }
+
+        // Update Weather UI
+        if (this.weatherIcon) {
+            const weatherGroup = this.container.querySelector(".pdnc-weather-group");
+            const weatherEnabled = game.settings.get(MODULE_ID, "enableWeather");
+            
+            if (!weatherEnabled) {
+                if (weatherGroup) weatherGroup.style.display = "none";
+                this.tempText.textContent = "";
+                return;
+            }
+
+            const weather = game.settings.get(MODULE_ID, "currentWeather");
+            
+            if (weather && weather.generated) {
+                if (weatherGroup) weatherGroup.style.display = "flex";
+                // Get dynamic temperature
+                const currentTemp = WeatherSystem.getCurrentTemperature();
+                this.tempText.textContent = `${currentTemp}°C`;
+            } else {
+                if (weatherGroup) weatherGroup.style.display = "none";
+                this.tempText.textContent = "";
+            }
         }
     }
 }
@@ -666,20 +821,40 @@ Hooks.once("ready", async () => {
     }
 });
 
-class TimeMachineApp extends FormApplication {
-    static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
-            id: "phils-time-machine",
-            title: "Time Machine",
-            template: `modules/${MODULE_ID}/templates/time-machine.html`,
-            classes: ["pdnc-event-editor-window", "pdnc-nav-window"],
-            width: 400,
-            height: "auto",
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
+    static DEFAULT_OPTIONS = {
+        tag: "form",
+        id: "phils-time-machine",
+        window: {
+            title: "PDNC.TimeMachineTitle", // Key usage if supported by V2 (it's not auto-localized for window title in all contexts, but let's use the getter approach)
+            icon: "fas fa-hourglass-start",
             resizable: false
-        });
+        },
+        position: {
+            width: 400,
+            height: "auto"
+        },
+        classes: ["pdnc-event-editor-window", "pdnc-nav-window"],
+        form: {
+            handler: "onSubmit",
+            closeOnSubmit: true
+        }
+    };
+
+    static PARTS = {
+        form: {
+            template: `modules/${MODULE_ID}/templates/time-machine.html`
+        }
+    };
+
+    get title() {
+        return game.i18n.localize("PDNC.TimeMachineTitle");
     }
 
-    getData() {
+    /** @override */
+    async _prepareContext(options) {
         const calendar = dayNightCycle.calendar;
         const config = calendar.config;
 
@@ -700,30 +875,147 @@ class TimeMachineApp extends FormApplication {
         };
     }
 
-    activateListeners(html) {
-        super.activateListeners(html);
-        html.find('button[name="submit"]').click(async (e) => {
-            e.preventDefault();
-            const d = Number(html.find('#pdnc-nav-day').val());
-            const m = Number(html.find('#pdnc-nav-month').val());
-            const y = Number(html.find('#pdnc-nav-year').val());
+    /**
+     * Handle form submission
+     * @param {SubmitEvent} event
+     * @param {HTMLFormElement} form
+     * @param {FormDataExtended} formData
+     */
+    static async onSubmit(event, form, formData) {
+        // formData is FormDataExtended, use .object for simple key-value
+        const data = formData.object;
+        
+        // In the template, IDs are #pdnc-nav-day etc, but name attributes matter for FormData
+        // We need to ensure the template has name attributes.
+        // Assuming template uses name="day", name="month" etc, OR we read by ID if names are missing?
+        // Wait, the previous code read by ID: html.find('#pdnc-nav-day').val()
+        // I should verify the template. If it lacks name attributes, formData won't have them.
+        // The V1 FormApplication relied on `activateListeners` reading IDs.
+        // I should probably check the template or just read from the form element directly if names are missing.
+        // But better to expect names. I'll check/update template if needed.
+        // For now, let's assume names correspond to IDs or I can fallback to retrieving from form.elements
+        
+        // Actually, let's look at the previous code: it read #pdnc-nav-day. 
+        // I will assume I need to update the template or read from the elements by ID.
+        // Reading by ID from `form` is possible.
+        
+        const d = Number(form.querySelector('#pdnc-nav-day').value);
+        const m = Number(form.querySelector('#pdnc-nav-month').value);
+        const y = Number(form.querySelector('#pdnc-nav-year').value);
 
-            const timestamp = dayNightCycle.calendar.getTimestamp(y, m, d);
-            await game.settings.set("core", "time", timestamp);
+        const timestamp = dayNightCycle.calendar.getTimestamp(y, m, d);
+        await game.settings.set("core", "time", timestamp);
 
-            this.close();
+        // Refresh Calendar if open
+        const app = foundry.applications.instances.get("phils-calendar-app");
+        if (app) {
+            app.viewYear = y;
+            app.viewMonth = m;
+            app.render();
+        }
+    }
+}
 
-            // Refresh Calendar if open
-            const app = foundry.applications.instances.get("phils-calendar-app");
-            if (app) {
-                app.viewYear = y;
-                app.viewMonth = m;
-                app.render();
-            }
-        });
+class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
+    static DEFAULT_OPTIONS = {
+        tag: "form",
+        id: "phils-season-config",
+        window: {
+            title: "PDNC.SeasonConfigTitle", // V2 resolves localization automatically if key provided? Or I should localize manually? 
+            // V2 window.title supports localization key.
+            // But let's check: implementation usually is string. 
+            // For safety I will localize it or assume strict string.
+            // Actually, V2 handles localization in title if it detects a key? 
+            // Documentation says "title": "The window title". 
+            // I'll stick to manual localize for safety or just pass the key if I'm sure.
+            // Let's use game.i18n.localize in the static block? No, game might not be ready if evaluated too early?
+            // Static properties are evaluated when class is defined. game.i18n is ready then? 
+            // Usually module scripts run after core init, but better to use a getter or just the key if supported.
+            // ApplicationV2 title can be a string.
+            // Let's use the key and hope V2 localizes or I'll fix it. 
+            // Actually, ApplicationV2 does NOT auto-localize title string.
+            // So `title: game.i18n.localize(...)` is risky if game.i18n isn't ready.
+            // Safest: Use a getter or just localize it in _prepareContext and set it?
+            // Wait, DEFAULT_OPTIONS is static.
+            // Most valid V2 apps use `title: "Key"`? No.
+            // I will use `title: "Season Configuration"` (hardcoded fallback) or try to use `game.i18n.localize`.
+            // But wait, `main.v2.js` is imported/executed. `game` exists?
+            // `MODULE_ID` is defined. `game` is global.
+            // If this file is a module script, it runs at load. `game.i18n` might not be populated.
+            // However, `SeasonConfigApp` is instantiated later.
+            // Default options are read at instantiation usually? No, merged.
+            // Correct approach: define title in `_prepareContext` or update window title dynamically?
+            // Or just use a string for now.
+            // Actually, `game.i18n.localize` call in static property is BAD practice.
+            // I will use a getter for DEFAULT_OPTIONS? No, V2 expects static property.
+            // I'll leave it as a key "PDNC.SeasonConfigTitle" and see if I can localize it in `_configureRenderOptions` or similar?
+            // Actually, I can just override `title` getter?
+            // `get title() { return game.i18n.localize("PDNC.SeasonConfigTitle"); }`
+            // ApplicationV2 has a `title` property.
+            icon: "fas fa-calendar-alt",
+            resizable: false
+        },
+        position: {
+            width: 400,
+            height: "auto"
+        },
+        form: {
+            handler: "onSubmit",
+            closeOnSubmit: true
+        }
+    };
+
+    static PARTS = {
+        form: {
+            template: `modules/${MODULE_ID}/templates/season-config.html`
+        }
+    };
+
+    get title() {
+        return game.i18n.localize("PDNC.SeasonConfigTitle");
     }
 
-    async _updateObject(event, formData) {
-        // Handled in button click to avoid standard form submit
+    /** @override */
+    async _prepareContext(options) {
+        const calendar = dayNightCycle.calendar;
+        const config = calendar.config.months; // Array of month objects
+        const currentSettings = game.settings.get(MODULE_ID, "seasonConfig");
+
+        // Prepare month options for {{selectOptions}} helper
+        // We want {index: name}
+        const monthOptions = config.reduce((acc, m, i) => {
+            acc[i] = m.name;
+            return acc;
+        }, {});
+
+        // Data for template
+        return {
+            monthOptions: monthOptions,
+            spring: currentSettings.spring,
+            summer: currentSettings.summer,
+            autumn: currentSettings.autumn,
+            winter: currentSettings.winter
+        };
+    }
+
+    /**
+     * Handle form submission
+     * @param {SubmitEvent} event
+     * @param {HTMLFormElement} form
+     * @param {FormDataExtended} formData
+     */
+    static async onSubmit(event, form, formData) {
+        const data = formData.object;
+        // Construct settings object from flat form data
+        // Form data keys are like "spring.month", "spring.day"
+        // We need to reconstruct the objects.
+        const newSettings = {
+            spring: { month: Number(data["spring.month"]), day: Number(data["spring.day"]) },
+            summer: { month: Number(data["summer.month"]), day: Number(data["summer.day"]) },
+            autumn: { month: Number(data["autumn.month"]), day: Number(data["autumn.day"]) },
+            winter: { month: Number(data["winter.month"]), day: Number(data["winter.day"]) }
+        };
+        await game.settings.set(MODULE_ID, "seasonConfig", newSettings);
+        ui.notifications.info(game.i18n.localize("SETTINGS.Save"));
     }
 }
