@@ -1,5 +1,15 @@
 # Update Log
 
+## 2.1.0 - Climate Data Overhaul
+
+**Improvement:**
+
+- **Climate Data Refinement:** The German and English climate data has been massively improved!
+  - **Tropical Rainforest:** Now has realistic rain probabilities (~90%) and rewritten descriptions.
+  - **Realism Audit:** Adjusted rain/fog frequency for Marine West Coast and Temperate Rainforest to better reflect their real-world counterparts.
+  - **Detailed Descriptions:** Expanded many short, generic weather descriptions in Desert and Savanna biomes to be more immersive.
+- **Bugfixes:** Fixed an issue where some weather effects (`storm`, `wind`) were not triggering the correct visual FX on the scene.
+
 ## 2.0.0 - Big Feature Update
 
 **New Features:**
