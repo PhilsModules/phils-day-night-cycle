@@ -28,6 +28,8 @@ class PhilsDayNightCycle {
             { start: 1080, end: 1259, label: "PDNC.Phases.Evening" },
             { start: 1260, end: 1439, label: "PDNC.Phases.LateEvening" }
         ];
+
+        this.lastPromptedDate = "";
     }
 
     init() {
@@ -292,13 +294,20 @@ class PhilsDayNightCycle {
                      
                      if (WeatherSystem.checkForNewDay()) {
                          // It's a new day!
-                         // Generate draft weather
-                         const draftWeather = WeatherSystem.generateWeather();
                          
-                         // Open Config App
-                         // Check if already open to avoid spam
-                         if (!Object.values(ui.windows).some(w => w instanceof WeatherConfigApp)) {
-                             new WeatherConfigApp({ weather: draftWeather }).render({ force: true });
+                         // Latch: Only prompt ONCE per specific day
+                         const todayId = WeatherSystem.getTodayId();
+                         if (this.lastPromptedDate !== todayId) {
+                             this.lastPromptedDate = todayId;
+ 
+                             // Generate draft weather
+                             const draftWeather = WeatherSystem.generateWeather();
+                             
+                             // Open Config App
+                             // Check if already open to avoid spam
+                             if (!Object.values(ui.windows).some(w => w instanceof WeatherConfigApp)) {
+                                 new WeatherConfigApp({ weather: draftWeather }).render({ force: true });
+                             }
                          }
                      }
                      

@@ -290,17 +290,23 @@ export class WeatherSystem {
     }
 
     /**
+     * Returns the unique ID for the current day (e.g. "2024-5-21")
+     * @returns {string}
+     */
+    static getTodayId() {
+        const currentWorldTime = game.time.worldTime;
+        const calendar = new CalendarSystem();
+        const dateData = calendar.getDate(currentWorldTime);
+        return `${dateData.year}-${dateData.month}-${dateData.day}`;
+    }
+
+    /**
      * Checks if it's a new day compared to the last weather generation.
      * @returns {boolean}
      */
     static checkForNewDay() {
-        const currentWorldTime = game.time.worldTime;
-        const calendar = new CalendarSystem();
-        const dateData = calendar.getDate(currentWorldTime);
-        const todayId = `${dateData.year}-${dateData.month}-${dateData.day}`;
-        
+        const todayId = this.getTodayId();
         const lastGenId = game.settings.get(MODULE_ID, "lastWeatherDateId");
-
         return todayId !== lastGenId;
     }
 

@@ -125,9 +125,10 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         const li = target.closest("li");
         const id = li.dataset.id;
         
-        const confirm = await Dialog.confirm({
-            title: game.i18n.localize("PDNC.Delete"),
-            content: `<p>${game.i18n.localize("PDNC.CustomClimate.DeleteConfirm")}</p>`
+        const confirm = await foundry.applications.api.DialogV2.confirm({
+            window: { title: game.i18n.localize("PDNC.Delete") },
+            content: `<p>${game.i18n.localize("PDNC.CustomClimate.DeleteConfirm")}</p>`,
+            modal: true
         });
 
         if (confirm) {
@@ -142,10 +143,15 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
             // Refresh Choices
             const newChoices = WeatherSystem.getClimateList();
-            game.settings.settings.get(`${MODULE_ID}.climateZone`).config.choices = newChoices;
             
-            const settingConfig = Object.values(ui.windows).find(w => w instanceof SettingsConfig);
-            if (settingConfig) settingConfig.render();
+            const setting = game.settings.settings.get(`${MODULE_ID}.climateZone`);
+            if (setting) {
+                setting.choices = newChoices;
+            }
+            
+            if (game.settings.sheet.rendered) {
+                game.settings.sheet.render();
+            }
 
             if (this.editingId === id) {
                 this.editingId = null;
@@ -230,12 +236,19 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         await game.settings.set(MODULE_ID, "customClimates", climates);
         
         // Refresh Choices in Settings Config dynamically
+        // Refresh Choices in Settings Config dynamically
         const newChoices = WeatherSystem.getClimateList();
-        game.settings.settings.get(`${MODULE_ID}.climateZone`).config.choices = newChoices;
+        
+        const setting = game.settings.settings.get(`${MODULE_ID}.climateZone`);
+        if (setting) {
+            // Update both config.choices and direct choices to be safe across V12/V13
+            setting.choices = newChoices;
+        }
         
         // If settings config is open, re-render it
-        const settingConfig = Object.values(ui.windows).find(w => w instanceof SettingsConfig);
-        if (settingConfig) settingConfig.render();
+        if (game.settings.sheet.rendered) {
+            game.settings.sheet.render();
+        }
 
         this.editingId = null;
         this.tempData = null;

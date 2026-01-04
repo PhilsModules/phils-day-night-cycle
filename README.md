@@ -5,7 +5,7 @@
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
 ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-2.2.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
+[![Version](https://img.shields.io/badge/Version-2.2.1-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
 [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
@@ -86,6 +86,27 @@ In den Moduleinstellungen kannst du:
 - Zeit- und Datumsversatz einstellen.
 - **Wettersystem an-/ausschalten:** Deaktiviere das gesamte Wetter und Licht-System, falls du nur die Uhr/Kalender nutzen möchtest.
 
+### 4. Wettersystem & Klimazonen
+
+Das Modul simuliert automatisch das Wetter.
+
+**Wetter konfigurieren:**
+
+- Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster, in dem das Wetter für den neuen Tag bestimmt werden kann.
+- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr (oben links im Widget).
+
+**Eigene Klimazonen erstellen:**
+
+1. Öffne die **Moduleinstellungen**.
+2. Klicke auf den Button **"Manage Custom Climates"**.
+3. Erstelle eine neue Klimazone (z.B. "Wüste" oder "Eiswelt").
+4. Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Wetter-Einträge hinzu.
+   - **Text:** Die Beschreibung, die im Chat gepostet wird (z.B. "Ein sandiger Wind weht.").
+   - **Temp:** Der Temperaturbereich (z.B. "30-40").
+   - **FX:** Der visuelle Effekt (z.B. "FOG" für Sandsturm).
+5. Speichere deine Klimazone.
+6. Wähle sie nun in den Haupt-Einstellungen unter **"Climate Zone"** aus.
+
 ---
 
 # <img src="https://flagcdn.com/48x36/gb.png" width="28" height="21" alt="EN"> English Instructions
@@ -143,6 +164,27 @@ In the module settings you can:
 - Change the clock background image.
 - Set time and date offsets.
 - **Toggle Weather System:** Disable the entire weather/lighting system if you only want the Clock/Calendar features.
+
+### 4. Weather System & Climate Zones
+
+The module automatically simulates weather.
+
+**Configuring Weather:**
+
+- Every morning, a window automatically opens for the Gamemaster to determine the weather for the new day.
+- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget (top left).
+
+**Creating Custom Climate Zones:**
+
+1. Open the **Module Settings**.
+2. Click the **"Manage Custom Climates"** button.
+3. Create a new climate zone (e.g., "Desert" or "Ice World").
+4. Add weather entries for each season (Spring, Summer, Autumn, Winter).
+   - **Text:** The description posted to chat (e.g., "A sandy wind is blowing.").
+   - **Temp:** The temperature range (e.g., "30-40").
+   - **FX:** The visual effect (e.g., "FOG" for sandstorms).
+5. Save your climate zone.
+6. Select it in the main settings under **"Climate Zone"**.
 
 ---
 

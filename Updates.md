@@ -1,5 +1,12 @@
 # Update Log
 
+## 2.2.1 - Hotfix
+
+**Bugfixes:**
+
+- Fixed a `TypeError` when deleting custom climates.
+- Fixed a deprecation warning for `Dialog.confirm` by migrating to the new V2 API for V13 compatibility.
+
 ## 2.2.0 - Custom Climates & UX Overhaul
 
 **Improvements:**
