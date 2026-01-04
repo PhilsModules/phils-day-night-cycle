@@ -1,5 +1,15 @@
 # Update Log
 
+## 2.4.1 - Stability Hotfix
+
+**Bugfixes & Improvements:**
+
+- **CRITICAL:** Fixed a crash when saving Season Configuration or using the Time Machine.
+- **Improved:** Season Configuration and Time Machine now use the new Actions API to completely prevent page reloads on save.
+- **Fixed:** Season Configuration month names now correctly update immediately when switching calendar systems.
+- **New:** Added a "Reset Defaults" button to the Season Configuration window.
+- **Credit:** Huge thanks to **@TheFirel** for reporting the crash and helping debug the issue!
+
 ## 2.4.0 - Advanced Lighting Strategies
 
 **New Features:**

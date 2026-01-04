@@ -124,10 +124,20 @@ class PhilsDayNightCycle {
             },
             default: "gregorian",
             onChange: () => {
-                // Determine if open? V2 manages instances differently, usually ID based.
-                // We can just try to re-render if it exists in the registry, OR just let user re-open.
-                const app = foundry.applications.instances.get("phils-calendar-app");
-                if (app) app.render({ force: true });
+                // 1. Re-initialize the Calendar System with new setting
+                this.calendar = new CalendarSystem();
+
+                // 2. Refresh Calendar App if open
+                const calendarApp = foundry.applications.instances.get("phils-calendar-app");
+                if (calendarApp) calendarApp.render({ force: true });
+
+                // 3. Refresh Season Config if open (to show new month names)
+                const seasonApp = foundry.applications.instances.get("phils-season-config");
+                if (seasonApp) seasonApp.render({ force: true });
+
+                // 4. Refresh Time Machine if open
+                const timeApp = foundry.applications.instances.get("phils-time-machine");
+                if (timeApp) timeApp.render({ force: true });
             }
         });
 
@@ -898,24 +908,25 @@ Hooks.once("ready", async () => {
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
-    static DEFAULT_OPTIONS = {
-        tag: "form",
-        id: "phils-time-machine",
-        window: {
-            title: "PDNC.TimeMachineTitle", // Key usage if supported by V2 (it's not auto-localized for window title in all contexts, but let's use the getter approach)
-            icon: "fas fa-hourglass-start",
-            resizable: false
-        },
-        position: {
-            width: 400,
-            height: "auto"
-        },
-        classes: ["pdnc-event-editor-window", "pdnc-nav-window"],
-        form: {
-            handler: "onSubmit",
-            closeOnSubmit: true
-        }
-    };
+    static get DEFAULT_OPTIONS() {
+        return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+            tag: "form",
+            id: "phils-time-machine",
+            window: {
+                title: "PDNC.TimeMachineTitle",
+                icon: "fas fa-hourglass-start",
+                resizable: false
+            },
+            position: {
+                width: 400,
+                height: "auto"
+            },
+            classes: ["pdnc-event-editor-window", "pdnc-nav-window"],
+            actions: {
+                save: TimeMachineApp.prototype._onSave
+            }
+        });
+    }
 
     static PARTS = {
         form: {
@@ -950,29 +961,18 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     /**
-     * Handle form submission
-     * @param {SubmitEvent} event
-     * @param {HTMLFormElement} form
-     * @param {FormDataExtended} formData
+     * Handle save action
+     * @param {PointerEvent} event
+     * @param {HTMLElement} target
      */
-    static async onSubmit(event, form, formData) {
-        // formData is FormDataExtended, use .object for simple key-value
-        const data = formData.object;
+    async _onSave(event, target) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("PDNC | Time Machine Save Action Triggered");
         
-        // In the template, IDs are #pdnc-nav-day etc, but name attributes matter for FormData
-        // We need to ensure the template has name attributes.
-        // Assuming template uses name="day", name="month" etc, OR we read by ID if names are missing?
-        // Wait, the previous code read by ID: html.find('#pdnc-nav-day').val()
-        // I should verify the template. If it lacks name attributes, formData won't have them.
-        // The V1 FormApplication relied on `activateListeners` reading IDs.
-        // I should probably check the template or just read from the form element directly if names are missing.
-        // But better to expect names. I'll check/update template if needed.
-        // For now, let's assume names correspond to IDs or I can fallback to retrieving from form.elements
-        
-        // Actually, let's look at the previous code: it read #pdnc-nav-day. 
-        // I will assume I need to update the template or read from the elements by ID.
-        // Reading by ID from `form` is possible.
-        
+        const form = this.element; // In V2, this.element is the form if tag: 'form'
+        // Or if tag is div, we look for form. But manual ID access works fine here.
+
         const d = Number(form.querySelector('#pdnc-nav-day').value);
         const m = Number(form.querySelector('#pdnc-nav-month').value);
         const y = Number(form.querySelector('#pdnc-nav-year').value);
@@ -987,57 +987,30 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
             app.viewMonth = m;
             app.render();
         }
+        this.close();
     }
 }
 
 class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
-    static DEFAULT_OPTIONS = {
-        tag: "form",
-        id: "phils-season-config",
-        window: {
-            title: "PDNC.SeasonConfigTitle", // V2 resolves localization automatically if key provided? Or I should localize manually? 
-            // V2 window.title supports localization key.
-            // But let's check: implementation usually is string. 
-            // For safety I will localize it or assume strict string.
-            // Actually, V2 handles localization in title if it detects a key? 
-            // Documentation says "title": "The window title". 
-            // I'll stick to manual localize for safety or just pass the key if I'm sure.
-            // Let's use game.i18n.localize in the static block? No, game might not be ready if evaluated too early?
-            // Static properties are evaluated when class is defined. game.i18n is ready then? 
-            // Usually module scripts run after core init, but better to use a getter or just the key if supported.
-            // ApplicationV2 title can be a string.
-            // Let's use the key and hope V2 localizes or I'll fix it. 
-            // Actually, ApplicationV2 does NOT auto-localize title string.
-            // So `title: game.i18n.localize(...)` is risky if game.i18n isn't ready.
-            // Safest: Use a getter or just localize it in _prepareContext and set it?
-            // Wait, DEFAULT_OPTIONS is static.
-            // Most valid V2 apps use `title: "Key"`? No.
-            // I will use `title: "Season Configuration"` (hardcoded fallback) or try to use `game.i18n.localize`.
-            // But wait, `main.v2.js` is imported/executed. `game` exists?
-            // `MODULE_ID` is defined. `game` is global.
-            // If this file is a module script, it runs at load. `game.i18n` might not be populated.
-            // However, `SeasonConfigApp` is instantiated later.
-            // Default options are read at instantiation usually? No, merged.
-            // Correct approach: define title in `_prepareContext` or update window title dynamically?
-            // Or just use a string for now.
-            // Actually, `game.i18n.localize` call in static property is BAD practice.
-            // I will use a getter for DEFAULT_OPTIONS? No, V2 expects static property.
-            // I'll leave it as a key "PDNC.SeasonConfigTitle" and see if I can localize it in `_configureRenderOptions` or similar?
-            // Actually, I can just override `title` getter?
-            // `get title() { return game.i18n.localize("PDNC.SeasonConfigTitle"); }`
-            // ApplicationV2 has a `title` property.
-            icon: "fas fa-calendar-alt",
-            resizable: false
-        },
-        position: {
-            width: 400,
-            height: "auto"
-        },
-        form: {
-            handler: "onSubmit",
-            closeOnSubmit: true
-        }
-    };
+    static get DEFAULT_OPTIONS() {
+        return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+            tag: "form",
+            id: "phils-season-config",
+            window: {
+                title: "PDNC.SeasonConfigTitle",
+                icon: "fas fa-calendar-alt",
+                resizable: false
+            },
+            position: {
+                width: 400,
+                height: "auto"
+            },
+            actions: {
+                save: SeasonConfigApp.prototype._onSave,
+                reset: SeasonConfigApp.prototype._onReset
+            }
+        });
+    }
 
     static PARTS = {
         form: {
@@ -1073,23 +1046,48 @@ class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     /**
-     * Handle form submission
-     * @param {SubmitEvent} event
-     * @param {HTMLFormElement} form
-     * @param {FormDataExtended} formData
+     * Handle reset action
+     * @param {PointerEvent} event
+     * @param {HTMLElement} target
      */
-    static async onSubmit(event, form, formData) {
-        const data = formData.object;
-        // Construct settings object from flat form data
-        // Form data keys are like "spring.month", "spring.day"
-        // We need to reconstruct the objects.
-        const newSettings = {
-            spring: { month: Number(data["spring.month"]), day: Number(data["spring.day"]) },
-            summer: { month: Number(data["summer.month"]), day: Number(data["summer.day"]) },
-            autumn: { month: Number(data["autumn.month"]), day: Number(data["autumn.day"]) },
-            winter: { month: Number(data["winter.month"]), day: Number(data["winter.day"]) }
+    async _onReset(event, target) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const defaults = game.settings.settings.get(MODULE_ID + ".seasonConfig").default;
+        await game.settings.set(MODULE_ID, "seasonConfig", defaults);
+        this.render();
+    }
+
+    /**
+     * Handle save action
+     * @param {PointerEvent} event
+     * @param {HTMLElement} target
+     */
+    async _onSave(event, target) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("PDNC | Season Config Save Action Triggered");
+
+        const form = this.element;
+        
+        // Helper to safely get value
+        const getVal = (name) => {
+            const el = form.querySelector(`[name="${name}"]`);
+            return el ? el.value : null;
         };
+
+        const newSettings = {
+            spring: { month: Number(getVal("spring.month")), day: Number(getVal("spring.day")) },
+            summer: { month: Number(getVal("summer.month")), day: Number(getVal("summer.day")) },
+            autumn: { month: Number(getVal("autumn.month")), day: Number(getVal("autumn.day")) },
+            winter: { month: Number(getVal("winter.month")), day: Number(getVal("winter.day")) }
+        };
+        
+        console.log("PDNC | Saving Settings:", newSettings);
+
         await game.settings.set(MODULE_ID, "seasonConfig", newSettings);
         ui.notifications.info(game.i18n.localize("SETTINGS.Save"));
+        this.close();
     }
 }

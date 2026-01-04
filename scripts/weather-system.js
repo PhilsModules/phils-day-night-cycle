@@ -44,54 +44,59 @@ export class WeatherSystem {
      * @param {number} day Day (1-based)
      */
     static getSeason(month, day) {
-        // month is 0-based from CalendarSystem, day is 1-based
-        const config = game.settings.get(MODULE_ID, "seasonConfig");
-        
-        // Define fallback if somehow empty
-        const defaultSeasons = [
-            { id: "spring", month: 2, day: 20 },
-            { id: "summer", month: 5, day: 21 },
-            { id: "autumn", month: 8, day: 22 },
-            { id: "winter", month: 11, day: 21 }
-        ];
+        try {
+            // month is 0-based from CalendarSystem, day is 1-based
+            const config = game.settings.get(MODULE_ID, "seasonConfig");
+            
+            // Define fallback if somehow empty
+            const defaultSeasons = [
+                { id: "spring", month: 2, day: 20 },
+                { id: "summer", month: 5, day: 21 },
+                { id: "autumn", month: 8, day: 22 },
+                { id: "winter", month: 11, day: 21 }
+            ];
 
-        // Prepare comparison values (MonthIndex * 100 + Day)
-        // We use the configured days.
-        const seasons = [];
-        for (const [key, val] of Object.entries(config || {})) {
-            // Ensure data integrity
-            if (val && typeof val.month === 'number' && typeof val.day === 'number') {
-                seasons.push({ id: key, value: (val.month * 100) + val.day });
+            // Prepare comparison values (MonthIndex * 100 + Day)
+            // We use the configured days.
+            const seasons = [];
+            for (const [key, val] of Object.entries(config || {})) {
+                // Ensure data integrity
+                if (val && typeof val.month === 'number' && typeof val.day === 'number') {
+                    seasons.push({ id: key, value: (val.month * 100) + val.day });
+                }
             }
-        }
 
-        // If config is broken, use default
-        if (seasons.length < 4) {
-             // Fallback logic could go here, or just populate missing
-             // This happens if user sets weird things, strictly we should trust settings
-             // But let's assume valid config for now or push defaults if empty
-             if (seasons.length === 0) {
-                 // Push defaults
-                 defaultSeasons.forEach(s => seasons.push({ id: s.id, value: (s.month * 100) + s.day }));
-             }
-        }
-
-        // Sort descending by value (Latest in year first)
-        seasons.sort((a, b) => b.value - a.value);
-
-        const currentValue = (month * 100) + day;
-
-        // Find the first season start that is before or equal to today
-        for (const season of seasons) {
-            if (currentValue >= season.value) {
-                return season.id;
+            // If config is broken, use default
+            if (seasons.length < 4) {
+                 // Fallback logic could go here, or just populate missing
+                 // This happens if user sets weird things, strictly we should trust settings
+                 // But let's assume valid config for now or push defaults if empty
+                 if (seasons.length === 0) {
+                     // Push defaults
+                     defaultSeasons.forEach(s => seasons.push({ id: s.id, value: (s.month * 100) + s.day }));
+                 }
             }
-        }
 
-        // If we are before the first start date of the year (e.g. Early Jan),
-        // we are in the season that started latest in the *previous* year (e.g. Winter in Dec).
-        // Which is the first element in our descending list.
-        return seasons[0].id;
+            // Sort descending by value (Latest in year first)
+            seasons.sort((a, b) => b.value - a.value);
+
+            const currentValue = (month * 100) + day;
+
+            // Find the first season start that is before or equal to today
+            for (const season of seasons) {
+                if (currentValue >= season.value) {
+                    return season.id;
+                }
+            }
+
+            // If we are before the first start date of the year (e.g. Early Jan),
+            // we are in the season that started latest in the *previous* year (e.g. Winter in Dec).
+            // Which is the first element in our descending list.
+            return seasons[0].id;
+        } catch (err) {
+            console.error("PDNC | Error in getSeason, falling back to spring:", err);
+            return "spring";
+        }
     }
 
     static parseTemperature(tempStr) {

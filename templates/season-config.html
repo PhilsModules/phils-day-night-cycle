@@ -82,7 +82,10 @@
     </div>
 
     <footer class="sheet-footer flexrow">
-        <button type="submit" name="submit">
+        <button type="button" data-action="reset">
+            <i class="fas fa-undo"></i> {{localize "SETTINGS.Reset"}}
+        </button>
+        <button type="button" data-action="save">
             <i class="fas fa-save"></i> {{localize "SETTINGS.Save"}}
         </button>
     </footer>
