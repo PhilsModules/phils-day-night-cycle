@@ -1,7 +1,7 @@
 {
     "id": "phils-day-night-cycle",
     "title": "Phil's Day/Night Cycle",
-    "version": "2.2.1",
+    "version": "2.4.0",
     "compatibility": {
         "minimum": "12",
         "verified": "13"

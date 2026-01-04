@@ -15,6 +15,18 @@ export class LightingSystem {
             season = WeatherSystem.getSeason(date.month, date.day);
         }
 
+        // Check if custom climate
+        const customClimates = game.settings.get(MODULE_ID, "customClimates") || {};
+        if (customClimates[climate]) {
+             const customData = customClimates[climate];
+             if (customData.lighting && customData.lighting[season]) {
+                 return customData.lighting[season];
+             }
+             // Fallback if lighting is missing in custom data?
+             // Maybe return default marine_west_coast for safety
+             return LIGHTING_DATA["marine_west_coast"][season];
+        }
+
         const data = LIGHTING_DATA[climate];
         if (!data) return null;
         return data[season];

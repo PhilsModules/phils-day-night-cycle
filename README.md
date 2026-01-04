@@ -5,7 +5,7 @@
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
 ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-2.2.2-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
+[![Version](https://img.shields.io/badge/Version-2.4.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
 [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
@@ -93,7 +93,7 @@ Das Modul simuliert automatisch das Wetter.
 **Wetter konfigurieren:**
 
 - Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster, in dem das Wetter für den neuen Tag bestimmt werden kann.
-- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr.
+- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr (oben links im Widget).
 
 **Eigene Klimazonen erstellen:**
 
@@ -172,7 +172,7 @@ The module automatically simulates weather.
 **Configuring Weather:**
 
 - Every morning, a window automatically opens for the Gamemaster to determine the weather for the new day.
-- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget.
+- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget (top left).
 
 **Creating Custom Climate Zones:**
 
@@ -198,5 +198,3 @@ The module automatically simulates weather.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-
-

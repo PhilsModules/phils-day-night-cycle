@@ -103,6 +103,20 @@
             "EditorHelp": "Add weather entries below. Temperature can be a range (e.g. '10-20').",
             "AddWeather": "Add Weather",
             "DeleteConfirm": "Are you sure you want to delete this climate zone? This cannot be undone."
+        },
+        "LightingConfig": "Lighting Configuration",
+        "LightingStrategy": "Lighting Strategy",
+        "Lighting": {
+            "Strategy": {
+                "Standard": "Standard (Day/Night Cycle)",
+                "BrightNight": "Bright Night (White Nights / Twilight)",
+                "PolarDay": "Polar Day (Sun never sets)",
+                "PolarNight": "Polar Night (Sun never rises)"
+            },
+            "Dawn": "Dawn",
+            "Noon": "Noon",
+            "Dusk": "Dusk",
+            "Night": "Night"
         }
     }
 }

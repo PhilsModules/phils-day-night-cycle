@@ -1,5 +1,22 @@
 # Update Log
 
+## 2.4.0 - Advanced Lighting Strategies
+
+**New Features:**
+
+- **Lighting Strategies:** Added a new "Strategy" selection to Custom Climate Zones.
+  - **Standard:** Normal day/night cycle.
+  - **Bright Night:** Never gets fully dark (e.g., White Nights).
+  - **Polar Day:** The sun never sets (Constant daylight).
+  - **Polar Night:** The sun never rises (Constant darkness/twilight).
+    This allows for fully realistic arctic/antarctic circles or fantasy sub-terranean climates.
+
+## 2.3.0 - Custom Lighting
+
+**New Features:**
+
+- **Custom Climate Lighting:** You can now configure the lighting times (Dawn, Noon, Dusk, Night) for each season within your Custom Climate Zones. This allows for polar days/nights or other unique lighting cycles per climate.
+
 ## 2.2.1 - Hotfix
 
 **Bugfixes:**

@@ -16,6 +16,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         
         let editingClimate = null;
         let seasons = {};
+        let lighting = {};
 
         if (this.editingId) {
             if (this.tempData) {
@@ -25,10 +26,21 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 this.tempData = foundry.utils.deepClone(editingClimate);
             }
             seasons = this.tempData.seasons;
+
+             // Ensure lighting defaults if missing
+             if (!this.tempData.lighting) {
+                this.tempData.lighting = {
+                    spring: { dawn: "06:00", noon: "12:00", dusk: "18:00", night: "20:00", type: "" },
+                    summer: { dawn: "05:00", noon: "13:00", dusk: "21:00", night: "22:30", type: "" },
+                    autumn: { dawn: "06:30", noon: "12:00", dusk: "18:30", night: "20:00", type: "" },
+                    winter: { dawn: "07:30", noon: "12:00", dusk: "16:30", night: "18:00", type: "" }
+                };
+            }
+            lighting = this.tempData.lighting;
         }
 
         const fxChoices = {
-             "": "None",  
+            "": "None",  
             "rain": "Rain",
             "snow": "Snow",
             "clouds": "Clouds",
@@ -37,11 +49,20 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
             "leaves": "Autumn Leaves"
         };
         
+        const strategyChoices = {
+            "": "PDNC.Lighting.Strategy.Standard",
+            "bright_night": "PDNC.Lighting.Strategy.BrightNight",
+            "polar_day": "PDNC.Lighting.Strategy.PolarDay",
+            "polar_night": "PDNC.Lighting.Strategy.PolarNight"
+        };
+        
         return {
             climates: Object.entries(climates).map(([id, c]) => ({ id, name: c.name })),
             editingClimate: editingClimate,
             seasons: seasons,
+            lighting: lighting,
             fxChoices: fxChoices,
+            strategyChoices: strategyChoices,
             activeSeason: this.tabGroups?.seasons || "spring",
             tabs: this._getTabs() 
         };
@@ -105,6 +126,12 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 summer: [],
                 autumn: [],
                 winter: []
+            },
+            lighting: {
+                spring: { dawn: "06:00", noon: "12:00", dusk: "18:00", night: "20:00", type: "" },
+                summer: { dawn: "05:00", noon: "13:00", dusk: "21:00", night: "22:30", type: "" },
+                autumn: { dawn: "06:30", noon: "12:00", dusk: "18:30", night: "20:00", type: "" },
+                winter: { dawn: "07:30", noon: "12:00", dusk: "16:30", night: "18:00", type: "" }
             }
         };
         
@@ -185,6 +212,10 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                  const arr = Object.values(seasonData);
                  this.tempData.seasons[s] = arr;
             }
+        }
+        
+        if (expanded.lighting) {
+            this.tempData.lighting = expanded.lighting;
         }
     }
 

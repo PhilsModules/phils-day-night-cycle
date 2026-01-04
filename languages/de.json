@@ -104,6 +104,20 @@
             "AddWeather": "Wetter hinzufügen",
 
             "DeleteConfirm": "Sind Sie sicher, dass Sie diese Klimazone löschen möchten? Dies kann nicht rückgängig gemacht werden."
+        },
+        "LightingConfig": "Beleuchtungseinstellungen",
+        "LightingStrategy": "Beleuchtungsstrategie",
+        "Lighting": {
+             "Strategy": {
+                "Standard": "Standard (Tag/Nacht Zyklus)",
+                "BrightNight": "Helle Nacht (Weiße Nächte / Dämmerung)",
+                "PolarDay": "Polartag (Sonne geht nie unter)",
+                "PolarNight": "Polarnacht (Sonne geht nie auf)"
+            },
+            "Dawn": "Dämmerung",
+            "Noon": "Mittag",
+            "Dusk": "Abendrot",
+            "Night": "Nacht"
         }
     }
 }

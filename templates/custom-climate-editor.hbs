@@ -19,6 +19,41 @@
     <div class="content">
         {{#each seasons}}
         <div class="tab {{#if (eq @key ../activeSeason)}}active{{/if}}" data-tab="{{@key}}" data-group="seasons">
+            
+            <div class="pdnc-lighting-config" style="background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                <h3 style="margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; margin-bottom: 5px;">{{localize "PDNC.LightingConfig"}}</h3>
+                
+                 <div style="margin-bottom: 10px;">
+                    <label style="font-weight: bold;">{{localize "PDNC.LightingStrategy"}}</label>
+                    {{#with (lookup ../lighting @key) as |l|}}
+                    <select name="lighting.{{@../key}}.type" style="width: 100%;">
+                        {{selectOptions ../../strategyChoices selected=l.type localize=true}}
+                    </select>
+                    {{/with}}
+                </div>
+
+                <div class="flexrow" style="gap: 10px;">
+                     {{#with (lookup ../lighting @key) as |l|}}
+                    <div style="flex: 1;">
+                        <label>{{localize "PDNC.Lighting.Dawn"}}</label>
+                        <input type="time" name="lighting.{{@../key}}.dawn" value="{{l.dawn}}" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>{{localize "PDNC.Lighting.Noon"}}</label>
+                        <input type="time" name="lighting.{{@../key}}.noon" value="{{l.noon}}" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>{{localize "PDNC.Lighting.Dusk"}}</label>
+                        <input type="time" name="lighting.{{@../key}}.dusk" value="{{l.dusk}}" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>{{localize "PDNC.Lighting.Night"}}</label>
+                        <input type="time" name="lighting.{{@../key}}.night" value="{{l.night}}">
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+
             <p class="notes" style="margin-bottom: 5px;">{{localize "PDNC.CustomClimate.EditorHelp"}}</p>
             
             <div class="pdnc-weather-list">
