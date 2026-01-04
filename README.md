@@ -93,7 +93,7 @@ Das Modul simuliert automatisch das Wetter.
 **Wetter konfigurieren:**
 
 - Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster, in dem das Wetter für den neuen Tag bestimmt werden kann.
-- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr (oben links im Widget).
+- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr.
 
 **Eigene Klimazonen erstellen:**
 
@@ -172,7 +172,7 @@ The module automatically simulates weather.
 **Configuring Weather:**
 
 - Every morning, a window automatically opens for the Gamemaster to determine the weather for the new day.
-- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget (top left).
+- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget.
 
 **Creating Custom Climate Zones:**
 
@@ -198,4 +198,5 @@ The module automatically simulates weather.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
