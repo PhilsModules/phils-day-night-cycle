@@ -9,14 +9,30 @@ export class WeatherSystem {
 
     static getClimateList() {
         const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
-        return Object.entries(data).reduce((acc, [key, climate]) => {
+        const coreClimates = Object.entries(data).reduce((acc, [key, climate]) => {
             acc[key] = climate.name;
             return acc;
         }, {});
+
+        // Merge Custom Climates
+        const customClimates = game.settings.get(MODULE_ID, "customClimates") || {};
+        const customList = Object.entries(customClimates).reduce((acc, [key, climate]) => {
+            acc[key] = climate.name + " (Custom)";
+            return acc;
+        }, {});
+
+        return { ...coreClimates, ...customList };
     }
 
     static getCurrentClimate() {
         const key = game.settings.get(MODULE_ID, "climateZone");
+        
+        // Check Custom First
+        const customClimates = game.settings.get(MODULE_ID, "customClimates") || {};
+        if (customClimates[key]) {
+            return customClimates[key];
+        }
+
         const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
         return data[key] || data["marine_west_coast"]; // Fallback
     }
@@ -145,24 +161,17 @@ export class WeatherSystem {
         return Math.round(currentTmp * 10) / 10; // Round to 1 decimal
     }
 
-    static async generateDailyWeather() {
-        if (!game.user.isGM) return;
-
+    /**
+     * Generates a weather object based on the current climate and season.
+     * Does NOT save to settings or post to chat. Returns data only.
+     */
+    static generateWeather() {
         const currentWorldTime = game.time.worldTime;
         const calendar = new CalendarSystem();
         const dateData = calendar.getDate(currentWorldTime);
-        const todayId = `${dateData.year}-${dateData.month}-${dateData.day}`;
-        
-        const lastGenId = game.settings.get(MODULE_ID, "lastWeatherDateId");
-
-        if (todayId === lastGenId) {
-            return; // Already generated for today
-        }
-
-        // Generate Weather
         const climate = this.getCurrentClimate();
         const season = this.getSeason(dateData.month, dateData.day);
-        
+
         // Default / Fallback structure
         let weatherStore = {
             tempMin: 10,
@@ -170,7 +179,10 @@ export class WeatherSystem {
             text: "Sunny",
             description: "Default Fallback",
             fx: null,
-            generated: true
+            generated: true,
+            climateName: climate.name,
+            seasonName: game.i18n.localize(`PDNC.Season.${season}`),
+            seasonId: season
         };
 
         if (climate.seasons[season] && climate.seasons[season].length > 0) {
@@ -184,73 +196,78 @@ export class WeatherSystem {
             weatherStore = {
                 tempMin: temps.min,
                 tempMax: temps.max,
-                text: text, // Short text if available, or full
-                description: text,
-                fx: weatherEntry.fx || null, // Will be used later
-                generated: true
+                text: text, // Short text
+                description: text, // Currently same as text
+                fx: weatherEntry.fx || null,
+                generated: true,
+                climateName: climate.name,
+                seasonName: game.i18n.localize(`PDNC.Season.${season}`),
+                seasonId: season
             };
-
-            // Post Chat Message
-            const messageContent = await renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
-                climate: climate.name,
-                season: game.i18n.localize(`PDNC.Season.${season}`), 
-                text: text,
-                temp: weatherEntry.temp,
-                date: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`
-            });
-
-            ChatMessage.create({
-                user: game.user.id,
-                speaker: { alias: game.i18n.localize("PDNC.WeatherForecast") },
-                content: messageContent,
-                flags: { [MODULE_ID]: { isWeather: true } }
-            });
-            
-            console.log(`${MODULE_ID} | Generated weather for ${todayId}:`, weatherStore);
-
-            // Update Scene Weather (if canvas is ready)
-            if (canvas && canvas.scene) {
-                 // Map custom keys to Foundry Core keys if necessary, or pass through
-                 // Core: "rain", "snow", "leaves"
-                 // "storm", "fog", "wind", "clouds" might rely on modules or be ignored
-                 // Simple mapping for core compatibility:
-                 let fxEffect = weatherStore.fx;
-                 if (fxEffect === "storm") fxEffect = "rain"; // Fallback for core
-                 
-                 // If using specific module "fxmaster" or similar, we could be more specific
-                 // For now, pass the value from data (which matches standard or potential module keys)
-                 // But prioritize core "rain"/"snow" for now if known "storm" -> "rain" implies heavy rain?
-                 // Let's pass weatherStore.fx directly and let Foundry/Modules handle it or fail gracefully.
-                 // Actually, "storm" isn't a core type. "rain" is.
-                 // Let's leave it as is, or maybe the user has a module.
-                 
-                 await canvas.scene.update({ weather: weatherStore.fx });
-            }
         } else {
             console.warn(`${MODULE_ID} | No weather data for ${climate.name} in ${season}.`);
         }
+
+        return weatherStore;
+    }
+
+    /**
+     * Applies the given weather data to the system (Settings, Chat, Scene, Calendar).
+     * @param {Object} weatherStore 
+     */
+    static async applyWeather(weatherStore) {
+        const currentWorldTime = game.time.worldTime;
+        const calendar = new CalendarSystem();
+        const dateData = calendar.getDate(currentWorldTime);
+        const todayId = `${dateData.year}-${dateData.month}-${dateData.day}`;
 
         // Save Data
         await game.settings.set(MODULE_ID, "currentWeather", weatherStore);
         await game.settings.set(MODULE_ID, "lastWeatherGenerationTime", currentWorldTime);
         await game.settings.set(MODULE_ID, "lastWeatherDateId", todayId);
-        
-        // Trigger UI Update for everyone? Setting update hooks are auto-synced?
-        // Yes, updating setting triggers Hooks.call("updateSetting")
-        // But main.v2.js needs to listen to it.
 
+        // Post Chat Message
+        // We might want to avoid spamming if we are just editing? 
+        // The user request implies "Reroll" -> So likely new chat message is desired.
+        // If "Editing" existing? Maybe just update?
+        // For simplicity, we always post a "Weather Update" for now, or we could check if it changed significantly.
+        // Let's just Post.
+        const messageContent = await renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
+            climate: weatherStore.climateName,
+            season: weatherStore.seasonName,
+            text: weatherStore.description,
+            temp: `${weatherStore.tempMin}°C - ${weatherStore.tempMax}°C`, // Re-formatting might be needed if original string lost
+            date: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`
+        });
+
+        // Create Chat Message
+        ChatMessage.create({
+            user: game.user.id,
+            speaker: { alias: game.i18n.localize("PDNC.WeatherForecast") },
+            content: messageContent,
+            flags: { [MODULE_ID]: { isWeather: true } }
+        });
+        
+        console.log(`${MODULE_ID} | Applied weather for ${todayId}:`, weatherStore);
+
+        // Update Scene Weather (if canvas is ready)
+        if (canvas && canvas.scene) {
+             let fxEffect = weatherStore.fx;
+             if (fxEffect === "storm") fxEffect = "rain"; // Fallback for core
+             await canvas.scene.update({ weather: fxEffect });
+        }
+
+        // Log to Calendar
         try {
-            // Log to Calendar
             const events = await CalendarDB.getEvents();
             const dateKey = `${dateData.year}-${dateData.month}-${dateData.day}`;
 
             if (!events[dateKey]) events[dateKey] = [];
             
-            // Check if report exists (avoid duplicates on re-roll or reload)
             const reportTitle = game.i18n.localize("PDNC.WeatherReport");
             const existingIndex = events[dateKey].findIndex(e => e.title === reportTitle);
 
-            const weatherContent = `${weatherStore.text}\n${game.i18n.format("PDNC.Season." + season)} | ${climate.name}\nTemp: ${weatherStore.tempMin}°C — ${weatherStore.tempMax}°C`;
+            const weatherContent = `${weatherStore.description}\n${weatherStore.seasonName} | ${weatherStore.climateName}\nTemp: ${weatherStore.tempMin}°C — ${weatherStore.tempMax}°C`;
 
             const eventData = {
                 title: reportTitle,
@@ -267,9 +284,42 @@ export class WeatherSystem {
             }
 
             await CalendarDB.saveEvents(events);
-            console.log(`${MODULE_ID} | Logged weather to calendar for ${dateKey}`);
         } catch (err) {
             console.error(`${MODULE_ID} | Failed to log weather to calendar:`, err);
         }
     }
+
+    /**
+     * Checks if it's a new day compared to the last weather generation.
+     * @returns {boolean}
+     */
+    static checkForNewDay() {
+        const currentWorldTime = game.time.worldTime;
+        const calendar = new CalendarSystem();
+        const dateData = calendar.getDate(currentWorldTime);
+        const todayId = `${dateData.year}-${dateData.month}-${dateData.day}`;
+        
+        const lastGenId = game.settings.get(MODULE_ID, "lastWeatherDateId");
+
+        return todayId !== lastGenId;
+    }
+
+    /**
+     * Legacy/Automated method. Now primarily used if "Manual/Prompt" is disabled, or to trigger the flow.
+     */
+    static async generateDailyWeather() {
+        if (!game.user.isGM) return;
+
+        if (!this.checkForNewDay()) return;
+
+        // If we are here, it IS a new day.
+        // We should just generate and apply IF we are in auto-mode?
+        // But we want to support the PROMPT.
+        // So this method might be split: "handleNewDay()"
+        
+        // For backwards compatibility or default auto behavior:
+        const weather = this.generateWeather();
+        await this.applyWeather(weather);
+    }
 }
+

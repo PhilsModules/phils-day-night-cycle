@@ -3,6 +3,8 @@ import { CalendarSystem } from "./calendar-system.js";
 import { CalendarDB } from "./calendar-db.js";
 import { WeatherSystem } from "./weather-system.js";
 import { LightingSystem } from "./lighting-system.js";
+import { WeatherConfigApp } from "./apps/weather-config.js";
+import { CustomClimateApp } from "./apps/custom-climate.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -30,6 +32,14 @@ class PhilsDayNightCycle {
 
     init() {
         console.log(`${MODULE_ID} | Initializing...`);
+
+        // Register Templates
+        const templatePaths = [
+            `modules/${MODULE_ID}/templates/weather-config-form.hbs`,
+            `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
+            `modules/${MODULE_ID}/templates/custom-climate-editor.hbs`
+        ];
+        loadTemplates(templatePaths);
 
         // Register Visibility Setting
         game.settings.register(MODULE_ID, "visible", {
@@ -164,6 +174,23 @@ class PhilsDayNightCycle {
         });
 
         // Weather Settings
+        game.settings.register(MODULE_ID, "customClimates", {
+            name: "Custom Climate Zones",
+            scope: "world",
+            config: false,
+            type: Object,
+            default: {}
+        });
+
+        game.settings.registerMenu(MODULE_ID, "customClimateMenu", {
+            name: "Custom Climates",
+            label: game.i18n.localize("PDNC.CustomClimate.OpenMenu"),
+            hint: game.i18n.localize("PDNC.CustomClimate.Hint"),
+            icon: "fas fa-cloud-sun-rain",
+            type: CustomClimateApp,
+            restricted: true
+        });
+
         game.settings.register(MODULE_ID, "enableWeather", {
             name: game.i18n.localize("PDNC.SettingEnableWeatherName"),
             hint: game.i18n.localize("PDNC.SettingEnableWeatherHint"),
@@ -212,6 +239,8 @@ class PhilsDayNightCycle {
             restricted: true
         });
 
+
+
         game.settings.register(MODULE_ID, "lastWeatherGenerationTime", {
             name: "Last Weather Gen Time",
             scope: "world",
@@ -256,7 +285,23 @@ class PhilsDayNightCycle {
              this.updateClock();
              if (game.user.isGM) {
                  if (game.settings.get(MODULE_ID, "enableWeather")) {
-                     WeatherSystem.generateDailyWeather();
+                     // Check for new day using WeatherSystem logic
+                     // If new day, we want to PROMPT the GM instead of auto-applying.
+                     // But we should check if a prompt is already open? 
+                     // Or if we just generated it?
+                     
+                     if (WeatherSystem.checkForNewDay()) {
+                         // It's a new day!
+                         // Generate draft weather
+                         const draftWeather = WeatherSystem.generateWeather();
+                         
+                         // Open Config App
+                         // Check if already open to avoid spam
+                         if (!Object.values(ui.windows).some(w => w instanceof WeatherConfigApp)) {
+                             new WeatherConfigApp({ weather: draftWeather }).render({ force: true });
+                         }
+                     }
+                     
                      LightingSystem.update(game.time.worldTime); 
                  }
              }
@@ -425,21 +470,41 @@ class PhilsDayNightCycle {
         this.dateText.style.cursor = "pointer";
         
         // Open Weather on Click (Icon)
+
+        // Open Weather on Click (Icon)
         this.weatherIcon.addEventListener("click", () => {
             const weather = game.settings.get(MODULE_ID, "currentWeather");
-            if(weather && weather.description) {
-                // Use standard Dialog instead of prompt to avoid unhandled promise rejection on close
-                new Dialog({
-                    title: game.i18n.localize("PDNC.WeatherForecast"),
-                    content: `<p style="text-align:center; font-size: 1.1em; margin: 10px 0;">${weather.description}</p>`,
-                    buttons: {
-                        ok: {
-                            icon: '<i class="fas fa-check"></i>',
-                            label: "OK"
-                        }
-                    },
-                    default: "ok"
-                }).render(true);
+            
+            if (game.user.isGM) {
+                // GM: Open Config to Edit/Reroll
+                // If no weather exists, generate a draft based on NOW
+                let weatherData = weather;
+                if (!weatherData || !weatherData.generated) {
+                    weatherData = WeatherSystem.generateWeather();
+                }
+                // Ensure context is preserved or re-derived if missing
+                if (!weatherData.climateName) {
+                    const clim = WeatherSystem.getCurrentClimate();
+                    weatherData.climateName = clim.name;
+                }
+                // We might need to re-derive season if missing from stored data (legacy data)
+                
+                new WeatherConfigApp({ weather: weatherData }).render({ force: true });
+            } else {
+                // Player: View Only
+                if(weather && weather.description) {
+                    new Dialog({
+                        title: game.i18n.localize("PDNC.WeatherForecast"),
+                        content: `<p style="text-align:center; font-size: 1.1em; margin: 10px 0;">${weather.description}</p>`,
+                        buttons: {
+                            ok: {
+                                icon: '<i class="fas fa-check"></i>',
+                                label: "OK"
+                            }
+                        },
+                        default: "ok"
+                    }).render(true);
+                }
             }
         });
 

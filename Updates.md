@@ -1,5 +1,21 @@
 # Update Log
 
+## 2.2.0 - Custom Climates & UX Overhaul
+
+**Improvements:**
+
+- **New Custom Climate Editor:** The editor for custom climate zones has been completely redesigned!
+  - **Row-Based Editing:** Properly edit weather entries row-by-row instead of handling raw JSON.
+  - **Better Validation:** Direct inputs for Description, Temperature Range (e.g. "10-20"), and FX selection.
+  - **Real-time Updates:** Creating or editing a custom climate now immediately updates the main settings menu without needing a reload.
+- **Weather Config UI:** The GM Weather Configuration window has been restyled for better readability and a more compact layout.
+- **Localization:** Added missing German translations for the new editor features.
+
+**Bugfixes:**
+
+- Fixed an issue where the "Add Row" button in the Custom Climate Editor would sometimes disappear or not update the view.
+- PROPER handling of deprecated `FormData` usage for V12/V13 compatibility.
+
 ## 2.1.0 - Climate Data Overhaul
 
 **Improvement:**

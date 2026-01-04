@@ -1,0 +1,21 @@
+<div class="pdnc-climate-list">
+    <h2>{{localize "PDNC.CustomClimate.ListTitle"}}</h2>
+    {{#if (eq climates.length 0)}}
+        <p class="pdnc-no-data">{{localize "PDNC.CustomClimate.NoClimates"}}</p>
+    {{else}}
+        <ul class="pdnc-climate-ul">
+            {{#each climates}}
+            <li class="pdnc-climate-li flexrow" data-id="{{this.id}}">
+                <span class="climate-name">{{this.name}}</span>
+                <div class="climate-controls">
+                    <a data-action="edit" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a data-action="delete" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    <button type="button" data-action="create">
+        <i class="fas fa-plus"></i> {{localize "PDNC.CustomClimate.Create"}}
+    </button>
+</div>

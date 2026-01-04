@@ -1,0 +1,60 @@
+<div class="pdnc-climate-editor">
+    <header class="flexrow" style="align-items: center; gap: 10px; margin-bottom: 10px;">
+        <input type="text" name="name" value="{{editingClimate.name}}" placeholder="{{localize 'PDNC.CustomClimate.Name'}}" style="flex: 1;">
+        <div class="editor-controls" style="flex: 0 0 auto; display: flex; gap: 5px;">
+            <button type="button" data-action="save" title="Save" style="width: 32px; height: 32px; padding: 0;"><i class="fas fa-save"></i></button>
+            <button type="button" data-action="cancel" title="Cancel" style="width: 32px; height: 32px; padding: 0;"><i class="fas fa-times"></i></button>
+        </div>
+    </header>
+
+    <div class="pdnc-tabs">
+        <nav class="sheet-tabs tabs" aria-role="tablist">
+            <a class="item {{#if (eq activeSeason 'spring')}}active{{/if}}" data-action="tab" data-tab="spring" data-group="seasons">{{localize "PDNC.Season.spring"}}</a>
+            <a class="item {{#if (eq activeSeason 'summer')}}active{{/if}}" data-action="tab" data-tab="summer" data-group="seasons">{{localize "PDNC.Season.summer"}}</a>
+            <a class="item {{#if (eq activeSeason 'autumn')}}active{{/if}}" data-action="tab" data-tab="autumn" data-group="seasons">{{localize "PDNC.Season.autumn"}}</a>
+            <a class="item {{#if (eq activeSeason 'winter')}}active{{/if}}" data-action="tab" data-tab="winter" data-group="seasons">{{localize "PDNC.Season.winter"}}</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        {{#each seasons}}
+        <div class="tab {{#if (eq @key ../activeSeason)}}active{{/if}}" data-tab="{{@key}}" data-group="seasons">
+            <p class="notes" style="margin-bottom: 5px;">{{localize "PDNC.CustomClimate.EditorHelp"}}</p>
+            
+            <div class="pdnc-weather-list">
+                <div class="flexrow weather-header" style="font-weight: bold; margin-bottom: 5px; border-bottom: 1px solid #782e22; padding-bottom: 2px;">
+                    <div style="flex: 3;">{{localize "PDNC.WeatherConfig.Description"}}</div>
+                    <div style="flex: 1;">{{localize "PDNC.WeatherConfig.Temperature"}}</div>
+                    <div style="flex: 1;">{{localize "PDNC.WeatherConfig.FX"}}</div>
+                    <div style="flex: 0 0 30px;"></div>
+                </div>
+
+                {{#each this as |weather index|}}
+                <div class="flexrow weather-row" style="margin-bottom: 5px; align-items: center;">
+                    <div style="flex: 3; margin-right: 5px;">
+                        <input type="text" name="seasons.{{@../key}}.{{index}}.text" value="{{weather.text}}" placeholder="Description">
+                    </div>
+                    <div style="flex: 1; margin-right: 5px;">
+                        <input type="text" name="seasons.{{@../key}}.{{index}}.temp" value="{{weather.temp}}" placeholder="10-20">
+                    </div>
+                    <div style="flex: 1; margin-right: 5px;">
+                        <select name="seasons.{{@../key}}.{{index}}.fx" value="{{weather.fx}}">
+                            {{selectOptions ../../fxChoices selected=weather.fx labelAttr="label" blank="None"}}
+                        </select>
+                    </div>
+                    <div style="flex: 0 0 30px; text-align: center;">
+                        <button type="button" data-action="deleteRow" data-season="{{@../key}}" data-index="{{index}}" style="color: #782e22; border: none; background: none;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+            <button type="button" data-action="addRow" data-season="{{@key}}" style="margin-top: 5px;">
+                <i class="fas fa-plus"></i> {{localize "PDNC.CustomClimate.AddWeather"}}
+            </button>
+        </div>
+        {{/each}}
+    </div>
+</div>

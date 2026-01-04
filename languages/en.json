@@ -80,6 +80,29 @@
         "Year": "Year",
         "TimeMachineHelp": "Teleports the entire world to the selected date. Interact with care!",
         "TimeMachineTitle": "Time Machine",
-        "SetWorldTime": "Set World Time"
+        "SetWorldTime": "Set World Time",
+        "WeatherConfig": {
+            "Title": "Weather Configuration",
+            "Climate": "Climate Zone",
+            "Season": "Season",
+            "Description": "Description",
+            "Temperature": "Temperature",
+            "FX": "Visual Effects",
+            "Reroll": "Reroll Weather",
+            "Apply": "Apply Weather"
+        },
+        "CustomClimate": {
+            "Title": "Custom Climate Zones",
+            "OpenMenu": "Manage Custom Climates",
+            "Hint": "Create and edit custom weather tables for your world.",
+            "ListTitle": "Available Climates",
+            "Create": "Create New Climate",
+            "NoClimates": "No custom climates created.",
+            "Name": "Name",
+            "JSONHelp": "Enter weather data as a JSON Array. Example: [{\"temp\": \"10-15°C\", \"text\": \"Sunny\", \"fx\": null}]",
+            "EditorHelp": "Add weather entries below. Temperature can be a range (e.g. '10-20').",
+            "AddWeather": "Add Weather",
+            "DeleteConfirm": "Are you sure you want to delete this climate zone? This cannot be undone."
+        }
     }
 }

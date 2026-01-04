@@ -1,0 +1,59 @@
+<form class="pdnc-weather-config">
+    <header class="sheet-header">
+        <h1>{{localize "PDNC.WeatherConfig.Title"}}</h1>
+    </header>
+
+    <div class="form-group">
+        <label>{{localize "PDNC.WeatherConfig.Climate"}}</label>
+        <div class="form-fields">
+            <span>{{climate}}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "PDNC.WeatherConfig.Season"}}</label>
+        <div class="form-fields">
+            <span>{{season}}</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+        <label>{{localize "PDNC.WeatherConfig.Description"}}</label>
+        <div class="form-fields">
+            <input type="text" name="description" value="{{weather.description}}" placeholder="e.g. Sunny with light breeze">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "PDNC.WeatherConfig.Temperature"}}</label>
+        <div class="form-fields">
+            <label>Min</label>
+            <input type="number" name="tempMin" value="{{weather.tempMin}}">
+            <label>Max</label>
+            <input type="number" name="tempMax" value="{{weather.tempMax}}">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>{{localize "PDNC.WeatherConfig.FX"}}</label>
+        <div class="form-fields">
+            <select name="fx">
+                {{selectOptions fxChoices selected=weather.fx labelAttr="label" blank="None"}}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="button" data-action="reroll">
+            <i class="fas fa-dice"></i> {{localize "PDNC.WeatherConfig.Reroll"}}
+        </button>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="submit" name="submit">
+            <i class="fas fa-check"></i> {{localize "PDNC.WeatherConfig.Apply"}}
+        </button>
+    </footer>
+</form>

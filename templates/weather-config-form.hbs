@@ -1,0 +1,52 @@
+<div class="pdnc-weather-config">
+    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 3px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 3px;">
+        <label style="flex: 0 0 auto; margin-right: 10px;"><strong>{{localize "PDNC.WeatherConfig.Climate"}}:</strong></label>
+        <div class="form-fields" style="flex: 1;">
+            <span style="display: flex; align-items: center;">{{climate}}</span>
+        </div>
+    </div>
+
+    <div class="form-group" style="display: flex; align-items: center; margin-top: 0;">
+        <label style="flex: 0 0 auto; margin-right: 10px;"><strong>{{localize "PDNC.WeatherConfig.Season"}}:</strong></label>
+        <div class="form-fields" style="flex: 1;">
+            <span style="display: flex; align-items: center;">{{season}}</span>
+        </div>
+    </div>
+
+    <hr style="margin: 5px 0; border-top: 2px solid rgba(255, 255, 255, 0.2);">
+
+    <div class="form-group" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 3px; margin-bottom: 3px;">
+        <label>{{localize "PDNC.WeatherConfig.Description"}}</label>
+        <div class="form-fields">
+            <input type="text" name="description" value="{{weather.description}}" placeholder="e.g. Sunny with light breeze">
+        </div>
+    </div>
+
+    <div class="form-group" style="display: flex; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 3px; margin-bottom: 3px;">
+        <label style="flex: 1;">{{localize "PDNC.WeatherConfig.Temperature"}}</label>
+        <div class="form-fields" style="flex: 2; display: flex; align-items: center; justify-content: flex-start; gap: 5px;">
+            <label style="flex: 0 0 auto;">Min</label>
+            <input type="number" name="tempMin" value="{{weather.tempMin}}" placeholder="Min" style="max-width: 50px;">
+            <label style="flex: 0 0 auto; margin-left: 10px;">Max</label>
+            <input type="number" name="tempMax" value="{{weather.tempMax}}" placeholder="Max" style="max-width: 50px;">
+        </div>
+    </div>
+    
+    <div class="form-group" style="display: flex; align-items: center; padding-bottom: 3px; margin-bottom: 3px;">
+        <label style="flex: 1;">{{localize "PDNC.WeatherConfig.FX"}}</label>
+        <div class="form-fields" style="flex: 2; justify-content: flex-start;">
+            <select name="fx" style="width: auto; min-width: 150px;">
+                {{selectOptions fxChoices selected=weather.fx labelAttr="label" blank="None"}}
+            </select>
+        </div>
+    </div>
+
+    <footer class="sheet-footer flexrow" style="gap: 5px;">
+        <button type="button" data-action="reroll">
+            <i class="fas fa-dice"></i> {{localize "PDNC.WeatherConfig.Reroll"}}
+        </button>
+        <button type="submit" data-action="apply">
+            <i class="fas fa-check"></i> {{localize "PDNC.WeatherConfig.Apply"}}
+        </button>
+    </footer>
+</div>

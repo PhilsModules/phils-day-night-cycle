@@ -80,6 +80,30 @@
         "Year": "Jahr",
         "TimeMachineHelp": "Teleportiert die gesamte Welt zum gewählten Datum. Mit Vorsicht benutzen!",
         "TimeMachineTitle": "Zeitmaschine",
-        "SetWorldTime": "Weltzeit setzen"
+        "SetWorldTime": "Weltzeit setzen",
+        "WeatherConfig": {
+            "Title": "Wetterkonfiguration",
+            "Climate": "Klimazone",
+            "Season": "Jahreszeit",
+            "Description": "Beschreibung",
+            "Temperature": "Temperatur",
+            "FX": "Visuelle Effekte",
+            "Reroll": "Wetter neu würfeln",
+            "Apply": "Wetter anwenden"
+        },
+        "CustomClimate": {
+            "Title": "Benutzerdefinierte Klimazonen",
+            "OpenMenu": "Klimazonen verwalten",
+            "Hint": "Erstellen und bearbeiten Sie eigene Wettertabellen.",
+            "ListTitle": "Verfügbare Klimazonen",
+            "Create": "Neue Klimazone erstellen",
+            "NoClimates": "Keine benutzerdefinierten Klimazonen vorhanden.",
+            "Name": "Name",
+            "JSONHelp": "Geben Sie Wetterdaten als JSON-Array ein. Beispiel: [{\"temp\": \"10-15°C\", \"text\": \"Sonnig\", \"fx\": null}]",
+            "EditorHelp": "Fügen Sie Wettereinträge hinzu. Temperatur kann ein Bereich sein (z.B. '10-20').",
+            "AddWeather": "Wetter hinzufügen",
+
+            "DeleteConfirm": "Sind Sie sicher, dass Sie diese Klimazone löschen möchten? Dies kann nicht rückgängig gemacht werden."
+        }
     }
 }
