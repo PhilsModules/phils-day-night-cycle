@@ -59,16 +59,29 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             "rain": "Rain",
             "snow": "Snow",
             "clouds": "Clouds",
-            "fog": "Fog",
-            "storm": "Storm",
-            "leaves": "Autumn Leaves"
+
         };
-        
+
+        // Add custom effects from configuration
+        console.log("PDNC Debug | CONFIG.Weather.effects:", CONFIG.Weather?.effects);
+        if (CONFIG.Weather && CONFIG.Weather.effects) {
+            for (const [key, config] of Object.entries(CONFIG.Weather.effects)) {
+                // Localize the label if possible
+                const label = config.label ? game.i18n.localize(config.label) : key;
+                fxChoices[key] = label;
+            }
+        }
+
+        // Sort choices alphabetically by localized label
+        const sortedFxChoices = Object.fromEntries(
+            Object.entries(fxChoices).sort(([,a], [,b]) => a.localeCompare(b))
+        );
+
         return {
             weather: this.weatherData,
             climate: this.weatherData.climateName || "Unknown",
             season: this.weatherData.seasonName || "Unknown",
-            fxChoices: fxChoices
+            fxChoices: sortedFxChoices
         };
     }
 

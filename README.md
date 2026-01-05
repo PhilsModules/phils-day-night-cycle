@@ -5,7 +5,7 @@
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
 ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-2.4.1-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
+[![Version](https://img.shields.io/badge/Version-3.0.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
 [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
@@ -19,6 +19,24 @@ _Bring your world to life with a beautiful, immersive clock widget._
 <a href="#-deutsche-anleitung"><img src="https://img.shields.io/badge/%20-Deutsche_Anleitung-black?style=for-the-badge&logo=germany&logoColor=red" alt="Deutsche Anleitung"></a> <a href="#-english-instructions"><img src="https://img.shields.io/badge/%20-English_Instructions-black?style=for-the-badge&logo=united-kingdom&logoColor=white" alt="English Instructions"></a>
 
 </div>
+
+## 🌦️ v3.0.0: Massive Weather Library
+
+The new **Version 3.0** introduces a completely overhauled weather engine with over **60+ High-Quality Effects**!
+Each effect has been manually tuned for maximum immersion.
+
+### Effect Categories:
+
+- **🌧️ Rain & Water:** From light _Drizzle_ to violent _Torrents_ and _Storms_.
+- **❄️ Snow & Ice:** _Light Snow_, _Blizzards_, _Hail_, and magical _Diamond Dust_.
+- **☁️ Atmosphere:** _Morning Mist_, _Thick Fog_, _Rising Steam_, and spooky _Ghost Mist_.
+- **🍂 Nature:** _Autumn Leaves_, _Cherry Blossoms_, _Fireflies_, _Pollen_, and _Birds_.
+- **🔮 Arcane:** _Blood Rain_, _Acid Rain_, _Ash World_, _Holy Light_, and _Arcane Storms_.
+- **🎥 Sci-Fi & Filters:** _Old Film_, _Digital Rain_, _Glitch Sparks_, and _Chromatic Aberration_.
+
+👉 **[View the Full List of Weather Effects](fxeffects.md)**
+
+---
 
 > [!NOTE]
 >

@@ -217,6 +217,16 @@ export class WeatherSystem {
     }
 
     /**
+     * Re-applies the current weather settings (useful when toggling display modes).
+     */
+    static async refreshWeather() {
+        const weather = game.settings.get(MODULE_ID, "currentWeather");
+        if (weather) {
+            await this.applyWeather(weather);
+        }
+    }
+
+    /**
      * Applies the given weather data to the system (Settings, Chat, Scene, Calendar).
      * @param {Object} weatherStore 
      */
@@ -255,12 +265,22 @@ export class WeatherSystem {
         
         console.log(`${MODULE_ID} | Applied weather for ${todayId}:`, weatherStore);
 
-        // Update Scene Weather (if canvas is ready)
-        if (canvas && canvas.scene) {
-             let fxEffect = weatherStore.fx;
-             if (fxEffect === "storm") fxEffect = "rain"; // Fallback for core
-             await canvas.scene.update({ weather: fxEffect });
+        // Update All Scenes Weather
+        let fxEffect = weatherStore.fx;
+        console.log(`${MODULE_ID} | Updating ALL scenes to weather: ${fxEffect}`);
+        
+        const updates = [];
+        // Iterate over all scenes to ensure consistent weather
+        game.scenes.forEach(scene => {
+            updates.push({ _id: scene.id, weather: fxEffect });
+        });
+        
+        if (updates.length > 0) {
+             await Scene.updateDocuments(updates);
         }
+
+        // Notify HUDs
+        Hooks.callAll("pdnc.weatherUpdated", weatherStore);
 
         // Log to Calendar
         try {

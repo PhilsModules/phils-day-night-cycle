@@ -5,6 +5,7 @@ import { WeatherSystem } from "./weather-system.js";
 import { LightingSystem } from "./lighting-system.js";
 import { WeatherConfigApp } from "./apps/weather-config.js";
 import { CustomClimateApp } from "./apps/custom-climate.js";
+import { WeatherHUD } from "./weather-hud.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -96,6 +97,29 @@ class PhilsDayNightCycle {
             type: Number,
             default: 0,
             onChange: () => this.updateClock()
+        });
+
+        game.settings.register(MODULE_ID, "weatherDisplayMode", {
+            name: "Weather Display Mode",
+            scope: "client",
+            config: false,
+            type: String,
+            default: "global" // 'global' or 'window'
+        });
+
+        game.settings.register(MODULE_ID, "weatherPreviewState", {
+            name: "Weather Preview State",
+            scope: "client",
+            config: false,
+            type: Object,
+            default: {
+                open: false,
+                x: null,
+                y: null,
+                width: 350,
+                height: 350,
+                paused: false
+            }
         });
 
         game.settings.register(MODULE_ID, "dayOffset", {
@@ -335,6 +359,14 @@ class PhilsDayNightCycle {
 
         this.calendar = new CalendarSystem();
         // this.updateClock(); // Moved to ready/updateWorldTime
+
+        // Auto-Open Weather HUD if it was open
+        Hooks.once("ready", () => {
+             const state = game.settings.get(MODULE_ID, "weatherPreviewState");
+             if (state && state.open) {
+                 new WeatherHUD().render(true);
+             }
+        });
     }
 
     refreshCalendar() {
@@ -397,6 +429,26 @@ class PhilsDayNightCycle {
         <span class="pdnc-phase-icon"></span>
         <div class="pdnc-phase-text"></div>
         <div class="pdnc-phase-text"></div>
+        <div class="pdnc-solar-arc-container">
+            <svg class="pdnc-solar-svg">
+                <!-- Track Arc -->
+                <path class="pdnc-solar-track" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" />
+                <!-- Progress Arc (Optional, showing passed time?) - Let's just do the Sun Icon for now -->
+                <!-- Sun Icon Group -->
+                <g class="pdnc-solar-sun-group">
+                    <circle cx="0" cy="0" r="4" fill="#ffcc00" stroke="#ffaa00" stroke-width="1" />
+                    <!-- Rays -->
+                    <line x1="0" y1="-6" x2="0" y2="-8" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="0" y1="6" x2="0" y2="8" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="-6" y1="0" x2="-8" y2="0" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="6" y1="0" x2="8" y2="0" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="-4" y1="-4" x2="-6" y2="-6" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="4" y1="-4" x2="6" y2="-6" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="-4" y1="4" x2="-6" y2="6" stroke="#ffcc00" stroke-width="1" />
+                    <line x1="4" y1="4" x2="6" y2="6" stroke="#ffcc00" stroke-width="1" />
+                </g>
+            </svg>
+        </div>
         <div class="pdnc-clock-line" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
             <div class="pdnc-clock-group" style="display: flex; align-items: center; gap: 4px;">
                 <i class="fas fa-clock pdnc-toggle-btn" title="${game.i18n.localize("PDNC.ToggleClock")}" style="margin-left: 0;"></i>
@@ -405,6 +457,7 @@ class PhilsDayNightCycle {
             <div class="pdnc-weather-group" style="display: flex; align-items: center; gap: 4px; display: none;">
                 <i class="fas fa-cloud-sun pdnc-weather-icon" title="${game.i18n.localize("PDNC.Weather")}" style="cursor: pointer; opacity: 0.8;"></i>
                 <span class="pdnc-temp-text" style="font-size: 0.9em; opacity: 0.8;"></span>
+                <i class="fas fa-search-plus pdnc-preview-icon" title="${game.i18n.localize("PDNC.WeatherPreview")}" style="cursor: pointer; opacity: 0.8; margin-left: 2px;"></i>
             </div>
         </div>
         <div class="pdnc-date-text"></div>
@@ -433,8 +486,11 @@ class PhilsDayNightCycle {
         this.controls = uiContainer.querySelector(".pdnc-controls");
         
         // Weather Elements
+        // Weather Elements
         this.weatherIcon = uiContainer.querySelector(".pdnc-weather-icon");
+        this.previewIcon = uiContainer.querySelector(".pdnc-preview-icon");
         this.tempText = uiContainer.querySelector(".pdnc-temp-text");
+        this.sunGroup = uiContainer.querySelector(".pdnc-solar-sun-group");
 
         // Check Permissions for Controls
         if (game.user.isGM || game.settings.get(MODULE_ID, "playerAdvanceTime")) {
@@ -491,23 +547,20 @@ class PhilsDayNightCycle {
         // Open Weather on Click (Icon)
 
         // Open Weather on Click (Icon)
+        // Open Weather Config on Click (Icon) - RESTORED
         this.weatherIcon.addEventListener("click", () => {
             const weather = game.settings.get(MODULE_ID, "currentWeather");
             
             if (game.user.isGM) {
                 // GM: Open Config to Edit/Reroll
-                // If no weather exists, generate a draft based on NOW
                 let weatherData = weather;
                 if (!weatherData || !weatherData.generated) {
                     weatherData = WeatherSystem.generateWeather();
                 }
-                // Ensure context is preserved or re-derived if missing
                 if (!weatherData.climateName) {
                     const clim = WeatherSystem.getCurrentClimate();
                     weatherData.climateName = clim.name;
                 }
-                // We might need to re-derive season if missing from stored data (legacy data)
-                
                 new WeatherConfigApp({ weather: weatherData }).render({ force: true });
             } else {
                 // Player: View Only
@@ -516,15 +569,17 @@ class PhilsDayNightCycle {
                         title: game.i18n.localize("PDNC.WeatherForecast"),
                         content: `<p style="text-align:center; font-size: 1.1em; margin: 10px 0;">${weather.description}</p>`,
                         buttons: {
-                            ok: {
-                                icon: '<i class="fas fa-check"></i>',
-                                label: "OK"
-                            }
+                            ok: { icon: '<i class="fas fa-check"></i>', label: "OK" }
                         },
                         default: "ok"
                     }).render(true);
                 }
             }
+        });
+
+        // Open Weather Preview Window on Click (Magnifying Glass) - NEW
+        this.previewIcon.addEventListener("click", () => {
+             new WeatherHUD().render(true);
         });
 
         // Time Controls
@@ -763,6 +818,86 @@ class PhilsDayNightCycle {
         // Minute Hand Rotation
         const minuteRotation = (minutes / 60) * 360;
         this.minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+
+        // Solar Arc Update
+        if (this.sunGroup) {
+            const svg = this.sunGroup.closest("svg");
+            const track = svg.querySelector(".pdnc-solar-track");
+            
+            // Measure Container
+            const rect = svg.getBoundingClientRect();
+            const cw = rect.width;
+            const ch = rect.height;
+            
+            // Find Reference Points
+            const controls = this.container.querySelector(".pdnc-controls");
+            const controlsY = controls ? controls.offsetTop : ch - 50;
+
+            // Define Geometry (Dynamic)
+            // Anchor slightly above the separator line (align with Weekday text)
+            // ControlsY is the top of the buttons.
+            const startY = controlsY - 20;
+            const endY = controlsY - 20;
+            
+            // Padding from sides
+            const paddingX = 15;
+            
+            // Peak Position (Top of card, or just above "Dawn/Morning" text)
+            const peakY = 5; 
+
+            const p0 = { x: paddingX, y: startY };
+            const p2 = { x: cw - paddingX, y: endY };
+            
+            // Calculate Control Point (P1) to force Vertex at peakY
+            const p1 = { x: cw / 2, y: (2 * peakY) - startY };
+
+            // Update Track Path
+            if (track) {
+                const d = `M ${p0.x} ${p0.y} Q ${p1.x} ${p1.y} ${p2.x} ${p2.y}`;
+                track.setAttribute("d", d);
+            }
+
+            // Get Dynamic Dawn/Dusk/Noon from Lighting System
+            const lightingParams = LightingSystem.getClimateParams();
+            let dawnMinutes = 360; // Default 06:00
+            let duskMinutes = 1080; // Default 18:00
+            let noonMinutes = 720; // Default 12:00
+            
+            if (lightingParams) {
+                if (lightingParams.dawn) dawnMinutes = LightingSystem.parseTime(lightingParams.dawn);
+                if (lightingParams.dusk) duskMinutes = LightingSystem.parseTime(lightingParams.dusk);
+                if (lightingParams.noon) noonMinutes = LightingSystem.parseTime(lightingParams.noon);
+                else noonMinutes = dawnMinutes + (duskMinutes - dawnMinutes) / 2; // Fallback
+            }
+
+            // Calculate Progress using Dawn -> Noon -> Dusk interpolation
+            // This ensures the sun is exactly at the peak (t=0.5) at Noon
+            let sunT = -1;
+            
+            if (minutesOfDay >= dawnMinutes && minutesOfDay < noonMinutes) {
+                // First Half: Dawn to Noon -> 0.0 to 0.5
+                sunT = 0.5 * (minutesOfDay - dawnMinutes) / (noonMinutes - dawnMinutes);
+            } else if (minutesOfDay >= noonMinutes && minutesOfDay <= duskMinutes) {
+                // Second Half: Noon to Dusk -> 0.5 to 1.0
+                sunT = 0.5 + 0.5 * (minutesOfDay - noonMinutes) / (duskMinutes - noonMinutes);
+            }
+            
+            // Visibility Check
+            if (minutesOfDay < dawnMinutes || minutesOfDay > duskMinutes) {
+                 this.sunGroup.style.opacity = "0";
+            } else {
+                 this.sunGroup.style.opacity = "1";
+            }
+
+            // Update Position (always, to avoid jumps when appearing)
+            const t = sunT;
+            const invT = 1 - t;
+
+            const x = (invT * invT * p0.x) + (2 * invT * t * p1.x) + (t * t * p2.x);
+            const y = (invT * invT * p0.y) + (2 * invT * t * p1.y) + (t * t * p2.y);
+
+            this.sunGroup.style.transform = `translate(${x}px, ${y}px)`;
+        }
 
         // Determine Phase
         const phase = this.phases.find(p => minutesOfDay >= p.start && minutesOfDay <= p.end);

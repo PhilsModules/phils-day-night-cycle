@@ -3,6 +3,7 @@ import { CalendarSystem } from "./calendar-system.js";
 import { CalendarDB } from "./calendar-db.js";
 import { CalendarEventEditor } from "./calendar-event-editor.js";
 import { CalendarDayViewer } from "./calendar-day-viewer.js";
+import { WeatherHUD } from "./weather-hud.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -36,6 +37,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             nextMonth: PhilsCalendarApp.prototype._onNextMonth,
             dayClick: PhilsCalendarApp.prototype._onDayClick,
             dayContext: PhilsCalendarApp.prototype._onDayContext,
+            openWeather: PhilsCalendarApp.prototype._onOpenWeather,
         }
     };
 
@@ -149,6 +151,10 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             this.viewYear++;
         }
         this.render();
+    }
+
+    _onOpenWeather(event, target) {
+        new WeatherHUD().render(true);
     }
 
     async _onDayClick(event, target) {
