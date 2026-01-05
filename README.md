@@ -36,6 +36,14 @@ Each effect has been manually tuned for maximum immersion.
 
 👉 **[View the Full List of Weather Effects](fxeffects.md)**
 
+### 🔍 Live Weather Preview
+
+Click the **Magnifying Glass** on the clock to open the Weather Preview window.
+
+- **Global / Window Mode:** Toggle whether the weather effect applies to the _entire scene_ or only shows inside the _preview window_.
+- **Pause / Freeze:** Pause the effect playback to inspect details or keep a static backdrop.
+- **Resizeable:** Drag the corners to resize the preview.
+
 ---
 
 > [!NOTE]
