@@ -92,15 +92,6 @@ This document tracks the tuning status of all weather effects in the generic `ph
 | **60** | `sun_rays`             | **Sun Rays**             | God Rays Shader.    | **Shader Only**      | ✅ Tuned    |
 | **61** | `sunbeams`             | **Sunbeams**             | God Rays Shader.    | **Shader Only**      | ⬜ Untested |
 
-Add context
-Images
-Mentions
-Workflows
 
-Conversation mode
-Planning
-Agent can plan before executing tasks. Use for deep research, complex tasks, or collaborative work
-Fast
-Agent will execute tasks directly. Use for simple tasks that can be completed faster
 
-Gemini 3 Pro (High)
+
