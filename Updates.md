@@ -1,5 +1,28 @@
 # Update Log
 
+## 3.0.1 - Climate Data Refinement
+
+**Immersive Fixes:**
+
+- **Climate Data Polish:** Massive audit of English and German climate data. Fixed logical inconsistencies where visual effects didn't match descriptions (e.g., "storm" vs "breeze").
+- **Localization Fixes:** Corrected spelling errors in German (e.g., "Raureif") and English (e.g., "Croaking").
+- **Systematic Fixes:** Fixed a data generator error where English temperatures used the German "bis" instead of "to".
+- **FX Standardization:** Ensured all biomes now strictly use the new V3 FX keys.
+
+## 3.0.0 - Weather Effects Overhaul
+
+**🚀 MAJOR FEATURE: 60+ New Weather Effects!**
+
+- **Massive Weather Library:**
+  - Completely overhauled the weather engine with over **60 high-quality effects**.
+  - **New Categories:** Rain, Snow, Atmosphere, Nature, Arcane, and Sci-Fi.
+  - **Reordered & Detailed:** All effects are now cleanly numbered (01-61) and sorted by category in the dropdown.
+  - **Cleanup:** Removed legacy "Fog" and "Soot" effects.
+- **Solar Day/Night Cycle Arc:** Added a new dynamic visual arc to the clock UI showing the sun's position.
+  - **Dynamic Progression:** The arc adapts to the actual Dawn, Noon, and Dusk times defined by the lighting system.
+  - **Visuals:** A golden sun icon travels along a curved path, rising at dawn and setting at dusk.
+- **Documentation:** Updated `fxeffects.md` to serve as the definitive source of truth for all weather effects.
+
 ## 2.4.1 - Stability Hotfix
 
 **Bugfixes & Improvements:**

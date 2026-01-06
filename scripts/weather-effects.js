@@ -469,14 +469,14 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("rising_steam", {
             id: "rising_steam",
-            label: "24. Rising Steam",
+            label: "23. Rising Steam",
             filters: [{ type: "fog", density: 0.5, speed: 3.0, color: [0.9, 0.95, 1.0], gradient: true }], // Fast moving steam with Fade
             effects: []
         });
 
         this.registerEffect("ghost_mist", {
             id: "ghost_mist",
-            label: "25. Ghost Mist",
+            label: "24. Ghost Mist",
             filters: [
                 { type: "heat", intensity: 0.5, speed: 0.5 }, // Wobbly
                 { type: "fog", density: 0.4, speed: 0.2, color: [0.8, 1.0, 0.9] } // Pale Green/Cyan Fog
@@ -488,7 +488,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("autumn_leaves", {
             id: "autumn_leaves",
-            label: "27. Autumn Leaves",
+            label: "25. Autumn Leaves",
             effects: [
                 { type: "particles", config: { type: "leaf", density: 0.1, speed: 1.5, scale: 0.8, tint: [0.8, 0.4, 0.1] } } // Orange leaves
             ]
@@ -496,7 +496,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("cherry_blossom", {
             id: "cherry_blossom",
-            label: "28. Cherry Blossom",
+            label: "26. Cherry Blossom",
             effects: [
                 { type: "particles", config: { type: "petal", density: 0.15, speed: 1.0, scale: 0.6, tint: [1.0, 0.7, 0.8] } } // Pink petals
             ]
@@ -504,7 +504,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("insects", {
             id: "insects",
-            label: "29. Insects",
+            label: "27. Insects",
             effects: [
                  { type: "particles", config: { type: "insect", density: 0.3, speed: 3.0, scale: 0.2, tint: [1.0, 1.0, 1.0] } }
             ]
@@ -512,7 +512,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("pollen", {
             id: "pollen",
-            label: "30. Pollen",
+            label: "28. Pollen",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.2, speed: 0.1, scale: 0.3, tint: [1.0, 1.0, 0.6] } } // Yellow floaters
             ]
@@ -520,7 +520,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("sandstorm", {
             id: "sandstorm",
-            label: "31. Sandstorm",
+            label: "29. Sandstorm",
             filters: [{ type: "fog", density: 0.8, speed: 8.0, color: [0.8, 0.6, 0.3] }], // Fast heavy yellow fog
             effects: [
                 { type: "particles", config: { type: "snow", density: 4.0, speed: 25.0, direction: 0, scale: 0.4, tint: [0.8, 0.6, 0.3] } } // Very Fast L->R yellow sand
@@ -529,7 +529,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("red_sandstorm", {
             id: "red_sandstorm",
-            label: "32. Red Sandstorm",
+            label: "30. Red Sandstorm",
             filters: [{ type: "fog", density: 0.8, speed: 8.0, color: [0.8, 0.3, 0.1] }], // Fast heavy red fog
             effects: [
                 { type: "particles", config: { type: "snow", density: 4.0, speed: 25.0, direction: 0, scale: 0.4, tint: [0.8, 0.3, 0.1] } } // Very Fast L->R red sand
@@ -538,7 +538,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("bird_shadows", {
             id: "bird_shadows",
-            label: "36. Bird Shadows",
+            label: "31. Bird Shadows",
             effects: [
                 { type: "particles", config: { type: "bird", density: 0.07, speed: 3.0, scale: 0.2, tint: [1.0, 1.0, 1.0] } } 
             ]
@@ -546,14 +546,14 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("cloud_shadows", {
             id: "cloud_shadows",
-            label: "37. Cloud Shadows",
+            label: "32. Cloud Shadows",
             filters: [{ type: "cloud_cover", speed: 0.2, scale: 1.0, alpha: 0.4, color: [0.0, 0.0, 0.0] }], // Alpha 0.4
             effects: []
         });
 
         this.registerEffect("fireflies", {
             id: "fireflies",
-            label: "38. Fireflies",
+            label: "33. Fireflies",
             effects: [
                 { type: "particles", config: { type: "firefly", density: 0.5, speed: 0.0, scale: 0.25, tint: [1.0, 1.0, 1.0], lifespan: true, lifetime: 1000, shimmer: true, shimmerSpeed: 0.002, blendMode: "add" } } // Floating, pulsing, glowing
             ]
@@ -563,7 +563,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("arcane_rain", {
             id: "arcane_rain",
-            label: "40. Arcane Rain",
+            label: "34. Arcane Rain",
             effects: [
                 { type: "particles", config: { type: "rain", density: 0.8, speed: 3.0, scale: 1.0, tint: [0.8, 0.4, 1.0] } }, // Purple
                 { type: "particles", config: { type: "glow", density: 0.1, speed: 0.5, scale: 0.5, tint: [0.6, 0.2, 1.0] } } // Sparkles
@@ -572,7 +572,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("blood_rain", {
             id: "blood_rain",
-            label: "41. Blood Rain",
+            label: "35. Blood Rain",
             filters: [{ type: "color", value: [0.5, 0.0, 0.0], alpha: 0.4 }],
             effects: [
                 { type: "particles", config: { type: "rain", density: 0.8, speed: 3.5, scale: 1.2, tint: [0.8, 0.0, 0.0] } } // Red rain
@@ -581,7 +581,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("acid_rain", {
             id: "acid_rain",
-            label: "42. Acid Rain",
+            label: "36. Acid Rain",
             filters: [{ type: "color", value: [0.2, 0.8, 0.2], alpha: 0.3 }],
             effects: [
                 { type: "particles", config: { type: "rain", density: 0.6, speed: 3.0, scale: 1.0, tint: [0.4, 1.0, 0.2] } } // Green rain
@@ -590,7 +590,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("ash_world", {
             id: "ash_world",
-            label: "43. Ash World",
+            label: "37. Ash World",
             filters: [{ type: "color", value: [0.3, 0.1, 0.1], alpha: 0.3 }],
             effects: [
                 { type: "particles", config: { type: "snow", density: 0.5, speed: 0.5, scale: 0.5, tint: [0.5, 0.5, 0.5] } } // Grey ash
@@ -599,7 +599,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("aurora", {
             id: "aurora",
-            label: "44. Aurora Borealis",
+            label: "38. Aurora Borealis",
             filters: [
                 { type: "aurora", speed: 0.5, intensity: 1.5 } 
             ],
@@ -608,7 +608,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("mana_rising", {
             id: "mana_rising",
-            label: "45. Mana Rising",
+            label: "39. Mana Rising",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.2, speed: 1.0, direction: 270, scale: 1.0, tint: [0.2, 0.8, 1.0] } } // Blue rising
             ]
@@ -616,7 +616,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("fairy_dust", {
             id: "fairy_dust",
-            label: "46. Fairy Dust",
+            label: "40. Fairy Dust",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.3, speed: 0.3, scale: 0.4, tint: [1.0, 0.8, 0.9] } } // Pink/Gold
             ]
@@ -624,14 +624,14 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("holy_light", {
             id: "holy_light",
-            label: "48. Holy Light",
+            label: "41. Holy Light",
             filters: [{ type: "holy_light", intensity: 1.2, speed: 0.5 }], 
             effects: []
         });
 
         this.registerEffect("lurking_eyes", {
             id: "lurking_eyes",
-            label: "50. Lurking Eyes",
+            label: "42. Lurking Eyes",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.05, speed: 0.1, scale: 0.4, tint: [1.0, 0.0, 0.0] } } // Red pairs difficult, just red eyes
             ]
@@ -639,7 +639,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("venom_spores", {
             id: "venom_spores",
-            label: "51. Venom Spores",
+            label: "43. Venom Spores",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.2, speed: 0.2, scale: 1.5, tint: [0.2, 0.8, 0.2] } } // Big green
             ]
@@ -649,7 +649,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("sparks", {
             id: "sparks",
-            label: "53. Sparks",
+            label: "44. Sparks",
             effects: [
                 { type: "particles", config: { type: "glow", density: 0.2, speed: 5.0, scale: 0.4, tint: [0.4, 0.8, 1.0] } } // Blue sparks
             ]
@@ -657,7 +657,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("digital_rain", {
             id: "digital_rain",
-            label: "54. Digital Rain",
+            label: "45. Digital Rain",
             filters: [{ type: "old_film", sepia: 0.0, noise: 0.4, scratch: 0.0 }], // Noise adds 'digital' feel
             effects: [
                 { type: "particles", config: { type: "rain", density: 0.8, speed: 3.0, scale: 1.0, tint: [0.0, 1.0, 0.0] } } // Green rain
@@ -666,7 +666,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("heat_wave", {
             id: "heat_wave",
-            label: "55. Heat Wave",
+            label: "46. Heat Wave",
             filters: [
                 { type: "heat", intensity: 1.5, speed: 1.0 }
             ],
@@ -675,28 +675,28 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("underwater", {
             id: "underwater",
-            label: "56. Underwater",
+            label: "47. Underwater",
             filters: [{ type: "underwater", speed: 1.0, intensity: 1.0 }],
             effects: []
         });
 
         this.registerEffect("old_film", {
             id: "old_film",
-            label: "57. Old Film",
+            label: "48. Old Film",
             filters: [{ type: "old_film", sepia: 0.6, noise: 0.5, scratch: 0.4, speed: 0.0 }],
             effects: []
         });
 
         this.registerEffect("chromatic_aberration", {
             id: "chromatic_aberration",
-            label: "58. Chromatic Aberration",
+            label: "49. Chromatic Aberration",
             filters: [{ type: "chromatic", amount: 10.0 }],
             effects: []
         });
 
         this.registerEffect("sun_rays", {
             id: "sun_rays",
-            label: "60. Sun Rays",
+            label: "50. Sun Rays",
             filters: [
                 { type: "godrays", alpha: 0.6, angle: -0.3 } // Angled differently than 61
             ],
@@ -705,7 +705,7 @@ export class WeatherEffectsRegistry {
 
         this.registerEffect("sunbeams", {
             id: "sunbeams",
-            label: "61. Sunbeams",
+            label: "51. Sunbeams",
             filters: [
                 { type: "godrays", alpha: 0.5, angle: 0.3 }
             ],
