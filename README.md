@@ -20,6 +20,16 @@ _Bring your world to life with a beautiful, immersive clock widget._
 
 </div>
 
+## 📅 v3.2.0: Calendar Power Update
+
+The **Calendar System** has been massively upgraded into a powerful campaign tool!
+
+- **📅 Recurring Series Events:** Create **Daily, Weekly, Monthly, or Yearly** repeating events.
+- **🧠 Smart Deletion:** Choose to delete a **Single Instance**, **This and Future**, or the **Entire Series**.
+- **🔔 Reminders:** Set reminder offsets (in days) with automatic **Chat Notifications**.
+- **💬 Interactive Chat Cards:** Clicking an event title in chat **jumps directly to that day** in the calendar!
+- **🛡️ Robust & Polished:** "Zombie" events are gone, duplicates are auto-cleaned, and the UI is smoother than ever.
+
 ## 🌦️ v3.0.0: Massive Weather Library
 
 The new **Version 3.0** introduces a completely overhauled weather engine with over **60+ High-Quality Effects**!
