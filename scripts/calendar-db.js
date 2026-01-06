@@ -81,7 +81,7 @@ export class CalendarDB {
                 return {};
             }
             const data = journal.getFlag(this.FLAG_SCOPE, "events");
-            return data || {};
+            return foundry.utils.deepClone(data) || {};
         } catch (e) {
             console.error("Phils Day Night Cycle | Error getting events:", e);
             return {};

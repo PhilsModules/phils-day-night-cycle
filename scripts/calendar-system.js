@@ -193,4 +193,47 @@ export class CalendarSystem {
 
         return totalDays * SECONDS_IN_DAY;
     }
+
+    isRecurringMatch(event, srcY, srcM, srcD, targetY, targetM, targetD) {
+        const type = event.recurring;
+        if (!type || type === 'none') return false;
+
+        // Check for Exceptions (Exclude Dates)
+        if (event.excludeDates && Array.isArray(event.excludeDates)) {
+            const targetKey = `${targetY}-${targetM}-${targetD}`;
+            if (event.excludeDates.includes(targetKey)) return false;
+        }
+        
+        // Ensure strictly future/current, don't recurse backwards in time
+        // (Optional, but usually desirable)
+        const startTs = this.getTimestamp(srcY, srcM, srcD);
+        const targetTs = this.getTimestamp(targetY, targetM, targetD);
+        if (targetTs < startTs) return false;
+
+        // Check for Recurrence End Date (for "Delete Future" logic)
+        if (event.untilDate) {
+            const [uY, uM, uD] = event.untilDate.split('-').map(Number);
+            const untilTs = this.getTimestamp(uY, uM, uD);
+            if (targetTs > untilTs) return false;
+        }
+
+        if (type === 'daily') return true;
+
+        if (type === 'weekly') {
+            const diffDays = Math.floor((targetTs - startTs) / 86400);
+            return (diffDays % 7 === 0);
+        }
+
+        if (type === 'monthly') {
+            // Same Day Number
+            return (srcD === targetD);
+        }
+
+        if (type === 'yearly') {
+            // Same Month and Day
+            return (srcM === targetM && srcD === targetD);
+        }
+
+        return false;
+    }
 }

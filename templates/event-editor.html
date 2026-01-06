@@ -12,33 +12,79 @@
     </div>
 
     <div class="pdnc-editor-body">
+        <!-- 1. Description (Top of Body) -->
+        <div class="pdnc-form-group">
+            <label><i class="fas fa-align-left"></i> {{localize "PDNC.Description"}}</label>
+            <textarea name="description" placeholder="{{localize 'PDNC.Description'}}..."
+                rows="5">{{description}}</textarea>
+        </div>
+
+        <!-- 2. Settings Area -->
         <div class="pdnc-form-group-row">
             <div class="pdnc-form-group">
                 <label><i class="fas fa-tag"></i> {{localize "PDNC.Type"}}</label>
                 <div class="pdnc-select-wrapper">
                     <select name="type">
-                        <option value="event" {{#if (eq defaultType "event" )}}selected{{/if}}>{{localize
-                            "PDNC.TypeEvent"}}</option>
+                        <option value="event" {{#if (eq defaultType "event")}}selected{{/if}}>{{localize "PDNC.TypeEvent"}}</option>
                         {{#if isGM}}
-                        <option value="gm" {{#if (eq defaultType "gm" )}}selected{{/if}}>{{localize "PDNC.TypeGM"}}
-                        </option>
+                        <option value="gm" {{#if (eq defaultType "gm")}}selected{{/if}}>{{localize "PDNC.TypeGM"}}</option>
+                        <option value="weather" {{#if (eq defaultType "weather")}}selected{{/if}}>{{localize "PDNC.TypeWeather"}}</option>
                         {{/if}}
                         {{#if canCreate}}
-                        <option value="player" {{#if (eq defaultType "player" )}}selected{{/if}}>{{localize
-                            "PDNC.TypePlayer"}}</option>
+                        <option value="player" {{#if (eq defaultType "player")}}selected{{/if}}>{{localize "PDNC.TypePlayer"}}</option>
                         {{/if}}
                     </select>
                     <i class="fas fa-caret-down"></i>
                 </div>
             </div>
-            <!-- Future extensibility: Time or Duration could go here -->
         </div>
 
-        <div class="pdnc-form-group full-height">
-            <label><i class="fas fa-align-left"></i> {{localize "PDNC.Description"}}</label>
-            <textarea name="description" placeholder="{{localize 'PDNC.Description'}}..."
-                rows="8">{{description}}</textarea>
+        <div class="pdnc-form-group-row">
+            <!-- Recurrence Scope (Only visible if editing a recurring instance) -->
+            {{#if isRecurringInstance}}
+            <div class="pdnc-form-group" style="flex: 2;">
+                <label>{{localize "PDNC.EditAction"}}</label>
+                <div style="display:flex; gap:10px; align-items:center; height: 35px;">
+                    <label style="font-weight:normal; cursor:pointer;">
+                        <input type="radio" name="recurrenceScope" value="series" checked> {{localize "PDNC.EditSeries"}}
+                    </label>
+                    <label style="font-weight:normal; cursor:pointer;">
+                        <input type="radio" name="recurrenceScope" value="instance"> {{localize "PDNC.EditInstance"}}
+                    </label>
+                </div>
+            </div>
+            {{/if}}
         </div>
+
+        <div class="pdnc-form-group-row">
+            <div class="pdnc-form-group">
+                <label><i class="fas fa-sync-alt"></i> {{localize "PDNC.Recurring"}}</label>
+                <div class="pdnc-select-wrapper">
+                    <select name="recurring">
+                        <option value="none" {{#if (eq recurring 'none')}}selected{{/if}}>{{localize "PDNC.Recurs.none"}}</option>
+                        <option value="daily" {{#if (eq recurring 'daily')}}selected{{/if}}>{{localize "PDNC.Recurs.daily"}}</option>
+                        <option value="weekly" {{#if (eq recurring 'weekly')}}selected{{/if}}>{{localize "PDNC.Recurs.weekly"}}</option>
+                        <option value="monthly" {{#if (eq recurring 'monthly')}}selected{{/if}}>{{localize "PDNC.Recurs.monthly"}}</option>
+                        <option value="yearly" {{#if (eq recurring 'yearly')}}selected{{/if}}>{{localize "PDNC.Recurs.yearly"}}</option>
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+            <div class="pdnc-form-group">
+                <label><i class="fas fa-bell"></i> {{localize "PDNC.ReminderDays"}}</label>
+                <input type="number" name="reminder" value="{{reminder}}" min="0" placeholder="0">
+            </div>
+        </div>
+
+        <!-- Post to Chat Option (Only for new events) -->
+        {{#unless isEditing}}
+        <div class="pdnc-form-group-row">
+            <div class="pdnc-form-group-checkbox">
+                <input type="checkbox" name="postToChat" id="postToChat" {{#if postToChat}}checked{{/if}}>
+                <label for="postToChat">{{localize "PDNC.PostToChat"}}</label>
+            </div>
+        </div>
+        {{/unless}}
     </div>
 
     <footer class="pdnc-editor-footer">

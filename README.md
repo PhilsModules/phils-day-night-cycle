@@ -5,7 +5,7 @@
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
 ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-3.1.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
+[![Version](https://img.shields.io/badge/Version-3.2.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
 [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>

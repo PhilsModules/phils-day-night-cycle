@@ -1,5 +1,30 @@
 # Update Log
 
+## 3.2.0 - Calendar Power Update
+
+**🎉 MAJOR FEATURE: Advanced Calendar Events!**
+
+It is finally here! A massive update to the Calendar logic, making it a fully featured campaign management tool.
+
+- **📅 Recurring Series Events:** You can now create events that repeat daily, weekly, monthly, or yearly!
+  - **Smart Deletion:** When deleting a series, you can choose to delete "Only this instance", "This and following", or "The entire series".
+  - **Exceptions:** Moving or modifying a single instance of a series correctly creates an exception while keeping the rest of the series intact.
+- **🔔 Reminder System:** Set reminders (in days) for your events!
+  - **Automatic Notifications:** When a reminder is due, a chat card is automatically posted for the GM.
+- **💬 Enhanced Chat Cards:**
+  - **Interactive Links:** Chat cards for Events and Reminders now contain **clickable buttons** that take you directly to the specific day in the calendar.
+  - **Rich Icons:** Events and Reminders have distinct icons for quick visual identification.
+- **🗑️ Logic Overhaul:**
+  - **Ghost Busting:** Fixed a critical bug where deleted events would sometimes reappear ("Zombie Events").
+  - **Duplicate Cleanup:** Implemented aggressive logic to clean up duplicate events that might have accumulated from previous bugs.
+- **🎨 UI Polish:**
+  - **Grid Header:** The calendar header layout is now rock-solid and doesn't jump around when months change.
+  - **Styling:** Improved button styles and interaction feedback throughout the calendar.
+
+## 3.1.1
+
+- Manifest cleanup and normalization.
+
 ## 3.1.0 - Visual Overhaul & True Randomness
 
 **Visuals & Engine:**

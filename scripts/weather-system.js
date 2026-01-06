@@ -171,7 +171,14 @@ export class WeatherSystem {
      * Does NOT save to settings or post to chat. Returns data only.
      */
     static generateWeather() {
-        const currentWorldTime = game.time.worldTime;
+        let currentWorldTime = game.time.worldTime;
+        
+        // Apply Offsets
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        currentWorldTime += (offsetMinutes * 60);
+        currentWorldTime += (offsetDays * 86400);
+
         const calendar = new CalendarSystem();
         const dateData = calendar.getDate(currentWorldTime);
         const climate = this.getCurrentClimate();
@@ -231,7 +238,14 @@ export class WeatherSystem {
      * @param {Object} weatherStore 
      */
     static async applyWeather(weatherStore) {
-        const currentWorldTime = game.time.worldTime;
+        let currentWorldTime = game.time.worldTime;
+
+        // Apply Offsets
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        currentWorldTime += (offsetMinutes * 60);
+        currentWorldTime += (offsetDays * 86400);
+
         const calendar = new CalendarSystem();
         const dateData = calendar.getDate(currentWorldTime);
         const todayId = `${dateData.year}-${dateData.month}-${dateData.day}`;
@@ -289,7 +303,20 @@ export class WeatherSystem {
 
             if (!events[dateKey]) events[dateKey] = [];
             
-            const reportTitle = game.i18n.localize("PDNC.WeatherReport");
+            // Calculate formatted time string (e.g. "12:30")
+            const calendar = new CalendarSystem();
+            const timeData = calendar.getDate(game.time.worldTime); // Actually needs basic math if getDate doesn't give time
+            // Re-use main app helpers or simple calculation
+            const dayLength = 86400;
+            const currentSeconds = game.time.worldTime % dayLength;
+            const hours = Math.floor(currentSeconds / 3600);
+            const minutes = Math.floor((currentSeconds % 3600) / 60);
+            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+            const baseTitle = game.i18n.localize("PDNC.WeatherReport");
+            const reportTitle = `${baseTitle} (${timeString})`;
+            
+            // Look for event with THIS specific time-stamped title
             const existingIndex = events[dateKey].findIndex(e => e.title === reportTitle);
 
             const weatherContent = `${weatherStore.description}\n${weatherStore.seasonName} | ${weatherStore.climateName}\nTemp: ${weatherStore.tempMin}°C — ${weatherStore.tempMax}°C`;
@@ -297,7 +324,7 @@ export class WeatherSystem {
             const eventData = {
                 title: reportTitle,
                 description: weatherContent,
-                type: "event", // Public
+                type: "weather", 
                 author: game.user.id,
                 timestamp: Date.now()
             };
@@ -319,7 +346,14 @@ export class WeatherSystem {
      * @returns {string}
      */
     static getTodayId() {
-        const currentWorldTime = game.time.worldTime;
+        let currentWorldTime = game.time.worldTime;
+        
+        // Apply Offsets
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        currentWorldTime += (offsetMinutes * 60);
+        currentWorldTime += (offsetDays * 86400);
+
         const calendar = new CalendarSystem();
         const dateData = calendar.getDate(currentWorldTime);
         return `${dateData.year}-${dateData.month}-${dateData.day}`;
@@ -332,7 +366,21 @@ export class WeatherSystem {
     static checkForNewDay() {
         const todayId = this.getTodayId();
         const lastGenId = game.settings.get(MODULE_ID, "lastWeatherDateId");
-        return todayId !== lastGenId;
+        
+        if (todayId === lastGenId) return false;
+
+        const parse = (id) => {
+            if (!id) return 0;
+            const parts = id.split('-');
+            if (parts.length < 3) return 0;
+            const [y, m, d] = parts.map(Number);
+            return (y * 10000) + (m * 100) + d;
+        };
+
+        const todayVal = parse(todayId);
+        const lastVal = parse(lastGenId);
+
+        return todayVal > lastVal;
     }
 
     /**

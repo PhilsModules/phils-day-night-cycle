@@ -1,7 +1,7 @@
 {
     "id": "phils-day-night-cycle",
-    "title": "Phil's Day/Night Cycle",
-    "version": "3.1.0",
+    "title": "Phils Day/Night Cycle",
+    "version": "3.2.0",
     "compatibility": {
         "minimum": "12",
         "verified": "13"
@@ -9,7 +9,8 @@
     "authors": [
         {
             "name": "Phil",
-            "flags": {}
+            "url": "https://github.com/PhilsModules",
+            "discord": "._.phil"
         }
     ],
     "languages": [

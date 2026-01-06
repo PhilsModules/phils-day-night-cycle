@@ -393,11 +393,44 @@
 }
 
 .pdnc-calendar-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 32px 1fr 32px 32px;
   align-items: center;
+  gap: 5px;
   margin-bottom: 10px;
   text-align: center;
+}
+
+.pdnc-calendar-header button {
+  background: transparent;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: #c5a059;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 30px;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.pdnc-calendar-header button:hover {
+  background: rgba(197, 160, 89, 0.1);
+  border-color: #c5a059;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-date-display-wrapper {
+  justify-self: center;
+  /* Ensure it doesn't expand unexpectedly */
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
 .pdnc-calendar-title h2 {
@@ -477,6 +510,11 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
+  background: #fff;
+  border: 1px solid #888;
+}
+
+.pdnc-event-dot.weather {
   background: #3498db;
   border: 1px solid #fff;
 }
@@ -582,12 +620,7 @@
   box-shadow: 0 0 5px #c5a059;
 }
 
-.pdnc-date-display-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
+/* .pdnc-date-display-wrapper css moved to header section for consolidation */
 
 .pdnc-date-title {
   margin: 0;
@@ -793,8 +826,11 @@
   text-shadow: 0 0 5px #fff;
 }
 
+
 .pdnc-event-editor-window form {
-  height: 100%;
+  /* height: 100%; removed to prevent collapse if container is auto */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navigation Window */
@@ -1241,3 +1277,37 @@
     to { transform: rotate(360deg); }
 }
 
+/* --- Chat Card Links --- */
+.pdnc-chat-card a.pdnc-event-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+    text-decoration: none;
+    color: #c5a059;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-left: 5px;
+}
+
+.pdnc-chat-card a.pdnc-event-link:hover {
+    background: rgba(197, 160, 89, 0.3);
+    border-color: #c5a059;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+    transform: translateY(-1px);
+}
+
+.pdnc-chat-card a.pdnc-event-link i {
+    font-size: 0.9em;
+}
+
+.pdnc-chat-card h3 {
+    border-bottom: 2px solid #555;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    color: #c5a059;
+}

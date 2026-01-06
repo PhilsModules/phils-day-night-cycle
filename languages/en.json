@@ -126,6 +126,7 @@
         "Visibility": "Visibility",
         "TypeEvent": "Public Event",
         "TypeGM": "GM Note",
+        "TypeWeather": "Weather Report",
         "TypePlayer": "Party Note",
         "EmptyDay": "The pages of history are blank for this day.",
         "Phases": {
@@ -140,6 +141,24 @@
             "Midnight": "Midnight",
             "Night": "Night"
         },
+        "Recurring": "Recurring",
+        "Recurs": {
+            "none": "None",
+            "daily": "Daily",
+            "weekly": "Weekly",
+            "monthly": "Monthly",
+            "yearly": "Yearly"
+        },
+        "EditAction": "Edit Action",
+        "EditSeries": "Edit Series",
+        "DeleteSeries": "Delete Series",
+        "EditInstance": "Edit Only This Date",
+        "EditFuture": "Delete This and Following",
+        "DeleteRecurringPrompt": "Do you want to delete only this occurrence, this and following, or the entire series?",
+        "ReminderDays": "Reminder (Days)",
+        "PostToChat": "Post to Chat",
+        "EventCreated": "New Calendar Event",
+        "Date": "Date",
         "Month": "Month",
         "Year": "Year",
         "TimeMachineHelp": "Teleports the entire world to the selected date. Interact with care!",

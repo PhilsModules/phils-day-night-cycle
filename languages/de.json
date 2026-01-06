@@ -126,6 +126,7 @@
         "Visibility": "Sichtbarkeit",
         "TypeEvent": "Öffentliches Ereignis",
         "TypeGM": "GM Notiz",
+        "TypeWeather": "Wetterbericht",
         "TypePlayer": "Gruppen Notiz",
         "EmptyDay": "Die Seiten der Geschichte sind für diesen Tag leer.",
         "Phases": {
@@ -140,6 +141,24 @@
             "Midnight": "Mitternacht",
             "Night": "Nacht"
         },
+        "Recurring": "Wiederholung",
+        "Recurs": {
+            "none": "Keine",
+            "daily": "Täglich",
+            "weekly": "Wöchentlich",
+            "monthly": "Monatlich",
+            "yearly": "Jährlich"
+        },
+        "EditAction": "Bearbeiten",
+        "EditSeries": "Serie Bearbeiten",
+        "DeleteSeries": "Serie löschen",
+        "EditInstance": "Nur diesen Tag",
+        "EditFuture": "Diesen und folgende",
+        "DeleteRecurringPrompt": "Möchten Sie nur diesen Termin, diesen und folgende, oder die gesamte Serie löschen?",
+        "ReminderDays": "Erinnerung (Tage)",
+        "PostToChat": "In Chat posten",
+        "EventCreated": "Neuer Kalendertermin",
+        "Date": "Datum",
         "Month": "Monat",
         "Year": "Jahr",
         "TimeMachineHelp": "Teleportiert die gesamte Welt zum gewählten Datum. Mit Vorsicht benutzen!",

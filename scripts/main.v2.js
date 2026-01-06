@@ -36,6 +36,33 @@ class PhilsDayNightCycle {
     init() {
         console.log(`${MODULE_ID} | Initializing...`);
 
+        // Global Listener for Calendar Links in Chat
+        $('body').on('click', '.pdnc-event-link', async (e) => {
+            e.preventDefault();
+            const dateKey = $(e.currentTarget).data('date');
+            
+            // Ensure app is open
+            let app = foundry.applications.instances.get("phils-calendar-app");
+            if (!app) {
+                app = new PhilsCalendarApp();
+            }
+
+            if (dateKey) {
+                const [y, m, d] = dateKey.split('-').map(Number);
+                app.viewYear = y;
+                app.viewMonth = m;
+
+                // Render the main calendar first
+                await app.render({ force: true });
+                
+                // Then Open the Day Viewer (Simulate Click)
+                // Pass a mock target with dataset
+                app._onDayClick(null, { dataset: { datekey: dateKey } });
+            } else {
+                 app.render({ force: true });
+            }
+        });
+
         // Register Templates
         const templatePaths = [
             `modules/${MODULE_ID}/templates/weather-config-form.hbs`,
@@ -306,6 +333,15 @@ class PhilsDayNightCycle {
                 fx: null, // Weather FX type
                 generated: false
             }
+
+        });
+
+        game.settings.register(MODULE_ID, "lastNotificationState", {
+            name: "Last Notification State",
+            scope: "world",
+            config: false,
+            type: Object,
+            default: {}
         });
 
         game.settings.register(MODULE_ID, "autoLighting", {
@@ -319,7 +355,9 @@ class PhilsDayNightCycle {
 
         Hooks.on("updateWorldTime", (worldTime, dt) => {
              this.updateClock();
-             if (game.user.isGM) {
+             if (game.user.isGM && dt > 0) {
+                 this.checkCalendarNotifications();
+
                  if (game.settings.get(MODULE_ID, "enableWeather")) {
                      // Check for new day using WeatherSystem logic
                      // If new day, we want to PROMPT the GM instead of auto-applying.
@@ -945,6 +983,106 @@ class PhilsDayNightCycle {
                 this.tempText.textContent = "";
             }
         }
+    }
+
+    async checkCalendarNotifications() {
+        if (!game.user.isGM) return;
+
+        // Apply offsets to get "Calendar Time"
+        const worldTime = game.time.worldTime;
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const adjustedTime = worldTime + (offsetDays * 86400) + (offsetMinutes * 60);
+
+        const currentDate = this.calendar.getDate(adjustedTime);
+        const todayId = `${currentDate.year}-${currentDate.month}-${currentDate.day}`;
+
+        // Check if already notified up to this date
+        let lastState = game.settings.get(MODULE_ID, "lastNotificationState") || {};
+        if (typeof lastState !== 'object') lastState = {};
+
+        // Calculate sortable date values (YYYYMMDD)
+        const currentVal = (currentDate.year * 10000) + (currentDate.month * 100) + currentDate.day;
+        const lastVal = (lastState.year * 10000) + (lastState.month * 100) + lastState.day || 0;
+
+        // Valid Check: If we are in the past or same day as last notification, SKIP.
+        // This prevents re-spamming when time traveling backwards and forwards.
+        if (currentVal <= lastVal) return;
+
+        // Perform Checks
+        const savedEvents = await CalendarDB.getEvents();
+        const contentEntries = [];
+
+        // Iterate all events
+        for (const [key, eventList] of Object.entries(savedEvents)) {
+            for (const event of eventList) {
+                // 1. Check for TODAY occurrence
+                const [srcY, srcM, srcD] = key.split('-').map(Number);
+                
+                let isToday = false;
+                if (!event.recurring || event.recurring === 'none') {
+                    if (srcY === currentDate.year && srcM === currentDate.month && srcD === currentDate.day) isToday = true;
+                } else {
+                    if (this.calendar.isRecurringMatch(event, srcY, srcM, srcD, currentDate.year, currentDate.month, currentDate.day)) {
+                        isToday = true;
+                    }
+                }
+
+                if (isToday) {
+                     // Add clickable link class and data attribute
+                     contentEntries.push(`<p><strong>${game.i18n.localize("PDNC.EventCreated")}:</strong> <a class="pdnc-event-link" data-date="${todayId}"><i class="fas fa-calendar-check"></i> ${event.title}</a></p>`);
+                }
+
+                // 2. Check for REMINDERS
+                const reminderDays = Number(event.reminder) || 0;
+                if (reminderDays > 0) {
+                    const targetFutureTime = adjustedTime + (reminderDays * 86400);
+                    const targetFutureDate = this.calendar.getDate(targetFutureTime);
+                    
+                    let isUpcoming = false;
+                    
+                    if (!event.recurring || event.recurring === 'none') {
+                        if (srcY === targetFutureDate.year && srcM === targetFutureDate.month && srcD === targetFutureDate.day) {
+                             isUpcoming = true;
+                        }
+                    } else {
+                         if (this.calendar.isRecurringMatch(event, srcY, srcM, srcD, targetFutureDate.year, targetFutureDate.month, targetFutureDate.day)) {
+                             isUpcoming = true;
+                         }
+                    }
+
+                    if (isUpcoming) {
+                         const futureDateId = `${targetFutureDate.year}-${targetFutureDate.month}-${targetFutureDate.day}`;
+                         contentEntries.push(`<p><strong>${game.i18n.localize("PDNC.ReminderDays")} (${reminderDays} ${game.i18n.localize("PDNC.TimeDay")}):</strong> <a class="pdnc-event-link" data-date="${futureDateId}"><i class="fas fa-calendar-alt"></i> ${event.title}</a></p>`);
+                    }
+                }
+            }
+        }
+
+        // Post Chat Message if entries exist
+        if (contentEntries.length > 0) {
+            const dateStr = `${currentDate.day}. ${currentDate.monthName} ${currentDate.year}`;
+            const content = `
+                <div class="pdnc-chat-card">
+                    <h3>${game.i18n.localize("PDNC.CalendarTitle")} - ${dateStr}</h3>
+                    ${contentEntries.join('')}
+                </div>
+            `;
+            
+            ChatMessage.create({
+                user: game.user.id,
+                content: content,
+                speaker: ChatMessage.getSpeaker({ alias: "Calendar" })
+            });
+        }
+
+        // Update State (Store full date for comparison)
+        await game.settings.set(MODULE_ID, "lastNotificationState", { 
+            dateId: todayId,
+            year: currentDate.year,
+            month: currentDate.month,
+            day: currentDate.day
+        });
     }
 }
 
