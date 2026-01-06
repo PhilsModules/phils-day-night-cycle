@@ -215,13 +215,8 @@ export class WeatherEffectsRegistry {
                         blendMode: eff.config.blendMode
                     };
 
-                    // Map Invalid Types to Core Types (rain, snow)
-                    // Core only supports 'rain' and 'snow` reliably.
-                    // BUT: We now verify if our Custom Engine supports it.
-
-                    // GLOBAL OVERRIDE: Force all 'rain' and 'snow' to use Custom Engine
-                    // This ensures complex effects like 'heavy_rain' (type: rain) or 'blizzard' (type: snow) 
-                    // are also caught and rendered via ParticleEngine, bypassing Foundry defaults.
+                    // Global Override: Redirect 'rain' and 'snow' to Custom Particle Engine
+                    // Ensures complex effects (e.g., 'heavy_rain', 'blizzard') are rendered via ParticleEngine instead of Foundry defaults.
                     if (cfg.type === "rain") cfg.type = "custom_rain";
                     if (cfg.type === "snow") cfg.type = "custom_snow";
                     if (cfg.type === "clouds") cfg.type = "cloud"; // Force singular
@@ -239,10 +234,7 @@ export class WeatherEffectsRegistry {
                             case "smoke":
                             case "dust_devils":
                             case "clouds":
-                                // If it is "Rising Steam" (clouds + dir 270), we want to pass it through to our engine?
-                                // Actually, Core clouds are okayish, but we have no texture for them yet? 
-                                // Let's map these to 'clouds' (Core) or 'snow' (Core fallback).
-                                // Core handles 'clouds' by drawing circles usually or using an image if provided.
+                                // Map miscellaneous types to 'cloud' for consistent handling
                                 cfg.type = "cloud"; 
                                 break;
                             case "rain":
@@ -490,7 +482,7 @@ export class WeatherEffectsRegistry {
             id: "autumn_leaves",
             label: "25. Autumn Leaves",
             effects: [
-                { type: "particles", config: { type: "leaf", density: 0.1, speed: 1.5, scale: 0.8, tint: [0.8, 0.4, 0.1] } } // Orange leaves
+                { type: "particles", config: { type: "leaf", density: 0.1, speed: 1.8, scale: 0.2, tint: [1.0, 1.0, 1.0] } } // Natural leaves (smaller, faster)
             ]
         });
 
@@ -498,7 +490,7 @@ export class WeatherEffectsRegistry {
             id: "cherry_blossom",
             label: "26. Cherry Blossom",
             effects: [
-                { type: "particles", config: { type: "petal", density: 0.15, speed: 1.0, scale: 0.6, tint: [1.0, 0.7, 0.8] } } // Pink petals
+                { type: "particles", config: { type: "petal", density: 0.15, speed: 1.3, scale: 0.2, tint: [1.0, 1.0, 1.0] } } // Natural petals (smaller, faster)
             ]
         });
 

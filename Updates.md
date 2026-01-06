@@ -1,6 +1,15 @@
 # Update Log
 
-## 3.0.1 - Climate Data Refinement
+## 3.1.0 - Visual Overhaul & True Randomness
+
+**Visuals & Engine:**
+
+- **High-Quality Assets:** Replaced all generic leaf and petal particles with **20+ high-resolution, natural textures**.
+- **True Randomness Engine:** Implemented a new "Re-Roll on Wrap" logic.
+  - Unlike standard particle engines where a particle keeps its texture forever, our particles now **pick a new random texture every time they wrap around the screen**.
+  - This ensures infinite variety even with low particle counts (no more "same leaf" syndromes!).
+- **Aesthetic Tuning:** Fine-tuned the scale (`0.2`) and speed of nature effects for a more realistic, less intrusive look.
+- **Code Quality:** Massive cleanup of specialized comments to strictly professional standards.
 
 **Immersive Fixes:**
 

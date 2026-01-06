@@ -32,7 +32,7 @@ export class ParticleEngine extends PIXI.Container {
         let targetAssets = [];
 
         if (this.config.type === "leaf") {
-            targetAssets = ["leaf_ahorn", "leaf_buche", "leaf_eiche"];
+            targetAssets = ["leaf"];
         } else if (this.config.type === "insect") {
             targetAssets = ["ins"]; // New Insect Assets (ins001-ins011)
         } else if (this.config.type === "bird") {
@@ -59,9 +59,9 @@ export class ParticleEngine extends PIXI.Container {
         const promises = [];
         for (const assetName of targetAssets) {
             
-            // --- NEW ASSETS (3-Digit, No Underscore) ---
+            // --- NEW ASSETS (Simple Numbering) ---
             if (assetName === "ins") {
-                for (let i = 1; i <= 11; i++) {
+                 for (let i = 1; i <= 11; i++) {
                     const num = i.toString().padStart(3, '0'); // 001..011
                     const path = `modules/phils-day-night-cycle/assets/particles/${assetName}${num}.webp`;
                     promises.push(this.loadTexture(path));
@@ -72,6 +72,18 @@ export class ParticleEngine extends PIXI.Container {
                     const path = `modules/phils-day-night-cycle/assets/particles/${assetName}${num}.webp`;
                     promises.push(this.loadTexture(path));
                 }
+            } else if (assetName === "leaf") {
+                 // New Leaf Assets: leaf1.webp ... leaf10.webp
+                 for (let i = 1; i <= 10; i++) {
+                     const path = `modules/phils-day-night-cycle/assets/particles/leaf${i}.webp`;
+                     promises.push(this.loadTexture(path));
+                 }
+            } else if (assetName === "petal") {
+                 // New Petal Assets: petal1.webp ... petal11.webp
+                 for (let i = 1; i <= 11; i++) {
+                     const path = `modules/phils-day-night-cycle/assets/particles/petal${i}.webp`;
+                     promises.push(this.loadTexture(path));
+                 }
             }
             
             // --- LEGACY ASSETS ---
@@ -87,7 +99,7 @@ export class ParticleEngine extends PIXI.Container {
                     promises.push(this.loadTexture(path));
                 }
             } else {
-                // Standard 10 variants (leaf_ahorn_01, etc.)
+                // Standard 10 variants pattern (Legacy Fallback)
                 for (let i = 1; i <= 10; i++) {
                     const num = i.toString().padStart(2, '0');
                     const path = `modules/phils-day-night-cycle/assets/particles/${assetName}_${num}.webp`;
@@ -112,7 +124,6 @@ export class ParticleEngine extends PIXI.Container {
     }
 
     loadTexture(path) {
-        // console.log("PDNC | Loading texture:", path); 
         return new Promise((resolve) => {
             const texture = PIXI.Texture.from(path);
             if (texture.baseTexture.valid) {
@@ -153,6 +164,13 @@ export class ParticleEngine extends PIXI.Container {
         // especially for Preview Window (small area)
         if (baseCount >= 1 && count < 1) {
             count = 1;
+        }
+
+        // PREVIEW WINDOW BOOST:
+        // If we are rendering to a specific container (Preview), ensure we show enough particles 
+        // to demonstrate variety (at least 4-5), unless the effect itself is extremely sparse.
+        if (this.targetContainer && count < 8 && baseCount > 8) {
+            count = 4;
         }
         
         return count;
@@ -254,6 +272,9 @@ export class ParticleEngine extends PIXI.Container {
     }
 
     resetParticle(p, initial = false) {
+        // Randomize texture on reset to ensure variety, especially for low counts
+        p.texture = this.getRandomTexture();
+
         const bounds = this.getBounds();
 
         // Position
@@ -506,6 +527,9 @@ export class ParticleEngine extends PIXI.Container {
                  if (this.config.lifespan) {
                      this.resetParticle(p, false); // Start fresh cycle
                  } else {
+                     // Update texture on respawn for variety
+                     p.texture = this.getRandomTexture();
+
                      const dir = (this.config.direction ?? 90);
                      
                      // ----------------------------------------------------
