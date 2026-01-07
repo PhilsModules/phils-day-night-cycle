@@ -33,6 +33,14 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 <br>
 
+<div align="center">
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/cover.png" alt="Preview" width="800">
+</div>
+
+<br>
+
+<br>
+
 # <img src="https://flagcdn.com/48x36/gb.png" width="28" height="21" alt="EN"> English Instructions
 
 **An elegant clock widget with drag and drop functionality for Foundry VTT.**
@@ -218,3 +226,4 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
