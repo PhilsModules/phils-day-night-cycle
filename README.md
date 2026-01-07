@@ -90,9 +90,11 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich aut
 2.  Gehe zum Reiter **Addon Modules**.
 3.  Klicke auf **Install Module**.
 4.  Füge die folgende **Manifest URL** unten ein:
-    ```text
-    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
-    ```
+
+```
+    https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json    
+```
+   
 5.  Klicke auf **Install**.
 
 ## 📖 Bedienung
@@ -244,3 +246,4 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
