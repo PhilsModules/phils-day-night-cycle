@@ -7,7 +7,7 @@
 
 <br>
 
-**Bringe Leben in deine Welt mit einem wunderschönen und immersiven Uhr Widget.**
+**Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget.**
 <br>
 _Bring your world to life with a beautiful, immersive clock widget._
 
@@ -19,29 +19,29 @@ _Bring your world to life with a beautiful, immersive clock widget._
 
 <br>
 
-## 📅 v3.2.0 Update für die Kalender Macht
+## 📅 v3.2.0 Ein mächtiges Kalender Update
 
-Das **Kalender System** hat ein massives Upgrade erhalten und ist nun ein mächtiges Werkzeug für jede Kampagne.
+Das **Kalendersystem** wurde massiv erweitert und ist nun ein kraftvolles Werkzeug für jede Kampagne.
 
-* **📅 Wiederkehrende Serien Ereignisse:** Erstelle Events die sich täglich, wöchentlich, monatlich oder jährlich wiederholen.
-* **🧠 Intelligentes Löschen:** Wähle aus ob nur eine einzelne Instanz, dieses und alle zukünftigen Events oder die gesamte Serie gelöscht werden soll.
-* **🔔 Erinnerungen:** Setze Erinnerungen in Tagen mit automatischen Benachrichtigungen im Chat.
-* **💬 Interaktive Chat Karten:** Ein Klick auf den Titel eines Events im Chat springt direkt zum entsprechenden Tag im Kalender.
-* **🛡️ Robust und Poliert:** Zombie Events gehören der Vergangenheit an, Duplikate werden automatisch bereinigt und die Oberfläche ist geschmeidiger denn je.
+* **📅 Wiederkehrende Ereignisse:** Erstelle Termine die sich täglich, wöchentlich, monatlich oder jährlich wiederholen.
+* **🧠 Intelligentes Löschen:** Entscheide selbst ob du nur eine einzelne Instanz, dieses und alle folgenden Events oder die gesamte Reihe entfernen möchtest.
+* **🔔 Erinnerungen:** Lege Erinnerungen in Tagen fest und erhalte automatische Benachrichtigungen direkt im Chat.
+* **💬 Interaktive Chat Karten:** Ein Klick auf den Titel eines Events im Chat bringt dich sofort zum entsprechenden Tag im Kalender.
+* **🛡️ Robust und Poliert:** Fehlerhafte Events gehören der Vergangenheit an, Duplikate werden automatisch bereinigt und die Oberfläche fühlt sich geschmeidiger an als je zuvor.
 
-## 🌦️ v3.0.0 Die massive Wetter Bibliothek
+## 🌦️ v3.0.0 Die umfassende Wetterbibliothek
 
-Die neue **Version 3.0** führt eine komplett überarbeitete Wetter Engine ein mit über **60 Effekten von hoher Qualität**.
-Jeder Effekt wurde manuell angepasst um maximale Immersion zu garantieren.
+Die neue **Version 3.0** führt eine komplett überarbeitete Wetter Engine ein und bietet über **60 Effekte von hoher Qualität**.
+Jeder Effekt wurde von Hand abgestimmt um maximale Immersion zu garantieren.
 
 ### Kategorien der Effekte
 
-* **🌧️ Regen und Wasser:** Von leichtem Nieselregen bis zu gewaltigen Sturzbächen und Stürmen.
-* **❄️ Schnee und Eis:** Leichter Schneefall, Schneestürme, Hagel und magischer Diamantstaub.
-* **☁️ Atmosphäre:** Morgendunst, dichter Nebel, aufsteigender Dampf und gruseliger Geisternebel.
-* **🍂 Natur:** Herbstblätter, Kirschblüten, Glühwürmchen, Pollen und Vögel.
-* **🔮 Arkanes:** Blutregen, Säureregen, Aschewelt, Heiliges Licht und Arkane Stürme.
-* **🎥 SciFi und Filter:** Alter Film, Digitaler Regen, Glitch Funken und Chromatische Aberration.
+* **🌧️ Regen und Wasser:** Von leichtem Nieselregen bis hin zu gewaltigen Sturzbächen und Unwettern.
+* **❄️ Schnee und Eis:** Sanfter Schneefall, wilde Schneestürme, Hagel und magischer Diamantstaub.
+* **☁️ Atmosphäre:** Morgendunst, dichter Nebel, aufsteigender Dampf und unheimlicher Geisternebel.
+* **🍂 Natur:** Herbstblätter, Kirschblüten, Glühwürmchen, Pollen und Vogelschwärme.
+* **🔮 Arkanes:** Blutregen, Säureregen, Aschewelten, Heiliges Licht und Arkane Stürme.
+* **🎥 SciFi und Filter:** Alter Film Look, Digitaler Regen, Glitch Funken und Chromatische Aberration.
 
 👉 **[Hier geht es zur vollen Liste der Wetter Effekte](fxeffects.md)**
 
@@ -50,8 +50,8 @@ Jeder Effekt wurde manuell angepasst um maximale Immersion zu garantieren.
 Klicke auf die **Lupe** an der Uhr um das Fenster für die Wetter Vorschau zu öffnen.
 
 * **Global oder Fenstermodus:** Schalte um ob der Wettereffekt auf die gesamte Szene angewendet wird oder nur im Vorschaufenster zu sehen ist.
-* **Pause oder Einfrieren:** Pausiere die Wiedergabe des Effekts um Details zu prüfen oder einen statischen Hintergrund zu behalten.
-* **Größe anpassbar:** Ziehe an den Ecken um die Vorschau in der Größe zu verändern.
+* **Pause oder Einfrieren:** Pausiere die Wiedergabe des Effekts um Details zu prüfen oder einen statischen Hintergrund zu nutzen.
+* **Größe anpassbar:** Ziehe an den Ecken um das Vorschaufenster in der Größe zu verändern.
 
 ---
 
@@ -67,41 +67,41 @@ Klicke auf die **Lupe** an der Uhr um das Fenster für die Wetter Vorschau zu ö
 
 # <img src="https://flagcdn.com/48x36/de.png" width="28" height="21" alt="DE"> Deutsche Anleitung
 
-**Eine elegante Uhr via Drag and Drop für Foundry VTT.**
+**Eine elegante Uhr per Drag and Drop für Foundry VTT.**
 
-Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Foundry Weltzeit synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
+Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
 
 ## 🚀 Funktionen
 
 * 🌦️ **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
-* 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
-* 💡 **Smarte Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
+* 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch passende Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
+* 💡 **Intelligente Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
 * 🎨 **Wunderschönes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
-* 🖼️ **Benutzerdefinierte Bilder:** Lade dein eigenes Bild für das Zifferblatt hoch.
-* 🖱️ **Drag and Drop:** Platziere die Uhr überall auf deinem Bildschirm.
+* 🖼️ **Benutzerdefinierte Bilder:** Lade ganz einfach dein eigenes Bild für das Zifferblatt hoch.
+* 🖱️ **Drag and Drop:** Platziere die Uhr frei an jeder beliebigen Stelle auf deinem Bildschirm.
 * 📅 **Integration des Kalenders:** Ein Klick öffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
-* 📝 **Notizen und Events:** Erstelle öffentliche Ereignisse sowie Notizen für den GM oder die Gruppe.
+* 📝 **Notizen und Events:** Erstelle öffentliche Ereignisse sowie Notizen für den GM oder die ganze Gruppe.
 * 🕰️ **Zeitreise:** Nutze die Zeitmaschine um zu jedem beliebigen Datum zu springen (nur für den GM).
-* 🌍 **Unterstützung diverser Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e sowie den Gregorianischen Kalender.
+* 🌍 **Unterstützung vieler Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e sowie den Gregorianischen Kalender.
 
 ## 📦 Installation
 
-1.  Öffne Foundry VTT.
-2.  Gehe zum Reiter **Add-on Modules**.
-3.  Klicke auf **Install Module**.
-4.  Füge die folgende **Manifest URL** unten ein:
-    ```text
-    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
-    ```
-5.  Klicke auf **Install**.
+1.  Öffne Foundry VTT.
+2.  Gehe zum Reiter **Addon Modules**.
+3.  Klicke auf **Install Module**.
+4.  Füge die folgende **Manifest URL** unten ein:
+    ```text
+    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
+    ```
+5.  Klicke auf **Install**.
 
 ## 📖 Bedienung
 
 ### 1. Die Uhr
 
-Die Uhr ist standardmäßig unten rechts sichtbar.
+Du findest die Uhr standardmäßig unten rechts.
 
-* **Verschieben:** Ziehe sie einfach mit der Maus an den Rand.
+* **Verschieben:** Ziehe sie einfach mit der Maus an den gewünschten Rand.
 * **Ausblenden:** Klicke den kleinen Button unter der Uhr um das Zifferblatt ein oder auszuklappen.
 * **Kalender öffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
@@ -109,7 +109,7 @@ Die Uhr ist standardmäßig unten rechts sichtbar.
 
 Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 
-* **Rechtsklick auf einen Tag:** Öffnet das Menü um einen Termin hinzuzufügen.
+* **Rechtsklick auf einen Tag:** Öffnet das Menü um einen neuen Termin zu erstellen.
 * **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
 
 ### 3. Einstellungen
@@ -117,13 +117,13 @@ Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 In den Moduleinstellungen kannst du diverse Dinge anpassen.
 
 * Das Kalendersystem ändern (Golarion, Harptos und weitere).
-* Das Hintergrundbild der Uhr ändern.
-* Zeit und Datumsversatz einstellen.
-* **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Licht System falls du nur die Uhr und den Kalender nutzen möchtest.
+* Das Hintergrundbild der Uhr austauschen.
+* Versatz für Zeit und Datum einstellen.
+* **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
 
 ### 4. Wettersystem und Klimazonen
 
-Das Modul simuliert automatisch das Wetter.
+Das Modul simuliert das Wetter vollautomatisch.
 
 **Konfiguration des Wetters**
 
@@ -132,47 +132,47 @@ Das Modul simuliert automatisch das Wetter.
 
 **Erstellung eigener Klimazonen**
 
-1.  Öffne die **Moduleinstellungen**.
-2.  Klicke auf den Button **Manage Custom Climates**.
-3.  Erstelle eine neue Klimazone wie zum Beispiel Wüste oder Eiswelt.
-4.  Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Einträge für das Wetter hinzu.
-    * **Text:** Die Beschreibung die im Chat gepostet wird (zum Beispiel "Ein sandiger Wind weht").
-    * **Temp:** Der Temperaturbereich (zum Beispiel "30 bis 40").
-    * **FX:** Der visuelle Effekt (zum Beispiel "FOG" für Sandsturm).
-5.  Speichere deine Klimazone.
-6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
+1.  Öffne die **Moduleinstellungen**.
+2.  Klicke auf den Button **Manage Custom Climates**.
+3.  Erstelle eine neue Klimazone wie zum Beispiel Wüste oder Eiswelt.
+4.  Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Einträge für das Wetter hinzu.
+    * **Text:** Die Beschreibung die im Chat gepostet wird (zum Beispiel "Ein sandiger Wind weht").
+    * **Temp:** Der Temperaturbereich (zum Beispiel "30 bis 40").
+    * **FX:** Der visuelle Effekt (zum Beispiel "FOG" für Sandsturm).
+5.  Speichere deine Klimazone ab.
+6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
 ---
 
 # <img src="https://flagcdn.com/48x36/gb.png" width="28" height="21" alt="EN"> English Instructions
 
-**An elegant drag and drop clock for Foundry VTT.**
+**An elegant clock widget with drag and drop functionality for Foundry VTT.**
 
 Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
 
 ## 🚀 Key Features
 
-* 🌦️ **Full Weather System:** Simulates realistic weather including temp, wind and humidity based on climate zones with over 1200 unique weather descriptions.
+* 🌦️ **Complete Weather System:** Simulates realistic weather including temperature, wind and humidity based on climate zones with over 1200 unique weather descriptions.
 * 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
 * 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
 * 🎨 **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
-* 🖼️ **Custom Images:** Upload your own image for the clock face.
+* 🖼️ **Custom Images:** Upload your own image for the clock face easily.
 * 🖱️ **Drag and Drop:** Place the clock anywhere on your screen.
 * 📅 **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
 * 📝 **Notes and Events:** Create public events, GM notes or party notes.
-* 🕰️ **Time Travel:** Use the Time Machine to jump to any specific date (GM Only).
+* 🕰️ **Time Machine:** Use the Time Machine to jump to any specific date (GM Only).
 * 🌍 **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e and Gregorian calendars.
 
 ## 📦 Installation
 
-1.  Open Foundry VTT.
-2.  Go to the **Add-on Modules** tab.
-3.  Click **Install Module**.
-4.  Paste the following **Manifest URL** into the field:
-    ```text
-    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
-    ```
-5.  Click **Install**.
+1.  Open Foundry VTT.
+2.  Go to the **Addon Modules** tab.
+3.  Click **Install Module**.
+4.  Paste the following **Manifest URL** into the field:
+    ```text
+    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
+    ```
+5.  Click **Install**.
 
 ## 📖 How to Use
 
@@ -211,15 +211,15 @@ The module automatically simulates weather.
 
 **Creating Custom Climate Zones**
 
-1.  Open the **Module Settings**.
-2.  Click the **Manage Custom Climates** button.
-3.  Create a new climate zone such as Desert or Ice World.
-4.  Add weather entries for each season (Spring, Summer, Autumn, Winter).
-    * **Text:** The description posted to chat (example "A sandy wind is blowing").
-    * **Temp:** The temperature range (example "30 to 40").
-    * **FX:** The visual effect (example "FOG" for sandstorms).
-5.  Save your climate zone.
-6.  Select it in the main settings under **Climate Zone**.
+1.  Open the **Module Settings**.
+2.  Click the **Manage Custom Climates** button.
+3.  Create a new climate zone such as Desert or Ice World.
+4.  Add weather entries for each season (Spring, Summer, Autumn, Winter).
+    * **Text:** The description posted to chat (example "A sandy wind is blowing").
+    * **Temp:** The temperature range (example "30 to 40").
+    * **FX:** The visual effect (example "FOG" for sandstorms).
+5.  Save your climate zone.
+6.  Select it in the main settings under **Climate Zone**.
 
 ---
 
@@ -235,12 +235,12 @@ See `LICENSE` file for details.
 <br>
 
 <div align="center">
-    <h2>❤️ Support the Development</h2>
-    <p>If you enjoy this module and want to support open source development for Foundry VTT check out my Patreon.</p>
-    <p>Gefällt dir das Modul? Unterstütze die Weiterentwicklung auf Patreon.</p>
-    <a href="https://www.patreon.com/PhilsModules">
-        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="200" />
-    </a>
-    <br><br>
-    <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
+    <h2>❤️ Support the Development</h2>
+    <p>If you enjoy this module and want to support open source development for Foundry VTT check out my Patreon.</p>
+    <p>Gefällt dir das Modul? Unterstütze die Weiterentwicklung auf Patreon.</p>
+    <a href="https://www.patreon.com/PhilsModules">
+        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="200" />
+    </a>
+    <br><br>
+    <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
