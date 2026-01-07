@@ -2,15 +2,12 @@
 
 # Phil's Day/Night Cycle ☀️🌙
 
-![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen)
-![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green)
-![License](https://img.shields.io/badge/License-GPLv3-blue)
-[![Version](https://img.shields.io/badge/Version-3.2.0-orange)](https://github.com/PhilsModules/phils-day-night-cycle/releases)
-[![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?logo=patreon)](https://www.patreon.com/PhilsModules)
+![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
+[![Version](https://img.shields.io/badge/Version-3.2.0-orange?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
-**Bringe Leben in deine Welt mit einem wunderschönen, immersiven Uhr-Widget.**
+**Bringe Leben in deine Welt mit einem wunderschönen und immersiven Uhr Widget.**
 <br>
 _Bring your world to life with a beautiful, immersive clock widget._
 
@@ -20,70 +17,72 @@ _Bring your world to life with a beautiful, immersive clock widget._
 
 </div>
 
-## 📅 v3.2.0: Calendar Power Update
+<br>
 
-The **Calendar System** has been massively upgraded into a powerful campaign tool!
+## 📅 v3.2.0 Update für die Kalender Macht
 
-- **📅 Recurring Series Events:** Create **Daily, Weekly, Monthly, or Yearly** repeating events.
-- **🧠 Smart Deletion:** Choose to delete a **Single Instance**, **This and Future**, or the **Entire Series**.
-- **🔔 Reminders:** Set reminder offsets (in days) with automatic **Chat Notifications**.
-- **💬 Interactive Chat Cards:** Clicking an event title in chat **jumps directly to that day** in the calendar!
-- **🛡️ Robust & Polished:** "Zombie" events are gone, duplicates are auto-cleaned, and the UI is smoother than ever.
+Das **Kalender System** hat ein massives Upgrade erhalten und ist nun ein mächtiges Werkzeug für jede Kampagne.
 
-## 🌦️ v3.0.0: Massive Weather Library
+* **📅 Wiederkehrende Serien Ereignisse:** Erstelle Events die sich täglich, wöchentlich, monatlich oder jährlich wiederholen.
+* **🧠 Intelligentes Löschen:** Wähle aus ob nur eine einzelne Instanz, dieses und alle zukünftigen Events oder die gesamte Serie gelöscht werden soll.
+* **🔔 Erinnerungen:** Setze Erinnerungen in Tagen mit automatischen Benachrichtigungen im Chat.
+* **💬 Interaktive Chat Karten:** Ein Klick auf den Titel eines Events im Chat springt direkt zum entsprechenden Tag im Kalender.
+* **🛡️ Robust und Poliert:** Zombie Events gehören der Vergangenheit an, Duplikate werden automatisch bereinigt und die Oberfläche ist geschmeidiger denn je.
 
-The new **Version 3.0** introduces a completely overhauled weather engine with over **60+ High-Quality Effects**!
-Each effect has been manually tuned for maximum immersion.
+## 🌦️ v3.0.0 Die massive Wetter Bibliothek
 
-### Effect Categories:
+Die neue **Version 3.0** führt eine komplett überarbeitete Wetter Engine ein mit über **60 Effekten von hoher Qualität**.
+Jeder Effekt wurde manuell angepasst um maximale Immersion zu garantieren.
 
-- **🌧️ Rain & Water:** From light _Drizzle_ to violent _Torrents_ and _Storms_.
-- **❄️ Snow & Ice:** _Light Snow_, _Blizzards_, _Hail_, and magical _Diamond Dust_.
-- **☁️ Atmosphere:** _Morning Mist_, _Thick Fog_, _Rising Steam_, and spooky _Ghost Mist_.
-- **🍂 Nature:** _Autumn Leaves_, _Cherry Blossoms_, _Fireflies_, _Pollen_, and _Birds_.
-- **🔮 Arcane:** _Blood Rain_, _Acid Rain_, _Ash World_, _Holy Light_, and _Arcane Storms_.
-- **🎥 Sci-Fi & Filters:** _Old Film_, _Digital Rain_, _Glitch Sparks_, and _Chromatic Aberration_.
+### Kategorien der Effekte
 
-👉 **[View the Full List of Weather Effects](fxeffects.md)**
+* **🌧️ Regen und Wasser:** Von leichtem Nieselregen bis zu gewaltigen Sturzbächen und Stürmen.
+* **❄️ Schnee und Eis:** Leichter Schneefall, Schneestürme, Hagel und magischer Diamantstaub.
+* **☁️ Atmosphäre:** Morgendunst, dichter Nebel, aufsteigender Dampf und gruseliger Geisternebel.
+* **🍂 Natur:** Herbstblätter, Kirschblüten, Glühwürmchen, Pollen und Vögel.
+* **🔮 Arkanes:** Blutregen, Säureregen, Aschewelt, Heiliges Licht und Arkane Stürme.
+* **🎥 SciFi und Filter:** Alter Film, Digitaler Regen, Glitch Funken und Chromatische Aberration.
 
-### 🔍 Live Weather Preview
+👉 **[Hier geht es zur vollen Liste der Wetter Effekte](fxeffects.md)**
 
-Click the **Magnifying Glass** on the clock to open the Weather Preview window.
+### 🔍 Live Wetter Vorschau
 
-- **Global / Window Mode:** Toggle whether the weather effect applies to the _entire scene_ or only shows inside the _preview window_.
-- **Pause / Freeze:** Pause the effect playback to inspect details or keep a static backdrop.
-- **Resizeable:** Drag the corners to resize the preview.
+Klicke auf die **Lupe** an der Uhr um das Fenster für die Wetter Vorschau zu öffnen.
+
+* **Global oder Fenstermodus:** Schalte um ob der Wettereffekt auf die gesamte Szene angewendet wird oder nur im Vorschaufenster zu sehen ist.
+* **Pause oder Einfrieren:** Pausiere die Wiedergabe des Effekts um Details zu prüfen oder einen statischen Hintergrund zu behalten.
+* **Größe anpassbar:** Ziehe an den Ecken um die Vorschau in der Größe zu verändern.
 
 ---
 
 > [!NOTE]
 >
-> ### ⚠️ Compatibility / Kompatibilität
+> ### ⚠️ Kompatibilität / Compatibility
 >
-> **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using Foundry's built-in reliable time tracking. No other calendar modules are required!
+> **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
-> **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über Foundrys eingebaute Zeiterfassung. Es werden keine weiteren Kalender-Module benötigt!
+> **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module für den Kalender benötigt.
 
 <br>
 
 # <img src="https://flagcdn.com/48x36/de.png" width="28" height="21" alt="DE"> Deutsche Anleitung
 
-**Eine elegante, Drag-and-Drop Uhr für Foundry VTT.**
+**Eine elegante Uhr via Drag and Drop für Foundry VTT.**
 
-Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu, die sich automatisch mit der Foundry Weltzeit synchronisiert. Sie zeigt nicht nur die Uhrzeit, sondern auch die aktuelle Tagesphase (Morgen, Mittag, Abend, Nacht) in einem wunderschönen Design an.
+Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Foundry Weltzeit synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
 
 ## 🚀 Funktionen
 
-- 🌦️ **Volles Wettersystem:** Simuliert realistisches Wetter (Temperatur, Wind, Luftfeuchtigkeit) basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen!
-- 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch Regen, Schnee, Nebel oder Sturm-Effekte in deiner Szene.
-- 💡 **Smarte Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
-- 🎨 **Wunderschönes Design:** Ein hochwertiges, "Premium"-Look Widget mit integrierter Wetteranzeige.
-- 🖼️ **Custom Images:** Lade dein eigenes Bild für das Zifferblatt hoch!
-- 🖱️ **Drag & Drop:** Platziere die Uhr überall auf deinem Bildschirm.
-- 📅 **Kalender-Integration:** Ein Klick öffnet den vollwertigen Kalender mit automatischem "Wetterbericht"-Logbuch.
-- 📝 **Notizen & Events:** Erstelle öffentliche Ereignisse, GM-Notizen oder Gruppen-Notizen.
-- 🕰️ **Zeitreise:** Nutze die "Zeitmaschine", um zu jedem beliebigen Datum zu springen (GM Only).
-- 🌍 **System-Support:** Unterstützt Golarion (PF2e), Harptos (D&D 5e) und den Gregorianischen Kalender.
+* 🌦️ **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
+* 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
+* 💡 **Smarte Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
+* 🎨 **Wunderschönes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
+* 🖼️ **Benutzerdefinierte Bilder:** Lade dein eigenes Bild für das Zifferblatt hoch.
+* 🖱️ **Drag and Drop:** Platziere die Uhr überall auf deinem Bildschirm.
+* 📅 **Integration des Kalenders:** Ein Klick öffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
+* 📝 **Notizen und Events:** Erstelle öffentliche Ereignisse sowie Notizen für den GM oder die Gruppe.
+* 🕰️ **Zeitreise:** Nutze die Zeitmaschine um zu jedem beliebigen Datum zu springen (nur für den GM).
+* 🌍 **Unterstützung diverser Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e sowie den Gregorianischen Kalender.
 
 ## 📦 Installation
 
@@ -92,7 +91,7 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu, die sich autom
 3.  Klicke auf **Install Module**.
 4.  Füge die folgende **Manifest URL** unten ein:
     ```text
-    https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json
+    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
     ```
 5.  Klicke auf **Install**.
 
@@ -102,67 +101,67 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu, die sich autom
 
 Die Uhr ist standardmäßig unten rechts sichtbar.
 
-- **Verschieben:** Ziehe sie einfach mit der Maus an den Rand.
-- **Ausblenden:** Klicke den kleinen Button unter der Uhr, um das Zifferblatt ein-/auszuklappen.
-- **Kalender öffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
+* **Verschieben:** Ziehe sie einfach mit der Maus an den Rand.
+* **Ausblenden:** Klicke den kleinen Button unter der Uhr um das Zifferblatt ein oder auszuklappen.
+* **Kalender öffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
 ### 2. Der Kalender
 
-Im Kalender kannst du Tage anklicken, um Ereignisse hinzuzufügen.
+Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 
-- **Rechtsklick auf einen Tag:** Öffnet das Menü "Termin hinzufügen".
-- **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
+* **Rechtsklick auf einen Tag:** Öffnet das Menü um einen Termin hinzuzufügen.
+* **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
 
 ### 3. Einstellungen
 
-In den Moduleinstellungen kannst du:
+In den Moduleinstellungen kannst du diverse Dinge anpassen.
 
-- Das Kalendersystem ändern (Golarion, Harptos, etc.).
-- Das Hintergrundbild der Uhr ändern.
-- Zeit- und Datumsversatz einstellen.
-- **Wettersystem an-/ausschalten:** Deaktiviere das gesamte Wetter und Licht-System, falls du nur die Uhr/Kalender nutzen möchtest.
+* Das Kalendersystem ändern (Golarion, Harptos und weitere).
+* Das Hintergrundbild der Uhr ändern.
+* Zeit und Datumsversatz einstellen.
+* **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Licht System falls du nur die Uhr und den Kalender nutzen möchtest.
 
-### 4. Wettersystem & Klimazonen
+### 4. Wettersystem und Klimazonen
 
 Das Modul simuliert automatisch das Wetter.
 
-**Wetter konfigurieren:**
+**Konfiguration des Wetters**
 
-- Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster, in dem das Wetter für den neuen Tag bestimmt werden kann.
-- Du kannst das Wetter auch jederzeit manuell ändern: Klicke dazu auf das kleine **Wolken-Icon** in der Uhr (oben links im Widget).
+* Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster in dem das Wetter für den neuen Tag bestimmt werden kann.
+* Du kannst das Wetter auch jederzeit manuell ändern indem du auf das kleine **Wolken Icon** in der Uhr oben links im Widget klickst.
 
-**Eigene Klimazonen erstellen:**
+**Erstellung eigener Klimazonen**
 
-1. Öffne die **Moduleinstellungen**.
-2. Klicke auf den Button **"Manage Custom Climates"**.
-3. Erstelle eine neue Klimazone (z.B. "Wüste" oder "Eiswelt").
-4. Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Wetter-Einträge hinzu.
-   - **Text:** Die Beschreibung, die im Chat gepostet wird (z.B. "Ein sandiger Wind weht.").
-   - **Temp:** Der Temperaturbereich (z.B. "30-40").
-   - **FX:** Der visuelle Effekt (z.B. "FOG" für Sandsturm).
-5. Speichere deine Klimazone.
-6. Wähle sie nun in den Haupt-Einstellungen unter **"Climate Zone"** aus.
+1.  Öffne die **Moduleinstellungen**.
+2.  Klicke auf den Button **Manage Custom Climates**.
+3.  Erstelle eine neue Klimazone wie zum Beispiel Wüste oder Eiswelt.
+4.  Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Einträge für das Wetter hinzu.
+    * **Text:** Die Beschreibung die im Chat gepostet wird (zum Beispiel "Ein sandiger Wind weht").
+    * **Temp:** Der Temperaturbereich (zum Beispiel "30 bis 40").
+    * **FX:** Der visuelle Effekt (zum Beispiel "FOG" für Sandsturm).
+5.  Speichere deine Klimazone.
+6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
 ---
 
 # <img src="https://flagcdn.com/48x36/gb.png" width="28" height="21" alt="EN"> English Instructions
 
-**An elegant, drag-and-drop clock for Foundry VTT.**
+**An elegant drag and drop clock for Foundry VTT.**
 
-Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time, but the current phase of day (Morning, Noon, Evening, Night) in a beautiful design.
+Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
 
 ## 🚀 Key Features
 
-- 🌦️ **Full Weather System:** Simulates realistic weather (temp, wind, humidity) based on climate zones with over 1200 unique weather descriptions!
-- 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog, or Storm effects to your scene.
-- 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season, and cloud cover.
-- 🎨 **Beautiful Design:** A high-quality, "premium" look widget with integrated weather display.
-- 🖼️ **Custom Images:** Upload your own image for the clock face!
-- 🖱️ **Drag & Drop:** Place the clock anywhere on your screen.
-- 📅 **Calendar Integration:** Click to open the fully featured calendar, complete with automatic daily "Weather Reports".
-- 📝 **Notes & Events:** Create public events, GM notes, or party notes.
-- 🕰️ **Time Travel:** Use the "Time Machine" to jump to any specific date (GM Only).
-- 🌍 **System Support:** Supports Golarion (PF2e), Harptos (D&D 5e), and Gregorian calendars.
+* 🌦️ **Full Weather System:** Simulates realistic weather including temp, wind and humidity based on climate zones with over 1200 unique weather descriptions.
+* 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
+* 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
+* 🎨 **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
+* 🖼️ **Custom Images:** Upload your own image for the clock face.
+* 🖱️ **Drag and Drop:** Place the clock anywhere on your screen.
+* 📅 **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
+* 📝 **Notes and Events:** Create public events, GM notes or party notes.
+* 🕰️ **Time Travel:** Use the Time Machine to jump to any specific date (GM Only).
+* 🌍 **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e and Gregorian calendars.
 
 ## 📦 Installation
 
@@ -171,7 +170,7 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 3.  Click **Install Module**.
 4.  Paste the following **Manifest URL** into the field:
     ```text
-    https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json
+    [https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json](https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json)
     ```
 5.  Click **Install**.
 
@@ -181,53 +180,64 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 
 The clock is visible in the bottom right by default.
 
-- **Move:** Simply drag it with your mouse to any position.
-- **Hide:** Click the small button below the clock to toggle the clock face.
-- **Open Calendar:** Click directly on the clock face or the date text.
+* **Move:** Simply drag it with your mouse to any position.
+* **Hide:** Click the small button below the clock to toggle the clock face.
+* **Open Calendar:** Click directly on the clock face or the date text.
 
 ### 2. The Calendar
 
-In the calendar, you can click on days to add events.
+In the calendar you can click on days to add events.
 
-- **Right-Click a Day:** Opens the "Add Event" menu.
-- **Left-Click a Day:** Shows all events for that day.
+* **Right Click a Day:** Opens the Add Event menu.
+* **Left Click a Day:** Shows all events for that day.
 
 ### 3. Settings
 
-In the module settings you can:
+In the module settings you can adjust various options.
 
-- Change the calendar system (Golarion, Harptos, etc.).
-- Change the clock background image.
-- Set time and date offsets.
-- **Toggle Weather System:** Disable the entire weather/lighting system if you only want the Clock/Calendar features.
+* Change the calendar system (Golarion, Harptos and others).
+* Change the clock background image.
+* Set time and date offsets.
+* **Toggle Weather System:** Disable the entire weather and lighting system if you only want the Clock and Calendar features.
 
-### 4. Weather System & Climate Zones
+### 4. Weather System and Climate Zones
 
 The module automatically simulates weather.
 
-**Configuring Weather:**
+**Configuring Weather**
 
-- Every morning, a window automatically opens for the Gamemaster to determine the weather for the new day.
-- You can also manually change the weather at any time: Click the small **Cloud Icon** on the clock widget (top left).
+* Every morning a window automatically opens for the Gamemaster to determine the weather for the new day.
+* You can also manually change the weather at any time by clicking the small **Cloud Icon** on the clock widget at the top left.
 
-**Creating Custom Climate Zones:**
+**Creating Custom Climate Zones**
 
-1. Open the **Module Settings**.
-2. Click the **"Manage Custom Climates"** button.
-3. Create a new climate zone (e.g., "Desert" or "Ice World").
-4. Add weather entries for each season (Spring, Summer, Autumn, Winter).
-   - **Text:** The description posted to chat (e.g., "A sandy wind is blowing.").
-   - **Temp:** The temperature range (e.g., "30-40").
-   - **FX:** The visual effect (e.g., "FOG" for sandstorms).
-5. Save your climate zone.
-6. Select it in the main settings under **"Climate Zone"**.
+1.  Open the **Module Settings**.
+2.  Click the **Manage Custom Climates** button.
+3.  Create a new climate zone such as Desert or Ice World.
+4.  Add weather entries for each season (Spring, Summer, Autumn, Winter).
+    * **Text:** The description posted to chat (example "A sandy wind is blowing").
+    * **Temp:** The temperature range (example "30 to 40").
+    * **FX:** The visual effect (example "FOG" for sandstorms).
+5.  Save your climate zone.
+6.  Select it in the main settings under **Climate Zone**.
 
 ---
 
+## 📜 License
+
+This module uses a dual license structure.
+
+* **Code:** GNU GPLv3
+* **Assets:** CC BY-NC-ND 4.0
+
+See `LICENSE` file for details.
+
+<br>
+
 <div align="center">
     <h2>❤️ Support the Development</h2>
-    <p>If you enjoy this module and want to support open-source development for Foundry VTT, check out my Patreon!</p>
-    <p>Gefällt dir das Modul? Unterstütze die Weiterentwicklung auf Patreon!</p>
+    <p>If you enjoy this module and want to support open source development for Foundry VTT check out my Patreon.</p>
+    <p>Gefällt dir das Modul? Unterstütze die Weiterentwicklung auf Patreon.</p>
     <a href="https://www.patreon.com/PhilsModules">
         <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="200" />
     </a>
