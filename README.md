@@ -34,7 +34,7 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 <br>
 
 <div align="center">
-<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/cover.png" alt="Preview" width="800">
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/cover.png" alt="Preview" width="600">
 </div>
 
 <br>
@@ -226,5 +226,6 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
 
