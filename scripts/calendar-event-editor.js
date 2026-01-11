@@ -117,30 +117,29 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
     }
 
     async _postCreationMessage(data) {
-        const config = new CalendarSystem().config; // Need to instantiate to get config? Or static?
-        // CalendarSystem is instantiated in App, but here we might need a fresh one or access via game/global?
-        // Let's just assume we can get basic info or pass it. 
-        // For now, let's keep the message simple.
-        
-        // We know the dateKey from this.dateKey "YYYY-MM-DD"
-        const [year, month, day] = this.dateKey.split('-').map(Number);
-        const monthName = config.months[month].name;
-        
-        const content = `
-            <div class="pdnc-chat-card">
-                <h3>${game.i18n.localize("PDNC.EventCreated")}</h3>
-                <p><strong>${game.i18n.localize("PDNC.Date")}:</strong> ${day}. ${monthName}, ${year}</p>
-                <p><strong>${game.i18n.localize("PDNC.Title")}:</strong> ${data.title}</p>
-                <p>${data.description}</p>
-                ${data.recurring !== 'none' ? `<p><em>${game.i18n.localize("PDNC.Recurring")}: ${game.i18n.localize("PDNC.Recurs." + data.recurring)}</em></p>` : ''}
-            </div>
-        `;
+         const config = new CalendarSystem().config; 
+         
+         const [year, month, day] = this.dateKey.split('-').map(Number);
+         const monthName = config.months[month].name;
+         
+         // Generate clickable link
+         const linkHtml = `<a class="pdnc-event-link" data-date="${this.dateKey}"><i class="fas fa-calendar-check"></i> ${data.title}</a>`;
 
-        ChatMessage.create({
-            user: game.user.id,
-            content: content,
-            speaker: ChatMessage.getSpeaker({ alias: "Calendar" })
-        });
+         const content = `
+             <div class="pdnc-chat-card">
+                 <h3>${game.i18n.localize("PDNC.EventCreated")}</h3>
+                 <p><strong>${game.i18n.localize("PDNC.Date")}:</strong> ${day}. ${monthName}, ${year}</p>
+                 <p><strong>${game.i18n.localize("PDNC.Title")}:</strong> ${linkHtml}</p>
+                 <p>${data.description}</p>
+                 ${data.recurring !== 'none' ? `<p><em>${game.i18n.localize("PDNC.Recurring")}: ${game.i18n.localize("PDNC.Recurs." + data.recurring)}</em></p>` : ''}
+             </div>
+         `;
+ 
+         ChatMessage.create({
+             user: game.user.id,
+             content: content,
+             speaker: ChatMessage.getSpeaker({ alias: "Calendar" })
+         });
     }
 
     async _onDelete(event, target) {

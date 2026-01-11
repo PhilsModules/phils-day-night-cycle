@@ -36,7 +36,7 @@
         <label style="flex: 1;">{{localize "PDNC.WeatherConfig.FX"}}</label>
         <div class="form-fields" style="flex: 2; justify-content: flex-start;">
             <select name="fx" style="width: auto; min-width: 150px;">
-                {{selectOptions fxChoices selected=weather.fx labelAttr="label" blank="None"}}
+                {{selectOptions fxChoices selected=weather.fx blank=noneLabel}}
             </select>
         </div>
     </div>

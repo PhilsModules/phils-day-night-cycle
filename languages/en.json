@@ -10,6 +10,8 @@
         "SettingDayOffsetHint": "Adjust the calendar date by this many days. Useful for aligning with other calendar modules.",
         "SettingCalendarSystemName": "Calendar System",
         "SettingCalendarSystemHint": "Select the calendar system to use.",
+        "SettingShowRealNamesName": "Show Real World Names",
+        "SettingShowRealNamesHint": "If enabled, shows the real-world or alternative equivalent name in parentheses (e.g. 'Abadius (January)').",
         "SettingPlayerCreateName": "Allow Players to Create Events",
         "SettingPlayerCreateHint": "If enabled, players can create Public and Player Notes.",
         "SettingPlayerAdvanceName": "Allow Players to Advance Time",
@@ -37,6 +39,11 @@
         "WeatherForecast": "Weather Forecast",
         "WeatherReport": "Weather Report",
         "Weather": "Weather",
+        "WeatherFX": {
+            "Rain": "Rain",
+            "Snow": "Snow",
+            "Clouds": "Clouds"
+        },
         "WeatherEffects": {
             "HeatWave": "Heat Wave",
             "Rain": "Rain",
@@ -99,7 +106,8 @@
             "LightningFlash": "Lightning Flash",
             "Halo": "Halo",
             "Whiteout": "Whiteout",
-            "Fog": "Fog"
+            "Fog": "Fog",
+            "Clouds": "Clouds"
         },
         "Season": {
             "spring": "Spring",
@@ -128,6 +136,7 @@
         "TypeGM": "GM Note",
         "TypeWeather": "Weather Report",
         "TypePlayer": "Party Note",
+        "TypeQuest": "Quest",
         "EmptyDay": "The pages of history are blank for this day.",
         "Phases": {
             "Dawn": "Dawn",
@@ -200,6 +209,171 @@
             "Noon": "Noon",
             "Dusk": "Dusk",
             "Night": "Night"
+        },
+        "MonthView": "Month View",
+        "YearView": "Year View",
+        "EventList": "List View",
+        "SetCurrentDate": "Set as Current Date",
+        "ConfirmDateChange": "Are you sure you want to jump {days} days {direction}?",
+        "NoEventsFound": "No events found.",
+        "DirectionForward": "forward",
+        "DirectionBackward": "backward",
+        "WeatherPreview": "Weather Preview",
+        "ChangeDate": "Change Date",
+        "Calendar": {
+            "Gregorian": {
+                "Months": {
+                    "January": "January",
+                    "February": "February",
+                    "March": "March",
+                    "April": "April",
+                    "May": "May",
+                    "June": "June",
+                    "July": "July",
+                    "August": "August",
+                    "September": "September",
+                    "October": "October",
+                    "November": "November",
+                    "December": "December"
+                },
+                "Weekdays": {
+                    "Monday": "Monday",
+                    "Tuesday": "Tuesday",
+                    "Wednesday": "Wednesday",
+                    "Thursday": "Thursday",
+                    "Friday": "Friday",
+                    "Saturday": "Saturday",
+                    "Sunday": "Sunday"
+                }
+            },
+            "Golarion": {
+                "Months": {
+                    "Abadius": "Abadius",
+                    "Abadius_Alt": "January",
+                    "Calistril": "Calistril",
+                    "Calistril_Alt": "February",
+                    "Pharast": "Pharast",
+                    "Pharast_Alt": "March",
+                    "Gozran": "Gozran",
+                    "Gozran_Alt": "April",
+                    "Desnus": "Desnus",
+                    "Desnus_Alt": "May",
+                    "Sarenith": "Sarenith",
+                    "Sarenith_Alt": "June",
+                    "Erastus": "Erastus",
+                    "Erastus_Alt": "July",
+                    "Arodus": "Arodus",
+                    "Arodus_Alt": "August",
+                    "Rova": "Rova",
+                    "Rova_Alt": "September",
+                    "Lamashan": "Lamashan",
+                    "Lamashan_Alt": "October",
+                    "Neth": "Neth",
+                    "Neth_Alt": "November",
+                    "Kuthona": "Kuthona",
+                    "Kuthona_Alt": "December"
+                },
+                "Weekdays": {
+                    "Moonday": "Moonday",
+                    "Moonday_Alt": "Monday",
+                    "Toilday": "Toilday",
+                    "Toilday_Alt": "Tuesday",
+                    "Wealday": "Wealday",
+                    "Wealday_Alt": "Wednesday",
+                    "Oathday": "Oathday",
+                    "Oathday_Alt": "Thursday",
+                    "Fireday": "Fireday",
+                    "Fireday_Alt": "Friday",
+                    "Starday": "Starday",
+                    "Starday_Alt": "Saturday",
+                    "Sunday": "Sunday",
+                    "Sunday_Alt": "Sunday"
+                }
+            },
+            "Harptos": {
+                "Months": {
+                    "Hammer": "Hammer",
+                    "Hammer_Alt": "Deepwinter",
+                    "Alturiak": "Alturiak",
+                    "Alturiak_Alt": "The Claw of Winter",
+                    "Ches": "Ches",
+                    "Ches_Alt": "The Claw of Sunsets",
+                    "Tarsakh": "Tarsakh",
+                    "Tarsakh_Alt": "The Claw of Storms",
+                    "Mirtul": "Mirtul",
+                    "Mirtul_Alt": "The Melting",
+                    "Kythorn": "Kythorn",
+                    "Kythorn_Alt": "The Time of Flowers",
+                    "Flamerule": "Flamerule",
+                    "Flamerule_Alt": "Summertide",
+                    "Eleasis": "Eleasis",
+                    "Eleasis_Alt": "Highsun",
+                    "Eleint": "Eleint",
+                    "Eleint_Alt": "The Fading",
+                    "Marpenoth": "Marpenoth",
+                    "Marpenoth_Alt": "Leaffall",
+                    "Uktar": "Uktar",
+                    "Uktar_Alt": "The Rotting",
+                    "Nightal": "Nightal",
+                    "Nightal_Alt": "The Drawing Down"
+                },
+                "Weekdays": {
+                    "Firstday": "Firstday",
+                    "Seconday": "Seconday",
+                    "Thirdday": "Thirdday",
+                    "Middleday": "Middleday",
+                    "Fifthday": "Fifthday",
+                    "Sixthday": "Sixthday",
+                    "Seventhday": "Seventhday",
+                    "Eighthday": "Eighthday",
+                    "Ninthday": "Ninthday",
+                    "Tenthday": "Tenthday"
+                }
+            },
+            "Magaambya": {
+                 "Months": {
+                    "Leopard Month": "Leopard Month",
+                    "Leopard Month_Alt": "January",
+                    "Bull Month": "Bull Month",
+                    "Bull Month_Alt": "February",
+                    "Frog Month": "Frog Month",
+                    "Frog Month_Alt": "March",
+                    "Heron Month": "Heron Month",
+                    "Heron Month_Alt": "April",
+                    "Elephant Month": "Elephant Month",
+                    "Elephant Month_Alt": "May",
+                    "Ibex Month": "Ibex Month",
+                    "Ibex Month_Alt": "June",
+                    "Snake Month": "Snake Month",
+                    "Snake Month_Alt": "July",
+                    "Spider Month": "Spider Month",
+                    "Spider Month_Alt": "August",
+                    "Jaws Month": "Jaws Month",
+                    "Jaws Month_Alt": "September",
+                    "Jatembe Month": "Jatembe Month",
+                    "Jatembe Month_Alt": "October",
+                    "Arodus Month": "Arodus Month",
+                    "Arodus Month_Alt": "November",
+                    "Kite Month": "Kite Month",
+                    "Kite Month_Alt": "December"
+                 },
+                 "Weekdays": {
+                    "Moonday": "Moonday",
+                    "Moonday_Alt": "Monday",
+                    "Toilday": "Toilday",
+                    "Toilday_Alt": "Tuesday",
+                    "Wealday": "Wealday",
+                    "Wealday_Alt": "Wednesday",
+                    "Oathday": "Oathday",
+                    "Oathday_Alt": "Thursday",
+                    "Fireday": "Fireday",
+                    "Fireday_Alt": "Friday",
+                    "Starday": "Starday",
+                    "Starday_Alt": "Saturday",
+                    "Sunday": "Sunday",
+                    "Sunday_Alt": "Sunday"
+                 }
+            }
         }
     }
 }

@@ -179,6 +179,13 @@ export class WeatherEffectsRegistry {
                     console.log("PDNC | DEBUG: Adding Engine to canvas.stage (Root)");
                     canvas.stage.addChild(engine);
                     engine.zIndex = 1000;
+
+                    // FIX: Suppress default foundry weather layer to prevent double-rendering (e.g. double rain)
+                    if (canvas.weather) {
+                        console.log("PDNC | Hiding default Weather Layer to prevent duplication.");
+                        // canvas.weather.visible = false; // <-- CAUSES FREEZE because anim loop checks this!
+                        canvas.weather.alpha = 0; // Visual fix only
+                    }
                 }
             });
         }

@@ -164,7 +164,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         const previewBox = this.element.querySelector('#weather-preview-box');
         if (previewBox) {
             // we need to hook into drag end to save position
-            const dragHandle = new Draggable(this, this.element, previewBox, this.options.resizable);
+            const dragHandle = new foundry.applications.ux.Draggable.implementation(this, this.element, previewBox, this.options.resizable);
             
         // MutationObserver to track Style Changes (Position & Size)
         this._lastW = this.element.offsetWidth;

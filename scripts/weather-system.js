@@ -261,7 +261,7 @@ export class WeatherSystem {
         // If "Editing" existing? Maybe just update?
         // For simplicity, we always post a "Weather Update" for now, or we could check if it changed significantly.
         // Let's just Post.
-        const messageContent = await renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
+        const messageContent = await foundry.applications.handlebars.renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
             climate: weatherStore.climateName,
             season: weatherStore.seasonName,
             text: weatherStore.description,

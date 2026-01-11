@@ -5,6 +5,7 @@ import { WeatherSystem } from "./weather-system.js";
 import { LightingSystem } from "./lighting-system.js";
 import { WeatherConfigApp } from "./apps/weather-config.js";
 import { CustomClimateApp } from "./apps/custom-climate.js";
+
 import { WeatherHUD } from "./weather-hud.js";
 
 const MODULE_ID = "phils-day-night-cycle";
@@ -39,7 +40,25 @@ class PhilsDayNightCycle {
         // Global Listener for Calendar Links in Chat
         $('body').on('click', '.pdnc-event-link', async (e) => {
             e.preventDefault();
-            const dateKey = $(e.currentTarget).data('date');
+            const target = $(e.currentTarget);
+            const dateKey = target.data('date');
+            const docId = target.data('document-id');
+
+            // 1. Check for Linked Document (e.g. Quest)
+            if (docId) {
+                // Priority: Quest Tracker API
+                if (window.PhilsQuestTracker) {
+                    window.PhilsQuestTracker.openQuest(docId);
+                    return;
+                }
+                
+                // Fallback: Default Sheet
+                const doc = game.journal.get(docId);
+                if (doc) {
+                    doc.sheet.render(true);
+                    return;
+                }
+            }
             
             // Ensure app is open
             let app = foundry.applications.instances.get("phils-calendar-app");
@@ -69,7 +88,7 @@ class PhilsDayNightCycle {
             `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
             `modules/${MODULE_ID}/templates/custom-climate-editor.hbs`
         ];
-        loadTemplates(templatePaths);
+        foundry.applications.handlebars.loadTemplates(templatePaths);
 
         // Register Visibility Setting
         game.settings.register(MODULE_ID, "visible", {
@@ -156,8 +175,15 @@ class PhilsDayNightCycle {
             config: true,
             type: Number,
             default: 0,
-            onChange: () => this.updateClock()
+            onChange: (value) => {
+                this.updateClock();
+                if (value !== 1725556 && game.settings.get(MODULE_ID, "syncPF2e")) {
+                    game.settings.set(MODULE_ID, "syncPF2e", false);
+                }
+            }
         }); // END: dayOffset registration
+
+
 
         // Register Calendar Settings
         game.settings.register(MODULE_ID, "calendarSystem", {
@@ -189,6 +215,34 @@ class PhilsDayNightCycle {
                 // 4. Refresh Time Machine if open
                 const timeApp = foundry.applications.instances.get("phils-time-machine");
                 if (timeApp) timeApp.render({ force: true });
+            }
+        });
+
+        game.settings.register(MODULE_ID, "showRealNames", {
+            name: game.i18n.localize("PDNC.SettingShowRealNamesName"),
+            hint: game.i18n.localize("PDNC.SettingShowRealNamesHint"),
+            scope: "client",
+            config: true,
+            type: Boolean,
+            default: false,
+            onChange: () => {
+                this.calendar = new CalendarSystem();
+                this.refreshCalendar();
+            }
+        });
+
+        game.settings.register(MODULE_ID, "syncPF2e", {
+            name: "Sync Pathfinder 2e",
+            hint: "Automatically sets the day offset to 1,725,556 to align with Golarion's epoch.",
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: false,
+            onChange: (value) => {
+                if (value) {
+                    game.settings.set(MODULE_ID, "dayOffset", 1725556);
+                    ui.notifications.info("PDNC | Calendar Synced to Pathfinder 2e Epoch.");
+                }
             }
         });
 
@@ -388,14 +442,20 @@ class PhilsDayNightCycle {
              }
         });
 
+        this.calendar = new CalendarSystem();
+
         // Expose API for Macros
         window.PhilsDayNightCycle = {
             toggle: () => this.toggleSetting(),
+            refresh: () => this.refreshCalendar(),
             resetPosition: () => this.resetPosition(),
-            setTime: (h, m) => this.setTime(h, m)
+            setTime: (h, m) => this.setTime(h, m),
+            addEvent: (date, data) => CalendarDB.addEvent(date, data),
+            removeEvent: (date, title) => CalendarDB.removeEvent(date, title),
+            removeLinkedEvent: (docId) => CalendarDB.removeEventByDocumentId(docId),
+            PhilsCalendarApp: PhilsCalendarApp, // Expose Class for Picker
+            calendar: this.calendar // Expose Calendar System
         };
-
-        this.calendar = new CalendarSystem();
         // this.updateClock(); // Moved to ready/updateWorldTime
 
         // Auto-Open Weather HUD if it was open
@@ -410,6 +470,7 @@ class PhilsDayNightCycle {
     refreshCalendar() {
         const app = foundry.applications.instances.get("phils-calendar-app");
         if (app) app.render();
+        this.checkCalendarNotifications();
     }
 
     resetPosition() {
@@ -619,6 +680,8 @@ class PhilsDayNightCycle {
         this.previewIcon.addEventListener("click", () => {
              new WeatherHUD().render(true);
         });
+
+
 
         // Time Controls
         const btnRewind = this.controls.querySelector('[data-action="rewind"]');
@@ -957,7 +1020,7 @@ class PhilsDayNightCycle {
         // Update Date Text
         if (this.dateText && this.calendar) {
             const dateData = this.calendar.getDate(worldTime); // Use adjusted worldTime
-            this.dateText.textContent = `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`;
+            this.dateText.innerHTML = `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`;
         }
 
         // Update Weather UI
@@ -997,7 +1060,7 @@ class PhilsDayNightCycle {
         const currentDate = this.calendar.getDate(adjustedTime);
         const todayId = `${currentDate.year}-${currentDate.month}-${currentDate.day}`;
 
-        // Check if already notified up to this date
+        // Load Last State
         let lastState = game.settings.get(MODULE_ID, "lastNotificationState") || {};
         if (typeof lastState !== 'object') lastState = {};
 
@@ -1005,21 +1068,48 @@ class PhilsDayNightCycle {
         const currentVal = (currentDate.year * 10000) + (currentDate.month * 100) + currentDate.day;
         const lastVal = (lastState.year * 10000) + (lastState.month * 100) + lastState.day || 0;
 
-        // Valid Check: If we are in the past or same day as last notification, SKIP.
-        // This prevents re-spamming when time traveling backwards and forwards.
-        if (currentVal <= lastVal) return;
+        // State Management
+        let notifiedEvents = new Set(lastState.notifiedEvents || []);
+        
+        // New Day Detected: Clear tracked events
+        if (currentVal > lastVal) {
+            notifiedEvents.clear();
+        }
+        // Backwards Time Travel
+        else if (currentVal < lastVal) {
+            // DETECT WORLD RESET: If we jumped back more than 1 year, assume a campaign reset and allow it.
+            // Also explicitly allow Year 0 if we were previously much further ahead.
+            const yearDiff = lastState.year - currentDate.year;
+            if (yearDiff >= 1) {
+                console.log("PDNC | World Time Reset detected (Backward Jump > 1 Year). Resetting notification state.");
+                notifiedEvents.clear();
+                // We proceed (do not return)
+            } else {
+                // Small backward jump (scrubbing timeline) -> Block to avoid spam
+                return;
+            }
+        }
 
         // Perform Checks
         const savedEvents = await CalendarDB.getEvents();
         const contentEntries = [];
+        const newNotificationIds = [];
 
         // Iterate all events
         for (const [key, eventList] of Object.entries(savedEvents)) {
             for (const event of eventList) {
+                // EXCLUDE WEATHER EVENTS FROM GENERIC NOTIFICATIONS
+                if (event.type === 'weather') continue;
+
+                // Determine Unique ID for this notification instance (EventID + Date)
+                // Use the event's internal ID if available, or title hash/timestamp fallback
+                const eventId = event.id || event.documentId || event.title; 
+                // We suffix with the TARGET DATE of the notification to handle recurring events uniquely per day
+                
                 // 1. Check for TODAY occurrence
                 const [srcY, srcM, srcD] = key.split('-').map(Number);
-                
                 let isToday = false;
+                
                 if (!event.recurring || event.recurring === 'none') {
                     if (srcY === currentDate.year && srcM === currentDate.month && srcD === currentDate.day) isToday = true;
                 } else {
@@ -1029,8 +1119,22 @@ class PhilsDayNightCycle {
                 }
 
                 if (isToday) {
-                     // Add clickable link class and data attribute
-                     contentEntries.push(`<p><strong>${game.i18n.localize("PDNC.EventCreated")}:</strong> <a class="pdnc-event-link" data-date="${todayId}"><i class="fas fa-calendar-check"></i> ${event.title}</a></p>`);
+                     const uniqueKey = `TODAY:${eventId}:${todayId}`;
+                     
+                     if (!notifiedEvents.has(uniqueKey)) {
+                         // Add clickable link class and data attribute
+                         let entryHtml = `<p><strong>${game.i18n.localize("PDNC.EventCreated")}:</strong> <a class="pdnc-event-link" data-date="${todayId}" data-document-id="${event.documentId || ''}"><i class="fas fa-calendar-check"></i> ${event.title}</a>`;
+                         
+                         if (event.link && event.documentId) {
+                             // User requested removal of icon link
+                         } else if (event.link) {
+                              entryHtml += ` ${event.link}`;
+                         }
+                         
+                         entryHtml += `</p>`;
+                         contentEntries.push(entryHtml);
+                         newNotificationIds.push(uniqueKey);
+                     }
                 }
 
                 // 2. Check for REMINDERS
@@ -1053,7 +1157,12 @@ class PhilsDayNightCycle {
 
                     if (isUpcoming) {
                          const futureDateId = `${targetFutureDate.year}-${targetFutureDate.month}-${targetFutureDate.day}`;
-                         contentEntries.push(`<p><strong>${game.i18n.localize("PDNC.ReminderDays")} (${reminderDays} ${game.i18n.localize("PDNC.TimeDay")}):</strong> <a class="pdnc-event-link" data-date="${futureDateId}"><i class="fas fa-calendar-alt"></i> ${event.title}</a></p>`);
+                         const uniqueKey = `REMIND:${eventId}:${futureDateId}`;
+                         
+                         if (!notifiedEvents.has(uniqueKey)) {
+                             contentEntries.push(`<p><strong>${game.i18n.localize("PDNC.ReminderDays")} (${reminderDays} ${game.i18n.localize("PDNC.TimeDay")}):</strong> <a class="pdnc-event-link" data-date="${futureDateId}"><i class="fas fa-calendar-alt"></i> ${event.title}</a></p>`);
+                             newNotificationIds.push(uniqueKey);
+                         }
                     }
                 }
             }
@@ -1074,14 +1183,18 @@ class PhilsDayNightCycle {
                 content: content,
                 speaker: ChatMessage.getSpeaker({ alias: "Calendar" })
             });
+            
+            // Add new IDs to set
+            newNotificationIds.forEach(id => notifiedEvents.add(id));
         }
 
-        // Update State (Store full date for comparison)
+        // Update State
         await game.settings.set(MODULE_ID, "lastNotificationState", { 
             dateId: todayId,
             year: currentDate.year,
             month: currentDate.month,
-            day: currentDate.day
+            day: currentDate.day,
+            notifiedEvents: Array.from(notifiedEvents) // Serialize Set
         });
     }
 }

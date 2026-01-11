@@ -56,18 +56,42 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
     async _prepareContext(options) {
         const fxChoices = {
-            "rain": "Rain",
-            "snow": "Snow",
-            "clouds": "Clouds",
-
+            "rain": game.i18n.localize("PDNC.WeatherFX.Rain"),
+            "snow": game.i18n.localize("PDNC.WeatherFX.Snow"),
+            "clouds": game.i18n.localize("PDNC.WeatherFX.Clouds")
         };
 
         // Add custom effects from configuration
         console.log("PDNC Debug | CONFIG.Weather.effects:", CONFIG.Weather?.effects);
+        // Helper to Convert keys (e.g. "heavy_rain" or "heavyRain") to PascalCase ("HeavyRain")
+        const toPascalCase = (str) => {
+            return str
+                .replace(/[-_ ]+(\w)/g, (_, c) => c.toUpperCase()) // snake_case/kebab-case to camelCase
+                .replace(/^(\w)/, (_, c) => c.toUpperCase()); // first char to Upper
+        };
+
+        // Add custom effects from configuration
         if (CONFIG.Weather && CONFIG.Weather.effects) {
             for (const [key, config] of Object.entries(CONFIG.Weather.effects)) {
-                // Localize the label if possible
-                const label = config.label ? game.i18n.localize(config.label) : key;
+                // 1. Try generic method (if label is a translation key)
+                let label = config.label ? game.i18n.localize(config.label) : key;
+                
+                // Check if the original label has a numbering prefix (e.g. "03. Heavy Rain")
+                // We want to preserve "03. " if we translate the rest.
+                const prefixMatch = label.match(/^(\d+\.?\s*)/);
+                const prefix = prefixMatch ? prefixMatch[1] : "";
+
+                // 2. Try to match against our internal PDNC.WeatherEffects list
+                // This helps if the source module (e.g. FXMaster) provides English labels but predictable keys
+                const pascalKey = toPascalCase(key);
+                const pdncKey = `PDNC.WeatherEffects.${pascalKey}`;
+                const pdncLoc = game.i18n.localize(pdncKey);
+                
+                // If we found a translation in our system (and it's not just the key back), prefer it
+                if (pdncLoc && pdncLoc !== pdncKey) {
+                    label = prefix + pdncLoc;
+                }
+
                 fxChoices[key] = label;
             }
         }
@@ -81,7 +105,8 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             weather: this.weatherData,
             climate: this.weatherData.climateName || "Unknown",
             season: this.weatherData.seasonName || "Unknown",
-            fxChoices: sortedFxChoices
+            fxChoices: sortedFxChoices,
+            noneLabel: game.i18n.localize("PDNC.Recurs.none")
         };
     }
 

@@ -1,10 +1,55 @@
 export class CalendarSystem {
     constructor() {
         this.system = game.settings.get("phils-day-night-cycle", "calendarSystem") || "gregorian";
+        this._cache = {
+             years: [],
+             cumulative: [0],
+             maxCachedYear: -1
+        };
     }
 
     get config() {
-        return CalendarSystem.SYSTEMS[this.system];
+        const conf = foundry.utils.deepClone(CalendarSystem.SYSTEMS[this.system]);
+        
+        // Localize Months using keys
+        // Keys follow format: PDNC.Calendar.<System>.Months.<EnglishName>
+        // Note: The object keys in SYSTEMS match the lookup key
+        const sysKey = this.system.charAt(0).toUpperCase() + this.system.slice(1);
+        const showRealNames = game.settings.get("phils-day-night-cycle", "showRealNames");
+
+        conf.months.forEach(m => {
+            // We use the original English name as the key for lookup
+            const key = `PDNC.Calendar.${sysKey}.Months.${m.name}`;
+            let loc = game.i18n.localize(key);
+            if (loc === key) loc = m.name; // Fallback to english name if not found
+
+            if (showRealNames) {
+                const altKey = `${key}_Alt`;
+                const altLoc = game.i18n.localize(altKey);
+                if (altLoc && altLoc !== altKey) {
+                    loc = `<span class="pdnc-nowrap">${loc} <span class="pdnc-alt-name">(${altLoc})</span></span>`;
+                }
+            }
+            m.name = loc;
+        });
+
+        // Localize Weekdays
+        conf.weekdays = conf.weekdays.map(d => {
+            const key = `PDNC.Calendar.${sysKey}.Weekdays.${d}`;
+            let loc = game.i18n.localize(key);
+            if (loc === key) loc = d;
+
+            if (showRealNames) {
+                const altKey = `${key}_Alt`;
+                const altLoc = game.i18n.localize(altKey);
+                if (altLoc && altLoc !== altKey) {
+                    loc = `<span class="pdnc-nowrap">${loc} <span class="pdnc-alt-name">(${altLoc})</span></span>`;
+                }
+            }
+            return loc;
+        });
+
+        return conf;
     }
 
     static get SYSTEMS() {
@@ -64,7 +109,7 @@ export class CalendarSystem {
                     { name: "Nightal", days: 30 }
                     // Note: Harptos actually has holidays between months. For simplicity V1, we stick to 30 days.
                 ],
-                weekdays: ["Firstday", "Seconday", "Thirdday", "Middleday", "Fifthday", "Sixthday", "Seventhday"], // Generic or custom names
+                weekdays: ["Firstday", "Seconday", "Thirdday", "Middleday", "Fifthday", "Sixthday", "Seventhday", "Eighthday", "Ninthday", "Tenthday"], 
                 leapYearRule: (year) => (year % 4 === 0)
             },
             simple: {
@@ -76,25 +121,41 @@ export class CalendarSystem {
             magaambya: {
                 name: "Magaambya (Mwangi)",
                 months: [
-                    { name: "Falke", days: 28 },
-                    { name: "Schlange", days: 28 },
-                    { name: "Jatembe", days: 36 },
-                    { name: "Leopard", days: 28 },
-                    { name: "Shory", days: 28 },
-                    { name: "Elefant", days: 35 },
-                    { name: "Hyäne", days: 28 },
-                    { name: "Frosch", days: 28 },
-                    { name: "Steinbock", days: 35, leap: 36 },
-                    { name: "Stier", days: 28 },
-                    { name: "Spinne", days: 28 },
-                    { name: "Magaambya", days: 35 }
+                    { name: "Leopard Month", days: 30 },
+                    { name: "Bull Month", days: 30 },
+                    { name: "Frog Month", days: 30 },
+                    { name: "Heron Month", days: 30 },
+                    { name: "Elephant Month", days: 30 },
+                    { name: "Ibex Month", days: 30 },
+                    { name: "Snake Month", days: 30 },
+                    { name: "Spider Month", days: 30 },
+                    { name: "Jaws Month", days: 30 },
+                    { name: "Jatembe Month", days: 30 },
+                    { name: "Arodus Month", days: 30 },
+                    { name: "Kite Month", days: 30 }
                 ],
-                weekdays: ["Mondtag", "Mühtag", "Wohltag", "Schwurtag", "Feuertag", "Sterntag", "Sonntag"],
-                leapYearRule: (year) => (year % 4 === 0),
-                yearZero: 2700,
-                weekdayStart: 6
+                weekdays: ["Moonday", "Toilday", "Wealday", "Oathday", "Fireday", "Starday", "Sunday"],
+                leapYearRule: (year) => (year % 8 === 0), // Golarion Standard
+                yearZero: 0,
+                weekdayStart: 0
             }
         };
+    }
+
+    _ensureCache(targetYear) {
+        if (targetYear <= this._cache.maxCachedYear) return;
+        
+        // Build cache from current max up to target
+        let currentTotal = this._cache.cumulative[this._cache.cumulative.length - 1];
+        
+        for (let y = this._cache.maxCachedYear + 1; y <= targetYear; y++) {
+            const days = this.getDaysInYear(y);
+            this._cache.years[y] = days;
+            currentTotal += days;
+            this._cache.cumulative[y + 1] = currentTotal; // cumulative[1] is end of year 0 / start of year 1
+        }
+        
+        this._cache.maxCachedYear = targetYear;
     }
 
     getDate(worldSeconds) {
@@ -105,20 +166,38 @@ export class CalendarSystem {
         const SECONDS_IN_DAY = 86400;
         let totalDays = Math.floor(worldSeconds / SECONDS_IN_DAY);
 
+        // --- OPTIMIZED YEAR SEARCH ---
+        // Instead of while(totalDays >= daysInYear), we use our cumulative cache
+        // We need to find Y such that cumulative[Y] <= totalDays < cumulative[Y+1]
+        
+        // Heuristic: Estimate target year to ensure cache is built far enough
+        const estimatedYear = Math.floor(totalDays / 365);
+        this._ensureCache(estimatedYear + 2); // Buffer to ensure cumulative[estimatedYear+1] exists
+
+        // Binary Search on cumulative array to find the year
+        let low = 0;
+        let high = this._cache.maxCachedYear + 1; // Search up to maxCachedYear + 1 for cumulative array
         let year = 0;
-        let daysInYear = this.getDaysInYear(year);
 
-        // Calculate Year
-        // Optimization: Estimate years to skip large loops if totalDays is huge?
-        // For now, simple loop is safer for varied leap rules unless performance issues arise.
-        // Actually, for Golarion/Gregorian roughly 365.25.
-        while (totalDays >= daysInYear) {
-            totalDays -= daysInYear;
-            year++;
-            daysInYear = this.getDaysInYear(year);
+        while (low <= high) {
+            const mid = Math.floor((low + high) / 2);
+            if (mid >= this._cache.cumulative.length) { // Handle cases where mid might exceed cache bounds
+                high = mid - 1;
+                continue;
+            }
+            if (this._cache.cumulative[mid] <= totalDays) {
+                year = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
         }
+        
+        // 'year' is now the largest index where cumulative[year] <= totalDays
+        // totalDays -= cumulative[year] to get days within that year
+        totalDays -= this._cache.cumulative[year];
 
-        // Calculate Month
+        // Calculate Month (Standard Logic)
         let monthIndex = 0;
         let isLeap = this.isLeapYear(year);
 
@@ -133,13 +212,13 @@ export class CalendarSystem {
             totalDays -= daysInThisMonth;
             monthIndex++;
             if (monthIndex >= 12) {
-                // Should not happen if daysInYear is correct, but safety break
                 break;
             }
         }
 
         const weekdayIndex = (Math.floor(worldSeconds / SECONDS_IN_DAY) + (this.config.weekdayStart || 0)) % this.config.weekdays.length;
 
+        // The monthName and weekday are already localized by the config getter
         return {
             year: year + (this.config.yearZero || 0),
             month: monthIndex, // 0-indexed
@@ -155,8 +234,15 @@ export class CalendarSystem {
     }
 
     getDaysInYear(year) {
+        // Cached?
+        if (year <= this._cache.maxCachedYear && this._cache.years[year] !== undefined) {
+            return this._cache.years[year];
+        }
         let isLeap = this.isLeapYear(year);
-        return this.config.months.reduce((sum, m) => sum + ((isLeap && m.leap) ? m.leap : m.days), 0);
+        const days = this.config.months.reduce((sum, m) => sum + ((isLeap && m.leap) ? m.leap : m.days), 0);
+        // If this is called for a year beyond maxCachedYear, we don't cache it here
+        // It will be cached by _ensureCache when it catches up.
+        return days;
     }
 
     getDaysInMonth(year, monthIndex) {
@@ -168,12 +254,10 @@ export class CalendarSystem {
     getTimestamp(targetYear, targetMonth, targetDay = 1) {
         // targetMonth is 0-indexed (0 = Jan)
         const SECONDS_IN_DAY = 86400;
-        let totalDays = 0;
-
-        // Add days for full past years
-        for (let y = 0; y < targetYear; y++) {
-            totalDays += this.getDaysInYear(y);
-        }
+        
+        // --- OPTIMIZED CALCULATION ---
+        this._ensureCache(targetYear);
+        let totalDays = this._cache.cumulative[targetYear];
 
         // Add days for full past months in current year
         const config = this.config;
@@ -192,6 +276,13 @@ export class CalendarSystem {
         totalDays += (targetDay - 1);
 
         return totalDays * SECONDS_IN_DAY;
+    }
+
+    getWeekdayName(year, month, day) {
+        const ts = this.getTimestamp(year, month, day);
+        const totalDays = Math.floor(ts / 86400);
+        const index = (totalDays + (this.config.weekdayStart || 0)) % this.config.weekdays.length;
+        return this.config.weekdays[index];
     }
 
     isRecurringMatch(event, srcY, srcM, srcD, targetY, targetM, targetD) {

@@ -1,20 +1,59 @@
 <div class="pdnc-calendar-root">
     <header class="pdnc-calendar-header">
-        <button data-action="prevMonth"><i class="fas fa-chevron-left"></i></button>
+        <button data-action="prevView"><i class="fas fa-chevron-left"></i></button>
+        
         <div class="pdnc-date-display-wrapper">
-            <h2 class="pdnc-date-title" title="Change Date">{{monthName}} {{year}}</h2>
+             {{!-- View Switcher --}}
+            <div class="pdnc-view-switcher">
+                <h2 class="pdnc-date-title" data-action="toggleViewMenu" title="Change View">
+                    {{#if isMonthView}}{{{monthName}}} {{year}}{{/if}}
+                    {{#if isYearView}}{{year}}{{/if}}
+                    {{#if isListView}}{{localize 'PDNC.EventList'}}{{/if}}
+                     <i class="fas fa-caret-down" style="font-size: 0.6em; opacity: 0.5; margin-left: 5px;"></i>
+                </h2>
+                <div class="pdnc-view-menu">
+                    <div class="pdnc-view-item" data-action="setView" data-view="month">
+                        <span>{{localize 'PDNC.MonthView'}}</span>
+                        <img src="modules/phils-day-night-cycle/assets/m.webp" class="pdnc-view-preview">
+                    </div>
+                    <div class="pdnc-view-item" data-action="setView" data-view="year">
+                        <span>{{localize 'PDNC.YearView'}}</span>
+                        <img src="modules/phils-day-night-cycle/assets/y.webp" class="pdnc-view-preview">
+                    </div>
+                     <div class="pdnc-view-item" data-action="setView" data-view="list">
+                        <span>{{localize 'PDNC.EventList'}}</span>
+                        <img src="modules/phils-day-night-cycle/assets/l.webp" class="pdnc-view-preview">
+                    </div>
+                </div>
+            </div>
         </div>
-        <button data-action="nextMonth"><i class="fas fa-chevron-right"></i></button>
+
+        <button data-action="nextView"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="pdnc-filter-wrapper">
+            <button data-action="toggleFilterMenu" title="Filter Events"><i class="fas fa-filter"></i></button>
+            <div class="pdnc-filter-menu">
+                {{#each filters}}
+                <div class="pdnc-filter-option" data-action="toggleFilter" data-type="{{this.type}}">
+                    <i class="{{#if this.active}}fas fa-check-square{{else}}far fa-square{{/if}}"></i>
+                    {{this.label}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
         <button data-action="openWeather" class="pdnc-weather-btn" title="{{localize 'PDNC.WeatherPreview'}}"><i class="fas fa-cloud-sun"></i></button>
     </header>
 
-    <div class="pdnc-calendar-weekdays">
+    {{!-- MONTH VIEW --}}
+    {{#if isMonthView}}
+    <div class="pdnc-calendar-weekdays" style="grid-template-columns: repeat({{weekLength}}, 1fr);">
         {{#each weekdays}}
         <div class="pdnc-weekday">{{this}}</div>
         {{/each}}
     </div>
 
-    <div class="pdnc-calendar-grid">
+    <div class="pdnc-calendar-grid" style="grid-template-columns: repeat({{weekLength}}, 1fr);">
         {{#each days}}
         <div class="pdnc-day {{#if this.isCurrent}}current{{/if}} {{#if this.isEmpty}}empty{{/if}}" {{#unless
             this.isEmpty}} data-action="dayClick" data-action-contextmenu="dayContext" data-day="{{this.number}}"
@@ -24,13 +63,61 @@
             <span class="pdnc-day-number">{{this.number}}</span>
             <div class="pdnc-day-events">
                 {{#each this.events}}
-                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}"></div>
+                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}" {{#if this.color}}style="background-color: {{this.color}}; border-color: {{this.color}};"{{/if}}></div>
                 {{/each}}
             </div>
             {{/unless}}
         </div>
         {{/each}}
     </div>
+    {{/if}}
+
+    {{!-- YEAR VIEW --}}
+    {{#if isYearView}}
+    <div class="pdnc-year-view">
+        {{#each months}}
+        <div class="pdnc-mini-month" data-action="selectMonth" data-month="{{this.index}}">
+            <h3>{{this.name}}</h3>
+            <div class="pdnc-mini-grid" style="grid-template-columns: repeat({{../weekLength}}, 1fr);">
+                {{!-- Weekday Headers --}}
+                {{#each ../weekdays}}
+                <div class="pdnc-mini-weekday">{{this}}</div>
+                {{/each}}
+
+                {{!-- Days --}}
+                {{#each this.days}}
+                <div class="pdnc-mini-day {{#if this.isCurrent}}current{{/if}} {{#if this.hasEvents}}has-events {{this.eventClass}}{{/if}}" 
+                     {{#if this.hasEvents}}title="{{this.eventCount}} Events"{{/if}}
+                     style="{{this.bgStyle}}"
+                     data-datekey="{{../../year}}-{{../index}}-{{this.number}}">
+                    {{#unless this.isEmpty}}{{this.number}}{{/unless}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    {{!-- LIST VIEW --}}
+    {{#if isListView}}
+    <div class="pdnc-list-view">
+        {{#each allEvents}}
+        <div class="pdnc-list-item" data-action="jumpToEvent" data-datekey="{{this.dateKey}}">
+            <div class="pdnc-list-date">
+                <span class="pdnc-list-day">{{this.day}}</span>
+                <span class="pdnc-list-month">{{this.monthName}}</span>
+            </div>
+            <div class="pdnc-list-content">
+                <span class="pdnc-list-title">{{this.title}}</span>
+                <span class="pdnc-list-meta">{{this.year}} • {{this.weekday}}</span>
+            </div>
+        </div>
+        {{else}}
+        <div class="pdnc-no-events">{{localize 'PDNC.NoEventsFound'}}</div>
+        {{/each}}
+    </div>
+    {{/if}}
 
 
 </div>

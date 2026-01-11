@@ -45,7 +45,7 @@ export class CalendarDB {
             });
 
             await game.settings.set(this.FLAG_SCOPE, "dbJournalId", journal.id);
-            console.log("Phils Day Night Cycle | Created new Layout DB Journal with migrated data.");
+
         } else {
             if (journal.ownership.default !== 3) {
                 await journal.update({ "ownership.default": 3 });
@@ -53,11 +53,7 @@ export class CalendarDB {
             // Ensure flag exists if we have empty flag but data in content? 
             // Or just ensure flag exists if missing
             const flags = journal.getFlag(this.FLAG_SCOPE, "events");
-            console.log("Phils Day Night Cycle | Startup DB Check:", {
-                journalId: journal.id,
-                flags: flags,
-                settingsData: oldData
-            });
+
 
             // MIGRATION / CLEANUP CHECK
             // If data exists in Settings but NOT in Flags, move it (Migration)
@@ -67,7 +63,7 @@ export class CalendarDB {
 
             // CLEANUP: If data exists in Settings, clear it to prevent "undelete" zombies
             if (Object.keys(oldData).length > 0) {
-                console.log("Phils Day Night Cycle | Clearing legacy settings data to prevent conflicts.");
+
                 await game.settings.set(this.FLAG_SCOPE, "calendarEvents", {});
             }
         }
@@ -95,17 +91,121 @@ export class CalendarDB {
                 console.error("Phils Day Night Cycle | Cannot save, DB Journal missing.");
                 return;
             }
-            console.log(`Phils Day Night Cycle | Saving ${Object.keys(events).length} date-entries to Journal ${journal.id}...`);
+
             // Using Flags for storage
             if (Object.keys(events).length === 0) {
                 await journal.unsetFlag(this.FLAG_SCOPE, "events");
-                console.log("Phils Day Night Cycle | Events empty. Unset flag entirely.");
+
             } else {
                 await journal.setFlag(this.FLAG_SCOPE, "events", events);
-                console.log("Phils Day Night Cycle | Saved events to DB.", events);
+
+            }
+            // Force UI Refresh
+            if (window.PhilsDayNightCycle?.refresh) {
+                window.PhilsDayNightCycle.refresh();
             }
         } catch (e) {
             console.error("Phils Day Night Cycle | Error saving events:", e);
+        }
+    }
+
+    static async addEvent(dateKey, eventData) {
+        // eventData: { title, description, type, recurring, ... }
+        if (!dateKey || !eventData) return;
+        
+        try {
+            const events = await this.getEvents();
+            if (!events[dateKey]) events[dateKey] = [];
+            
+            // Generate timestamp if missing for uniqueness
+            if (!eventData.timestamp) eventData.timestamp = Date.now();
+            
+            // Check for duplicates (simple check by title)
+            const exists = events[dateKey].some(e => e.title === eventData.title && e.type === eventData.type);
+            if (!exists) {
+                events[dateKey].push(eventData);
+                await this.saveEvents(events);
+
+                return true;
+            }
+            return false;
+        } catch (e) {
+            console.error("PDNC | Failed to add event:", e);
+            return false;
+        }
+    }
+
+    static async removeEvent(dateKey, title) {
+        if (!dateKey || !title) return;
+        
+        try {
+            const events = await this.getEvents();
+            if (!events[dateKey]) return false;
+            
+            const initialLen = events[dateKey].length;
+            events[dateKey] = events[dateKey].filter(e => e.title !== title);
+            
+            if (events[dateKey].length < initialLen) {
+                if (events[dateKey].length === 0) {
+                    delete events[dateKey];
+                    events["-=" + dateKey] = null;
+                }
+                await this.saveEvents(events);
+
+                return true;
+            }
+            return false;
+        } catch (e) {
+            console.error("PDNC | Failed to remove event:", e);
+            return false;
+        }
+    }
+    static async removeEventByDocumentId(docId) {
+        if (!docId) return;
+
+
+        try {
+            const events = await this.getEvents();
+
+            let changed = false;
+
+            for (const dateKey in events) {
+                const initialLen = events[dateKey].length;
+                const before = events[dateKey].length;
+                
+                // Detailed check
+                const matching = events[dateKey].filter(e => e.documentId == docId); // Relaxed check
+                if (matching.length > 0) {
+
+                } else {
+                     // Debug non-matches if we are looking for something specific?
+                     // Verify if we have ANY documentIds
+                     const hasIds = events[dateKey].some(e => e.documentId);
+
+                }
+
+                events[dateKey] = events[dateKey].filter(e => e.documentId != docId); // Relaxed check
+                
+                if (events[dateKey].length !== initialLen) {
+                    changed = true;
+                    if (events[dateKey].length === 0) {
+                        delete events[dateKey];
+                        events["-=" + dateKey] = null;
+                    }
+                }
+            }
+
+            if (changed) {
+
+                await this.saveEvents(events);
+
+                return true;
+            }
+
+            return false;
+        } catch (e) {
+            console.error("PDNC | Failed to remove linked event:", e);
+            return false;
         }
     }
 }

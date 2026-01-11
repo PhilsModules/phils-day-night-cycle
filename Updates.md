@@ -1,5 +1,54 @@
 # Update Log
 
+## 3.4.0 - Performance & Features
+
+- **🚀 Performance:** Implemented a smart caching system for the calendar engine. Checking valid dates and calculating recurring events is now **orders of magnitude (O(1)) faster**. This completely eliminates the "freeze" when opening the calendar or jumping between years.
+- **📅 New Views:**
+  - **Year View:** A complete 12-month overview grid to see your entire year at a glance.
+  - **List View:** A chronological list of all upcoming events, filterable by category.
+- **👀 View Switcher:** Added a sleek switcher to easily toggle between Month, Year, and List views.
+- **🌍 Magaambya Calendar:** Full support for the Magaambya (Mwangi) calendar system including localized month names.
+- **✨ Enhancements:**
+  - **"Real Names" Mode:** Option to show real-world month/weekday names (e.g., "January", "Monday") alongside fantasy names.
+  - **Jump Date:** The "Set Current Date" context menu now calculates the difference in days and asks for confirmation in a localized, immersive way.
+  - **Localization:** Fixed missing translations for the "None" weather option and added German translations for new features.
+
+## 3.3.0 - Pathfinder 2e Sync
+
+- **✨ Feature:** Added a **"Sync Pathfinder 2e"** checkbox in the module settings. Enabling this automatically sets the day offset to `1,725,556`, perfectly aligning the calendar with the Golarion epoch used by the PF2e system.
+
+## 3.2.6 - Calendar & Weather Fixes
+
+- **🐛 Bugfix:** Resolved an issue where resetting the world time to Year 0 (or jumping back significantly) would block notifications due to spam protection. The system now detects "World Resets" (> 1 year backward jump) and correctly resets the notification state.
+- **🐛 Logic Fix:** Calendar reminders for the "current day" are no longer blocked by the initialization check. You can now reliably get notifications for events happening today, even after reloads.
+- **✨ Weather Spam Fix:** Weather reports (which are stored as calendar events) are now correctly filtered out from the generic "New Calendar Event" notifications.
+- **🔗 Feature:** "Event Created" chat cards now include a **clickable link** to the specific day in the calendar, matching the behavior of reminders.
+- **🐛 Chat Fix:** Fixed an unclosed HTML tag in the Calendar notification system that could cause chat scrolling issues.
+
+## 3.2.5 - Maintenance
+
+- **Log Cleanup:** Removed excessive debug logging from Calendar and Weather systems to keep the console clean.
+
+## 3.2.4 - V13 Compatibility Update
+
+- **🔧 Compatibility:** Resolved multiple deprecation warnings for Foundry V13.
+- **🛠️ Refactor:** Updated `loadTemplates`, `renderTemplate`, and `Draggable` usages to their new V13 namespaced locations.
+
+## 3.2.3 - Weather Render Stability
+
+- **🐛 Bugfix:** Resolved an issue where custom weather particles (leaves, snow, etc.) would sometimes be invisible due to a texture packing error.
+- **🐛 Bugfix:** Fixed a race condition where rapid weather changes could cause destroyed weather engines to throw errors or incorrectly reset the global weather visibility ("Zombie Engines").
+- **🐛 Bugfix:** Default Foundry weather is now correctly suppressed (alpha 0) instead of hidden, preserving the animation loop for custom effects.
+
+## 3.2.2 - Weather Interaction Fix
+
+- **🐛 Bugfix:** Fixed an issue where weather effects (like Rain) were blocking mouse interactions with tokens and other canvas elements.
+
+## 3.2.1 - Quest Tracker Compatibility
+
+- **🤝 Phils Quest Tracker Compatibility:** Updated event filtering logic to support the new dynamic visibility features in Phils Quest Tracker v1.0.0. Hidden quests now remain correctly hidden in both the Calendar view and Day Details view.
+- **🐛 Bugfix:** Fixed an issue where "GM Only" events could sometimes be viewed by players in the Day Details window.
+
 ## 3.2.0 - Calendar Power Update
 
 **🎉 MAJOR FEATURE: Advanced Calendar Events!**
