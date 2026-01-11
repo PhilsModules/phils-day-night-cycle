@@ -3,7 +3,7 @@
 # Phil's Day/Night Cycle ☀️🌙
 
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-3.2.6-orange?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-3.4.0-orange?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -87,6 +87,7 @@ In the calendar you can click on days to add events.
 
 - **Right Click a Day:** Opens the Add Event menu.
 - **Left Click a Day:** Shows all events for that day.
+- **View Switcher:** Toggle between **Year View** (12-month grid), **Month View**, and **List View** (all upcoming events) using the dropdown at the top.
 
 ### 3. Settings
 
@@ -170,6 +171,7 @@ Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 
 - **Rechtsklick auf einen Tag:** Öffnet das Menü um einen neuen Termin zu erstellen.
 - **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
+- **Ansicht wechseln:** Nutze das Dropdown oben, um zwischen **Jahresansicht** (12-Monats-Raster), **Monatsansicht** und **Terminliste** (alle kommenden Events) zu wechseln.
 
 ### 3. Einstellungen
 
@@ -178,7 +180,7 @@ In den Moduleinstellungen kannst du diverse Dinge anpassen.
 - Das Kalendersystem ändern (Golarion, Harptos und weitere).
 - Das Hintergrundbild der Uhr austauschen.
 - Versatz für Zeit und Datum einstellen.
-- **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
+- **Wettersystem umschalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
 
 ### 4. Wettersystem und Klimazonen
 
@@ -226,6 +228,7 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
 
 
