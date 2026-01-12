@@ -17,22 +17,25 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 </div>
 
-<br>
-
 > [!NOTE]
 >
 > ### ⚠️ Kompatibilität / Compatibility
 >
 > **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
-> *Troubleshooting:* If you notice double brightness transitions in scenes or the timing seems off, the standard clock is likely still active. In this case, you need to adjust Phil's Day/Night Cycle once using an offset to match the time and disable the "time light synchronization" in the foundry time settings.
+> <details>
+> <summary><strong>Troubleshooting (Click to expand)</strong></summary>
+> If you notice double brightness transitions in scenes or the timing seems off, the standard clock is likely still active. In this case, you need to adjust Phil's Day/Night Cycle once using an offset to match the time and disable the "time light synchronization" in the foundry time settings.
+> </details>
+>
+> ---
 >
 > **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module für den Kalender benötigt.
 >
-> *Fehlerbehebung:* Das heißt, wenn ihr doppelte Wechsel der Helligkeit in Szenen bemerkt oder die Zeiten seltsam wirken, ist vermutlich noch die Standarduhr aktiv. Ihr müsst Phil's Day/Night Cycle dann einmalig per Offset an die Zeit anpassen und die Lichtsynchronisation bei der Foundry Zeiteinstellung ausmachen.
-
-<br>
-
+> <details>
+> <summary><strong>Fehlerbehebung (Klicken zum Ausklappen)</strong></summary>
+> Das heißt, wenn ihr doppelte Wechsel der Helligkeit in Szenen bemerkt oder die Zeiten seltsam wirken, ist vermutlich noch die Standarduhr aktiv. Ihr müsst Phil's Day/Night Cycle dann einmalig per Offset an die Zeit anpassen und die Lichtsynchronisation bei der Foundryzeiteinstellung ausmachen.
+> </details>
 ---
 
 <br>
@@ -232,6 +235,7 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
 
 
