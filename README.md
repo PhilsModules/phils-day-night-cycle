@@ -19,7 +19,7 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 > [!NOTE]
 >
-> ### ⚠️ Kompatibilität / Compatibility
+> ### ⚠️ Compatibility / Kompatibilität
 >
 > **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
@@ -235,6 +235,7 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
 
 
