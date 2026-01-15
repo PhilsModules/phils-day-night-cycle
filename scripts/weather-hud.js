@@ -49,7 +49,8 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     async _onRender(context, options) {
         super._onRender(context, options);
         
-        console.log("PDNC HUD | _onRender called");
+        
+        // PDNC HUD | _onRender called
 
         // Always ensure container fills the window frame to allow resizing
         const container = this.element.querySelector('#weather-preview-box');
@@ -98,7 +99,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
                 if (newMode === "global") globalBtn.classList.add("active");
                 else globalBtn.classList.remove("active");
 
-                console.log("PDNC HUD | Mode switched to:", newMode);
+                // Log:("PDNC HUD | Mode switched to:", newMode);
                 await game.settings.set(MODULE_ID, "weatherDisplayMode", newMode);
                 
                 // Trigger local refresh immediately
@@ -231,7 +232,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         // Hook into Weather Updates to sync preview live
         if (this._weatherHook) Hooks.off("pdnc.weatherUpdated", this._weatherHook);
         this._weatherHook = Hooks.on("pdnc.weatherUpdated", (weatherData) => {
-             console.log("PDNC HUD | Live Weather Update Received", weatherData);
+             // Log:("PDNC HUD | Live Weather Update Received", weatherData);
              this._renderEffects();
              this._updateBackground(); 
         });
@@ -325,7 +326,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
 
         // Force Render after a short delay
         setTimeout(() => {
-            console.log("PDNC HUD | Forcing Initial Effect Render");
+            // PDNC HUD | Forcing Initial Effect Render
             this._renderEffects();
             this._updateBackground();
         }, 100);
@@ -365,7 +366,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         }
         this._currentBgUrl = bgUrl;
 
-        console.log("PDNC HUD | Set Background to:", bgUrl);
+        // Log:("PDNC HUD | Set Background to:", bgUrl);
         
         // Remove old background sprite if exists
         if (this._bgSprite) {
@@ -406,12 +407,12 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
 
         // Get Current Weather Data
         const weather = game.settings.get(MODULE_ID, "currentWeather");
-        console.log("PDNC HUD | Retrieved Weather Settings:", weather);
+        // Log:("PDNC HUD | Retrieved Weather Settings:", weather);
         
         const fxId = weather?.fx;
 
         if (!fxId) {
-             console.log("PDNC HUD | No FX ID found.");
+             // Log:("PDNC HUD | No FX ID found.");
              return;
         }
 
@@ -423,7 +424,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
              return;
         }
 
-        console.log("PDNC HUD | Rendering Effect:", fxId);
+        // Log:("PDNC HUD | Rendering Effect:", fxId);
 
         // 1. Particles
         if (effectConfig.effects) {
@@ -447,7 +448,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
 
                 if (isParticle) {
                     // Instantiate Particle Engine attached to this App's stage
-                    console.log("PDNC HUD | Spawning Particles:", config.type);
+                    // Log:("PDNC HUD | Spawning Particles:", config.type);
                     
                     // Do NOT inject fixed dimensions. 
                     // Let ParticleEngine.getBounds() find the renderer size dynamically.

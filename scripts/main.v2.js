@@ -5,6 +5,8 @@ import { WeatherSystem } from "./weather-system.js";
 import { LightingSystem } from "./lighting-system.js";
 import { WeatherConfigApp } from "./apps/weather-config.js";
 import { CustomClimateApp } from "./apps/custom-climate.js";
+import { StartupWizard } from "./apps/startup-wizard.js";
+import { ClimateDataWizard } from "./climate-data-wizard.js";
 
 import { WeatherHUD } from "./weather-hud.js";
 
@@ -35,7 +37,7 @@ class PhilsDayNightCycle {
     }
 
     init() {
-        console.log(`${MODULE_ID} | Initializing...`);
+        // Initializing...
 
         // Global Listener for Calendar Links in Chat
         $('body').on('click', '.pdnc-event-link', async (e) => {
@@ -86,11 +88,30 @@ class PhilsDayNightCycle {
         const templatePaths = [
             `modules/${MODULE_ID}/templates/weather-config-form.hbs`,
             `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
-            `modules/${MODULE_ID}/templates/custom-climate-editor.hbs`
+            `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
+            `modules/${MODULE_ID}/templates/custom-climate-editor.hbs`,
+            `modules/${MODULE_ID}/templates/climate-wizard.hbs`
         ];
         foundry.applications.handlebars.loadTemplates(templatePaths);
 
         // Register Visibility Setting
+        game.settings.register(MODULE_ID, "temperatureUnit", {
+            name: "Temperature Unit",
+            hint: "Select the unit for temperature display.",
+            scope: "world",
+            config: true,
+            type: String,
+            choices: {
+                "C": "Celsius (°C)",
+                "F": "Fahrenheit (°F)"
+            },
+            default: "C",
+            onChange: () => {
+                WeatherSystem.refreshWeather();
+                Hooks.callAll("pdnc.unitChanged");
+            }
+        });
+
         game.settings.register(MODULE_ID, "visible", {
             name: game.i18n.localize("PDNC.SettingVisibleName"),
             hint: game.i18n.localize("PDNC.SettingVisibleHint"),
@@ -177,11 +198,81 @@ class PhilsDayNightCycle {
             default: 0,
             onChange: (value) => {
                 this.updateClock();
-                if (value !== 1725556 && game.settings.get(MODULE_ID, "syncPF2e")) {
+                if (value !== 1725595 && game.settings.get(MODULE_ID, "syncPF2e")) {
                     game.settings.set(MODULE_ID, "syncPF2e", false);
                 }
             }
         }); // END: dayOffset registration
+
+        // New Detailed Settings
+        game.settings.register(MODULE_ID, "year", {
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 2024
+        });
+        game.settings.register(MODULE_ID, "month", {
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 1
+        });
+        game.settings.register(MODULE_ID, "day", {
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 1
+        });
+        game.settings.register(MODULE_ID, "time", {
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 720 // 12:00
+        });
+        
+        // Granular Permissions
+        game.settings.register(MODULE_ID, "permissionTimeControl", {
+            name: "Permission: Time Control",
+            scope: "world",
+            config: true,
+            type: Number,
+            choices: {
+                1: "PLAYER",
+                2: "TRUSTED",
+                3: "ASSISTANT",
+                4: "GAMEMASTER"
+            },
+            default: 2 // TRUSTED
+        });
+        game.settings.register(MODULE_ID, "permissionWeatherControl", {
+            name: "Permission: Weather Control",
+            scope: "world",
+            config: true,
+            type: Number,
+            choices: {
+                 1: "PLAYER",
+                2: "TRUSTED",
+                3: "ASSISTANT",
+                4: "GAMEMASTER"
+            },
+            default: 2 // TRUSTED
+        });
+
+        // Simple Permissions (used by Wizard)
+        game.settings.register(MODULE_ID, "playerAdvanceTime", {
+            name: "Player Advance Time",
+            scope: "world",
+            config: false,
+            type: Boolean,
+            default: false
+        });
+        game.settings.register(MODULE_ID, "playerCreateEvents", {
+            name: "Player Create Events",
+            scope: "world",
+            config: false,
+            type: Boolean,
+            default: false
+        });
 
 
 
@@ -196,7 +287,6 @@ class PhilsDayNightCycle {
                 "gregorian": "Gregorian (Standard)",
                 "golarion": "Golarion (Pathfinder 2e)",
                 "harptos": "Harptos (DnD 5e)",
-                "simple": "Simple (30 Days)",
                 "magaambya": "Magaambya (Mwangi/PF2e)"
             },
             default: "gregorian",
@@ -231,16 +321,33 @@ class PhilsDayNightCycle {
             }
         });
 
+        game.settings.register(MODULE_ID, "wizardCompleted", {
+            name: "Wizard Completed",
+            scope: "world",
+            config: false,
+            type: Boolean,
+            default: false
+        });
+
+        game.settings.registerMenu(MODULE_ID, "restartWizard", {
+            name: "Restart Setup Wizard",
+            label: game.i18n.localize("PDNC.Wizard.RestartWizardLabel"),
+            hint: game.i18n.localize("PDNC.Wizard.RestartWizardHint"),
+            icon: "fas fa-magic",
+            type: StartupWizard,
+            restricted: true
+        });
+
         game.settings.register(MODULE_ID, "syncPF2e", {
             name: "Sync Pathfinder 2e",
-            hint: "Automatically sets the day offset to 1,725,556 to align with Golarion's epoch.",
+            hint: "Automatically sets the day offset to 1,725,595 to align with Golarion's epoch.",
             scope: "world",
             config: true,
             type: Boolean,
             default: false,
             onChange: (value) => {
                 if (value) {
-                    game.settings.set(MODULE_ID, "dayOffset", 1725556);
+                    game.settings.set(MODULE_ID, "dayOffset", 1725595);
                     ui.notifications.info("PDNC | Calendar Synced to Pathfinder 2e Epoch.");
                 }
             }
@@ -442,6 +549,73 @@ class PhilsDayNightCycle {
              }
         });
 
+        // Add Scene Control Button
+        // Add Scene Control Button
+        Hooks.on("getSceneControlButtons", (controls) => {
+            if (!game.user.isGM) return;
+            
+            let controlsArray = controls;
+
+            // Handle non-array input (e.g. from module conflicts or core updates)
+            if (!Array.isArray(controls)) {
+                if (typeof controls === 'object' && controls !== null) {
+                    controlsArray = Object.values(controls);
+                } else {
+                    console.warn("PDNC | getSceneControlButtons hook received invalid controls:", controls);
+                    return;
+                }
+            }
+
+            const lightingControl = controlsArray.find(c => c.name === "lighting");
+            if (lightingControl) {
+                if (!lightingControl.tools) lightingControl.tools = [];
+                
+                // Helper to check for existing tool
+                let exists = false;
+                if (Array.isArray(lightingControl.tools)) {
+                    exists = !!lightingControl.tools.find(t => t.name === "climate-wizard");
+                } else if (typeof lightingControl.tools === 'object') {
+                    exists = Object.values(lightingControl.tools).some(t => t.name === "climate-wizard");
+                }
+
+                if (!exists) {
+                    const newTool = {
+                        name: "climate-wizard",
+                        title: "Climate Data Wizard",
+                        icon: "fas fa-cloud-sun-rain",
+                        onClick: () => {
+                            new ClimateDataWizard().render({ force: true });
+                        },
+                        button: true
+                    };
+
+                    // Add new tool
+                    if (Array.isArray(lightingControl.tools)) {
+                        lightingControl.tools.push(newTool);
+                    } else if (typeof lightingControl.tools === 'object') {
+                        // If it's an object, we assume we need to assign it by key?
+                        // Or maybe it's a numeric dictionary?
+                        // We'll try to use the name as key if it's an object map.
+                        if (lightingControl.tools instanceof Map) {
+                             lightingControl.tools.set("climate-wizard", newTool);
+                        } else {
+                             // Plain object logic
+                             // Check if numeric keys?
+                             const keys = Object.keys(lightingControl.tools);
+                             const isNumeric = keys.every(k => !isNaN(parseInt(k)));
+                             
+                             if (isNumeric) {
+                                 const nextIdx = keys.length > 0 ? Math.max(...keys.map(Number)) + 1 : 0;
+                                 lightingControl.tools[nextIdx] = newTool;
+                             } else {
+                                 lightingControl.tools["climate-wizard"] = newTool;
+                             }
+                        }
+                    }
+                }
+            }
+        });
+
         this.calendar = new CalendarSystem();
 
         // Expose API for Macros
@@ -454,7 +628,9 @@ class PhilsDayNightCycle {
             removeEvent: (date, title) => CalendarDB.removeEvent(date, title),
             removeLinkedEvent: (docId) => CalendarDB.removeEventByDocumentId(docId),
             PhilsCalendarApp: PhilsCalendarApp, // Expose Class for Picker
-            calendar: this.calendar // Expose Calendar System
+            calendar: this.calendar, // Expose Calendar System
+            createUI: () => this.createUI(),
+            updateClock: () => this.updateClock()
         };
         // this.updateClock(); // Moved to ready/updateWorldTime
 
@@ -463,6 +639,14 @@ class PhilsDayNightCycle {
              const state = game.settings.get(MODULE_ID, "weatherPreviewState");
              if (state && state.open) {
                  new WeatherHUD().render(true);
+             }
+
+             // Validate Settings (Fix for deleted climates)
+             WeatherSystem.validateSettings();
+
+             // Launch Startup Wizard if needed
+             if (game.user.isGM && !game.settings.get(MODULE_ID, "wizardCompleted")) {
+                 new StartupWizard().render({ force: true });
              }
         });
     }
@@ -527,7 +711,6 @@ class PhilsDayNightCycle {
 
         <span class="pdnc-phase-icon"></span>
         <div class="pdnc-phase-text"></div>
-        <div class="pdnc-phase-text"></div>
         <div class="pdnc-solar-arc-container">
             <svg class="pdnc-solar-svg">
                 <!-- Track Arc -->
@@ -560,15 +743,23 @@ class PhilsDayNightCycle {
             </div>
         </div>
         <div class="pdnc-date-text"></div>
-        <div class="pdnc-controls" style="display: none;">
-            <button class="pdnc-btn" data-action="rewind">-</button>
-            <input type="number" class="pdnc-input" value="1" min="1">
-            <select class="pdnc-select">
-                <option value="60">${game.i18n.localize("PDNC.TimeMin")}</option>
-                <option value="3600">${game.i18n.localize("PDNC.TimeHour")}</option>
-                <option value="86400">${game.i18n.localize("PDNC.TimeDay")}</option>
-            </select>
-            <button class="pdnc-btn" data-action="advance">+</button>
+        <div class="pdnc-controls" style="display: none; flex-direction: column; gap: 4px;">
+            <div class="pdnc-shortcuts" style="display: flex; width: 100%; justify-content: center; gap: 5px;">
+                <button class="pdnc-btn" data-action="add-10m" style="padding: 4px 6px; font-size: 0.8em;">+10m</button>
+                <button class="pdnc-btn" data-action="add-1h" style="padding: 4px 6px; font-size: 0.8em;">+1h</button>
+                <button class="pdnc-btn" data-action="add-1d" style="padding: 4px 6px; font-size: 0.8em;">+1d</button>
+                <button class="pdnc-btn" data-action="add-1w" style="padding: 4px 6px; font-size: 0.8em;">+1w</button>
+            </div>
+            <div class="pdnc-manual-controls" style="display: flex; gap: 8px; justify-content: center; align-items: center; width: 100%;">
+                <button class="pdnc-btn" data-action="rewind">-</button>
+                <input type="number" class="pdnc-input" value="1" min="1">
+                <select class="pdnc-select">
+                    <option value="60">${game.i18n.localize("PDNC.TimeMin")}</option>
+                    <option value="3600">${game.i18n.localize("PDNC.TimeHour")}</option>
+                    <option value="86400">${game.i18n.localize("PDNC.TimeDay")}</option>
+                </select>
+                <button class="pdnc-btn" data-action="advance">+</button>
+            </div>
         </div>
       </div>
     `;
@@ -582,6 +773,7 @@ class PhilsDayNightCycle {
         this.label = uiContainer.querySelector(".pdnc-phase-text");
         this.clockText = uiContainer.querySelector(".pdnc-clock-text");
         this.dateText = uiContainer.querySelector(".pdnc-date-text");
+        this.shortcuts = uiContainer.querySelector(".pdnc-shortcuts");
         this.controls = uiContainer.querySelector(".pdnc-controls");
         
         // Weather Elements
@@ -594,6 +786,8 @@ class PhilsDayNightCycle {
         // Check Permissions for Controls
         if (game.user.isGM || game.settings.get(MODULE_ID, "playerAdvanceTime")) {
             this.controls.style.display = "flex";
+            // Shortcuts display is now handled by parent flex, but we might want to ensure they aren't hidden
+            // Since we set display:flex inline in the HTML above, this is fine.
         }
 
         // Restore Position
@@ -719,6 +913,37 @@ class PhilsDayNightCycle {
         btnRewind.addEventListener("click", (e) => { e.stopPropagation(); modifyTime(-1); });
         btnAdvance.addEventListener("click", (e) => { e.stopPropagation(); modifyTime(1); });
 
+        // Shortcut Listeners
+        const shortcuts = this.shortcuts.querySelectorAll('.pdnc-btn');
+        shortcuts.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = btn.dataset.action;
+                let delta = 0;
+                if (action === "add-10m") delta = 600;
+                if (action === "add-1h") delta = 3600;
+                if (action === "add-1d") delta = 86400;
+                if (action === "add-1w") delta = 604800;
+
+                // Modifiers
+                if (e.ctrlKey) delta *= -1;
+
+                if (delta !== 0) {
+                     if (game.user.isGM) {
+                        if (delta > 0) {
+                            game.time.advance(delta);
+                        } else {
+                            // Negative advance (Rewind)
+                            const newTime = game.time.worldTime + delta;
+                            game.settings.set("core", "time", newTime);
+                        }
+                    } else {
+                        game.user.setFlag(MODULE_ID, "timeRequest", { delta: delta, id: Date.now() });
+                    }
+                }
+            });
+        });
+
         // Toggle Clock Visibility
         const toggleBtn = uiContainer.querySelector(".pdnc-toggle-btn");
         toggleBtn.addEventListener("click", (e) => {
@@ -731,6 +956,37 @@ class PhilsDayNightCycle {
 
         // Prevent click propagation to disk/drag
         this.controls.addEventListener("mousedown", (e) => e.stopPropagation());
+
+        // Ctrl Key Listeners for UI Feedback
+        const updateShortcutLabels = (invert) => {
+            if (!this.shortcuts) return;
+            const btns = this.shortcuts.querySelectorAll('.pdnc-btn');
+            btns.forEach(btn => {
+                const action = btn.dataset.action;
+                let base = "";
+                if (action === "add-10m") base = "10m";
+                if (action === "add-1h") base = "1h";
+                if (action === "add-1d") base = "1d";
+                if (action === "add-1w") base = "1w";
+                
+                if (base) {
+                    btn.textContent = (invert ? "-" : "+") + base;
+                    btn.style.color = invert ? "#ff6b6b" : "";
+                }
+            });
+        };
+
+        if (!this._keyDownBound) {
+            this._keyDownHandler = (e) => {
+                if (e.key === "Control" || e.keyCode === 17) updateShortcutLabels(true);
+            };
+            this._keyUpHandler = (e) => {
+                 if (e.key === "Control" || e.keyCode === 17) updateShortcutLabels(false);
+            };
+            document.addEventListener("keydown", this._keyDownHandler);
+            document.addEventListener("keyup", this._keyUpHandler);
+            this._keyDownBound = true;
+        }
 
         this.applyTheme();
         this.updateClock();
@@ -897,8 +1153,8 @@ class PhilsDayNightCycle {
         const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset");
         worldTime += (offsetMinutes * 60);
 
-        // console.log("PDNC Debug | Day Offset:", offsetDays, "Time Offset:", offsetMinutes);
-        // console.log("PDNC Debug | Original Time:", game.time.worldTime, "Adjusted Time:", worldTime);
+        // // Log:("PDNC Debug | Day Offset:", offsetDays, "Time Offset:", offsetMinutes);
+        // // Log:("PDNC Debug | Original Time:", game.time.worldTime, "Adjusted Time:", worldTime);
 
         // Calculate seconds elapsed in the current day
         // Assuming a standard 24h day = 86400 seconds
@@ -921,84 +1177,87 @@ class PhilsDayNightCycle {
         this.minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
 
         // Solar Arc Update
-        if (this.sunGroup) {
-            const svg = this.sunGroup.closest("svg");
-            const track = svg.querySelector(".pdnc-solar-track");
-            
-            // Measure Container
-            const rect = svg.getBoundingClientRect();
-            const cw = rect.width;
-            const ch = rect.height;
-            
-            // Find Reference Points
-            const controls = this.container.querySelector(".pdnc-controls");
-            const controlsY = controls ? controls.offsetTop : ch - 50;
 
-            // Define Geometry (Dynamic)
-            // Anchor slightly above the separator line (align with Weekday text)
-            // ControlsY is the top of the buttons.
-            const startY = controlsY - 20;
-            const endY = controlsY - 20;
-            
-            // Padding from sides
-            const paddingX = 15;
-            
-            // Peak Position (Top of card, or just above "Dawn/Morning" text)
-            const peakY = 5; 
+    if (this.sunGroup) {
+        const svg = this.sunGroup.closest("svg");
+        const track = svg.querySelector(".pdnc-solar-track");
+        
+        // Measure Container
+        const rect = svg.getBoundingClientRect();
+        const cw = rect.width;
+        const ch = rect.height;
+        
+        // Find Reference Points
+        const controls = this.container.querySelector(".pdnc-controls");
+        const controlsY = controls ? controls.offsetTop : ch - 50;
 
-            const p0 = { x: paddingX, y: startY };
-            const p2 = { x: cw - paddingX, y: endY };
-            
-            // Calculate Control Point (P1) to force Vertex at peakY
-            const p1 = { x: cw / 2, y: (2 * peakY) - startY };
+        // Define Geometry (Dynamic)
+        // Anchor slightly above the separator line (align with Weekday text)
+        // ControlsY is the top of the buttons.
+        const startY = controlsY - 45;
+        const endY = controlsY - 45;
+        
+        // Padding from sides
+        const paddingX = 15;
+        
+        
+        // Peak Position (Top of card, or just above "Dawn/Morning" text)
+        const peakY = 10; // Compromise: 14px gives clearance but keeps it tight 
 
-            // Update Track Path
-            if (track) {
-                const d = `M ${p0.x} ${p0.y} Q ${p1.x} ${p1.y} ${p2.x} ${p2.y}`;
-                track.setAttribute("d", d);
-            }
+        const p0 = { x: paddingX, y: startY };
+        const p2 = { x: cw - paddingX, y: endY };
+        
+        // Calculate Control Point (P1) to force Vertex at peakY
+        const p1 = { x: cw / 2, y: (2 * peakY) - startY };
 
-            // Get Dynamic Dawn/Dusk/Noon from Lighting System
-            const lightingParams = LightingSystem.getClimateParams();
-            let dawnMinutes = 360; // Default 06:00
-            let duskMinutes = 1080; // Default 18:00
-            let noonMinutes = 720; // Default 12:00
-            
-            if (lightingParams) {
-                if (lightingParams.dawn) dawnMinutes = LightingSystem.parseTime(lightingParams.dawn);
-                if (lightingParams.dusk) duskMinutes = LightingSystem.parseTime(lightingParams.dusk);
-                if (lightingParams.noon) noonMinutes = LightingSystem.parseTime(lightingParams.noon);
-                else noonMinutes = dawnMinutes + (duskMinutes - dawnMinutes) / 2; // Fallback
-            }
-
-            // Calculate Progress using Dawn -> Noon -> Dusk interpolation
-            // This ensures the sun is exactly at the peak (t=0.5) at Noon
-            let sunT = -1;
-            
-            if (minutesOfDay >= dawnMinutes && minutesOfDay < noonMinutes) {
-                // First Half: Dawn to Noon -> 0.0 to 0.5
-                sunT = 0.5 * (minutesOfDay - dawnMinutes) / (noonMinutes - dawnMinutes);
-            } else if (minutesOfDay >= noonMinutes && minutesOfDay <= duskMinutes) {
-                // Second Half: Noon to Dusk -> 0.5 to 1.0
-                sunT = 0.5 + 0.5 * (minutesOfDay - noonMinutes) / (duskMinutes - noonMinutes);
-            }
-            
-            // Visibility Check
-            if (minutesOfDay < dawnMinutes || minutesOfDay > duskMinutes) {
-                 this.sunGroup.style.opacity = "0";
-            } else {
-                 this.sunGroup.style.opacity = "1";
-            }
-
-            // Update Position (always, to avoid jumps when appearing)
-            const t = sunT;
-            const invT = 1 - t;
-
-            const x = (invT * invT * p0.x) + (2 * invT * t * p1.x) + (t * t * p2.x);
-            const y = (invT * invT * p0.y) + (2 * invT * t * p1.y) + (t * t * p2.y);
-
-            this.sunGroup.style.transform = `translate(${x}px, ${y}px)`;
+        // Update Track Path
+        if (track) {
+            const d = `M ${p0.x} ${p0.y} Q ${p1.x} ${p1.y} ${p2.x} ${p2.y}`;
+            track.setAttribute("d", d);
         }
+
+        // Get Dynamic Dawn/Dusk/Noon from Lighting System
+        const lightingParams = LightingSystem.getClimateParams();
+        let dawnMinutes = 360; // Default 06:00
+        let duskMinutes = 1080; // Default 18:00
+        let noonMinutes = 720; // Default 12:00
+        
+        if (lightingParams) {
+            if (lightingParams.dawn) dawnMinutes = LightingSystem.parseTime(lightingParams.dawn);
+            if (lightingParams.dusk) duskMinutes = LightingSystem.parseTime(lightingParams.dusk);
+            if (lightingParams.noon) noonMinutes = LightingSystem.parseTime(lightingParams.noon);
+            else noonMinutes = dawnMinutes + (duskMinutes - dawnMinutes) / 2; // Fallback
+        }
+
+        // Calculate Progress using Dawn -> Noon -> Dusk interpolation
+        // This ensures the sun is exactly at the peak (t=0.5) at Noon
+        let sunT = -1;
+        
+        if (minutesOfDay >= dawnMinutes && minutesOfDay < noonMinutes) {
+            // First Half: Dawn to Noon -> 0.0 to 0.5
+            sunT = 0.5 * (minutesOfDay - dawnMinutes) / (noonMinutes - dawnMinutes);
+        } else if (minutesOfDay >= noonMinutes && minutesOfDay <= duskMinutes) {
+            // Second Half: Noon to Dusk -> 0.5 to 1.0
+            sunT = 0.5 + 0.5 * (minutesOfDay - noonMinutes) / (duskMinutes - noonMinutes);
+        }
+        
+        // Visibility Check
+        if (minutesOfDay < dawnMinutes || minutesOfDay > duskMinutes) {
+             this.sunGroup.style.opacity = "0";
+        } else {
+             this.sunGroup.style.opacity = "1";
+        }
+
+        // Update Position (always, to avoid jumps when appearing)
+        const t = sunT;
+        const invT = 1 - t;
+
+        const x = (invT * invT * p0.x) + (2 * invT * t * p1.x) + (t * t * p2.x);
+        const y = (invT * invT * p0.y) + (2 * invT * t * p1.y) + (t * t * p2.y);
+
+        this.sunGroup.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
 
         // Determine Phase
         const phase = this.phases.find(p => minutesOfDay >= p.start && minutesOfDay <= p.end);
@@ -1020,7 +1279,13 @@ class PhilsDayNightCycle {
         // Update Date Text
         if (this.dateText && this.calendar) {
             const dateData = this.calendar.getDate(worldTime); // Use adjusted worldTime
-            this.dateText.innerHTML = `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`;
+            
+            const showRealNames = game.settings.get(MODULE_ID, "showRealNames");
+            if (showRealNames) {
+                 this.dateText.innerHTML = `${dateData.weekday}, ${dateData.day}.<br>${dateData.monthName} ${dateData.year}`;
+            } else {
+                 this.dateText.innerHTML = `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`;
+            }
         }
 
         // Update Weather UI
@@ -1040,7 +1305,8 @@ class PhilsDayNightCycle {
                 if (weatherGroup) weatherGroup.style.display = "flex";
                 // Get dynamic temperature
                 const currentTemp = WeatherSystem.getCurrentTemperature();
-                this.tempText.textContent = `${currentTemp}°C`;
+                const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+                this.tempText.textContent = `${currentTemp}°${unit}`;
             } else {
                 if (weatherGroup) weatherGroup.style.display = "none";
                 this.tempText.textContent = "";
@@ -1081,7 +1347,7 @@ class PhilsDayNightCycle {
             // Also explicitly allow Year 0 if we were previously much further ahead.
             const yearDiff = lastState.year - currentDate.year;
             if (yearDiff >= 1) {
-                console.log("PDNC | World Time Reset detected (Backward Jump > 1 Year). Resetting notification state.");
+                // Log:("PDNC | World Time Reset detected (Backward Jump > 1 Year). Resetting notification state.");
                 notifiedEvents.clear();
                 // We proceed (do not return)
             } else {
@@ -1204,6 +1470,16 @@ Hooks.once("init", () => dayNightCycle.init());
 
 Hooks.once("ready", async () => {
     try {
+        // --- SETTINGS VALIDATION & TRANSLATION FIX ---
+        // Ensure the setting choices are localized correctly (as init might run before i18n is fully passed)
+        const currentChoices = WeatherSystem.getClimateList();
+        const setting = game.settings.settings.get(`${MODULE_ID}.climateZone`);
+        if (setting) {
+            setting.choices = currentChoices;
+        }
+
+        // Validate current selection (reset if deleted)
+        await WeatherSystem.validateSettings(); 
         // --- TIME CHANGE HANDLING (User Flags Fallback) ---
         // Sockets failed, so we use User Flags as a communication channel.
         if (game.user.isGM) {
@@ -1241,7 +1517,7 @@ Hooks.once("ready", async () => {
         if (game.user.isGM) {
             const legacyData = game.settings.get(MODULE_ID, "calendarEvents");
             if (legacyData && Object.keys(legacyData).length > 0) {
-                console.log(`${MODULE_ID} | Force-clearing legacy 'calendarEvents' setting to prevent zombie data.`);
+                // Log:(`${MODULE_ID} | Force-clearing legacy 'calendarEvents' setting to prevent zombie data.`);
                 await game.settings.set(MODULE_ID, "calendarEvents", {});
             }
         }
@@ -1279,10 +1555,10 @@ Hooks.once("ready", async () => {
                 const existing = game.macros.find(m => m.name === data.name);
                 if (!existing) {
                     await Macro.create(data);
-                    console.log(`${MODULE_ID} | Created macro: ${data.name}`);
+                    // Log:(`${MODULE_ID} | Created macro: ${data.name}`);
                 } else {
                     await existing.update(data);
-                    console.log(`${MODULE_ID} | Updated macro: ${data.name}`);
+                    // Log:(`${MODULE_ID} | Updated macro: ${data.name}`);
                 }
             }
         }
@@ -1354,7 +1630,7 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
     async _onSave(event, target) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("PDNC | Time Machine Save Action Triggered");
+        // Log:("PDNC | Time Machine Save Action Triggered");
         
         const form = this.element; // In V2, this.element is the form if tag: 'form'
         // Or if tag is div, we look for form. But manual ID access works fine here.
@@ -1453,7 +1729,7 @@ class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
     async _onSave(event, target) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("PDNC | Season Config Save Action Triggered");
+        // Log:("PDNC | Season Config Save Action Triggered");
 
         const form = this.element;
         
@@ -1470,10 +1746,10 @@ class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
             winter: { month: Number(getVal("winter.month")), day: Number(getVal("winter.day")) }
         };
         
-        console.log("PDNC | Saving Settings:", newSettings);
+        // Log:("PDNC | Saving Settings:", newSettings);
 
         await game.settings.set(MODULE_ID, "seasonConfig", newSettings);
-        ui.notifications.info(game.i18n.localize("SETTINGS.Save"));
+        ui.notifications.info(game.i18n.localize("PDNC.SETTINGS.Save"));
         this.close();
     }
 }

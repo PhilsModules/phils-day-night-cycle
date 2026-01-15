@@ -1,115 +1,121 @@
 export const LIGHTING_DATA = {
-    // Eiswüstenklimate
+    // 1. Eiswüstenklimate (Ice Cap)
     "ice_cap": {
-        "spring": { dawn: "05:45", noon: "12:10", dusk: "18:30", night: "21:30" },
-        "summer": { type: "polar_day", noon: "12:10" },
-        "autumn": { dawn: "05:30", noon: "12:05", dusk: "18:25", night: "21:15" },
-        "winter": { type: "polar_night", noon: "12:10" } // Noon is theoretical peak but still dark or twilight
+        "spring": { dawn: "04:30", noon: "13:00", dusk: "19:00", night: "22:00" },
+        "summer": { dawn: "00:00", noon: "13:00", dusk: "23:59", night: "00:00" }, // Polar Day equivalent
+        "autumn": { dawn: "05:00", noon: "13:00", dusk: "18:00", night: "21:00" },
+        "winter": { dawn: "11:30", noon: "12:00", dusk: "12:30", night: "14:00" }
     },
-    // Westseitenklimate (Marine West Coast)
+
+    // 2. Westseitenklimate (Marine West Coast) - Mapped from "westseiten_klimate"
     "marine_west_coast": {
-        "spring": { dawn: "06:00", noon: "12:10", dusk: "18:15", night: "20:15" },
-        "summer": { dawn: "04:45", noon: "13:00", dusk: "21:20", night: null, type: "bright_night" }, // "Nie ganz dunkel"
-        "autumn": { dawn: "06:45", noon: "12:50", dusk: "18:55", night: "20:50" },
-        "winter": { dawn: "08:05", noon: "12:00", dusk: "15:55", night: "18:00" }
+        "spring": { dawn: "06:00", noon: "12:15", dusk: "18:45", night: "20:00" },
+        "summer": { dawn: "05:30", noon: "13:00", dusk: "20:45", night: "22:00" },
+        "autumn": { dawn: "06:30", noon: "12:00", dusk: "19:00", night: "20:15" },
+        "winter": { dawn: "07:15", noon: "12:30", dusk: "17:15", night: "18:30" }
     },
-    // Ostseitenklimate (Humid Subtropical - approximate match based on previous mappings)
+
+    // 3. Ostseitenklimate (Humid Subtropical) - Mapped from "ostseiten_klimate"
     "humid_subtropical": {
-        "spring": { dawn: "06:00", noon: "12:05", dusk: "18:10", night: "19:30" },
-        "summer": { dawn: "04:50", noon: "12:00", dusk: "19:00", night: "20:30" },
-        "autumn": { dawn: "05:45", noon: "11:50", dusk: "17:55", night: "19:15" },
-        "winter": { dawn: "06:50", noon: "12:00", dusk: "17:00", night: "18:25" }
+        "spring": { dawn: "05:45", noon: "12:00", dusk: "18:15", night: "19:30" },
+        "summer": { dawn: "04:45", noon: "12:00", dusk: "19:15", night: "20:30" },
+        "autumn": { dawn: "05:45", noon: "12:00", dusk: "17:45", night: "19:00" },
+        "winter": { dawn: "06:45", noon: "12:30", dusk: "17:15", night: "18:30" }
     },
-    // Tundrenklimate
+
+    // 4. Tundrenklimate (Tundra) - Mapped from "tundren_klimate"
     "tundra": {
-        "spring": { dawn: "06:15", noon: "12:30", dusk: "18:45", night: "21:00" },
-        "summer": { type: "polar_day", noon: "12:30" },
-        "autumn": { dawn: "06:00", noon: "12:20", dusk: "18:30", night: "20:30" },
-        "winter": { type: "polar_night", noon: "12:30" }
+        "spring": { dawn: "04:00", noon: "12:30", dusk: "20:00", night: "22:30" },
+        "summer": { dawn: "02:00", noon: "13:00", dusk: "23:00", night: "00:30" },
+        "autumn": { dawn: "05:00", noon: "12:30", dusk: "19:00", night: "21:30" },
+        "winter": { dawn: "10:00", noon: "12:00", dusk: "14:00", night: "16:00" }
     },
-    // Steppenklimate (Semiarid)
+
+    // 5. Steppenklimate (Semiarid) - Mapped from "steppen_klimate"
     "semiarid": {
-        "spring": { dawn: "06:50", noon: "12:55", dusk: "19:00", night: "20:35" },
-        "summer": { dawn: "05:05", noon: "13:00", dusk: "20:55", night: "22:45" },
-        "autumn": { dawn: "06:40", noon: "12:45", dusk: "18:50", night: "20:20" },
-        "winter": { dawn: "08:40", noon: "12:50", dusk: "17:05", night: "18:45" },
-        // Add duplicate for "dry_steppe" to match previous specific keys if needed
+        "spring": { dawn: "05:45", noon: "12:15", dusk: "18:45", night: "20:15" },
+        "summer": { dawn: "04:30", noon: "13:00", dusk: "20:45", night: "22:15" },
+        "autumn": { dawn: "06:15", noon: "12:15", dusk: "18:30", night: "19:45" },
+        "winter": { dawn: "07:45", noon: "12:30", dusk: "17:00", night: "18:30" }
     },
-    // Mapping "Steppenklimate" to "dry_steppe" specifically if user chose that
-    "dry_steppe": {
-        "spring": { dawn: "06:50", noon: "12:55", dusk: "19:00", night: "20:35" },
-        "summer": { dawn: "05:05", noon: "13:00", dusk: "20:55", night: "22:45" },
-        "autumn": { dawn: "06:40", noon: "12:45", dusk: "18:50", night: "20:20" },
-        "winter": { dawn: "08:40", noon: "12:50", dusk: "17:05", night: "18:45" }
-    },
-    // Trockensavannenklimate
+
+    // 6. Trockensavannenklimate (Dry Savanna) - Mapped from "trockensavannen_klimate"
     "dry_savanna": {
-        "spring": { dawn: "06:10", noon: "12:15", dusk: "18:20", night: "19:30" },
-        "summer": { dawn: "05:35", noon: "12:10", dusk: "18:45", night: "20:05" },
-        "autumn": { dawn: "06:00", noon: "12:00", dusk: "18:00", night: "19:10" },
-        "winter": { dawn: "06:35", noon: "12:15", dusk: "17:55", night: "19:10" }
+        "spring": { dawn: "06:00", noon: "12:15", dusk: "18:15", night: "19:00" },
+        "summer": { dawn: "05:45", noon: "12:15", dusk: "18:45", night: "19:30" },
+        "autumn": { dawn: "06:15", noon: "12:15", dusk: "18:15", night: "19:00" },
+        "winter": { dawn: "06:45", noon: "12:30", dusk: "17:45", night: "18:45" }
     },
-    // Nadelwaldklimate (Boreal / Taiga)
+
+    // 7. Nadelwaldklimate (Boreal Forest / Taiga) - Mapped from "nadelwald_klimate"
     "boreal_forest": {
-        "spring": { dawn: "06:15", noon: "12:25", dusk: "18:35", night: "21:00" },
-        "summer": { dawn: "03:55", noon: "13:20", dusk: "22:50", night: null, type: "bright_night" },
-        "autumn": { dawn: "07:00", noon: "13:10", dusk: "19:15", night: "21:30" },
-        "winter": { dawn: "09:25", noon: "12:20", dusk: "15:15", night: "17:45" }
+        "spring": { dawn: "05:00", noon: "12:15", dusk: "19:00", night: "21:00" },
+        "summer": { dawn: "03:00", noon: "13:00", dusk: "22:00", night: "00:00" },
+        "autumn": { dawn: "06:00", noon: "12:15", dusk: "18:00", night: "20:00" },
+        "winter": { dawn: "09:00", noon: "12:00", dusk: "15:00", night: "17:00" }
     },
-    // Winterkalte Trockenklimate (Cold Desert)
+
+    // 8. Winterkalte Trockenklimate (Cold Desert) - Mapped from "winterkalte_trockenklimate"
     "cold_desert": {
-        "spring": { dawn: "06:20", noon: "12:30", dusk: "18:40", night: "20:20" },
-        "summer": { dawn: "04:05", noon: "13:15", dusk: "21:35", night: "23:55" },
-        "autumn": { dawn: "06:55", noon: "13:00", dusk: "19:05", night: "20:40" },
-        "winter": { dawn: "09:15", noon: "13:15", dusk: "17:15", night: "19:00" }
+        "spring": { dawn: "06:00", noon: "12:15", dusk: "18:30", night: "19:45" },
+        "summer": { dawn: "04:45", noon: "13:00", dusk: "20:15", night: "21:30" },
+        "autumn": { dawn: "06:15", noon: "12:15", dusk: "18:30", night: "19:45" },
+        "winter": { dawn: "07:45", noon: "12:30", dusk: "17:00", night: "18:15" }
     },
-    // Feuchtsavannenklimate
+
+    // 9. Feuchtsavannenklimate (Wet Savanna) - Mapped from "feuchtsavannen_klimate"
     "wet_savanna": {
-        "spring": { dawn: "06:45", noon: "12:50", dusk: "18:55", night: "20:05" },
-        "summer": { dawn: "06:35", noon: "12:50", dusk: "19:05", night: "20:20" },
-        "autumn": { dawn: "06:30", noon: "12:35", dusk: "18:40", night: "19:50" },
-        "winter": { dawn: "06:55", noon: "12:50", dusk: "18:45", night: "20:00" }
+        "spring": { dawn: "06:00", noon: "12:15", dusk: "18:15", night: "19:00" },
+        "summer": { dawn: "05:30", noon: "12:15", dusk: "18:45", night: "19:30" },
+        "autumn": { dawn: "06:00", noon: "12:15", dusk: "18:15", night: "19:00" },
+        "winter": { dawn: "06:30", noon: "12:15", dusk: "18:00", night: "18:45" }
     },
-    // Mischwaldklimate (Humid Continental / Mixed Forest)
+
+    // 10. Mischwaldklimate (Humid Continental / Mixed Forest) - Mapped from "mischwald_klimate"
     "humid_continental": {
-        "spring": { dawn: "06:30", noon: "12:40", dusk: "18:50", night: "20:50" },
-        "summer": { dawn: "05:15", noon: "13:30", dusk: "21:50", night: null, type: "bright_night" }, // Mitternachtsdämmerung
-        "autumn": { dawn: "07:15", noon: "13:20", dusk: "19:25", night: "21:15" },
-        "winter": { dawn: "08:35", noon: "12:25", dusk: "16:30", night: "18:35" }
+        "spring": { dawn: "06:00", noon: "12:30", dusk: "19:00", night: "20:45" },
+        "summer": { dawn: "04:45", noon: "13:30", dusk: "21:30", night: "23:15" },
+        "autumn": { dawn: "07:00", noon: "12:30", dusk: "18:30", night: "20:00" },
+        "winter": { dawn: "08:00", noon: "12:30", dusk: "16:30", night: "18:00" }
     },
-    // Heiße Trockenklimate (Hot Desert)
+
+    // 11. Heiße Trockenklimate (Hot Desert) - Mapped from "heisse_trockenklimate"
     "hot_desert": {
-        "spring": { dawn: "06:00", noon: "12:05", dusk: "18:10", night: "19:30" },
-        "summer": { dawn: "04:55", noon: "12:00", dusk: "19:00", night: "20:30" },
-        "autumn": { dawn: "05:45", noon: "11:50", dusk: "17:55", night: "19:10" },
-        "winter": { dawn: "06:50", noon: "11:55", dusk: "17:00", night: "18:25" }
+        "spring": { dawn: "05:45", noon: "12:00", dusk: "18:15", night: "19:15" },
+        "summer": { dawn: "05:00", noon: "12:00", dusk: "19:00", night: "20:00" },
+        "autumn": { dawn: "05:45", noon: "12:00", dusk: "17:45", night: "18:45" },
+        "winter": { dawn: "06:30", noon: "12:15", dusk: "17:15", night: "18:15" }
     },
-    // Tropische Regenwaldklimate
+
+    // 12. Tropische Regenwaldklimate (Tropical Rainforest) - Mapped from "tropische_regenwaldklimate"
     "tropical_rainforest": {
-        "spring": { dawn: "07:10", noon: "13:15", dusk: "19:20", night: "20:30" },
-        "summer": { dawn: "07:00", noon: "13:10", dusk: "19:15", night: "20:25" },
-        "autumn": { dawn: "06:50", noon: "12:55", dusk: "19:00", night: "20:10" },
-        "winter": { dawn: "07:05", noon: "13:05", dusk: "19:10", night: "20:25" }
+        "spring": { dawn: "05:45", noon: "12:00", dusk: "18:00", night: "18:45" },
+        "summer": { dawn: "05:45", noon: "12:00", dusk: "18:05", night: "18:50" },
+        "autumn": { dawn: "05:45", noon: "12:00", dusk: "18:00", night: "18:45" },
+        "winter": { dawn: "05:55", noon: "12:10", dusk: "18:05", night: "18:50" }
     },
-    // Gemäßigte Regenwaldklimate (Temperate Rainforest)
+
+    // 13. Gemäßigte Regenwaldklimate (Temperate Rainforest) - Mapped from "gemaessigte_regenwaldklimate"
     "temperate_rainforest": {
-        "spring": { dawn: "06:15", noon: "12:20", dusk: "18:25", night: "20:15" },
-        "summer": { dawn: "05:05", noon: "13:15", dusk: "21:20", night: null, type: "bright_night" },
-        "autumn": { dawn: "07:00", noon: "13:00", dusk: "19:00", night: "20:45" },
-        "winter": { dawn: "08:05", noon: "12:10", dusk: "16:15", night: "18:05" }
+        "spring": { dawn: "06:15", noon: "12:30", dusk: "18:30", night: "20:00" },
+        "summer": { dawn: "05:00", noon: "13:15", dusk: "21:15", night: "23:00" },
+        "autumn": { dawn: "06:45", noon: "12:30", dusk: "19:00", night: "20:30" },
+        "winter": { dawn: "08:00", noon: "12:15", dusk: "16:30", night: "17:45" }
     },
-    // Dornsavannenklimate (Thorn Savanna)
+
+    // 14. Dornsavannenklimate (Thorn Savanna) - Mapped from "dornsavannen_klimate"
     "thorn_savanna": {
-        "spring": { dawn: "06:00", noon: "12:05", dusk: "18:10", night: "19:20" },
-        "summer": { dawn: "05:20", noon: "12:00", dusk: "18:40", night: "19:55" },
-        "autumn": { dawn: "05:40", noon: "11:45", dusk: "17:50", night: "19:00" },
-        "winter": { dawn: "06:25", noon: "11:55", dusk: "17:25", night: "18:40" }
+        "spring": { dawn: "06:00", noon: "12:15", dusk: "18:20", night: "19:10" },
+        "summer": { dawn: "05:30", noon: "12:15", dusk: "19:00", night: "20:00" },
+        "autumn": { dawn: "06:15", noon: "12:15", dusk: "18:15", night: "19:10" },
+        "winter": { dawn: "07:00", noon: "12:30", dusk: "17:30", "night": "18:30" }
     },
-    // Gebirgsklimate (Highland)
+
+    // 15. Gebirgsklimate (Highland) - Mapped from "gebirgs_klimate"
     "highland": {
-        "spring": { dawn: "06:15", noon: "12:25", dusk: "18:35", night: "20:25" },
-        "summer": { dawn: "05:15", noon: "13:20", dusk: "21:20", night: null, type: "bright_night" },
-        "autumn": { dawn: "07:00", noon: "13:10", dusk: "19:15", night: "21:00" },
-        "winter": { dawn: "07:55", noon: "12:15", dusk: "16:35", night: "18:20" }
+        "spring": { dawn: "06:30", noon: "12:30", dusk: "17:45", night: "19:00" },
+        "summer": { dawn: "05:30", noon: "13:15", dusk: "20:00", night: "21:30" },
+        "autumn": { dawn: "07:00", noon: "12:30", dusk: "18:00", night: "19:15" },
+        "winter": { dawn: "08:15", noon: "12:30", dusk: "16:00", night: "17:15" }
     }
 };

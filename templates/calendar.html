@@ -35,7 +35,11 @@
             <div class="pdnc-filter-menu">
                 {{#each filters}}
                 <div class="pdnc-filter-option" data-action="toggleFilter" data-type="{{this.type}}">
-                    <i class="{{#if this.active}}fas fa-check-square{{else}}far fa-square{{/if}}"></i>
+                    {{#if this.active}}
+                    <i class="fas fa-check-square"></i>
+                    {{else}}
+                    <i class="far fa-square"></i>
+                    {{/if}}
                     {{this.label}}
                 </div>
                 {{/each}}
@@ -47,23 +51,25 @@
 
     {{!-- MONTH VIEW --}}
     {{#if isMonthView}}
-    <div class="pdnc-calendar-weekdays" style="grid-template-columns: repeat({{weekLength}}, 1fr);">
+    <div class="pdnc-calendar-weekdays" style="--week-length: {{weekLength}};">
         {{#each weekdays}}
-        <div class="pdnc-weekday">{{this}}</div>
+        <div class="pdnc-weekday">{{{this}}}</div>
         {{/each}}
     </div>
 
-    <div class="pdnc-calendar-grid" style="grid-template-columns: repeat({{weekLength}}, 1fr);">
+    <div class="pdnc-calendar-grid" style="--week-length: {{weekLength}};">
         {{#each days}}
-        <div class="pdnc-day {{#if this.isCurrent}}current{{/if}} {{#if this.isEmpty}}empty{{/if}}" {{#unless
-            this.isEmpty}} data-action="dayClick" data-action-contextmenu="dayContext" data-day="{{this.number}}"
-            data-datekey="{{this.dateKey}}" {{/unless}}>
+        <div class="{{this.cssClass}}" 
+            data-action="{{this.actionName}}" 
+            data-action-contextmenu="{{this.contextAction}}" 
+            data-day="{{this.dayNumString}}" 
+            data-datekey="{{this.dateKeyString}}">
 
             {{#unless this.isEmpty}}
             <span class="pdnc-day-number">{{this.number}}</span>
             <div class="pdnc-day-events">
                 {{#each this.events}}
-                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}" {{#if this.color}}style="background-color: {{this.color}}; border-color: {{this.color}};"{{/if}}></div>
+                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}" {{{this.styleAttr}}}></div>
                 {{/each}}
             </div>
             {{/unless}}
@@ -77,8 +83,8 @@
     <div class="pdnc-year-view">
         {{#each months}}
         <div class="pdnc-mini-month" data-action="selectMonth" data-month="{{this.index}}">
-            <h3>{{this.name}}</h3>
-            <div class="pdnc-mini-grid" style="grid-template-columns: repeat({{../weekLength}}, 1fr);">
+            <h3>{{{this.name}}}</h3>
+            <div class="pdnc-mini-grid" style="--week-length: {{../weekLength}};">
                 {{!-- Weekday Headers --}}
                 {{#each ../weekdays}}
                 <div class="pdnc-mini-weekday">{{this}}</div>
@@ -86,9 +92,9 @@
 
                 {{!-- Days --}}
                 {{#each this.days}}
-                <div class="pdnc-mini-day {{#if this.isCurrent}}current{{/if}} {{#if this.hasEvents}}has-events {{this.eventClass}}{{/if}}" 
-                     {{#if this.hasEvents}}title="{{this.eventCount}} Events"{{/if}}
-                     style="{{this.bgStyle}}"
+                <div class="{{this.cssClass}}" 
+                     title="{{this.titleString}}"
+                     {{{this.bgStyleAttr}}}
                      data-datekey="{{../../year}}-{{../index}}-{{this.number}}">
                     {{#unless this.isEmpty}}{{this.number}}{{/unless}}
                 </div>
@@ -106,11 +112,11 @@
         <div class="pdnc-list-item" data-action="jumpToEvent" data-datekey="{{this.dateKey}}">
             <div class="pdnc-list-date">
                 <span class="pdnc-list-day">{{this.day}}</span>
-                <span class="pdnc-list-month">{{this.monthName}}</span>
+                <span class="pdnc-list-month">{{{this.monthName}}}</span>
             </div>
             <div class="pdnc-list-content">
                 <span class="pdnc-list-title">{{this.title}}</span>
-                <span class="pdnc-list-meta">{{this.year}} • {{this.weekday}}</span>
+                <span class="pdnc-list-meta">{{this.year}} • {{{this.weekday}}}</span>
             </div>
         </div>
         {{else}}

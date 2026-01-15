@@ -1,0 +1,58 @@
+<form class="pdnc-climate-wizard">
+    <header class="wizard-header" style="padding: 10px; background: rgba(0,0,0,0.1); border-bottom: 1px solid var(--color-border-light); display: flex; gap: 10px; align-items: center;">
+        <div class="form-group" style="flex: 1;">
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">{{localize "PDNC.WeatherConfig.Climate"}}</label>
+            <div class="form-fields">
+                <select name="climate" id="climate-select" style="width: 100%;">
+                    {{#each climates}}
+                    <option value="{{@key}}" {{#if (eq @key ../selectedClimate)}}selected{{/if}}>{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group" style="flex: 1;">
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">{{localize "PDNC.WeatherConfig.Season"}}</label>
+            <div class="form-fields">
+                <select name="season" id="season-select" style="width: 100%;">
+                    {{#each seasons}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../selectedSeason)}}selected{{/if}}>{{this.label}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="wizard-content" style="height: calc(100% - 80px); overflow-y: auto; padding: 10px;">
+        <ul class="weather-list" style="list-style: none; margin: 0; padding: 0;">
+            {{#each entries}}
+            <li class="weather-entry flexrow" style="background: rgba(255,255,255,0.05); margin-bottom: 5px; padding: 8px; border-radius: 4px; align-items: center; border: 1px solid transparent;">
+                <div class="entry-details flexcol" style="flex: 1;">
+                    <span class="entry-text" style="font-size: 1.1em; font-weight: 500;">{{this.text}}</span>
+                    <div class="entry-meta flexrow" style="font-size: 0.9em; opacity: 0.8; margin-top: 4px; gap: 10px; align-items: center;">
+                        <span class="entry-temp"><i class="fas fa-thermometer-half"></i> {{this.temp.minC}}°C / {{this.temp.maxC}}°C</span>
+                        {{#if this.fx.length}}
+                        <div class="entry-tags" style="display: flex; gap: 4px;">
+                             {{#each this.fx}}<span class="fx-tag" style="background: #2f4f4f; padding: 1px 6px; border-radius: 4px; font-size: 0.8em;">{{this}}</span>{{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="entry-controls" style="flex: 0 0 100px; text-align: right;">
+                    <button type="button" class="entry-apply" data-action="applyWeather" data-index="{{@index}}">
+                        <i class="fas fa-magic"></i> {{localize "PDNC.WeatherConfig.Apply"}}
+                    </button>
+                </div>
+            </li>
+            {{else}}
+            <li class="notify">{{localize "PDNC.NoData"}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</form>
+
+<style>
+.pdnc-climate-wizard .weather-entry:hover {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: var(--color-border-light);
+}
+</style>

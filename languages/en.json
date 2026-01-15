@@ -128,6 +128,11 @@
         "Save": "Save",
         "Delete": "Delete",
         "Cancel": "Cancel",
+        "Close": "Close",
+        "SETTINGS": {
+            "Save": "Save Changes",
+            "Reset": "Reset Defaults"
+        },
         "Title": "Title",
         "Description": "Description",
         "Type": "Type",
@@ -137,6 +142,7 @@
         "TypeWeather": "Weather Report",
         "TypePlayer": "Party Note",
         "TypeQuest": "Quest",
+        "TypePersonal": "Personal (Private)",
         "EmptyDay": "The pages of history are blank for this day.",
         "Phases": {
             "Dawn": "Dawn",
@@ -244,7 +250,8 @@
                     "Friday": "Friday",
                     "Saturday": "Saturday",
                     "Sunday": "Sunday"
-                }
+                },
+                "Description": "Standard real-world calendar."
             },
             "Golarion": {
                 "Months": {
@@ -288,7 +295,8 @@
                     "Starday_Alt": "Saturday",
                     "Sunday": "Sunday",
                     "Sunday_Alt": "Sunday"
-                }
+                },
+                "Description": "Pathfinder 2e setting (Age of Lost Omens)."
             },
             "Harptos": {
                 "Months": {
@@ -328,7 +336,8 @@
                     "Eighthday": "Eighthday",
                     "Ninthday": "Ninthday",
                     "Tenthday": "Tenthday"
-                }
+                },
+                "Description": "D&D 5e Forgotten Realms setting."
             },
             "Magaambya": {
                  "Months": {
@@ -372,7 +381,42 @@
                     "Starday_Alt": "Saturday",
                     "Sunday": "Sunday",
                     "Sunday_Alt": "Sunday"
-                 }
+                },
+                "Description": "Mwangi Expanse setting."
+            }
+        },
+        "Tooltips": {
+            "ToggleGlobalWeather": "Toggle Global Weather",
+            "PausePreview": "Pause Preview"
+        },
+        "Wizard": {
+            "Title": "Welcome to Phils Day & Night Cycle",
+            "Subtitle": "Let's set up your calendar and weather system.",
+            "Step1Title": "Calendar Setup",
+            "Step2Title": "Date & Time",
+            "Step3Title": "Settings & Permissions",
+            "Finish": "Finish Setup",
+            "SyncName": "Sync Pathfinder 2e",
+            "SyncHint": "Automatically sets the Day Offset to 1,725,595 to align with Golarion's AR 4700+ Era. You may still need to adjust the specific day below.",
+            "DateHint": "Set the current date and time for your world.",
+            "RestartWizardLabel": "Restart Setup Wizard",
+            "RestartWizardHint": "Relaunch the initial setup wizard to configure the module from scratch.",
+            "Climates": {
+                "ice_cap": "Ice Cap (Polar Desert)",
+                "marine_west_coast": "Marine West Coast (Mediterranean)",
+                "humid_subtropical": "Humid Subtropical (East Side)",
+                "tundra": "Tundra",
+                "semiarid": "Semiarid (Steppe)",
+                "dry_savanna": "Dry Savanna",
+                "boreal_forest": "Boreal Forest (Taiga)",
+                "cold_desert": "Cold Desert",
+                "wet_savanna": "Wet Savanna",
+                "humid_continental": "Humid Continental (Mixed Forest)",
+                "hot_desert": "Hot Desert",
+                "tropical_rainforest": "Tropical Rainforest",
+                "temperate_rainforest": "Temperate Rainforest",
+                "thorn_savanna": "Thorn Savanna",
+                "highland": "Highland (Alpine)"
             }
         }
     }

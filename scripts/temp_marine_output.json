@@ -1,0 +1,854 @@
+{
+    "data": {
+        "name": "Westseitenklimate (Mittelmeer)",
+        "img": null,
+        "seasons": {
+            "spring": [
+                {
+                    "text": "Hochdruckeinfluss sorgt für zunehmende Stabilisierung der Wetterlage.",
+                    "temp": {
+                        "minC": 15,
+                        "maxC": 19,
+                        "minF": 59,
+                        "maxF": 66
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein warmer Westwind vertreibt letzte Wolkenfelder.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Starker Morgentau verdunstet rasch in der Sonne.",
+                    "temp": {
+                        "minC": 10,
+                        "maxC": 14,
+                        "minF": 50,
+                        "maxF": 57
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Intensive Sonneneinstrahlung erwärmt den Boden spürbar.",
+                    "temp": {
+                        "minC": 20,
+                        "maxC": 24,
+                        "minF": 68,
+                        "maxF": 75
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein letzter Frontdurchgang bringt leichten Landregen.",
+                    "temp": {
+                        "minC": 14,
+                        "maxC": 18,
+                        "minF": 57,
+                        "maxF": 64
+                    },
+                    "fx": [
+                        "rain"
+                    ]
+                },
+                {
+                    "text": "Warme Luftmasse strömt aus südlicher Richtung ein.",
+                    "temp": {
+                        "minC": 19,
+                        "maxC": 23,
+                        "minF": 66,
+                        "maxF": 73
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Staubiger Wind reduziert die Fernsicht am Horizont.",
+                    "temp": {
+                        "minC": 22,
+                        "maxC": 26,
+                        "minF": 72,
+                        "maxF": 79
+                    },
+                    "fx": [
+                        "mist"
+                    ]
+                },
+                {
+                    "text": "Flüsse führen klares Schmelzwasser aus dem Gebirge.",
+                    "temp": {
+                        "minC": 12,
+                        "maxC": 16,
+                        "minF": 54,
+                        "maxF": 61
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ideale Sichtverhältnisse und trockene Luft.",
+                    "temp": {
+                        "minC": 17,
+                        "maxC": 21,
+                        "minF": 63,
+                        "maxF": 70
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Reflexion des Sonnenlichts auf nassen Felsen.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Vereinzelte Quellwolken spenden kurzzeitig Schatten.",
+                    "temp": {
+                        "minC": 16,
+                        "maxC": 20,
+                        "minF": 61,
+                        "maxF": 68
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein kurzes Gewitter reinigt die Atmosphäre von Staub.",
+                    "temp": {
+                        "minC": 15,
+                        "maxC": 19,
+                        "minF": 59,
+                        "maxF": 66
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Auflandiger Wind kühlt die Küstenregion leicht ab.",
+                    "temp": {
+                        "minC": 21,
+                        "maxC": 25,
+                        "minF": 70,
+                        "maxF": 77
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Der Himmel ist tiefblau und vollkommen wolkenlos.",
+                    "temp": {
+                        "minC": 23,
+                        "maxC": 27,
+                        "minF": 73,
+                        "maxF": 81
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Starke Abkühlung nach Sonnenuntergang durch klare Luft.",
+                    "temp": {
+                        "minC": 11,
+                        "maxC": 15,
+                        "minF": 52,
+                        "maxF": 59
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Feuchte Meeresluft sorgt für Dunstbildung am Morgen.",
+                    "temp": {
+                        "minC": 19,
+                        "maxC": 23,
+                        "minF": 66,
+                        "maxF": 73
+                    },
+                    "fx": [
+                        "mist"
+                    ]
+                },
+                {
+                    "text": "Felsformationen strahlen gespeicherte Tageswärme ab.",
+                    "temp": {
+                        "minC": 20,
+                        "maxC": 24,
+                        "minF": 68,
+                        "maxF": 75
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein Dunstschleier trübt die Sicht in der Ferne.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Wechselnde Winde sorgen für unbeständige Temperaturen.",
+                    "temp": {
+                        "minC": 16,
+                        "maxC": 20,
+                        "minF": 61,
+                        "maxF": 68
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Trockener Boden staubt bei jeder Erschütterung.",
+                    "temp": {
+                        "minC": 22,
+                        "maxC": 26,
+                        "minF": 72,
+                        "maxF": 79
+                    },
+                    "fx": []
+                }
+            ],
+            "summer": [
+                {
+                    "text": "Gnadenlose Sonneneinstrahlung bei wolkenlosem Himmel.",
+                    "temp": {
+                        "minC": 30,
+                        "maxC": 35,
+                        "minF": 86,
+                        "maxF": 95
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Akustische Wahrnehmung von Hitzeknacken im Gestein.",
+                    "temp": {
+                        "minC": 32,
+                        "maxC": 36,
+                        "minF": 90,
+                        "maxF": 97
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Landschaftsbild ist durch Trockenheit und Staub geprägt.",
+                    "temp": {
+                        "minC": 34,
+                        "maxC": 38,
+                        "minF": 93,
+                        "maxF": 100
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Starkes Hitzeflimmern über steinigen Oberflächen.",
+                    "temp": {
+                        "minC": 35,
+                        "maxC": 40,
+                        "minF": 95,
+                        "maxF": 104
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein heißer Wüstenwind weht aus dem Landesinneren.",
+                    "temp": {
+                        "minC": 36,
+                        "maxC": 42,
+                        "minF": 97,
+                        "maxF": 108
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Waldbrandindex erreicht die höchste Warnstufe.",
+                    "temp": {
+                        "minC": 33,
+                        "maxC": 37,
+                        "minF": 91,
+                        "maxF": 99
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Kühler Seewind bringt Erleichterung an der Küste.",
+                    "temp": {
+                        "minC": 28,
+                        "maxC": 32,
+                        "minF": 82,
+                        "maxF": 90
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Keinerlei Wolkenbildung am gesamten Firmament.",
+                    "temp": {
+                        "minC": 31,
+                        "maxC": 35,
+                        "minF": 88,
+                        "maxF": 95
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Feinstaub bedeckt den Boden und alle Objekte.",
+                    "temp": {
+                        "minC": 30,
+                        "maxC": 34,
+                        "minF": 86,
+                        "maxF": 93
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Temperaturen im Schatten erreichen Höchstwerte.",
+                    "temp": {
+                        "minC": 34,
+                        "maxC": 39,
+                        "minF": 93,
+                        "maxF": 102
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Niedrige Pegelstände in Flüssen und Reservoirs.",
+                    "temp": {
+                        "minC": 32,
+                        "maxC": 36,
+                        "minF": 90,
+                        "maxF": 97
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Geruch von trockenem Staub und Ozon in der Luft.",
+                    "temp": {
+                        "minC": 33,
+                        "maxC": 37,
+                        "minF": 91,
+                        "maxF": 99
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Tropische Nacht ohne nennenswerte Abkühlung.",
+                    "temp": {
+                        "minC": 22,
+                        "maxC": 26,
+                        "minF": 72,
+                        "maxF": 79
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Extreme Trockenheit macht den Boden steinhart.",
+                    "temp": {
+                        "minC": 35,
+                        "maxC": 39,
+                        "minF": 95,
+                        "maxF": 102
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Rauchwolken von Feuern sind am Horizont sichtbar.",
+                    "temp": {
+                        "minC": 31,
+                        "maxC": 35,
+                        "minF": 88,
+                        "maxF": 95
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein Hitzegewitter zieht ohne Niederschlag vorüber.",
+                    "temp": {
+                        "minC": 29,
+                        "maxC": 33,
+                        "minF": 84,
+                        "maxF": 91
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Hohe Ozonwerte belasten die Atemwege bei Anstrengung.",
+                    "temp": {
+                        "minC": 30,
+                        "maxC": 34,
+                        "minF": 86,
+                        "maxF": 93
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Thermikblasen steigen über aufgeheiztem Fels auf.",
+                    "temp": {
+                        "minC": 34,
+                        "maxC": 38,
+                        "minF": 93,
+                        "maxF": 100
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Das Meer liegt spiegelglatt und ruhig da.",
+                    "temp": {
+                        "minC": 29,
+                        "maxC": 33,
+                        "minF": 84,
+                        "maxF": 91
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Violetter Abendhimmel markiert das Ende der Tageshitze.",
+                    "temp": {
+                        "minC": 26,
+                        "maxC": 30,
+                        "minF": 79,
+                        "maxF": 86
+                    },
+                    "fx": []
+                }
+            ],
+            "autumn": [
+                {
+                    "text": "Ein heftiges Gewitter beendet die lange Dürreperiode.",
+                    "temp": {
+                        "minC": 20,
+                        "maxC": 24,
+                        "minF": 68,
+                        "maxF": 75
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Starkregen wäscht den Staub aus der Atmosphäre.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": [
+                        "heavy_rain"
+                    ]
+                },
+                {
+                    "text": "Bodenverdunstung erzeugt Dampf nach dem Regen.",
+                    "temp": {
+                        "minC": 22,
+                        "maxC": 26,
+                        "minF": 72,
+                        "maxF": 79
+                    },
+                    "fx": [
+                        "mist"
+                    ]
+                },
+                {
+                    "text": "Angenehme Restwärme bei hoher Luftfeuchtigkeit.",
+                    "temp": {
+                        "minC": 24,
+                        "maxC": 28,
+                        "minF": 75,
+                        "maxF": 82
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Trockene Flussbetten führen erstmals wieder Wasser.",
+                    "temp": {
+                        "minC": 19,
+                        "maxC": 23,
+                        "minF": 66,
+                        "maxF": 73
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein Herbststurm sorgt für hohen Wellengang an der Küste.",
+                    "temp": {
+                        "minC": 17,
+                        "maxC": 21,
+                        "minF": 63,
+                        "maxF": 70
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Goldene Lichtverhältnisse bei tiefstehender Sonne.",
+                    "temp": {
+                        "minC": 21,
+                        "maxC": 25,
+                        "minF": 70,
+                        "maxF": 77
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Schneller Durchzug von frontalen Wolkenbänken.",
+                    "temp": {
+                        "minC": 16,
+                        "maxC": 20,
+                        "minF": 61,
+                        "maxF": 68
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Rückkehr von Bodenfeuchtigkeit bindet den Staub.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Dichter Nebel liegt am Morgen in den Talsohlen.",
+                    "temp": {
+                        "minC": 14,
+                        "maxC": 18,
+                        "minF": 57,
+                        "maxF": 64
+                    },
+                    "fx": [
+                        "thick_fog"
+                    ]
+                },
+                {
+                    "text": "Stimmungsvoller Sonnenuntergang mit intensiven Farben.",
+                    "temp": {
+                        "minC": 20,
+                        "maxC": 24,
+                        "minF": 68,
+                        "maxF": 75
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein Regenbogen überspannt die Küstenlinie.",
+                    "temp": {
+                        "minC": 19,
+                        "maxC": 23,
+                        "minF": 66,
+                        "maxF": 73
+                    },
+                    "fx": [
+                        "rain"
+                    ]
+                },
+                {
+                    "text": "Böiger Wind wirbelt loses Material auf.",
+                    "temp": {
+                        "minC": 15,
+                        "maxC": 19,
+                        "minF": 59,
+                        "maxF": 66
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Die Luft wirkt nach Regenfall klar und rein.",
+                    "temp": {
+                        "minC": 17,
+                        "maxC": 21,
+                        "minF": 63,
+                        "maxF": 70
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Spürbare Abkühlung setzt in den Abendstunden ein.",
+                    "temp": {
+                        "minC": 12,
+                        "maxC": 16,
+                        "minF": 54,
+                        "maxF": 61
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Elektrostatische Entladungen in der Luft messbar.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Erhöhte Blitzschlaggefahr bei Gewitterneigung.",
+                    "temp": {
+                        "minC": 16,
+                        "maxC": 20,
+                        "minF": 61,
+                        "maxF": 68
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Feuchte Luftmassen bringen intensive Gerüche hervor.",
+                    "temp": {
+                        "minC": 19,
+                        "maxC": 23,
+                        "minF": 66,
+                        "maxF": 73
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Aufgewühltes Meer und grauer Himmel.",
+                    "temp": {
+                        "minC": 18,
+                        "maxC": 22,
+                        "minF": 64,
+                        "maxF": 72
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein sonniger Tag erinnert an sommerliche Bedingungen.",
+                    "temp": {
+                        "minC": 23,
+                        "maxC": 27,
+                        "minF": 73,
+                        "maxF": 81
+                    },
+                    "fx": []
+                }
+            ],
+            "winter": [
+                {
+                    "text": "Anhaltender Dauerregen bestimmt das Tagesgeschehen.",
+                    "temp": {
+                        "minC": 8,
+                        "maxC": 12,
+                        "minF": 46,
+                        "maxF": 54
+                    },
+                    "fx": [
+                        "rain"
+                    ]
+                },
+                {
+                    "text": "Ein Sturm drückt Wassermassen ins Landesinnere.",
+                    "temp": {
+                        "minC": 10,
+                        "maxC": 14,
+                        "minF": 50,
+                        "maxF": 57
+                    },
+                    "fx": [
+                        "storm"
+                    ]
+                },
+                {
+                    "text": "Hagel prasselt lautstark auf alle Oberflächen.",
+                    "temp": {
+                        "minC": 6,
+                        "maxC": 10,
+                        "minF": 43,
+                        "maxF": 50
+                    },
+                    "fx": [
+                        "hail"
+                    ]
+                },
+                {
+                    "text": "Landschaftsbild ist durch Nässe und Schlamm geprägt.",
+                    "temp": {
+                        "minC": 11,
+                        "maxC": 15,
+                        "minF": 52,
+                        "maxF": 59
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Schneefall tritt nur auf den höchsten Gipfeln auf.",
+                    "temp": {
+                        "minC": 4,
+                        "maxC": 8,
+                        "minF": 39,
+                        "maxF": 46
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Milde Luftströmung verhindert jegliche Frostbildung.",
+                    "temp": {
+                        "minC": 12,
+                        "maxC": 16,
+                        "minF": 54,
+                        "maxF": 61
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Leichter Nebelhauch liegt über dem Hügelland.",
+                    "temp": {
+                        "minC": 9,
+                        "maxC": 13,
+                        "minF": 48,
+                        "maxF": 55
+                    },
+                    "fx": [
+                        "mist"
+                    ]
+                },
+                {
+                    "text": "Bäche führen Hochwasser und rauschen talwärts.",
+                    "temp": {
+                        "minC": 8,
+                        "maxC": 12,
+                        "minF": 46,
+                        "maxF": 54
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Kurze sonnige Abschnitte zwischen Regenschauern.",
+                    "temp": {
+                        "minC": 13,
+                        "maxC": 17,
+                        "minF": 55,
+                        "maxF": 63
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Hohe Luftfeuchtigkeit dringt in Kleidungsschichten.",
+                    "temp": {
+                        "minC": 7,
+                        "maxC": 11,
+                        "minF": 45,
+                        "maxF": 52
+                    },
+                    "fx": [
+                        "drizzle"
+                    ]
+                },
+                {
+                    "text": "Grauer Himmel drückt auf die atmosphärische Stimmung.",
+                    "temp": {
+                        "minC": 9,
+                        "maxC": 13,
+                        "minF": 48,
+                        "maxF": 55
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Moose und Flechten wachsen üppig auf feuchtem Stein.",
+                    "temp": {
+                        "minC": 10,
+                        "maxC": 14,
+                        "minF": 50,
+                        "maxF": 57
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Starker Wind rüttelt an unbefestigten Objekten.",
+                    "temp": {
+                        "minC": 8,
+                        "maxC": 12,
+                        "minF": 46,
+                        "maxF": 54
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Große Wasserpfützen stehen auf allen Wegen.",
+                    "temp": {
+                        "minC": 11,
+                        "maxC": 15,
+                        "minF": 52,
+                        "maxF": 59
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Kalter Nordwind bringt frische Luftmassen.",
+                    "temp": {
+                        "minC": 5,
+                        "maxC": 9,
+                        "minF": 41,
+                        "maxF": 48
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Wolkenlücken geben den Blick auf klaren Himmel frei.",
+                    "temp": {
+                        "minC": 12,
+                        "maxC": 16,
+                        "minF": 54,
+                        "maxF": 61
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Die Nacht ist feucht aber vollständig frostfrei.",
+                    "temp": {
+                        "minC": 6,
+                        "maxC": 10,
+                        "minF": 43,
+                        "maxF": 50
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Brandung donnert lautstark gegen die Küstenlinie.",
+                    "temp": {
+                        "minC": 9,
+                        "maxC": 13,
+                        "minF": 48,
+                        "maxF": 55
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Pilzmyzele breiten sich im feuchten Boden aus.",
+                    "temp": {
+                        "minC": 10,
+                        "maxC": 14,
+                        "minF": 50,
+                        "maxF": 57
+                    },
+                    "fx": []
+                },
+                {
+                    "text": "Ein seltener Frosttag bildet die absolute Ausnahme.",
+                    "temp": {
+                        "minC": 0,
+                        "maxC": 4,
+                        "minF": 32,
+                        "maxF": 39
+                    },
+                    "fx": []
+                }
+            ]
+        }
+    },
+    "fx": {
+        "day": [],
+        "night": []
+    }
+}

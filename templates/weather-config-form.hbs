@@ -23,12 +23,12 @@
     </div>
 
     <div class="form-group" style="display: flex; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 3px; margin-bottom: 3px;">
-        <label style="flex: 1;">{{localize "PDNC.WeatherConfig.Temperature"}}</label>
+        <label style="flex: 1;">{{localize "PDNC.WeatherConfig.Temperature"}} ({{unit}})</label>
         <div class="form-fields" style="flex: 2; display: flex; align-items: center; justify-content: flex-start; gap: 5px;">
             <label style="flex: 0 0 auto;">Min</label>
-            <input type="number" name="tempMin" value="{{weather.tempMin}}" placeholder="Min" style="max-width: 50px;">
+            <input type="number" name="tempMin" value="{{weather.displayMin}}" placeholder="Min" style="max-width: 50px;">
             <label style="flex: 0 0 auto; margin-left: 10px;">Max</label>
-            <input type="number" name="tempMax" value="{{weather.tempMax}}" placeholder="Max" style="max-width: 50px;">
+            <input type="number" name="tempMax" value="{{weather.displayMax}}" placeholder="Max" style="max-width: 50px;">
         </div>
     </div>
     

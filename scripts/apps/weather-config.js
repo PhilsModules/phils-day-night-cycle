@@ -101,12 +101,31 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             Object.entries(fxChoices).sort(([,a], [,b]) => a.localeCompare(b))
         );
 
+        const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+        let displayMin = this.weatherData.tempMin;
+        let displayMax = this.weatherData.tempMax;
+
+        if (unit === "F") {
+            if (this.weatherData.tempMinF !== undefined) {
+                displayMin = this.weatherData.tempMinF;
+                displayMax = this.weatherData.tempMaxF;
+            } else {
+                displayMin = Math.round((this.weatherData.tempMin * 9/5) + 32);
+                displayMax = Math.round((this.weatherData.tempMax * 9/5) + 32);
+            }
+        }
+
         return {
-            weather: this.weatherData,
+            weather: {
+                ...this.weatherData,
+                displayMin: displayMin,
+                displayMax: displayMax
+            },
             climate: this.weatherData.climateName || "Unknown",
             season: this.weatherData.seasonName || "Unknown",
             fxChoices: sortedFxChoices,
-            noneLabel: game.i18n.localize("PDNC.Recurs.none")
+            noneLabel: game.i18n.localize("PDNC.Recurs.none"),
+            unit: unit
         };
     }
 
@@ -131,12 +150,35 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             data[key] = value;
         }
 
+        const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+        const inputMin = parseInt(data.tempMin);
+        const inputMax = parseInt(data.tempMax);
+
+        let tempMinC = inputMin;
+        let tempMaxC = inputMax;
+        let tempMinF = inputMin;
+        let tempMaxF = inputMax;
+
+        if (unit === "F") {
+            // User input F. We store F. We convert to C for legacy.
+            tempMinC = Math.round((inputMin - 32) * 5/9);
+            tempMaxC = Math.round((inputMax - 32) * 5/9);
+        } else {
+             // User input C. We convert to F.
+             tempMinF = Math.round((inputMin * 9/5) + 32);
+             tempMaxF = Math.round((inputMax * 9/5) + 32);
+        }
+
         const finalWeather = {
              ...this.weatherData,
              description: data.description,
              text: data.description,
-             tempMin: parseInt(data.tempMin),
-             tempMax: parseInt(data.tempMax),
+             tempMin: tempMinC,
+             tempMax: tempMaxC,
+             tempMinC: tempMinC, // Explicit new structure
+             tempMaxC: tempMaxC,
+             tempMinF: tempMinF,
+             tempMaxF: tempMaxF,
              fx: data.fx || null,
              generated: true
         };

@@ -1,0 +1,123 @@
+<div class="pdnc-wizard-content">
+    <header class="wizard-header" style="text-align: center; margin-bottom: 20px;">
+        <h1 style="border: none;">{{localize "PDNC.Wizard.Title"}}</h1>
+        <p style="font-style: italic;">{{localize "PDNC.Wizard.Subtitle"}}</p>
+    </header>
+
+    {{!-- Step 1: Calendar System --}}
+    <div class="wizard-step">
+        <h2><i class="fas fa-calendar-alt"></i> {{localize "PDNC.Wizard.Step1Title"}}</h2>
+        
+        <div class="form-group">
+            <label>{{localize "PDNC.SettingCalendarSystemName"}}</label>
+            <div class="form-fields">
+                <select name="calendarSystem">
+                    {{selectOptions calendarSystems selected=calendarSystem}}
+                </select>
+            </div>
+            <p class="notes" style="margin-top: 5px; color: #ccc;">{{currentSystemDescription}}</p>
+            <p class="notes">{{localize "PDNC.SettingCalendarSystemHint"}}</p>
+        </div>
+
+        {{!-- PF2e Sync - Only show if Golarion is selected --}}
+        {{#if isGolarion}}
+        <div class="form-group pf2e-sync-group">
+            <label>{{localize "PDNC.Wizard.SyncName"}}</label>
+            <div class="form-fields">
+                <input type="checkbox" name="syncPF2e" {{checked syncPF2e}}>
+            </div>
+            <p class="notes">{{localize "PDNC.Wizard.SyncHint"}}</p>
+        </div>
+        {{/if}}
+    </div>
+
+    {{!-- Step 2: Date & Time --}}
+    <div class="wizard-step" style="margin-top: 15px;">
+        <h2><i class="fas fa-clock"></i> {{localize "PDNC.Wizard.Step2Title"}}</h2>
+        <p class="step-desc">{{localize "PDNC.Wizard.DateHint"}}</p>
+        
+        <div class="flexrow date-inputs" style="align-items: flex-end; gap: 10px;">
+            <div class="date-field">
+                <label>Year</label>
+                <input type="number" name="year" value="{{year}}" required>
+            </div>
+            <div class="date-field" style="flex: 2;">
+                <label>Month</label>
+                <select name="month">
+                    {{selectOptions monthOptions selected=month valueAttr="value" labelAttr="label"}}
+                </select>
+            </div>
+            <div class="date-field">
+                <label>Day</label>
+                <input type="number" name="day" value="{{day}}" min="1" required>
+            </div>
+        </div>
+
+        <div class="flexrow time-inputs" style="align-items: center; justify-content: flex-start; gap: 5px; margin-top: 10px;">
+            <div class="date-field" style="max-width: 60px;">
+                <label>Hour</label>
+                <input type="number" name="hour" value="{{hour}}" min="0" max="23" required>
+            </div>
+             <div class="colon" style="font-weight: bold; padding-top: 15px;">:</div>
+            <div class="date-field" style="max-width: 60px;">
+                <label>Min</label>
+                <input type="number" name="minute" value="{{minute}}" min="0" max="59" required>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Step 3: Global Settings --}}
+    <div class="wizard-step" style="margin-top: 15px;">
+         <h2><i class="fas fa-cogs"></i> {{localize "PDNC.Wizard.Step3Title"}}</h2>
+         
+         {{!-- Real Names --}}
+         <div class="form-group">
+            <label>{{localize "PDNC.SettingShowRealNamesName"}}</label>
+            <div class="form-fields">
+                <input type="checkbox" name="showRealNames" {{checked showRealNames}}>
+            </div>
+         </div>
+         
+         {{!-- Climate --}}
+         <div class="form-group">
+            <label>{{localize "PDNC.SettingClimateZoneName"}}</label>
+            <div class="form-fields">
+                <select name="climateZone">
+                    {{selectOptions climateZones selected=climateZone}}
+                </select>
+            </div>
+         </div>
+         
+         {{!-- Unit --}}
+          <div class="form-group">
+            <label>Temperature Unit</label>
+            <div class="form-fields">
+                <select name="temperatureUnit">
+                    <option value="C" {{#if (eq temperatureUnit "C")}}selected{{/if}}>Celsius (°C)</option>
+                    <option value="F" {{#if (eq temperatureUnit "F")}}selected{{/if}}>Fahrenheit (°F)</option>
+                </select>
+            </div>
+         </div>
+
+         {{!-- Permissions --}}
+          <div class="form-group">
+            <label>{{localize "PDNC.SettingPlayerAdvanceName"}}</label>
+            <div class="form-fields">
+                <input type="checkbox" name="playerAdvanceTime" {{checked playerAdvanceTime}}>
+            </div>
+         </div>
+
+         <div class="form-group">
+             <label>{{localize "PDNC.SettingPlayerCreateName"}}</label>
+             <div class="form-fields">
+                 <input type="checkbox" name="playerCreateEvents" {{checked playerCreateEvents}}>
+             </div>
+         </div>
+    </div>
+
+    <footer class="wizard-footer" style="text-align: center; margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--color-border-light-2);">
+        <button type="submit" class="save-button">
+            <i class="fas fa-check"></i> {{localize "PDNC.Wizard.Finish"}}
+        </button>
+    </footer>
+</div>

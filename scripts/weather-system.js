@@ -10,14 +10,14 @@ export class WeatherSystem {
     static getClimateList() {
         const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
         const coreClimates = Object.entries(data).reduce((acc, [key, climate]) => {
-            acc[key] = climate.name;
+            acc[key] = climate.data.name;
             return acc;
         }, {});
 
         // Merge Custom Climates
         const customClimates = game.settings.get(MODULE_ID, "customClimates") || {};
         const customList = Object.entries(customClimates).reduce((acc, [key, climate]) => {
-            acc[key] = climate.name + " (Custom)";
+            acc[key] = (climate.data?.name || climate.name) + " (Custom)";
             return acc;
         }, {});
 
@@ -35,6 +35,37 @@ export class WeatherSystem {
 
         const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
         return data[key] || data["marine_west_coast"]; // Fallback
+    }
+
+    static getClimateData(key) {
+        const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
+        return data[key];
+    }
+
+    /**
+     * Validates the current climate setting on startup.
+     * If the ID is invalid (e.g. deleted), resets to default.
+     */
+    static async validateSettings() {
+        if (!game.user.isGM) return;
+
+        const currentKey = game.settings.get(MODULE_ID, "climateZone");
+        const availableClimates = this.getClimateList();
+
+        if (!availableClimates[currentKey]) {
+            console.warn(`${MODULE_ID} | Active Climate Zone '${currentKey}' not found. Resetting to default.`);
+            ui.notifications.warn("PDNC | Active Climate Zone not found. Resetting to default.");
+            await game.settings.set(MODULE_ID, "climateZone", "marine_west_coast");
+            
+            // Also invalidate current weather if it was generated from the missing climate
+            const weather = game.settings.get(MODULE_ID, "currentWeather");
+            if (weather && weather.generated) {
+                // We force a regeneration or just let the next cycle handle it.
+                // But safer to reset description so it doesn't show "Old Climate Name".
+                weather.climateName = "Marine West Coast";
+                await game.settings.set(MODULE_ID, "currentWeather", weather);
+            }
+        }
     }
 
     /**
@@ -104,6 +135,8 @@ export class WeatherSystem {
         // Also handles simple numbers if needed, but data is usually range.
         // Regex for finding two numbers (integers, potentially negative) separated by text
         // Looks for patterns like "-5 bis 2"
+        // Regex for finding two numbers (integers, potentially negative) separated by text
+        // Looks for patterns like "-5 bis 2"
         const regex = /(-?\d+)\s*(?:bis|to)\s*(-?\d+)/i;
         const match = tempStr.match(regex);
         if (match) {
@@ -121,6 +154,26 @@ export class WeatherSystem {
             return { min: val, max: val };
         }
         return { min: 10, max: 15 }; // Total Fallback
+    }
+
+    static getTemperatureRange(entry) {
+        if (typeof entry.temp === "object" && entry.temp !== null) {
+            return {
+                minC: entry.temp.minC,
+                maxC: entry.temp.maxC,
+                minF: entry.temp.minF,
+                maxF: entry.temp.maxF
+            };
+        }
+        
+        // Fallback for Old String Format (Assumed C)
+        const temps = this.parseTemperature(entry.temp);
+        return {
+            minC: temps.min,
+            maxC: temps.max,
+            minF: Math.round((temps.min * 9/5) + 32),
+            maxF: Math.round((temps.max * 9/5) + 32)
+        };
     }
 
     /**
@@ -154,8 +207,22 @@ export class WeatherSystem {
         // Check 4: (4-10)*PI/12 = -6PI/12 = -PI/2 -> -1 (Min). Correct.
         // Check 16: (16-10)*PI/12 = 6PI/12 = PI/2 -> 1 (Max). Correct.
 
-        const min = weather.tempMin;
-        const max = weather.tempMax;
+        const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+        
+        // Determine Min/Max based on Unit
+        let min = weather.tempMin;
+        let max = weather.tempMax;
+
+        if (unit === "F") {
+            if (weather.tempMinF !== undefined) {
+                min = weather.tempMinF;
+                max = weather.tempMaxF;
+            } else {
+                 min = (weather.tempMin * 9/5) + 32;
+                 max = (weather.tempMax * 9/5) + 32;
+            }
+        }
+
         const avg = (min + max) / 2;
         const amp = (max - min) / 2;
         
@@ -188,36 +255,46 @@ export class WeatherSystem {
         let weatherStore = {
             tempMin: 10,
             tempMax: 15,
+            tempMinC: 10,
+            tempMaxC: 15,
+            tempMinF: 50,
+            tempMaxF: 59,
             text: "Sunny",
             description: "Default Fallback",
             fx: null,
             generated: true,
-            climateName: climate.name,
+            climateName: climate.data.name,
+            img: climate.data.img,
             seasonName: game.i18n.localize(`PDNC.Season.${season}`),
             seasonId: season
         };
 
-        if (climate.seasons[season] && climate.seasons[season].length > 0) {
-            const table = climate.seasons[season];
+        if (climate.data.seasons[season] && climate.data.seasons[season].length > 0) {
+            const table = climate.data.seasons[season];
             const index = Math.floor(Math.random() * table.length);
             const weatherEntry = table[index];
 
             const text = weatherEntry.text;
-            const temps = this.parseTemperature(weatherEntry.temp);
+            const temps = this.getTemperatureRange(weatherEntry);
 
             weatherStore = {
-                tempMin: temps.min,
-                tempMax: temps.max,
+                tempMin: temps.minC,
+                tempMax: temps.maxC,
+                tempMinC: temps.minC,
+                tempMaxC: temps.maxC,
+                tempMinF: temps.minF,
+                tempMaxF: temps.maxF,
                 text: text, // Short text
                 description: text, // Currently same as text
-                fx: weatherEntry.fx || null,
+                fx: (Array.isArray(weatherEntry.fx) && weatherEntry.fx.length > 0) ? weatherEntry.fx[0] : null,
                 generated: true,
-                climateName: climate.name,
+                climateName: climate.data.name,
+                img: climate.data.img,
                 seasonName: game.i18n.localize(`PDNC.Season.${season}`),
                 seasonId: season
             };
         } else {
-            console.warn(`${MODULE_ID} | No weather data for ${climate.name} in ${season}.`);
+            console.warn(`${MODULE_ID} | No weather data for ${climate.data.name} in ${season}.`);
         }
 
         return weatherStore;
@@ -261,11 +338,21 @@ export class WeatherSystem {
         // If "Editing" existing? Maybe just update?
         // For simplicity, we always post a "Weather Update" for now, or we could check if it changed significantly.
         // Let's just Post.
+        const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+        let tempString = `${weatherStore.tempMin}°C - ${weatherStore.tempMax}°C`;
+        if (unit === "F") {
+            // Use F values if present, else calc
+            const min = weatherStore.tempMinF !== undefined ? weatherStore.tempMinF : Math.round((weatherStore.tempMin * 9/5) + 32);
+            const max = weatherStore.tempMaxF !== undefined ? weatherStore.tempMaxF : Math.round((weatherStore.tempMax * 9/5) + 32);
+            tempString = `${min}°F - ${max}°F`;
+        }
+
         const messageContent = await foundry.applications.handlebars.renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
             climate: weatherStore.climateName,
             season: weatherStore.seasonName,
             text: weatherStore.description,
-            temp: `${weatherStore.tempMin}°C - ${weatherStore.tempMax}°C`, // Re-formatting might be needed if original string lost
+            temp: tempString,
+            img: weatherStore.img,
             date: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`
         });
 
@@ -277,11 +364,11 @@ export class WeatherSystem {
             flags: { [MODULE_ID]: { isWeather: true } }
         });
         
-        console.log(`${MODULE_ID} | Applied weather for ${todayId}:`, weatherStore);
+        // PDNC | Applied weather for ${todayId}:`, weatherStore);
 
         // Update All Scenes Weather
         let fxEffect = weatherStore.fx;
-        console.log(`${MODULE_ID} | Updating ALL scenes to weather: ${fxEffect}`);
+        // PDNC | Updating ALL scenes to weather: ${fxEffect}`);
         
         const updates = [];
         // Iterate over all scenes to ensure consistent weather
@@ -319,7 +406,15 @@ export class WeatherSystem {
             // Look for event with THIS specific time-stamped title
             const existingIndex = events[dateKey].findIndex(e => e.title === reportTitle);
 
-            const weatherContent = `${weatherStore.description}\n${weatherStore.seasonName} | ${weatherStore.climateName}\nTemp: ${weatherStore.tempMin}°C — ${weatherStore.tempMax}°C`;
+            const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
+            let tempString = `${weatherStore.tempMin}°C — ${weatherStore.tempMax}°C`;
+            if (unit === "F") {
+                const min = weatherStore.tempMinF !== undefined ? weatherStore.tempMinF : Math.round((weatherStore.tempMin * 9/5) + 32);
+                const max = weatherStore.tempMaxF !== undefined ? weatherStore.tempMaxF : Math.round((weatherStore.tempMax * 9/5) + 32);
+                tempString = `${min}°F — ${max}°F`;
+            }
+
+            const weatherContent = `${weatherStore.description}\n${weatherStore.seasonName} | ${weatherStore.climateName}\nTemp: ${tempString}`;
 
             const eventData = {
                 title: reportTitle,

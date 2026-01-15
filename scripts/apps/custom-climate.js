@@ -19,24 +19,60 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         let lighting = {};
 
         if (this.editingId) {
+            let workingData;
             if (this.tempData) {
-                editingClimate = this.tempData;
+                workingData = this.tempData;
             } else {
-                editingClimate = climates[this.editingId];
-                this.tempData = foundry.utils.deepClone(editingClimate);
+                const rawClimate = climates[this.editingId];
+                workingData = foundry.utils.deepClone(rawClimate);
+                
+                // MIGRATION ON LOAD: Convert old structure to new if needed
+                if (!workingData.data && workingData.name) {
+                     workingData.data = {
+                         name: workingData.name,
+                         img: null,
+                         seasons: workingData.seasons
+                     };
+                     delete workingData.name;
+                     delete workingData.seasons;
+                     if (!workingData.fx) workingData.fx = { day: [], night: [] };
+                }
+                this.tempData = workingData;
             }
-            seasons = this.tempData.seasons;
 
-             // Ensure lighting defaults if missing
-             if (!this.tempData.lighting) {
-                this.tempData.lighting = {
+            // Prepare View Data (Flat strings for Template)
+            editingClimate = {
+                name: workingData.data.name,
+                seasons: {}
+            };
+            
+            for (const s of ["spring", "summer", "autumn", "winter"]) {
+                 const arr = workingData.data.seasons[s] || [];
+                 editingClimate.seasons[s] = arr.map(e => {
+                     let tStr = e.temp;
+                     if (typeof e.temp === 'object') {
+                         tStr = `${e.temp.minC}-${e.temp.maxC}`;
+                     }
+                     let fStr = e.fx;
+                     if (Array.isArray(e.fx)) {
+                         fStr = e.fx.length ? e.fx[0] : "";
+                     }
+                     return { text: e.text, temp: tStr, fx: fStr };
+                 });
+            }
+
+            seasons = editingClimate.seasons;
+
+            // Ensure lighting defaults if missing
+             if (!workingData.lighting) {
+                workingData.lighting = {
                     spring: { dawn: "06:00", noon: "12:00", dusk: "18:00", night: "20:00", type: "" },
                     summer: { dawn: "05:00", noon: "13:00", dusk: "21:00", night: "22:30", type: "" },
                     autumn: { dawn: "06:30", noon: "12:00", dusk: "18:30", night: "20:00", type: "" },
                     winter: { dawn: "07:30", noon: "12:00", dusk: "16:30", night: "18:00", type: "" }
                 };
             }
-            lighting = this.tempData.lighting;
+            lighting = workingData.lighting;
         }
 
         const fxChoices = {
@@ -57,7 +93,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         };
         
         return {
-            climates: Object.entries(climates).map(([id, c]) => ({ id, name: c.name })),
+            climates: Object.entries(climates).map(([id, c]) => ({ id, name: c.data?.name || c.name })),
             editingClimate: editingClimate,
             seasons: seasons,
             lighting: lighting,
@@ -120,13 +156,17 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _onCreate(event, target) {
         const newId = `custom_${Date.now()}`;
         const newClimate = {
-            name: "New Climate",
-            seasons: {
-                spring: [],
-                summer: [],
-                autumn: [],
-                winter: []
+            data: {
+                name: "New Climate",
+                img: null,
+                seasons: {
+                    spring: [],
+                    summer: [],
+                    autumn: [],
+                    winter: []
+                }
             },
+            fx: { day: [], night: [] },
             lighting: {
                 spring: { dawn: "06:00", noon: "12:00", dusk: "18:00", night: "20:00", type: "" },
                 summer: { dawn: "05:00", noon: "13:00", dusk: "21:00", night: "22:30", type: "" },
@@ -197,7 +237,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         }
         const formDataObj = data;
         
-        this.tempData.name = formDataObj.name;
+        this.tempData.data.name = formDataObj.name;
 
         // Reconstruct arrays from flat form data
         // Format: seasons.{season}.{index}.{field}
@@ -206,11 +246,26 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         
         if (expanded.seasons) {
             for (const s of ["spring", "summer", "autumn", "winter"]) {
-                 // Ensure it is an array (expandObject might make it an object with numeric keys '0', '1' etc)
                  const seasonData = expanded.seasons[s] || {};
-                 // Convert object-map to array
-                 const arr = Object.values(seasonData);
-                 this.tempData.seasons[s] = arr;
+                 // Object to Array
+                 const rawArr = Object.values(seasonData);
+                 
+                 // Process Array: Convert String inputs to Object/Array structure
+                 this.tempData.data.seasons[s] = rawArr.map(entry => {
+                     const tVal = WeatherSystem.parseTemperature(entry.temp || "10-20");
+                     const fxVal = entry.fx ? [entry.fx] : [];
+                     
+                     return {
+                         text: entry.text || "",
+                         temp: {
+                             minC: tVal.min,
+                             maxC: tVal.max,
+                             minF: Math.round((tVal.min * 9/5) + 32),
+                             maxF: Math.round((tVal.max * 9/5) + 32)
+                         },
+                         fx: fxVal
+                     };
+                 });
             }
         }
         
@@ -225,17 +280,17 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         const season = target.dataset.season;
         
         // Ensure initialized if missing (e.g. if form data was empty)
-        if (this.tempData && !this.tempData.seasons[season]) {
-            this.tempData.seasons[season] = [];
+        if (this.tempData && !this.tempData.data.seasons[season]) {
+            this.tempData.data.seasons[season] = [];
         }
 
-        if (this.tempData && this.tempData.seasons[season]) {
-            this.tempData.seasons[season].push({
+        if (this.tempData && this.tempData.data.seasons[season]) {
+            this.tempData.data.seasons[season].push({
                 text: "",
-                temp: "10-20",
-                fx: ""
+                temp: { minC: 10, maxC: 20, minF: 50, maxF: 68 },
+                fx: []
             });
-            console.log("PDNC | New season data:", this.tempData.seasons[season]);
+            console.log("PDNC | New season data:", this.tempData.data.seasons[season]);
             this.render();
         } else {
              console.error("PDNC | Failed to add row, data missing", this.tempData);
@@ -247,8 +302,8 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
         const season = target.dataset.season;
         const index = parseInt(target.dataset.index);
         
-        if (this.tempData && this.tempData.seasons[season]) {
-            this.tempData.seasons[season].splice(index, 1);
+        if (this.tempData && this.tempData.data.seasons[season]) {
+            this.tempData.data.seasons[season].splice(index, 1);
             this.render();
         }
     }
@@ -256,7 +311,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _onSave(event, target) {
         this._updateTempDataFromForm();
         
-        if (!this.tempData.name) {
+        if (!this.tempData.data.name) {
              ui.notifications.error("Name is required");
              return;
         }

@@ -1,6 +1,14 @@
 export class CalendarSystem {
-    constructor() {
-        this.system = game.settings.get("phils-day-night-cycle", "calendarSystem") || "gregorian";
+    constructor(systemOverride = null) {
+        // Fallback Logic: If setting is invalid (e.g. "simple" was removed), default to "gregorian"
+        const storedSystem = systemOverride || game.settings.get("phils-day-night-cycle", "calendarSystem");
+        if (!CalendarSystem.SYSTEMS[storedSystem]) {
+            console.warn(`PDNC | Calendar System '${storedSystem}' not found (deprecated?). Falling back to 'gregorian'.`);
+            this.system = "gregorian";
+        } else {
+            this.system = storedSystem;
+        }
+
         this._cache = {
              years: [],
              cumulative: [0],
@@ -49,6 +57,16 @@ export class CalendarSystem {
             return loc;
         });
 
+        // Localize Description
+        const descKey = `PDNC.Calendar.${sysKey}.Description`;
+        const descLoc = game.i18n.localize(descKey);
+        if (descLoc && descLoc !== descKey) {
+            conf.description = descLoc;
+        } else {
+             // Fallback to existing or english name if needed, but we have hardcoded description in SYSTEMS now.
+             // If localization missing, keep English (from step 106).
+        }
+
         return conf;
     }
 
@@ -56,6 +74,7 @@ export class CalendarSystem {
         return {
             gregorian: {
                 name: "Gregorian (Standard)",
+                description: "Standard real-world calendar.",
                 months: [
                     { name: "January", days: 31 },
                     { name: "February", days: 28, leap: 29 },
@@ -75,6 +94,7 @@ export class CalendarSystem {
             },
             golarion: {
                 name: "Golarion (Pathfinder 2e)",
+                description: "Pathfinder 2e setting (Age of Lost Omens).",
                 months: [
                     { name: "Abadius", days: 31 },
                     { name: "Calistril", days: 28, leap: 29 },
@@ -94,6 +114,7 @@ export class CalendarSystem {
             },
             harptos: {
                 name: "Harptos (DnD 5e)",
+                description: "D&D 5e Forgotten Realms setting.",
                 months: [
                     { name: "Hammer", days: 30 },
                     { name: "Alturiak", days: 30 },
@@ -112,14 +133,9 @@ export class CalendarSystem {
                 weekdays: ["Firstday", "Seconday", "Thirdday", "Middleday", "Fifthday", "Sixthday", "Seventhday", "Eighthday", "Ninthday", "Tenthday"], 
                 leapYearRule: (year) => (year % 4 === 0)
             },
-            simple: {
-                name: "Simple (30 Days)",
-                months: Array.from({ length: 12 }, (_, i) => ({ name: `Month ${i + 1}`, days: 30 })),
-                weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                leapYearRule: () => false
-            },
             magaambya: {
                 name: "Magaambya (Mwangi)",
+                description: "Mwangi Expanse setting.",
                 months: [
                     { name: "Leopard Month", days: 30 },
                     { name: "Bull Month", days: 30 },

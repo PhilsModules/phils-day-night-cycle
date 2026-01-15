@@ -111,7 +111,7 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         }
 
         // Post to Chat logic
-        if (postToChat && !this.editEvent && type !== 'gm') { 
+        if (postToChat && !this.editEvent && type !== 'gm' && type !== 'personal') { 
             this._postCreationMessage(eventData);
         }
     }

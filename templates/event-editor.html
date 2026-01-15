@@ -1,8 +1,7 @@
 <div class="pdnc-event-editor-layout">
     <div class="pdnc-editor-header">
         <div class="pdnc-editor-icon">
-            <i
-                class="fas {{#if (eq defaultType 'gm')}}fa-user-secret{{else}}{{#if (eq defaultType 'player')}}fa-feather-alt{{else}}fa-scroll{{/if}}{{/if}}"></i>
+            <i class="fas {{#if (eq defaultType 'personal')}}fa-user-lock{{else}}{{#if (eq defaultType 'gm')}}fa-user-secret{{else}}{{#if (eq defaultType 'player')}}fa-feather-alt{{else}}fa-scroll{{/if}}{{/if}}{{/if}}"></i>
         </div>
         <div class="pdnc-editor-title-input">
             <label>{{localize "PDNC.Title"}}</label>
@@ -30,6 +29,7 @@
                         <option value="gm" {{#if (eq defaultType "gm")}}selected{{/if}}>{{localize "PDNC.TypeGM"}}</option>
                         <option value="weather" {{#if (eq defaultType "weather")}}selected{{/if}}>{{localize "PDNC.TypeWeather"}}</option>
                         {{/if}}
+                        <option value="personal" {{#if (eq defaultType "personal")}}selected{{/if}}>{{localize "PDNC.TypePersonal"}}</option>
                         {{#if canCreate}}
                         <option value="player" {{#if (eq defaultType "player")}}selected{{/if}}>{{localize "PDNC.TypePlayer"}}</option>
                         {{/if}}

@@ -31,7 +31,7 @@ export class ParticleEngine extends PIXI.Container {
     }
 
     async init() {
-        console.log("PDNC | Custom Particle Engine Init | Type:", this.config.type);
+        // PDNC | Custom Particle Engine Init | Type:", this.config.type
         
         // If we are strictly on the main canvas weather layer (default behavior if no target or target is weather)
         // Ensure visibility.
@@ -128,7 +128,7 @@ export class ParticleEngine extends PIXI.Container {
         }
 
         if (this.validTextures.length > 0) {
-            console.log(`PDNC | Loaded ${this.validTextures.length} textures for ${this.config.type}. Attempting Atlas Packing...`);
+            // Log:(`PDNC | Loaded ${this.validTextures.length} textures for ${this.config.type}. Attempting Atlas Packing...`);
 
             // --- PACKING START ---
             // NOTE: Atlas Packing (ParticleContainer) is disabled for stability.
@@ -155,7 +155,7 @@ export class ParticleEngine extends PIXI.Container {
 
                     this.addChild(this.particleContainer);
                     this.usingAtlas = true;
-                    console.log("PDNC | Texture Atlas Created & ParticleContainer initialized.");
+                    // Log:("PDNC | Texture Atlas Created & ParticleContainer initialized.");
                 }
             } catch (e) {
                 console.error("PDNC | Texture Packing Failed:", e);
@@ -246,7 +246,7 @@ export class ParticleEngine extends PIXI.Container {
 
     spawnParticles() {
         const count = this.getDesiredCount();
-        console.log(`PDNC | Spawning ${count} particles (Initial)`);
+        // PDNC | Spawning ${count} particles (Initial)
 
         for (let i = 0; i < count; i++) {
             this._createParticle(true);
@@ -300,13 +300,13 @@ export class ParticleEngine extends PIXI.Container {
 
         if (desiredCount > currentCount) {
              const diff = desiredCount - currentCount;
-             // console.log(`PDNC | Resizing: Adding ${diff} particles`);
+             // PDNC | Resizing: Adding ${diff} particles
              for (let i = 0; i < diff; i++) {
                  this._createParticle(true);
              }
         } else {
              const diff = currentCount - desiredCount;
-             // console.log(`PDNC | Resizing: Removing ${diff} particles`);
+             // PDNC | Resizing: Removing ${diff} particles
              for(let i=0; i<diff; i++){
                  const p = this.particles.pop();
                  // Remove from correct parent
@@ -579,7 +579,7 @@ export class ParticleEngine extends PIXI.Container {
                 let twinkle = 1.0;
                 if (this.config.shimmer) {
                      const speed = this.config.shimmerSpeed ?? 0.005;
-                     // console.log("Shimmer Speed:", speed);
+                     // Shimmer Speed:", speed
                      twinkle = 0.5 + 0.5 * Math.sin(p.age * speed); 
                 }
 

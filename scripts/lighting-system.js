@@ -43,18 +43,32 @@ export class LightingSystem {
         if (!params) return 0; // Default to bright if no data
 
         // Check Types
+        if (!params) return 0.0;
         if (params.type === "polar_day") return 0.0;
         if (params.type === "polar_night") return 1.0;
 
-        // Current time in minutes of the day
+        // Validation for missing times
+        if (!params.dawn || !params.noon || !params.dusk) {
+             console.warn("PDNC | LightingSystem: Missing dawn/noon/dusk parameters for current climate.");
+             return 0.0;
+        }
+
+        // Current time in minutes of the day (adjusted by global timeOffset)
         const dayLength = 86400;
-        const currentSeconds = worldTime % dayLength;
+        const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0; // Minutes
+        const adjustedTime = worldTime + (timeOffset * 60);
+
+        // Handle negative time correctly for modulo
+        const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
         const currentMinutes = Math.floor(currentSeconds / 60);
 
         const dawn = this.parseTime(params.dawn);
         const noon = this.parseTime(params.noon);
         const dusk = this.parseTime(params.dusk);
-        const night = this.parseTime(params.night);
+        let night = this.parseTime(params.night); 
+        // Note: night can be null for 'bright_night'
+
+        if (dawn === null || noon === null || dusk === null) return 0.0; // Safety check
 
         // Lifecycle: Dawn -> Noon -> Dusk -> Night
         // Standard Day: 00:00 -> Dawn -> Noon -> Dusk -> Night -> 23:59
@@ -107,22 +121,33 @@ export class LightingSystem {
     }
 
     static async update(worldTime) {
-        // Check setting
-        if (!game.settings.get(MODULE_ID, "autoLighting")) return;
+        try {
+            // Check setting
+            if (!game.settings.get(MODULE_ID, "autoLighting")) return;
 
-        // Only GM updates scene darkness to ensure synchronization and permissions
-        if (!game.user.isGM) return;
+            // Only GM updates scene darkness to ensure synchronization and permissions
+            if (!game.user.isGM) return;
 
-        const darkness = this.calculateDarkness(worldTime);
-        
-        // Update current scene if valid
-        if (canvas.scene) {
-            const currentDarkness = canvas.scene.environment?.darknessLevel ?? canvas.scene.darkness;
+            const darkness = this.calculateDarkness(worldTime);
             
-            // Apply update if change is significant to avoid unnecessary DB operations
-            if (Math.abs(currentDarkness - darkness) > 0.005) {
-                await canvas.scene.update({ darkness: darkness }, { animate: true });
+            // Validate Result
+            if (isNaN(darkness) || darkness < 0 || darkness > 1) {
+                console.warn(`PDNC | LightingSystem computed invalid darkness: ${darkness}. Skipping update.`);
+                return;
             }
+
+            // Update current scene if valid
+            // Update current scene if valid and ready
+            if (canvas && canvas.ready && canvas.scene && canvas.scene.active) {
+                const currentDarkness = canvas.scene.environment?.darknessLevel ?? canvas.scene.darkness ?? 0;
+                
+                // Apply update if change is significant to avoid unnecessary DB operations
+                if (Math.abs(currentDarkness - darkness) > 0.005) {
+                    await canvas.scene.update({ darkness: darkness }, { animate: true });
+                }
+            }
+        } catch (err) {
+            console.error("PDNC | LightingSystem.update Error:", err);
         }
     }
 }

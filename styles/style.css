@@ -180,7 +180,7 @@
     rgba(20, 20, 25, 0.9),
     rgba(10, 10, 15, 0.95)
   );
-  padding: 8px 10px;
+  padding: 4px 8px; /* Reduced padding further */
   border-radius: 8px;
   border: 1px solid #444;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -233,6 +233,7 @@
   /* Goldish for text */
   margin-bottom: 2px;
   letter-spacing: 0.5px;
+  margin-top: 18px; /* Balanced: 18px gives space from Sun (y=14) */
 }
 
 .pdnc-clock-text {
@@ -244,7 +245,7 @@
 .pdnc-date-text {
   font-size: 0.8em;
   color: #888;
-  margin-bottom: 5px;
+  margin-bottom: 2px; /* Reduced from 5px */
   font-family: var(--pdnc-font);
 }
 
@@ -269,10 +270,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 10px;
+  gap: 4px; /* Tighter gap */
+  margin-top: 4px; /* Reduced */
+  padding-top: 4px; /* Reduced */
   border-top: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-shortcuts {
+  display: flex;
+  gap: 3px; /* Tighter button gap */
+  justify-content: center;
+  margin-bottom: 2px; /* Reduced bottom margin */
+  width: 100%;
+}
+
+.pdnc-shortcuts .pdnc-btn {
+  padding: 4px 6px;
+  font-size: 0.85em;
+  min-width: 40px;
 }
 
 .pdnc-btn {
@@ -501,7 +516,7 @@
 
 .pdnc-calendar-weekdays {
   display: grid;
-  /* grid-template-columns set via inline style for dynamic week length */
+  grid-template-columns: repeat(var(--week-length, 7), 1fr);
   text-align: center;
   font-weight: bold;
   border-bottom: 2px solid #555;
@@ -512,7 +527,7 @@
 
 .pdnc-calendar-grid {
   display: grid;
-  /* grid-template-columns set via inline style */
+  grid-template-columns: repeat(var(--week-length, 7), 1fr);
   gap: 5px;
   flex: 1;
 }
@@ -743,12 +758,12 @@
 }
 
 .pdnc-event-card.event {
-  border-left: 3px solid #c5a059;
+  border-left: 3px solid #e0e0e0; /* White/Silver */
 }
 
 .pdnc-event-card.quest {
-  border-left: 3px solid #ffd700; /* Gold */
-  box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+  border-left: 3px solid #c5a059; /* Theme Gold */
+  box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
 }
 
 .pdnc-event-icon-wrapper {
@@ -775,13 +790,13 @@
 }
 
 .pdnc-event-card.event .pdnc-event-icon-wrapper {
-  color: #c5a059;
-  background: rgba(197, 160, 89, 0.1);
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .pdnc-event-card.quest .pdnc-event-icon-wrapper {
-  color: #ffd700;
-  background: rgba(255, 215, 0, 0.1);
+  color: #c5a059;
+  background: rgba(197, 160, 89, 0.1);
 }
 
 .pdnc-event-details {
@@ -896,9 +911,10 @@
 
 
 .pdnc-event-editor-window form {
-  /* height: 100%; removed to prevent collapse if container is auto */
   display: flex;
   flex-direction: column;
+  flex: 1; /* Grow to fill window */
+  min-height: 0; /* Allow shrinking below content size to enable scrolling */
 }
 
 /* Navigation Window */
@@ -1449,7 +1465,8 @@
     gap: 10px;
     padding: 5px;
     overflow-y: auto;
-    max-height: 500px; /* Adjust based on window */
+    flex: 1; /* Fill available space */
+    min-height: 0; /* REQUIRED for overflow to work in flex container */
 }
 
 .pdnc-mini-month {
@@ -1477,7 +1494,7 @@
 
 .pdnc-mini-grid {
     display: grid;
-    /* grid-template-columns: repeat(7, 1fr);  <-- Moved to inline style */
+  grid-template-columns: repeat(var(--week-length, 7), 1fr);
     gap: 2px; /* Increased gap slightly for clarity */
 }
 
@@ -1538,7 +1555,8 @@
     gap: 2px;
     padding: 5px;
     overflow-y: auto;
-    max-height: 500px;
+    flex: 1; /* Fill available space */
+    min-height: 0; /* REQUIRED for overflow to work in flex container */
 }
 
 .pdnc-list-item {
@@ -1561,7 +1579,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50px;
+    width: 85px;
     flex-shrink: 0;
     border-right: 1px solid #444;
     margin-right: 12px;
@@ -1668,9 +1686,180 @@
     font-size: 0.75em;
     color: #aaa;
     vertical-align: middle;
-    margin-left: 5px;
+    margin-left: 0px;
 }
 
 .pdnc-nowrap {
     white-space: nowrap;
+}
+
+/* --- Personal Notes --- */
+.pdnc-event-dot.personal {
+    background-color: #9b59b6;
+    border-color: #8e44ad;
+}
+
+.pdnc-event-card.personal {
+    border-left: 3px solid #9b59b6;
+    background: linear-gradient(to right, rgba(155, 89, 182, 0.1), transparent);
+}
+
+.pdnc-mini-day.personal {
+    background: rgba(155, 89, 182, 0.4);
+    box-shadow: 0 0 2px #9b59b6;
+    color: #fff;
+}
+
+.pdnc-event-card.personal .pdnc-event-icon-wrapper {
+    color: #9b59b6;
+    background: rgba(155, 89, 182, 0.1);
+}
+
+.pdnc-event-card.weather {
+    border-left: 3px solid #3498db;
+}
+
+.pdnc-event-card.weather .pdnc-event-icon-wrapper {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.pdnc-calendar-root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.pdnc-calendar-header {
+    flex-shrink: 0;
+}
+
+/* --- Fix Calendar Scroll Constraints --- */
+.pdnc-calendar-window {
+    display: flex;
+    flex-direction: column;
+}
+
+.pdnc-calendar-window .window-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+/* --- App V2 Standard Styling --- */
+.pdnc-app-v2.window-app .window-content {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 20, 25, 0.95),
+    rgba(10, 10, 12, 0.98)
+  );
+  color: #eee;
+  backdrop-filter: blur(10px);
+  border: 1px solid #c5a059;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+  font-family: var(--pdnc-font);
+}
+
+.pdnc-app-v2 .window-header {
+  background: transparent;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  color: #c5a059;
+}
+
+.pdnc-app-v2 .window-title {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+
+.pdnc-app-v2 input, 
+.pdnc-app-v2 select {
+  background: rgba(0, 0, 0, 0.4);
+  color: #c5a059;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 4px;
+}
+
+.pdnc-app-v2 option {
+  background: #1a1a1a;
+  color: #c5a059;
+}
+
+.pdnc-app-v2 input:focus, 
+.pdnc-app-v2 select:focus {
+  border-color: #c5a059;
+  box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-app-v2 button {
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #c5a059;
+  transition: all 0.2s;
+}
+
+.pdnc-app-v2 button:hover {
+  background: rgba(197, 160, 89, 0.25);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.4);
+}
+
+.pdnc-app-v2 h1, .pdnc-app-v2 h2, .pdnc-app-v2 h3 {
+  color: #c5a059;
+  border-bottom-color: rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-app-v2 label {
+  color: #ccc;
+}
+
+/* Fix for check boxes having double borders */
+.pdnc-app-v2 input[type="checkbox"] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  width: auto;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.pdnc-app-v2 input[type="checkbox"]:focus {
+    box-shadow: none;
+    border: none;
+}
+
+/* --- Weather Chat Card --- */
+.pdnc-weather-chat {
+    background-image: url('../assets/weather_bg.webp');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff !important;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px #000000 !important;
+    font-family: 'Signika', sans-serif;
+}
+
+.pdnc-weather-chat h3 {
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+    flex: none;
+}
+
+.pdnc-weather-chat strong {
+    color: #eeeeee !important;
+}
+
+.pdnc-weather-temp {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    color: #ffffff !important;
 }

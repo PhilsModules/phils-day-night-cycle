@@ -1,0 +1,6 @@
+**3.8.0 - User Experience Update**
+
+- **Startup Wizard:** A brand new, beautiful Setup Wizard that guides new users (and GMs) through the first-time setup! It handles Clock Image, Calendar System (PF2e/Gregorian/etc.), Time Settings, and Permissions in a simple step-by-step UI.
+- **PF2e Sync Improved:** The "Sync Pathfinder 2e" setting now works much more reliably, correctly handling the Golarion epoch offset to match the official system time.
+- **Climate Data Refined:** Massive update to both English and German climate data. Lighting times (Dawn/Dusk) are now perfectly calculated for diverse biomes like "Ice Cap" or "Tropics" based on realistic latitude simulations.
+- **Fix:** Fixed a regression where the "Climate Zone" dropdown in Settings would sometimes show English names even when the system language was German.

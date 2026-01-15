@@ -54,10 +54,10 @@ export class RuntimeTexturePacker {
         atlasW = Math.min(atlasW, MAX_SIZE);
         atlasH = Math.min(atlasH, MAX_SIZE);
 
-        console.log(`PDNC | Packing ${validTextures.length} textures. Est Size: ${atlasW}x${atlasH}`);
+        // PDNC | Packing ${validTextures.length} textures. Est Size: ${atlasW}x${atlasH}
         // Debug: Log largest texture to see if we have huge files
         if (validTextures.length > 0) {
-            console.log(`PDNC | Largest Texture: ${validTextures[0].width}x${validTextures[0].height}`);
+            // PDNC | Largest Texture: ${validTextures[0].width}x${validTextures[0].height}
         }
 
         // 3. Layout Pass

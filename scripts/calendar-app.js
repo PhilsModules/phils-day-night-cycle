@@ -22,7 +22,8 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             gm: true,
             player: true,
             weather: true,
-            quest: true
+            quest: true,
+            personal: true
         };
     }
 
@@ -146,7 +147,14 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
         // Pad empty days
         for (let i = 0; i < startWeekdayIndex; i++) {
-            days.push({ isEmpty: true });
+            days.push({ 
+                isEmpty: true, 
+                cssClass: "pdnc-day empty",
+                actionName: "",
+                contextAction: "",
+                dayNumString: "",
+                dateKeyString: ""
+            });
         }
 
         // Add actual days
@@ -159,15 +167,19 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
             // Format and Filter Events
             events = events.map(e => {
-                if (typeof e === 'string') return { title: e, type: 'event', class: '' };
+                if (typeof e === 'string') return { title: e, type: 'event', class: '', styleAttr: '' };
                 let cssClass = e.type || 'event';
-                return { ...e, class: cssClass };
+                let styleAttr = e.color ? `style="background-color: ${e.color}; border-color: ${e.color};"` : "";
+                return { ...e, class: cssClass, styleAttr: styleAttr };
             }).filter(e => {
                 if (e.type === 'weather') return true;
                 if (e.type === 'gm' && !isGM) return false;
                 if (e.gmOnly && !isGM) return false;
                 if (e.type === 'player' && !isGM && !game.settings.get(MODULE_ID, "playerCreateEvents")) {
                     return true;
+                }
+                if (e.type === 'personal') {
+                     if (!isGM && e.author !== game.user.id) return false;
                 }
                 return true;
             }).filter(e => {
@@ -177,10 +189,19 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 return true;
             });
 
+            const isCurrent = (viewYear === currentDate.year && viewMonth === currentDate.month && d === currentDate.day);
+            let cssClass = "pdnc-day";
+            if (isCurrent) cssClass += " current";
+
             days.push({
                 number: d,
                 isEmpty: false,
-                isCurrent: (viewYear === currentDate.year && viewMonth === currentDate.month && d === currentDate.day),
+                isCurrent: isCurrent,
+                cssClass: cssClass,
+                actionName: "dayClick",
+                contextAction: "dayContext",
+                dayNumString: String(d),
+                dateKeyString: dateKey,
                 events: events,
                 dateKey: dateKey 
             });
@@ -212,22 +233,25 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 if (this.system.isRecurringMatch(event, srcY, srcM, srcD, targetYear, targetMonth, targetDay)) {
                      // Filter out if user cannot see it
                      if ((event.type === 'gm' || event.gmOnly) && !isGM) continue;
+                     if (event.type === 'personal' && !isGM && event.author !== game.user.id) continue;
 
                      // Determine class (copy-paste logic from map)
                      let cssClass = (event.type || 'event') + ' recurring';
+                     let styleAttr = event.color ? `style="background-color: ${event.color}; border-color: ${event.color};"` : "";
                      
                      dayObj.events.push({
                          ...event,
                          isRecurring: true, 
                          originalDate: sourceKey,
-                         class: cssClass
+                         class: cssClass,
+                         styleAttr: styleAttr
                      });
                 }
             }
         }
 
         return {
-            weekdays: config.weekdays.map(w => w.substring(0, 3)),
+            weekdays: config.weekdays.map(w => w.replace(/<[^>]*>/g, "").substring(0, 3)),
             days: days
         };
     }
@@ -266,6 +290,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                      // Permission check
                      if (e.type === 'gm' && !game.user.isGM) continue;
                      if (e.gmOnly && !game.user.isGM) continue;
+                     if (e.type === 'personal' && !game.user.isGM && e.author !== game.user.id) continue;
                      if (e.type === 'player' && !game.user.isGM && !game.settings.get(MODULE_ID, "playerCreateEvents")) continue; // Optional check
 
                      hasEvents = true;
@@ -282,6 +307,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                         'gm': 'rgba(231, 76, 60, 0.6)',         // Red
                         'player': 'rgba(46, 204, 113, 0.6)',    // Green
                         'weather': 'rgba(52, 152, 219, 0.6)',   // Blue
+                        'personal': 'rgba(155, 89, 182, 0.6)',  // Purple
                         'event': 'rgba(255, 255, 255, 0.4)'     // White
                     };
 
@@ -307,13 +333,20 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                     }
                 }
                 
+                const isCurrent = (viewYear === currentDate.year && m === currentDate.month && d === currentDate.day);
+                let miniDayClass = "pdnc-mini-day";
+                if (isCurrent) miniDayClass += " current";
+                if (hasEvents) miniDayClass += " has-events " + eventClass;
+
                 simpleDays.push({
                     number: d,
                     hasEvents: hasEvents,
                     eventClass: eventClass,
-                    bgStyle: bgStyle,
+                    bgStyleAttr: bgStyle ? `style="${bgStyle}"` : "",
                     eventCount: hasEvents ? events.length : 0, 
-                    isCurrent: (viewYear === currentDate.year && m === currentDate.month && d === currentDate.day)
+                    titleString: hasEvents ? `${events.length} Events` : "",
+                    isCurrent: isCurrent,
+                    cssClass: miniDayClass
                 });
             }
 
@@ -326,7 +359,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
         return { 
             months: months,
-            weekdays: config.weekdays.map(w => w.substring(0, 1)) // 1 char for mini view
+            weekdays: config.weekdays.map(w => w.replace(/<[^>]*>/g, "").substring(0, 1)) // 1 char for mini view
         };
     }
 
@@ -340,9 +373,9 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             const [y, m, d] = dateKey.split('-').map(Number);
             
             events.forEach(e => {
-                 // Permission Check
                  if (e.type === 'gm' && !isGM) return;
                  if (e.gmOnly && !isGM) return;
+                 if (e.type === 'personal' && !isGM && e.author !== game.user.id) return;
                  
                  // Legacy String handling
                  const title = (typeof e === 'string') ? e : e.title;
@@ -526,6 +559,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             currentEvents = currentEvents.filter(e => {
                 if (e.type === 'gm') return false;
                 if (e.gmOnly) return false;
+                if (e.type === 'personal' && e.author !== game.user.id) return false;
                 return true;
             });
         } else {
@@ -549,6 +583,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                      if (this.system.isRecurringMatch(event, sY, sM, sD, tY, tM, tD)) {
                          // Filter GM
                          if ((event.type === 'gm' || event.gmOnly) && !game.user.isGM) continue;
+                         if (event.type === 'personal' && !game.user.isGM && event.author !== game.user.id) continue;
 
                          currentEvents.push({
                              ...event,
@@ -782,6 +817,11 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 name: game.i18n.localize("PDNC.AddEvent"),
                 icon: '<i class="fas fa-calendar-plus"></i>',
                 callback: () => this._openEditor(dateKey, 'event')
+            },
+            {
+                name: game.i18n.localize("PDNC.TypePersonal"),
+                icon: '<i class="fas fa-user-lock"></i>',
+                callback: () => this._openEditor(dateKey, 'personal')
             }
         ];
 

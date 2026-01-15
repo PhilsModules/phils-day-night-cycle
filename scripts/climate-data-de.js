@@ -1,1400 +1,13214 @@
 export const CLIMATE_DATA_DE = {
     "ice_cap": {
-        name: "Eiswüstenklimate (Ice Cap)",
-        seasons: {
-            "spring": [
-                { text: "Rückkehr der Sonneneinstrahlung; klare Sichtverhältnisse bei extremen Tiefsttemperaturen.", temp: "-35 bis -30°C (-31 to -22°F)", fx: null },
-                { text: "Katabatische Fallwinde erreichen Orkanstärke; Windchill-Faktor kritisch.", temp: "-40 bis -35°C (-40 to -31°F)", fx: null },
-                { text: "Hochdruckeinfluss sorgt für wolkenlosen Himmel und intensive Reflexion auf der Schneedecke.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Auftreten von Eisnadeln (Polarschnee); Halo-Erscheinungen.", temp: "-30 bis -25°C (-22 to -13°F)", fx: "thick_fog" },
-                { text: "Zunehmende atmosphärische Turbulenzen verursachen lokale Schneeverwehungen.", temp: "-28 bis -22°C (-18 to -8°F)", fx: "snow" },
-                { text: "Stabiles Hochdruckgebiet; tiefblauer Himmel ohne Wolkenbildung.", temp: "-32 bis -28°C (-26 to -18°F)", fx: null },
-                { text: "Diffuses Licht durch Hochnebel; Whiteout-Bedingungen.", temp: "-20 bis -15°C (-4 to 5°F)", fx: "thick_fog" },
-                { text: "Einströmung milderer Luftmassen sorgt für Temperaturanstieg.", temp: "-18 bis -12°C (0 to 10°F)", fx: null },
-                { text: "Dichte Eisnebelbank reduziert die horizontale Sichtweite unter 10 Meter.", temp: "-22 bis -18°C (-8 to 0°F)", fx: "thick_fog" },
-                { text: "Böiger Wind aus nordöstlicher Richtung mit Turbulenzen in Bodennähe.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Seltene optische Lichtphänomene (Halo) in den dichten Nebelbanken.", temp: "-15 bis -10°C (5 to 14°F)", fx: "thick_fog" },
-                { text: "Starker Driftwind verfrachtet Eiskristalle in Bodennähe.", temp: "-24 bis -19°C (-11 to -2°F)", fx: null },
-                { text: "Absolute Windstille bei anhaltender Strahlungskälte.", temp: "-35 bis -30°C (-31 to -22°F)", fx: null },
-                { text: "Aufzug hoher Cirrusbewölkung dämpft die Sonneneinstrahlung.", temp: "-20 bis -16°C (-4 to 3°F)", fx: null },
-                { text: "Lang anhaltende Dämmerungsphase mit violetter Himmelsfärbung.", temp: "-28 bis -24°C (-18 to -11°F)", fx: null },
-                { text: "Extremer Temperaturgradient verursacht Spannungen im Eis.", temp: "-22 bis -18°C (-8 to 0°F)", fx: null },
-                { text: "Schneesturmsituation mit starker Sichtbehinderung.", temp: "-25 bis -20°C (-13 to -4°F)", fx: "blizzard" },
-                { text: "Kristallklare Luftmasse ermöglicht maximale Fernsicht.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Hohe Luftfeuchtigkeit führt zu Raureifablagerungen.", temp: "-18 bis -14°C (0 to 7°F)", fx: "snow" },
-                { text: "Spürbare Zunahme der solaren Wärmestrahlung über dem Eis.", temp: "-15 bis -10°C (5 to 14°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Polartag; 24 Stunden ununterbrochenes Tageslicht.", temp: "-5 bis 0°C (23 to 32°F)", fx: null },
-                { text: "Tauwetterbedingungen an der Oberfläche durch positive Mittagstemperaturen.", temp: "0 bis 2°C (32 to 36°F)", fx: null },
-                { text: "Strahlender Sonnenschein dominiert den Tag bei erhöhtem UV-Index.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Zügiger Durchzug von dichten Nebelfeldern bei mäßigem Wind.", temp: "-1 bis 2°C (30 to 36°F)", fx: "thick_fog" },
-                { text: "Aufweichen der Eisoberfläche durch anhaltende Einstrahlung.", temp: "1 bis 3°C (34 to 37°F)", fx: null },
-                { text: "Massive Warmluftadvektion sorgt für Tauwetter.", temp: "2 bis 5°C (36 to 41°F)", fx: null },
-                { text: "Erhöhte Gefahr von Schneeblindheit durch starke Lichtreflexion.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Niederschlag in Form von Schneeregen (Sleet).", temp: "1 bis 3°C (34 to 37°F)", fx: "hail" },
-                { text: "Windstille Hochdrucklage mit für die Region milden Werten.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Wechselnde Bewölkung sorgt für wandernde Schattenwürfe.", temp: "-4 bis -1°C (25 to 30°F)", fx: null },
-                { text: "Abrupter Temperatursturz mit sofortigem Gefrieren.", temp: "-10 bis -5°C (14 to 23°F)", fx: null },
-                { text: "Dunstglocke über dem Eisfeld reduziert Sichtweite.", temp: "-1 bis 1°C (30 to 34°F)", fx: "thick_fog" },
-                { text: "Konvektiver Schneeschauer in den Mittagsstunden.", temp: "-3 bis 0°C (27 to 32°F)", fx: "snow" },
-                { text: "Diffuses Lichtverhältnis; keine Kontrastwahrnehmung möglich.", temp: "-2 bis 1°C (28 to 34°F)", fx: "thick_fog" },
-                { text: "Der tägliche Höchststand der intensiven UV-Strahlung ist nun erreicht.", temp: "-5 bis -1°C (23 to 30°F)", fx: null },
-                { text: "Intensive Schmelzwasserbildung an der Gletscheroberfläche.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Bildung von leichtem Abendnebel bei sinkendem Sonnenstand.", temp: "-2 bis 0°C (28 to 32°F)", fx: "thick_fog" },
-                { text: "Ein beständiger, kühlender Wind weht stetig aus nordwestlicher Richtung.", temp: "-4 bis -1°C (25 to 30°F)", fx: null },
-                { text: "Starke Fata Morgana Effekte am Horizont durch Inversion.", temp: "-3 bis 1°C (27 to 34°F)", fx: "heat_wave" },
-                { text: "Sonne berührt den Horizont; Beginn der Dämmerungsphase.", temp: "-6 bis -2°C (21 to 28°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Erster Sonnenuntergang markiert das Ende des Polartags.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Barometersturz kündigt schweren Wintersturm an.", temp: "-20 bis -15°C (-4 to 5°F)", fx: "blizzard" },
-                { text: "Dramatischer Temperaturabfall innerhalb weniger Stunden.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Geschlossene Wolkendecke mit anhaltendem Schneefall.", temp: "-12 bis -8°C (10 to 18°F)", fx: "snow" },
-                { text: "Kritischer Windchill-Faktor durch stürmische Böen.", temp: "-18 bis -14°C (0 to 7°F)", fx: null },
-                { text: "Permanentes Dämmerlicht dominiert den Tagesverlauf.", temp: "-22 bis -18°C (-8 to 0°F)", fx: null },
-                { text: "Verhärtung der Schneedecke durch Windpressung (Harsch).", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Kristallines Eiswachstum an exponierten Flächen.", temp: "-15 bis -10°C (5 to 14°F)", fx: "snow" },
-                { text: "Ein totaler Whiteout mit absoluter Nullsicht durch dichten Schneesturm.", temp: "-18 bis -13°C (0 to 9°F)", fx: "whiteout" },
-                { text: "Tiefrote Himmelsfärbung durch Streuung an Eiskristallen.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Die topografischen Senken füllen sich langsam mit dichtem Eisnebel.", temp: "-28 bis -24°C (-18 to -11°F)", fx: "thick_fog" },
-                { text: "Aufwirbelung von Altschnee reduziert Sichtweite drastisch.", temp: "-16 bis -12°C (3 to 10°F)", fx: null },
-                { text: "Akustische Effekte durch thermische Kontraktion des Eises.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Erste Sichtung von Aurora Borealis (Polarlichter) möglich.", temp: "-35 bis -30°C (-31 to -22°F)", fx: "aurora" },
-                { text: "Minimale Tageslichtdauer; Sonne kaum über dem Horizont.", temp: "-28 bis -22°C (-18 to -8°F)", fx: null },
-                { text: "Ein extrem stabiles Kältehoch sorgt für einen kristallklaren Himmel.", temp: "-32 bis -28°C (-26 to -18°F)", fx: null },
-                { text: "Niederschlag von feinsten Eiskristallen (Polarschnee).", temp: "-24 bis -20°C (-11 to -4°F)", fx: "diamond_dust" },
-                { text: "Täuschende Windstille bei weiter fallenden Temperaturen.", temp: "-30 bis -26°C (-22 to -15°F)", fx: null },
-                { text: "Extrem langer Schattenwurf durch tiefstehenden Sonnenstand.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Aufzug dunkler Frontbewölkung; Starkschnee erwartet.", temp: "-15 bis -10°C (5 to 14°F)", fx: "snow" }
-            ],
-            "winter": [
-                { text: "Beginn der Polarnacht; vollständige astronomische Dunkelheit.", temp: "-45 bis -40°C (-49 to -40°F)", fx: null },
-                { text: "Intensive geomagnetische Aktivität; Polarlichter dominieren den Himmel.", temp: "-50 bis -45°C (-58 to -49°F)", fx: "aurora" },
-                { text: "Temperaturen fallen auf lebensbedrohliche Tiefstwerte.", temp: "-60 bis -55°C (-76 to -67°F)", fx: null },
-                { text: "Ein schwerer Blizzard mit Orkanböen reduziert die Sicht auf Null.", temp: "-40 bis -35°C (-40 to -31°F)", fx: "blizzard" },
-                { text: "Außergewöhnlich klare Atmosphäre; Sternenhimmel brillant sichtbar.", temp: "-55 bis -50°C (-67 to -58°F)", fx: null },
-                { text: "Sofortige Sublimation von Feuchtigkeit zu Eisnebel.", temp: "-48 bis -42°C (-54 to -44°F)", fx: "thick_fog" },
-                { text: "Vollständige Windstille ohne jegliche spürbare Luftbewegung.", temp: "-52 bis -48°C (-62 to -54°F)", fx: null },
-                { text: "Helles Mondlicht wird von Eisflächen reflektiert.", temp: "-45 bis -40°C (-49 to -40°F)", fx: null },
-                { text: "Sofortige Kristallisation von Wasserdampf in der Luft.", temp: "-58 bis -52°C (-72 to -62°F)", fx: null },
-                { text: "Bodensicht durch Schneefegen (Blowing Snow) unmöglich.", temp: "-38 bis -32°C (-36 to -26°F)", fx: "blizzard" },
-                { text: "Die extreme Kälte führt zu einer spürbaren Materialversprödung.", temp: "-50 bis -45°C (-58 to -49°F)", fx: null },
-                { text: "Nautische Dämmerung am Mittag als einziger Lichtschimmer.", temp: "-42 bis -38°C (-44 to -36°F)", fx: null },
-                { text: "Extrem trockene Luftmasse; hohe statische Aufladung.", temp: "-46 bis -40°C (-51 to -40°F)", fx: null },
-                { text: "Bodenoberfläche ist tiefgefroren und extrem hart.", temp: "-55 bis -50°C (-67 to -58°F)", fx: null },
-                { text: "Erfrierungsgefahr (Frostbite) binnen weniger Minuten bei Exposition.", temp: "-60 bis -55°C (-76 to -67°F)", fx: null },
-                { text: "Ein anhaltender, heulender Starkwind fegt unerbittlich über das Eis.", temp: "-40 bis -35°C (-40 to -31°F)", fx: "blizzard" },
-                { text: "Wachstum bizarrer Eiskristalle an Oberflächen.", temp: "-45 bis -40°C (-49 to -40°F)", fx: "thick_fog" },
-                { text: "Vollständige, anhaltende Dunkelheit ohne jeglichen solaren Einfluss.", temp: "-50 bis -45°C (-58 to -49°F)", fx: null },
-                { text: "Exzellente Bedingungen für astronomische Beobachtungen.", temp: "-55 bis -50°C (-67 to -58°F)", fx: null },
-                { text: "Bereits leichter Luftzug senkt die gefühlte Temperatur drastisch.", temp: "-48 bis -44°C (-54 to -47°F)", fx: null }
-            ]
+        "data": {
+            "name": "Eiswüstenklimate (Ice Cap)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Rückkehr der Sonneneinstrahlung; klare Sichtverhältnisse bei extremen Tiefsttemperaturen.",
+                        "temp": {
+                            "minC": -35,
+                            "maxC": -30,
+                            "minF": -31,
+                            "maxF": -22
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Katabatische Fallwinde erreichen Orkanstärke; Windchill-Faktor kritisch.",
+                        "temp": {
+                            "minC": -40,
+                            "maxC": -35,
+                            "minF": -40,
+                            "maxF": -31
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hochdruckeinfluss sorgt für wolkenlosen Himmel und intensive Reflexion auf der Schneedecke.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Auftreten von Eisnadeln (Polarschnee); Halo-Erscheinungen.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Zunehmende atmosphärische Turbulenzen verursachen lokale Schneeverwehungen.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -22,
+                            "minF": -18,
+                            "maxF": -8
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Stabiles Hochdruckgebiet; tiefblauer Himmel ohne Wolkenbildung.",
+                        "temp": {
+                            "minC": -32,
+                            "maxC": -28,
+                            "minF": -26,
+                            "maxF": -18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Diffuses Licht durch Hochnebel; Whiteout-Bedingungen.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Einströmung milderer Luftmassen sorgt für Temperaturanstieg.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -12,
+                            "minF": 0,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichte Eisnebelbank reduziert die horizontale Sichtweite unter 10 Meter.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Böiger Wind aus nordöstlicher Richtung mit Turbulenzen in Bodennähe.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Seltene optische Lichtphänomene (Halo) in den dichten Nebelbanken.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starker Driftwind verfrachtet Eiskristalle in Bodennähe.",
+                        "temp": {
+                            "minC": -24,
+                            "maxC": -19,
+                            "minF": -11,
+                            "maxF": -2
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Absolute Windstille bei anhaltender Strahlungskälte.",
+                        "temp": {
+                            "minC": -35,
+                            "maxC": -30,
+                            "minF": -31,
+                            "maxF": -22
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufzug hoher Cirrusbewölkung dämpft die Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -16,
+                            "minF": -4,
+                            "maxF": 3
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Lang anhaltende Dämmerungsphase mit violetter Himmelsfärbung.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extremer Temperaturgradient verursacht Spannungen im Eis.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneesturmsituation mit starker Sichtbehinderung.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Kristallklare Luftmasse ermöglicht maximale Fernsicht.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Luftfeuchtigkeit führt zu Raureifablagerungen.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Spürbare Zunahme der solaren Wärmestrahlung über dem Eis.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Polartag; 24 Stunden ununterbrochenes Tageslicht.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tauwetterbedingungen an der Oberfläche durch positive Mittagstemperaturen.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 2,
+                            "minF": 32,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Strahlender Sonnenschein dominiert den Tag bei erhöhtem UV-Index.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Zügiger Durchzug von dichten Nebelfeldern bei mäßigem Wind.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Aufweichen der Eisoberfläche durch anhaltende Einstrahlung.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 3,
+                            "minF": 34,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Massive Warmluftadvektion sorgt für Tauwetter.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 5,
+                            "minF": 36,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erhöhte Gefahr von Schneeblindheit durch starke Lichtreflexion.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlag in Form von Schneeregen (Sleet).",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 3,
+                            "minF": 34,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Windstille Hochdrucklage mit für die Region milden Werten.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wechselnde Bewölkung sorgt für wandernde Schattenwürfe.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Abrupter Temperatursturz mit sofortigem Gefrieren.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dunstglocke über dem Eisfeld reduziert Sichtweite.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 1,
+                            "minF": 30,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Konvektiver Schneeschauer in den Mittagsstunden.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Diffuses Lichtverhältnis; keine Kontrastwahrnehmung möglich.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 1,
+                            "minF": 28,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der tägliche Höchststand der intensiven UV-Strahlung ist nun erreicht.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Schmelzwasserbildung an der Gletscheroberfläche.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung von leichtem Abendnebel bei sinkendem Sonnenstand.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 0,
+                            "minF": 28,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein beständiger, kühlender Wind weht stetig aus nordwestlicher Richtung.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Fata Morgana Effekte am Horizont durch Inversion.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Sonne berührt den Horizont; Beginn der Dämmerungsphase.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Erster Sonnenuntergang markiert das Ende des Polartags.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Barometersturz kündigt schweren Wintersturm an.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Dramatischer Temperaturabfall innerhalb weniger Stunden.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Geschlossene Wolkendecke mit anhaltendem Schneefall.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Kritischer Windchill-Faktor durch stürmische Böen.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Permanentes Dämmerlicht dominiert den Tagesverlauf.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verhärtung der Schneedecke durch Windpressung (Harsch).",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kristallines Eiswachstum an exponierten Flächen.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein totaler Whiteout mit absoluter Nullsicht durch dichten Schneesturm.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -13,
+                            "minF": 0,
+                            "maxF": 9
+                        },
+                        "fx": [
+                            "whiteout"
+                        ]
+                    },
+                    {
+                        "text": "Tiefrote Himmelsfärbung durch Streuung an Eiskristallen.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die topografischen Senken füllen sich langsam mit dichtem Eisnebel.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Aufwirbelung von Altschnee reduziert Sichtweite drastisch.",
+                        "temp": {
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Akustische Effekte durch thermische Kontraktion des Eises.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erste Sichtung von Aurora Borealis (Polarlichter) möglich.",
+                        "temp": {
+                            "minC": -35,
+                            "maxC": -30,
+                            "minF": -31,
+                            "maxF": -22
+                        },
+                        "fx": [
+                            "aurora"
+                        ]
+                    },
+                    {
+                        "text": "Minimale Tageslichtdauer; Sonne kaum über dem Horizont.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -22,
+                            "minF": -18,
+                            "maxF": -8
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extrem stabiles Kältehoch sorgt für einen kristallklaren Himmel.",
+                        "temp": {
+                            "minC": -32,
+                            "maxC": -28,
+                            "minF": -26,
+                            "maxF": -18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlag von feinsten Eiskristallen (Polarschnee).",
+                        "temp": {
+                            "minC": -24,
+                            "maxC": -20,
+                            "minF": -11,
+                            "maxF": -4
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Täuschende Windstille bei weiter fallenden Temperaturen.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -26,
+                            "minF": -22,
+                            "maxF": -15
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem langer Schattenwurf durch tiefstehenden Sonnenstand.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufzug dunkler Frontbewölkung; Starkschnee erwartet.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Beginn der Polarnacht; vollständige astronomische Dunkelheit.",
+                        "temp": {
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive geomagnetische Aktivität; Polarlichter dominieren den Himmel.",
+                        "temp": {
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
+                        },
+                        "fx": [
+                            "aurora"
+                        ]
+                    },
+                    {
+                        "text": "Temperaturen fallen auf lebensbedrohliche Tiefstwerte.",
+                        "temp": {
+                            "minC": -60,
+                            "maxC": -55,
+                            "minF": -76,
+                            "maxF": -67
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein schwerer Blizzard mit Orkanböen reduziert die Sicht auf Null.",
+                        "temp": {
+                            "minC": -40,
+                            "maxC": -35,
+                            "minF": -40,
+                            "maxF": -31
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Außergewöhnlich klare Atmosphäre; Sternenhimmel brillant sichtbar.",
+                        "temp": {
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sofortige Sublimation von Feuchtigkeit zu Eisnebel.",
+                        "temp": {
+                            "minC": -48,
+                            "maxC": -42,
+                            "minF": -54,
+                            "maxF": -44
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Vollständige Windstille ohne jegliche spürbare Luftbewegung.",
+                        "temp": {
+                            "minC": -52,
+                            "maxC": -48,
+                            "minF": -62,
+                            "maxF": -54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Helles Mondlicht wird von Eisflächen reflektiert.",
+                        "temp": {
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sofortige Kristallisation von Wasserdampf in der Luft.",
+                        "temp": {
+                            "minC": -58,
+                            "maxC": -52,
+                            "minF": -72,
+                            "maxF": -62
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodensicht durch Schneefegen (Blowing Snow) unmöglich.",
+                        "temp": {
+                            "minC": -38,
+                            "maxC": -32,
+                            "minF": -36,
+                            "maxF": -26
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Die extreme Kälte führt zu einer spürbaren Materialversprödung.",
+                        "temp": {
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nautische Dämmerung am Mittag als einziger Lichtschimmer.",
+                        "temp": {
+                            "minC": -42,
+                            "maxC": -38,
+                            "minF": -44,
+                            "maxF": -36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem trockene Luftmasse; hohe statische Aufladung.",
+                        "temp": {
+                            "minC": -46,
+                            "maxC": -40,
+                            "minF": -51,
+                            "maxF": -40
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodenoberfläche ist tiefgefroren und extrem hart.",
+                        "temp": {
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erfrierungsgefahr (Frostbite) binnen weniger Minuten bei Exposition.",
+                        "temp": {
+                            "minC": -60,
+                            "maxC": -55,
+                            "minF": -76,
+                            "maxF": -67
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltender, heulender Starkwind fegt unerbittlich über das Eis.",
+                        "temp": {
+                            "minC": -40,
+                            "maxC": -35,
+                            "minF": -40,
+                            "maxF": -31
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Wachstum bizarrer Eiskristalle an Oberflächen.",
+                        "temp": {
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Vollständige, anhaltende Dunkelheit ohne jeglichen solaren Einfluss.",
+                        "temp": {
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Exzellente Bedingungen für astronomische Beobachtungen.",
+                        "temp": {
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bereits leichter Luftzug senkt die gefühlte Temperatur drastisch.",
+                        "temp": {
+                            "minC": -48,
+                            "maxC": -44,
+                            "minF": -54,
+                            "maxF": -47
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
-    // Placeholders
-
-    "marine_west_coast": {
-        name: "Westseitenklimate (Marine West Coast)",
-        seasons: {
-             "spring": [
-                { text: "Rückseitenwetterlage mit raschem Wechsel von Aufheiterungen und Schauern.", temp: "8 bis 12°C (46 to 54°F)", fx: "drizzle" },
-                { text: "Frische und böige Brise aus westlicher Richtung (auflandig).", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Bodennahe Luftschicht ist feuchtigkeitsgesättigt.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Labile Luftschichtung führt zu kräftigen Graupelschauern.", temp: "5 bis 8°C (41 to 46°F)", fx: "hail" },
-                { text: "Einfluss eines Zwischenhochs sorgt für stabilen Sonnenschein.", temp: "14 bis 17°C (57 to 63°F)", fx: null },
-                { text: "Stürmischer Frontdurchgang mit horizontalem Regenversatz.", temp: "7 bis 10°C (45 to 50°F)", fx: "storm" },
-                { text: "Zäher Hochnebel in den Talebenen, darüber sonnig.", temp: "6 bis 9°C (43 to 48°F)", fx: "thick_fog" },
-                { text: "Schauerwetter mit häufiger Regenbogenbildung durch Sonnenfenster.", temp: "11 bis 14°C (52 to 57°F)", fx: "rain" },
-                { text: "Stationäre Frontenbewölkung bringt anhaltenden Landregen.", temp: "9 bis 11°C (48 to 52°F)", fx: "rain" },
-                { text: "Abendliche Rückseitenaufheiterung lockert die Wolkendecke auf.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Zufuhr subtropischer Luftmassen erhöht den Taupunkt.", temp: "12 bis 15°C (54 to 59°F)", fx: "drizzle" },
-                { text: "Die Passage einer markanten Kaltfront erfolgt um die Mittagszeit.", temp: "8 bis 11°C (46 to 52°F)", fx: "rain" },
-                { text: "Schwere Sturmböen erreichen bis zu Windstärke 9 im offenen Flachland.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Niederschlagsmengen erreichen Sättigungswert des Bodens.", temp: "10 bis 13°C (50 to 55°F)", fx: "rain" },
-                { text: "Tiefe Wolkenuntergrenze (Fractus) zieht rasch durch.", temp: "7 bis 10°C (45 to 50°F)", fx: null },
-                { text: "Warmluftvorstoß führt zu frühsommerlichen Temperaturwerten.", temp: "16 bis 19°C (61 to 66°F)", fx: null },
-                { text: "Feiner Nieselregen (Sprühregen) reduziert die Sichtweite.", temp: "9 bis 12°C (48 to 54°F)", fx: "drizzle" },
-                { text: "Klare Strahlungsnacht führt zu Bodenfrost am Morgen.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Auflockernde Cumulusbewölkung lässt sonnige Abschnitte zu.", temp: "13 bis 16°C (55 to 61°F)", fx: null },
-                { text: "Eine trockene, aber windige Hochdruckrandlage bestimmt das Tagesgeschehen.", temp: "11 bis 14°C (52 to 57°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Ein heiterer bis wolkiger Tag, begleitet von einem moderaten Wind.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Ausgeprägtes Seewindsystem sorgt für Abkühlung an der Küste.", temp: "18 bis 21°C (64 to 70°F)", fx: null },
-                { text: "Auflösung morgendlicher Restbewölkung; sonniger Nachmittag.", temp: "19 bis 23°C (66 to 73°F)", fx: null },
-                { text: "Ein warmer, konvektiver Sommerregen geht über der Küste nieder.", temp: "17 bis 20°C (63 to 68°F)", fx: "rain" },
-                { text: "Hohe Taupunkte und schwüle Luftmasse vor Gewitterfront.", temp: "22 bis 25°C (72 to 77°F)", fx: null },
-                { text: "Intensive Sonneneinstrahlung bei mittlerem UV-Index.", temp: "21 bis 24°C (70 to 75°F)", fx: null },
-                { text: "Beständige Hochnebeldecke entlang der Küstenlinie.", temp: "16 bis 19°C (61 to 66°F)", fx: "thick_fog" },
-                { text: "Instabile Schichtung; kurze Schauerstaffeln im Tagesverlauf.", temp: "18 bis 21°C (64 to 70°F)", fx: "rain" },
-                { text: "Klare Atmosphäre am Abend mit hoher Fernsicht.", temp: "19 bis 22°C (66 to 72°F)", fx: null },
-                { text: "Trockene Periode mit niedriger Luftfeuchtigkeit.", temp: "23 bis 26°C (73 to 79°F)", fx: null },
-                { text: "Typische Westwindwetterlage; mäßiger, stetiger Wind.", temp: "20 bis 23°C (68 to 73°F)", fx: null },
-                { text: "Ausläufer eines Tiefdruckgebiets bringen frontalen Regen.", temp: "15 bis 18°C (59 to 64°F)", fx: "rain" },
-                { text: "Kühle und klare Rückseitenluft polaren Ursprungs.", temp: "17 bis 20°C (63 to 68°F)", fx: null },
-                { text: "Schnell ziehende Cumuluswolken am blauen Himmel.", temp: "18 bis 21°C (64 to 70°F)", fx: null },
-                { text: "Hitzewarnung; Temperaturen steigen signifikant über den Durchschnitt.", temp: "26 bis 29°C (79 to 84°F)", fx: null },
-                { text: "Starke nächtliche Ausstrahlungswetterlage nach Sonnenuntergang.", temp: "14 bis 17°C (57 to 63°F)", fx: null },
-                { text: "Morgendliches Nieseln klart im Tagesverlauf vollständig auf.", temp: "16 bis 19°C (61 to 66°F)", fx: "drizzle" },
-                { text: "Hohe UV-Belastung trotz kühlendem Windfaktor.", temp: "19 bis 22°C (66 to 72°F)", fx: null },
-                { text: "Stabile Omega-Hochdrucklage garantiert Schönwetter.", temp: "22 bis 25°C (72 to 77°F)", fx: null },
-                { text: "Gewitterzellenbildung am Horizont beobachtbar.", temp: "20 bis 23°C (68 to 73°F)", fx: "storm" }
-            ],
-            "autumn": [
-                { text: "Sturmwarnung; Durchzug eines schweren Herbststurmtiefs.", temp: "10 bis 13°C (50 to 55°F)", fx: "storm" },
-                { text: "Okklusionsfront bringt ganztägig anhaltenden Dauerregen.", temp: "9 bis 12°C (48 to 54°F)", fx: "rain" },
-                { text: "Starkwindereignis mit Böen der Stärke 8 bis 9.", temp: "11 bis 14°C (52 to 57°F)", fx: null },
-                { text: "Kristallklare und trockene Luft dominiert nach der Kaltfrontpassage.", temp: "12 bis 15°C (54 to 59°F)", fx: null },
-                { text: "Dichter Strahlungsnebel behindert die Sicht am Morgen.", temp: "6 bis 9°C (43 to 48°F)", fx: "thick_fog" },
-                { text: "Nasskalte Witterung mit hoher relativer Feuchte.", temp: "8 bis 11°C (46 to 52°F)", fx: "rain" },
-                { text: "Starke Windböen verursachen fast waagerechten Regenfall.", temp: "9 bis 12°C (48 to 54°F)", fx: "heavy_rain" },
-                { text: "Niederschlagsmengen führen zu steigenden Pegelständen.", temp: "10 bis 13°C (50 to 55°F)", fx: "rain" },
-                { text: "Kaltlufttropfen löst kurzes, heftiges Gewitter aus.", temp: "11 bis 14°C (52 to 57°F)", fx: "storm" },
-                { text: "Rückseitenwetter; Aufklaren mit Cumulusbewölkung.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Pfeifende Windgeräusche sind deutlich an den Gebäudekanten zu vernehmen.", temp: "8 bis 11°C (46 to 52°F)", fx: null },
-                { text: "Die Böden sind vollständig wassergesättigt, was zu Pfützenbildung führt.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Optisches Phänomen; Regenbogen vor dunkler Gewitterwand.", temp: "10 bis 13°C (50 to 55°F)", fx: "rain" },
-                { text: "Erster Schneeregenfall der Saison in der Kaltluft.", temp: "3 bis 6°C (37 to 43°F)", fx: "hail" },
-                { text: "Luftmasse maritim geprägt; hoher Salzgehalt am Küstenstreifen.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Wolkenlücken (Auflockerungen) lassen kurzzeitig Sonne durch.", temp: "11 bis 14°C (52 to 57°F)", fx: null },
-                { text: "Vollständig bedeckter Himmel (8/8 Okta); ganztägig dämmrig.", temp: "8 bis 10°C (46 to 50°F)", fx: "drizzle" },
-                { text: "Es gilt eine Warnung vor schweren Sturmböen in exponierten Lagen.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Wärmeanomalie; Temperaturen untypisch hoch für die Jahreszeit.", temp: "14 bis 17°C (57 to 63°F)", fx: null },
-                { text: "Eine durchdringende, feuchte Kälte mit sehr hohem Windchill-Faktor.", temp: "7 bis 10°C (45 to 50°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Tiefe Stratusbewölkung mit Nieselregen bestimmt das Wetterbild.", temp: "4 bis 7°C (39 to 45°F)", fx: "drizzle" },
-                { text: "Orkantiefpassage; schwere Sturmböen und Starkregen.", temp: "6 bis 9°C (43 to 48°F)", fx: "heavy_rain" },
-                { text: "Schneeregen; nasser Schnee schmilzt bei Bodenkontakt.", temp: "1 bis 3°C (34 to 37°F)", fx: "hail" },
-                { text: "Milde Westströmung sorgt für frostfreie Bedingungen.", temp: "8 bis 11°C (46 to 52°F)", fx: null },
-                { text: "Sichtweite unter 50 Meter durch extrem dichten Nebel.", temp: "2 bis 5°C (36 to 41°F)", fx: "thick_fog" },
-                { text: "Glatteisbildung (Black Ice) in den frühen Morgenstunden.", temp: "-1 bis 2°C (30 to 36°F)", fx: "rain" },
-                { text: "Aufklaren in der Nacht führt zu Frosttemperaturen.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Gesättigte Böden und Dauerregen; lokale Hochwassergefahr.", temp: "5 bis 8°C (41 to 46°F)", fx: "rain" },
-                { text: "Unbeständiges Schauerwetter mit eingelagerten Graupelschauern.", temp: "3 bis 6°C (37 to 43°F)", fx: "hail" },
-                { text: "Hohe Windgeschwindigkeiten und ausgeprägter Windchill-Effekt.", temp: "4 bis 7°C (39 to 45°F)", fx: null },
-                { text: "Wintersonne steht tief; blendendes, aber kaltes Licht.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Es herrschen Tauwetterbedingungen durch massive Warmluftzufuhr.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Raureif bedeckt Vegetation und Oberflächen am Morgen.", temp: "-2 bis 1°C (28 to 34°F)", fx: "snow" },
-                { text: "Trocken, aber stark bewölkt; keine direkte Einstrahlung.", temp: "3 bis 6°C (37 to 43°F)", fx: null },
-                { text: "Extratropischer Zyklon trifft als Sturmtief auf die Küste.", temp: "7 bis 10°C (45 to 50°F)", fx: "storm" },
-                { text: "Hohe relative Luftfeuchte sorgt für klammes Kältegefühl.", temp: "4 bis 7°C (39 to 45°F)", fx: null },
-                { text: "Eine seltene Ausnahmewetterlage bringt trockenen Pulverschnee.", temp: "-3 bis -1°C (27 to 30°F)", fx: "snow" },
-                { text: "Starker Schneeregen verbunden mit böigem Wind.", temp: "2 bis 5°C (36 to 41°F)", fx: "hail" },
-                { text: "Düstere Lichtverhältnisse; kaum Tageslicht durch dicke Wolkenschichten.", temp: "3 bis 6°C (37 to 43°F)", fx: null },
-                { text: "Nächtliches Aufklaren; Sternenhimmel sichtbar bei leichtem Frost.", temp: "-1 bis 3°C (30 to 37°F)", fx: null }
-            ]
+"marine_west_coast": {
+        "data": {
+            "name": "Westseitenklimate (Mittelmeer)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Hochdruckeinfluss sorgt für zunehmende Stabilisierung der Wetterlage.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein warmer Westwind vertreibt letzte Wolkenfelder.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starker Morgentau verdunstet rasch in der Sonne.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Sonneneinstrahlung erwärmt den Boden spürbar.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein letzter Frontdurchgang bringt leichten Landregen.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Warme Luftmasse strömt aus südlicher Richtung ein.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Staubiger Wind reduziert die Fernsicht am Horizont.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "mist"
+                        ]
+                    },
+                    {
+                        "text": "Flüsse führen klares Schmelzwasser aus dem Gebirge.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ideale Sichtverhältnisse und trockene Luft.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Reflexion des Sonnenlichts auf nassen Felsen.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vereinzelte Quellwolken spenden kurzzeitig Schatten.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzes Gewitter reinigt die Atmosphäre von Staub.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Auflandiger Wind kühlt die Küstenregion leicht ab.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Himmel ist tiefblau und vollkommen wolkenlos.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Abkühlung nach Sonnenuntergang durch klare Luft.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feuchte Meeresluft sorgt für Dunstbildung am Morgen.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "mist"
+                        ]
+                    },
+                    {
+                        "text": "Felsformationen strahlen gespeicherte Tageswärme ab.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein Dunstschleier trübt die Sicht in der Ferne.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wechselnde Winde sorgen für unbeständige Temperaturen.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockener Boden staubt bei jeder Erschütterung.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Gnadenlose Sonneneinstrahlung bei wolkenlosem Himmel.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Akustische Wahrnehmung von Hitzeknacken im Gestein.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Landschaftsbild ist durch Trockenheit und Staub geprägt.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starkes Hitzeflimmern über steinigen Oberflächen.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 40,
+                            "minF": 95,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein heißer Wüstenwind weht aus dem Landesinneren.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 42,
+                            "minF": 97,
+                            "maxF": 108
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Waldbrandindex erreicht die höchste Warnstufe.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kühler Seewind bringt Erleichterung an der Küste.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Keinerlei Wolkenbildung am gesamten Firmament.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feinstaub bedeckt den Boden und alle Objekte.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Temperaturen im Schatten erreichen Höchstwerte.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 39,
+                            "minF": 93,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niedrige Pegelstände in Flüssen und Reservoirs.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Geruch von trockenem Staub und Ozon in der Luft.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tropische Nacht ohne nennenswerte Abkühlung.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extreme Trockenheit macht den Boden steinhart.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rauchwolken von Feuern sind am Horizont sichtbar.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein Hitzegewitter zieht ohne Niederschlag vorüber.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Hohe Ozonwerte belasten die Atemwege bei Anstrengung.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Thermikblasen steigen über aufgeheiztem Fels auf.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Das Meer liegt spiegelglatt und ruhig da.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Violetter Abendhimmel markiert das Ende der Tageshitze.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Ein heftiges Gewitter beendet die lange Dürreperiode.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Starkregen wäscht den Staub aus der Atmosphäre.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Bodenverdunstung erzeugt Dampf nach dem Regen.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "mist"
+                        ]
+                    },
+                    {
+                        "text": "Angenehme Restwärme bei hoher Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockene Flussbetten führen erstmals wieder Wasser.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein Herbststurm sorgt für hohen Wellengang an der Küste.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Goldene Lichtverhältnisse bei tiefstehender Sonne.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneller Durchzug von frontalen Wolkenbänken.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rückkehr von Bodenfeuchtigkeit bindet den Staub.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Nebel liegt am Morgen in den Talsohlen.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Stimmungsvoller Sonnenuntergang mit intensiven Farben.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein Regenbogen überspannt die Küstenlinie.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Böiger Wind wirbelt loses Material auf.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Luft wirkt nach Regenfall klar und rein.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbare Abkühlung setzt in den Abendstunden ein.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Elektrostatische Entladungen in der Luft messbar.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erhöhte Blitzschlaggefahr bei Gewitterneigung.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Feuchte Luftmassen bringen intensive Gerüche hervor.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufgewühltes Meer und grauer Himmel.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein sonniger Tag erinnert an sommerliche Bedingungen.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Anhaltender Dauerregen bestimmt das Tagesgeschehen.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein Sturm drückt Wassermassen ins Landesinnere.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Hagel prasselt lautstark auf alle Oberflächen.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Landschaftsbild ist durch Nässe und Schlamm geprägt.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneefall tritt nur auf den höchsten Gipfeln auf.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Milde Luftströmung verhindert jegliche Frostbildung.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Leichter Nebelhauch liegt über dem Hügelland.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "mist"
+                        ]
+                    },
+                    {
+                        "text": "Bäche führen Hochwasser und rauschen talwärts.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurze sonnige Abschnitte zwischen Regenschauern.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Luftfeuchtigkeit dringt in Kleidungsschichten.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Grauer Himmel drückt auf die atmosphärische Stimmung.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Moose und Flechten wachsen üppig auf feuchtem Stein.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starker Wind rüttelt an unbefestigten Objekten.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Große Wasserpfützen stehen auf allen Wegen.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kalter Nordwind bringt frische Luftmassen.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenlücken geben den Blick auf klaren Himmel frei.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Nacht ist feucht aber vollständig frostfrei.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Brandung donnert lautstark gegen die Küstenlinie.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Pilzmyzele breiten sich im feuchten Boden aus.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein seltener Frosttag bildet die absolute Ausnahme.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "humid_subtropical": {
-        name: "Ostseitenklimate (Humid Subtropical)",
-        seasons: {
-            "spring": [
-                { text: "Hochdruckeinfluss sorgt für hohe Globalstrahlung.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Durchzug einer Kaltfront löst Gewitteraktivität aus.", temp: "20 bis 24°C (68 to 75°F)", fx: "storm" },
-                { text: "Dunstige Sichtweite durch hohe Luftfeuchtigkeit.", temp: "19 bis 23°C (66 to 73°F)", fx: "thick_fog" },
-                { text: "Eine spürbare Warmluftadvektion erfolgt aus südlicher Richtung.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Vereinzelte letzte Bodenfrosterscheinungen treten am Morgen auf.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Schnell ziehende Schauerstaffeln im Tagesverlauf.", temp: "15 bis 19°C (59 to 66°F)", fx: "rain" },
-                { text: "Spürbarer Anstieg der relativen Luftfeuchtigkeit.", temp: "21 bis 25°C (70 to 77°F)", fx: null },
-                { text: "Superzellenbildung möglich; akute Tornadowarnung.", temp: "23 bis 27°C (73 to 81°F)", fx: "storm" },
-                { text: "Unwetterwarnung: schwerer Hagelschlag (Korngröße > 2cm).", temp: "16 bis 20°C (61 to 68°F)", fx: "hail" },
-                { text: "Ein böiger Wind frischt bei wechselnder Bewölkung spürbar auf.", temp: "17 bis 21°C (63 to 70°F)", fx: null },
-                { text: "Hohe Solarstrahlung erwärmt die Luftschichten.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Inversionswetterlage hält Morgennebel in Talsenken.", temp: "10 bis 14°C (50 to 57°F)", fx: "thick_fog" },
-                { text: "Kaltlufteinbruch bringt unbeständige Witterung.", temp: "8 bis 12°C (46 to 54°F)", fx: "rain" },
-                { text: "Deutlicher Temperaturanstieg bedingt durch massive Warmluftzufuhr.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Hohe Äquivalenttemperatur kündigt Sommerbeginn an.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Heftiger konvektiver Starkregen mit akuter Sturzflutgefahr.", temp: "18 bis 22°C (64 to 72°F)", fx: "heavy_rain" },
-                { text: "Ein vollkommen wolkenloser Himmel unter Einfluss der Hochdruckzone.", temp: "21 bis 25°C (70 to 77°F)", fx: null },
-                { text: "Milde Nachttemperaturen durch Bewölkungsrückstrahlung.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Staubaufwirbelung durch Trockenheit und Wind.", temp: "19 bis 23°C (66 to 73°F)", fx: "thick_fog" },
-                { text: "Der Taupunkt ist extrem hoch, begleitet von hoher relativer Feuchte.", temp: "22 bis 26°C (72 to 79°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Amtliche Hitzewarnung aktiv; extrem hohe Wärmebelastung.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Hitzegewitter am Nachmittag bringt kaum Abkühlung.", temp: "28 bis 32°C (82 to 90°F)", fx: "storm" },
-                { text: "Stagnierende Luftmasse; Windstille und hohe Feuchte.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Hurrikanwarnung; Zentrum des Zyklons nähert sich.", temp: "26 bis 30°C (79 to 86°F)", fx: "storm" },
-                { text: "Es herrscht maximale Insolation bei einem extremen UV-Index.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Eine Tropennacht steht bevor; die Tiefstwerte bleiben sehr hoch.", temp: "24 bis 27°C (75 to 81°F)", fx: null },
-                { text: "Eine dicke, graue Dunstschicht sammelt sich unter der Inversionsgrenze.", temp: "31 bis 35°C (88 to 95°F)", fx: "thick_fog" },
-                { text: "Ein intensives Starkregenereignis bringt warmen Niederschlag.", temp: "25 bis 29°C (77 to 84°F)", fx: "heavy_rain" },
-                { text: "Extreme Hitzebelastung durch hohe Feuchttemperaturen.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Gemessene hohe Ozonkonzentration in unmittelbarer Bodennähe.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Eine frische Seewindfront transportiert Feuchtigkeit ins Landesinnere.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Starke thermische Konvektion und atmosphärische Refraktion.", temp: "35 bis 39°C (95 to 102°F)", fx: "heat_wave" },
-                { text: "Konvektive Bewölkung (Cumulonimbus) türmt sich auf.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Eine belastende Kombination aus großer Hitze und hoher Verdunstung.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Bodensättigung; Gefahr von lokalen Überflutungen.", temp: "26 bis 29°C (79 to 84°F)", fx: "rain" },
-                { text: "Himmelstrübung durch Aerosole und Feuchtigkeit.", temp: "32 bis 36°C (90 to 97°F)", fx: "thick_fog" },
-                { text: "Kleinere stehende Gewässer verdunsten rasch in der großen Hitze.", temp: "25 bis 28°C (77 to 82°F)", fx: null },
-                { text: "Es herrscht eine hohe Verdunstungsrate bei kurzen Regenschauern.", temp: "29 bis 33°C (84 to 91°F)", fx: "rain" },
-                { text: "Fehlende Luftbewegung verstärkt den Hitzeindex.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Vollständiges abendliches Aufklaren nach den vorangegangenen Regenfällen.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-            ],
-            "autumn": [
-                { text: "Wolkenloser Himmel; Rückgang der Luftfeuchtigkeit.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Tropischer Sturm beeinflusst das Wettergeschehen.", temp: "20 bis 24°C (68 to 75°F)", fx: "storm" },
-                { text: "Kontinuierliche Einströmung sehr trockener Kontinentalluft.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Strahlend klares Sonnenlicht bei besonders hoher atmosphärischer Sichtweite.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Starke Bildung von dichten Strahlungsnebeln in den Morgenstunden.", temp: "8 bis 12°C (46 to 54°F)", fx: "thick_fog" },
-                { text: "Starke nächtliche Ausstrahlung sorgt für rasche Abkühlung.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Frontdurchgang mit Regen und auffrischendem Wind.", temp: "12 bis 16°C (54 to 61°F)", fx: "rain" },
-                { text: "Solareinstrahlung wärmt tagsüber noch kräftig.", temp: "21 bis 25°C (70 to 77°F)", fx: null },
-                { text: "Es gilt eine erste offizielle Frostwarnung für die kommende Nacht.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Heftiger Herbststurm mit schweren Sturmböen fegt über das Land.", temp: "10 bis 14°C (50 to 57°F)", fx: "storm" },
-                { text: "Eine hochnebelartige Bewölkung bringt leichten Nieselregen.", temp: "11 bis 15°C (52 to 59°F)", fx: "rain" },
-                { text: "Es herrscht eine außergewöhnlich trockene und stabile Wetterlage.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Eine intensive Abendrotfärbung indiziert eine kommende Windzunahme.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Kurzzeitige Rückkehr tropischer Feuchtigkeit.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Extrem klare Sichtweite in der reinen und kühlen Höhenluft.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Absolute Windstille unter einer stabilen Hochdrucklage; wolkenlos.", temp: "17 bis 21°C (63 to 70°F)", fx: null },
-                { text: "Ein kalter Nordwind advehiert polare Luftmassen in das Gebiet.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Ein zäher, grauer Bodennebel löst sich erst gegen Mittag vollständig auf.", temp: "7 bis 11°C (45 to 52°F)", fx: "thick_fog" },
-                { text: "Durchzug einer Gewitterfront beendet die Wärmephase.", temp: "18 bis 22°C (64 to 72°F)", fx: "storm" },
-                { text: "Reifbildung auf Bodenflächen am frühen Morgen.", temp: "1 bis 5°C (34 to 41°F)", fx: "snow" }
-            ],
-            "winter": [
-                { text: "Ein strahlend klarer Wintertag mit außergewöhnlich hoher Sichtweite.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Warnung vor Blitzeis (Freezing Rain) auf versiegelten Flächen.", temp: "-1 bis 2°C (30 to 36°F)", fx: "rain" },
-                { text: "Schneefallgrenze sinkt; nasser und schwerer Schnee.", temp: "0 bis 3°C (32 to 37°F)", fx: "snow" },
-                { text: "Ein massiver Warmlufteinschub sorgt für rasch einsetzendes Tauwetter.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Ein harter, klirrender Strahlungsfrost bestimmt den frühen Morgen.", temp: "-5 bis -2°C (23 to 28°F)", fx: null },
-                { text: "Dichter Schneeregen fällt bei weitgehend bedecktem Himmel.", temp: "1 bis 4°C (34 to 39°F)", fx: "hail" },
-                { text: "Sonnenschein bei kalter Luftmasse; kaum Erwärmung.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Sturmtief (Nor'easter) bringt Kälte und Niederschlag.", temp: "-2 bis 2°C (28 to 36°F)", fx: "storm" },
-                { text: "Eine für die Jahreszeit untypische und ausgeprägte Wärmeperiode.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Bodenverhältnisse matschig durch Tauvorgänge.", temp: "2 bis 5°C (36 to 41°F)", fx: "rain" },
-                { text: "Beißender Wind (Windchill) bei klarem Himmel.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Ein seltenes Wintergewitter entlädt sich in der einströmenden Kaltluft.", temp: "4 bis 8°C (39 to 46°F)", fx: "storm" },
-                { text: "Eine glitzernde Schicht aus Raureif überzieht die gesamte Landschaft weiß.", temp: "-4 bis 0°C (25 to 32°F)", fx: "snow" },
-                { text: "Sternenklare Nacht; Temperaturen fallen stark.", temp: "-6 bis -3°C (21 to 27°F)", fx: null },
-                { text: "Nasskaltes und ungemütliches Nebelwetter mit sehr hoher Luftfeuchte.", temp: "1 bis 4°C (34 to 39°F)", fx: "thick_fog" },
-                { text: "Schnee schmilzt unmittelbar bei Bodenkontakt.", temp: "1 bis 4°C (34 to 39°F)", fx: "snow" },
-                { text: "Eine trübe, graue Hochnebeldecke lässt keinen Sonnenschein durch.", temp: "3 bis 6°C (37 to 43°F)", fx: "thick_fog" },
-                { text: "Eiszapfenbildung an Dachüberständen beobachtet.", temp: "-2 bis 1°C (28 to 34°F)", fx: null },
-                { text: "Sturm lässt Temperaturen kälter wirken als gemessen.", temp: "-1 bis 3°C (30 to 37°F)", fx: null },
-                { text: "Warnung vor überfrierender Nässe in der Nacht.", temp: "-1 bis 2°C (30 to 36°F)", fx: "rain" }
-            ]
+        "data": {
+            "name": "Ostseitenklimate (Humid Subtropical)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Hochdruckeinfluss sorgt für hohe Globalstrahlung.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Durchzug einer Kaltfront löst Gewitteraktivität aus.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Dunstige Sichtweite durch hohe Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine spürbare Warmluftadvektion erfolgt aus südlicher Richtung.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vereinzelte letzte Bodenfrosterscheinungen treten am Morgen auf.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schnell ziehende Schauerstaffeln im Tagesverlauf.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Spürbarer Anstieg der relativen Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Superzellenbildung möglich; akute Tornadowarnung.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Unwetterwarnung: schwerer Hagelschlag (Korngröße > 2cm).",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Ein böiger Wind frischt bei wechselnder Bewölkung spürbar auf.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Solarstrahlung erwärmt die Luftschichten.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Inversionswetterlage hält Morgennebel in Talsenken.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Kaltlufteinbruch bringt unbeständige Witterung.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Deutlicher Temperaturanstieg bedingt durch massive Warmluftzufuhr.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Äquivalenttemperatur kündigt Sommerbeginn an.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Heftiger konvektiver Starkregen mit akuter Sturzflutgefahr.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein vollkommen wolkenloser Himmel unter Einfluss der Hochdruckzone.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Milde Nachttemperaturen durch Bewölkungsrückstrahlung.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Staubaufwirbelung durch Trockenheit und Wind.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der Taupunkt ist extrem hoch, begleitet von hoher relativer Feuchte.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Amtliche Hitzewarnung aktiv; extrem hohe Wärmebelastung.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hitzegewitter am Nachmittag bringt kaum Abkühlung.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Stagnierende Luftmasse; Windstille und hohe Feuchte.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hurrikanwarnung; Zentrum des Zyklons nähert sich.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht maximale Insolation bei einem extremen UV-Index.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine Tropennacht steht bevor; die Tiefstwerte bleiben sehr hoch.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 27,
+                            "minF": 75,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine dicke, graue Dunstschicht sammelt sich unter der Inversionsgrenze.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein intensives Starkregenereignis bringt warmen Niederschlag.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Extreme Hitzebelastung durch hohe Feuchttemperaturen.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gemessene hohe Ozonkonzentration in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine frische Seewindfront transportiert Feuchtigkeit ins Landesinnere.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke thermische Konvektion und atmosphärische Refraktion.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Konvektive Bewölkung (Cumulonimbus) türmt sich auf.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine belastende Kombination aus großer Hitze und hoher Verdunstung.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodensättigung; Gefahr von lokalen Überflutungen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 29,
+                            "minF": 79,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Himmelstrübung durch Aerosole und Feuchtigkeit.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Kleinere stehende Gewässer verdunsten rasch in der großen Hitze.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 28,
+                            "minF": 77,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine hohe Verdunstungsrate bei kurzen Regenschauern.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Fehlende Luftbewegung verstärkt den Hitzeindex.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollständiges abendliches Aufklaren nach den vorangegangenen Regenfällen.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Wolkenloser Himmel; Rückgang der Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tropischer Sturm beeinflusst das Wettergeschehen.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Kontinuierliche Einströmung sehr trockener Kontinentalluft.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Strahlend klares Sonnenlicht bei besonders hoher atmosphärischer Sichtweite.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Bildung von dichten Strahlungsnebeln in den Morgenstunden.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starke nächtliche Ausstrahlung sorgt für rasche Abkühlung.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Frontdurchgang mit Regen und auffrischendem Wind.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Solareinstrahlung wärmt tagsüber noch kräftig.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es gilt eine erste offizielle Frostwarnung für die kommende Nacht.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Heftiger Herbststurm mit schweren Sturmböen fegt über das Land.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine hochnebelartige Bewölkung bringt leichten Nieselregen.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht eine außergewöhnlich trockene und stabile Wetterlage.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine intensive Abendrotfärbung indiziert eine kommende Windzunahme.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurzzeitige Rückkehr tropischer Feuchtigkeit.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem klare Sichtweite in der reinen und kühlen Höhenluft.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Absolute Windstille unter einer stabilen Hochdrucklage; wolkenlos.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kalter Nordwind advehiert polare Luftmassen in das Gebiet.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein zäher, grauer Bodennebel löst sich erst gegen Mittag vollständig auf.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Durchzug einer Gewitterfront beendet die Wärmephase.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Reifbildung auf Bodenflächen am frühen Morgen.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Ein strahlend klarer Wintertag mit außergewöhnlich hoher Sichtweite.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warnung vor Blitzeis (Freezing Rain) auf versiegelten Flächen.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Schneefallgrenze sinkt; nasser und schwerer Schnee.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 3,
+                            "minF": 32,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein massiver Warmlufteinschub sorgt für rasch einsetzendes Tauwetter.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein harter, klirrender Strahlungsfrost bestimmt den frühen Morgen.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -2,
+                            "minF": 23,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Schneeregen fällt bei weitgehend bedecktem Himmel.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Sonnenschein bei kalter Luftmasse; kaum Erwärmung.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sturmtief (Nor'easter) bringt Kälte und Niederschlag.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine für die Jahreszeit untypische und ausgeprägte Wärmeperiode.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodenverhältnisse matschig durch Tauvorgänge.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 5,
+                            "minF": 36,
+                            "maxF": 41
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Beißender Wind (Windchill) bei klarem Himmel.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein seltenes Wintergewitter entlädt sich in der einströmenden Kaltluft.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine glitzernde Schicht aus Raureif überzieht die gesamte Landschaft weiß.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 0,
+                            "minF": 25,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Sternenklare Nacht; Temperaturen fallen stark.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -3,
+                            "minF": 21,
+                            "maxF": 27
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nasskaltes und ungemütliches Nebelwetter mit sehr hoher Luftfeuchte.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Schnee schmilzt unmittelbar bei Bodenkontakt.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Eine trübe, graue Hochnebeldecke lässt keinen Sonnenschein durch.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 6,
+                            "minF": 37,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eiszapfenbildung an Dachüberständen beobachtet.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 1,
+                            "minF": 28,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sturm lässt Temperaturen kälter wirken als gemessen.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warnung vor überfrierender Nässe in der Nacht.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "tundra": {
-        name: "Tundrenklimate (Tundra)",
-        seasons: {
-            "spring": [
-                { text: "Zunehmende Intensität der Sonneneinstrahlung.", temp: "-5 bis 0°C (23 to 32°F)", fx: null },
-                { text: "Einsetzen der Schneeschmelze führt zu erhöhter Feuchtigkeit in der Grundschicht.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Hoher Windchill-Faktor durch eisigen, stetigen Wind.", temp: "-8 bis -3°C (18 to 27°F)", fx: null },
-                { text: "Warmluftadvektion sorgt für raschen Temperaturanstieg.", temp: "-2 bis 3°C (28 to 37°F)", fx: null },
-                { text: "Das laute Aufbrechen der Eisdecken auf den Gewässern ist zu hören.", temp: "-1 bis 2°C (30 to 36°F)", fx: null },
-                { text: "Dichter Advektionsnebel über den Schneefeldern.", temp: "-3 bis 1°C (27 to 34°F)", fx: "thick_fog" },
-                { text: "Rückfall in winterliche Bedingungen durch intensive Schneeschauer.", temp: "-6 bis -2°C (21 to 28°F)", fx: "snow" },
-                { text: "Freilegung des gefrorenen Bodens unter der Schneedecke.", temp: "0 bis 3°C (32 to 37°F)", fx: null },
-                { text: "Bodenoberfläche im Zustand der Sättigung (Matsch).", temp: "2 bis 5°C (36 to 41°F)", fx: null },
-                { text: "Hohe Albedo des Altschnees verursacht starke Blendeffekte.", temp: "-4 bis 1°C (25 to 34°F)", fx: null },
-                { text: "Ein heftiger Sturm fegt völlig ungebremst über die offene Ebene.", temp: "-5 bis -1°C (23 to 30°F)", fx: "blizzard" },
-                { text: "Nächtliche Abstrahlung führt zu strengem Frost.", temp: "-10 bis -5°C (14 to 23°F)", fx: null },
-                { text: "Tiefe Wolkenbasis (Stratus fractus) berührt fast den Boden.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Signifikanter Temperaturanstieg bis weit über den Gefrierpunkt.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Flüssiger Niederschlag gefriert am kalten Boden (Glatteis).", temp: "1 bis 4°C (34 to 39°F)", fx: "rain" },
-                { text: "Windstille Inversionswetterlage mit lokaler Nebelbildung.", temp: "0 bis 3°C (32 to 37°F)", fx: "thick_fog" },
-                { text: "Die ersten offenen Wasserflächen werden im Eis sichtbar.", temp: "-1 bis 2°C (30 to 36°F)", fx: null },
-                { text: "Ein anhaltend bedeckter Himmel sorgt für diffuses Tageslicht.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Polare Kaltluftmasse sorgt für klare, weite Sicht.", temp: "-7 bis -2°C (19 to 28°F)", fx: null },
-                { text: "Warmluftzufuhr aus Süden beschleunigt Abtauvorgänge.", temp: "4 bis 8°C (39 to 46°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Dauerhafte Mitternachtssonne während des Polartages.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Feucht-warme und windstille Bedingungen; hohe Luftfeuchte.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Aktive Schicht des Permafrostbodens taut oberflächlich auf.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Ein auffrischender Wind sorgt für spürbare Abkühlung.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Hochdruckgebiet bringt ungewöhnlich hohe, stabile Temperaturen.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Dichter Seenebel zieht schlagartig von der Küste her auf.", temp: "6 bis 9°C (43 to 48°F)", fx: "thick_fog" },
-                { text: "Maximale Sonneneinstrahlung; UV-Belastung hoch.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Kaltfrontdurchgang mit schauerartigen, kalten Regenfällen.", temp: "7 bis 10°C (45 to 50°F)", fx: "rain" },
-                { text: "Bodenverhältnisse extrem weich und wassergesättigt.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Wolkenloser Himmel ermöglicht maximale Fernsicht bis zum Horizont.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Isoliertes Gewitter; seltenes Ereignis in dieser Breite.", temp: "14 bis 18°C (57 to 64°F)", fx: "storm" },
-                { text: "Einbruch polarer Kaltluft senkt Temperaturen deutlich.", temp: "8 bis 11°C (46 to 52°F)", fx: null },
-                { text: "Ungewöhnlich milde Witterung mit nur leichter Bewölkung.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Windstille über Feuchtgebieten; stabile Schichtung.", temp: "15 bis 18°C (59 to 64°F)", fx: null },
-                { text: "Nächtliche Dämmerungsphase ohne vollständige Dunkelheit (Weiße Nächte).", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Graupelschauer unterbrechen die sommerliche Phase.", temp: "3 bis 6°C (37 to 43°F)", fx: "hail" },
-                { text: "Vollständiger Regenbogen spannt sich über die weite Ebene.", temp: "10 bis 14°C (50 to 57°F)", fx: "rain" },
-                { text: "Beständiger, kühler Wind aus nördlicher Richtung.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Nieselregenfront sorgt für ganztägige Nässe und Trübnis.", temp: "7 bis 11°C (45 to 52°F)", fx: "drizzle" },
-                { text: "Schwere Sturmböen fegen über das flache Land.", temp: "6 bis 10°C (43 to 50°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Erste Frostnächte kündigen den Saisonwechsel an.", temp: "0 bis 5°C (32 to 41°F)", fx: null },
-                { text: "Es kommt zur Bildung einer ersten, noch dünnen Schneedecke.", temp: "-2 bis 1°C (28 to 34°F)", fx: "snow" },
-                { text: "Ein polarer Nordwind frischt stark auf und senkt die gefühlte Temperatur.", temp: "-5 bis -1°C (23 to 30°F)", fx: null },
-                { text: "Strahlungsnacht führt zu Reifbildung an allen Oberflächen.", temp: "-4 bis 0°C (25 to 32°F)", fx: "snow" },
-                { text: "Beginnende Eisbildung auf stehenden Gewässern.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Ein absolut klarer Himmel bei stetig sinkenden Temperaturen.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Niederschlag geht zunehmend in Schneeregen über.", temp: "-1 bis 2°C (30 to 36°F)", fx: "hail" },
-                { text: "Der feuchte Oberboden friert in der klaren Nacht erneut oberflächlich.", temp: "-6 bis -2°C (21 to 28°F)", fx: null },
-                { text: "Nebelablagerungen gefrieren sofort (Raureif).", temp: "-3 bis 0°C (27 to 32°F)", fx: "snow" },
-                { text: "Erster Herbststurm mit hoher Windgeschwindigkeit.", temp: "-4 bis 1°C (25 to 34°F)", fx: "wind" },
-                { text: "Rapide Verkürzung der Tageslichtdauer ist bemerkbar.", temp: "-2 bis 3°C (28 to 37°F)", fx: null },
-                { text: "Letzte wärmende Sonnenstrahlen vor der dunklen Jahreszeit.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Kristallines Eis überzieht Pfützen und Tümpel.", temp: "-5 bis -1°C (23 to 30°F)", fx: null },
-                { text: "Plötzlicher Kälteeinbruch aus dem hohen Norden.", temp: "-8 bis -4°C (18 to 25°F)", fx: null },
-                { text: "Sichtweite durch dichten, gefrierenden Nebel stark eingeschränkt.", temp: "-1 bis 2°C (30 to 36°F)", fx: "thick_fog" },
-                { text: "Akustische Dämpfung durch Neuschnee; grauer Himmel.", temp: "-3 bis 0°C (27 to 32°F)", fx: null },
-                { text: "Bildung erster Schneeverwehungen im Windschatten.", temp: "-6 bis -3°C (21 to 27°F)", fx: "snow" },
-                { text: "Schwache Sonnenstrahlung ohne nennenswerte Wärmewirkung.", temp: "-4 bis -1°C (25 to 30°F)", fx: null },
-                { text: "Starke Lichtreflexion durch schwebende Eiskristalle in der Luft.", temp: "-7 bis -3°C (19 to 27°F)", fx: "diamond_dust" },
-                { text: "Der rasche Aufzug massiver, dunkler Frontbewölkung kündigt Schnee an.", temp: "-5 bis 0°C (23 to 32°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Schwerer Blizzard; Orientierung fast unmöglich.", temp: "-25 bis -20°C (-13 to -4°F)", fx: "blizzard" },
-                { text: "Tiefe Polarnacht mit anhaltender Dunkelheit auch am Mittag.", temp: "-30 bis -25°C (-22 to -13°F)", fx: "aurora" },
-                { text: "Extrem hohe Sichtweite bei reiner, kalter Luftmasse.", temp: "-35 bis -30°C (-31 to -22°F)", fx: null },
-                { text: "Intensive Aurora Borealis (Polarlichter) erleuchten den Nachthimmel.", temp: "-28 bis -24°C (-18 to -11°F)", fx: "aurora" },
-                { text: "Schneedecke ist durch Windpressung begehbar (Harsch).", temp: "-32 bis -28°C (-26 to -18°F)", fx: null },
-                { text: "Extremer Windchill-Faktor; Gefahr von Erfrierungen.", temp: "-40 bis -35°C (-40 to -31°F)", fx: null },
-                { text: "Eine helle Mondnacht bietet durch Reflexion gute Sichtverhältnisse.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Dichter Eisnebel reduziert die Sicht auf nur wenige Meter.", temp: "-30 bis -26°C (-22 to -15°F)", fx: "thick_fog" },
-                { text: "Herrschaft einer absoluten und beklemmenden Windstille in der Nacht.", temp: "-28 bis -22°C (-18 to -8°F)", fx: null },
-                { text: "Unpassierbare Schneeverwehungen blockieren das Fortkommen.", temp: "-22 bis -18°C (-8 to 0°F)", fx: "snow" },
-                { text: "Die feuchte Atemluft kristallisiert sofort zu Eisnebel.", temp: "-38 bis -32°C (-36 to -26°F)", fx: null },
-                { text: "Kurze nautische Dämmerung um die Mittagszeit.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Ein kristallklarer Sternenhimmel spannt sich majestätisch über der Tundra.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Die physische Kältebelastung erreicht ein lebensgefährliches Niveau.", temp: "-35 bis -30°C (-31 to -22°F)", fx: null },
-                { text: "Whiteout-Bedingungen; Horizont nicht mehr wahrnehmbar.", temp: "-20 bis -15°C (-4 to 5°F)", fx: "whiteout" },
-                { text: "Feine Eiskristalle schweben als glitzernder Polarschnee in der Luft.", temp: "-26 bis -22°C (-15 to -8°F)", fx: "diamond_dust" },
-                { text: "Starker Driftwind verfrachtet Schnee in Bodennähe.", temp: "-24 bis -18°C (-11 to 0°F)", fx: null },
-                { text: "Hohe Transparenz der Atmosphäre; Milchstraße sichtbar.", temp: "-32 bis -28°C (-26 to -18°F)", fx: null },
-                { text: "Instabile Schneeschichten an Hängen; Lawinengefahr.", temp: "-20 bis -16°C (-4 to 3°F)", fx: "snow" },
-                { text: "Eine anhaltende, tiefe Dunkelheit ohne jegliches Tageslicht.", temp: "-28 bis -24°C (-18 to -11°F)", fx: null }
-            ]
+        "data": {
+            "name": "Tundrenklimate (Tundra)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Zunehmende Intensität der Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Einsetzen der Schneeschmelze führt zu erhöhter Feuchtigkeit in der Grundschicht.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hoher Windchill-Faktor durch eisigen, stetigen Wind.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -3,
+                            "minF": 18,
+                            "maxF": 27
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warmluftadvektion sorgt für raschen Temperaturanstieg.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Das laute Aufbrechen der Eisdecken auf den Gewässern ist zu hören.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Advektionsnebel über den Schneefeldern.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Rückfall in winterliche Bedingungen durch intensive Schneeschauer.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Freilegung des gefrorenen Bodens unter der Schneedecke.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 3,
+                            "minF": 32,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodenoberfläche im Zustand der Sättigung (Matsch).",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 5,
+                            "minF": 36,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Albedo des Altschnees verursacht starke Blendeffekte.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 1,
+                            "minF": 25,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein heftiger Sturm fegt völlig ungebremst über die offene Ebene.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Nächtliche Abstrahlung führt zu strengem Frost.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tiefe Wolkenbasis (Stratus fractus) berührt fast den Boden.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Signifikanter Temperaturanstieg bis weit über den Gefrierpunkt.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Flüssiger Niederschlag gefriert am kalten Boden (Glatteis).",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Windstille Inversionswetterlage mit lokaler Nebelbildung.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 3,
+                            "minF": 32,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Die ersten offenen Wasserflächen werden im Eis sichtbar.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltend bedeckter Himmel sorgt für diffuses Tageslicht.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Polare Kaltluftmasse sorgt für klare, weite Sicht.",
+                        "temp": {
+                            "minC": -7,
+                            "maxC": -2,
+                            "minF": 19,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warmluftzufuhr aus Süden beschleunigt Abtauvorgänge.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Dauerhafte Mitternachtssonne während des Polartages.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feucht-warme und windstille Bedingungen; hohe Luftfeuchte.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aktive Schicht des Permafrostbodens taut oberflächlich auf.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein auffrischender Wind sorgt für spürbare Abkühlung.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hochdruckgebiet bringt ungewöhnlich hohe, stabile Temperaturen.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Seenebel zieht schlagartig von der Küste her auf.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Maximale Sonneneinstrahlung; UV-Belastung hoch.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kaltfrontdurchgang mit schauerartigen, kalten Regenfällen.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 10,
+                            "minF": 45,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Bodenverhältnisse extrem weich und wassergesättigt.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 13,
+                            "minF": 50,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenloser Himmel ermöglicht maximale Fernsicht bis zum Horizont.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Isoliertes Gewitter; seltenes Ereignis in dieser Breite.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Einbruch polarer Kaltluft senkt Temperaturen deutlich.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ungewöhnlich milde Witterung mit nur leichter Bewölkung.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Windstille über Feuchtgebieten; stabile Schichtung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 18,
+                            "minF": 59,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nächtliche Dämmerungsphase ohne vollständige Dunkelheit (Weiße Nächte).",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Graupelschauer unterbrechen die sommerliche Phase.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 6,
+                            "minF": 37,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Vollständiger Regenbogen spannt sich über die weite Ebene.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Beständiger, kühler Wind aus nördlicher Richtung.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nieselregenfront sorgt für ganztägige Nässe und Trübnis.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Schwere Sturmböen fegen über das flache Land.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Erste Frostnächte kündigen den Saisonwechsel an.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 5,
+                            "minF": 32,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es kommt zur Bildung einer ersten, noch dünnen Schneedecke.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 1,
+                            "minF": 28,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein polarer Nordwind frischt stark auf und senkt die gefühlte Temperatur.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Strahlungsnacht führt zu Reifbildung an allen Oberflächen.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 0,
+                            "minF": 25,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Beginnende Eisbildung auf stehenden Gewässern.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein absolut klarer Himmel bei stetig sinkenden Temperaturen.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlag geht zunehmend in Schneeregen über.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Der feuchte Oberboden friert in der klaren Nacht erneut oberflächlich.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nebelablagerungen gefrieren sofort (Raureif).",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Erster Herbststurm mit hoher Windgeschwindigkeit.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 1,
+                            "minF": 25,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "wind"
+                        ]
+                    },
+                    {
+                        "text": "Rapide Verkürzung der Tageslichtdauer ist bemerkbar.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Letzte wärmende Sonnenstrahlen vor der dunklen Jahreszeit.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kristallines Eis überzieht Pfützen und Tümpel.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzlicher Kälteeinbruch aus dem hohen Norden.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtweite durch dichten, gefrierenden Nebel stark eingeschränkt.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Akustische Dämpfung durch Neuschnee; grauer Himmel.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung erster Schneeverwehungen im Windschatten.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -3,
+                            "minF": 21,
+                            "maxF": 27
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Schwache Sonnenstrahlung ohne nennenswerte Wärmewirkung.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Lichtreflexion durch schwebende Eiskristalle in der Luft.",
+                        "temp": {
+                            "minC": -7,
+                            "maxC": -3,
+                            "minF": 19,
+                            "maxF": 27
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Der rasche Aufzug massiver, dunkler Frontbewölkung kündigt Schnee an.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Schwerer Blizzard; Orientierung fast unmöglich.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Tiefe Polarnacht mit anhaltender Dunkelheit auch am Mittag.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": [
+                            "aurora"
+                        ]
+                    },
+                    {
+                        "text": "Extrem hohe Sichtweite bei reiner, kalter Luftmasse.",
+                        "temp": {
+                            "minC": -35,
+                            "maxC": -30,
+                            "minF": -31,
+                            "maxF": -22
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Aurora Borealis (Polarlichter) erleuchten den Nachthimmel.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": [
+                            "aurora"
+                        ]
+                    },
+                    {
+                        "text": "Schneedecke ist durch Windpressung begehbar (Harsch).",
+                        "temp": {
+                            "minC": -32,
+                            "maxC": -28,
+                            "minF": -26,
+                            "maxF": -18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extremer Windchill-Faktor; Gefahr von Erfrierungen.",
+                        "temp": {
+                            "minC": -40,
+                            "maxC": -35,
+                            "minF": -40,
+                            "maxF": -31
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine helle Mondnacht bietet durch Reflexion gute Sichtverhältnisse.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Eisnebel reduziert die Sicht auf nur wenige Meter.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -26,
+                            "minF": -22,
+                            "maxF": -15
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Herrschaft einer absoluten und beklemmenden Windstille in der Nacht.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -22,
+                            "minF": -18,
+                            "maxF": -8
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Unpassierbare Schneeverwehungen blockieren das Fortkommen.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Die feuchte Atemluft kristallisiert sofort zu Eisnebel.",
+                        "temp": {
+                            "minC": -38,
+                            "maxC": -32,
+                            "minF": -36,
+                            "maxF": -26
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurze nautische Dämmerung um die Mittagszeit.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kristallklarer Sternenhimmel spannt sich majestätisch über der Tundra.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die physische Kältebelastung erreicht ein lebensgefährliches Niveau.",
+                        "temp": {
+                            "minC": -35,
+                            "maxC": -30,
+                            "minF": -31,
+                            "maxF": -22
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Whiteout-Bedingungen; Horizont nicht mehr wahrnehmbar.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": [
+                            "whiteout"
+                        ]
+                    },
+                    {
+                        "text": "Feine Eiskristalle schweben als glitzernder Polarschnee in der Luft.",
+                        "temp": {
+                            "minC": -26,
+                            "maxC": -22,
+                            "minF": -15,
+                            "maxF": -8
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Starker Driftwind verfrachtet Schnee in Bodennähe.",
+                        "temp": {
+                            "minC": -24,
+                            "maxC": -18,
+                            "minF": -11,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Transparenz der Atmosphäre; Milchstraße sichtbar.",
+                        "temp": {
+                            "minC": -32,
+                            "maxC": -28,
+                            "minF": -26,
+                            "maxF": -18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Instabile Schneeschichten an Hängen; Lawinengefahr.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -16,
+                            "minF": -4,
+                            "maxF": 3
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Eine anhaltende, tiefe Dunkelheit ohne jegliches Tageslicht.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "semiarid": {
-        name: "Steppenklima (Semiarid)",
-        seasons: {
-            "spring": [
-                { text: "Hochdruckeinfluss; stabile, warme Luftmasse dominiert.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Auffrischender Wind trocknet die Oberflächen rasch ab.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Schneeschmelze führt zu temporärem Oberflächenabfluss.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Himmel wolkenlos und tiefblau; hohe atmosphärische Sichtweite.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Staubsturmfront zieht auf; Sichtweite sinkt rapide.", temp: "11 bis 15°C (52 to 59°F)", fx: "sandstorm" },
-                { text: "Eine klare Strahlungsnacht sorgt für akute Bodenfrostgefahr.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Föhnwetterlage (Chinook); warmer Fallwind sorgt für rasche Erwärmung.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Konvektive Bewölkung baut sich tagsüber am Horizont auf.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Ein unbeständiger, böiger Wind weht aus ständig wechselnden Richtungen.", temp: "16 bis 21°C (61 to 70°F)", fx: null },
-                { text: "Kaltfrontdurchgang mit kurzem, aber intensivem Hagelschauer.", temp: "8 bis 12°C (46 to 54°F)", fx: "hail" },
-                { text: "Maximale Fernsicht aufgrund fehlender Aerosole.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Trockener Boden begünstigt Staubaufwirbelungen.", temp: "12 bis 16°C (54 to 61°F)", fx: "sandstorm" },
-                { text: "Regenbogen überspannt den Horizont nach Schauer.", temp: "14 bis 18°C (57 to 64°F)", fx: "rain" },
-                { text: "Advektion kühler Luftmassen aus nördlicher Richtung.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Ein konstanter, pfeifender Wind weht monoton über die Steppe.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Schneller Wechsel von Sonne und Wolkenschatten.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Die Bodenfeuchtigkeit befindet sich im absoluten Sättigungsbereich.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Plötzlicher Wetterumschwung bringt schauerartigen Niederschlag.", temp: "7 bis 11°C (45 to 52°F)", fx: "rain" },
-                { text: "Dunkelviolette Färbung des Abendhimmels bei nachlassendem Wind.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Hohe Intensität der direkten Sonneneinstrahlung.", temp: "15 bis 19°C (59 to 66°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Hitzeflimmern über dem Asphalt deutet auf extreme Bodentemperaturen hin.", temp: "30 bis 35°C (86 to 95°F)", fx: "heat_wave" },
-                { text: "Thermikablösung erzeugt rotierende Staubteufel (Dust Devils).", temp: "28 bis 33°C (82 to 91°F)", fx: "sandstorm" },
-                { text: "Es herrscht eine extrem niedrige relative Luftfeuchtigkeit.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Trockengewitter ohne Niederschlag; hohe Blitzaktivität.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Sehr intensive Solarstrahlung trifft ungehindert auf den Boden.", temp: "33 bis 38°C (91 to 100°F)", fx: null },
-                { text: "Nächtliche Abstrahlung bringt spürbare Abkühlung.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Ein extrem heißer Föhnwind trocknet die Landschaft in kürzester Zeit aus.", temp: "29 bis 34°C (84 to 93°F)", fx: null },
-                { text: "Wolkenbruchartiger Starkregen (Flash Flood Gefahr).", temp: "22 bis 26°C (72 to 79°F)", fx: "heavy_rain" },
-                { text: "Starkes Luftflimmern durch intensiv aufsteigende Warmluft über dem Boden.", temp: "30 bis 34°C (86 to 93°F)", fx: "heat_wave" },
-                { text: "Ein wolkenloser, tiefblauer Himmel spannt sich über der Weite.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Die tiefen Trockenrisse im ausgedörrten Boden vertiefen sich weiter.", temp: "34 bis 39°C (93 to 102°F)", fx: null },
-                { text: "Extreme Trockenheit begünstigt massive Staubaufwirbelungen.", temp: "27 bis 31°C (81 to 88°F)", fx: "thick_fog" },
-                { text: "Eine dichte, graue Dunstschicht verhüllt den gesamten Horizont.", temp: "30 bis 35°C (86 to 95°F)", fx: "thick_fog" },
-                { text: "Windstille Hochdrucklage; Luft wirkt stehend und drückend.", temp: "32 bis 37°C (90 to 99°F)", fx: null },
-                { text: "Ein rötlicher Abendhimmel, gefärbt durch feinen Staub in der Atmosphäre.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Starke Thermik, die bis in große atmosphärische Höhen reicht.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Niederschlag verdunstet fallend (Virga) vor Bodenkontakt.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Hohe Konzentration von Salz- und Mineralstaub in der flimmernden Luft.", temp: "31 bis 36°C (88 to 97°F)", fx: "thick_fog" },
-                { text: "Warnung: Extrem hoher und gefährlicher UV-Index zur Mittagszeit.", temp: "33 bis 38°C (91 to 100°F)", fx: null },
-                { text: "Rasche Temperaturamplitude zwischen Morgen und Mittag.", temp: "18 bis 30°C (64 to 86°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Eine kristallklare Luftmasse bei tiefstehender Sonne.", temp: "10 bis 15°C (50 to 59°F)", fx: null },
-                { text: "Kalter Wind markiert den Übergang zur kühleren Jahreszeit.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Sturmwarnung; Sichtbehinderung durch massive Staubaufwirbelung.", temp: "8 bis 12°C (46 to 54°F)", fx: "sandstorm" },
-                { text: "Sichtbare Reifbildung überzieht die Gräser am frühen Morgen.", temp: "-2 bis 3°C (28 to 37°F)", fx: "snow" },
-                { text: "Ein kristallklarer Himmel ermöglicht heute maximale Fernsicht.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Eine besonders stabile Hochdrucklage bestimmt das Wettergeschehen.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "In den Abendstunden erfolgt ein rapider Temperatursturz.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Unangenehm trockene Kälte gepaart mit einem böigen Wind.", temp: "4 bis 8°C (39 to 46°F)", fx: null },
-                { text: "Windiges Wetter mit hoher Partikelbelastung (Staub).", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Hochnebelartige Bewölkung; keine direkte Sonne.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Erster Schneefall schmilzt bei Bodenkontakt sofort.", temp: "0 bis 4°C (32 to 39°F)", fx: "snow" },
-                { text: "Eine extrem hohe Sichtweite gewährt freien Blick über die weite Ebene.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Trockenes Laub wird vom böigen Wind über den Boden verfrachtet.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Der Mondaufgang vollzieht sich hinter einer trüben, dunstigen Atmosphäre.", temp: "-1 bis 4°C (30 to 39°F)", fx: null },
-                { text: "Eine absolute Windstille herrscht den gesamten Tag über vor.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Wolkenbänke ziehen mit hoher Geschwindigkeit durch.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Ein kurzer, aber eisiger Graupelschauer geht über dem Gebiet nieder.", temp: "2 bis 5°C (36 to 41°F)", fx: "hail" },
-                { text: "Bodenfrost führt zu oberflächlicher Verhärtung.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Nur noch sehr geringe Wärmewirkung der tiefstehenden Wintersonne.", temp: "4 bis 8°C (39 to 46°F)", fx: null },
-                { text: "Ein glasklarer und frostiger Nachthimmel ohne jegliche Bewölkung.", temp: "-4 bis 0°C (25 to 32°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Ein starker und eisiger Wind pfeift über die weite Ebene.", temp: "-10 bis -5°C (14 to 23°F)", fx: null },
-                { text: "Eine nur sehr geringe und lückenhafte Schneebedeckung der Landschaft.", temp: "-8 bis -4°C (18 to 25°F)", fx: "snow" },
-                { text: "Extremer Kahlfrost (Barfrost) ohne isolierende Schneeschicht.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Vollkommen wolkenloser Himmel bei anhaltend strengem Frost.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Ein schwerer Schneesturm verursacht orientierungslose Nullsicht.", temp: "-18 bis -12°C (0 to 10°F)", fx: "blizzard" },
-                { text: "Ausbreitung von Eisnebelbildung in den frühen Morgenstunden.", temp: "-20 bis -15°C (-4 to 5°F)", fx: "thick_fog" },
-                { text: "Der Boden ist tiefgefroren und extrem hart wie Granit.", temp: "-14 bis -10°C (7 to 14°F)", fx: null },
-                { text: "Haloerscheinung (Nebensonnen) am Himmel sichtbar.", temp: "-16 bis -12°C (3 to 10°F)", fx: null },
-                { text: "Verkehrsbehinderungen durch massive Schneeverwehungen.", temp: "-10 bis -6°C (14 to 21°F)", fx: "snow" },
-                { text: "Sonnenschein trügt; Lufttemperatur extrem niedrig.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Gefährlicher Windchill Faktor; Auskühlungsgefahr.", temp: "-22 bis -18°C (-8 to 0°F)", fx: null },
-                { text: "Eine dichte, graue Bewölkung kündigt nahenden Schneefall an.", temp: "-8 bis -5°C (18 to 23°F)", fx: null },
-                { text: "Spürbar starke Windeinwirkung, besonders in exponierten Lagen.", temp: "-14 bis -10°C (7 to 14°F)", fx: null },
-                { text: "Eine sternenklare und extrem eisige Nacht steht bevor.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Feine Raureifkristalle bedecken die gesamte Oberfläche.", temp: "-10 bis -6°C (14 to 21°F)", fx: "snow" },
-                { text: "Minimale thermische Wirkung der kurzen Sonneneinstrahlung.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Feiner, eisiger Staub (Eispartikel) verbleibt in der Luft.", temp: "-12 bis -8°C (10 to 18°F)", fx: "diamond_dust" },
-                { text: "Heftiger, stürmischer Wind weht über die gefrorene Ebene.", temp: "-16 bis -12°C (3 to 10°F)", fx: null },
-                { text: "Glatteisbildung (Schwarzeis) auf felsigem Untergrund.", temp: "-8 bis -4°C (18 to 25°F)", fx: "rain" },
-                { text: "Eine stabile Inversionswetterlage hält den eisigen Kältesee fest am Boden.", temp: "-18 bis -14°C (0 to 7°F)", fx: "thick_fog" }
-            ]
+        "data": {
+            "name": "Steppenklima (Semiarid)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Hochdruckeinfluss; stabile, warme Luftmasse dominiert.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Auffrischender Wind trocknet die Oberflächen rasch ab.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneeschmelze führt zu temporärem Oberflächenabfluss.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Himmel wolkenlos und tiefblau; hohe atmosphärische Sichtweite.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Staubsturmfront zieht auf; Sichtweite sinkt rapide.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Eine klare Strahlungsnacht sorgt für akute Bodenfrostgefahr.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Föhnwetterlage (Chinook); warmer Fallwind sorgt für rasche Erwärmung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Konvektive Bewölkung baut sich tagsüber am Horizont auf.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein unbeständiger, böiger Wind weht aus ständig wechselnden Richtungen.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 21,
+                            "minF": 61,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kaltfrontdurchgang mit kurzem, aber intensivem Hagelschauer.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Maximale Fernsicht aufgrund fehlender Aerosole.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockener Boden begünstigt Staubaufwirbelungen.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Regenbogen überspannt den Horizont nach Schauer.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Advektion kühler Luftmassen aus nördlicher Richtung.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein konstanter, pfeifender Wind weht monoton über die Steppe.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneller Wechsel von Sonne und Wolkenschatten.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Bodenfeuchtigkeit befindet sich im absoluten Sättigungsbereich.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzlicher Wetterumschwung bringt schauerartigen Niederschlag.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dunkelviolette Färbung des Abendhimmels bei nachlassendem Wind.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Intensität der direkten Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Hitzeflimmern über dem Wegplatten deutet auf extreme Bodentemperaturen hin.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Thermikablösung erzeugt rotierende Staubteufel (Dust Devils).",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 33,
+                            "minF": 82,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht eine extrem niedrige relative Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockengewitter ohne Niederschlag; hohe Blitzaktivität.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sehr intensive Solarstrahlung trifft ungehindert auf den Boden.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 38,
+                            "minF": 91,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nächtliche Abstrahlung bringt spürbare Abkühlung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extrem heißer Föhnwind trocknet die Landschaft in kürzester Zeit aus.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 34,
+                            "minF": 84,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenbruchartiger Starkregen (Flash Flood Gefahr).",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Starkes Luftflimmern durch intensiv aufsteigende Warmluft über dem Boden.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Ein wolkenloser, tiefblauer Himmel spannt sich über der Weite.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die tiefen Trockenrisse im ausgedörrten Boden vertiefen sich weiter.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 39,
+                            "minF": 93,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extreme Trockenheit begünstigt massive Staubaufwirbelungen.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine dichte, graue Dunstschicht verhüllt den gesamten Horizont.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Windstille Hochdrucklage; Luft wirkt stehend und drückend.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 37,
+                            "minF": 90,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein rötlicher Abendhimmel, gefärbt durch feinen Staub in der Atmosphäre.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Thermik, die bis in große atmosphärische Höhen reicht.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlag verdunstet fallend (Virga) vor Bodenkontakt.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Konzentration von Salz- und Mineralstaub in der flimmernden Luft.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 36,
+                            "minF": 88,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Warnung: Extrem hoher und gefährlicher UV-Index zur Mittagszeit.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 38,
+                            "minF": 91,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rasche Temperaturamplitude zwischen Morgen und Mittag.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 30,
+                            "minF": 64,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Eine kristallklare Luftmasse bei tiefstehender Sonne.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 15,
+                            "minF": 50,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kalter Wind markiert den Übergang zur kühleren Jahreszeit.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sturmwarnung; Sichtbehinderung durch massive Staubaufwirbelung.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Sichtbare Reifbildung überzieht die Gräser am frühen Morgen.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein kristallklarer Himmel ermöglicht heute maximale Fernsicht.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine besonders stabile Hochdrucklage bestimmt das Wettergeschehen.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "In den Abendstunden erfolgt ein rapider Temperatursturz.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Unangenehm trockene Kälte gepaart mit einem böigen Wind.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Windiges Wetter mit hoher Partikelbelastung (Staub).",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hochnebelartige Bewölkung; keine direkte Sonne.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erster Schneefall schmilzt bei Bodenkontakt sofort.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Eine extrem hohe Sichtweite gewährt freien Blick über die weite Ebene.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockenes Laub wird vom böigen Wind über den Boden verfrachtet.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Mondaufgang vollzieht sich hinter einer trüben, dunstigen Atmosphäre.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 4,
+                            "minF": 30,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine absolute Windstille herrscht den gesamten Tag über vor.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenbänke ziehen mit hoher Geschwindigkeit durch.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzer, aber eisiger Graupelschauer geht über dem Gebiet nieder.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 5,
+                            "minF": 36,
+                            "maxF": 41
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Bodenfrost führt zu oberflächlicher Verhärtung.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nur noch sehr geringe Wärmewirkung der tiefstehenden Wintersonne.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein glasklarer und frostiger Nachthimmel ohne jegliche Bewölkung.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 0,
+                            "minF": 25,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Ein starker und eisiger Wind pfeift über die weite Ebene.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine nur sehr geringe und lückenhafte Schneebedeckung der Landschaft.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Extremer Kahlfrost (Barfrost) ohne isolierende Schneeschicht.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommen wolkenloser Himmel bei anhaltend strengem Frost.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein schwerer Schneesturm verursacht orientierungslose Nullsicht.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -12,
+                            "minF": 0,
+                            "maxF": 10
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Ausbreitung von Eisnebelbildung in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der Boden ist tiefgefroren und extrem hart wie Granit.",
+                        "temp": {
+                            "minC": -14,
+                            "maxC": -10,
+                            "minF": 7,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Haloerscheinung (Nebensonnen) am Himmel sichtbar.",
+                        "temp": {
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verkehrsbehinderungen durch massive Schneeverwehungen.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Sonnenschein trügt; Lufttemperatur extrem niedrig.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefährlicher Windchill Faktor; Auskühlungsgefahr.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine dichte, graue Bewölkung kündigt nahenden Schneefall an.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -5,
+                            "minF": 18,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbar starke Windeinwirkung, besonders in exponierten Lagen.",
+                        "temp": {
+                            "minC": -14,
+                            "maxC": -10,
+                            "minF": 7,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sternenklare und extrem eisige Nacht steht bevor.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feine Raureifkristalle bedecken die gesamte Oberfläche.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Minimale thermische Wirkung der kurzen Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feiner, eisiger Staub (Eispartikel) verbleibt in der Luft.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Heftiger, stürmischer Wind weht über die gefrorene Ebene.",
+                        "temp": {
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Glatteisbildung (Schwarzeis) auf felsigem Untergrund.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine stabile Inversionswetterlage hält den eisigen Kältesee fest am Boden.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "dry_savanna": {
-        name: "Trockensavannenklimate (Dry Savanna)",
-        seasons: {
-            "spring": [
-                { text: "Es herrscht extreme thermische Belastung; Hitzewarnung aktiv.", temp: "38 bis 42°C (100 to 108°F)", fx: "heat_wave" },
-                { text: "Staubsturm verdunkelt die Sonne; Sichtweite minimal.", temp: "35 bis 39°C (95 to 102°F)", fx: "sandstorm" },
-                { text: "Anhaltende, extreme Trockenheit prägt das gesamte Landschaftsbild.", temp: "36 bis 40°C (97 to 104°F)", fx: null },
-                { text: "Himmel durch Staubpartikel milchig-weiß verfärbt.", temp: "37 bis 41°C (99 to 106°F)", fx: "heat_wave" },
-                { text: "Vollständige Windstille; hohe Wärmebelastung.", temp: "40 bis 44°C (104 to 111°F)", fx: "sandstorm" },
-                { text: "Ein heißer, extrem trockener Wind mit markantem Föhncharakter.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Maximale UV-Strahlung; akute Verbrennungsgefahr.", temp: "39 bis 43°C (102 to 109°F)", fx: null },
-                { text: "Hoher Waldbrandindex; Luftqualität durch Rauch beeinträchtigt.", temp: "36 bis 40°C (97 to 104°F)", fx: "thick_fog" },
-                { text: "Starke atmosphärische Refraktion (Fata Morgana) am Horizont.", temp: "38 bis 42°C (100 to 108°F)", fx: "thick_fog" },
-                { text: "Zenitstand der Sonne; Hitzemaximum am Mittag.", temp: "37 bis 41°C (99 to 106°F)", fx: null },
-                { text: "Extrem hohe Bodentemperaturen durch die intensive Sonneneinstrahlung.", temp: "42 bis 46°C (108 to 115°F)", fx: null },
-                { text: "Harmattan (Passatwind) transportiert feinen Wüstenstaub.", temp: "33 bis 37°C (91 to 99°F)", fx: "sandstorm" },
-                { text: "Wolkenloser Himmel bietet keinerlei Beschattung.", temp: "39 bis 43°C (102 to 109°F)", fx: null },
-                { text: "Tropennacht; Tiefsttemperatur verbleibt auf hohem Niveau.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Atmosphärische Instabilität kündigt Wetterwechsel an.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Bildung isolierter Cumulusbewölkung (Schäfchenwolken).", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Roter Lateritstaub bedeckt sämtliche Oberflächen.", temp: "36 bis 40°C (97 to 104°F)", fx: "sandstorm" },
-                { text: "Extreme Hitzewellenstrahlung vom aufgewärmten Boden.", temp: "38 bis 42°C (100 to 108°F)", fx: null },
-                { text: "Sichtweite durch Hitzedunst (Flimmern) eingeschränkt.", temp: "37 bis 41°C (99 to 106°F)", fx: "heat_wave" },
-                { text: "Erstes fernes Donnergrollen einer Gewitterzelle hörbar.", temp: "35 bis 39°C (95 to 102°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Starkregenereignis; Gefahr von Sturzfluten (Flash Floods).", temp: "28 bis 32°C (82 to 90°F)", fx: "heavy_rain" },
-                { text: "Massiver Vegetationsschub infolge von Niederschlägen.", temp: "26 bis 30°C (79 to 86°F)", fx: "heavy_rain" },
-                { text: "Bildung schwerer Gewitterzellen (Superzellen) am Nachmittag.", temp: "27 bis 31°C (81 to 88°F)", fx: "storm" },
-                { text: "Hohe relative Luftfeuchte; schwüle, drückende Bedingungen.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Verdunstungsnebel (Dampf) über feuchtem Boden.", temp: "28 bis 32°C (82 to 90°F)", fx: "rising_steam" },
-                { text: "Der Boden ist tiefgreifend aufgeweicht und extrem schlammig.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Doppelter Regenbogen vor abziehender Gewitterfront.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Die Luft ist vollständig wasserdampfgesättigt (nahezu 100%).", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Dichte Bewölkung dämpft die direkte Sonneneinstrahlung.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine hohe Blitzfrequenz mit akuter Gefahr von Einschlägen.", temp: "26 bis 30°C (79 to 86°F)", fx: "storm" },
-                { text: "Auffrischender Wind bringt Feuchtigkeit vom Ozean.", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Dauerregen (Landregen) sättigt den Boden vollständig.", temp: "22 bis 26°C (72 to 79°F)", fx: "heavy_rain" },
-                { text: "Maximale Füllstände an Wasserstellen erreicht.", temp: "25 bis 29°C (77 to 84°F)", fx: "storm" },
-                { text: "Eine drückend feucht-warme Tropennacht senkt sich herab.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Kurzzeitige intensive Insolation durch Wolkenlücken.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Monsunfront schiebt sich als Regenwand über das Land.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Biogene Emissionen feuchter Böden (Petrichor).", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Sturmböen (Squall Line) begleiten die Regenfront.", temp: "23 bis 27°C (73 to 81°F)", fx: "hail" },
-                { text: "Es herrschen stehende, extrem feuchte Luftmassen (hoher Taupunkt).", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Warme und feuchte Nacht; Taupunkt extrem hoch.", temp: "22 bis 26°C (72 to 79°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Windrichtung dreht; trockene Luftmassen dominieren zunehmend.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Aufklaren des Himmels; Rückgang der Bewölkung.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Der Abzug der letzten konvektiven Schauerreste erfolgt am Abend.", temp: "29 bis 33°C (84 to 91°F)", fx: "rain" },
-                { text: "Spürbarer Rückgang der relativen Luftfeuchtigkeit.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Abendrot durch zunehmende Staubpartikel intensiviert.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Dichter Strahlungsnebel bildet sich verstärkt in Talsenken.", temp: "20 bis 24°C (68 to 75°F)", fx: "thick_fog" },
-                { text: "Beginnende Austrocknung der Vegetation infolge des Wassermangels.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Die Temperaturen bewegen sich in einem moderaten Wärmebereich.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Schwacher Wind sorgt für leichten Luftaustausch.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Harmlose Schönwetterwolken (Cumulus humilis).", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Eine vollkommene Windstille prägt die Wetterlage den ganzen Tag über.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Nächtliche Temperaturen sinken stärker ab (Strahlungskühlung).", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Zunehmende Trübung der Atmosphäre durch Staub.", temp: "31 bis 35°C (88 to 95°F)", fx: "thick_fog" },
-                { text: "Seltener, kurzer Regenschauer ohne nennenswerte Menge.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Tiefstehende Sonne bewirkt warme Lichtfärbung.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Intensiver Samenflug und Pollenflug durch zunehmende Windverfrachtung.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Der Wind verursacht ein raschelndes Geräusch in der trockenen Vegetation.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Klare Sicht auf den Sternenhimmel in der Nacht.", temp: "19 bis 23°C (66 to 73°F)", fx: null },
-                { text: "Eine stabile Hochdruckwetterlage etabliert sich über dem Gebiet.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Die Intensität der Sonneneinstrahlung nimmt wieder deutlich zu.", temp: "31 bis 35°C (88 to 95°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Nordostpassat (Harmattan) bringt viel Staub und Trockenheit.", temp: "25 bis 30°C (77 to 86°F)", fx: "thick_fog" },
-                { text: "Eine empfindliche Kühle prägt die späten Nachtstunden.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Sonnenschein durch dichten Dunstschleier gedämpft.", temp: "26 bis 31°C (79 to 88°F)", fx: "thick_fog" },
-                { text: "Grasvegetation extrem brüchig und feuergefährlich.", temp: "28 bis 32°C (82 to 90°F)", fx: "thick_fog" },
-                { text: "Ein blasser, fast milchig-weißer und wolkenloser Himmel.", temp: "27 bis 31°C (81 to 88°F)", fx: "snow" },
-                { text: "Extrem niedrige Luftfeuchte; statische Aufladung.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Sichtweite durch permanenten Staubdunst stark reduziert.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Extrem hoher Waldbrandindex; die Feuergefahr ist akut.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Ein stetiger, trockener und staubbeladener Wind weht über das Land.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Die Tagestemperaturen verbleiben im mittleren Wärmebereich.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Sonnenaufgang dunkelrot gefärbt durch Aerosole.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Fehlende Taubildung am Morgen mangels Feuchtigkeit.", temp: "13 bis 17°C (55 to 63°F)", fx: "thick_fog" },
-                { text: "Der Trockenstress ist bei der gesamten Vegetation deutlich sichtbar.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Hohe elektrostatische Aufladung an allen trockenen Materialien.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Diffuse Mondscheintrübung durch Staubschicht.", temp: "14 bis 18°C (57 to 64°F)", fx: "thick_fog" },
-                { text: "Maximale Verdunstung an offenen Wasserstellen.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Ein feiner, grauer Staubfilm bedeckt die gesamte Vegetation und den Boden.", temp: "25 bis 29°C (77 to 84°F)", fx: "sandstorm" },
-                { text: "Langsame Ablagerung von Feinstaubpartikeln bei absoluter Windstille.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Deutliche Temperaturdifferenz in Schattenzonen.", temp: "26 bis 30°C (77 to 86°F)", fx: null },
-                { text: "Sternensichtbarkeit durch atmosphärische Trübung eingeschränkt.", temp: "12 bis 16°C (54 to 61°F)", fx: "thick_fog" }
-            ]
+        "data": {
+            "name": "Trockensavannenklimate (Dry Savanna)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Es herrscht extreme thermische Belastung; Hitzewarnung aktiv.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Staubsturm verdunkelt die Sonne; Sichtweite minimal.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Anhaltende, extreme Trockenheit prägt das gesamte Landschaftsbild.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Himmel durch Staubpartikel milchig-weiß verfärbt.",
+                        "temp": {
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Vollständige Windstille; hohe Wärmebelastung.",
+                        "temp": {
+                            "minC": 40,
+                            "maxC": 44,
+                            "minF": 104,
+                            "maxF": 111
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Ein heißer, extrem trockener Wind mit markantem Föhncharakter.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Maximale UV-Strahlung; akute Verbrennungsgefahr.",
+                        "temp": {
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hoher Waldbrandindex; Luftqualität durch Rauch beeinträchtigt.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starke atmosphärische Refraktion (Fata Morgana) am Horizont.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Zenitstand der Sonne; Hitzemaximum am Mittag.",
+                        "temp": {
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem hohe Bodentemperaturen durch die intensive Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": 42,
+                            "maxC": 46,
+                            "minF": 108,
+                            "maxF": 115
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Harmattan (Passatwind) transportiert feinen Wüstenstaub.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Wolkenloser Himmel bietet keinerlei Beschattung.",
+                        "temp": {
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tropennacht; Tiefsttemperatur verbleibt auf hohem Niveau.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Atmosphärische Instabilität kündigt Wetterwechsel an.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung isolierter Cumulusbewölkung (Schäfchenwolken).",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Roter Lateritstaub bedeckt sämtliche Oberflächen.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Extreme Hitzewellenstrahlung vom aufgewärmten Boden.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtweite durch Hitzedunst (Flimmern) eingeschränkt.",
+                        "temp": {
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Erstes fernes Donnergrollen einer Gewitterzelle hörbar.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Starkregenereignis; Gefahr von Sturzfluten (Flash Floods).",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Massiver Vegetationsschub infolge von Niederschlägen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Bildung schwerer Gewitterzellen (Superzellen) am Nachmittag.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Hohe relative Luftfeuchte; schwüle, drückende Bedingungen.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verdunstungsnebel (Dampf) über feuchtem Boden.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "rising_steam"
+                        ]
+                    },
+                    {
+                        "text": "Der Boden ist tiefgreifend aufgeweicht und extrem schlammig.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Doppelter Regenbogen vor abziehender Gewitterfront.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Die Luft ist vollständig wasserdampfgesättigt (nahezu 100%).",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichte Bewölkung dämpft die direkte Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine hohe Blitzfrequenz mit akuter Gefahr von Einschlägen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Auffrischender Wind bringt Feuchtigkeit vom Ozean.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dauerregen (Landregen) sättigt den Boden vollständig.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Maximale Füllstände an Wasserstellen erreicht.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine drückend feucht-warme Tropennacht senkt sich herab.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurzzeitige intensive Insolation durch Wolkenlücken.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Monsunfront schiebt sich als Regenwand über das Land.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Biogene Emissionen feuchter Böden (Petrichor).",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sturmböen (Squall Line) begleiten die Regenfront.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Es herrschen stehende, extrem feuchte Luftmassen (hoher Taupunkt).",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warme und feuchte Nacht; Taupunkt extrem hoch.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Windrichtung dreht; trockene Luftmassen dominieren zunehmend.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufklaren des Himmels; Rückgang der Bewölkung.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Abzug der letzten konvektiven Schauerreste erfolgt am Abend.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Spürbarer Rückgang der relativen Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Abendrot durch zunehmende Staubpartikel intensiviert.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter Strahlungsnebel bildet sich verstärkt in Talsenken.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Beginnende Austrocknung der Vegetation infolge des Wassermangels.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Temperaturen bewegen sich in einem moderaten Wärmebereich.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schwacher Wind sorgt für leichten Luftaustausch.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Harmlose Schönwetterwolken (Cumulus humilis).",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine vollkommene Windstille prägt die Wetterlage den ganzen Tag über.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nächtliche Temperaturen sinken stärker ab (Strahlungskühlung).",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Zunehmende Trübung der Atmosphäre durch Staub.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Seltener, kurzer Regenschauer ohne nennenswerte Menge.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Tiefstehende Sonne bewirkt warme Lichtfärbung.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensiver Samenflug und Pollenflug durch zunehmende Windverfrachtung.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Wind verursacht ein raschelndes Geräusch in der trockenen Vegetation.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Klare Sicht auf den Sternenhimmel in der Nacht.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile Hochdruckwetterlage etabliert sich über dem Gebiet.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Intensität der Sonneneinstrahlung nimmt wieder deutlich zu.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Nordostpassat (Harmattan) bringt viel Staub und Trockenheit.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 30,
+                            "minF": 77,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine empfindliche Kühle prägt die späten Nachtstunden.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sonnenschein durch dichten Dunstschleier gedämpft.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 31,
+                            "minF": 79,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Grasvegetation extrem brüchig und feuergefährlich.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein blasser, fast milchig-weißer und wolkenloser Himmel.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Extrem niedrige Luftfeuchte; statische Aufladung.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtweite durch permanenten Staubdunst stark reduziert.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Extrem hoher Waldbrandindex; die Feuergefahr ist akut.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein stetiger, trockener und staubbeladener Wind weht über das Land.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Tagestemperaturen verbleiben im mittleren Wärmebereich.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sonnenaufgang dunkelrot gefärbt durch Aerosole.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Fehlende Taubildung am Morgen mangels Feuchtigkeit.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der Trockenstress ist bei der gesamten Vegetation deutlich sichtbar.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe elektrostatische Aufladung an allen trockenen Materialien.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Diffuse Mondscheintrübung durch Staubschicht.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Maximale Verdunstung an offenen Wasserstellen.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein feiner, grauer Staubfilm bedeckt die gesamte Vegetation und den Boden.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Langsame Ablagerung von Feinstaubpartikeln bei absoluter Windstille.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Deutliche Temperaturdifferenz in Schattenzonen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 77,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sternensichtbarkeit durch atmosphärische Trübung eingeschränkt.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
-    "boreal": {
-        name: "Nadelwaldklimate (Boreal/Taiga)",
-        seasons: {
-            "spring": [
-                { text: "Intensive Zufuhr von Warmluftmassen löst starkes Tauwetter aus.", temp: "4 bis 8°C (39 to 46°F)", fx: "rain" },
-                { text: "Starke Schneeschmelze; Schneedecke wassergesättigt.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Ein ungewöhnlich warmer Wind weht über den tauenden Boden.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Verdunstungsnebel über Schneeflächen behindert Sicht.", temp: "3 bis 7°C (37 to 45°F)", fx: "thick_fog" },
-                { text: "Eisgang auf Gewässern; Bildung von Eisschollen.", temp: "1 bis 5°C (34 to 41°F)", fx: null },
-                { text: "Wiedergefrieren von Schmelzwasser durch nächtlichen Frost.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Lichtverhältnisse intensiviert durch hohe Reflexion der Schneereste.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Rückseitiges Schneesturmtief zieht durch das Gebiet.", temp: "-2 bis 2°C (28 to 36°F)", fx: "blizzard" },
-                { text: "Milde Temperaturen lassen letzte Schneereste schmelzen.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Deutlicher Anstieg der Pegelstände in sämtlichen Wasserläufen.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Spürbare lokale Erwärmung in besonders windgeschützten Lagen.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Graue Stratusbewölkung mit andauerndem Nieselregen.", temp: "4 bis 7°C (39 to 45°F)", fx: "drizzle" },
-                { text: "Ausbildung lokaler Kaltluftseen in den topografischen Senken.", temp: "3 bis 6°C (37 to 43°F)", fx: null },
-                { text: "Starker und anhaltender Höhenwind beeinflusst die Wolken.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Der Erdboden ist durch die Niederschläge vollständig aufgeweicht.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Ein massiver Kaltluftvorstoß erfolgt aus nördlicher Richtung.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Hohe Durchsichtigkeit der Atmosphäre; klare Fernsicht.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Labile Schichtung kündigt erstes Gewitter der Saison an.", temp: "12 bis 16°C (54 to 61°F)", fx: "storm" },
-                { text: "Großflächige Akkumulation von Schmelzwasser in den Senken.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Bodennaher Strahlungsfrost in den Nachtstunden.", temp: "-1 bis 3°C (30 to 37°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Anhaltend hohe Tagestemperaturen bei vollkommen stehender Luft.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Kombination aus sehr hoher Luftfeuchtigkeit und Windstille.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Eine außergewöhnlich lange Sonnenscheindauer prägt den Tag.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Hitzegewitter mit hoher elektrischer Aktivität.", temp: "24 bis 28°C (75 to 82°F)", fx: "storm" },
-                { text: "Vollkommene Windstille bei extrem hoher Luftfeuchtigkeit.", temp: "21 bis 25°C (70 to 77°F)", fx: null },
-                { text: "Ein sehr hoher Waldbrandindex bei extremer, anhaltender Trockenheit.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Ein warmer Sommerregen benetzt den ausgetrockneten Boden.", temp: "19 bis 23°C (66 to 73°F)", fx: "rain" },
-                { text: "Bildung von dichtem Seenebel über den großen Gewässern.", temp: "14 bis 18°C (57 to 64°F)", fx: "thick_fog" },
-                { text: "Eine extrem stabile Hochdruckwetterlage bestimmt das Bild.", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Eine kühle Brise sorgt für eine angenehme, leichte Luftbewegung.", temp: "17 bis 21°C (63 to 70°F)", fx: null },
-                { text: "Wechselnde Bewölkung (Cumulus) spendet zeitweise Schatten.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Spiegelglatte Wasseroberfläche bei absoluter Windstille.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Dominanz von feucht-warmen Luftmassen bestimmt das Wetter.", temp: "19 bis 23°C (66 to 73°F)", fx: null },
-                { text: "Helle Sommernächte ohne vollständige Dunkelheit.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Dominanz einer trockenen Luftmasse mit sehr niedriger Luftfeuchtigkeit.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Ein heftiger, lokaler Hagelschauer in unmittelbarer Gewitternähe.", temp: "15 bis 19°C (59 to 66°F)", fx: "hail" },
-                { text: "Rauch von entfernten Waldbränden trübt die Sicht.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Starke Blendwirkung durch Sonnenreflexion auf Wasserflächen.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Ein konstanter, feiner Nieselregen sorgt für ein trübes Wetterbild.", temp: "16 bis 20°C (61 to 68°F)", fx: "drizzle" },
-                { text: "Kaltfrontdurchgang führt zu abruptem Temperatursturz.", temp: "10 bis 14°C (50 to 57°F)", fx: "rain" }
-            ],
-            "autumn": [
-                { text: "Kühle Luftmassen strömen mit merklicher Intensität ein.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Erster Schneefall der Saison, der jedoch nicht liegen bleibt.", temp: "0 bis 4°C (32 to 39°F)", fx: "snow" },
-                { text: "Ein kräftiges Sturmtief mit anhaltend hohen Windgeschwindigkeiten.", temp: "3 bis 7°C (37 to 45°F)", fx: "storm" },
-                { text: "Dichte und zähe Nebelbänke halten sich den gesamten Tag über.", temp: "2 bis 6°C (36 to 43°F)", fx: "thick_fog" },
-                { text: "Starker Morgenfrost überzieht das Land nach einer klaren Nacht.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Der fallende Niederschlag geht zunehmend in Schneeregen über.", temp: "1 bis 5°C (34 to 41°F)", fx: "hail" },
-                { text: "Spürbare und rapide Abnahme der Tageslichtdauer.", temp: "4 bis 8°C (39 to 46°F)", fx: null },
-                { text: "Polare Kaltluft sorgt für extrem klare Sicht.", temp: "-2 bis 3°C (28 to 37°F)", fx: null },
-                { text: "Beginnende oberflächliche Bodenvereisung (Barfrost).", temp: "-4 bis 0°C (25 to 32°F)", fx: null },
-                { text: "Der Frost dringt nun tief in die oberen Bodenschichten ein.", temp: "-1 bis 2°C (30 to 36°F)", fx: null },
-                { text: "Düstere Lichtverhältnisse durch geschlossene Wolkendecke.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Eine fast stagnierende, feucht-kalte Luftmasse liegt über dem Land.", temp: "1 bis 5°C (34 to 41°F)", fx: null },
-                { text: "Es herrscht die letzte stabile Wärmeperiode vor dem Wintereinbruch.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Ein eisiger Wind weht mit extrem hohen Böenspitzen.", temp: "-5 bis -1°C (23 to 30°F)", fx: null },
-                { text: "Sichtbare Reifbildung überzieht sämtliche Oberflächen.", temp: "-3 bis 0°C (27 to 32°F)", fx: "snow" },
-                { text: "Die flachen Randbereiche von Stillgewässern frieren langsam zu.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Schneegestöber reduziert Sichtweite erheblich.", temp: "-4 bis -1°C (25 to 30°F)", fx: "snow" },
-                { text: "Absolute Windstille und eine bemerkenswert ruhige Atmosphäre.", temp: "-1 bis 3°C (30 to 37°F)", fx: null },
-                { text: "Unangenehm nasskalte Witterungsbedingungen prägen den Tag.", temp: "0 bis 3°C (32 to 37°F)", fx: null },
-                { text: "Rascher Aufzug einer dunklen Winterfront mit Schneefall.", temp: "-6 bis -2°C (21 to 28°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Ausbildung einer dicken, isolierenden Schneedecke.", temp: "-15 bis -10°C (5 to 14°F)", fx: "snow" },
-                { text: "Intensive Kältestrahlung bei wolkenlosem Himmel.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Ein eisiger Nordwind fegt ungehindert über offene Flächen.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Der Himmel ist vollkommen wolkenlos, tiefblau und eisig kalt.", temp: "-18 bis -14°C (0 to 7°F)", fx: null },
-                { text: "Vollkommene Windstille herrscht in den topografisch geschützten Lagen.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Niederschlag von feinem, trockenem Schnee (Griesel).", temp: "-14 bis -10°C (7 to 14°F)", fx: "diamond_dust" },
-                { text: "Extremer Frost führt zu Spannungsrissen in Eis und Holz.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Hoher Kontrast durch diffuse Strahlung im Schnee.", temp: "-16 bis -12°C (3 to 10°F)", fx: null },
-                { text: "Ein schwerer Blizzard macht die Orientierung im Gelände unmöglich.", temp: "-22 bis -18°C (-8 to 0°F)", fx: "blizzard" },
-                { text: "Extrem kurze Tageslichtphase mit nur schwacher Intensität.", temp: "-28 bis -24°C (-18 to -11°F)", fx: null },
-                { text: "Sichtbares Wachstum von feinen Raureifnadeln an allen Objekten.", temp: "-20 bis -16°C (-4 to 3°F)", fx: "snow" },
-                { text: "Die Gewässer sind nun vollständig und tragfähig zugefroren.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Einströmen von extrem kalten Luftmassen polaren Ursprungs.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Es herrscht knackende Kälte in einer sternenklaren Frostnacht.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Ein dichter Bewölkungsaufzug deutet auf nahenden Neuschnee hin.", temp: "-10 bis -6°C (14 to 21°F)", fx: null },
-                { text: "Bildung von langen Eiszapfen an Dächern und Überhängen.", temp: "-8 bis -4°C (18 to 25°F)", fx: null },
-                { text: "Die Schneedecke ist massiv gefroren und trägt (Harsch).", temp: "-22 bis -18°C (-8 to 0°F)", fx: null },
-                { text: "Eine wolkenlose und kristallklare Winternacht.", temp: "-28 bis -24°C (-18 to -11°F)", fx: "aurora" },
-                { text: "Ein massiver Warmlufteinschub bringt nassen und schweren Pappschnee.", temp: "-5 bis -1°C (23 to 30°F)", fx: "snow" },
-                { text: "Warnung vor akuter Lawinengefahr an den steilen Hängen.", temp: "-10 bis -5°C (14 to 23°F)", fx: "snow" }
-            ]
+    "boreal_forest": {
+        "data": {
+            "name": "Nadelwaldklimate (Boreal/Taiga)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Intensive Zufuhr von Warmluftmassen löst starkes Tauwetter aus.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Starke Schneeschmelze; Schneedecke wassergesättigt.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein ungewöhnlich warmer Wind weht über den tauenden Boden.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verdunstungsnebel über Schneeflächen behindert Sicht.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eisgang auf Gewässern; Bildung von Eisschollen.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wiedergefrieren von Schmelzwasser durch nächtlichen Frost.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Lichtverhältnisse intensiviert durch hohe Reflexion der Schneereste.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rückseitiges Schneesturmtief zieht durch das Gebiet.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Milde Temperaturen lassen letzte Schneereste schmelzen.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Deutlicher Anstieg der Pegelstände in sämtlichen Wasserläufen.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbare lokale Erwärmung in besonders windgeschützten Lagen.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Graue Stratusbewölkung mit andauerndem Nieselregen.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 7,
+                            "minF": 39,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Ausbildung lokaler Kaltluftseen in den topografischen Senken.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 6,
+                            "minF": 37,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starker und anhaltender Höhenwind beeinflusst die Wolken.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Erdboden ist durch die Niederschläge vollständig aufgeweicht.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein massiver Kaltluftvorstoß erfolgt aus nördlicher Richtung.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Durchsichtigkeit der Atmosphäre; klare Fernsicht.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Labile Schichtung kündigt erstes Gewitter der Saison an.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Großflächige Akkumulation von Schmelzwasser in den Senken.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bodennaher Strahlungsfrost in den Nachtstunden.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Anhaltend hohe Tagestemperaturen bei vollkommen stehender Luft.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kombination aus sehr hoher Luftfeuchtigkeit und Windstille.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine außergewöhnlich lange Sonnenscheindauer prägt den Tag.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hitzegewitter mit hoher elektrischer Aktivität.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Vollkommene Windstille bei extrem hoher Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein sehr hoher Waldbrandindex bei extremer, anhaltender Trockenheit.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein warmer Sommerregen benetzt den ausgetrockneten Boden.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Bildung von dichtem Seenebel über den großen Gewässern.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine extrem stabile Hochdruckwetterlage bestimmt das Bild.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine kühle Brise sorgt für eine angenehme, leichte Luftbewegung.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wechselnde Bewölkung (Cumulus) spendet zeitweise Schatten.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spiegelglatte Wasseroberfläche bei absoluter Windstille.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dominanz von feucht-warmen Luftmassen bestimmt das Wetter.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Helle Sommernächte ohne vollständige Dunkelheit.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dominanz einer trockenen Luftmasse mit sehr niedriger Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein heftiger, lokaler Hagelschauer in unmittelbarer Gewitternähe.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Rauch von entfernten Waldbränden trübt die Sicht.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starke Blendwirkung durch Sonnenreflexion auf Wasserflächen.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein konstanter, feiner Nieselregen sorgt für ein trübes Wetterbild.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Kaltfrontdurchgang führt zu abruptem Temperatursturz.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Kühle Luftmassen strömen mit merklicher Intensität ein.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erster Schneefall der Saison, der jedoch nicht liegen bleibt.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein kräftiges Sturmtief mit anhaltend hohen Windgeschwindigkeiten.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Dichte und zähe Nebelbänke halten sich den gesamten Tag über.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starker Morgenfrost überzieht das Land nach einer klaren Nacht.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der fallende Niederschlag geht zunehmend in Schneeregen über.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Spürbare und rapide Abnahme der Tageslichtdauer.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Polare Kaltluft sorgt für extrem klare Sicht.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Beginnende oberflächliche Bodenvereisung (Barfrost).",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 0,
+                            "minF": 25,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Frost dringt nun tief in die oberen Bodenschichten ein.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Düstere Lichtverhältnisse durch geschlossene Wolkendecke.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine fast stagnierende, feucht-kalte Luftmasse liegt über dem Land.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht die letzte stabile Wärmeperiode vor dem Wintereinbruch.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein eisiger Wind weht mit extrem hohen Böenspitzen.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtbare Reifbildung überzieht sämtliche Oberflächen.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Die flachen Randbereiche von Stillgewässern frieren langsam zu.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schneegestöber reduziert Sichtweite erheblich.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Absolute Windstille und eine bemerkenswert ruhige Atmosphäre.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Unangenehm nasskalte Witterungsbedingungen prägen den Tag.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 3,
+                            "minF": 32,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rascher Aufzug einer dunklen Winterfront mit Schneefall.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Ausbildung einer dicken, isolierenden Schneedecke.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Kältestrahlung bei wolkenlosem Himmel.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein eisiger Nordwind fegt ungehindert über offene Flächen.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Himmel ist vollkommen wolkenlos, tiefblau und eisig kalt.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommene Windstille herrscht in den topografisch geschützten Lagen.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlag von feinem, trockenem Schnee (Griesel).",
+                        "temp": {
+                            "minC": -14,
+                            "maxC": -10,
+                            "minF": 7,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Extremer Frost führt zu Spannungsrissen in Eis und Holz.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hoher Kontrast durch diffuse Strahlung im Schnee.",
+                        "temp": {
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein schwerer Blizzard macht die Orientierung im Gelände unmöglich.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Extrem kurze Tageslichtphase mit nur schwacher Intensität.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtbares Wachstum von feinen Raureifnadeln an allen Objekten.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -16,
+                            "minF": -4,
+                            "maxF": 3
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Die Gewässer sind nun vollständig und tragfähig zugefroren.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Einströmen von extrem kalten Luftmassen polaren Ursprungs.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht knackende Kälte in einer sternenklaren Frostnacht.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichter Bewölkungsaufzug deutet auf nahenden Neuschnee hin.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung von langen Eiszapfen an Dächern und Überhängen.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Schneedecke ist massiv gefroren und trägt (Harsch).",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine wolkenlose und kristallklare Winternacht.",
+                        "temp": {
+                            "minC": -28,
+                            "maxC": -24,
+                            "minF": -18,
+                            "maxF": -11
+                        },
+                        "fx": [
+                            "aurora"
+                        ]
+                    },
+                    {
+                        "text": "Ein massiver Warmlufteinschub bringt nassen und schweren Pappschnee.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Warnung vor akuter Lawinengefahr an den steilen Hängen.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "cold_desert": {
-        name: "Winterkalte Trockenklimate (Cold Desert)",
-        seasons: {
-            "spring": [
-                { text: "Heftiger Sandsturm dominiert das Wettergeschehen.", temp: "5 bis 10°C (41 to 50°F)", fx: "sandstorm" },
-                { text: "Heller Sonnenschein bei einem eisigen und schneidenden Wind.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Extreme Temperaturschwankung im Tagesverlauf gemessen.", temp: "2 bis 15°C (36 to 59°F)", fx: null },
-                { text: "Aktive Staubteufelbildung am Boden beobachtet.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Eine fahl-gelbliche Himmelsfärbung durch hohe Staubkonzentration.", temp: "10 bis 14°C (50 to 57°F)", fx: "thick_fog" },
-                { text: "Ein besonders strenger Frost herrscht in den frühen Morgenstunden.", temp: "-5 bis 0°C (23 to 32°F)", fx: null },
-                { text: "Es herrscht eine extrem niedrige relative Luftfeuchtigkeit.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Seltenes Gewitterereignis ohne Niederschlag am Boden (Virga).", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Steinoberflächen warm, Schattenbereiche extrem kalt.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Die extrem trockene Luft führt zur Rissbildung im Boden.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Starke Windgeräusche durch Interaktion mit Hindernissen.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Graue Hochbewölkung ohne Niederschlagstätigkeit.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Vereinzelter Schneefall sublimiert sofort in der trockenen Luft.", temp: "1 bis 4°C (34 to 39°F)", fx: "snow" },
-                { text: "Kristallklare Fernsicht durch trockene Luftmasse.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Eine ungewöhnlich milde Luftströmung ist direkt am Boden spürbar.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Starke Blendwirkung der Sonne am weiten, offenen Horizont.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Eine stabile und windstille Hochdrucklage bestimmt das Wetter.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Rötlicher Sonnenuntergang durch Staubpartikelstreuung.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Erneutes Überfrieren (Schwarzeis) in der Nacht.", temp: "-3 bis 2°C (27 to 36°F)", fx: null },
-                { text: "Warmer Fallwind (Föhncharakter) sorgt für Temperaturanstieg.", temp: "18 bis 22°C (64 to 72°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Starkes Hitzeflimmern ist direkt über dem aufgeheizten Boden sichtbar.", temp: "32 bis 36°C (90 to 97°F)", fx: "heat_wave" },
-                { text: "Ein makelloser, tiefblauer und wolkenloser Himmel.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Am Nachmittag werden extrem hohe Bodentemperaturen gemessen.", temp: "40 bis 45°C (104 to 113°F)", fx: null },
-                { text: "Trockener Wind trocknet Feuchtigkeit sofort aus.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Hohe Intensität der direkten Sonneneinstrahlung.", temp: "36 bis 40°C (97 to 104°F)", fx: null },
-                { text: "Starke nächtliche Ausstrahlung bringt rasche Abkühlung.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Feinstaub wird bei Bodenkontakt aufgewirbelt.", temp: "33 bis 37°C (91 to 99°F)", fx: "sandstorm" },
-                { text: "Hitzegewitter mit Virga (Regen verdunstet in der Luft).", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Extreme Blendwirkung der Sonne durch Reflexion am Boden.", temp: "38 bis 42°C (100 to 108°F)", fx: null },
-                { text: "Eine drückende Windstille am Mittag führt zu massivem Hitzestau.", temp: "39 bis 43°C (102 to 109°F)", fx: null },
-                { text: "Reflexion der Sonne auf mineralischen Krusten.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Massiver Hitzestau in den windgeschützten Lagen des Gebiets.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Kurzzeitiges Füllen von Senken durch Sturzflut möglich.", temp: "28 bis 32°C (82 to 90°F)", fx: "heavy_rain" },
-                { text: "Ein funkelnder, sternenklarer Nachthimmel ohne Bewölkung.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Starke Lichtbrechung verursacht Fata Morgana.", temp: "36 bis 40°C (97 to 104°F)", fx: "heat_wave" },
-                { text: "Ein böiger und unberechenbarer Wind durchweht die felsigen Lagen.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Luftmasse vollständig staubfrei und transparent.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Intensive solare Einstrahlung sorgt für eine starke Thermikentwicklung.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Erhöhte Ozonwerte werden in unmittelbarer Bodennähe gemessen.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Die thermische Belastung am Gestein erreicht extreme Spitzenwerte.", temp: "25 bis 30°C (77 to 86°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Maximale horizontale Sichtweite in der extrem klaren Luft.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Advektion eisiger Luftmassen kündigt Winter an.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Sonneneinstrahlung hat nur noch geringe Wärmewirkung.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Ein außergewöhnlich strenger Nachtfrost hält die Landschaft im Griff.", temp: "-5 bis 0°C (23 to 32°F)", fx: null },
-                { text: "Ein makelloser, tiefblauer und wolkenloser Himmel spannt sich auf.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Heftige Staubstürme fegen ungebremst über die weite Ebene.", temp: "6 bis 10°C (43 to 50°F)", fx: "sandstorm" },
-                { text: "Eine extrem trockene und schneidende Kälte dringt durch jede Kleidung.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Der Boden ist tiefgefroren, aber vollkommen schneefrei.", temp: "-2 bis 3°C (28 to 37°F)", fx: null },
-                { text: "Rötliche Lichtfärbung der Landschaft am Abend.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Eine windstille Inversionswetterlage sorgt für klare Schichtung.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Trübes, kühles Tageswetter mit geschlossener Wolkendecke.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Ausgeprägte Reifbildung überzieht die Steine in den frühen Morgenstunden.", temp: "-4 bis 1°C (25 to 34°F)", fx: "snow" },
-                { text: "Die Atmosphäre ist durch Trockenheit statisch stark aufgeladen.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Der konstante Winddruck erzeugt fortlaufende Sandverwehungen.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Extrem langer Schattenwurf durch tiefstehende Sonne.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Ein kurzer, aber heftiger Graupelschauer geht über dem Gebiet nieder.", temp: "3 bis 7°C (37 to 45°F)", fx: "hail" },
-                { text: "Einfluss einer bemerkenswert kühlen und klaren Luftmasse.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Eine sternenklare Nacht bietet eine ausgezeichnete atmosphärische Sicht.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Windchill macht Aufenthalt im Freien ungemütlich.", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Plötzlicher Temperatursturz nach Sonnenuntergang.", temp: "-3 bis 2°C (27 to 36°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Kahlfrost (Barfrost) ohne isolierende Schneedecke.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Ein eisiger Sandsturm, versetzt mit scharfen Eiskörnern, fegt dahin.", temp: "-12 bis -8°C (10 to 18°F)", fx: "hail" },
-                { text: "Die gesamte Bodenoberfläche ist tiefgründig und granithart gefroren.", temp: "-18 bis -14°C (0 to 7°F)", fx: null },
-                { text: "Helle Sonne strahlt vom Himmel, jedoch ohne nennenswerte Wärmeleistung.", temp: "-10 bis -6°C (14 to 21°F)", fx: null },
-                { text: "Verdunstung der Schneedecke (Sublimation) bei trockenem, kaltem Wind.", temp: "-8 bis -4°C (18 to 25°F)", fx: null },
-                { text: "Eisiger Wind verursacht Kälteschmerz auf ungeschützter Haut.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Ein wolkenloser und extrem kalter Himmel spannt sich über der Wüste.", temp: "-22 bis -18°C (-8 to 0°F)", fx: null },
-                { text: "Ein feiner, staubiger Dunst trübt die untere Atmosphäre leicht ein.", temp: "-14 bis -10°C (7 to 14°F)", fx: "thick_fog" },
-                { text: "Starker Frost führt zu Spannungsrissen in Eis und Holz.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Herrschaft einer absoluten Windstille über der weiten Ebene.", temp: "-16 bis -12°C (3 to 10°F)", fx: null },
-                { text: "Markante Raureifbildung ist an den kalten Felswänden zu beobachten.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Ein grauer, bedeckter Himmel ohne jegliche Schneefallneigung.", temp: "-10 bis -6°C (14 to 21°F)", fx: null },
-                { text: "Eine stabile und windstille Inversionslage bestimmt den Wintertag.", temp: "-15 bis -10°C (5 to 14°F)", fx: null },
-                { text: "Die nächtliche Kälte erreicht ein lebensbedrohliches Niveau.", temp: "-30 bis -25°C (-22 to -13°F)", fx: null },
-                { text: "Feiner, salzhaltiger Staub liegt als Aerosol in der Luft.", temp: "-18 bis -14°C (0 to 7°F)", fx: "sandstorm" },
-                { text: "Ein extrem hoher Windchill-Faktor verschärft die gefühlte Kälte drastisch.", temp: "-25 bis -20°C (-13 to -4°F)", fx: null },
-                { text: "Eine zähe Inversionswetterlage hält den Staub am Boden gefangen.", temp: "-20 bis -15°C (-4 to 5°F)", fx: "thick_fog" },
-                { text: "Ein seltener Schneesturm färbt die Wüstenlandschaft kurzzeitig weiß.", temp: "-15 bis -10°C (5 to 14°F)", fx: "blizzard" },
-                { text: "Ein trübes, diffuses Licht herrscht durch die tiefstehende Wintersonne.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Gefährliche Glatteisbildung an lokalen Quellaustritten und Gewässern.", temp: "-10 bis -6°C (14 to 21°F)", fx: "rain" }
-            ]
+        "data": {
+            "name": "Winterkalte Trockenklimate (Cold Desert)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Heftiger Sandsturm dominiert das Wettergeschehen.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 10,
+                            "minF": 41,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Heller Sonnenschein bei einem eisigen und schneidenden Wind.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extreme Temperaturschwankung im Tagesverlauf gemessen.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 15,
+                            "minF": 36,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aktive Staubteufelbildung am Boden beobachtet.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine fahl-gelbliche Himmelsfärbung durch hohe Staubkonzentration.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein besonders strenger Frost herrscht in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine extrem niedrige relative Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Seltenes Gewitterereignis ohne Niederschlag am Boden (Virga).",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Steinoberflächen warm, Schattenbereiche extrem kalt.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die extrem trockene Luft führt zur Rissbildung im Boden.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Windgeräusche durch Interaktion mit Hindernissen.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Graue Hochbewölkung ohne Niederschlagstätigkeit.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vereinzelter Schneefall sublimiert sofort in der trockenen Luft.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Kristallklare Fernsicht durch trockene Luftmasse.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine ungewöhnlich milde Luftströmung ist direkt am Boden spürbar.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Blendwirkung der Sonne am weiten, offenen Horizont.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile und windstille Hochdrucklage bestimmt das Wetter.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rötlicher Sonnenuntergang durch Staubpartikelstreuung.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erneutes Überfrieren (Schwarzeis) in der Nacht.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 2,
+                            "minF": 27,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Warmer Fallwind (Föhncharakter) sorgt für Temperaturanstieg.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Starkes Hitzeflimmern ist direkt über dem aufgeheizten Boden sichtbar.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Ein makelloser, tiefblauer und wolkenloser Himmel.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Am Nachmittag werden extrem hohe Bodentemperaturen gemessen.",
+                        "temp": {
+                            "minC": 40,
+                            "maxC": 45,
+                            "minF": 104,
+                            "maxF": 113
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trockener Wind trocknet Feuchtigkeit sofort aus.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Intensität der direkten Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke nächtliche Ausstrahlung bringt rasche Abkühlung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feinstaub wird bei Bodenkontakt aufgewirbelt.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Hitzegewitter mit Virga (Regen verdunstet in der Luft).",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extreme Blendwirkung der Sonne durch Reflexion am Boden.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine drückende Windstille am Mittag führt zu massivem Hitzestau.",
+                        "temp": {
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Reflexion der Sonne auf mineralischen Krusten.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Massiver Hitzestau in den windgeschützten Lagen des Gebiets.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurzzeitiges Füllen von Senken durch Sturzflut möglich.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein funkelnder, sternenklarer Nachthimmel ohne Bewölkung.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Lichtbrechung verursacht Fata Morgana.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Ein böiger und unberechenbarer Wind durchweht die felsigen Lagen.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Luftmasse vollständig staubfrei und transparent.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive solare Einstrahlung sorgt für eine starke Thermikentwicklung.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erhöhte Ozonwerte werden in unmittelbarer Bodennähe gemessen.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die thermische Belastung am Gestein erreicht extreme Spitzenwerte.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 30,
+                            "minF": 77,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Maximale horizontale Sichtweite in der extrem klaren Luft.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Advektion eisiger Luftmassen kündigt Winter an.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sonneneinstrahlung hat nur noch geringe Wärmewirkung.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein außergewöhnlich strenger Nachtfrost hält die Landschaft im Griff.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein makelloser, tiefblauer und wolkenloser Himmel spannt sich auf.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Heftige Staubstürme fegen ungebremst über die weite Ebene.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Eine extrem trockene und schneidende Kälte dringt durch jede Kleidung.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Boden ist tiefgefroren, aber vollkommen schneefrei.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rötliche Lichtfärbung der Landschaft am Abend.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine windstille Inversionswetterlage sorgt für klare Schichtung.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trübes, kühles Tageswetter mit geschlossener Wolkendecke.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausgeprägte Reifbildung überzieht die Steine in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 1,
+                            "minF": 25,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Die Atmosphäre ist durch Trockenheit statisch stark aufgeladen.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der konstante Winddruck erzeugt fortlaufende Sandverwehungen.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem langer Schattenwurf durch tiefstehende Sonne.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzer, aber heftiger Graupelschauer geht über dem Gebiet nieder.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Einfluss einer bemerkenswert kühlen und klaren Luftmasse.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sternenklare Nacht bietet eine ausgezeichnete atmosphärische Sicht.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Windchill macht Aufenthalt im Freien ungemütlich.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzlicher Temperatursturz nach Sonnenuntergang.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 2,
+                            "minF": 27,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Kahlfrost (Barfrost) ohne isolierende Schneedecke.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein eisiger Sandsturm, versetzt mit scharfen Eiskörnern, fegt dahin.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Die gesamte Bodenoberfläche ist tiefgründig und granithart gefroren.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Helle Sonne strahlt vom Himmel, jedoch ohne nennenswerte Wärmeleistung.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verdunstung der Schneedecke (Sublimation) bei trockenem, kaltem Wind.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eisiger Wind verursacht Kälteschmerz auf ungeschützter Haut.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein wolkenloser und extrem kalter Himmel spannt sich über der Wüste.",
+                        "temp": {
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein feiner, staubiger Dunst trübt die untere Atmosphäre leicht ein.",
+                        "temp": {
+                            "minC": -14,
+                            "maxC": -10,
+                            "minF": 7,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starker Frost führt zu Spannungsrissen in Eis und Holz.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Herrschaft einer absoluten Windstille über der weiten Ebene.",
+                        "temp": {
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Markante Raureifbildung ist an den kalten Felswänden zu beobachten.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein grauer, bedeckter Himmel ohne jegliche Schneefallneigung.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile und windstille Inversionslage bestimmt den Wintertag.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die nächtliche Kälte erreicht ein lebensbedrohliches Niveau.",
+                        "temp": {
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feiner, salzhaltiger Staub liegt als Aerosol in der Luft.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Ein extrem hoher Windchill-Faktor verschärft die gefühlte Kälte drastisch.",
+                        "temp": {
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine zähe Inversionswetterlage hält den Staub am Boden gefangen.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein seltener Schneesturm färbt die Wüstenlandschaft kurzzeitig weiß.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Ein trübes, diffuses Licht herrscht durch die tiefstehende Wintersonne.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefährliche Glatteisbildung an lokalen Quellaustritten und Gewässern.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "wet_savanna": {
-        name: "Feuchtsavannenklimate (Wet Savanna)",
-        seasons: {
-            "spring": [
-                { text: "Es herrscht ein extremer Hitzestau in unmittelbarer Bodennähe.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Bildung erster Quellwolken kündigt Wetterwechsel an.", temp: "32 bis 36°C (90 to 97°F)", fx: "storm" },
-                { text: "Ein Trockengewitter mit extrem hoher, akuter Brandgefahr.", temp: "35 bis 39°C (95 to 102°F)", fx: "storm" },
-                { text: "Eine milchig-trübe Himmelsfärbung, verursacht durch Aerosole.", temp: "33 bis 37°C (91 to 99°F)", fx: "morning_mist" },
-                { text: "Ein heißer Wind wirbelt feine Aschepartikel in die Atmosphäre auf.", temp: "36 bis 40°C (97 to 104°F)", fx: "storm" },
-                { text: "Eine spürbar elektrisch geladene Atmosphäre kündigt Gewitter an.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Ein erster, kurzer Regenschauer verdunstet rasch auf dem heißen Boden.", temp: "30 bis 34°C (86 to 93°F)", fx: "rain" },
-                { text: "Kaum eine nennenswerte Abkühlung ist in den Nachtstunden messbar.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine drückend schwüle Luftmasse mit einem sehr hohen Taupunkt.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Sonnenstrahlung dringt intensiv durch den Dunst.", temp: "34 bis 38°C (93 to 100°F)", fx: "thick_fog" },
-                { text: "Starke thermische Entwicklung sorgt für Turbulenzen.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Ein anhaltender, sehr trockener Wind trocknet die Landschaft aus.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Bildung von rotierenden Staubteufeln (Dust Devils) direkt über dem Boden.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Ein dumpfes Donnergrollen ist aus weiter Distanz bereits wahrnehmbar.", temp: "32 bis 36°C (90 to 97°F)", fx: "storm" },
-                { text: "Eine drückende, feucht-warme und stehende Luftmasse liegt über dem Land.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Horizontlinie verschwimmt durch Hitzeflimmern.", temp: "36 bis 40°C (97 to 104°F)", fx: "heat_wave" },
-                { text: "Wasserstellen sind schlammig und nahezu ausgetrocknet.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Violetter Sonnenuntergang bei hoher Lufttrübung.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Eine hohe elektrische Spannung liegt förmlich knisternd in der Luft.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Plötzliche, heftige Windböen wirbeln dichten Staub und Sand auf.", temp: "32 bis 36°C (90 to 97°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Aufzug einer massiven Regenfront (Squall Line).", temp: "26 bis 30°C (79 to 86°F)", fx: "heavy_rain" },
-                { text: "Ein stundenlanger, warmer und gleichmäßiger Landregen fällt.", temp: "24 bis 28°C (75 to 82°F)", fx: "heavy_rain" },
-                { text: "Die gesamte Bodenoberfläche ist inzwischen vollständig wassergesättigt.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Dampfschwaden (Verdunstungsnebel) steigen auf.", temp: "25 bis 29°C (77 to 84°F)", fx: "rising_steam" },
-                { text: "Ein heftiges Gewitter entlädt sich, begleitet von starken Bodenwinden.", temp: "23 bis 27°C (73 to 81°F)", fx: "storm" },
-                { text: "Pfade sind überschwemmt und schwer passierbar.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Die relative Luftfeuchtigkeit erreicht extrem hohe Sättigungswerte.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Die hohe Niederschlagsintensität erzeugt einen lauten Rauschpegel.", temp: "25 bis 29°C (77 to 84°F)", fx: "heavy_rain" },
-                { text: "Sonnenschein im Wechsel mit heftigen Schauern.", temp: "28 bis 32°C (82 to 90°F)", fx: "rain" },
-                { text: "Die anschwellenden Flüsse treten an vielen Stellen über die Ufer.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Regenbogenerscheinung hält fast ganztägig an.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Bildung von stehendem Oberflächenwasser in allen Senken und Mulden.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine extrem hohe Luftfeuchtigkeit staut sich über den Sumpfflächen.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Gefährliche Blitzeinschläge treffen bevorzugt exponierte Lagen.", temp: "23 bis 27°C (73 to 81°F)", fx: "storm" },
-                { text: "Eine feucht-warme und instabile Luftmasse dominiert das Wettergeschehen.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Dunkle Wolkendecke reduziert das Tageslicht stark.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Ein warmer, böiger Wind treibt die dunkle Regenfront vor sich her.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Der feucht-warme Boden dünstet nach dem Regen intensiv aus.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Ein anhaltender und ergiebiger Starkregen fällt ohne Unterbrechung.", temp: "23 bis 27°C (73 to 81°F)", fx: "heavy_rain" },
-                { text: "Es herrschen tropisch warme und drückende Nachtbedingungen.", temp: "22 bis 25°C (72 to 77°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Windrichtung wechselt; Trockenperiode beginnt.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Der Himmel klart vollständig auf und zeigt ein tiefes, sattes Blau.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Die letzten Reste von Regenschauern gehen in den Abendstunden nieder.", temp: "27 bis 31°C (81 to 88°F)", fx: "storm" },
-                { text: "Dichter Morgennebel liegt schwer über den feuchten Niederungen.", temp: "22 bis 26°C (72 to 79°F)", fx: "thick_fog" },
-                { text: "Eine anhaltende und intensive Sonneneinstrahlung prägt den Tag.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Ein angenehm mildes Temperaturniveau hält sich im Tagesverlauf.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Sichtweite durch Wind und Schwebeteilchen leicht getrübt.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Erste kleine Staubwolken steigen lokal durch die Thermik auf.", temp: "27 bis 31°C (81 to 88°F)", fx: "sandstorm" },
-                { text: "Ein sanfter, stetiger Wind mildert die hohen Temperaturen etwas ab.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Weiße und harmlose Cumuluswolken ziehen langsam am Himmel.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Ein wunderbar sonniges und klares Spätnachmittagswetter.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Die relative Luftfeuchtigkeit sinkt im Tagesverlauf spürbar ab.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Eine deutliche meteorologische Abkühlung setzt in den Nachtstunden ein.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Starkes Hitzeflimmern über den offenen Wasserflächen.", temp: "32 bis 36°C (90 to 97°F)", fx: "heat_wave" },
-                { text: "Ein lautloses Wetterleuchten ist in der weiten Ferne sichtbar.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Hohe Cirruswolken (Federwolken) kündigen einen Wetterwechsel an.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Ein starker Wind in der Höhe treibt die Wolken rasch voran.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Eine absolut windstille Lage herrscht den gesamten Tag über vor.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Die Festigkeit des Bodens nimmt durch die Trocknung wieder zu.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Eine sehr stabile und ruhige Wetterlage herrscht im gesamten Waldgebiet vor.", temp: "28 bis 32°C (82 to 90°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Der trockene Passatwind Harmattan bringt viel Staub mit sich.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Extrem hohe Waldbrandgefahr (Warnstufe 4 bis 5) im gesamten Gebiet.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Wolkenlose, sternenklare und kühle Nachtphase.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Deutliche Sichtbehinderung durch Rauch von entfernten Feuern.", temp: "27 bis 31°C (81 to 88°F)", fx: "thick_fog" },
-                { text: "Wolkenloser Himmel spannt sich über das Land.", temp: "28 bis 32°C (82 to 90°F)", fx: "thick_fog" },
-                { text: "Vollständige Austrocknung von Oberflächengewässern.", temp: "29 bis 33°C (84 to 91°F)", fx: "snow" },
-                { text: "Hochstehende Sonne ohne stechende Intensität.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Staubiger Dunst färbt den Sonnenuntergang rot.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Der Wind sorgt für Verwehung von trockenem Pflanzenmaterial.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Hoher Waldbrandindex durch Trockenheit und Wind.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Ein frischer und kühler Morgenwind weht über das Land.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Die horizontale Sichtweite ist durch feinen Dunst leicht getrübt.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Bildung von trockenheitsbedingten Bodenrissen.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Ein trockener und zeitweise böiger Wind wirbelt Staub auf.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Es herrschen sehr staubige und extrem trockene Umweltbedingungen.", temp: "26 bis 30°C (79 to 86°F)", fx: "thick_fog" },
-                { text: "Der blasse Mondschein wird durch den Staubdunst stark getrübt.", temp: "14 bis 18°C (57 to 64°F)", fx: "thick_fog" },
-                { text: "Kleine Windwirbel fegen immer wieder über die trockene Ebene.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Deutliche und signifikante Ablagerung von Staubschichten auf sämtlichen Oberflächen.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Vollkommene Windstille in der Trockenlandschaft.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Niederschlagsfreier Tag bei moderaten Temperaturen.", temp: "25 bis 29°C (77 to 84°F)", fx: null }
-            ]
+        "data": {
+            "name": "Feuchtsavannenklimate (Wet Savanna)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Es herrscht ein extremer Hitzestau in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung erster Quellwolken kündigt Wetterwechsel an.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Ein Trockengewitter mit extrem hoher, akuter Brandgefahr.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine milchig-trübe Himmelsfärbung, verursacht durch Aerosole.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": [
+                            "morning_mist"
+                        ]
+                    },
+                    {
+                        "text": "Ein heißer Wind wirbelt feine Aschepartikel in die Atmosphäre auf.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine spürbar elektrisch geladene Atmosphäre kündigt Gewitter an.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein erster, kurzer Regenschauer verdunstet rasch auf dem heißen Boden.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Kaum eine nennenswerte Abkühlung ist in den Nachtstunden messbar.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine drückend schwüle Luftmasse mit einem sehr hohen Taupunkt.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sonnenstrahlung dringt intensiv durch den Dunst.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Starke thermische Entwicklung sorgt für Turbulenzen.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltender, sehr trockener Wind trocknet die Landschaft aus.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung von rotierenden Staubteufeln (Dust Devils) direkt über dem Boden.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dumpfes Donnergrollen ist aus weiter Distanz bereits wahrnehmbar.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine drückende, feucht-warme und stehende Luftmasse liegt über dem Land.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Horizontlinie verschwimmt durch Hitzeflimmern.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Wasserstellen sind schlammig und nahezu ausgetrocknet.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Violetter Sonnenuntergang bei hoher Lufttrübung.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine hohe elektrische Spannung liegt förmlich knisternd in der Luft.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzliche, heftige Windböen wirbeln dichten Staub und Sand auf.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Aufzug einer massiven Regenfront (Squall Line).",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein stundenlanger, warmer und gleichmäßiger Landregen fällt.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Die gesamte Bodenoberfläche ist inzwischen vollständig wassergesättigt.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dampfschwaden (Verdunstungsnebel) steigen auf.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rising_steam"
+                        ]
+                    },
+                    {
+                        "text": "Ein heftiges Gewitter entlädt sich, begleitet von starken Bodenwinden.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Pfade sind überschwemmt und schwer passierbar.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Die relative Luftfeuchtigkeit erreicht extrem hohe Sättigungswerte.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die hohe Niederschlagsintensität erzeugt einen lauten Rauschpegel.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Sonnenschein im Wechsel mit heftigen Schauern.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Die anschwellenden Flüsse treten an vielen Stellen über die Ufer.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Regenbogenerscheinung hält fast ganztägig an.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Bildung von stehendem Oberflächenwasser in allen Senken und Mulden.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine extrem hohe Luftfeuchtigkeit staut sich über den Sumpfflächen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefährliche Blitzeinschläge treffen bevorzugt exponierte Lagen.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine feucht-warme und instabile Luftmasse dominiert das Wettergeschehen.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dunkle Wolkendecke reduziert das Tageslicht stark.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein warmer, böiger Wind treibt die dunkle Regenfront vor sich her.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der feucht-warme Boden dünstet nach dem Regen intensiv aus.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltender und ergiebiger Starkregen fällt ohne Unterbrechung.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Es herrschen tropisch warme und drückende Nachtbedingungen.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 25,
+                            "minF": 72,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Windrichtung wechselt; Trockenperiode beginnt.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Himmel klart vollständig auf und zeigt ein tiefes, sattes Blau.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die letzten Reste von Regenschauern gehen in den Abendstunden nieder.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Dichter Morgennebel liegt schwer über den feuchten Niederungen.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine anhaltende und intensive Sonneneinstrahlung prägt den Tag.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein angenehm mildes Temperaturniveau hält sich im Tagesverlauf.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sichtweite durch Wind und Schwebeteilchen leicht getrübt.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erste kleine Staubwolken steigen lokal durch die Thermik auf.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Ein sanfter, stetiger Wind mildert die hohen Temperaturen etwas ab.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Weiße und harmlose Cumuluswolken ziehen langsam am Himmel.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein wunderbar sonniges und klares Spätnachmittagswetter.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die relative Luftfeuchtigkeit sinkt im Tagesverlauf spürbar ab.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine deutliche meteorologische Abkühlung setzt in den Nachtstunden ein.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starkes Hitzeflimmern über den offenen Wasserflächen.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Ein lautloses Wetterleuchten ist in der weiten Ferne sichtbar.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Cirruswolken (Federwolken) kündigen einen Wetterwechsel an.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein starker Wind in der Höhe treibt die Wolken rasch voran.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine absolut windstille Lage herrscht den gesamten Tag über vor.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Festigkeit des Bodens nimmt durch die Trocknung wieder zu.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sehr stabile und ruhige Wetterlage herrscht im gesamten Waldgebiet vor.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Der trockene Passatwind Harmattan bringt viel Staub mit sich.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Extrem hohe Waldbrandgefahr (Warnstufe 4 bis 5) im gesamten Gebiet.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenlose, sternenklare und kühle Nachtphase.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Deutliche Sichtbehinderung durch Rauch von entfernten Feuern.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Wolkenloser Himmel spannt sich über das Land.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Vollständige Austrocknung von Oberflächengewässern.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Hochstehende Sonne ohne stechende Intensität.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Staubiger Dunst färbt den Sonnenuntergang rot.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der Wind sorgt für Verwehung von trockenem Pflanzenmaterial.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hoher Waldbrandindex durch Trockenheit und Wind.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein frischer und kühler Morgenwind weht über das Land.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die horizontale Sichtweite ist durch feinen Dunst leicht getrübt.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Bildung von trockenheitsbedingten Bodenrissen.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein trockener und zeitweise böiger Wind wirbelt Staub auf.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrschen sehr staubige und extrem trockene Umweltbedingungen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Der blasse Mondschein wird durch den Staubdunst stark getrübt.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Kleine Windwirbel fegen immer wieder über die trockene Ebene.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Deutliche und signifikante Ablagerung von Staubschichten auf sämtlichen Oberflächen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommene Windstille in der Trockenlandschaft.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Niederschlagsfreier Tag bei moderaten Temperaturen.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
-    "mixed_forest": {
-        name: "Mischwaldklimate (Mixed Forest)",
-        seasons: {
-            "spring": [
-                { text: "Rückseitenwetter mit Schauern und Aufheiterungen.", temp: "8 bis 12°C (46 to 54°F)", fx: "rain" },
-                { text: "Anhaltender stratiformer Niederschlag (Landregen).", temp: "10 bis 13°C (50 to 55°F)", fx: "rain" },
-                { text: "Sonnenschein bricht zeitweise durch die Wolkendecke.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Ausbildung von dichten Nebelfeldern in unmittelbarer Bodennähe.", temp: "4 bis 8°C (39 to 46°F)", fx: "thick_fog" },
-                { text: "Spürbarer kühler Wind aus nördlicher Richtung.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Eine rasche solare Erwärmung setzt direkt nach Sonnenaufgang ein.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Kurzer Graupelschauer in den Nachmittagsstunden.", temp: "3 bis 7°C (37 to 45°F)", fx: "hail" },
-                { text: "Eine für die Jahreszeit ungewöhnlich milde und sonnige Witterung.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Die Flusspegel steigen durch die einsetzende Schneeschmelze an.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Es wehen stürmische Winde, durchsetzt mit ruppigen Böen.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Es besteht eine verbreitete Gefahr von Bodenfrost in der klaren Nacht.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Intensive Taubildung benetzt die gesamte Vegetation.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Minütlich wechselnde und unbeständige Bewölkungsverhältnisse.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Erstes schwaches Gewittergrollen in der Ferne.", temp: "13 bis 17°C (55 to 63°F)", fx: "storm" },
-                { text: "Frische und klare Luftmassen strömen aus Norden in das Gebiet ein.", temp: "11 bis 14°C (52 to 57°F)", fx: null },
-                { text: "Graue und regnerische Wetterlage bestimmt den Tag.", temp: "8 bis 11°C (46 to 52°F)", fx: "rain" },
-                { text: "Eine plötzliche Aufheiterung sorgt für rasche solare Erwärmung.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Imposante Regenbogenbildung nach dem Abzug der Regenschauer.", temp: "12 bis 15°C (54 to 59°F)", fx: "rain" },
-                { text: "Es herrscht eine mäßige Windgeschwindigkeit ohne starke Böen.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Der Waldboden ist tiefgründig aufgeweicht und sehr matschig.", temp: "9 bis 12°C (48 to 54°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Intensive Sonneneinstrahlung bei wolkenlosem Himmel.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Aufzug eines Hitzegewitters am späten Nachmittag.", temp: "28 bis 32°C (82 to 90°F)", fx: "storm" },
-                { text: "Drückend schwüle Luftmasse (hohe Luftfeuchtigkeit).", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Tropische Sommernacht mit nur geringer Abkühlung.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Eine sehr stabile Hochdrucklage sorgt für anhaltend große Hitze.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Ein warmer Landregen bringt nur wenig spürbare Abkühlung.", temp: "22 bis 25°C (72 to 77°F)", fx: "rain" },
-                { text: "Ein wunderschöner, leichter Dunstschleier liegt am frühen Morgen.", temp: "16 bis 19°C (61 to 66°F)", fx: "morning_mist" },
-                { text: "Gesundheitsgefährdend hohe Ozonkonzentration.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Ausgeprägte Trockenheit mit hoher Waldbrandgefahr.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Schwerer Hagelschlag tritt lokal begrenzt in Gewitternähe auf.", temp: "20 bis 24°C (68 to 75°F)", fx: "hail" },
-                { text: "Vollkommene Windstille verstärkt die flirrende Sommerhitze.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Mächtige Cumuluswolken türmen sich am Nachmittag am Himmel auf.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Erfrischender Wind aus nordwestlicher Richtung.", temp: "20 bis 23°C (68 to 73°F)", fx: null },
-                { text: "Vollständige abendliche Aufklarung des Himmels.", temp: "21 bis 25°C (70 to 77°F)", fx: null },
-                { text: "Amtliche Warnung vor einem extrem hohen UV-Index zur Mittagszeit.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Vollkommene Windstille während der Dämmerung.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Kurzer aber heftiger Platzregen (Starkregen).", temp: "23 bis 27°C (73 to 81°F)", fx: "heavy_rain" },
-                { text: "Starkes Hitzeflimmern ist über allen freien Flächen sichtbar.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Ein sanfter Sommerwind weht durch die Blätter.", temp: "24 bis 27°C (75 to 81°F)", fx: null },
-                { text: "Vollkommen wolkenlose Nacht mit freiem Blick auf die Sterne.", temp: "15 bis 19°C (59 to 66°F)", fx: "fireflies" }
-            ],
-            "autumn": [
-                { text: "Dominanz einer stabilen herbstlichen Hochdrucklage.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Es ist eine offizielle Sturmwarnung für schwere Sturmböen aktiv.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Anhaltender Dauerregen fällt mit gleichbleibender Intensität.", temp: "8 bis 11°C (46 to 52°F)", fx: "rain" },
-                { text: "Zäher, dichter Nebel hält sich hartnäckig bis in den Mittag.", temp: "5 bis 9°C (41 to 48°F)", fx: "thick_fog" },
-                { text: "Kräftige Windböen treiben buntes Laub durch die kühle Luft.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Ein nasskaltes und ungemütliches Witterungsbild bestimmt den Tag.", temp: "6 bis 9°C (43 to 48°F)", fx: "rain" },
-                { text: "Eine stabile Hochdrucklage sorgt für schönen Altweibersommer.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Auftreten des ersten Nachtfrostes der Saison.", temp: "0 bis 4°C (32 to 39°F)", fx: "snow" },
-                { text: "Graue Hochnebeldecke lässt kein Sonnenlicht durch.", temp: "7 bis 10°C (45 to 50°F)", fx: "thick_fog" },
-                { text: "Intensive Ausdünstungen (Biogene Emissionen) aus dem Waldboden.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Ein heftiger Herbststurm peitscht den Regen horizontal über das Land.", temp: "8 bis 12°C (46 to 54°F)", fx: "storm" },
-                { text: "Die tiefstehende Sonne verursacht eine starke Blendwirkung.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Leichte Raureifbildung ist am frühen Morgen zu beobachten.", temp: "-1 bis 3°C (30 to 37°F)", fx: "snow" },
-                { text: "Schnell ziehende Wolkenfetzen (Fractus) am grauen Himmel.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "In der Nacht herrscht vollkommene, fast unheimliche Windstille.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Ein kalter Regenschauer tritt plötzlich und überraschend auf.", temp: "6 bis 9°C (43 to 48°F)", fx: "rain" },
-                { text: "Rückseitenwetterlage mit exzellenter Fernsicht.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Ein stetiger, frischer Wind weht aus nördlicher Richtung.", temp: "8 bis 11°C (46 to 52°F)", fx: null },
-                { text: "Typisches Matschwetter; der Boden ist völlig aufgeweicht.", temp: "5 bis 8°C (41 to 46°F)", fx: "rain" },
-                { text: "Einsetzen von erstem, nassen Schneeregenfall.", temp: "1 bis 4°C (34 to 39°F)", fx: "hail" }
-            ],
-            "winter": [
-                { text: "Bemerkenswerte akustische Dämpfung der Umgebung durch die Schneedecke.", temp: "-4 bis -1°C (25 to 30°F)", fx: "snow" },
-                { text: "Klares, trockenes Frostwetter mit viel hellem Sonnenschein.", temp: "-6 bis -2°C (21 to 28°F)", fx: null },
-                { text: "Gefährlicher Eisregen (Blitzeis) bildet sich sofort am Boden.", temp: "-1 bis 1°C (30 to 34°F)", fx: "rain" },
-                { text: "Neu einsetzender Schneefall aus grauer Wolkendecke.", temp: "-3 bis 0°C (27 to 32°F)", fx: "snow" },
-                { text: "Ein bitterkalter Ostwind weht heute unerbittlich über das Land.", temp: "-10 bis -6°C (14 to 21°F)", fx: null },
-                { text: "Das einsetzende Tauwetter führt überall zu tiefem Matsch.", temp: "2 bis 6°C (36 to 43°F)", fx: "rain" },
-                { text: "Gefahr von Astbruch durch hohe Schneelast auf der Vegetation.", temp: "-2 bis 1°C (28 to 34°F)", fx: null },
-                { text: "Dichter, gefrierender Nebel überzieht alles mit Raureif.", temp: "-5 bis -3°C (23 to 27°F)", fx: "thick_fog" },
-                { text: "Ein dichtes Schneegestöber verursacht ein komplettes Whiteout.", temp: "-4 bis -1°C (25 to 30°F)", fx: "snow" },
-                { text: "Gefährliches Schwarzeis bildet sich auf Wegen und Straßen.", temp: "-2 bis 0°C (28 to 32°F)", fx: "rain" },
-                { text: "Starker Frost verursacht sofortige Kondensation der Atemluft.", temp: "-7 bis -4°C (19 to 25°F)", fx: null },
-                { text: "Ein stürmischer Wind erreicht heute schwere Orkanböen.", temp: "-3 bis 1°C (27 to 34°F)", fx: "storm" },
-                { text: "Die schwache Wintersonne scheint ohne nennenswerte Wärmewirkung.", temp: "-8 bis -5°C (18 to 23°F)", fx: null },
-                { text: "Markante Eiszapfenbildung an allen vorstehenden Kanten.", temp: "-5 bis -2°C (23 to 28°F)", fx: null },
-                { text: "Eine sternenklare Winternacht mit anhaltendem, strengem Frost.", temp: "-12 bis -8°C (10 to 18°F)", fx: null },
-                { text: "Verschmutzter und vereister Altschnee entlang der Wege.", temp: "1 bis 4°C (34 to 39°F)", fx: null },
-                { text: "Zäher und dauerhafter Hochnebel ohne Sichtbehinderung am Boden.", temp: "-4 bis -1°C (25 to 30°F)", fx: null },
-                { text: "Starke Schneeverwehungen durch anhaltenden Wind.", temp: "-6 bis -3°C (21 to 27°F)", fx: "snow" },
-                { text: "Ein kurzer, aber intensiver Graupelschauer zieht durch.", temp: "0 bis 3°C (32 to 37°F)", fx: "hail" },
-                { text: "Vollständiges Zufrieren von stehenden Gewässern.", temp: "-10 bis -5°C (14 to 23°F)", fx: null }
-            ]
+    "humid_continental": {
+        "data": {
+            "name": "Mischwaldklimate (Mixed Forest)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Rückseitenwetter mit Schauern und Aufheiterungen.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Anhaltender stratiformer Niederschlag (Landregen).",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 13,
+                            "minF": 50,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Sonnenschein bricht zeitweise durch die Wolkendecke.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausbildung von dichten Nebelfeldern in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Spürbarer kühler Wind aus nördlicher Richtung.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine rasche solare Erwärmung setzt direkt nach Sonnenaufgang ein.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurzer Graupelschauer in den Nachmittagsstunden.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Eine für die Jahreszeit ungewöhnlich milde und sonnige Witterung.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Flusspegel steigen durch die einsetzende Schneeschmelze an.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 12,
+                            "minF": 48,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es wehen stürmische Winde, durchsetzt mit ruppigen Böen.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es besteht eine verbreitete Gefahr von Bodenfrost in der klaren Nacht.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Taubildung benetzt die gesamte Vegetation.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Minütlich wechselnde und unbeständige Bewölkungsverhältnisse.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erstes schwaches Gewittergrollen in der Ferne.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Frische und klare Luftmassen strömen aus Norden in das Gebiet ein.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 14,
+                            "minF": 52,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Graue und regnerische Wetterlage bestimmt den Tag.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine plötzliche Aufheiterung sorgt für rasche solare Erwärmung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Imposante Regenbogenbildung nach dem Abzug der Regenschauer.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 15,
+                            "minF": 54,
+                            "maxF": 59
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht eine mäßige Windgeschwindigkeit ohne starke Böen.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Waldboden ist tiefgründig aufgeweicht und sehr matschig.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 12,
+                            "minF": 48,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Intensive Sonneneinstrahlung bei wolkenlosem Himmel.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufzug eines Hitzegewitters am späten Nachmittag.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Drückend schwüle Luftmasse (hohe Luftfeuchtigkeit).",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tropische Sommernacht mit nur geringer Abkühlung.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sehr stabile Hochdrucklage sorgt für anhaltend große Hitze.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein warmer Landregen bringt nur wenig spürbare Abkühlung.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 25,
+                            "minF": 72,
+                            "maxF": 77
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein wunderschöner, leichter Dunstschleier liegt am frühen Morgen.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 19,
+                            "minF": 61,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "morning_mist"
+                        ]
+                    },
+                    {
+                        "text": "Gesundheitsgefährdend hohe Ozonkonzentration.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausgeprägte Trockenheit mit hoher Waldbrandgefahr.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schwerer Hagelschlag tritt lokal begrenzt in Gewitternähe auf.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Vollkommene Windstille verstärkt die flirrende Sommerhitze.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Mächtige Cumuluswolken türmen sich am Nachmittag am Himmel auf.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erfrischender Wind aus nordwestlicher Richtung.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 23,
+                            "minF": 68,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollständige abendliche Aufklarung des Himmels.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Amtliche Warnung vor einem extrem hohen UV-Index zur Mittagszeit.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommene Windstille während der Dämmerung.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kurzer aber heftiger Platzregen (Starkregen).",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Starkes Hitzeflimmern ist über allen freien Flächen sichtbar.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein sanfter Sommerwind weht durch die Blätter.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 27,
+                            "minF": 75,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommen wolkenlose Nacht mit freiem Blick auf die Sterne.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "fireflies"
+                        ]
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Dominanz einer stabilen herbstlichen Hochdrucklage.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es ist eine offizielle Sturmwarnung für schwere Sturmböen aktiv.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Anhaltender Dauerregen fällt mit gleichbleibender Intensität.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Zäher, dichter Nebel hält sich hartnäckig bis in den Mittag.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Kräftige Windböen treiben buntes Laub durch die kühle Luft.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein nasskaltes und ungemütliches Witterungsbild bestimmt den Tag.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine stabile Hochdrucklage sorgt für schönen Altweibersommer.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Auftreten des ersten Nachtfrostes der Saison.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Graue Hochnebeldecke lässt kein Sonnenlicht durch.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 10,
+                            "minF": 45,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Ausdünstungen (Biogene Emissionen) aus dem Waldboden.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 12,
+                            "minF": 48,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein heftiger Herbststurm peitscht den Regen horizontal über das Land.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Die tiefstehende Sonne verursacht eine starke Blendwirkung.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 13,
+                            "minF": 50,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Leichte Raureifbildung ist am frühen Morgen zu beobachten.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Schnell ziehende Wolkenfetzen (Fractus) am grauen Himmel.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "In der Nacht herrscht vollkommene, fast unheimliche Windstille.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kalter Regenschauer tritt plötzlich und überraschend auf.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Rückseitenwetterlage mit exzellenter Fernsicht.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein stetiger, frischer Wind weht aus nördlicher Richtung.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Typisches Matschwetter; der Boden ist völlig aufgeweicht.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 8,
+                            "minF": 41,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Einsetzen von erstem, nassen Schneeregenfall.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Bemerkenswerte akustische Dämpfung der Umgebung durch die Schneedecke.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Klares, trockenes Frostwetter mit viel hellem Sonnenschein.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefährlicher Eisregen (Blitzeis) bildet sich sofort am Boden.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 1,
+                            "minF": 30,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Neu einsetzender Schneefall aus grauer Wolkendecke.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein bitterkalter Ostwind weht heute unerbittlich über das Land.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Das einsetzende Tauwetter führt überall zu tiefem Matsch.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Gefahr von Astbruch durch hohe Schneelast auf der Vegetation.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 1,
+                            "minF": 28,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter, gefrierender Nebel überzieht alles mit Raureif.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -3,
+                            "minF": 23,
+                            "maxF": 27
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein dichtes Schneegestöber verursacht ein komplettes Whiteout.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Gefährliches Schwarzeis bildet sich auf Wegen und Straßen.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 0,
+                            "minF": 28,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Starker Frost verursacht sofortige Kondensation der Atemluft.",
+                        "temp": {
+                            "minC": -7,
+                            "maxC": -4,
+                            "minF": 19,
+                            "maxF": 25
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein stürmischer Wind erreicht heute schwere Orkanböen.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Die schwache Wintersonne scheint ohne nennenswerte Wärmewirkung.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -5,
+                            "minF": 18,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Markante Eiszapfenbildung an allen vorstehenden Kanten.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -2,
+                            "minF": 23,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sternenklare Winternacht mit anhaltendem, strengem Frost.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verschmutzter und vereister Altschnee entlang der Wege.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Zäher und dauerhafter Hochnebel ohne Sichtbehinderung am Boden.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Schneeverwehungen durch anhaltenden Wind.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -3,
+                            "minF": 21,
+                            "maxF": 27
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein kurzer, aber intensiver Graupelschauer zieht durch.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 3,
+                            "minF": 32,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Vollständiges Zufrieren von stehenden Gewässern.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "hot_desert": {
-        name: "Heiße Trockenklimate (Hot Desert)",
-        seasons: {
-            "spring": [
-                { text: "Schwerer Sandsturm mit massiver Sichtbehinderung.", temp: "25 bis 30°C (77 to 86°F)", fx: "thick_fog" },
-                { text: "Anhaltender Khamsin-Wind aus südlicher Richtung.", temp: "30 bis 35°C (86 to 95°F)", fx: null },
-                { text: "Trübung der Atmosphäre durch hohe Staubkonzentration.", temp: "28 bis 32°C (82 to 90°F)", fx: "sandstorm" },
-                { text: "Eine sehr hohe Temperaturamplitude ist im Tagesverlauf messbar.", temp: "15 bis 30°C (59 to 86°F)", fx: null },
-                { text: "Wolkenloser Himmel bei hoher atmosphärischer Transparenz.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Verlagerung von Dünen durch anhaltenden Winddruck.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Es werden heute extrem hohe Globalstrahlungswerte gemessen.", temp: "32 bis 36°C (90 to 97°F)", fx: null },
-                { text: "Luftmasse mit extrem geringer relativer Feuchte.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Starke Abkühlung in den frühen Morgenstunden.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Eine bedenklich hohe Feinstaubbelastung liegt in der Luft.", temp: "28 bis 32°C (82 to 90°F)", fx: "sandstorm" },
-                { text: "Virga-Phänomen: Niederschlag verdunstet vor Bodenkontakt.", temp: "31 bis 35°C (88 to 95°F)", fx: "rain" },
-                { text: "Thermische Spannungen im Gestein durch Aufheizung.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Böige Winde wehen heute mit ständig wechselnder Richtung.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Stark reduzierte Sichtweite durch dichten Staubnebel.", temp: "26 bis 30°C (79 to 86°F)", fx: "thick_fog" },
-                { text: "Intensive Wärmeabstrahlung steigt flirrend vom Boden auf.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Es herrscht eine hohe elektrostatische Aufladung der trockenen Luft.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Ein dichter Dunstschleier liegt über dem weiten Horizont.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Verstärkte Windkanal-Effekte treten in den Canyons auf.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Abflauen der Windaktivität nach Sonnenuntergang.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Leichter Dunst trübt die Fernsicht in der Nacht.", temp: "18 bis 22°C (64 to 72°F)", fx: "thick_fog" }
-            ],
-            "summer": [
-                { text: "Die Lufttemperatur erreicht heute absolute Extremwerte.", temp: "45 bis 50°C (113 to 122°F)", fx: "heat_wave" },
-                { text: "Die Oberflächentemperatur erreicht heute ihre Maxima.", temp: "50 bis 55°C (122 to 131°F)", fx: "heat_wave" },
-                { text: "Starke terrestrische Refraktion (Luftflimmern).", temp: "46 bis 51°C (115 to 124°F)", fx: "heat_wave" },
-                { text: "Maximale Sonneneinstrahlung durch den Zenitstand der Sonne.", temp: "44 bis 48°C (111 to 118°F)", fx: null },
-                { text: "Ein extrem austrocknender, heißer Föhnwind weht.", temp: "43 bis 47°C (109 to 117°F)", fx: null },
-                { text: "Ein tiefblauer, absolut wolkenloser Himmel spannt sich auf.", temp: "45 bis 49°C (113 to 120°F)", fx: null },
-                { text: "Ein extremer Hitzestau bildet sich in unmittelbarer Bodennähe.", temp: "47 bis 52°C (117 to 126°F)", fx: "heat_wave" },
-                { text: "Starke und flimmernde Luftspiegelungen (Fata Morgana) am Horizont.", temp: "42 bis 46°C (108 to 115°F)", fx: "heat_wave" },
-                { text: "Es entsteht eine starke, aufsteigende konvektive Warmluftströmung.", temp: "44 bis 49°C (111 to 120°F)", fx: "heat_wave" },
-                { text: "Starke thermische Belastung von Gesteinsoberflächen.", temp: "48 bis 53°C (118 to 127°F)", fx: null },
-                { text: "Eine nur sehr geringe nächtliche Ausstrahlungswärme hält die Temperaturen hoch.", temp: "30 bis 35°C (86 to 95°F)", fx: null },
-                { text: "Lokale Bildung von rotierenden Staubteufeln (Dust Devils).", temp: "43 bis 47°C (109 to 117°F)", fx: null },
-                { text: "Hohe Intensität der direkten Sonneneinstrahlung.", temp: "45 bis 50°C (113 to 122°F)", fx: "heat_wave" },
-                { text: "Vollkommene Windstille unter einem stabilen, hitzeintensiven Hochdruckeinfluss.", temp: "46 bis 51°C (115 to 124°F)", fx: null },
-                { text: "Sofortige und rückstandslose Verdunstung von jeglichem Oberflächenwasser.", temp: "44 bis 48°C (111 to 118°F)", fx: null },
-                { text: "Intensive Wärmespeicherung in den geschützten topographischen Senken.", temp: "38 bis 42°C (100 to 108°F)", fx: "heat_wave" },
-                { text: "Eine extrem hohe Albedo (Rückstrahlung) verursacht durch weiße Salzkristalle.", temp: "42 bis 46°C (108 to 115°F)", fx: null },
-                { text: "Ein gefährliches Trockengewitter entlädt sich ohne jeglichen Niederschlag.", temp: "40 bis 45°C (104 to 113°F)", fx: null },
-                { text: "Verschwimmen des Horizonts durch Hitzeflimmern.", temp: "43 bis 48°C (109 to 118°F)", fx: "heat_wave" },
-                { text: "Eine kurze Dämmerungsphase ganz ohne jegliche Wolkenbildung.", temp: "35 bis 40°C (95 to 104°F)", fx: "heat_wave" }
-            ],
-            "autumn": [
-                { text: "Eine außergewöhnlich hohe atmosphärische Transparenz herrscht vor.", temp: "25 bis 30°C (77 to 86°F)", fx: null },
-                { text: "Moderate Temperaturen bei geringer Windgeschwindigkeit.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "In der Nacht tritt eine spürbare und starke Radiationskälte auf.", temp: "10 bis 15°C (50 to 59°F)", fx: "sandstorm" },
-                { text: "Ein völlig wolkenloser Himmel unter Einfluss von hohem Luftdruck.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Extrem hoher Kontrast der dunklen Schattenwürfe am Boden.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Nur eine sehr schwache Luftbewegung ist direkt über den Dünenkämmen spürbar.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Es herrschen besonders kühle und frische Morgenstunden.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Klares, goldenes Sonnenlicht bei sehr tiefem Sonnenstand.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Vollkommen klare und staubfreie Sichtbedingungen in der Weite.", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Ein starkes und klares Sternflimmern in der ruhigen Luft.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Eine intensive Albedo (Reflexion) der hellen Gesteinsflächen.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Die stabile Wetterlage begünstigt jegliche Mobilität im Gelände.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine längere Phase von absoluter Windstille tritt ein.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Intensive solare Insolation heizt das Felsgestein stark auf.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Ausgezeichnete Sichtverhältnisse herrschen in der klaren Nacht.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Ein leichter, stetiger Windzug verfrachtet feine Sandkörner über den Boden.", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Außergewöhnliche Fernsicht dank staubfreier Luft.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Pünktliches Einsetzen des kühlenden katabatischen Windes am Abend.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Lokale Sandverwehungen bilden sich an den Kämmen der Wanderdünen.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Ausgezeichnete Fernsicht bei klarer Nachtatmosphäre.", temp: "9 bis 13°C (48 to 55°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Sichtbare Bildung von Bodenfrost in den frühen Morgenstunden.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Strahlender Sonnenschein bei ungewöhnlich kühlen Lufttemperaturen.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Eine extrem starke nächtliche Abkühlung (Radiationskälte).", temp: "0 bis 4°C (32 to 39°F)", fx: null },
-                { text: "Ein schneidend kalter Windchill-Effekt verschärft die Kälte.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Trübe, blassblaue Himmelsfärbung durch feinen Staubdunst.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Intensive Insolation erwärmt die Gesteinsoberflächen stark.", temp: "17 bis 21°C (63 to 70°F)", fx: null },
-                { text: "Hohe, vereinzelte Cirrus-Bewölkung am Firmament.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Rapider Temperaturabfall nach Sonnenuntergang.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Weitflächige Reifbildung in den kalten Morgenstunden.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Extrem niedrige, wüstenhafte Luftfeuchtigkeit.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Tiefe Schattenwürfe durch niedrigen Sonnenstand.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Kalter Sandsturm bei vorherrschender Nordströmung.", temp: "12 bis 16°C (54 to 61°F)", fx: "sandstorm" },
-                { text: "Extrem geringe Wärmespeicherung im ausgekühlten Boden.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Eine kurzzeitige, glitzernde Reifreflexion ist direkt bei Sonnenaufgang sichtbar.", temp: "-1 bis 3°C (30 to 37°F)", fx: null },
-                { text: "Tiefgefrorener und extrem frostharter Untergrund.", temp: "17 bis 21°C (63 to 70°F)", fx: null },
-                { text: "Starke Aufwirbelung von kaltem Staub durch heftige Windböen.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Aufziehende Bewölkung zeigt eine frontale atmosphärische Störung an.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Auffällig verkürzte Dämmerungsphase in den Abendstunden.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "In der wolkenlosen Nacht herrscht hohe Radiationskälte.", temp: "0 bis 5°C (32 to 41°F)", fx: null },
-                { text: "Absolute Windstille bei sehr stabilen Kaltluftbedingungen in der Wüste.", temp: "15 bis 19°C (59 to 66°F)", fx: null }
-            ]
+        "data": {
+            "name": "Heiße Trockenklimate (Hot Desert)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Schwerer Sandsturm mit massiver Sichtbehinderung.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 30,
+                            "minF": 77,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Anhaltender Khamsin-Wind aus südlicher Richtung.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trübung der Atmosphäre durch hohe Staubkonzentration.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Eine sehr hohe Temperaturamplitude ist im Tagesverlauf messbar.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 30,
+                            "minF": 59,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wolkenloser Himmel bei hoher atmosphärischer Transparenz.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verlagerung von Dünen durch anhaltenden Winddruck.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es werden heute extrem hohe Globalstrahlungswerte gemessen.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Luftmasse mit extrem geringer relativer Feuchte.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Abkühlung in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine bedenklich hohe Feinstaubbelastung liegt in der Luft.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Virga-Phänomen: Niederschlag verdunstet vor Bodenkontakt.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Thermische Spannungen im Gestein durch Aufheizung.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Böige Winde wehen heute mit ständig wechselnder Richtung.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Stark reduzierte Sichtweite durch dichten Staubnebel.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Wärmeabstrahlung steigt flirrend vom Boden auf.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine hohe elektrostatische Aufladung der trockenen Luft.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichter Dunstschleier liegt über dem weiten Horizont.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Verstärkte Windkanal-Effekte treten in den Canyons auf.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Abflauen der Windaktivität nach Sonnenuntergang.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Leichter Dunst trübt die Fernsicht in der Nacht.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Die Lufttemperatur erreicht heute absolute Extremwerte.",
+                        "temp": {
+                            "minC": 45,
+                            "maxC": 50,
+                            "minF": 113,
+                            "maxF": 122
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Die Oberflächentemperatur erreicht heute ihre Maxima.",
+                        "temp": {
+                            "minC": 50,
+                            "maxC": 55,
+                            "minF": 122,
+                            "maxF": 131
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Starke terrestrische Refraktion (Luftflimmern).",
+                        "temp": {
+                            "minC": 46,
+                            "maxC": 51,
+                            "minF": 115,
+                            "maxF": 124
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Maximale Sonneneinstrahlung durch den Zenitstand der Sonne.",
+                        "temp": {
+                            "minC": 44,
+                            "maxC": 48,
+                            "minF": 111,
+                            "maxF": 118
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extrem austrocknender, heißer Föhnwind weht.",
+                        "temp": {
+                            "minC": 43,
+                            "maxC": 47,
+                            "minF": 109,
+                            "maxF": 117
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein tiefblauer, absolut wolkenloser Himmel spannt sich auf.",
+                        "temp": {
+                            "minC": 45,
+                            "maxC": 49,
+                            "minF": 113,
+                            "maxF": 120
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extremer Hitzestau bildet sich in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 47,
+                            "maxC": 52,
+                            "minF": 117,
+                            "maxF": 126
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Starke und flimmernde Luftspiegelungen (Fata Morgana) am Horizont.",
+                        "temp": {
+                            "minC": 42,
+                            "maxC": 46,
+                            "minF": 108,
+                            "maxF": 115
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Es entsteht eine starke, aufsteigende konvektive Warmluftströmung.",
+                        "temp": {
+                            "minC": 44,
+                            "maxC": 49,
+                            "minF": 111,
+                            "maxF": 120
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Starke thermische Belastung von Gesteinsoberflächen.",
+                        "temp": {
+                            "minC": 48,
+                            "maxC": 53,
+                            "minF": 118,
+                            "maxF": 127
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine nur sehr geringe nächtliche Ausstrahlungswärme hält die Temperaturen hoch.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Lokale Bildung von rotierenden Staubteufeln (Dust Devils).",
+                        "temp": {
+                            "minC": 43,
+                            "maxC": 47,
+                            "minF": 109,
+                            "maxF": 117
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Intensität der direkten Sonneneinstrahlung.",
+                        "temp": {
+                            "minC": 45,
+                            "maxC": 50,
+                            "minF": 113,
+                            "maxF": 122
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Vollkommene Windstille unter einem stabilen, hitzeintensiven Hochdruckeinfluss.",
+                        "temp": {
+                            "minC": 46,
+                            "maxC": 51,
+                            "minF": 115,
+                            "maxF": 124
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sofortige und rückstandslose Verdunstung von jeglichem Oberflächenwasser.",
+                        "temp": {
+                            "minC": 44,
+                            "maxC": 48,
+                            "minF": 111,
+                            "maxF": 118
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Wärmespeicherung in den geschützten topographischen Senken.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Eine extrem hohe Albedo (Rückstrahlung) verursacht durch weiße Salzkristalle.",
+                        "temp": {
+                            "minC": 42,
+                            "maxC": 46,
+                            "minF": 108,
+                            "maxF": 115
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein gefährliches Trockengewitter entlädt sich ohne jeglichen Niederschlag.",
+                        "temp": {
+                            "minC": 40,
+                            "maxC": 45,
+                            "minF": 104,
+                            "maxF": 113
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Verschwimmen des Horizonts durch Hitzeflimmern.",
+                        "temp": {
+                            "minC": 43,
+                            "maxC": 48,
+                            "minF": 109,
+                            "maxF": 118
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Eine kurze Dämmerungsphase ganz ohne jegliche Wolkenbildung.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 40,
+                            "minF": 95,
+                            "maxF": 104
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Eine außergewöhnlich hohe atmosphärische Transparenz herrscht vor.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 30,
+                            "minF": 77,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Moderate Temperaturen bei geringer Windgeschwindigkeit.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "In der Nacht tritt eine spürbare und starke Radiationskälte auf.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 15,
+                            "minF": 50,
+                            "maxF": 59
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Ein völlig wolkenloser Himmel unter Einfluss von hohem Luftdruck.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem hoher Kontrast der dunklen Schattenwürfe am Boden.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nur eine sehr schwache Luftbewegung ist direkt über den Dünenkämmen spürbar.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrschen besonders kühle und frische Morgenstunden.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Klares, goldenes Sonnenlicht bei sehr tiefem Sonnenstand.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollkommen klare und staubfreie Sichtbedingungen in der Weite.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein starkes und klares Sternflimmern in der ruhigen Luft.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine intensive Albedo (Reflexion) der hellen Gesteinsflächen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die stabile Wetterlage begünstigt jegliche Mobilität im Gelände.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine längere Phase von absoluter Windstille tritt ein.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive solare Insolation heizt das Felsgestein stark auf.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausgezeichnete Sichtverhältnisse herrschen in der klaren Nacht.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein leichter, stetiger Windzug verfrachtet feine Sandkörner über den Boden.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Außergewöhnliche Fernsicht dank staubfreier Luft.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Pünktliches Einsetzen des kühlenden katabatischen Windes am Abend.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Lokale Sandverwehungen bilden sich an den Kämmen der Wanderdünen.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausgezeichnete Fernsicht bei klarer Nachtatmosphäre.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Sichtbare Bildung von Bodenfrost in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Strahlender Sonnenschein bei ungewöhnlich kühlen Lufttemperaturen.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine extrem starke nächtliche Abkühlung (Radiationskälte).",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein schneidend kalter Windchill-Effekt verschärft die Kälte.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Trübe, blassblaue Himmelsfärbung durch feinen Staubdunst.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Insolation erwärmt die Gesteinsoberflächen stark.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe, vereinzelte Cirrus-Bewölkung am Firmament.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rapider Temperaturabfall nach Sonnenuntergang.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Weitflächige Reifbildung in den kalten Morgenstunden.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem niedrige, wüstenhafte Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tiefe Schattenwürfe durch niedrigen Sonnenstand.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kalter Sandsturm bei vorherrschender Nordströmung.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "sandstorm"
+                        ]
+                    },
+                    {
+                        "text": "Extrem geringe Wärmespeicherung im ausgekühlten Boden.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine kurzzeitige, glitzernde Reifreflexion ist direkt bei Sonnenaufgang sichtbar.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Tiefgefrorener und extrem frostharter Untergrund.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 21,
+                            "minF": 63,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Aufwirbelung von kaltem Staub durch heftige Windböen.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Aufziehende Bewölkung zeigt eine frontale atmosphärische Störung an.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Auffällig verkürzte Dämmerungsphase in den Abendstunden.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "In der wolkenlosen Nacht herrscht hohe Radiationskälte.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 5,
+                            "minF": 32,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Absolute Windstille bei sehr stabilen Kaltluftbedingungen in der Wüste.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "tropical_rainforest": {
-        name: "Tropische Regenwaldklimate (Tropical Rainforest)",
-        seasons: {
-            "spring": [
-                { text: "Ein stationäres Gewitter sorgt für anhaltende Starkregenfälle.", temp: "26 bis 30°C (79 to 86°F)", fx: "drizzle" },
-                { text: "Dichter, warmer Nebel liegt schwer über dem feuchten Blätterdach.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Es fällt ein gleichmäßiger, warmer Landregen ohne Unterbrechung.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Sturzflutartige Regenfälle verwandeln Pfade in reißende Bäche.", temp: "24 bis 28°C (75 to 82°F)", fx: "heavy_rain" },
-                { text: "Die Luftfeuchtigkeit liegt bei 100% während des Dauerregens.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Ein heftiger Tropensturm biegt die Baumkronen mit Gewalt.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain_storm" },
-                { text: "Kurze Regenpause, Dampf steigt aus dem gesättigten Boden auf.", temp: "28 bis 32°C (82 to 90°F)", fx: "thick_fog" },
-                { text: "Sintflutartiger Niederschlag prasselt laut auf das Kronendach.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Ein massives Gewittersystem entlädt sich mit unzähligen Blitzen.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain_storm" },
-                { text: "Warmer Nieselregen hält den ganzen Tag über unvermindert an.", temp: "29 bis 33°C (84 to 91°F)", fx: "rain" },
-                { text: "Nebelwolken ziehen tief durch den Wald und nässen alles ein.", temp: "26 bis 30°C (79 to 86°F)", fx: "thick_fog" },
-                { text: "Schwere Regenschauer wechseln sich mit kurzen Dämmerphasen ab.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Ein Wolkenbruch von extremer Intensität überflutet den Boden.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Donnergrollen begleitet den warmen, stetigen Tropenregen.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Extrem hohe Niederschlagsmengen in den letzten 24 Stunden.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Eine Gewitterfront bringt heftige Böen und Starkregen.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain_storm" },
-                { text: "Der Regenwald ist in diffuses Grau gehüllt, es regnet stark.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Ständiges Tropfen von den Bäumen nach einem heftigen Guss.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Eine tropische Regennacht mit warmem, prasselndem Niederschlag.", temp: "23 bis 26°C (73 to 79°F)", fx: "rain" },
-                { text: "Sturmböen peitschen den Regen horizontal durch den Wald.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain_storm" }
-            ],
-            "summer": [
-                { text: "Ein heftiger Monsunregen setzt ein und überflutet alles.", temp: "30 bis 34°C (86 to 93°F)", fx: "rain" },
-                { text: "Dampfend heißer Boden nach einem kräftigen Gewitterguss.", temp: "29 bis 33°C (84 to 91°F)", fx: "thick_fog" },
-                { text: "Eine Superzelle bringt extremen Starkregen und Hagelschlag.", temp: "28 bis 32°C (82 to 90°F)", fx: "rain_storm" },
-                { text: "Es regnet ununterbrochen 'Bindfäden' bei großer Hitze.", temp: "31 bis 35°C (88 to 95°F)", fx: "rain" },
-                { text: "Flüsse treten durch die massiven Regenfälle über die Ufer.", temp: "32 bis 36°C (90 to 97°F)", fx: "rain" },
-                { text: "Dicke Regenwolken verdunkeln den Mittagshimmel fast vollständig.", temp: "29 bis 33°C (84 to 91°F)", fx: "rising_steam" },
-                { text: "Ein kurzer Moment der Ruhe vor dem nächsten Wolkenbruch.", temp: "30 bis 34°C (86 to 93°F)", fx: "thick_fog" },
-                { text: "Ein warmes Gewitter zieht langsam über den Dschungel hinweg.", temp: "33 bis 37°C (91 to 99°F)", fx: "rain_storm" },
-                { text: "Die Luft ist zum Schneiden dick und voller Regenfeuchte.", temp: "28 bis 32°C (82 to 90°F)", fx: "rain" },
-                { text: "Nächtlicher Starkregen prasselt laut auf die Umgebung.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Ein Hitzegewitter entlädt sich mit gewaltiger Energie.", temp: "29 bis 33°C (84 to 91°F)", fx: "storm" },
-                { text: "Der Regen fällt so dicht, dass die Sicht minimal ist.", temp: "31 bis 35°C (88 to 95°F)", fx: "rain" },
-                { text: "Stürmischer Wind wirbelt Wasser und Blätter durch die Luft.", temp: "30 bis 34°C (86 to 93°F)", fx: "rain_storm" },
-                { text: "Extrem drückende Schwüle zwischen den Regenschauern.", temp: "32 bis 36°C (90 to 97°F)", fx: "thick_fog" },
-                { text: "Ein warmer Sprühregen geht in einen Wolkenbruch über.", temp: "28 bis 32°C (82 to 90°F)", fx: "thick_fog" },
-                { text: "Eine graue Regenwand schiebt sich unaufhaltsam heran.", temp: "29 bis 33°C (84 to 91°F)", fx: "rain" },
-                { text: "Donner hallt langanhaltend durch die feuchte Luft.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain" },
-                { text: "Intensive Niederschläge sorgen für extremen Wasserstand.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Heißer Regen fällt aus einer bleigrauen Wolkendecke.", temp: "30 bis 34°C (86 to 93°F)", fx: "rain" },
-                { text: "Ein Blitzschlag lässt die Umgebung hell aufleuchten.", temp: "31 bis 35°C (88 to 95°F)", fx: "rain_storm" }
-            ],
-            "autumn": [
-                { text: "Eine massive Squall-Line bringt Sturm und Starkregen.", temp: "26 bis 30°C (79 to 86°F)", fx: "storm" },
-                { text: "Regenschleier ziehen fast horizontal durch den stürmischen Wind.", temp: "25 bis 29°C (77 to 84°F)", fx: "storm" },
-                { text: "Extrem hohe Blitzfrequenz in einem stationären Gewitter.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain_storm" },
-                { text: "Flächige Überschwemmung des Bodens durch Dauerregen.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Dunkle Sturmwolken machen den Tag zur Dämmerung.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Ein leichter Regen fällt aus einer tiefhängenden Wolkendecke.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Gewitterböen rütteln heftig an der Vegetation, es regnet.", temp: "22 bis 26°C (72 to 79°F)", fx: "rain_storm" },
-                { text: "Reißende Wasserläufe bilden sich spontan im Gelände.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Böden sind unpassierbar schlammig durch die Nässe.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Akute Sturzflutgefahr durch anhaltenden Starkregen.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Ein schwerer Tropenregen fällt ohne Pause seit Stunden.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Dampfschwaden ziehen nach dem Regen durch das Unterholz.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Die Niederschlagsintensität ist heute extrem hoch.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Stratusbewölkung liegt fast auf den Baumwipfeln auf.", temp: "26 bis 30°C (79 to 86°F)", fx: "heavy_rain" },
-                { text: "Die Luft ist vollkommen mit Wasser gesättigt.", temp: "27 bis 31°C (81 to 88°F)", fx: "rising_steam" },
-                { text: "Kurze Aufhellung, bevor der nächste Schauer folgt.", temp: "28 bis 32°C (82 to 90°F)", fx: "thick_fog" },
-                { text: "Prasselnder Regen übertönt alle anderen Geräusche.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Starker Regen weicht den Boden auf und erschwert das Gehen.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Alles tropft vor Nässe in der 100%igen Luftfeuchtigkeit.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Eine dunkle Regennacht mit anhaltendem Niederschlag.", temp: "22 bis 26°C (72 to 79°F)", fx: "rain" }
-            ],
-            "winter": [
-                { text: "Ein feiner, aber dichter Nieselregen trübt die Sicht.", temp: "20 bis 24°C (68 to 75°F)", fx: "rain" },
-                { text: "Dicke Nebelschwaden hängen tief in den Bäumen.", temp: "22 bis 26°C (72 to 79°F)", fx: "drizzle" },
-                { text: "Ein schweres Gewitter zieht mit lautem Donner über das Gebiet.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain_storm" },
-                { text: "Dauerregen lässt Flusspegelstände bedrohlich ansteigen.", temp: "21 bis 25°C (70 to 77°F)", fx: "rain" },
-                { text: "Kühle Brise treibt Regenschauer vor sich her.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Nasser Nebel kondensiert an jeder Oberfläche.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Ein kräftiger Regenschauer reinigt die staubfreie Luft.", temp: "22 bis 26°C (72 to 79°F)", fx: "rain" },
-                { text: "Dunkle Wolken hängen tief und bringen stetigen Regen.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Nächtlicher Regen kühlt die Luft leicht ab.", temp: "18 bis 22°C (64 to 72°F)", fx: "rain" },
-                { text: "Ein Regenbogen leuchtet kurz zwischen zwei Schauern auf.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain" },
-                { text: "Stürmisches Wetter mit peitschendem Starkregen.", temp: "23 bis 27°C (73 to 81°F)", fx: "drizzle" },
-                { text: "Der Regenwald dampft unter der feuchten Last.", temp: "21 bis 25°C (70 to 77°F)", fx: "thick_fog" },
-                { text: "Wasser tropft unaufhörlich von den nassen Blättern.", temp: "22 bis 26°C (72 to 79°F)", fx: "rain" },
-                { text: "Ein heftiger Platzregen durchnässt den Boden in Sekunden.", temp: "20 bis 24°C (68 to 75°F)", fx: "rain" },
-                { text: "Grauer Himmel und anhaltender Landregen.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Eine stabile Hochdrucklage mit viel Regenwald-Nebel.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Nasses, trübes Wetter bestimmt den gesamten Tag.", temp: "21 bis 25°C (70 to 77°F)", fx: "rain" },
-                { text: "Gewittergrollen ist den ganzen Tag über zu hören.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Kurze Regenpause, bevor der nächste Guss folgt.", temp: "26 bis 30°C (79 to 86°F)", fx: "thick_fog" },
-                { text: "Sternenlose Nacht, erhellt von Wetterleuchten.", temp: "19 bis 23°C (66 to 73°F)", fx: "rain_storm" }
-            ],
+        "data": {
+            "name": "Tropische Regenwaldklimate (Tropical Rainforest)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Ein stationäres Gewitter sorgt für anhaltende Starkregenfälle.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Dichter, warmer Nebel liegt schwer über dem feuchten Blätterdach.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Es fällt ein gleichmäßiger, warmer Landregen ohne Unterbrechung.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Sturzflutartige Regenfälle verwandeln Pfade in reißende Bäche.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Die Luftfeuchtigkeit liegt bei 100% während des Dauerregens.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein heftiger Tropensturm biegt die Baumkronen mit Gewalt.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Kurze Regenpause, Dampf steigt aus dem gesättigten Boden auf.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Sintflutartiger Niederschlag prasselt laut auf das Kronendach.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein massives Gewittersystem entlädt sich mit unzähligen Blitzen.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Warmer Nieselregen hält den ganzen Tag über unvermindert an.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Nebelwolken ziehen tief durch den Wald und nässen alles ein.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Schwere Regenschauer wechseln sich mit kurzen Dämmerphasen ab.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein Wolkenbruch von extremer Intensität überflutet den Boden.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Donnergrollen begleitet den warmen, stetigen Tropenregen.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Extrem hohe Niederschlagsmengen in den letzten 24 Stunden.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine Gewitterfront bringt heftige Böen und Starkregen.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Der Regenwald ist in diffuses Grau gehüllt, es regnet stark.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ständiges Tropfen von den Bäumen nach einem heftigen Guss.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine tropische Regennacht mit warmem, prasselndem Niederschlag.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 26,
+                            "minF": 73,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Sturmböen peitschen den Regen horizontal durch den Wald.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Ein heftiger Monsunregen setzt ein und überflutet alles.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dampfend heißer Boden nach einem kräftigen Gewitterguss.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine Superzelle bringt extremen Starkregen und Hagelschlag.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Es regnet ununterbrochen 'Bindfäden' bei großer Hitze.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Flüsse treten durch die massiven Regenfälle über die Ufer.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dicke Regenwolken verdunkeln den Mittagshimmel fast vollständig.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "rising_steam"
+                        ]
+                    },
+                    {
+                        "text": "Ein kurzer Moment der Ruhe vor dem nächsten Wolkenbruch.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein warmes Gewitter zieht langsam über den Dschungel hinweg.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Die Luft ist zum Schneiden dick und voller Regenfeuchte.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Nächtlicher Starkregen prasselt laut auf die Umgebung.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein Hitzegewitter entlädt sich mit gewaltiger Energie.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Der Regen fällt so dicht, dass die Sicht minimal ist.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Stürmischer Wind wirbelt Wasser und Blätter durch die Luft.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Extrem drückende Schwüle zwischen den Regenschauern.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein warmer Sprühregen geht in einen Wolkenbruch über.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine graue Regenwand schiebt sich unaufhaltsam heran.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Donner hallt langanhaltend durch die feuchte Luft.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Niederschläge sorgen für extremen Wasserstand.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Heißer Regen fällt aus einer bleigrauen Wolkendecke.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein Blitzschlag lässt die Umgebung hell aufleuchten.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Eine massive Squall-Line bringt Sturm und Starkregen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Regenschleier ziehen fast horizontal durch den stürmischen Wind.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Extrem hohe Blitzfrequenz in einem stationären Gewitter.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Flächige Überschwemmung des Bodens durch Dauerregen.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dunkle Sturmwolken machen den Tag zur Dämmerung.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein leichter Regen fällt aus einer tiefhängenden Wolkendecke.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Gewitterböen rütteln heftig an der Vegetation, es regnet.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Reißende Wasserläufe bilden sich spontan im Gelände.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Böden sind unpassierbar schlammig durch die Nässe.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Akute Sturzflutgefahr durch anhaltenden Starkregen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein schwerer Tropenregen fällt ohne Pause seit Stunden.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dampfschwaden ziehen nach dem Regen durch das Unterholz.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Die Niederschlagsintensität ist heute extrem hoch.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Stratusbewölkung liegt fast auf den Baumwipfeln auf.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Die Luft ist vollkommen mit Wasser gesättigt.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rising_steam"
+                        ]
+                    },
+                    {
+                        "text": "Kurze Aufhellung, bevor der nächste Schauer folgt.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Prasselnder Regen übertönt alle anderen Geräusche.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Starker Regen weicht den Boden auf und erschwert das Gehen.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Alles tropft vor Nässe in der 100%igen Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine dunkle Regennacht mit anhaltendem Niederschlag.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Ein feiner, aber dichter Nieselregen trübt die Sicht.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dicke Nebelschwaden hängen tief in den Bäumen.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Ein schweres Gewitter zieht mit lautem Donner über das Gebiet.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Dauerregen lässt Flusspegelstände bedrohlich ansteigen.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Kühle Brise treibt Regenschauer vor sich her.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Nasser Nebel kondensiert an jeder Oberfläche.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein kräftiger Regenschauer reinigt die staubfreie Luft.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dunkle Wolken hängen tief und bringen stetigen Regen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Nächtlicher Regen kühlt die Luft leicht ab.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein Regenbogen leuchtet kurz zwischen zwei Schauern auf.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Stürmisches Wetter mit peitschendem Starkregen.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Der Regenwald dampft unter der feuchten Last.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Wasser tropft unaufhörlich von den nassen Blättern.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein heftiger Platzregen durchnässt den Boden in Sekunden.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Grauer Himmel und anhaltender Landregen.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine stabile Hochdrucklage mit viel Regenwald-Nebel.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Nasses, trübes Wetter bestimmt den gesamten Tag.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Gewittergrollen ist den ganzen Tag über zu hören.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Kurze Regenpause, bevor der nächste Guss folgt.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Sternenlose Nacht, erhellt von Wetterleuchten.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "temperate_rainforest": {
-        name: "Gemäßigte Regenwaldklimate (Temperate Rainforest)",
-        seasons: {
-            "spring": [
-                { text: "Die relative Luftfeuchtigkeit liegt nahe am Sättigungspunkt (100%).", temp: "8 bis 12°C (46 to 54°F)", fx: "thick_fog" },
-                { text: "Ein diffuses Licht dringt nur schwach durch dichte Dunstschichten.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Starke Bildung von Verdunstungsnebel in unmittelbarer Bodennähe.", temp: "6 bis 10°C (43 to 50°F)", fx: "rising_steam" },
-                { text: "Sehr hohe Abflusswerte der Fließgewässer durch Schmelzwasser.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Ein anhaltender, feiner Sprühregen (Niesel) befeuchtet alles.", temp: "9 bis 12°C (48 to 54°F)", fx: "drizzle" },
-                { text: "Spürbare Zunahme der Tageslänge bei einer insgesamt milden Witterung.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Eine stabile, feucht-warme Luftmasse bestimmt das heutige Wetter.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Auflockernde Bewölkung mit größeren, sonnigen Wolkenlücken.", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Durchzug eines kurzen, aber kräftigen konvektiven Regenschauers.", temp: "8 bis 11°C (46 to 52°F)", fx: "hail" },
-                { text: "Ein frischer, zeitweise auflandiger Wind weht ins Landesinnere.", temp: "10 bis 13°C (50 to 55°F)", fx: null },
-                { text: "Die Tauwettergrenze steigt mit der Erwärmung an.", temp: "7 bis 11°C (45 to 52°F)", fx: "rain" },
-                { text: "Die Sichtweite ist durch den extrem dichten Nebel stark reduziert.", temp: "6 bis 9°C (43 to 48°F)", fx: "thick_fog" },
-                { text: "Besonders hohe Lichtreflexion auf den nassen, glänzenden Oberflächen.", temp: "11 bis 14°C (52 to 57°F)", fx: null },
-                { text: "Eine turbulente Luftströmung sorgt für unruhige Böen.", temp: "9 bis 12°C (48 to 54°F)", fx: null },
-                { text: "Ein kontinuierlicher, gleichmäßiger Landregen fällt den ganzen Tag.", temp: "8 bis 11°C (46 to 52°F)", fx: "wind" },
-                { text: "Eine spürbare, insolationsbedingte Erwärmung zur Mittagszeit.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Dichte Stratusbewölkung mit ungewöhnlich tiefer Wolkenbasis.", temp: "7 bis 10°C (45 to 50°F)", fx: null },
-                { text: "Eine stabile Inversionswetterlage hält sich hartnäckig im Tal.", temp: "5 bis 8°C (41 to 46°F)", fx: "thick_fog" },
-                { text: "Eine farbenprächtige Regenbogenbildung bei schnell wechselnder Bewölkung.", temp: "10 bis 13°C (50 to 55°F)", fx: "rain" },
-                { text: "Es herrscht unangenehm nasskaltes Wetter durch die hohe Luftfeuchte.", temp: "6 bis 9°C (43 to 48°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Stetiger warmer Niederschlag über den Tag verteilt.", temp: "18 bis 22°C (64 to 72°F)", fx: "morning_mist" },
-                { text: "Massive Advektion von dichtem Küstennebel weit bis ins Landesinnere.", temp: "14 bis 17°C (57 to 63°F)", fx: "thick_fog" },
-                { text: "Stark reduzierte Globalstrahlung durch die dichte Bewölkung.", temp: "20 bis 24°C (68 to 75°F)", fx: null },
-                { text: "Hohe Evapotranspiration erhöht die Luftfeuchte.", temp: "22 bis 26°C (72 to 79°F)", fx: "thick_fog" },
-                { text: "Ein nur schwacher Wind sorgt für eine geringfügige Abkühlung der Luft.", temp: "19 bis 23°C (66 to 73°F)", fx: null },
-                { text: "Stark gedämpftes Licht durch dichte Bewölkungsschichten.", temp: "21 bis 25°C (70 to 77°F)", fx: "thick_fog" },
-                { text: "Eine kurze Intermission (Pause) ganz ohne jeglichen Niederschlag.", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Starkes Hitzeflimmern ist direkt über dem aufgeheizten Boden sichtbar.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine spürbare nächtliche Abkühlung der gesamten Luftmasse setzt ein.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Am Horizont kündigt sich der Aufzug einer dunklen Gewitterfront an.", temp: "20 bis 24°C (68 to 75°F)", fx: "rain_storm" },
-                { text: "Besonders intensive Taubildung in den frühen Morgenstunden.", temp: "13 bis 16°C (55 to 61°F)", fx: "thick_fog" },
-                { text: "Absolute Windstille bei gesättigter Luftfeuchtigkeit.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Spürbare Einströmung von etwas trockeneren und kühleren Luftmassen.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Langsame und stetige Auflösung der dichten Nebelfelder.", temp: "15 bis 18°C (59 to 64°F)", fx: "thick_fog" },
-                { text: "Eine kurzzeitige, aber deutliche Aufheiterung am heutigen Abend.", temp: "19 bis 23°C (66 to 73°F)", fx: null },
-                { text: "Ein plötzlich einsetzender Starkregen (kräftiger Schauer) geht nieder.", temp: "17 bis 20°C (63 to 68°F)", fx: "rain" },
-                { text: "Vollständiges Aufklaren des Nachthimmels in der zweiten Nachthälfte.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Stauung von feucht-warmen Luftmassen tief in der Talsohle.", temp: "22 bis 25°C (72 to 77°F)", fx: null },
-                { text: "Kaltfrontdurchgang begleitet von kräftigen Regenschauern.", temp: "16 bis 19°C (61 to 66°F)", fx: "rain" },
-                { text: "Klare Sichtverhältnisse bei tiefstehender, orange-roter Abendsonne.", temp: "18 bis 22°C (64 to 72°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Ein anhaltender Dauerregen führt zu einer massiven Bodenaufweichung.", temp: "6 bis 10°C (43 to 50°F)", fx: "rain" },
-                { text: "Heftiger Herbststurm, begleitet von hohen Niederschlagsmengen.", temp: "8 bis 12°C (46 to 54°F)", fx: "wind" },
-                { text: "Intensive Bodenverdunstung direkt nach dem gefallenen Niederschlag.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Dichte, bodennahe Nebelschwaden ziehen durch den Wald.", temp: "5 bis 8°C (41 to 46°F)", fx: "thick_fog" },
-                { text: "Reduzierte Helligkeit durch dichte Wolkendecke.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Es herrscht eine extrem hohe Bodensättigung (Verschlammung).", temp: "6 bis 9°C (43 to 48°F)", fx: null },
-                { text: "Starkregen fällt mit einer extrem hohen Niederschlagsintensität.", temp: "8 bis 11°C (46 to 52°F)", fx: "rain" },
-                { text: "Temporäre Wolkenlücken lassen kurzzeitig die Sonne durch.", temp: "12 bis 16°C (54 to 61°F)", fx: "thick_fog" },
-                { text: "Eine massive Advektion polarer Kaltluftmassen erfolgt von Norden her.", temp: "4 bis 8°C (39 to 46°F)", fx: null },
-                { text: "Ein stürmischer Wind treibt die dichten Niederschlagsfelder vor sich her.", temp: "7 bis 10°C (45 to 50°F)", fx: null },
-                { text: "Erstes Auftreten von leichtem Bodenfrost in den Morgenstunden.", temp: "-1 bis 3°C (30 to 37°F)", fx: "snow" },
-                { text: "Ein starker Wind weht konstant in den höheren Luftschichten.", temp: "6 bis 9°C (43 to 48°F)", fx: null },
-                { text: "Ein deutlicher Anstieg der Flusspegel ist zu verzeichnen.", temp: "5 bis 8°C (41 to 46°F)", fx: "rain" },
-                { text: "Eine einheitlich graue Bewölkung (Stratus) bedeckt den Himmel.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Spürbare Abnahme der Tageslänge und Lichtintensität.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Hoher Windchill-Faktor bei nasskalter Witterung.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Ein kurzer, schauerartiger Graupelfall geht nieder.", temp: "4 bis 8°C (39 to 46°F)", fx: "rain" },
-                { text: "Bildung von dichtem Verdunstungsnebel über Gewässern.", temp: "7 bis 10°C (45 to 50°F)", fx: "thick_fog" },
-                { text: "Klares Rückseitenwetter sorgt für sonnige Aufheiterungen.", temp: "9 bis 13°C (48 to 55°F)", fx: null },
-                { text: "Ein sehr rascher meteorologischer Helligkeitsrückgang setzt am Abend ein.", temp: "4 bis 8°C (39 to 46°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Geringe Tageshelligkeit mit anhaltendem Dämmerlicht.", temp: "4 bis 8°C (39 to 46°F)", fx: "thick_fog" },
-                { text: "Gefährlicher gefrierender Regen setzt bei massiver Kaltluftadvektion ein.", temp: "2 bis 6°C (36 to 43°F)", fx: "rain" },
-                { text: "Dichter Schneefall, jedoch zunächst ohne eine liegenbleibende Decke.", temp: "0 bis 4°C (32 to 39°F)", fx: "snow" },
-                { text: "Ein kräftiges Sturmtief zieht vom Ozean mit hohen Windstärken heran.", temp: "5 bis 9°C (41 to 48°F)", fx: "heavy_rain" },
-                { text: "Außergewöhnlich niederschlagsreich und unangenehm feucht-kalt.", temp: "3 bis 7°C (37 to 45°F)", fx: "rain" },
-                { text: "Eine fast permanente Sättigung der relativen Luftfeuchtigkeit ist erreicht.", temp: "4 bis 8°C (39 to 46°F)", fx: null },
-                { text: "Deutlich sichtbare Kondensation der Atemluft in der kühlen Umgebung.", temp: "1 bis 5°C (34 to 41°F)", fx: null },
-                { text: "Ein extrem dichter und undurchdringlicher Nebel hüllt den Wald ein.", temp: "2 bis 6°C (36 to 43°F)", fx: "thick_fog" },
-                { text: "Unerwartet starke Windböen treten heute auch in direkter Bodennähe auf.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Eine deutlich erhöhte Wasserführung der Bäche bedingt durch das Tauwetter.", temp: "4 bis 8°C (39 to 46°F)", fx: "rain" },
-                { text: "Ein kurzer, aber sehr intensiver Graupelschauer zieht durch.", temp: "1 bis 4°C (34 to 39°F)", fx: "hail" },
-                { text: "Vereinzelte Insolation durch kurzzeitige Wolkenlücken.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Es herrscht eine Phase von extrem langen, dunklen Winternächten.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Eine stabile und vollkommen windstille Inversionswetterlage.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Dominanz von permanentem Niederschlag und anhaltender Nässe.", temp: "4 bis 8°C (39 to 46°F)", fx: "rain" },
-                { text: "Es besteht ein übermäßiger, kritischer Bodenwassergehalt.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Starke Raureifbildung an allen kalten Oberflächen.", temp: "-1 bis 3°C (30 to 37°F)", fx: "snow" },
-                { text: "Extrem niedrige gefühlte Temperatur durch Wind und Nässe.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Eine tiefliegende, bedrohlich dunkle Wolkendecke hängt herab.", temp: "3 bis 7°C (37 to 45°F)", fx: null },
-                { text: "Ein sehr seltenes Aufklaren des dunklen Nachthimmels.", temp: "-2 bis 2°C (28 to 36°F)", fx: null }
-            ]
+        "data": {
+            "name": "Gemäßigte Regenwaldklimate (Temperate Rainforest)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Die relative Luftfeuchtigkeit liegt nahe am Sättigungspunkt (100%).",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein diffuses Licht dringt nur schwach durch dichte Dunstschichten.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Bildung von Verdunstungsnebel in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "rising_steam"
+                        ]
+                    },
+                    {
+                        "text": "Sehr hohe Abflusswerte der Fließgewässer durch Schmelzwasser.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltender, feiner Sprühregen (Niesel) befeuchtet alles.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 12,
+                            "minF": 48,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "drizzle"
+                        ]
+                    },
+                    {
+                        "text": "Spürbare Zunahme der Tageslänge bei einer insgesamt milden Witterung.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile, feucht-warme Luftmasse bestimmt das heutige Wetter.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Auflockernde Bewölkung mit größeren, sonnigen Wolkenlücken.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Durchzug eines kurzen, aber kräftigen konvektiven Regenschauers.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Ein frischer, zeitweise auflandiger Wind weht ins Landesinnere.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 13,
+                            "minF": 50,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Tauwettergrenze steigt mit der Erwärmung an.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Die Sichtweite ist durch den extrem dichten Nebel stark reduziert.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Besonders hohe Lichtreflexion auf den nassen, glänzenden Oberflächen.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 14,
+                            "minF": 52,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine turbulente Luftströmung sorgt für unruhige Böen.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 12,
+                            "minF": 48,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kontinuierlicher, gleichmäßiger Landregen fällt den ganzen Tag.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "wind"
+                        ]
+                    },
+                    {
+                        "text": "Eine spürbare, insolationsbedingte Erwärmung zur Mittagszeit.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichte Stratusbewölkung mit ungewöhnlich tiefer Wolkenbasis.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 10,
+                            "minF": 45,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile Inversionswetterlage hält sich hartnäckig im Tal.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 8,
+                            "minF": 41,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine farbenprächtige Regenbogenbildung bei schnell wechselnder Bewölkung.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 13,
+                            "minF": 50,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht unangenehm nasskaltes Wetter durch die hohe Luftfeuchte.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Stetiger warmer Niederschlag über den Tag verteilt.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "morning_mist"
+                        ]
+                    },
+                    {
+                        "text": "Massive Advektion von dichtem Küstennebel weit bis ins Landesinnere.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 17,
+                            "minF": 57,
+                            "maxF": 63
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Stark reduzierte Globalstrahlung durch die dichte Bewölkung.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hohe Evapotranspiration erhöht die Luftfeuchte.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein nur schwacher Wind sorgt für eine geringfügige Abkühlung der Luft.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Stark gedämpftes Licht durch dichte Bewölkungsschichten.",
+                        "temp": {
+                            "minC": 21,
+                            "maxC": 25,
+                            "minF": 70,
+                            "maxF": 77
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine kurze Intermission (Pause) ganz ohne jeglichen Niederschlag.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starkes Hitzeflimmern ist direkt über dem aufgeheizten Boden sichtbar.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine spürbare nächtliche Abkühlung der gesamten Luftmasse setzt ein.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Am Horizont kündigt sich der Aufzug einer dunklen Gewitterfront an.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Besonders intensive Taubildung in den frühen Morgenstunden.",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 16,
+                            "minF": 55,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Absolute Windstille bei gesättigter Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbare Einströmung von etwas trockeneren und kühleren Luftmassen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Langsame und stetige Auflösung der dichten Nebelfelder.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 18,
+                            "minF": 59,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine kurzzeitige, aber deutliche Aufheiterung am heutigen Abend.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein plötzlich einsetzender Starkregen (kräftiger Schauer) geht nieder.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 20,
+                            "minF": 63,
+                            "maxF": 68
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Vollständiges Aufklaren des Nachthimmels in der zweiten Nachthälfte.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Stauung von feucht-warmen Luftmassen tief in der Talsohle.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 25,
+                            "minF": 72,
+                            "maxF": 77
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kaltfrontdurchgang begleitet von kräftigen Regenschauern.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 19,
+                            "minF": 61,
+                            "maxF": 66
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Klare Sichtverhältnisse bei tiefstehender, orange-roter Abendsonne.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Ein anhaltender Dauerregen führt zu einer massiven Bodenaufweichung.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Heftiger Herbststurm, begleitet von hohen Niederschlagsmengen.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": [
+                            "wind"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Bodenverdunstung direkt nach dem gefallenen Niederschlag.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichte, bodennahe Nebelschwaden ziehen durch den Wald.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 8,
+                            "minF": 41,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Reduzierte Helligkeit durch dichte Wolkendecke.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine extrem hohe Bodensättigung (Verschlammung).",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starkregen fällt mit einer extrem hohen Niederschlagsintensität.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 11,
+                            "minF": 46,
+                            "maxF": 52
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Temporäre Wolkenlücken lassen kurzzeitig die Sonne durch.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine massive Advektion polarer Kaltluftmassen erfolgt von Norden her.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein stürmischer Wind treibt die dichten Niederschlagsfelder vor sich her.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 10,
+                            "minF": 45,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erstes Auftreten von leichtem Bodenfrost in den Morgenstunden.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein starker Wind weht konstant in den höheren Luftschichten.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 9,
+                            "minF": 43,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein deutlicher Anstieg der Flusspegel ist zu verzeichnen.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 8,
+                            "minF": 41,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine einheitlich graue Bewölkung (Stratus) bedeckt den Himmel.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbare Abnahme der Tageslänge und Lichtintensität.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Hoher Windchill-Faktor bei nasskalter Witterung.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzer, schauerartiger Graupelfall geht nieder.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Bildung von dichtem Verdunstungsnebel über Gewässern.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 10,
+                            "minF": 45,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Klares Rückseitenwetter sorgt für sonnige Aufheiterungen.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein sehr rascher meteorologischer Helligkeitsrückgang setzt am Abend ein.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Geringe Tageshelligkeit mit anhaltendem Dämmerlicht.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Gefährlicher gefrierender Regen setzt bei massiver Kaltluftadvektion ein.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Dichter Schneefall, jedoch zunächst ohne eine liegenbleibende Decke.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Ein kräftiges Sturmtief zieht vom Ozean mit hohen Windstärken heran.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": [
+                            "heavy_rain"
+                        ]
+                    },
+                    {
+                        "text": "Außergewöhnlich niederschlagsreich und unangenehm feucht-kalt.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine fast permanente Sättigung der relativen Luftfeuchtigkeit ist erreicht.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Deutlich sichtbare Kondensation der Atemluft in der kühlen Umgebung.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extrem dichter und undurchdringlicher Nebel hüllt den Wald ein.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Unerwartet starke Windböen treten heute auch in direkter Bodennähe auf.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine deutlich erhöhte Wasserführung der Bäche bedingt durch das Tauwetter.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Ein kurzer, aber sehr intensiver Graupelschauer zieht durch.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Vereinzelte Insolation durch kurzzeitige Wolkenlücken.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine Phase von extrem langen, dunklen Winternächten.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine stabile und vollkommen windstille Inversionswetterlage.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dominanz von permanentem Niederschlag und anhaltender Nässe.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Es besteht ein übermäßiger, kritischer Bodenwassergehalt.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Raureifbildung an allen kalten Oberflächen.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Extrem niedrige gefühlte Temperatur durch Wind und Nässe.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine tiefliegende, bedrohlich dunkle Wolkendecke hängt herab.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein sehr seltenes Aufklaren des dunklen Nachthimmels.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "thorn_savanna": {
-        name: "Dornsavannenklimate (Thorn Savanna)",
-        seasons: {
-            "spring": [
-                { text: "Extrem starkes Hitzeflimmern in unmittelbarer Bodennähe.", temp: "36 bis 40°C (97 to 104°F)", fx: null },
-                { text: "Ein extrem austrocknender, heißer Wind weht ununterbrochen.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Ein heißer und staubiger Wind weht stetig über die Savanne.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Ein fahler, weißlicher Himmel spannt sich durch den Hitzedunst.", temp: "37 bis 41°C (99 to 106°F)", fx: "thick_fog" },
-                { text: "Kleine Staubteufel wandern über den ausgetrockneten Boden.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Es herrscht eine extreme Trockenheit und Dürre im gesamten Gebiet.", temp: "38 bis 42°C (100 to 108°F)", fx: null },
-                { text: "Intensive Sonneneinstrahlung bei einem extrem hohen UV-Index.", temp: "39 bis 43°C (102 to 109°F)", fx: null },
-                { text: "Ein wolkenloser Himmel begünstigt die maximale Erwärmung.", temp: "36 bis 40°C (97 to 104°F)", fx: null },
-                { text: "Eine deutliche Rauchtrübung der gesamten Atmosphäre.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Ein starker Anstieg der thermischen Aktivitäten bereits am Vormittag.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Nur eine minimale nächtliche Auskühlung ist messbar.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Erhebliche Sichtbehinderung durch einen aufziehenden Sandsturm.", temp: "32 bis 36°C (90 to 97°F)", fx: "thick_fog" },
-                { text: "Die gesamte Bodenoberfläche ist extrem ausgetrocknet.", temp: "40 bis 44°C (104 to 111°F)", fx: null },
-                { text: "Es herrscht eine rekordverdächtig niedrige, minimale Luftfeuchtigkeit.", temp: "33 bis 37°C (91 to 99°F)", fx: null },
-                { text: "Die atmosphärische Spannung steigt im Tagesverlauf spürbar an.", temp: "35 bis 39°C (95 to 102°F)", fx: null },
-                { text: "Dunkle Wolkenbänke (Virga) zeigen sich am Horizont.", temp: "34 bis 38°C (93 to 100°F)", fx: null },
-                { text: "Kräftige Windböen wirbeln Asche und Staub in die Luft.", temp: "36 bis 40°C (97 to 104°F)", fx: null },
-                { text: "Eine hohe Hitzebelastung herrscht auch in geschützten Bereichen.", temp: "37 bis 41°C (99 to 106°F)", fx: null },
-                { text: "Ein intensives Abendrot wird durch feine Dunstpartikel erzeugt.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Stationäre, drückende Hitze bei vollkommener Windstille.", temp: "38 bis 42°C (100 to 108°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Ein massiver Temperatursturz infolge schwerer Gewitteraktivität.", temp: "28 bis 32°C (82 to 90°F)", fx: "rain_storm" },
-                { text: "Gefährliche Sturzfluten (Flash Floods) füllen die Wadis.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Intensive Bodenverdunstung (Dampfbildung) nach dem Niederschlag.", temp: "27 bis 31°C (81 to 88°F)", fx: "thick_fog" },
-                { text: "Sofortige Verdunstung von Feuchtigkeit auf dem heißen Stein.", temp: "29 bis 33°C (84 to 91°F)", fx: "thick_fog" },
-                { text: "Die Luft ist direkt nach dem Regen feucht-warm und stickig.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Eine drückend schwüle Luft liegt vor dem Gewitter über dem Land.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Rascher Aufzug einer bedrohlichen, fast schwarzen Wolkenwand.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Ausbildung von intensiven, doppelten Regenbogenerscheinungen.", temp: "26 bis 30°C (79 to 86°F)", fx: "rain" },
-                { text: "Heftige Windböen peitschen den Regen fast waagerecht vor sich her.", temp: "23 bis 27°C (73 to 81°F)", fx: "rain" },
-                { text: "Die gesamte Bodenoberfläche ist tief verschlammt.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Die Luft fühlt sich nach dem warmen Regen sehr feucht an.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Eine schwüle und drückende Luftmasse macht jede Bewegung schwer.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Heftige Erdblitze zucken gefährlich über der offenen Ebene.", temp: "24 bis 28°C (75 to 82°F)", fx: "rain_storm" },
-                { text: "Ein kurzer, aber intensiver und warmer Regenschauer geht nieder.", temp: "30 bis 34°C (86 to 93°F)", fx: "rain" },
-                { text: "Rasches und vollständiges Aufklaren des Himmels nach den Regenfällen.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Die heiße Sonne bricht schnell wieder durch die Wolkendecke.", temp: "31 bis 35°C (88 to 95°F)", fx: null },
-                { text: "Eine extrem schwüle und feucht-warme Nachtphase.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Ein überraschender, heftiger Hagelschauer prasselt auf den Boden.", temp: "20 bis 24°C (68 to 75°F)", fx: "rain" },
-                { text: "Hohe thermische Belastung durch die Kombination aus Feuchte und Wärme.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Ein anhaltendes, bedrohliches Donnergrollen in der Ferne.", temp: "25 bis 29°C (77 to 84°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Eine lang anhaltende Dürreperiode mit extremer Trockenheit.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Ein kurzfristiges, aber extrem intensives Niederschlagsereignis.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Vereinzelte weiße Wolken ziehen über den blauen Himmel.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine leichte Taubildung ist am frühen Morgen sichtbar.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Ein unangenehm staubig-trockener Wind weht beständig.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Einsetzen von starkem, hitzebedingtem Luftflimmern in Bodennähe.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Signifikante solare Strahlungsintensität bereits am Vormittag.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Ein rascher Zug von weißen Wolkenfeldern (Cumulus).", temp: "23 bis 27°C (73 to 81°F)", fx: null },
-                { text: "Eine markante nächtliche Abkühlung verschafft etwas Linderung.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Plötzliche, heftige Windböen fegen unvermittelt über das Land.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Kristallklare Sicht bis zum weit entfernten Horizont.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Dominanz extrem trockener Luftmassen bestimmt das Klima.", temp: "29 bis 33°C (84 to 91°F)", fx: null },
-                { text: "Ein kurzer, lokaler Regenschauer verdampft sofort am Boden.", temp: "25 bis 29°C (77 to 84°F)", fx: "rain" },
-                { text: "Aufgewirbelter feiner Sand trübt die Sicht stark in Bodennähe.", temp: "26 bis 30°C (79 to 86°F)", fx: "thick_fog" },
-                { text: "Zunehmende atmosphärische Trockenheit im weiteren Tagesverlauf.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Eine intensive, spektakuläre rote Färbung des Abendhimmels zeigt sich.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Der helle Mondschein wird durch einen Dunstschleier gedämpft.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Ein leichter, trüber Dunst liegt noch am frühen Morgen.", temp: "19 bis 23°C (66 to 73°F)", fx: "thick_fog" },
-                { text: "Eine längere Phase vollkommener, drückender Windstille tritt ein.", temp: "30 bis 34°C (86 to 93°F)", fx: null },
-                { text: "Erste lokale Gewitteraktivität kündigt die kommende Regenzeit an.", temp: "27 bis 31°C (81 to 88°F)", fx: "rain_storm" },
-                { text: "Sehr hohe Evaporationsraten während des warmen Niederschlagsereignisses.", temp: "24 bis 28°C (75 to 82°F)", fx: "wind" }
-            ],
-            "winter": [
-                { text: "Der staubige Harmattan-Passatwind weht aus Nordosten.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Eine empfindlich kalte Nachtphase kühlt den Boden stark aus.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Fahler Sonnenschein dringt kaum durch den dichten Staubfilter.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Ein stetiger, stark austrocknender Wind weht über das Land.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Die Luftfeuchtigkeit sinkt tagsüber auf extrem niedrige Werte.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Ein dichter grauer Staubschleier bedeckt den gesamten Himmel.", temp: "23 bis 27°C (73 to 81°F)", fx: "thick_fog" },
-                { text: "Heiße Winde wirbeln immer wieder Staubfontänen auf.", temp: "28 bis 32°C (82 to 90°F)", fx: null },
-                { text: "Für die Region ungewöhnlich kühle und frische Morgentemperaturen.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Starke Einschränkung der Sichtweite durch den dichten Staub.", temp: "24 bis 28°C (75 to 82°F)", fx: "thick_fog" },
-                { text: "Es herrscht eine sehr windige und extrem trockene Witterung.", temp: "25 bis 29°C (77 to 84°F)", fx: null },
-                { text: "Ein rötlicher Sonnenaufgang, verursacht durch feine Sandpartikel.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Vollständiges Ausbleiben von Kondensation (keine Taubildung).", temp: "13 bis 17°C (55 to 63°F)", fx: null },
-                { text: "Eine extreme, trockene Hitze bestimmt den gesamten Tag.", temp: "26 bis 30°C (79 to 86°F)", fx: null },
-                { text: "Es herrscht eine hohe elektrostatische Aufladung der Luft.", temp: "22 bis 26°C (72 to 79°F)", fx: null },
-                { text: "Eine leichte Trübung durch hohe Wolkenfelder (Cirrus).", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Staubige Winde fegen kontinuierlich über das ausgedörrte Land.", temp: "27 bis 31°C (81 to 88°F)", fx: null },
-                { text: "Feiner, in der Luft schwebender Staub trübt die Fernsicht.", temp: "25 bis 29°C (77 to 84°F)", fx: "thick_fog" },
-                { text: "Rasche abendliche Abkühlung bei vollkommener Windstille.", temp: "18 bis 22°C (64 to 72°F)", fx: null },
-                { text: "Spürbare und deutliche Temperaturabsenkung in den Schattenzonen.", temp: "24 bis 28°C (75 to 82°F)", fx: null },
-                { text: "Leichte Dunstbildung sorgt für eine eingeschränkte Sicht.", temp: "11 bis 15°C (52 to 59°F)", fx: "thick_fog" },
-            ]
+        "data": {
+            "name": "Dornsavannenklimate (Thorn Savanna)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Extrem starkes Hitzeflimmern in unmittelbarer Bodennähe.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein extrem austrocknender, heißer Wind weht ununterbrochen.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein heißer und staubiger Wind weht stetig über die Savanne.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein fahler, weißlicher Himmel spannt sich durch den Hitzedunst.",
+                        "temp": {
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Kleine Staubteufel wandern über den ausgetrockneten Boden.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine extreme Trockenheit und Dürre im gesamten Gebiet.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Intensive Sonneneinstrahlung bei einem extrem hohen UV-Index.",
+                        "temp": {
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein wolkenloser Himmel begünstigt die maximale Erwärmung.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine deutliche Rauchtrübung der gesamten Atmosphäre.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein starker Anstieg der thermischen Aktivitäten bereits am Vormittag.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nur eine minimale nächtliche Auskühlung ist messbar.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erhebliche Sichtbehinderung durch einen aufziehenden Sandsturm.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Die gesamte Bodenoberfläche ist extrem ausgetrocknet.",
+                        "temp": {
+                            "minC": 40,
+                            "maxC": 44,
+                            "minF": 104,
+                            "maxF": 111
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine rekordverdächtig niedrige, minimale Luftfeuchtigkeit.",
+                        "temp": {
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die atmosphärische Spannung steigt im Tagesverlauf spürbar an.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dunkle Wolkenbänke (Virga) zeigen sich am Horizont.",
+                        "temp": {
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kräftige Windböen wirbeln Asche und Staub in die Luft.",
+                        "temp": {
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine hohe Hitzebelastung herrscht auch in geschützten Bereichen.",
+                        "temp": {
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein intensives Abendrot wird durch feine Dunstpartikel erzeugt.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Stationäre, drückende Hitze bei vollkommener Windstille.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Ein massiver Temperatursturz infolge schwerer Gewitteraktivität.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Gefährliche Sturzfluten (Flash Floods) füllen die Wadis.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Bodenverdunstung (Dampfbildung) nach dem Niederschlag.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Sofortige Verdunstung von Feuchtigkeit auf dem heißen Stein.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Die Luft ist direkt nach dem Regen feucht-warm und stickig.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine drückend schwüle Luft liegt vor dem Gewitter über dem Land.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rascher Aufzug einer bedrohlichen, fast schwarzen Wolkenwand.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausbildung von intensiven, doppelten Regenbogenerscheinungen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Heftige Windböen peitschen den Regen fast waagerecht vor sich her.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Die gesamte Bodenoberfläche ist tief verschlammt.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Luft fühlt sich nach dem warmen Regen sehr feucht an.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine schwüle und drückende Luftmasse macht jede Bewegung schwer.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Heftige Erdblitze zucken gefährlich über der offenen Ebene.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Ein kurzer, aber intensiver und warmer Regenschauer geht nieder.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Rasches und vollständiges Aufklaren des Himmels nach den Regenfällen.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die heiße Sonne bricht schnell wieder durch die Wolkendecke.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine extrem schwüle und feucht-warme Nachtphase.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein überraschender, heftiger Hagelschauer prasselt auf den Boden.",
+                        "temp": {
+                            "minC": 20,
+                            "maxC": 24,
+                            "minF": 68,
+                            "maxF": 75
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Hohe thermische Belastung durch die Kombination aus Feuchte und Wärme.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein anhaltendes, bedrohliches Donnergrollen in der Ferne.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Eine lang anhaltende Dürreperiode mit extremer Trockenheit.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzfristiges, aber extrem intensives Niederschlagsereignis.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vereinzelte weiße Wolken ziehen über den blauen Himmel.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine leichte Taubildung ist am frühen Morgen sichtbar.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein unangenehm staubig-trockener Wind weht beständig.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Einsetzen von starkem, hitzebedingtem Luftflimmern in Bodennähe.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Signifikante solare Strahlungsintensität bereits am Vormittag.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein rascher Zug von weißen Wolkenfeldern (Cumulus).",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine markante nächtliche Abkühlung verschafft etwas Linderung.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzliche, heftige Windböen fegen unvermittelt über das Land.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Kristallklare Sicht bis zum weit entfernten Horizont.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dominanz extrem trockener Luftmassen bestimmt das Klima.",
+                        "temp": {
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzer, lokaler Regenschauer verdampft sofort am Boden.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Aufgewirbelter feiner Sand trübt die Sicht stark in Bodennähe.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Zunehmende atmosphärische Trockenheit im weiteren Tagesverlauf.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine intensive, spektakuläre rote Färbung des Abendhimmels zeigt sich.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der helle Mondschein wird durch einen Dunstschleier gedämpft.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein leichter, trüber Dunst liegt noch am frühen Morgen.",
+                        "temp": {
+                            "minC": 19,
+                            "maxC": 23,
+                            "minF": 66,
+                            "maxF": 73
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine längere Phase vollkommener, drückender Windstille tritt ein.",
+                        "temp": {
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erste lokale Gewitteraktivität kündigt die kommende Regenzeit an.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Sehr hohe Evaporationsraten während des warmen Niederschlagsereignisses.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "wind"
+                        ]
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Der staubige Harmattan-Passatwind weht aus Nordosten.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine empfindlich kalte Nachtphase kühlt den Boden stark aus.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Fahler Sonnenschein dringt kaum durch den dichten Staubfilter.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein stetiger, stark austrocknender Wind weht über das Land.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Luftfeuchtigkeit sinkt tagsüber auf extrem niedrige Werte.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichter grauer Staubschleier bedeckt den gesamten Himmel.",
+                        "temp": {
+                            "minC": 23,
+                            "maxC": 27,
+                            "minF": 73,
+                            "maxF": 81
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Heiße Winde wirbeln immer wieder Staubfontänen auf.",
+                        "temp": {
+                            "minC": 28,
+                            "maxC": 32,
+                            "minF": 82,
+                            "maxF": 90
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Für die Region ungewöhnlich kühle und frische Morgentemperaturen.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Einschränkung der Sichtweite durch den dichten Staub.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Es herrscht eine sehr windige und extrem trockene Witterung.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein rötlicher Sonnenaufgang, verursacht durch feine Sandpartikel.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Vollständiges Ausbleiben von Kondensation (keine Taubildung).",
+                        "temp": {
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine extreme, trockene Hitze bestimmt den gesamten Tag.",
+                        "temp": {
+                            "minC": 26,
+                            "maxC": 30,
+                            "minF": 79,
+                            "maxF": 86
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine hohe elektrostatische Aufladung der Luft.",
+                        "temp": {
+                            "minC": 22,
+                            "maxC": 26,
+                            "minF": 72,
+                            "maxF": 79
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine leichte Trübung durch hohe Wolkenfelder (Cirrus).",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Staubige Winde fegen kontinuierlich über das ausgedörrte Land.",
+                        "temp": {
+                            "minC": 27,
+                            "maxC": 31,
+                            "minF": 81,
+                            "maxF": 88
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Feiner, in der Luft schwebender Staub trübt die Fernsicht.",
+                        "temp": {
+                            "minC": 25,
+                            "maxC": 29,
+                            "minF": 77,
+                            "maxF": 84
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Rasche abendliche Abkühlung bei vollkommener Windstille.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Spürbare und deutliche Temperaturabsenkung in den Schattenzonen.",
+                        "temp": {
+                            "minC": 24,
+                            "maxC": 28,
+                            "minF": 75,
+                            "maxF": 82
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Leichte Dunstbildung sorgt für eine eingeschränkte Sicht.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     },
     "highland": {
-        name: "Gebirgsklimate (Highland/Alpine)",
-        seasons: {
-            "spring": [
-                { text: "Rapider Luftdruckabfall, verursacht durch einen Föhnsturm.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Rasche Erwärmung der Schneedecke durch Insolation.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Sehr hohe Wasserführung der Gebirgsbäche durch das Schmelzwasser.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Starker Kontrast zwischen warmem Tal und dem Gipfelschnee.", temp: "10 bis 15°C (50 to 59°F)", fx: null },
-                { text: "Ein plötzlicher Wettersturz bringt frischen Neuschnee.", temp: "-2 bis 2°C (28 to 36°F)", fx: "snow" },
-                { text: "Intensive UV-Strahlung bei einem absolut klaren Himmel.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Dichter, aufsteigender Talnebel reduziert die Sichtweite.", temp: "4 bis 8°C (39 to 46°F)", fx: "thick_fog" },
-                { text: "Eine regenweiche und äußerst instabile Schneedecke liegt am Hang.", temp: "3 bis 7°C (37 to 45°F)", fx: "rain" },
-                { text: "Intensive Sonneneinstrahlung auf den exponierten Südhängen.", temp: "7 bis 11°C (45 to 52°F)", fx: null },
-                { text: "Ein leuchtender Regenbogen bildet sich nach dem Schauer.", temp: "9 bis 13°C (48 to 55°F)", fx: "rain" },
-                { text: "Kristallklare Fernsicht herrscht in der dünnen Höhenluft.", temp: "5 bis 10°C (41 to 50°F)", fx: null },
-                { text: "Rascher Durchzug eines kurzen Kaltfrontgewitters.", temp: "6 bis 10°C (43 to 50°F)", fx: "storm" },
-                { text: "Die warme Frühlingssonne schmilzt verbliebene Schneefelder.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Schnell ziehende Wolkenfelder ziehen knapp über den Gipfel.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Ein böiger und unberechenbarer Wind fegt über die Grate.", temp: "4 bis 9°C (39 to 48°F)", fx: null },
-                { text: "Der Regen im Tal geht in höheren Lagen in Schnee über.", temp: "1 bis 5°C (34 to 41°F)", fx: "rain" },
-                { text: "Nächtliches Überfrieren von tagsüber gebildetem Schmelzwasser.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Ein schneller Wetterumschwung nach einem sonnigen Morgen.", temp: "7 bis 12°C (45 to 54°F)", fx: null },
-                { text: "Die Schneegrenze zieht sich langsam in höhere Lagen zurück.", temp: "6 bis 10°C (43 to 50°F)", fx: null },
-                { text: "Es herrscht eine glasklare und extrem dünne Höhenluft.", temp: "5 bis 9°C (41 to 48°F)", fx: null }
-            ],
-            "summer": [
-                { text: "Entwicklung eines Hitzegewitters am Nachmittag.", temp: "18 bis 22°C (64 to 72°F)", fx: "storm" },
-                { text: "Eine extrem hohe und gefährliche UV-Intensität in der Höhe.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Ein deutlich kühlender Gletscherwind setzt am späten Nachmittag ein.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Ein dichtes Wolkenmeer liegt unterhalb des Gipfels.", temp: "14 bis 18°C (57 to 64°F)", fx: null },
-                { text: "Ein wolkenloser, strahlend blauer Berghimmel spannt sich auf.", temp: "16 bis 21°C (61 to 70°F)", fx: null },
-                { text: "Plötzlicher Einfall von dichtem Nebel (akute Whiteout-Gefahr).", temp: "10 bis 14°C (50 to 57°F)", fx: "thick_fog" },
-                { text: "Sehr gute Sichtverhältnisse am Abend mit schönem Alpenglühen.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Frische, kühle Brise im exponierten Gratbereich.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Ein überraschender Graupelschauer zieht über den Gipfel.", temp: "9 bis 13°C (48 to 55°F)", fx: "hail" },
-                { text: "Außergewöhnlich klare Sicht und milde Temperaturen herrschen.", temp: "15 bis 19°C (59 to 66°F)", fx: null },
-                { text: "Die Felsflächen sind trocken und von der Sonne aufgeheizt.", temp: "17 bis 22°C (63 to 72°F)", fx: null },
-                { text: "Bildung kräftiger Thermikaufwinde an den Hängen.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Eine lokale Gewitterzelle bleibt im Tal hängen.", temp: "14 bis 18°C (57 to 64°F)", fx: "rain_storm" },
-                { text: "Ein stabiles Hochdruckwetter sorgt für freie Gipfelsicht.", temp: "15 bis 20°C (59 to 68°F)", fx: null },
-                { text: "Mächtige weiße Quellwolken türmen sich am Himmel auf.", temp: "16 bis 20°C (61 to 68°F)", fx: null },
-                { text: "Die reißenden Gebirgsbäche führen einen sehr hohen Wasserstand.", temp: "11 bis 15°C (52 to 59°F)", fx: null },
-                { text: "Eine sternenklare und angenehm frische Nacht bricht an.", temp: "5 bis 9°C (41 to 48°F)", fx: null },
-                { text: "Es herrscht vollkommene Windstille im gesamten Gipfelbereich.", temp: "12 bis 16°C (54 to 61°F)", fx: null },
-                { text: "Extrem hohe Lichtreflexion auf den weißen Schneeflächen.", temp: "10 bis 14°C (50 to 57°F)", fx: null },
-                { text: "Ein plötzlicher Kälteeinbruch verursacht durch einen Wetterumschwung.", temp: "6 bis 10°C (43 to 50°F)", fx: null }
-            ],
-            "autumn": [
-                { text: "Eine endlose und klare Fernsicht vom hohen Berggipfel.", temp: "5 bis 10°C (41 to 50°F)", fx: null },
-                { text: "Ein dichtes Nebelmeer füllt die tieferliegenden Täler aus.", temp: "8 bis 13°C (46 to 55°F)", fx: "thick_fog" },
-                { text: "Eine sehr klare Luftmasse sorgt für viel warmen Sonnenschein.", temp: "7 bis 12°C (45 to 54°F)", fx: null },
-                { text: "Leichter, erster Schneefall rieselt in der Stille leise herab.", temp: "-2 bis 3°C (28 to 37°F)", fx: "snow" },
-                { text: "Extrem klare Fernsicht über die verschneiten Gipfel.", temp: "6 bis 11°C (43 to 52°F)", fx: null },
-                { text: "Ein laut pfeifender, kalter Wind weht am scharfen Grat.", temp: "0 bis 5°C (32 to 41°F)", fx: null },
-                { text: "Moderate Wärmeentwicklung bei anhaltendem Sonnenschein.", temp: "9 bis 14°C (48 to 57°F)", fx: null },
-                { text: "Starke Vereisung an den schattigen, kalten Nordseiten.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Seltene, absolute Windstille im gesamten, weiten Gipfelbereich.", temp: "8 bis 12°C (46 to 54°F)", fx: null },
-                { text: "Der Mondaufgang ist durch dunstige Luftschichten getrübt.", temp: "2 bis 6°C (36 to 43°F)", fx: null },
-                { text: "Eine dichte Reifbedeckung ist am frühen Morgen sichtbar.", temp: "-4 bis 0°C (25 to 32°F)", fx: null },
-                { text: "Ein bedrohlich aufziehender Sturm kündigt sich an.", temp: "-1 bis 4°C (30 to 39°F)", fx: "storm" },
-                { text: "Oberflächliches Gefrieren von Wasser in kleinen Pfützen.", temp: "-2 bis 2°C (28 to 36°F)", fx: null },
-                { text: "Dichte Stauungsbewölkung hängt direkt an den Berggipfeln.", temp: "-3 bis 1°C (27 to 34°F)", fx: null },
-                { text: "Wärmende milde Herbstsonne bei kühler Umgebungsluft.", temp: "10 bis 15°C (50 to 59°F)", fx: null },
-                { text: "Erhebliche Temperaturschwankungen im gesamten Tagesverlauf.", temp: "1 bis 5°C (34 to 41°F)", fx: null },
-                { text: "Rasche thermische Auskühlung direkt nach Sonnenuntergang.", temp: "-1 bis 3°C (30 to 37°F)", fx: null },
-                { text: "Ein kurzer Graupelschauer zieht über das Gebirge.", temp: "0 bis 4°C (32 to 39°F)", fx: "hail" },
-                { text: "Die ersten Schneeflocken des Winters fallen vom Himmel.", temp: "3 bis 7°C (37 to 45°F)", fx: "snow" },
-                { text: "Der Himmel ist sternenklar und die Luft frostig.", temp: "-5 bis -1°C (23 to 30°F)", fx: null }
-            ],
-            "winter": [
-                { text: "Schneesturm mit extremen Windgeschwindigkeiten am Gipfel.", temp: "-15 bis -10°C (5 to 14°F)", fx: "blizzard" },
-                { text: "Ein sehr intensiver Schneefall reduziert die Sichtweite drastisch.", temp: "-10 bis -5°C (14 to 23°F)", fx: "snow" },
-                { text: "Eine instabile Schneedecke mit akuter Lawinengefahr besteht.", temp: "-8 bis -3°C (18 to 27°F)", fx: null },
-                { text: "Eine sonnige Hochdrucklage, begleitet von strengem Frost.", temp: "-5 bis -1°C (23 to 30°F)", fx: null },
-                { text: "Ein dichter Eisnebel sorgt für erhebliche Sichtbehinderung.", temp: "-12 bis -8°C (10 to 18°F)", fx: "thick_fog" },
-                { text: "Erhebliche Schneeverfrachtung durch den anhaltenden Starkwind.", temp: "-14 bis -9°C (7 to 16°F)", fx: null },
-                { text: "Es herrscht eine extreme Kälteanomalie für die Jahreszeit.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Ein besonders ergiebiger und anhaltender Neuschneezuwachs wird verzeichnet.", temp: "-15 bis -10°C (5 to 14°F)", fx: "snow" },
-                { text: "Eine anhaltende, harte Frostperiode ohne Unterbrechung.", temp: "-8 bis -4°C (18 to 25°F)", fx: null },
-                { text: "Ausgeprägte Inversionswetterlage mit dichtem Nebel im Tal.", temp: "-2 bis 2°C (28 to 36°F)", fx: "thick_fog" },
-                { text: "Extrem dichter Nebel mit Sichtweiten unter 50 Metern.", temp: "-5 bis -1°C (23 to 30°F)", fx: "thick_fog" },
-                { text: "Ein schwerer Sturm führt zu massiven Schneeverwehungen.", temp: "-12 bis -7°C (10 to 19°F)", fx: null },
-                { text: "Gefährliche Whiteout-Bedingungen durch Wolken und Schnee.", temp: "-10 bis -5°C (14 to 23°F)", fx: null },
-                { text: "Schweres Schneetreiben führt zu komplettem Orientierungsverlust.", temp: "-15 bis -10°C (5 to 14°F)", fx: "blizzard" },
-                { text: "Ein leichter, aber stetiger Polarschneefall setzt ein.", temp: "-18 bis -14°C (0 to 7°F)", fx: "diamond_dust" },
-                { text: "Seltene optische Phänomene (Glorie) sind im Nebel beobachtbar.", temp: "-6 bis -2°C (21 to 28°F)", fx: null },
-                { text: "Gefrierender Nebel führt zu gefährlichem Glatteis.", temp: "-10 bis -6°C (14 to 21°F)", fx: "rain" },
-                { text: "Eine klare Winternacht mit sehr guter Fernsicht.", temp: "-20 bis -15°C (-4 to 5°F)", fx: null },
-                { text: "Ein seltenes Wintergewitter mit elektrostatischer Entladung.", temp: "-5 bis 0°C (23 to 32°F)", fx: "blizzard" },
-                { text: "Windstille Hochdrucklage über der Schneedecke.", temp: "-12 bis -8°C (10 to 18°F)", fx: null }
-            ]
+        "data": {
+            "name": "Gebirgsklimate (Highland/Alpine)",
+            "img": null,
+            "seasons": {
+                "spring": [
+                    {
+                        "text": "Rapider Luftdruckabfall, verursacht durch einen Föhnsturm.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rasche Erwärmung der Schneedecke durch Insolation.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Sehr hohe Wasserführung der Gebirgsbäche durch das Schmelzwasser.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starker Kontrast zwischen warmem Tal und dem Gipfelschnee.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 15,
+                            "minF": 50,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein plötzlicher Wettersturz bringt frischen Neuschnee.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Intensive UV-Strahlung bei einem absolut klaren Himmel.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichter, aufsteigender Talnebel reduziert die Sichtweite.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine regenweiche und äußerst instabile Schneedecke liegt am Hang.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Intensive Sonneneinstrahlung auf den exponierten Südhängen.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 11,
+                            "minF": 45,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein leuchtender Regenbogen bildet sich nach dem Schauer.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Kristallklare Fernsicht herrscht in der dünnen Höhenluft.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 10,
+                            "minF": 41,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rascher Durchzug eines kurzen Kaltfrontgewitters.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Die warme Frühlingssonne schmilzt verbliebene Schneefelder.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schnell ziehende Wolkenfelder ziehen knapp über den Gipfel.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein böiger und unberechenbarer Wind fegt über die Grate.",
+                        "temp": {
+                            "minC": 4,
+                            "maxC": 9,
+                            "minF": 39,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Regen im Tal geht in höheren Lagen in Schnee über.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Nächtliches Überfrieren von tagsüber gebildetem Schmelzwasser.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein schneller Wetterumschwung nach einem sonnigen Morgen.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 12,
+                            "minF": 45,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Schneegrenze zieht sich langsam in höhere Lagen zurück.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine glasklare und extrem dünne Höhenluft.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    }
+                ],
+                "summer": [
+                    {
+                        "text": "Entwicklung eines Hitzegewitters am Nachmittag.",
+                        "temp": {
+                            "minC": 18,
+                            "maxC": 22,
+                            "minF": 64,
+                            "maxF": 72
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Eine extrem hohe und gefährliche UV-Intensität in der Höhe.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein deutlich kühlender Gletscherwind setzt am späten Nachmittag ein.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichtes Wolkenmeer liegt unterhalb des Gipfels.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein wolkenloser, strahlend blauer Berghimmel spannt sich auf.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 21,
+                            "minF": 61,
+                            "maxF": 70
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Plötzlicher Einfall von dichtem Nebel (akute Whiteout-Gefahr).",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Sehr gute Sichtverhältnisse am Abend mit schönem Alpenglühen.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Frische, kühle Brise im exponierten Gratbereich.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein überraschender Graupelschauer zieht über den Gipfel.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 13,
+                            "minF": 48,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Außergewöhnlich klare Sicht und milde Temperaturen herrschen.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die Felsflächen sind trocken und von der Sonne aufgeheizt.",
+                        "temp": {
+                            "minC": 17,
+                            "maxC": 22,
+                            "minF": 63,
+                            "maxF": 72
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Bildung kräftiger Thermikaufwinde an den Hängen.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine lokale Gewitterzelle bleibt im Tal hängen.",
+                        "temp": {
+                            "minC": 14,
+                            "maxC": 18,
+                            "minF": 57,
+                            "maxF": 64
+                        },
+                        "fx": [
+                            "rain_storm"
+                        ]
+                    },
+                    {
+                        "text": "Ein stabiles Hochdruckwetter sorgt für freie Gipfelsicht.",
+                        "temp": {
+                            "minC": 15,
+                            "maxC": 20,
+                            "minF": 59,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Mächtige weiße Quellwolken türmen sich am Himmel auf.",
+                        "temp": {
+                            "minC": 16,
+                            "maxC": 20,
+                            "minF": 61,
+                            "maxF": 68
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Die reißenden Gebirgsbäche führen einen sehr hohen Wasserstand.",
+                        "temp": {
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sternenklare und angenehm frische Nacht bricht an.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 9,
+                            "minF": 41,
+                            "maxF": 48
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht vollkommene Windstille im gesamten Gipfelbereich.",
+                        "temp": {
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extrem hohe Lichtreflexion auf den weißen Schneeflächen.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein plötzlicher Kälteeinbruch verursacht durch einen Wetterumschwung.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 10,
+                            "minF": 43,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    }
+                ],
+                "autumn": [
+                    {
+                        "text": "Eine endlose und klare Fernsicht vom hohen Berggipfel.",
+                        "temp": {
+                            "minC": 5,
+                            "maxC": 10,
+                            "minF": 41,
+                            "maxF": 50
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichtes Nebelmeer füllt die tieferliegenden Täler aus.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 13,
+                            "minF": 46,
+                            "maxF": 55
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Eine sehr klare Luftmasse sorgt für viel warmen Sonnenschein.",
+                        "temp": {
+                            "minC": 7,
+                            "maxC": 12,
+                            "minF": 45,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Leichter, erster Schneefall rieselt in der Stille leise herab.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Extrem klare Fernsicht über die verschneiten Gipfel.",
+                        "temp": {
+                            "minC": 6,
+                            "maxC": 11,
+                            "minF": 43,
+                            "maxF": 52
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein laut pfeifender, kalter Wind weht am scharfen Grat.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 5,
+                            "minF": 32,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Moderate Wärmeentwicklung bei anhaltendem Sonnenschein.",
+                        "temp": {
+                            "minC": 9,
+                            "maxC": 14,
+                            "minF": 48,
+                            "maxF": 57
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Starke Vereisung an den schattigen, kalten Nordseiten.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Seltene, absolute Windstille im gesamten, weiten Gipfelbereich.",
+                        "temp": {
+                            "minC": 8,
+                            "maxC": 12,
+                            "minF": 46,
+                            "maxF": 54
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Der Mondaufgang ist durch dunstige Luftschichten getrübt.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine dichte Reifbedeckung ist am frühen Morgen sichtbar.",
+                        "temp": {
+                            "minC": -4,
+                            "maxC": 0,
+                            "minF": 25,
+                            "maxF": 32
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein bedrohlich aufziehender Sturm kündigt sich an.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 4,
+                            "minF": 30,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "storm"
+                        ]
+                    },
+                    {
+                        "text": "Oberflächliches Gefrieren von Wasser in kleinen Pfützen.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dichte Stauungsbewölkung hängt direkt an den Berggipfeln.",
+                        "temp": {
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Wärmende milde Herbstsonne bei kühler Umgebungsluft.",
+                        "temp": {
+                            "minC": 10,
+                            "maxC": 15,
+                            "minF": 50,
+                            "maxF": 59
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Erhebliche Temperaturschwankungen im gesamten Tagesverlauf.",
+                        "temp": {
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Rasche thermische Auskühlung direkt nach Sonnenuntergang.",
+                        "temp": {
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein kurzer Graupelschauer zieht über das Gebirge.",
+                        "temp": {
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
+                        },
+                        "fx": [
+                            "hail"
+                        ]
+                    },
+                    {
+                        "text": "Die ersten Schneeflocken des Winters fallen vom Himmel.",
+                        "temp": {
+                            "minC": 3,
+                            "maxC": 7,
+                            "minF": 37,
+                            "maxF": 45
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Der Himmel ist sternenklar und die Luft frostig.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    }
+                ],
+                "winter": [
+                    {
+                        "text": "Schneesturm mit extremen Windgeschwindigkeiten am Gipfel.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Ein sehr intensiver Schneefall reduziert die Sichtweite drastisch.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Eine instabile Schneedecke mit akuter Lawinengefahr besteht.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -3,
+                            "minF": 18,
+                            "maxF": 27
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Eine sonnige Hochdrucklage, begleitet von strengem Frost.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein dichter Eisnebel sorgt für erhebliche Sichtbehinderung.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Erhebliche Schneeverfrachtung durch den anhaltenden Starkwind.",
+                        "temp": {
+                            "minC": -14,
+                            "maxC": -9,
+                            "minF": 7,
+                            "maxF": 16
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Es herrscht eine extreme Kälteanomalie für die Jahreszeit.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein besonders ergiebiger und anhaltender Neuschneezuwachs wird verzeichnet.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "snow"
+                        ]
+                    },
+                    {
+                        "text": "Eine anhaltende, harte Frostperiode ohne Unterbrechung.",
+                        "temp": {
+                            "minC": -8,
+                            "maxC": -4,
+                            "minF": 18,
+                            "maxF": 25
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ausgeprägte Inversionswetterlage mit dichtem Nebel im Tal.",
+                        "temp": {
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Extrem dichter Nebel mit Sichtweiten unter 50 Metern.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
+                        },
+                        "fx": [
+                            "thick_fog"
+                        ]
+                    },
+                    {
+                        "text": "Ein schwerer Sturm führt zu massiven Schneeverwehungen.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -7,
+                            "minF": 10,
+                            "maxF": 19
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefährliche Whiteout-Bedingungen durch Wolken und Schnee.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -5,
+                            "minF": 14,
+                            "maxF": 23
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Schweres Schneetreiben führt zu komplettem Orientierungsverlust.",
+                        "temp": {
+                            "minC": -15,
+                            "maxC": -10,
+                            "minF": 5,
+                            "maxF": 14
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Ein leichter, aber stetiger Polarschneefall setzt ein.",
+                        "temp": {
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
+                        },
+                        "fx": [
+                            "diamond_dust"
+                        ]
+                    },
+                    {
+                        "text": "Seltene optische Phänomene (Glorie) sind im Nebel beobachtbar.",
+                        "temp": {
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Gefrierender Nebel führt zu gefährlichem Glatteis.",
+                        "temp": {
+                            "minC": -10,
+                            "maxC": -6,
+                            "minF": 14,
+                            "maxF": 21
+                        },
+                        "fx": [
+                            "rain"
+                        ]
+                    },
+                    {
+                        "text": "Eine klare Winternacht mit sehr guter Fernsicht.",
+                        "temp": {
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ein seltenes Wintergewitter mit elektrostatischer Entladung.",
+                        "temp": {
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
+                        },
+                        "fx": [
+                            "blizzard"
+                        ]
+                    },
+                    {
+                        "text": "Windstille Hochdrucklage über der Schneedecke.",
+                        "temp": {
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
+                        },
+                        "fx": []
+                    }
+                ]
+            }
+        },
+        "fx": {
+            "day": [],
+            "night": []
         }
     }
 };

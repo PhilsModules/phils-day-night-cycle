@@ -17,12 +17,18 @@
                     {{#if (eq this.type "gm")}}<i class="fas fa-user-secret"></i>{{/if}}
                     {{#if (eq this.type "player")}}<i class="fas fa-feather-alt"></i>{{/if}}
                     {{#if (eq this.type "event")}}<i class="fas fa-scroll"></i>{{/if}}
+                    {{#if (eq this.type "personal")}}<i class="fas fa-user-lock"></i>{{/if}}
+                    {{#if (eq this.type "quest")}}<i class="fas fa-exclamation-circle"></i>{{/if}}
+                    {{#if (eq this.type "weather")}}<i class="fas fa-cloud-sun"></i>{{/if}}
                 </div>
                 <div class="pdnc-event-details">
                     <span class="pdnc-event-type-label">
                         {{#if (eq this.type "gm")}}{{localize "PDNC.TypeGM"}}{{/if}}
                         {{#if (eq this.type "player")}}{{localize "PDNC.TypePlayer"}}{{/if}}
                         {{#if (eq this.type "event")}}{{localize "PDNC.TypeEvent"}}{{/if}}
+                        {{#if (eq this.type "personal")}}{{localize "PDNC.TypePersonal"}}{{/if}}
+                        {{#if (eq this.type "quest")}}{{localize "PDNC.TypeQuest"}}{{/if}}
+                        {{#if (eq this.type "weather")}}{{localize "PDNC.TypeWeather"}}{{/if}}
                     </span>
                     <p class="pdnc-event-title">{{this.title}}</p>
                     {{#if this.description}}

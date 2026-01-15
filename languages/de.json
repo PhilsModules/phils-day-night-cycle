@@ -2,6 +2,36 @@
     "PDNC": {
         "SettingVisibleName": "Uhr anzeigen",
         "SettingVisibleHint": "Schaltet die Sichtbarkeit der Tag/Nacht-Uhr um.",
+        "Wizard": {
+            "Title": "Willkommen bei Phils Tag- & Nachtzyklus",
+            "Subtitle": "Lass uns dein Kalender- und Wettersystem einrichten.",
+            "Step1Title": "Kalender-Setup",
+            "Step2Title": "Datum & Zeit",
+            "Step3Title": "Einstellungen & Berechtigungen",
+            "Finish": "Setup abschließen",
+            "SyncName": "Mit Pathfinder 2e synchronisieren",
+            "SyncHint": "Setzt den Datumsversatz automatisch auf 1.725.595, um mit der Golarion-Ära (AR 4700+) übereinzustimmen. Du musst den Tag unten ggf. noch anpassen.",
+            "DateHint": "Stellen Sie das aktuelle Datum und die Uhrzeit für Ihre Welt ein.",
+            "RestartWizardLabel": "Setup Assistent neu starten",
+            "RestartWizardHint": "Startet den initialen Setup-Assistenten erneut, um das Modul von Grund auf neu zu konfigurieren.",
+            "Climates": {
+                "ice_cap": "Eiswüstenklimate",
+                "marine_west_coast": "Westseitenklimate",
+                "humid_subtropical": "Ostseitenklimate",
+                "tundra": "Tundrenklimate",
+                "semiarid": "Steppenklimate",
+                "dry_savanna": "Trockensavannenklimate",
+                "boreal_forest": "Nadelwaldklimate",
+                "cold_desert": "Winterkalte Trockenklimate",
+                "wet_savanna": "Feuchtsavannenklimate",
+                "humid_continental": "Mischwaldklimate",
+                "hot_desert": "Heiße Trockenklimate",
+                "tropical_rainforest": "Tropische Regenwaldklimate",
+                "temperate_rainforest": "Gemäßigte Regenwaldklimate",
+                "thorn_savanna": "Dornsavannenklimate",
+                "highland": "Gebirgsklimate"
+            }
+        },
         "SettingPostXName": "Position X",
         "SettingPosYName": "Position Y",
         "SettingTimeOffsetName": "Zeitversatz (Minuten)",
@@ -128,6 +158,11 @@
         "Save": "Speichern",
         "Delete": "Löschen",
         "Cancel": "Abbrechen",
+        "Close": "Schließen",
+        "SETTINGS": {
+            "Save": "Einstellungen speichern",
+            "Reset": "Standard wiederherstellen"
+        },
         "Title": "Titel",
         "Description": "Beschreibung",
         "Type": "Typ",
@@ -136,6 +171,8 @@
         "TypeGM": "GM Notiz",
         "TypeWeather": "Wetterbericht",
         "TypePlayer": "Gruppen Notiz",
+        "TypeQuest": "Quest",
+        "TypePersonal": "Persönlich (Privat)",
         "EmptyDay": "Die Seiten der Geschichte sind für diesen Tag leer.",
         "Phases": {
             "Dawn": "Morgendämmerung",
@@ -211,6 +248,7 @@
             "Night": "Nacht"
         },
         "MonthView": "Monatsansicht",
+        "YearView": "Jahresansicht",
         "SetCurrentDate": "Als aktuelles Datum setzen",
         "ConfirmDateChange": "Möchtest du wirklich {days} Tage {direction} springen?",
         "EventList": "Terminübersicht",
@@ -243,7 +281,8 @@
                     "Friday": "Freitag",
                     "Saturday": "Samstag",
                     "Sunday": "Sonntag"
-                }
+                },
+                "Description": "Standard Kalender der realen Welt."
             },
             "Golarion": {
                 "Months": {
@@ -287,7 +326,8 @@
                     "Starday_Alt": "Samstag",
                     "Sunday": "Sonntag",
                     "Sunday_Alt": "Sonntag"
-                }
+                },
+                "Description": "Pathfinder 2e Setting (Zeitalter der Verlorenen Omen)."
             },
             "Harptos": {
                 "Months": {
@@ -327,7 +367,8 @@
                     "Eighthday": "Achter Tag",
                     "Ninthday": "Neunter Tag",
                     "Tenthday": "Zehnter Tag"
-                }
+                },
+                "Description": "D&D 5e Forgotten Realms Setting."
             },
             "Magaambya": {
                  "Months": {
@@ -371,8 +412,13 @@
                     "Starday_Alt": "Samstag",
                     "Sunday": "Sonntag",
                     "Sunday_Alt": "Sonntag"
-                 }
+                 },
+                 "Description": "Mwangi Expanse Setting."
             }
+        },
+        "Tooltips": {
+            "ToggleGlobalWeather": "Globales Wetter umschalten",
+            "PausePreview": "Vorschau pausieren"
         }
     }
 }

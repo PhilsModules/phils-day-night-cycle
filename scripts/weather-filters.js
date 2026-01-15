@@ -41,7 +41,7 @@ export class WeatherFilterManager {
              // Ensure array
              if (!targetLayer.filters) targetLayer.filters = [];
              targetLayer.filters = [...targetLayer.filters, filter];
-             console.log(`PDNC | Added filter: ${id} to custom target`);
+             // PDNC | Added filter: ${id} to custom target
              return;
         }
 
@@ -56,7 +56,7 @@ export class WeatherFilterManager {
             canvas[targetLayer].filters = [...currentFilters, filter];
         }
         
-        console.log(`PDNC | Added filter: ${id}`);
+        // PDNC | Added filter: ${id}
     }
 
     /**
@@ -82,7 +82,7 @@ export class WeatherFilterManager {
         }
 
         this.activeFilters.delete(id);
-        console.log(`PDNC | Removed filter: ${id}`);
+        // PDNC | Removed filter: ${id}
     }
 
     clearFilters() {
