@@ -1,6 +1,7 @@
 # Klimazonen und zugehörige Länder
 
 Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".
+https://de.wikipedia.org/wiki/Klimazone#/media/Datei:Klimazonen_(3_Modelle)_und_Makroklimate.png
 
 ## Eiswüstenklimate
 
@@ -151,3 +152,4 @@ Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".
   - _Sommer:_ Aufgang 05:30 Uhr | Höchststand 13:15 Uhr | Untergang 20:00 Uhr | Komplett dunkel 21:30 Uhr
   - _Herbst:_ Aufgang 07:00 Uhr | Höchststand 12:30 Uhr | Untergang 18:00 Uhr | Komplett dunkel 19:15 Uhr
   - _Winter:_ Aufgang 08:15 Uhr | Höchststand 12:30 Uhr | Untergang 16:00 Uhr | Komplett dunkel 17:15 Uhr
+
