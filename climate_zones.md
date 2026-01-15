@@ -1,6 +1,7 @@
 # Climate Zones and Associated Countries
 
 Based on the legend of the map "Climate Zones (3 Models) and Macroclimates".
+https://de.wikipedia.org/wiki/Klimazone#/media/Datei:Klimazonen_(3_Modelle)_und_Makroklimate.png
 
 ## Ice Cap (Eiswüstenklimate)
 
@@ -151,3 +152,4 @@ Based on the legend of the map "Climate Zones (3 Models) and Macroclimates".
   - _Summer:_ Dawn 05:30 | Solar Noon 13:15 | Dusk 20:00 | Night 21:30
   - _Autumn:_ Dawn 07:00 | Solar Noon 12:30 | Dusk 18:00 | Night 19:15
   - _Winter:_ Dawn 08:15 | Solar Noon 12:30 | Dusk 16:00 | Night 17:15
+
