@@ -3,7 +3,7 @@
 # Phil's Day/Night Cycle ☀️🌙
 
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-3.6.1-orange?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-3.8.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -17,25 +17,18 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 </div>
 
+<br>
+
 > [!NOTE]
 >
-> ### ⚠️ Compatibility / Kompatibilität
+> ### ⚠️ Kompatibilität / Compatibility
 >
 > **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
-> <details>
-> <summary><strong>Troubleshooting (Click to expand)</strong></summary>
-> If you notice double brightness transitions in scenes or the timing seems off, the standard clock is likely still active. In this case, you need to adjust Phil's Day/Night Cycle once using an offset to match the time and disable the "time light synchronization" in the foundry time settings.
-> </details>
->
-> ---
->
 > **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module für den Kalender benötigt.
->
-> <details>
-> <summary><strong>Fehlerbehebung (Klicken zum Ausklappen)</strong></summary>
-> Das heißt, wenn ihr doppelte Wechsel der Helligkeit in Szenen bemerkt oder die Zeiten seltsam wirken, ist vermutlich noch die Standarduhr aktiv. Ihr müsst Phil's Day/Night Cycle dann einmalig per Offset an die Zeit anpassen und die Lichtsynchronisation bei der Foundryzeiteinstellung ausmachen.
-> </details>
+
+<br>
+
 ---
 
 <br>
@@ -48,11 +41,15 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 <br>
 
+<br>
+
 # <img src="https://flagcdn.com/48x36/gb.png" width="28" height="21" alt="EN"> English Instructions
 
 **An elegant clock widget with drag and drop functionality for Foundry VTT.**
 
 Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
+
+👉 **[Detailed Climate Zone Guide](climate_zones.md)** - Learn about the different climates and their lighting times.
 
 ## 🚀 Key Features
 
@@ -138,6 +135,8 @@ The module automatically simulates weather.
 
 Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
 
+👉 **[Detaillierter Klimazonen Guide](klimazonen.md)** - Erfahre alles über die verschiedenen Klimate und ihre Lichtzeiten.
+
 ## 🚀 Funktionen
 
 - 🌦️ **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
@@ -187,7 +186,7 @@ In den Moduleinstellungen kannst du diverse Dinge anpassen.
 - Das Kalendersystem ändern (Golarion, Harptos und weitere).
 - Das Hintergrundbild der Uhr austauschen.
 - Versatz für Zeit und Datum einstellen.
-- **Wettersystem umschalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
+- **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
 
 ### 4. Wettersystem und Klimazonen
 
@@ -235,16 +234,3 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
