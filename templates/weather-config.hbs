@@ -39,9 +39,12 @@
     <div class="form-group">
         <label>{{localize "PDNC.WeatherConfig.FX"}}</label>
         <div class="form-fields">
-            <select name="fx">
+            <select name="fx" style="flex: 1;">
                 {{selectOptions fxChoices selected=weather.fx labelAttr="label" blank="None"}}
             </select>
+            <button type="button" data-action="open-mixer" title="{{localize 'PDNC.WeatherMixer.Title'}}" style="flex: 0 0 40px; margin-left: 5px;">
+                <i class="fas fa-flask"></i>
+            </button>
         </div>
     </div>
 

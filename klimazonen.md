@@ -1,155 +1,205 @@
-# Klimazonen und zugehörige Länder
+# Klimazonen und Beleuchtungszeiten
 
-Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".
-https://de.wikipedia.org/wiki/Klimazone#/media/Datei:Klimazonen_(3_Modelle)_und_Makroklimate.png
+Dieses Dokument listet alle verfügbaren Klimazonen im Modul **Phil's Day & Night Cycle** und die entsprechenden Beleuchtungszeiten für jede Jahreszeit auf.
 
-## Eiswüstenklimate
+## Inhaltsverzeichnis
 
-- **Regionen:** Antarktis, Grönland (Inland).
-- **Beschreibung:** Dauerfrost, fast keine Vegetation.
-- **Daten:**
-  - _Frühling:_ Aufgang 04:30 Uhr | Höchststand 13:00 Uhr | Untergang 19:00 Uhr | Komplett dunkel 22:00 Uhr
-  - _Sommer:_ Aufgang 00:00 Uhr | Höchststand 13:00 Uhr | Untergang 23:59 Uhr | Komplett dunkel 00:00 Uhr (Polartag)
-  - _Herbst:_ Aufgang 05:00 Uhr | Höchststand 13:00 Uhr | Untergang 18:00 Uhr | Komplett dunkel 21:00 Uhr
-  - _Winter:_ Aufgang 11:30 Uhr | Höchststand 12:00 Uhr | Untergang 12:30 Uhr | Komplett dunkel 14:00 Uhr
+1. [Eiswüstenklimate (Ice Cap)](#eiswüstenklimate)
+2. [Westseitenklimate (Marine West Coast)](#westseitenklimate)
+3. [Ostseitenklimate (Humid Subtropical)](#ostseitenklimate)
+4. [Tundrenklimate (Tundra)](#tundrenklimate)
+5. [Steppenklimate (Semiarid)](#steppenklimate)
+6. [Trockensavannenklimate (Dry Savanna)](#trockensavannenklimate)
+7. [Nadelwaldklimate (Boreal Forest)](#nadelwaldklimate)
+8. [Winterkalte Trockenklimate (Cold Desert)](#winterkalte-trockenklimate)
+9. [Feuchtsavannenklimate (Wet Savanna)](#feuchtsavannenklimate)
+10. [Mischwaldklimate (Humid Continental)](#mischwaldklimate)
+11. [Heiße Trockenklimate (Hot Desert)](#heiße-trockenklimate)
+12. [Tropische Regenwaldklimate](#tropische-regenwaldklimate)
+13. [Gemäßigte Regenwaldklimate](#gemäßigte-regenwaldklimate)
+14. [Dornsavannenklimate (Thorn Savanna)](#dornsavannenklimate)
+15. [Gebirgsklimate (Highland)](#gebirgsklimate)
 
-## Westseitenklimate
+---
 
-- **Regionen:** Mittelmeerraum (Spanien, Italien, Griechenland, Türkei), USA (Kalifornien), Chile (Zentral), Südafrika (Kapregion), Australien (Südwestspitze/Perth).
-- **Beschreibung:** Winterfeucht, sommertrocken (Mittelmeerklima).
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:45 Uhr | Komplett dunkel 20:00 Uhr
-  - _Sommer:_ Aufgang 05:30 Uhr | Höchststand 13:00 Uhr | Untergang 20:45 Uhr | Komplett dunkel 22:00 Uhr
-  - _Herbst:_ Aufgang 06:30 Uhr | Höchststand 12:00 Uhr | Untergang 19:00 Uhr | Komplett dunkel 20:15 Uhr
-  - _Winter:_ Aufgang 07:15 Uhr | Höchststand 12:30 Uhr | Untergang 17:15 Uhr | Komplett dunkel 18:30 Uhr
+### Eiswüstenklimate
 
-## Ostseitenklimate
+_(Ice Cap) – Extrem kalt, polare Bedingungen._
 
-- **Regionen:** USA (Südosten/Florida), China (Südosten), Japan (Süd-Honshu, Kyushu), Australien (Ostküste), Uruguay, Argentinien (Pampas), Südafrika (Ostküste).
-- **Beschreibung:** Eher feucht, warme Sommer.
-- **Daten:**
-  - _Frühling:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:30 Uhr
-  - _Sommer:_ Aufgang 04:45 Uhr | Höchststand 12:00 Uhr | Untergang 19:15 Uhr | Komplett dunkel 20:30 Uhr
-  - _Herbst:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 17:45 Uhr | Komplett dunkel 19:00 Uhr
-  - _Winter:_ Aufgang 06:45 Uhr | Höchststand 12:30 Uhr | Untergang 17:15 Uhr | Komplett dunkel 18:30 Uhr
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 04:30           | 13:00  | 19:00          | 22:00 |
+| **Sommer**   | 00:00           | 13:00  | 23:59          | 00:00 |
+| **Herbst**   | 05:00           | 13:00  | 18:00          | 21:00 |
+| **Winter**   | 11:30           | 12:00  | 12:30          | 14:00 |
 
-## Tundrenklimate
+### Westseitenklimate
 
-- **Regionen:** Russland (Nordsibirien), Kanada (Nordküste, Nunavut), USA (Alaska Nordküste), Island (Teile).
-- **Beschreibung:** Sehr kurze Sommer, Permafrostboden.
-- **Daten:**
-  - _Frühling:_ Aufgang 04:00 Uhr | Höchststand 12:30 Uhr | Untergang 20:00 Uhr | Komplett dunkel 22:30 Uhr
-  - _Sommer:_ Aufgang 02:00 Uhr | Höchststand 13:00 Uhr | Untergang 23:00 Uhr | Komplett dunkel 00:30 Uhr
-  - _Herbst:_ Aufgang 05:00 Uhr | Höchststand 12:30 Uhr | Untergang 19:00 Uhr | Komplett dunkel 21:30 Uhr
-  - _Winter:_ Aufgang 10:00 Uhr | Höchststand 12:00 Uhr | Untergang 14:00 Uhr | Komplett dunkel 16:00 Uhr
+_(Marine West Coast) – Milde Sommer und Winter, viel Regen (z.B. Westeuropa)._
 
-## Steppenklimate
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:15  | 18:45          | 20:00 |
+| **Sommer**   | 05:30           | 13:00  | 20:45          | 22:00 |
+| **Herbst**   | 06:30           | 12:00  | 19:00          | 20:15 |
+| **Winter**   | 07:15           | 12:30  | 17:15          | 18:30 |
 
-- **Regionen:** Mongolei, Kasachstan, Südrussland, Ukraine, USA (Great Plains), Kanada (Prärie), Sahelzone (Übergang), Australien (Übergang zum Outback).
-- **Beschreibung:** Grasland, semiarid.
-- **Daten:**
-  - _Frühling:_ Aufgang 05:45 Uhr | Höchststand 12:15 Uhr | Untergang 18:45 Uhr | Komplett dunkel 20:15 Uhr
-  - _Sommer:_ Aufgang 04:30 Uhr | Höchststand 13:00 Uhr | Untergang 20:45 Uhr | Komplett dunkel 22:15 Uhr
-  - _Herbst:_ Aufgang 06:15 Uhr | Höchststand 12:15 Uhr | Untergang 18:30 Uhr | Komplett dunkel 19:45 Uhr
-  - _Winter:_ Aufgang 07:45 Uhr | Höchststand 12:30 Uhr | Untergang 17:00 Uhr | Komplett dunkel 18:30 Uhr
+### Ostseitenklimate
 
-## Trockensavannenklimate
+_(Humid Subtropical) – Heiße, feuchte Sommer und milde Winter._
 
-- **Regionen:** Kenia, Tansania, Simbabwe, Indien (Dekkan-Plateau), Australien (Norden), Venezuela (Llanos), Brasilien (Nordost).
-- **Beschreibung:** Deutliche Trockenzeit, hohe Temperaturen.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:00 Uhr
-  - _Sommer:_ Aufgang 05:45 Uhr | Höchststand 12:15 Uhr | Untergang 18:45 Uhr | Komplett dunkel 19:30 Uhr
-  - _Herbst:_ Aufgang 06:15 Uhr | Höchststand 12:15 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:00 Uhr
-  - _Winter:_ Aufgang 06:45 Uhr | Höchststand 12:30 Uhr | Untergang 17:45 Uhr | Komplett dunkel 18:45 Uhr
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 05:45           | 12:00  | 18:15          | 19:30 |
+| **Sommer**   | 04:45           | 12:00  | 19:15          | 20:30 |
+| **Herbst**   | 05:45           | 12:00  | 17:45          | 19:00 |
+| **Winter**   | 06:45           | 12:30  | 17:15          | 18:30 |
 
-## Nadelwaldklimate
+### Tundrenklimate
 
-- **Regionen:** Russland (Taiga/Sibirien), Kanada (Borealer Schild), Finnland, Schweden, Norwegen (Inland).
-- **Beschreibung:** Boreale Nadelwälder, lange kalte Winter.
-- **Daten:**
-  - _Frühling:_ Aufgang 05:00 Uhr | Höchststand 12:15 Uhr | Untergang 19:00 Uhr | Komplett dunkel 21:00 Uhr
-  - _Sommer:_ Aufgang 03:00 Uhr | Höchststand 13:00 Uhr | Untergang 22:00 Uhr | Komplett dunkel 00:00 Uhr
-  - _Herbst:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:00 Uhr | Komplett dunkel 20:00 Uhr
-  - _Winter:_ Aufgang 09:00 Uhr | Höchststand 12:00 Uhr | Untergang 15:00 Uhr | Komplett dunkel 17:00 Uhr
+_(Tundra) – Sehr kalte Winter, kurze kühle Sommer._
 
-## Winterkalte Trockenklimate
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 04:00           | 12:30  | 20:00          | 22:30 |
+| **Sommer**   | 02:00           | 13:00  | 23:00          | 00:30 |
+| **Herbst**   | 05:00           | 12:30  | 19:00          | 21:30 |
+| **Winter**   | 10:00           | 12:00  | 14:00          | 16:00 |
 
-- **Regionen:** China (Gobi, Xinjiang), Zentralasien (Usbekistan, Turkmenistan), Argentinien (Patagonien), USA (Great Basin).
-- **Beschreibung:** Wüsten/Halbwüsten in gemäßigten Breiten mit kalten Wintern.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:30 Uhr | Komplett dunkel 19:45 Uhr
-  - _Sommer:_ Aufgang 04:45 Uhr | Höchststand 13:00 Uhr | Untergang 20:15 Uhr | Komplett dunkel 21:30 Uhr
-  - _Herbst:_ Aufgang 06:15 Uhr | Höchststand 12:15 Uhr | Untergang 18:30 Uhr | Komplett dunkel 19:45 Uhr
-  - _Winter:_ Aufgang 07:45 Uhr | Höchststand 12:30 Uhr | Untergang 17:00 Uhr | Komplett dunkel 18:15 Uhr
+### Steppenklimate
 
-## Feuchtsavannenklimate
+_(Semiarid) – Trockenes Klima mit heißen Sommern und kalten Wintern._
 
-- **Regionen:** Nigeria, Elfenbeinküste, Thailand, Kambodscha, Vietnam, Brasilien (Cerrado), Kuba, Mexiko (Süden).
-- **Beschreibung:** Wechselfeucht, längere Regenzeit.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:00 Uhr
-  - _Sommer:_ Aufgang 05:30 Uhr | Höchststand 12:15 Uhr | Untergang 18:45 Uhr | Komplett dunkel 19:30 Uhr
-  - _Herbst:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:00 Uhr
-  - _Winter:_ Aufgang 06:30 Uhr | Höchststand 12:15 Uhr | Untergang 18:00 Uhr | Komplett dunkel 18:45 Uhr
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 05:45           | 12:15  | 18:45          | 20:15 |
+| **Sommer**   | 04:30           | 13:00  | 20:45          | 22:15 |
+| **Herbst**   | 06:15           | 12:15  | 18:30          | 19:45 |
+| **Winter**   | 07:45           | 12:30  | 17:00          | 18:30 |
 
-## Mischwaldklimate
+### Trockensavannenklimate
 
-- **Regionen:** Deutschland, Frankreich, Polen, Großbritannien, Benelux, USA (Nordosten/Neuengland), China (Nordosten), Korea, Japan (Hokkaido).
-- **Beschreibung:** Gemäßigt, feucht, Laub- und Mischwälder.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:30 Uhr | Untergang 19:00 Uhr | Komplett dunkel 20:45 Uhr
-  - _Sommer:_ Aufgang 04:45 Uhr | Höchststand 13:30 Uhr | Untergang 21:30 Uhr | Komplett dunkel 23:15 Uhr
-  - _Herbst:_ Aufgang 07:00 Uhr | Höchststand 12:30 Uhr | Untergang 18:30 Uhr | Komplett dunkel 20:00 Uhr
-  - _Winter:_ Aufgang 08:00 Uhr | Höchststand 12:30 Uhr | Untergang 16:30 Uhr | Komplett dunkel 18:00 Uhr
+_(Dry Savanna) – Ganzjährig warm mit langer Trockenzeit._
 
-## Heiße Trockenklimate
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:15  | 18:15          | 19:00 |
+| **Sommer**   | 05:45           | 12:15  | 18:45          | 19:30 |
+| **Herbst**   | 06:15           | 12:15  | 18:15          | 19:00 |
+| **Winter**   | 06:45           | 12:30  | 17:45          | 18:45 |
 
-- **Regionen:** Sahara (Ägypten, Algerien, Libyen), Arabische Halbinsel (Saudi-Arabien), Australien (Zentrales Outback), USA (Sogenannte Mohave/Sonora Wüsten), Namibia (Namib/Kalahari).
-- **Beschreibung:** Subtropische/Tropische Wüsten, ganzjährig heiß und trocken.
-- **Daten:**
-  - _Frühling:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:15 Uhr
-  - _Sommer:_ Aufgang 05:00 Uhr | Höchststand 12:00 Uhr | Untergang 19:00 Uhr | Komplett dunkel 20:00 Uhr
-  - _Herbst:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 17:45 Uhr | Komplett dunkel 18:45 Uhr
-  - _Winter:_ Aufgang 06:30 Uhr | Höchststand 12:15 Uhr | Untergang 17:15 Uhr | Komplett dunkel 18:15 Uhr
+### Nadelwaldklimate
 
-## Tropische Regenwaldklimate
+_(Boreal Forest / Taiga) – Lange kalte Winter, kurze milde Sommer._
 
-- **Regionen:** Brasilien (Amazonas), Demokratische Republik Kongo, Indonesien, Malaysia, Papua-Neuguinea, Peru (Ost).
-- **Beschreibung:** Immerfeucht, tropischer Regenwald.
-- **Daten:**
-  - _Frühling:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 18:00 Uhr | Komplett dunkel 18:45 Uhr
-  - _Sommer:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 18:05 Uhr | Komplett dunkel 18:50 Uhr
-  - _Herbst:_ Aufgang 05:45 Uhr | Höchststand 12:00 Uhr | Untergang 18:00 Uhr | Komplett dunkel 18:45 Uhr
-  - _Winter:_ Aufgang 05:55 Uhr | Höchststand 12:10 Uhr | Untergang 18:05 Uhr | Komplett dunkel 18:50 Uhr
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 05:00           | 12:15  | 19:00          | 21:00 |
+| **Sommer**   | 03:00           | 13:00  | 22:00          | 00:00 |
+| **Herbst**   | 06:00           | 12:15  | 18:00          | 20:00 |
+| **Winter**   | 09:00           | 12:00  | 15:00          | 17:00 |
 
-## Gemäßigte Regenwaldklimate
+### Winterkalte Trockenklimate
 
-- **Regionen:** Kanada (Westküste/British Columbia), USA (Pazifischer Nordwesten/Washington/Oregon), Chile (Süd), Neuseeland (Südinsel), Norwegen (Westküste).
-- **Beschreibung:** Sehr niederschlagsreich, gemäßigte Temperaturen.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:15 Uhr | Höchststand 12:30 Uhr | Untergang 18:30 Uhr | Komplett dunkel 20:00 Uhr
-  - _Sommer:_ Aufgang 05:00 Uhr | Höchststand 13:15 Uhr | Untergang 21:15 Uhr | Komplett dunkel 23:00 Uhr
-  - _Herbst:_ Aufgang 06:45 Uhr | Höchststand 12:30 Uhr | Untergang 19:00 Uhr | Komplett dunkel 20:30 Uhr
-  - _Winter:_ Aufgang 08:00 Uhr | Höchststand 12:15 Uhr | Untergang 16:30 Uhr | Komplett dunkel 17:45 Uhr
+_(Cold Desert) – Trockenes Klima mit sehr kalten Wintern._
 
-## Dornsavannenklimate
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:15  | 18:30          | 19:45 |
+| **Sommer**   | 04:45           | 13:00  | 20:15          | 21:30 |
+| **Herbst**   | 06:15           | 12:15  | 18:30          | 19:45 |
+| **Winter**   | 07:45           | 12:30  | 17:00          | 18:15 |
 
-- **Regionen:** Sahelzone (Senegal, Mali - Norden), Indien (Nordwesten/Rajasthan), Mexiko (Nordteil), Somalia, Botswana (Kalahari Randgebiete).
-- **Beschreibung:** Semiarid, Übergang zur Wüste, dornige Vegetation.
-- **Daten:**
-  - _Frühling:_ Aufgang 06:00 Uhr | Höchststand 12:15 Uhr | Untergang 18:20 Uhr | Komplett dunkel 19:10 Uhr
-  - _Sommer:_ Aufgang 05:30 Uhr | Höchststand 12:15 Uhr | Untergang 19:00 Uhr | Komplett dunkel 20:00 Uhr
-  - _Herbst:_ Aufgang 06:15 Uhr | Höchststand 12:15 Uhr | Untergang 18:15 Uhr | Komplett dunkel 19:10 Uhr
-  - _Winter:_ Aufgang 07:00 Uhr | Höchststand 12:30 Uhr | Untergang 17:30 Uhr | Komplett dunkel 18:30 Uhr
+### Feuchtsavannenklimate
 
-## Gebirgsklimate
+_(Wet Savanna) – Ganzjährig warm mit ausgeprägter Regenzeit._
 
-- **Regionen:** Himalaya (Nepal, Tibet, Indien, Bhutan), Alpen (Schweiz, Österreich, Frankreich, Italien), Anden (Peru, Bolivien, Chile), Rocky Mountains (USA, Kanada), Kaukasus.
-- **Beschreibung:** Höhenabhängiges Klima (nicht weiter untergliedert).
-- **Daten:**
-  - _Frühling:_ Aufgang 06:30 Uhr | Höchststand 12:30 Uhr | Untergang 17:45 Uhr | Komplett dunkel 19:00 Uhr
-  - _Sommer:_ Aufgang 05:30 Uhr | Höchststand 13:15 Uhr | Untergang 20:00 Uhr | Komplett dunkel 21:30 Uhr
-  - _Herbst:_ Aufgang 07:00 Uhr | Höchststand 12:30 Uhr | Untergang 18:00 Uhr | Komplett dunkel 19:15 Uhr
-  - _Winter:_ Aufgang 08:15 Uhr | Höchststand 12:30 Uhr | Untergang 16:00 Uhr | Komplett dunkel 17:15 Uhr
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:15  | 18:15          | 19:00 |
+| **Sommer**   | 05:30           | 12:15  | 18:45          | 19:30 |
+| **Herbst**   | 06:00           | 12:15  | 18:15          | 19:00 |
+| **Winter**   | 06:30           | 12:15  | 18:00          | 18:45 |
 
+### Mischwaldklimate
+
+_(Humid Continental) – Warme bis heiße Sommer, kalte Winter (z.B. Osteuropa)._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:30  | 19:00          | 20:45 |
+| **Sommer**   | 04:45           | 13:30  | 21:30          | 23:15 |
+| **Herbst**   | 07:00           | 12:30  | 18:30          | 20:00 |
+| **Winter**   | 08:00           | 12:30  | 16:30          | 18:00 |
+
+### Heiße Trockenklimate
+
+_(Hot Desert) – Wüstenklima mit ganzjährig hohen Temperaturen._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 05:45           | 12:00  | 18:15          | 19:15 |
+| **Sommer**   | 05:00           | 12:00  | 19:00          | 20:00 |
+| **Herbst**   | 05:45           | 12:00  | 17:45          | 18:45 |
+| **Winter**   | 06:30           | 12:15  | 17:15          | 18:15 |
+
+### Tropische Regenwaldklimate
+
+_(Tropical Rainforest) – Heiß und feucht das ganze Jahr über._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 05:45           | 12:00  | 18:00          | 18:45 |
+| **Sommer**   | 05:45           | 12:00  | 18:05          | 18:50 |
+| **Herbst**   | 05:45           | 12:00  | 18:00          | 18:45 |
+| **Winter**   | 05:55           | 12:10  | 18:05          | 18:50 |
+
+### Gemäßigte Regenwaldklimate
+
+_(Temperate Rainforest) – Mildes, feuchtes Klima mit gemäßigten Temperaturen._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:15           | 12:30  | 18:30          | 20:00 |
+| **Sommer**   | 05:00           | 13:15  | 21:15          | 23:00 |
+| **Herbst**   | 06:45           | 12:30  | 19:00          | 20:30 |
+| **Winter**   | 08:00           | 12:15  | 16:30          | 17:45 |
+
+### Dornsavannenklimate
+
+_(Thorn Savanna) – Semiarides Klima mit strauchartiger Vegetation._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:00           | 12:15  | 18:20          | 19:10 |
+| **Sommer**   | 05:30           | 12:15  | 19:00          | 20:00 |
+| **Herbst**   | 06:15           | 12:15  | 18:15          | 19:10 |
+| **Winter**   | 07:00           | 12:30  | 17:30          | 18:30 |
+
+### Gebirgsklimate
+
+_(Highland) – Klima variiert stark nach Höhenlage, allgemein kühler._
+
+| Jahreszeit   | Morgendämmerung | Mittag | Abenddämmerung | Nacht |
+| :----------- | :-------------- | :----- | :------------- | :---- |
+| **Frühling** | 06:30           | 12:30  | 17:45          | 19:00 |
+| **Sommer**   | 05:30           | 13:15  | 20:00          | 21:30 |
+| **Herbst**   | 07:00           | 12:30  | 18:00          | 19:15 |
+| **Winter**   | 08:15           | 12:30  | 16:00          | 17:15 |
+
+---
+
+## Anhang: Mondphasen
+
+Der Mondzyklus (Standard: 30 Tage) beeinflusst die n�chtliche Helligkeit. Nachfolgend die Standardphasen:
+
+| Phase | Tage | Beschreibung |
+| :--- | :--- | :--- |
+| **Neumond** | 1-2, 29-30 | Unsichtbar. Klebt an der Sonne. |
+| **Zunehmende Sichel** | 3-6 | Geht vormittags auf, ist ABENDS im Westen sichtbar (nach Sonnenuntergang). |
+| **Erstes Viertel (Halbmond)** | 7-10 | Steht bei Sonnenuntergang (18:00) genau oben im Zenit. Geht Mitternachts unter. |
+| **Zunehmender Mond** | 11-14 | Ist abends schon hoch am Himmel. Mitternachts im Westen. |
+| **Vollmond** | 15-16 | Der Klassiker: Sonne unten (Mitternacht) -> Mond genau oben (Zenit). |
+| **Abnehmender Mond** | 17-20 | Geht erst abends sp�t auf. Ist Mitternachts im Osten (links) zu sehen. |
+| **Letztes Viertel** | 21-24 | Geht um Mitternacht erst auf! (Steht links am Horizont). |
+| **Abnehmende Sichel** | 25-28 | Morgen-Mond. Geht erst um 03:00 Uhr morgens auf. Mitternachts dunkel. |

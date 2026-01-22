@@ -53,7 +53,7 @@
     {{#if isMonthView}}
     <div class="pdnc-calendar-weekdays" style="--week-length: {{weekLength}};">
         {{#each weekdays}}
-        <div class="pdnc-weekday">{{{this}}}</div>
+        <div class="pdnc-weekday" title="{{this.full}}">{{{this.abbr}}}</div>
         {{/each}}
     </div>
 

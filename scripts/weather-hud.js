@@ -11,7 +11,12 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         super(options);
         this.pixiApp = null;
         this.particleEngine = null;
-        this.previewFilters = new WeatherFilterManager(); // Dedicated manager for preview
+        // Dedicated manager for preview with disabled suppression mask
+        this.previewFilters = new class extends WeatherFilterManager {
+            updateSuppressionMask() {
+                // No-op: Disable suppression mask generation for preview to prevent context mismatch
+            }
+        }();
         this._weatherHook = null;
         this._saveTimeout = null;
         this._readyToSave = false;
@@ -125,31 +130,40 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         // Bind Pause Button
         const pauseBtn = this.element.querySelector('.weather-pause-btn');
         if (pauseBtn) {
-            pauseBtn.addEventListener('click', (e) => {
+            pauseBtn.addEventListener('click', async (e) => {
                 e.stopPropagation();
-                if (!this.pixiApp) return;
+                // Toggle Global Pause Setting
+                const isPaused = game.settings.get(MODULE_ID, "weatherPaused");
+                await game.settings.set(MODULE_ID, "weatherPaused", !isPaused);
 
                 const icon = pauseBtn.querySelector('i');
-                if (this.pixiApp.ticker.started) {
-                    this.pixiApp.ticker.stop();
+                if (!isPaused) {
+                    // Was playing, now pausing
+                    if (this.pixiApp && this.pixiApp.ticker && this.pixiApp.ticker.started) {
+                         this.pixiApp.ticker.stop();
+                    }
                     icon.classList.remove('fa-pause');
                     icon.classList.add('fa-play');
-                    this._saveState({ paused: true });
                 } else {
-                    this.pixiApp.ticker.start();
+                    // Was paused, now playing
+                    if (this.pixiApp && this.pixiApp.ticker && !this.pixiApp.ticker.started) {
+                         this.pixiApp.ticker.start();
+                    }
                     icon.classList.remove('fa-play');
                     icon.classList.add('fa-pause');
-                    this._saveState({ paused: false });
                 }
             });
 
             // Restore Pause State visually
-            const state = game.settings.get(MODULE_ID, "weatherPreviewState");
-            if (state && state.paused) {
+            const isPaused = game.settings.get(MODULE_ID, "weatherPaused");
+            if (isPaused) {
                  // Defer to ensure pixiApp is ready
                  setTimeout(() => {
-                     if (this.pixiApp && this.pixiApp.ticker && this.pixiApp.ticker.started) {
-                         this.pixiApp.ticker.stop();
+                     // Check if still paused (race condition check)
+                     if (game.settings.get(MODULE_ID, "weatherPaused")) {
+                         if (this.pixiApp && this.pixiApp.ticker && this.pixiApp.ticker.started) {
+                             this.pixiApp.ticker.stop();
+                         }
                          const icon = pauseBtn.querySelector('i');
                          if(icon) {
                              icon.classList.remove('fa-pause');
@@ -214,6 +228,9 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
             // Save State (Debounced)
             if (this._saveTimeout) clearTimeout(this._saveTimeout);
             this._saveTimeout = setTimeout(() => {
+                // Bugfix: Check if element still exists
+                if (!this.element) return;
+                
                 this._saveState({
                     x: this.element.offsetLeft,
                     y: this.element.offsetTop,
@@ -340,10 +357,14 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     async _updateBackground() {
         if (!this.pixiApp) return;
         
-        const time = game.time.worldTime;
-        const dayLength = 86400; // Assuming standard earth day for visual mapping? Or use system?
-        // Better: Use Simple Calendar or System time if available, but for now standard fallback or cycle.
-        // Actually weather-system uses day/night ratio. Let's stick to the simpler hour extraction for the preview image.
+        let time = game.time.worldTime;
+        // Apply Offsets (same logic as WeatherSystem)
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        time += (offsetMinutes * 60);
+        time += (offsetDays * 86400);
+
+        const dayLength = 86400; 
         const secondsOfDay = time % dayLength;
         const hours = secondsOfDay / 3600;
 
@@ -391,6 +412,11 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         
         this.pixiApp.stage.addChildAt(sprite, 0); 
         this._bgSprite = sprite;
+
+        // Force Render if Paused
+        if (this.pixiApp.ticker && !this.pixiApp.ticker.started) {
+            this.pixiApp.renderer.render(this.pixiApp.stage);
+        }
     }
 
     async _renderEffects() {
@@ -493,6 +519,8 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
                     filterInstance = new FogFilter(f.speed ?? 1.0, f.density ?? 0.5, f.color, f.gradient);
                 } else if (f.type === "cloud_cover") {
                     filterInstance = new CloudCoverFilter(f.speed ?? 0.5, f.scale ?? 1.0, f.alpha ?? 0.5, f.color);
+                } else if (f.type === "aurora") {
+                    filterInstance = new AuroraFilter(f.speed ?? 0.5, f.intensity ?? 1.5);
                 }
                 
                 if (filterInstance) {

@@ -14,9 +14,12 @@ export class CalendarSystem {
              cumulative: [0],
              maxCachedYear: -1
         };
+        this._configCache = null;
     }
 
     get config() {
+        if (this._configCache) return this._configCache;
+
         const conf = foundry.utils.deepClone(CalendarSystem.SYSTEMS[this.system]);
         
         // Localize Months using keys
@@ -62,16 +65,13 @@ export class CalendarSystem {
         const descLoc = game.i18n.localize(descKey);
         if (descLoc && descLoc !== descKey) {
             conf.description = descLoc;
-        } else {
-             // Fallback to existing or english name if needed, but we have hardcoded description in SYSTEMS now.
-             // If localization missing, keep English (from step 106).
         }
 
+        this._configCache = conf;
         return conf;
     }
 
-    static get SYSTEMS() {
-        return {
+    static SYSTEMS = {
             gregorian: {
                 name: "Gregorian (Standard)",
                 description: "Standard real-world calendar.",
@@ -135,28 +135,27 @@ export class CalendarSystem {
             },
             magaambya: {
                 name: "Magaambya (Mwangi)",
-                description: "Mwangi Expanse setting.",
+                description: "Mwangi Expanse setting (365 days).",
                 months: [
-                    { name: "Leopard Month", days: 30 },
-                    { name: "Bull Month", days: 30 },
-                    { name: "Frog Month", days: 30 },
-                    { name: "Heron Month", days: 30 },
-                    { name: "Elephant Month", days: 30 },
-                    { name: "Ibex Month", days: 30 },
-                    { name: "Snake Month", days: 30 },
-                    { name: "Spider Month", days: 30 },
-                    { name: "Jaws Month", days: 30 },
-                    { name: "Jatembe Month", days: 30 },
-                    { name: "Arodus Month", days: 30 },
-                    { name: "Kite Month", days: 30 }
+                    { name: "Hawk Month", days: 28 },
+                    { name: "Snake Month", days: 28 },
+                    { name: "Jatembe Month", days: 36 },
+                    { name: "Leopard Month", days: 28 },
+                    { name: "Shory Month", days: 28 },
+                    { name: "Elephant Month", days: 35 },
+                    { name: "Hyena Month", days: 28 },
+                    { name: "Frog Month", days: 28 },
+                    { name: "Ibex Month", days: 35, leap: 36 },
+                    { name: "Bull Month", days: 28 },
+                    { name: "Spider Month", days: 28 },
+                    { name: "Magaambya Month", days: 35 }
                 ],
                 weekdays: ["Moonday", "Toilday", "Wealday", "Oathday", "Fireday", "Starday", "Sunday"],
-                leapYearRule: (year) => (year % 8 === 0), // Golarion Standard
+                leapYearRule: (year) => (year % 4 === 0),
                 yearZero: 0,
                 weekdayStart: 0
             }
         };
-    }
 
     _ensureCache(targetYear) {
         if (targetYear <= this._cache.maxCachedYear) return;
@@ -186,8 +185,11 @@ export class CalendarSystem {
         // Instead of while(totalDays >= daysInYear), we use our cumulative cache
         // We need to find Y such that cumulative[Y] <= totalDays < cumulative[Y+1]
         
-        // Heuristic: Estimate target year to ensure cache is built far enough
-        const estimatedYear = Math.floor(totalDays / 365);
+        // Heuristic: Estimate target year to ensure cache is built far enough.
+        // We calculate the minimum days in a standard year to be safe for any calendar length.
+        const sysConfig = CalendarSystem.SYSTEMS[this.system];
+        const minDays = sysConfig.months.reduce((sum, m) => sum + m.days, 0);
+        const estimatedYear = Math.floor(totalDays / minDays);
         this._ensureCache(estimatedYear + 2); // Buffer to ensure cumulative[estimatedYear+1] exists
 
         // Binary Search on cumulative array to find the year
@@ -232,7 +234,12 @@ export class CalendarSystem {
             }
         }
 
-        const weekdayIndex = (Math.floor(worldSeconds / SECONDS_IN_DAY) + (this.config.weekdayStart || 0)) % this.config.weekdays.length;
+        const weekdayOffset = game.settings.get("phils-day-night-cycle", "weekdayOffset") || 0;
+        const totalOffsets = (this.config.weekdayStart || 0) + weekdayOffset;
+
+        // Ensure positive modulo result
+        const rawIndex = (Math.floor(worldSeconds / SECONDS_IN_DAY) + totalOffsets) % this.config.weekdays.length;
+        const weekdayIndex = (rawIndex + this.config.weekdays.length) % this.config.weekdays.length;
 
         // The monthName and weekday are already localized by the config getter
         return {
@@ -297,8 +304,11 @@ export class CalendarSystem {
     getWeekdayName(year, month, day) {
         const ts = this.getTimestamp(year, month, day);
         const totalDays = Math.floor(ts / 86400);
-        const index = (totalDays + (this.config.weekdayStart || 0)) % this.config.weekdays.length;
-        return this.config.weekdays[index];
+        const weekdayOffset = game.settings.get("phils-day-night-cycle", "weekdayOffset") || 0;
+        const index = (totalDays + (this.config.weekdayStart || 0) + weekdayOffset) % this.config.weekdays.length;
+        // Handle negative result from modulo
+        const positiveIndex = (index + this.config.weekdays.length) % this.config.weekdays.length;
+        return this.config.weekdays[positiveIndex];
     }
 
     isRecurringMatch(event, srcY, srcM, srcD, targetY, targetM, targetD) {

@@ -1,31 +1,28 @@
-<form autocomplete="off" onsubmit="event.preventDefault();">
-    <div class="pdnc-nav-grid">
-        <div class="pdnc-form-group">
+<div class="pdnc-premium-window">
+    <div class="pdnc-nav-grid" style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <div class="form-group" style="flex: 1;">
             <label>{{localize "PDNC.TimeDay"}}</label>
             <input type="number" id="pdnc-nav-day" value="{{currentDay}}" min="1" max="31">
         </div>
-        <div class="pdnc-form-group" style="flex: 2;">
+        <div class="form-group" style="flex: 2;">
             <label>{{localize "PDNC.Month"}}</label>
-            <div class="pdnc-select-wrapper">
-                <select id="pdnc-nav-month">
-                    {{#each months}}
-                    <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
-                    {{/each}}
-                </select>
-                <i class="fas fa-caret-down"></i>
-            </div>
+            <select id="pdnc-nav-month">
+                {{#each months}}
+                <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+                {{/each}}
+            </select>
         </div>
-        <div class="pdnc-form-group">
+        <div class="form-group" style="flex: 1;">
             <label>{{localize "PDNC.Year"}}</label>
             <input type="number" id="pdnc-nav-year" value="{{currentYear}}">
         </div>
     </div>
-    <p class="pdnc-nav-help">
+    <p class="notes" style="text-align: center; margin-bottom: 15px;">
         {{localize "PDNC.TimeMachineHelp"}}
     </p>
-    <div class="pdnc-form-group" style="align-items: center; margin-top: 10px;">
-        <button type="button" data-action="save" class="pdnc-btn-save">
+    <footer class="sheet-footer" style="display: flex; justify-content: center;">
+        <button type="button" data-action="save" class="pdnc-btn-save" style="width: auto;">
             <i class='fas fa-hourglass-start'></i> {{localize "PDNC.SetWorldTime"}}
         </button>
-    </div>
-</form>
+    </footer>
+</div>

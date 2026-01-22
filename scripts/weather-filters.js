@@ -91,14 +91,100 @@ export class WeatherFilterManager {
         }
     }
 
+    updateSuppressionMask() {
+        if (!this.suppressionGraphics) {
+            this.suppressionGraphics = new PIXI.Graphics();
+        }
+        
+        if (!canvas || !canvas.app || !canvas.app.renderer) return;
+        
+        const screen = canvas.app.renderer.screen;
+
+        // We need a texture to pass to shaders
+        if (!this.suppressionTexture) {
+             this.suppressionTexture = PIXI.RenderTexture.create({
+                 width: screen.width,
+                 height: screen.height,
+             });
+        }
+        
+        // Resize check
+        if (this.suppressionTexture.width !== screen.width || this.suppressionTexture.height !== screen.height) {
+             this.suppressionTexture.resize(screen.width, screen.height);
+        }
+
+        const graphics = this.suppressionGraphics;
+        graphics.clear();
+
+        // 1. ALLOW WORLD (White)
+        // Draw a massive rectangle to cover the entire canvas/world, not just the scene.
+        // This ensures weather exists everywhere by default, and is only removed by regions.
+        graphics.beginFill(0xFFFFFF, 1.0);
+        graphics.drawRect(-50000, -50000, 100000, 100000); 
+        graphics.endFill();
+
+        // 2. SUPPRESS REGIONS (Black / Erase)
+        // We draw black on top of the white scene.
+        graphics.beginFill(0x000000, 1.0); // Black
+
+        if (canvas && canvas.regions && canvas.regions.placeables) {
+             for (const region of canvas.regions.placeables) {
+                 const doc = region.document;
+                 const hasSuppression = doc.behaviors?.some(b => b.type === "suppressWeather" && !b.disabled);
+                 
+                 if (hasSuppression) {
+                     // Support V12 Regions (Array of Polygons) which handles complex shapes & holes
+                     // FIX: Use doc.polygons (RegionDocument) instead of region.polygons (Deprecated)
+                     if (doc.polygons && Array.isArray(doc.polygons)) {
+                         doc.polygons.forEach(poly => graphics.drawPolygon(poly));
+                     }
+                     // Fallback check for older/simple regions
+                     else if (region.polygon) {
+                         graphics.drawPolygon(region.polygon);
+                     }
+                 }
+             }
+        }
+        graphics.endFill();
+        
+        if (canvas.app && canvas.app.renderer) {
+             // Render World-Space graphics to Screen-Space Texture
+             // Important: clear: true ensures the previous frame is wiped to transparent
+             canvas.app.renderer.render(graphics, {
+                 renderTexture: this.suppressionTexture,
+                 clear: true,
+                 transform: canvas.stage.transform.worldTransform
+             });
+        }
+    }
+
     animate(delta) {
+        // Safety: Check if setting exists to prevent "not a registered setting" crash on early ticks
+        if (game.settings.settings.has("phils-day-night-cycle.weatherPaused")) {
+            if (game.settings.get("phils-day-night-cycle", "weatherPaused")) {
+                 return; 
+            }
+        }
+
+        try {
+            this.updateSuppressionMask();
+        } catch (e) {
+            if (this._ticker % 100 === 0) console.error("PDNC | Mask Update Error:", e);
+        }
+
         this._ticker += delta;
         for (const [id, data] of this.activeFilters) {
             const filter = data.filter;
-            // Uniform auto-update if the filter supports it (e.g., has a 'time' or 'uTime' uniform)
+            // Update Uniforms
             if (filter.uniforms) {
                 if (filter.uniforms.time !== undefined) filter.uniforms.time += 0.01 * delta;
                 if (filter.uniforms.uTime !== undefined) filter.uniforms.uTime += 0.01 * delta;
+                
+                // Inject Suppression Mask
+                // Default to White (No suppression) if texture is missing/failed
+                if (filter.uniforms.uSuppressionMask !== undefined) {
+                     filter.uniforms.uSuppressionMask = this.suppressionTexture || PIXI.Texture.WHITE;
+                }
             }
         }
     }
@@ -129,6 +215,7 @@ export class HeatWaveFilter extends PIXI.Filter {
             uniform sampler2D uSampler;
             uniform float time;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             void main(void) {
                 vec2 uv = vTextureCoord;
@@ -140,13 +227,23 @@ export class HeatWaveFilter extends PIXI.Filter {
                 float wave = sin(uv.y * 20.0 + time * 2.0) * 0.002 * intensity;
                 float wave2 = sin(uv.x * 10.0 + time * 1.5) * 0.001 * intensity;
                 
-                gl_FragColor = texture2D(uSampler, uv + vec2(wave2, wave));
+                vec4 texColor = texture2D(uSampler, uv + vec2(wave2, wave));
+                
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                // For displacement/heat, we might want to just revert to original UV or fade effect
+                // Mix between original color and displaced color based on allowed
+                // If allowed=1 (show effect), we use texColor. If allowed=0 (hide), we use texture2D(uSampler, uv)
+                
+                vec4 origColor = texture2D(uSampler, uv);
+                gl_FragColor = mix(origColor, texColor, allowed);
             }
         `;
 
         super(vertex, fragment);
         this.uniforms.time = 0;
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE; // Init safe
     }
 }
 
@@ -173,6 +270,7 @@ export class OldFilmFilter extends PIXI.Filter {
             uniform float noise;
             uniform float sepia;
             uniform float speed;
+            uniform sampler2D uSuppressionMask; // Add Suppression
             
             float rand(vec2 co) {
                 return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
@@ -183,23 +281,27 @@ export class OldFilmFilter extends PIXI.Filter {
                 vec4 color = texture2D(uSampler, uv);
                 
                 // Noise with Frame Stepping (Stutter)
-                // Use floor(time * speed) to simulate lower framerate
-                // speed of 10.0 ~= 10 changes per second
                 float t = floor(time * speed); 
                 float n = rand(uv + t) * noise;
                 
-                color.rgb += n - (noise * 0.5);
+                // Calculate Effect Color
+                vec3 effectRGB = color.rgb + n - (noise * 0.5);
                 
                 // Simple Sepia
                 vec3 sepiaColor = vec3(1.2, 1.0, 0.8);
-                float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
-                vec3 finalColor = mix(color.rgb, vec3(gray) * sepiaColor, sepia);
+                float gray = dot(effectRGB, vec3(0.299, 0.587, 0.114));
+                effectRGB = mix(effectRGB, vec3(gray) * sepiaColor, sepia);
                 
-                // Vignette
+                // Vignette with Suppression
                 float dist = distance(uv, vec2(0.5));
-                finalColor *= 1.0 - (dist * 0.5);
+                effectRGB *= 1.0 - (dist * 0.5);
 
-                gl_FragColor = vec4(finalColor, color.a);
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                // Mix between Original Color (no effect) and Effect Color
+                vec3 finalRGB = mix(color.rgb, effectRGB, allowed);
+
+                gl_FragColor = vec4(finalRGB, color.a);
             }
         `;
         super(vertex, fragment);
@@ -207,6 +309,7 @@ export class OldFilmFilter extends PIXI.Filter {
         this.uniforms.noise = noise;
         this.uniforms.sepia = sepia;
         this.uniforms.speed = 12.0; // Default 12fps look
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -229,6 +332,7 @@ export class ChromaticAberrationFilter extends PIXI.Filter {
             varying vec2 vTextureCoord;
             uniform sampler2D uSampler;
             uniform float amount; // Offset size
+            uniform sampler2D uSuppressionMask;
             
             void main(void) {
                 vec2 uv = vTextureCoord;
@@ -239,11 +343,18 @@ export class ChromaticAberrationFilter extends PIXI.Filter {
                 float g = texture2D(uSampler, uv).g;
                 float b = texture2D(uSampler, uv - vec2(split, 0.0)).b;
                 
-                gl_FragColor = vec4(r, g, b, texture2D(uSampler, uv).a);
+                vec4 effectColor = vec4(r, g, b, texture2D(uSampler, uv).a);
+                
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                vec4 origColor = texture2D(uSampler, uv);
+                
+                gl_FragColor = mix(origColor, effectColor, allowed);
             }
         `;
         super(vertex, fragment);
         this.uniforms.amount = amount;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -268,18 +379,27 @@ export class UnderwaterFilter extends PIXI.Filter {
             uniform float time;
             uniform float speed;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             void main(void) {
                 vec2 uv = vTextureCoord;
                 
-                // Wave distortion
-                uv.x += sin(uv.y * 10.0 + time * speed) * 0.005 * intensity;
-                uv.y += cos(uv.x * 10.0 + time * speed) * 0.005 * intensity;
+                // Calculate Distortion based on allowed mask? 
+                // We fetch mask at UV. If 0, no distortion.
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
+                // Wave distortion scaled by allowed
+                float distX = sin(uv.y * 10.0 + time * speed) * 0.005 * intensity * allowed;
+                float distY = cos(uv.x * 10.0 + time * speed) * 0.005 * intensity * allowed;
+                
+                uv.x += distX;
+                uv.y += distY;
                 
                 vec4 color = texture2D(uSampler, uv);
                 
-                // Blue tint
-                color.rgb = mix(color.rgb, vec3(0.0, 0.4, 0.7), 0.3);
+                // Blue tint scaled by allowed
+                vec3 tinted = mix(color.rgb, vec3(0.0, 0.4, 0.7), 0.3);
+                color.rgb = mix(color.rgb, tinted, allowed);
                 
                 gl_FragColor = color;
             }
@@ -288,6 +408,7 @@ export class UnderwaterFilter extends PIXI.Filter {
         this.uniforms.time = 0;
         this.uniforms.speed = speed;
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -312,6 +433,7 @@ export class LightningFilter extends PIXI.Filter {
             uniform sampler2D uSampler;
             uniform float time;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             float rand(float n){return fract(sin(n) * 43758.5453123);}
 
@@ -327,6 +449,10 @@ export class LightningFilter extends PIXI.Filter {
                 if (rand(seed) > 0.995) { // 0.5% chance per 0.2s (extremely rare)
                     flash = intensity * rand(seed + 1.0);
                 }
+                
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, vTextureCoord).r;
+                flash *= allowed;
 
                 gl_FragColor = color + vec4(flash, flash, flash, 0.0);
             }
@@ -334,6 +460,7 @@ export class LightningFilter extends PIXI.Filter {
         super(vertex, fragment);
         this.uniforms.time = 0;
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 
     apply(filterManager, input, output, clear) {
@@ -363,6 +490,7 @@ export class GodRaysFilter extends PIXI.Filter {
             uniform float time;
             uniform float alpha;
             uniform float angle; 
+            uniform sampler2D uSuppressionMask;
             
             void main() {
                 vec4 color = texture2D(uSampler, vTextureCoord);
@@ -380,13 +508,17 @@ export class GodRaysFilter extends PIXI.Filter {
                 
                 vec3 beamColor = vec3(1.0, 1.0, 0.8); // Warm
                 
-                gl_FragColor = color + vec4(beamColor * beams * alpha * 0.2, 0.0);
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
+                gl_FragColor = color + vec4(beamColor * beams * alpha * 0.2 * allowed, 0.0);
             }
         `;
         super(vertex, fragment);
         this.uniforms.time = 0;
         this.uniforms.alpha = alpha;
         this.uniforms.angle = angle;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 
     apply(filterManager, input, output, clear) {
@@ -416,6 +548,7 @@ export class RainbowFilter extends PIXI.Filter {
             varying vec2 vTextureCoord;
             uniform sampler2D uSampler;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             vec3 hsv2rgb(vec3 c) {
                 vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
@@ -439,11 +572,15 @@ export class RainbowFilter extends PIXI.Filter {
                 float hue = (dist - 0.6) * 10.0;
                 vec3 rainbow = hsv2rgb(vec3(hue, 0.8, 1.0));
                 
-                gl_FragColor = color + vec4(rainbow * band * intensity, 0.0);
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
+                gl_FragColor = color + vec4(rainbow * band * intensity * allowed, 0.0);
             }
         `;
         super(vertex, fragment);
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -467,6 +604,7 @@ export class HaloFilter extends PIXI.Filter {
             varying vec2 vTextureCoord;
             uniform sampler2D uSampler;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             void main() {
                 vec4 color = texture2D(uSampler, vTextureCoord);
@@ -484,14 +622,25 @@ export class HaloFilter extends PIXI.Filter {
                 
                 vec3 haloColor = vec3(1.0, 0.9, 0.8);
                 
-                gl_FragColor = color + vec4(haloColor * (ring + glow * 0.2) * intensity, 0.0);
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
+                gl_FragColor = color + vec4(haloColor * (ring + glow * 0.2) * intensity * allowed, 0.0);
             }
         `;
         super(vertex, fragment);
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
+
+
+/**
+ * Custom Heat Wave / Heat Shimmer Filter
+ * ...
+ */
+ 
 
 // --- 10. Fog Filter (FBM Noise) ---
 export class FogFilter extends PIXI.Filter {
@@ -516,6 +665,9 @@ export class FogFilter extends PIXI.Filter {
             uniform float gradient; // 1.0 = Bottom Only, 0.0 = Full
             uniform float gradientStart;
             uniform vec3 color;
+            
+            // SUPPRESSION (White-Pass Logic)
+            uniform sampler2D uSuppressionMask;
 
             // Hash function
             float rand(vec2 n) { 
@@ -571,6 +723,10 @@ export class FogFilter extends PIXI.Filter {
                     fogAlpha *= mask;
                 }
                 
+                // CHECK SUPPRESSION MASK (White = Show, Black/Empty = Hide)
+                float allowed = texture2D(uSuppressionMask, uv).r; 
+                fogAlpha *= allowed;
+                
                 // Blend: TextColor mixed with FogColor by FogAlpha
                 vec3 finalRGB = mix(texColor.rgb, color, fogAlpha);
                 
@@ -584,6 +740,9 @@ export class FogFilter extends PIXI.Filter {
         this.uniforms.gradient = gradient ? 1.0 : 0.0;
         this.uniforms.gradientStart = gradientStart;
         this.uniforms.color = color || [0.8, 0.85, 0.9];
+        
+        // Initialize Mask uniform null (will be filled by Manager)
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE; 
     }
 }
 
@@ -612,6 +771,7 @@ export class HolyLightFilter extends PIXI.Filter {
             uniform float time;
             uniform float intensity;
             uniform float speed;
+            uniform sampler2D uSuppressionMask;
             
             // Hash function
             float rand(vec2 n) { 
@@ -662,7 +822,10 @@ export class HolyLightFilter extends PIXI.Filter {
                 vec3 colGold = vec3(1.0, 0.9, 0.5); // Golden Light
                 vec3 colWhite = vec3(1.0, 1.0, 0.9); // Bright Core
                 
-                vec3 finalLight = mix(colGold, colWhite, rays) * rays * glow * pulse * intensity * 0.6;
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
+                vec3 finalLight = mix(colGold, colWhite, rays) * rays * glow * pulse * intensity * 0.6 * allowed;
                 
                 // Additive Blend
                 gl_FragColor = color + vec4(finalLight, 0.0);
@@ -672,6 +835,7 @@ export class HolyLightFilter extends PIXI.Filter {
         this.uniforms.time = 0;
         this.uniforms.intensity = intensity;
         this.uniforms.speed = speed;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -697,6 +861,7 @@ export class CloudCoverFilter extends PIXI.Filter {
             uniform float scale;
             uniform float alpha;
             uniform vec3 color;
+            uniform sampler2D uSuppressionMask;
 
             // Hash
             float rand(vec2 n) { 
@@ -740,8 +905,11 @@ export class CloudCoverFilter extends PIXI.Filter {
                 // Thresholding: Create distinct cloud shapes
                 float cVal = smoothstep(0.4, 0.7, n);
                 
+                // SUPPRESSION
+                float allowed = texture2D(uSuppressionMask, uv).r;
+                
                 // Apply global alpha
-                float finalAlpha = cVal * alpha;
+                float finalAlpha = cVal * alpha * allowed;
                 
                 // Blend with scene
                 vec3 finalColor = mix(texColor.rgb, color, finalAlpha);
@@ -754,6 +922,7 @@ export class CloudCoverFilter extends PIXI.Filter {
         this.uniforms.scale = scale;
         this.uniforms.alpha = alpha;
         this.uniforms.color = color || [1.0, 1.0, 1.0];
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }
 
@@ -788,6 +957,7 @@ export class AuroraFilter extends PIXI.Filter {
             uniform float time;
             uniform float speed;
             uniform float intensity;
+            uniform sampler2D uSuppressionMask;
             
             // Hash function
             float rand(vec2 n) { 
@@ -875,7 +1045,10 @@ export class AuroraFilter extends PIXI.Filter {
 
                     // --- 4. Composite ---
                     // Bloom/Intensity
-                    vec3 finalAurora = auroraColor * ray * heightMask * intensity * 1.5;
+                    // SUPPRESSION
+                    float allowed = texture2D(uSuppressionMask, uv).r;
+                    
+                    vec3 finalAurora = auroraColor * ray * heightMask * intensity * 1.5 * allowed;
                     
                     // Additive Blend
                     color.rgb += finalAurora;
@@ -888,5 +1061,6 @@ export class AuroraFilter extends PIXI.Filter {
         this.uniforms.time = 0;
         this.uniforms.speed = speed;
         this.uniforms.intensity = intensity;
+        this.uniforms.uSuppressionMask = PIXI.Texture.WHITE;
     }
 }

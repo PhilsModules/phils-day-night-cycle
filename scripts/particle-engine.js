@@ -505,6 +505,16 @@ export class ParticleEngine extends PIXI.Container {
     animate(deltaInput) {
         // Fix: Allow animation if we have a specific target (Preview Window) 
         // OR if global weather is visible.
+        
+        // GLOBAL PAUSE CHECK
+        // GLOBAL PAUSE CHECK
+        // Safety: Check if setting exists to prevent "not a registered setting" crash on early ticks
+        if (game.settings.settings.has("phils-day-night-cycle.weatherPaused")) {
+            if (game.settings.get("phils-day-night-cycle", "weatherPaused")) {
+                 return; 
+            }
+        }
+
         if (!this.visible) return;
         if (!this.targetContainer && (!canvas.weather || !canvas.weather.visible)) return;
 
@@ -527,6 +537,12 @@ export class ParticleEngine extends PIXI.Container {
 
         const bounds = this.getBounds();
         const buffer = 100;
+        
+        // Fetch suppression regions once per frame for performance
+        const suppressionRegions = this._getSuppressionRegions();
+        const hasSuppression = suppressionRegions.length > 0;
+
+
 
         for (const p of this.particles) {
             p.x += p.vx * delta;
@@ -584,6 +600,10 @@ export class ParticleEngine extends PIXI.Container {
                 }
 
                 p.alpha = (this.config.alpha ?? 1.0) * fade * twinkle;
+
+
+
+                // -----------------------------------------
 
                 if (p.age >= p.maxAge) {
                    respawn = true;
@@ -680,7 +700,67 @@ export class ParticleEngine extends PIXI.Container {
                      }
                  }
             }
+
+            // --- WEATHER SUPPRESSION (Applied to ALL particles) ---
+            if (hasSuppression) {
+                let isHidden = false;
+                for (const regionDoc of suppressionRegions) {
+                    try {
+                        // elevation: null is vital for 2D check
+                        if (regionDoc.testPoint({x: p.x, y: p.y, elevation: null})) {
+                            isHidden = true;
+                            break; 
+                        }
+                    } catch (err) {
+                        // Ignore errors during check
+                    }
+                }
+
+                if (isHidden) {
+                    p.alpha = 0;
+                } else {
+                    // RESTORE ALPHA if it was hidden and we are not handling alpha elsewhere
+                    // If lifespan is used, alpha is calculated at start of loop, so we don't need to do anything.
+                    // If lifespan is NOT used (Rain/Snow), alpha is static, so we must restore it manually.
+                    if (!this.config.lifespan && p.alpha === 0) {
+                         p.alpha = (this.config.alpha ?? 1.0);
+                    }
+                }
+            }
         }
+    }
+
+    /**
+     * Retrieves all active Regions with "Suppress Weather" behavior.
+     * @returns {RegionDocument[]}
+     */
+    /**
+     * Retrieves all active Regions with "Suppress Weather" behavior.
+     * @returns {RegionDocument[]}
+     */
+    _getSuppressionRegions() {
+        if (!canvas || !canvas.regions || !canvas.regions.placeables) {
+             // console.warn("PDNC DEBUG | No Canvas/Regions Layer found");
+             return [];
+        }
+
+        const regions = [];
+        for (const region of canvas.regions.placeables) {
+            // Check if region has active Suppress Weather behavior
+            // In V12/V13, behaviors is a Collection on the document.
+            // We need to check the DOCUMENT for behaviors.
+            const doc = region.document;
+            
+            // Debug the check occasionally if needed, or trust strict logic
+            const hasSuppression = doc.behaviors?.some(b => 
+                b.type === "suppressWeather" && !b.disabled
+            );
+
+            if (hasSuppression) {
+                regions.push(doc); // Return the Document, not the Placeable
+            }
+        }
+        return regions;
     }
 
     destroy(options) {

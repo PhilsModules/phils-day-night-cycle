@@ -1,7 +1,7 @@
-<div class="pdnc-wizard-content">
-    <header class="wizard-header" style="text-align: center; margin-bottom: 20px;">
-        <h1 style="border: none;">{{localize "PDNC.Wizard.Title"}}</h1>
-        <p style="font-style: italic;">{{localize "PDNC.Wizard.Subtitle"}}</p>
+<div class="pdnc-premium-window pdnc-wizard-content">
+    <header class="wizard-header text-center">
+        <h1>{{localize "PDNC.Wizard.Title"}}</h1>
+        <p class="notes">{{localize "PDNC.Wizard.Subtitle"}}</p>
     </header>
 
     {{!-- Step 1: Calendar System --}}
@@ -15,7 +15,7 @@
                     {{selectOptions calendarSystems selected=calendarSystem}}
                 </select>
             </div>
-            <p class="notes" style="margin-top: 5px; color: #ccc;">{{currentSystemDescription}}</p>
+            <p class="notes">{{currentSystemDescription}}</p>
             <p class="notes">{{localize "PDNC.SettingCalendarSystemHint"}}</p>
         </div>
 
@@ -32,9 +32,9 @@
     </div>
 
     {{!-- Step 2: Date & Time --}}
-    <div class="wizard-step" style="margin-top: 15px;">
+    <div class="wizard-step">
         <h2><i class="fas fa-clock"></i> {{localize "PDNC.Wizard.Step2Title"}}</h2>
-        <p class="step-desc">{{localize "PDNC.Wizard.DateHint"}}</p>
+        <p class="notes">{{localize "PDNC.Wizard.DateHint"}}</p>
         
         <div class="flexrow date-inputs" style="align-items: flex-end; gap: 10px;">
             <div class="date-field">
@@ -67,7 +67,7 @@
     </div>
 
     {{!-- Step 3: Global Settings --}}
-    <div class="wizard-step" style="margin-top: 15px;">
+    <div class="wizard-step">
          <h2><i class="fas fa-cogs"></i> {{localize "PDNC.Wizard.Step3Title"}}</h2>
          
          {{!-- Real Names --}}
@@ -115,7 +115,7 @@
          </div>
     </div>
 
-    <footer class="wizard-footer" style="text-align: center; margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--color-border-light-2);">
+    <footer class="wizard-footer sheet-footer">
         <button type="submit" class="save-button">
             <i class="fas fa-check"></i> {{localize "PDNC.Wizard.Finish"}}
         </button>

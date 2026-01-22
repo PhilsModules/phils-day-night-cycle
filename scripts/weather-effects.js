@@ -58,6 +58,9 @@ export class WeatherEffectsRegistry {
                     delete CONFIG.Weather.effects[key];
                 });
             }
+            
+            // Load Favorites as Effects (so they appear in Config)
+            WeatherEffectsRegistry.loadFavorites();
         });
     }
 
@@ -188,6 +191,53 @@ export class WeatherEffectsRegistry {
                     }
                 }
             });
+        }
+    }
+
+    /**
+     * Helper to generate a composite configuration from a list of effect keys.
+     */
+    static generateCompositeConfig(id, label, keys) {
+        const composite = { id, label, filters: [], effects: [] };
+        if (!keys) return composite;
+        
+        for (const k of keys) {
+            const c = CONFIG.Weather.effects[k];
+            if (!c) continue;
+            // Clean Copy to avoid reference issues
+            if (c.filters) {
+                const cleanFilters = c.filters.map(f => ({...f}));
+                composite.filters.push(...cleanFilters);
+            }
+            if (c.effects) {
+                const cleanEffects = c.effects.map(e => ({...e}));
+                composite.effects.push(...cleanEffects);
+            }
+        }
+        return composite;
+    }
+
+    /**
+     * Load favorites from settings and register them as effects.
+     */
+    static loadFavorites() {
+        try {
+            // Check if setting exists (might be too early on Init, but on Ready it should be fine)
+            if (!game.settings.settings.has("phils-day-night-cycle.weatherMixerFavorites")) return;
+            
+            const favorites = game.settings.get("phils-day-night-cycle", "weatherMixerFavorites") || {};
+            
+            for (const [name, keys] of Object.entries(favorites)) {
+                // Ensure ID is safe and unique
+                const safeKey = name.toLowerCase().replace(/[^a-z0-9]/g, "_");
+                const id = `fav_${safeKey}`;
+                
+                // Generate and Register
+                const config = this.generateCompositeConfig(id, name, keys);
+                this.registerEffect(id, config);
+            }
+        } catch (e) {
+            console.warn("PDNC | Failed to load favorites:", e);
         }
     }
 

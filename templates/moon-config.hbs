@@ -1,0 +1,50 @@
+<div class="pdnc-premium-window">
+    <header class="pdnc-header">
+        <h1>{{localize "PDNC.MoonConfig.Title"}}</h1>
+        <p class="notes">{{localize "PDNC.MoonConfig.Hint"}}</p>
+    </header>
+
+    <div class="pdnc-scrollable">
+        <table class="pdnc-table">
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="text-center">ID</th>
+                    <th>{{localize "PDNC.MoonConfig.Name"}}</th>
+                    <th>{{localize "PDNC.MoonConfig.Days"}}</th>
+                    <th style="width: 100px;">{{localize "PDNC.MoonConfig.Offset"}}</th>
+                    <th>{{localize "PDNC.MoonConfig.Icon"}}</th>
+                    <th style="width: 40px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each phases}}
+                <tr class="phase-row" data-index="{{@index}}">
+                    <td class="text-center">{{this.id}}</td>
+                    <td>
+                        <input type="text" name="phases.{{@index}}.name" value="{{this.name}}" placeholder="Phase Name" required/>
+                    </td>
+                    <td>
+                        <input type="text" name="phases.{{@index}}.days" value="{{this.daysStr}}" placeholder="1, 2, 3..."/>
+                    </td>
+                    <td>
+                        <input type="number" name="phases.{{@index}}.solar_offset_hours" value="{{this.solar_offset_hours}}" step="1"/>
+                    </td>
+                    <td>
+                        <select name="phases.{{@index}}.icon_state">
+                            {{selectOptions ../iconChoices selected=this.icon_state}}
+                        </select>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="icon-button" data-action="deletePhase" title="{{localize 'PDNC.Delete'}}"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="button" data-action="addPhase"><i class="fas fa-plus"></i> {{localize "PDNC.MoonConfig.Add"}}</button>
+        <button type="submit" name="submit"><i class="fas fa-save"></i> {{localize "PDNC.MoonConfig.Save"}}</button>
+    </footer>
+</div>

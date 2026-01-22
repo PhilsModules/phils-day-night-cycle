@@ -1,4 +1,9 @@
-# Update Log
+## 4.2.0 - New Moon Cycle
+
+- **🌕 New Feature: Moon Cycle:** The Moon Cycle has been completely implemented! The moon phase now accurately tracks the calendar date (e.g. Full Moon on the 15th) and displays the correct phase visual.
+- **🎢 Animations:** Fixed the "Flying Sun" and "Flying Moon" glitch. The celestial bodies now invisibly snap to the horizon when setting, preventing them from flying back across the screen when they rise again.
+- **🎨 Visuals:** Added a CSS transition to the Moon element to ensure it moves as smoothly as the Sun.
+- **🐛 Bugfix:** Fixed a CSS syntax error in the `style.css` file.
 
 ## 4.1.1 - Localization & Polish
 

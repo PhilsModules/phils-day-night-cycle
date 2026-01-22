@@ -2,9 +2,12 @@ import { PhilsCalendarApp } from "./calendar-app.js";
 import { CalendarSystem } from "./calendar-system.js";
 import { CalendarDB } from "./calendar-db.js";
 import { WeatherSystem } from "./weather-system.js";
-import { LightingSystem } from "./lighting-system.js";
+import { LightingSystem, MOON_DATA } from "./lighting-system.js";
 import { WeatherConfigApp } from "./apps/weather-config.js";
+import { WeatherMixerApp } from "./apps/weather-mixer.js";
+import { MoonConfigApp } from "./apps/moon-config.js";
 import { CustomClimateApp } from "./apps/custom-climate.js";
+import { SeasonConfigApp } from "./apps/season-config.js";
 import { StartupWizard } from "./apps/startup-wizard.js";
 import { ClimateDataWizard } from "./climate-data-wizard.js";
 
@@ -84,6 +87,7 @@ class PhilsDayNightCycle {
             }
         });
 
+
         // Register Templates
         const templatePaths = [
             `modules/${MODULE_ID}/templates/weather-config-form.hbs`,
@@ -94,7 +98,70 @@ class PhilsDayNightCycle {
         ];
         foundry.applications.handlebars.loadTemplates(templatePaths);
 
-        // Register Visibility Setting
+        // ========================================================================
+        // 1. ACTIONS & MENUS (Top of Settings)
+        // ========================================================================
+
+        game.settings.registerMenu(MODULE_ID, "restartWizard", {
+            name: "Restart Setup Wizard",
+            label: game.i18n.localize("PDNC.Wizard.RestartWizardLabel"),
+            hint: game.i18n.localize("PDNC.Wizard.RestartWizardHint"),
+            icon: "fas fa-magic",
+            type: StartupWizard,
+            restricted: true
+        });
+
+        game.settings.registerMenu(MODULE_ID, "timeMachine", {
+            name: "Time Machine",
+            label: game.i18n.localize("PDNC.OpenTimeMachine"),
+            hint: "Jump to a specific date and set the world time.",
+            icon: "fas fa-hourglass-start",
+            type: TimeMachineApp,
+            restricted: true
+        });
+
+        game.settings.registerMenu(MODULE_ID, "seasonConfigMenu", {
+            name: "Season Config",
+            label: game.i18n.localize("PDNC.OpenSeasonConfig"),
+            hint: game.i18n.localize("PDNC.SettingSeasonConfigHint"),
+            icon: "fas fa-calendar-alt",
+            type: SeasonConfigApp,
+            restricted: true
+        });
+
+        game.settings.registerMenu(MODULE_ID, "customClimateMenu", {
+            name: "Custom Climates",
+            label: game.i18n.localize("PDNC.CustomClimate.OpenMenu"),
+            hint: game.i18n.localize("PDNC.CustomClimate.Hint"),
+            icon: "fas fa-cloud-sun-rain",
+            type: CustomClimateApp,
+            restricted: true
+        });
+
+        game.settings.registerMenu(MODULE_ID, "moonConfigMenu", {
+            name: "Configure Moon Phases",
+            label: "Edit Phases",
+            hint: "Open the Moon Phase editor to customize the cycle.",
+            icon: "fas fa-moon",
+            type: MoonConfigApp,
+            restricted: true
+        });
+
+        // ========================================================================
+        // 2. VISUALS & DISPLAY
+        // ========================================================================
+
+        game.settings.register(MODULE_ID, "clockImage", {
+            name: game.i18n.localize("PDNC.SettingClockImageName"),
+            hint: game.i18n.localize("PDNC.SettingClockImageHint"),
+            scope: "world",
+            config: true,
+            type: String,
+            filePicker: "image",
+            default: "modules/phils-day-night-cycle/assets/clock.webp",
+            onChange: () => this.applyTheme()
+        });
+
         game.settings.register(MODULE_ID, "temperatureUnit", {
             name: "Temperature Unit",
             hint: "Select the unit for temperature display.",
@@ -112,171 +179,91 @@ class PhilsDayNightCycle {
             }
         });
 
-        game.settings.register(MODULE_ID, "visible", {
-            name: game.i18n.localize("PDNC.SettingVisibleName"),
-            hint: game.i18n.localize("PDNC.SettingVisibleHint"),
+        game.settings.register(MODULE_ID, "showRealNames", {
+            name: game.i18n.localize("PDNC.SettingShowRealNamesName"),
+            hint: game.i18n.localize("PDNC.SettingShowRealNamesHint"),
             scope: "client",
-            config: false, // Managed via macro/code
+            config: true,
+            type: Boolean,
+            default: false,
+            onChange: () => {
+                this.calendar = new CalendarSystem();
+                this.refreshCalendar();
+            }
+        });
+
+        // ========================================================================
+        // 3. WEATHER & CLIMATE
+        // ========================================================================
+        game.settings.register(MODULE_ID, "enableWeather", {
+            name: game.i18n.localize("PDNC.SettingEnableWeatherName"),
+            hint: game.i18n.localize("PDNC.SettingEnableWeatherHint"),
+            scope: "world",
+            config: true,
             type: Boolean,
             default: true,
-            onChange: (value) => this.toggle(value)
+            onChange: () => {
+                this.updateClock();
+                if (!game.user.isGM) return;
+            }
         });
 
-        game.settings.register(MODULE_ID, "clockImage", {
-            name: game.i18n.localize("PDNC.SettingClockImageName"),
-            hint: game.i18n.localize("PDNC.SettingClockImageHint"),
+        // Dependency: Register customClimates BEFORE climateZone so getClimateList() works
+        game.settings.register(MODULE_ID, "customClimates", {
+            name: "Custom Climate Zones",
             scope: "world",
-            config: true,
-            type: String,
-            filePicker: "image",
-            default: "modules/phils-day-night-cycle/assets/clock.webp",
-            onChange: () => this.applyTheme()
-        });
-
-        // Register Position Settings
-        game.settings.register(MODULE_ID, "posX", {
-            name: game.i18n.localize("PDNC.SettingPostXName"), // Typo in key "PostX" -> Fixed in json? I wrote "SettingPostXName".
-            scope: "client",
-            config: false,
-            type: Number,
-            default: -1 // Use -1 to indicate "default CSS position"
-        });
-        game.settings.register(MODULE_ID, "posY", {
-            name: game.i18n.localize("PDNC.SettingPosYName"),
-            scope: "client",
-            config: false,
-            type: Number,
-            default: -1
-        });
-        game.settings.register(MODULE_ID, "posBottom", {
-            name: "Position Bottom",
-            scope: "client",
-            config: false,
-            type: Number,
-            default: -1
-        });
-
-        game.settings.register(MODULE_ID, "timeOffset", {
-            name: game.i18n.localize("PDNC.SettingTimeOffsetName"),
-            hint: game.i18n.localize("PDNC.SettingTimeOffsetHint"),
-            scope: "world",
-            config: true, // Show in settings menu
-            type: Number,
-            default: 0,
-            onChange: () => this.updateClock()
-        });
-
-        game.settings.register(MODULE_ID, "weatherDisplayMode", {
-            name: "Weather Display Mode",
-            scope: "client",
-            config: false,
-            type: String,
-            default: "global" // 'global' or 'window'
-        });
-
-        game.settings.register(MODULE_ID, "weatherPreviewState", {
-            name: "Weather Preview State",
-            scope: "client",
             config: false,
             type: Object,
-            default: {
-                open: false,
-                x: null,
-                y: null,
-                width: 350,
-                height: 350,
-                paused: false
-            }
+            default: {}
         });
 
-        game.settings.register(MODULE_ID, "dayOffset", {
-            name: game.i18n.localize("PDNC.SettingDayOffsetName"),
-            hint: game.i18n.localize("PDNC.SettingDayOffsetHint"),
+        const climateChoices = WeatherSystem.getClimateList();
+        game.settings.register(MODULE_ID, "climateZone", {
+            name: game.i18n.localize("PDNC.SettingClimateZoneName"),
+            hint: game.i18n.localize("PDNC.SettingClimateZoneHint"),
             scope: "world",
             config: true,
-            type: Number,
-            default: 0,
-            onChange: (value) => {
-                this.updateClock();
-                if (value !== 1725595 && game.settings.get(MODULE_ID, "syncPF2e")) {
-                    game.settings.set(MODULE_ID, "syncPF2e", false);
-                }
-            }
-        }); // END: dayOffset registration
+            type: String,
+            choices: climateChoices,
+            default: "marine_west_coast"
+        });
 
-        // New Detailed Settings
-        game.settings.register(MODULE_ID, "year", {
+        // ========================================================================
+        // 4. DAY / NIGHT & MOON
+        // ========================================================================
+        game.settings.register(MODULE_ID, "autoLighting", {
+            name: game.i18n.localize("PDNC.SettingAutoLightingName"),
+            hint: game.i18n.localize("PDNC.SettingAutoLightingHint"),
             scope: "world",
-            config: false,
-            type: Number,
-            default: 2024
+            config: true,
+            type: Boolean,
+            default: true
         });
-        game.settings.register(MODULE_ID, "month", {
+
+        game.settings.register(MODULE_ID, "enableMoonLighting", {
+            name: "Enable Moon Lighting", // TODO: localize
+            hint: "If enabled, the moon phase will affect the darkness level of the scene at night.",
             scope: "world",
-            config: false,
-            type: Number,
-            default: 1
-        });
-        game.settings.register(MODULE_ID, "day", {
-            scope: "world",
-            config: false,
-            type: Number,
-            default: 1
-        });
-        game.settings.register(MODULE_ID, "time", {
-            scope: "world",
-            config: false,
-            type: Number,
-            default: 720 // 12:00
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: () => LightingSystem.refresh()
         });
         
-        // Granular Permissions
-        game.settings.register(MODULE_ID, "permissionTimeControl", {
-            name: "Permission: Time Control",
+        game.settings.register(MODULE_ID, "useCustomMoonPhases", {
+            name: "Use Custom Moon Phases",
+            hint: "Enable to use the custom phase data defined in the configuration menu.",
             scope: "world",
             config: true,
-            type: Number,
-            choices: {
-                1: "PLAYER",
-                2: "TRUSTED",
-                3: "ASSISTANT",
-                4: "GAMEMASTER"
-            },
-            default: 2 // TRUSTED
-        });
-        game.settings.register(MODULE_ID, "permissionWeatherControl", {
-            name: "Permission: Weather Control",
-            scope: "world",
-            config: true,
-            type: Number,
-            choices: {
-                 1: "PLAYER",
-                2: "TRUSTED",
-                3: "ASSISTANT",
-                4: "GAMEMASTER"
-            },
-            default: 2 // TRUSTED
-        });
-
-        // Simple Permissions (used by Wizard)
-        game.settings.register(MODULE_ID, "playerAdvanceTime", {
-            name: "Player Advance Time",
-            scope: "world",
-            config: false,
             type: Boolean,
-            default: false
-        });
-        game.settings.register(MODULE_ID, "playerCreateEvents", {
-            name: "Player Create Events",
-            scope: "world",
-            config: false,
-            type: Boolean,
-            default: false
+            default: false,
+            onChange: () => LightingSystem.refresh()
         });
 
-
-
-        // Register Calendar Settings
+        // ========================================================================
+        // 5. CALENDAR & TIME (Advanced)
+        // ========================================================================
+        
         game.settings.register(MODULE_ID, "calendarSystem", {
             name: game.i18n.localize("PDNC.SettingCalendarSystemName"),
             hint: game.i18n.localize("PDNC.SettingCalendarSystemHint"),
@@ -291,51 +278,14 @@ class PhilsDayNightCycle {
             },
             default: "gregorian",
             onChange: () => {
-                // 1. Re-initialize the Calendar System with new setting
                 this.calendar = new CalendarSystem();
-
-                // 2. Refresh Calendar App if open
                 const calendarApp = foundry.applications.instances.get("phils-calendar-app");
                 if (calendarApp) calendarApp.render({ force: true });
-
-                // 3. Refresh Season Config if open (to show new month names)
                 const seasonApp = foundry.applications.instances.get("phils-season-config");
                 if (seasonApp) seasonApp.render({ force: true });
-
-                // 4. Refresh Time Machine if open
                 const timeApp = foundry.applications.instances.get("phils-time-machine");
                 if (timeApp) timeApp.render({ force: true });
             }
-        });
-
-        game.settings.register(MODULE_ID, "showRealNames", {
-            name: game.i18n.localize("PDNC.SettingShowRealNamesName"),
-            hint: game.i18n.localize("PDNC.SettingShowRealNamesHint"),
-            scope: "client",
-            config: true,
-            type: Boolean,
-            default: false,
-            onChange: () => {
-                this.calendar = new CalendarSystem();
-                this.refreshCalendar();
-            }
-        });
-
-        game.settings.register(MODULE_ID, "wizardCompleted", {
-            name: "Wizard Completed",
-            scope: "world",
-            config: false,
-            type: Boolean,
-            default: false
-        });
-
-        game.settings.registerMenu(MODULE_ID, "restartWizard", {
-            name: "Restart Setup Wizard",
-            label: game.i18n.localize("PDNC.Wizard.RestartWizardLabel"),
-            hint: game.i18n.localize("PDNC.Wizard.RestartWizardHint"),
-            icon: "fas fa-magic",
-            type: StartupWizard,
-            restricted: true
         });
 
         game.settings.register(MODULE_ID, "syncPF2e", {
@@ -353,42 +303,62 @@ class PhilsDayNightCycle {
             }
         });
 
-        game.settings.register(MODULE_ID, "calendarEvents", {
-            name: "Calendar Events (Deprecated)",
-            scope: "world",
-            config: false,
-            type: Object,
-            default: {}
-        });
-
-        game.settings.register(MODULE_ID, "dbJournalId", {
-            name: game.i18n.localize("PDNC.SettingDbJournalIdName"),
-            scope: "world",
-            config: false,
-            type: String,
-            default: ""
-        });
-
-        // Permissions
-        game.settings.register(MODULE_ID, "playerCreateEvents", {
-            name: game.i18n.localize("PDNC.SettingPlayerCreateName"),
-            hint: game.i18n.localize("PDNC.SettingPlayerCreateHint"),
+        game.settings.register(MODULE_ID, "timeOffset", {
+            name: game.i18n.localize("PDNC.SettingTimeOffsetName"),
+            hint: game.i18n.localize("PDNC.SettingTimeOffsetHint"),
             scope: "world",
             config: true,
-            type: Boolean,
-            default: true
+            type: Number,
+            default: 0,
+            onChange: () => this.updateClock()
         });
 
-        game.settings.registerMenu(MODULE_ID, "timeMachine", {
-            name: "Time Machine",
-            label: game.i18n.localize("PDNC.OpenTimeMachine"),
-            hint: "Jump to a specific date and set the world time.",
-            icon: "fas fa-hourglass-start",
-            type: TimeMachineApp,
-            restricted: true
+        game.settings.register(MODULE_ID, "dayOffset", {
+            name: game.i18n.localize("PDNC.SettingDayOffsetName"),
+            hint: game.i18n.localize("PDNC.SettingDayOffsetHint"),
+            scope: "world",
+            config: true,
+            type: Number,
+            default: 0,
+            onChange: (value) => {
+                this.updateClock();
+                if (value !== 1725595 && game.settings.get(MODULE_ID, "syncPF2e")) {
+                    game.settings.set(MODULE_ID, "syncPF2e", false);
+                }
+            }
         });
 
-        game.settings.register(MODULE_ID, "playerAdvanceTime", {
+        game.settings.register(MODULE_ID, "weekdayOffset", {
+            name: game.i18n.localize("PDNC.SettingWeekdayOffsetName"),
+            hint: game.i18n.localize("PDNC.SettingWeekdayOffsetHint"),
+            scope: "world",
+            config: true,
+            type: Number,
+            default: 0,
+            onChange: () => this.updateClock()
+        });
+
+        // ========================================================================
+        // 6. PERMISSIONS
+        // ========================================================================
+        game.settings.register(MODULE_ID, "permissionTimeControl", {
+            name: "Permission: Time Control",
+            scope: "world",
+            config: true,
+            type: Number,
+            choices: { 1: "PLAYER", 2: "TRUSTED", 3: "ASSISTANT", 4: "GAMEMASTER" },
+            default: 2
+        });
+        game.settings.register(MODULE_ID, "permissionWeatherControl", {
+            name: "Permission: Weather Control",
+            scope: "world",
+            config: true,
+            type: Number,
+            choices: { 1: "PLAYER", 2: "TRUSTED", 3: "ASSISTANT", 4: "GAMEMASTER" },
+            default: 2
+        });
+        
+         game.settings.register(MODULE_ID, "playerAdvanceTime", {
             name: game.i18n.localize("PDNC.SettingPlayerAdvanceName"),
             hint: game.i18n.localize("PDNC.SettingPlayerAdvanceHint"),
             scope: "world",
@@ -396,50 +366,105 @@ class PhilsDayNightCycle {
             type: Boolean,
             default: false
         });
-
-        // Weather Settings
-        game.settings.register(MODULE_ID, "customClimates", {
-            name: "Custom Climate Zones",
-            scope: "world",
-            config: false,
-            type: Object,
-            default: {}
-        });
-
-        game.settings.registerMenu(MODULE_ID, "customClimateMenu", {
-            name: "Custom Climates",
-            label: game.i18n.localize("PDNC.CustomClimate.OpenMenu"),
-            hint: game.i18n.localize("PDNC.CustomClimate.Hint"),
-            icon: "fas fa-cloud-sun-rain",
-            type: CustomClimateApp,
-            restricted: true
-        });
-
-        game.settings.register(MODULE_ID, "enableWeather", {
-            name: game.i18n.localize("PDNC.SettingEnableWeatherName"),
-            hint: game.i18n.localize("PDNC.SettingEnableWeatherHint"),
+        game.settings.register(MODULE_ID, "playerCreateEvents", {
+            name: game.i18n.localize("PDNC.SettingPlayerCreateName"),
+            hint: game.i18n.localize("PDNC.SettingPlayerCreateHint"),
             scope: "world",
             config: true,
             type: Boolean,
-            default: true,
-            onChange: () => {
-                this.updateClock();
-                if (!game.user.isGM) return;
-                // If disabled, maybe reset scene?
-                // For now, next update loop will handle it (or stop handling it).
-            }
+            default: false
         });
 
-        const climateChoices = WeatherSystem.getClimateList();
-        game.settings.register(MODULE_ID, "climateZone", {
-            name: game.i18n.localize("PDNC.SettingClimateZoneName"),
-            hint: game.i18n.localize("PDNC.SettingClimateZoneHint"),
-            scope: "world",
-            config: true,
-            type: String,
-            choices: climateChoices,
-            default: "marine_west_coast"
+        // ========================================================================
+        // 7. HIDDEN & CLIENT SETTINGS
+        // ========================================================================
+        game.settings.register(MODULE_ID, "visible", {
+            name: game.i18n.localize("PDNC.SettingVisibleName"),
+            hint: game.i18n.localize("PDNC.SettingVisibleHint"),
+            scope: "client",
+            config: false,
+            type: Boolean,
+            default: true,
+            onChange: (value) => this.toggle(value)
         });
+
+        game.settings.register(MODULE_ID, "posX", {
+            name: game.i18n.localize("PDNC.SettingPostXName"), 
+            scope: "client",
+            config: false,
+            type: Number,
+            default: -1 
+        });
+        game.settings.register(MODULE_ID, "posY", {
+            name: game.i18n.localize("PDNC.SettingPosYName"),
+            scope: "client",
+            config: false,
+            type: Number,
+            default: -1
+        });
+        game.settings.register(MODULE_ID, "posBottom", {
+            name: "Position Bottom",
+            scope: "client",
+            config: false,
+            type: Number,
+            default: -1
+        });
+        
+        game.settings.register(MODULE_ID, "customMoonPhases", {
+            name: "Custom Moon Phase JSON",
+            scope: "world",
+            config: false, 
+            type: String, 
+            default: "[]",
+            onChange: () => LightingSystem.refresh()
+        });
+
+        game.settings.register(MODULE_ID, "weatherDisplayMode", {
+            name: "Weather Display Mode",
+            scope: "client",
+            config: false,
+            type: String,
+            default: "global"
+        });
+
+        game.settings.register(MODULE_ID, "weatherPaused", {
+            name: "Weather Paused",
+            scope: "client",
+            config: false,
+            type: Boolean,
+            default: false,
+            onChange: (value) => { }
+        });
+
+        game.settings.register(MODULE_ID, "weatherPreviewState", {
+            name: "Weather Preview State",
+            scope: "client",
+            config: false,
+            type: Object,
+            default: { open: false, x: null, y: null, width: 350, height: 350, paused: false }
+        });
+
+        game.settings.register(MODULE_ID, "weatherMixerFavorites", {
+            name: "Weather Mixer Favorites",
+            scope: "world",
+            config: false,
+            type: Object,
+            default: {} 
+        });
+
+        // New Detailed Settings (Hidden State)
+        game.settings.register(MODULE_ID, "year", { scope: "world", config: false, type: Number, default: 2024 });
+        game.settings.register(MODULE_ID, "month", { scope: "world", config: false, type: Number, default: 1 });
+        game.settings.register(MODULE_ID, "day", { scope: "world", config: false, type: Number, default: 1 });
+        game.settings.register(MODULE_ID, "time", { scope: "world", config: false, type: Number, default: 720 });
+        
+        game.settings.register(MODULE_ID, "wizardCompleted", { scope: "world", config: false, type: Boolean, default: false });
+        
+        game.settings.register(MODULE_ID, "calendarEvents", { scope: "world", config: false, type: Object, default: {} });
+        
+        game.settings.register(MODULE_ID, "dbJournalId", { scope: "world", config: false, type: String, default: "" });
+        
+
 
         game.settings.register(MODULE_ID, "seasonConfig", {
             name: "Season Configuration",
@@ -453,66 +478,16 @@ class PhilsDayNightCycle {
                 winter: { month: 11, day: 21 }
             }
         });
-
-        game.settings.registerMenu(MODULE_ID, "seasonConfigMenu", {
-            name: "Season Config",
-            label: game.i18n.localize("PDNC.OpenSeasonConfig"),
-            hint: game.i18n.localize("PDNC.SettingSeasonConfigHint"),
-            icon: "fas fa-calendar-alt",
-            type: SeasonConfigApp,
-            restricted: true
-        });
-
-
-
-        game.settings.register(MODULE_ID, "lastWeatherGenerationTime", {
-            name: "Last Weather Gen Time",
-            scope: "world",
-            config: false,
-            type: Number,
-            default: 0
-        });
         
-        game.settings.register(MODULE_ID, "lastWeatherDateId", {
-            name: "Last Weather Date ID",
-            scope: "world",
-            config: false,
-            type: String,
-            default: ""
+        game.settings.register(MODULE_ID, "lastWeatherGenerationTime", { scope: "world", config: false, type: Number, default: 0 });
+        game.settings.register(MODULE_ID, "lastWeatherDateId", { scope: "world", config: false, type: String, default: "" });
+        game.settings.register(MODULE_ID, "currentWeather", { 
+            scope: "world", 
+            config: false, 
+            type: Object, 
+            default: { tempMin: 0, tempMax: 0, text: "", description: "", fx: null, generated: false } 
         });
-
-        game.settings.register(MODULE_ID, "currentWeather", {
-            name: "Current Weather Data",
-            scope: "world",
-            config: false,
-            type: Object,
-            default: {
-                tempMin: 0,
-                tempMax: 0,
-                text: "",
-                description: "", // Full weather text
-                fx: null, // Weather FX type
-                generated: false
-            }
-
-        });
-
-        game.settings.register(MODULE_ID, "lastNotificationState", {
-            name: "Last Notification State",
-            scope: "world",
-            config: false,
-            type: Object,
-            default: {}
-        });
-
-        game.settings.register(MODULE_ID, "autoLighting", {
-            name: game.i18n.localize("PDNC.SettingAutoLightingName"),
-            hint: game.i18n.localize("PDNC.SettingAutoLightingHint"),
-            scope: "world",
-            config: true,
-            type: Boolean,
-            default: true
-        });
+        game.settings.register(MODULE_ID, "lastNotificationState", { scope: "world", config: false, type: Object, default: {} });
 
         Hooks.on("updateWorldTime", (worldTime, dt) => {
              this.updateClock();
@@ -729,6 +704,13 @@ class PhilsDayNightCycle {
                     <line x1="-4" y1="4" x2="-6" y2="6" stroke="#ffcc00" stroke-width="1" />
                     <line x1="4" y1="4" x2="6" y2="6" stroke="#ffcc00" stroke-width="1" />
                 </g>
+                <!-- Moon Group -->
+                <g class="pdnc-moon-group" style="opacity: 0;">
+                    <!-- Base Dark Moon -->
+                    <circle cx="0" cy="0" r="5" fill="#222" stroke="#555" stroke-width="1" />
+                    <!-- Lit Part (Phase) -->
+                    <path class="pdnc-moon-phase" fill="#eee" d="" />
+                </g>
             </svg>
         </div>
         <div class="pdnc-clock-line" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
@@ -777,11 +759,12 @@ class PhilsDayNightCycle {
         this.controls = uiContainer.querySelector(".pdnc-controls");
         
         // Weather Elements
-        // Weather Elements
         this.weatherIcon = uiContainer.querySelector(".pdnc-weather-icon");
         this.previewIcon = uiContainer.querySelector(".pdnc-preview-icon");
         this.tempText = uiContainer.querySelector(".pdnc-temp-text");
         this.sunGroup = uiContainer.querySelector(".pdnc-solar-sun-group");
+        this.moonGroup = uiContainer.querySelector(".pdnc-moon-group");
+        this.moonPhasePath = uiContainer.querySelector(".pdnc-moon-phase");
 
         // Check Permissions for Controls
         if (game.user.isGM || game.settings.get(MODULE_ID, "playerAdvanceTime")) {
@@ -1239,6 +1222,12 @@ class PhilsDayNightCycle {
         } else if (minutesOfDay >= noonMinutes && minutesOfDay <= duskMinutes) {
             // Second Half: Noon to Dusk -> 0.5 to 1.0
             sunT = 0.5 + 0.5 * (minutesOfDay - noonMinutes) / (duskMinutes - noonMinutes);
+        } else if (minutesOfDay < dawnMinutes) {
+             // Pre-Dawn: Clamp to Start
+             sunT = 0;
+        } else {
+             // Post-Dusk: Clamp to End
+             sunT = 1;
         }
         
         // Visibility Check
@@ -1256,6 +1245,138 @@ class PhilsDayNightCycle {
         const y = (invT * invT * p0.y) + (2 * invT * t * p1.y) + (t * t * p2.y);
 
         this.sunGroup.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // --- MOON ARC UPDATE ---
+    if (this.moonGroup) {
+        const lightingParams = LightingSystem.getClimateParams();
+        let duskMinutes = 1080;
+        let dawnMinutes = 360;
+        
+        if (lightingParams) {
+             if (lightingParams.dusk) duskMinutes = LightingSystem.parseTime(lightingParams.dusk);
+             if (lightingParams.dawn) dawnMinutes = LightingSystem.parseTime(lightingParams.dawn);
+        }
+
+        // --- VISUALS: Phase & Rotation ---
+        const moonData = LightingSystem.getMoonData(worldTime);
+
+        // Opacity Logic
+        // Position Logic: Continuous Solar Offset
+        // We calculate offset based on the smooth cycle age (0..30)
+        // Cycle 0 = Offset 0.
+        // Cycle 15 = Offset 12.
+        // Cycle 30 = Offset 24.
+        const continuousOffset = (moonData.smoothCycleAge / 30) * 24;
+        
+        // Sun Glare Rule: If Moon is within +/- 2.5 hours of Sun, hide it.
+        const dist = Math.min(Math.abs(continuousOffset), 24 - Math.abs(continuousOffset));
+        if (dist < 2.5) {
+             this.moonGroup.style.opacity = "0";
+        } else {
+             // Calculate Virtual Moon Time (0-24h)
+             // Formula: (CurrentTime - Offset + 24) % 24
+             // Use high-precision Seconds for smoothness
+             const currentHours = timeOfDay / 3600;
+             let moonVirtualTime = (currentHours - continuousOffset + 24) % 24;
+             
+             // Mapping to Arc (Horizon Window)
+             // The visual arc represents the "Sky" from Horizon to Horizon.
+             // We define the Sky Window as: Rising (06:00) -> Zenith (12:00) -> Setting (18:00).
+             // Any MoonVirtualTime outside 06:00-18:00 is below the horizon (Invisible).
+             
+             // Map 6..18 to 0..1
+             const RISE = 6;
+             const SET = 18;
+             
+
+
+             let moonT = -1;
+             
+             if (moonVirtualTime >= RISE && moonVirtualTime <= SET) {
+                 moonT = (moonVirtualTime - RISE) / (SET - RISE);
+             } else if (moonVirtualTime < RISE) {
+                 moonT = 0; // Pre-Rise Clamp
+             } else {
+                 moonT = 1; // Post-Set Clamp
+             }
+             
+             // --- VISUALS: Opacity ---
+             // Determine Opacity (visible only if in range AND not glared)
+             const isVisible = (moonVirtualTime >= RISE && moonVirtualTime <= SET);
+             
+             if (isVisible) {
+                 // Determine Opacity (Day vs Night)
+                 // Use ACTUAL Seasonal Dawn/Dusk to determine "Is it bright out?"
+                 // If so, render faint moon.
+                 let isDay = false;
+                 if (dawnMinutes < duskMinutes) {
+                     if (minutesOfDay >= dawnMinutes && minutesOfDay <= duskMinutes) isDay = true;
+                 } else {
+                     if (minutesOfDay >= dawnMinutes || minutesOfDay <= duskMinutes) isDay = true;
+                 }
+                 
+                 // Render Opacity
+                 // Day: 0.6, Night: 1.0
+                 this.moonGroup.style.opacity = isDay ? "0.6" : "1.0";
+             } else {
+                 this.moonGroup.style.opacity = "0";
+             }
+
+             // --- GEOMETRY & TRANSFORM (Always Update) ---
+             // Calculate geometry even if hidden so it snaps to Start/End
+             // This prevents "flying back" animation when it reappears
+             
+             const svg = this.moonGroup.closest("svg");
+             const rect = svg.getBoundingClientRect();
+             const cw = rect.width;
+             const ch = rect.height;
+             const controls = this.container.querySelector(".pdnc-controls");
+             const controlsY = controls ? controls.offsetTop : ch - 50;
+             const startY = controlsY - 45;
+             const endY = controlsY - 45;
+             const paddingX = 15;
+             const peakY = 10;
+             const p0 = { x: paddingX, y: startY };
+             const p2 = { x: cw - paddingX, y: endY };
+             const p1 = { x: cw / 2, y: (2 * peakY) - startY };
+
+             const t = moonT; // Uses clamped value if invalid
+             const invT = 1 - t;
+             const x = (invT * invT * p0.x) + (2 * invT * t * p1.x) + (t * t * p2.x);
+             const y = (invT * invT * p0.y) + (2 * invT * t * p1.y) + (t * t * p2.y);
+             
+             // --- VISUALS: Phase & Rotation ---
+             // (Reuse already calculated moonData)
+             
+             // 1. Rotation based on Region + Waxing/Waning
+             // Midpoint is day 15.
+             // If dayInCycle <= 15: Waxing (Standard).
+             // If dayInCycle > 15: Waning (Flipped).
+             
+             const isWaning = moonData.dayInCycle > 15;
+             let rotation = moonData.region.rotation;
+             
+             // If Waning, we flip 180 degrees to show the "Other side" lit
+             if (isWaning) rotation += 180;
+             
+             // Apply Transform: Translate + Rotate
+             this.moonGroup.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+             
+             // 2. Draw Phase Shape (Standard Waxing from Right)
+             const r = 5; // Radius
+             let d = "";
+             
+             switch (moonData.phase.icon_state) {
+                 case "empty": d = ""; break;
+                 case "crescent": d = `M 0 -${r} A ${r} ${r} 0 0 1 0 ${r} A 2.5 ${r} 0 0 1 0 -${r}`; break;
+                 case "half": d = `M 0 -${r} A ${r} ${r} 0 0 1 0 ${r} Z`; break;
+                 case "gibbous": d = `M 0 -${r} A ${r} ${r} 0 1 1 0 ${r} A 2.5 ${r} 0 0 1 0 -${r}`; break;
+                 case "full": d = `M 0 -${r} A ${r} ${r} 0 1 1 0 ${r} A ${r} ${r} 0 1 1 0 -${r}`; break;
+             }
+             
+             if (this.moonPhasePath) this.moonPhasePath.setAttribute("d", d);
+        }
     }
 
 
@@ -1454,14 +1575,23 @@ class PhilsDayNightCycle {
             newNotificationIds.forEach(id => notifiedEvents.add(id));
         }
 
-        // Update State
-        await game.settings.set(MODULE_ID, "lastNotificationState", { 
+        // Update State (Lazy Save)
+        const newState = { 
             dateId: todayId,
             year: currentDate.year,
             month: currentDate.month,
             day: currentDate.day,
             notifiedEvents: Array.from(notifiedEvents) // Serialize Set
-        });
+        };
+
+        // Check if anything actually changed before hitting the database
+        // We compare critical fields: dateId and the contents of notifiedEvents
+        const eventsChanged = JSON.stringify(newState.notifiedEvents) !== JSON.stringify(lastState.notifiedEvents);
+        const dateChanged = newState.dateId !== lastState.dateId;
+
+        if (dateChanged || eventsChanged) {
+            await game.settings.set(MODULE_ID, "lastNotificationState", newState);
+        }
     }
 }
 
@@ -1503,10 +1633,12 @@ Hooks.once("ready", async () => {
         }
 
         // --- CALENDAR REFRESH HANDLING ---
-        // Listen for changes to the DB Journal to auto-refresh the UI
+        // Listen for changes to the DB Journal to auto-refresh the UI and flush cache
         Hooks.on("updateJournalEntry", (doc, change, options, userId) => {
             const dbId = game.settings.get(MODULE_ID, "dbJournalId");
             if (doc.id === dbId) {
+                // Flush cache so we fetch new data next time
+                CalendarDB.flushCache();
                 dayNightCycle.refreshCalendar();
             }
         });
@@ -1605,8 +1737,14 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
         const calendar = dayNightCycle.calendar;
         const config = calendar.config;
 
+        // Apply Offsets for Visual Consistency
+        let worldTime = game.time.worldTime;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        worldTime += (offsetDays * 86400) + (offsetMinutes * 60);
+
         // Get current date
-        const dateData = calendar.getDate(game.time.worldTime);
+        const dateData = calendar.getDate(worldTime);
         // dateData has: year, month (index), day (1-based), etc.
 
         return {
@@ -1614,11 +1752,18 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
             currentYear: dateData.year,
             currentMonth: dateData.month, // Index
             currentDay: dateData.day, // 1-based
-            months: config.months.map((m, i) => ({
-                value: i,
-                label: m.name,
-                selected: i === dateData.month
-            }))
+            months: config.months.map((m, i) => {
+                // Strip HTML tags for dropdown visibility
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = m.name;
+                const plainName = tempDiv.textContent || tempDiv.innerText || m.name;
+
+                return {
+                    value: i,
+                    label: plainName,
+                    selected: i === dateData.month
+                };
+            })
         };
     }
 
@@ -1639,7 +1784,13 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
         const m = Number(form.querySelector('#pdnc-nav-month').value);
         const y = Number(form.querySelector('#pdnc-nav-year').value);
 
-        const timestamp = dayNightCycle.calendar.getTimestamp(y, m, d);
+        let timestamp = dayNightCycle.calendar.getTimestamp(y, m, d);
+
+        // Reverse Offsets to set correct engine time
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        timestamp -= (offsetDays * 86400) + (offsetMinutes * 60);
+
         await game.settings.set("core", "time", timestamp);
 
         // Refresh Calendar if open
@@ -1653,103 +1804,4 @@ class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 }
 
-class SeasonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
-    static get DEFAULT_OPTIONS() {
-        return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
-            tag: "form",
-            id: "phils-season-config",
-            window: {
-                title: "PDNC.SeasonConfigTitle",
-                icon: "fas fa-calendar-alt",
-                resizable: false
-            },
-            position: {
-                width: 400,
-                height: "auto"
-            },
-            actions: {
-                save: SeasonConfigApp.prototype._onSave,
-                reset: SeasonConfigApp.prototype._onReset
-            }
-        });
-    }
 
-    static PARTS = {
-        form: {
-            template: `modules/${MODULE_ID}/templates/season-config.html`
-        }
-    };
-
-    get title() {
-        return game.i18n.localize("PDNC.SeasonConfigTitle");
-    }
-
-    /** @override */
-    async _prepareContext(options) {
-        const calendar = dayNightCycle.calendar;
-        const config = calendar.config.months; // Array of month objects
-        const currentSettings = game.settings.get(MODULE_ID, "seasonConfig");
-
-        // Prepare month options for {{selectOptions}} helper
-        // We want {index: name}
-        const monthOptions = config.reduce((acc, m, i) => {
-            acc[i] = m.name;
-            return acc;
-        }, {});
-
-        // Data for template
-        return {
-            monthOptions: monthOptions,
-            spring: currentSettings.spring,
-            summer: currentSettings.summer,
-            autumn: currentSettings.autumn,
-            winter: currentSettings.winter
-        };
-    }
-
-    /**
-     * Handle reset action
-     * @param {PointerEvent} event
-     * @param {HTMLElement} target
-     */
-    async _onReset(event, target) {
-        event.preventDefault();
-        event.stopPropagation();
-        
-        const defaults = game.settings.settings.get(MODULE_ID + ".seasonConfig").default;
-        await game.settings.set(MODULE_ID, "seasonConfig", defaults);
-        this.render();
-    }
-
-    /**
-     * Handle save action
-     * @param {PointerEvent} event
-     * @param {HTMLElement} target
-     */
-    async _onSave(event, target) {
-        event.preventDefault();
-        event.stopPropagation();
-        // Log:("PDNC | Season Config Save Action Triggered");
-
-        const form = this.element;
-        
-        // Helper to safely get value
-        const getVal = (name) => {
-            const el = form.querySelector(`[name="${name}"]`);
-            return el ? el.value : null;
-        };
-
-        const newSettings = {
-            spring: { month: Number(getVal("spring.month")), day: Number(getVal("spring.day")) },
-            summer: { month: Number(getVal("summer.month")), day: Number(getVal("summer.day")) },
-            autumn: { month: Number(getVal("autumn.month")), day: Number(getVal("autumn.day")) },
-            winter: { month: Number(getVal("winter.month")), day: Number(getVal("winter.day")) }
-        };
-        
-        // Log:("PDNC | Saving Settings:", newSettings);
-
-        await game.settings.set(MODULE_ID, "seasonConfig", newSettings);
-        ui.notifications.info(game.i18n.localize("PDNC.SETTINGS.Save"));
-        this.close();
-    }
-}

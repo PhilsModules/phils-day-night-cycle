@@ -2,6 +2,7 @@ export class CalendarDB {
     static DB_NAME = "Phils Calendar Storage";
     static FLAG_SCOPE = "phils-day-night-cycle";
     static FLAG_KEY = "calendar-storage-id";
+    static _cache = null;
 
     static async getDB() {
         // Try to find by Flag first (robust renaming support)
@@ -70,6 +71,10 @@ export class CalendarDB {
     }
 
     static async getEvents() {
+        if (this._cache) {
+            return foundry.utils.deepClone(this._cache);
+        }
+
         try {
             const journal = await this.getDB();
             if (!journal) {
@@ -77,7 +82,8 @@ export class CalendarDB {
                 return {};
             }
             const data = journal.getFlag(this.FLAG_SCOPE, "events");
-            return foundry.utils.deepClone(data) || {};
+            this._cache = foundry.utils.deepClone(data) || {};
+            return foundry.utils.deepClone(this._cache);
         } catch (e) {
             console.error("Phils Day Night Cycle | Error getting events:", e);
             return {};
@@ -91,6 +97,9 @@ export class CalendarDB {
                 console.error("Phils Day Night Cycle | Cannot save, DB Journal missing.");
                 return;
             }
+
+            // Update Cache Immediately
+            this._cache = foundry.utils.deepClone(events);
 
             // Using Flags for storage
             if (Object.keys(events).length === 0) {
@@ -107,6 +116,10 @@ export class CalendarDB {
         } catch (e) {
             console.error("Phils Day Night Cycle | Error saving events:", e);
         }
+    }
+
+    static flushCache() {
+        this._cache = null;
     }
 
     static async addEvent(dateKey, eventData) {

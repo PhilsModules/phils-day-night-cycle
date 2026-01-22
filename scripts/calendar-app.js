@@ -141,7 +141,8 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
         // Calculate start weekday
         const totalDaysBeforeStart = this._calculateTotalDaysBefore(viewYear, viewMonth);
-        const startWeekdayIndex = (totalDaysBeforeStart + (config.weekdayStart || 0)) % config.weekdays.length;
+        const weekdayOffset = game.settings.get(MODULE_ID, "weekdayOffset") || 0;
+        const startWeekdayIndex = (totalDaysBeforeStart + (config.weekdayStart || 0) + weekdayOffset) % config.weekdays.length;
 
         const days = [];
 
@@ -251,7 +252,13 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         }
 
         return {
-            weekdays: config.weekdays.map(w => w.replace(/<[^>]*>/g, "").substring(0, 3)),
+            weekdays: config.weekdays.map(w => {
+                const clean = w.replace(/<[^>]*>/g, "");
+                return {
+                    full: clean,
+                    abbr: clean.substring(0, 3) 
+                };
+            }),
             days: days
         };
     }
@@ -273,7 +280,8 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             // Usually year view just lists days or has a mini grid. 
             // Let's make it a proper mini grid.
             const totalDaysBefore = this._calculateTotalDaysBefore(viewYear, m);
-            const startWeekday = (totalDaysBefore + (config.weekdayStart || 0)) % config.weekdays.length;
+            const weekdayOffset = game.settings.get(MODULE_ID, "weekdayOffset") || 0;
+            const startWeekday = (totalDaysBefore + (config.weekdayStart || 0) + weekdayOffset) % config.weekdays.length;
 
             // Empty slots
             for(let i=0; i<startWeekday; i++) {

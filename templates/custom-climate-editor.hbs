@@ -1,14 +1,14 @@
-<div class="pdnc-climate-editor">
+<div class="pdnc-premium-window pdnc-climate-editor">
     <header class="flexrow" style="align-items: center; gap: 10px; margin-bottom: 10px;">
-        <input type="text" name="name" value="{{editingClimate.name}}" placeholder="{{localize 'PDNC.CustomClimate.Name'}}" style="flex: 1;">
+        <input type="text" name="name" value="{{editingClimate.name}}" placeholder="{{localize 'PDNC.CustomClimate.Name'}}" style="flex: 1; font-size: 1.2em; height: 36px;">
         <div class="editor-controls" style="flex: 0 0 auto; display: flex; gap: 5px;">
             <button type="button" data-action="save" title="Save" style="width: 32px; height: 32px; padding: 0;"><i class="fas fa-save"></i></button>
             <button type="button" data-action="cancel" title="Cancel" style="width: 32px; height: 32px; padding: 0;"><i class="fas fa-times"></i></button>
         </div>
     </header>
 
-    <div class="pdnc-tabs">
-        <nav class="sheet-tabs tabs" aria-role="tablist">
+    <div class="pdnc-tabs" style="margin-bottom: 10px; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">
+        <nav class="sheet-tabs tabs" aria-role="tablist" style="justify-content: space-around;">
             <a class="item {{#if (eq activeSeason 'spring')}}active{{/if}}" data-action="tab" data-tab="spring" data-group="seasons">{{localize "PDNC.Season.spring"}}</a>
             <a class="item {{#if (eq activeSeason 'summer')}}active{{/if}}" data-action="tab" data-tab="summer" data-group="seasons">{{localize "PDNC.Season.summer"}}</a>
             <a class="item {{#if (eq activeSeason 'autumn')}}active{{/if}}" data-action="tab" data-tab="autumn" data-group="seasons">{{localize "PDNC.Season.autumn"}}</a>
@@ -16,15 +16,15 @@
         </nav>
     </div>
 
-    <div class="content">
+    <div class="pdnc-scrollable content" style="max-height: 500px;">
         {{#each seasons}}
         <div class="tab {{#if (eq @key ../activeSeason)}}active{{/if}}" data-tab="{{@key}}" data-group="seasons">
             
-            <div class="pdnc-lighting-config" style="background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 5px; margin-bottom: 10px;">
-                <h3 style="margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; margin-bottom: 5px;">{{localize "PDNC.LightingConfig"}}</h3>
+            <div class="pdnc-lighting-config" style="background: rgba(0, 0, 0, 0.2); padding: 10px; border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 5px; margin-bottom: 10px;">
+                <h2>{{localize "PDNC.LightingConfig"}}</h2>
                 
-                 <div style="margin-bottom: 10px;">
-                    <label style="font-weight: bold;">{{localize "PDNC.LightingStrategy"}}</label>
+                 <div class="form-group">
+                    <label>{{localize "PDNC.LightingStrategy"}}</label>
                     {{#with (lookup ../lighting @key) as |l|}}
                     <select name="lighting.{{@../key}}.type" style="width: 100%;">
                         {{selectOptions ../../strategyChoices selected=l.type localize=true}}
@@ -54,41 +54,46 @@
                 </div>
             </div>
 
-            <p class="notes" style="margin-bottom: 5px;">{{localize "PDNC.CustomClimate.EditorHelp"}}</p>
+            <p class="notes" style="margin-bottom: 10px;">{{localize "PDNC.CustomClimate.EditorHelp"}}</p>
             
-            <div class="pdnc-weather-list">
-                <div class="flexrow weather-header" style="font-weight: bold; margin-bottom: 5px; border-bottom: 1px solid #782e22; padding-bottom: 2px;">
-                    <div style="flex: 3;">{{localize "PDNC.WeatherConfig.Description"}}</div>
-                    <div style="flex: 1;">{{localize "PDNC.WeatherConfig.Temperature"}}</div>
-                    <div style="flex: 1;">{{localize "PDNC.WeatherConfig.FX"}}</div>
-                    <div style="flex: 0 0 30px;"></div>
-                </div>
+            <table class="pdnc-table pdnc-weather-list">
+                <thead>
+                    <tr>
+                        <th>{{localize "PDNC.WeatherConfig.Description"}}</th>
+                        <th>{{localize "PDNC.WeatherConfig.Temperature"}}</th>
+                        <th>{{localize "PDNC.WeatherConfig.FX"}}</th>
+                        <th style="width: 30px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this as |weather index|}}
+                    <tr>
+                        <td>
+                            <input type="text" name="seasons.{{@../key}}.{{index}}.text" value="{{weather.text}}" placeholder="Description">
+                        </td>
+                        <td>
+                            <input type="text" name="seasons.{{@../key}}.{{index}}.temp" value="{{weather.temp}}" placeholder="10-20">
+                        </td>
+                        <td>
+                            <select name="seasons.{{@../key}}.{{index}}.fx" value="{{weather.fx}}">
+                                {{selectOptions ../../fxChoices selected=weather.fx labelAttr="label" blank="None"}}
+                            </select>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="icon-button" data-action="deleteRow" data-season="{{@../key}}" data-index="{{index}}" style="color: #782e22;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
 
-                {{#each this as |weather index|}}
-                <div class="flexrow weather-row" style="margin-bottom: 5px; align-items: center;">
-                    <div style="flex: 3; margin-right: 5px;">
-                        <input type="text" name="seasons.{{@../key}}.{{index}}.text" value="{{weather.text}}" placeholder="Description">
-                    </div>
-                    <div style="flex: 1; margin-right: 5px;">
-                        <input type="text" name="seasons.{{@../key}}.{{index}}.temp" value="{{weather.temp}}" placeholder="10-20">
-                    </div>
-                    <div style="flex: 1; margin-right: 5px;">
-                        <select name="seasons.{{@../key}}.{{index}}.fx" value="{{weather.fx}}">
-                            {{selectOptions ../../fxChoices selected=weather.fx labelAttr="label" blank="None"}}
-                        </select>
-                    </div>
-                    <div style="flex: 0 0 30px; text-align: center;">
-                        <button type="button" data-action="deleteRow" data-season="{{@../key}}" data-index="{{index}}" style="color: #782e22; border: none; background: none;">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-
-            <button type="button" data-action="addRow" data-season="{{@key}}" style="margin-top: 5px;">
-                <i class="fas fa-plus"></i> {{localize "PDNC.CustomClimate.AddWeather"}}
-            </button>
+            <footer style="margin-top: 10px;">
+                <button type="button" data-action="addRow" data-season="{{@key}}">
+                    <i class="fas fa-plus"></i> {{localize "PDNC.CustomClimate.AddWeather"}}
+                </button>
+            </footer>
         </div>
         {{/each}}
     </div>

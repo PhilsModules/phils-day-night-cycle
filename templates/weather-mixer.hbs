@@ -1,0 +1,42 @@
+<div class="pdnc-weather-mixer-wrapper">
+    <div class="pdnc-weather-mixer">
+        <div class="effects-column">
+            <h3>{{localize "PDNC.WeatherMixer.AvailableEffects"}}</h3>
+            <div class="effects-list">
+                {{#each effects as |label key|}}
+                <div class="effect-item">
+                    <input type="checkbox" id="fx-{{key}}" name="effects" value="{{key}}">
+                    <label for="fx-{{key}}">{{label}}</label>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="favorites-column">
+            <h3>{{localize "PDNC.WeatherMixer.Favorites"}}</h3>
+            <div class="favorites-list">
+                {{#each favorites as |fav key|}}
+                <div class="favorite-item flexrow">
+                    <span class="favorite-name" data-action="load-favorite" data-key="{{key}}">{{key}}</span>
+                    <i class="fas fa-trash delete-favorite" data-action="delete-favorite" data-key="{{key}}" title="{{localize 'PDNC.Delete'}}"></i>
+                </div>
+                {{else}}
+                <p class="no-favorites">{{localize "PDNC.WeatherMixer.NoFavorites"}}</p>
+                {{/each}}
+            </div>
+
+            <div class="save-favorite">
+                <input type="text" name="favoriteName" placeholder="{{localize 'PDNC.WeatherMixer.FavoriteNamePlaceholder'}}">
+                <button type="button" data-action="save-favorite">
+                    <i class="fas fa-save"></i> {{localize "PDNC.Save"}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="submit" data-action="create-mix">
+            <i class="fas fa-flask"></i> {{localize "PDNC.WeatherMixer.CreateMix"}}
+        </button>
+    </footer>
+</div>

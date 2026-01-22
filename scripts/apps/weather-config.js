@@ -1,4 +1,5 @@
 import { WeatherSystem } from "../weather-system.js";
+import { WeatherMixerApp } from "./weather-mixer.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -34,9 +35,31 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             classes: ["pdnc-app"],
             actions: {
                 reroll: WeatherConfigApp.prototype._onReroll,
-                apply: WeatherConfigApp.prototype._onApply
+                apply: WeatherConfigApp.prototype._onApply,
+                "open-mixer": WeatherConfigApp.prototype._onOpenMixer
             }
         };
+    }
+
+    async _onOpenMixer(event, target) {
+        new WeatherMixerApp({
+            callback: (mixedKey) => {
+                // Determine label (Custom Mix)
+                const config = CONFIG.Weather.effects[mixedKey];
+                const label = config.label || "Custom Mix";
+                
+                // We need to inject this into the choices and select it
+                // Since this isn't React, we should re-render or hack it into the DOM.
+                // Best to re-render.
+                
+                // We fake it by setting it in our data temporarily? 
+                // No, render() rebuilds choices from CONFIG.Weather.effects
+                // and we just registered it there. So we just need to select it.
+                
+                this.weatherData.fx = mixedKey;
+                this.render();
+            }
+        }).render(true);
     }
 
     static get PARTS() {
@@ -62,7 +85,6 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
         };
 
         // Add custom effects from configuration
-        console.log("PDNC Debug | CONFIG.Weather.effects:", CONFIG.Weather?.effects);
         // Helper to Convert keys (e.g. "heavy_rain" or "heavyRain") to PascalCase ("HeavyRain")
         const toPascalCase = (str) => {
             return str

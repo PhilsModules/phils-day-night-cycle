@@ -1,0 +1,86 @@
+<div class="pdnc-premium-window">
+    <header>
+        <p class="notes">{{localize "PDNC.SettingSeasonConfigHint"}}</p>
+    </header>
+
+    <div class="form-group-stacked">
+        <h2>{{localize "PDNC.SeasonSpring"}}</h2>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartMonth"}}</label>
+            <div class="form-fields">
+                <select name="spring.month">
+                    {{selectOptions monthOptions selected=spring.month}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartDay"}}</label>
+            <div class="form-fields">
+                <input type="number" name="spring.day" value="{{spring.day}}" min="1" max="31">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group-stacked">
+        <h2>{{localize "PDNC.SeasonSummer"}}</h2>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartMonth"}}</label>
+            <div class="form-fields">
+                <select name="summer.month">
+                    {{selectOptions monthOptions selected=summer.month}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartDay"}}</label>
+            <div class="form-fields">
+                <input type="number" name="summer.day" value="{{summer.day}}" min="1" max="31">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group-stacked">
+        <h2>{{localize "PDNC.SeasonAutumn"}}</h2>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartMonth"}}</label>
+            <div class="form-fields">
+                <select name="autumn.month">
+                    {{selectOptions monthOptions selected=autumn.month}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartDay"}}</label>
+            <div class="form-fields">
+                <input type="number" name="autumn.day" value="{{autumn.day}}" min="1" max="31">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group-stacked">
+        <h2>{{localize "PDNC.SeasonWinter"}}</h2>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartMonth"}}</label>
+            <div class="form-fields">
+                <select name="winter.month">
+                    {{selectOptions monthOptions selected=winter.month}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PDNC.SeasonStartDay"}}</label>
+            <div class="form-fields">
+                <input type="number" name="winter.day" value="{{winter.day}}" min="1" max="31">
+            </div>
+        </div>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="button" data-action="reset">
+            <i class="fas fa-undo"></i> {{localize "PDNC.SETTINGS.Reset"}}
+        </button>
+        <button type="button" data-action="save">
+            <i class="fas fa-save"></i> {{localize "PDNC.SETTINGS.Save"}}
+        </button>
+    </footer>
+</div>

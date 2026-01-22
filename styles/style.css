@@ -1345,7 +1345,7 @@
 }
 
 /* Sun Icon Group */
-.pdnc-solar-sun-group {
+.pdnc-solar-sun-group, .pdnc-moon-group {
     transition: transform 0.5s ease; /* Smooth movement */
     /* Transform will be set via JS on updateClock */
 }
@@ -1863,3 +1863,350 @@
     text-align: center;
     color: #ffffff !important;
 }
+/* --- Weather Mixer --- */
+.pdnc-weather-mixer-window .window-content {
+    background: #1a1a1a;
+    color: #eee;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Manage overflow internally */
+}
+
+/* Wrapper to fix the "single root element" rule while keeping flex layout */
+.pdnc-weather-mixer-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pdnc-weather-mixer {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Contain scroll areas */
+    border-bottom: 1px solid #444;
+}
+
+.effects-column,
+.favorites-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.effects-column {
+    border-right: 1px solid #444;
+}
+
+.effects-column h3,
+.favorites-column h3 {
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #c5a059;
+    color: #c5a059;
+    font-family: var(--pdnc-font);
+    padding-bottom: 5px;
+    flex-shrink: 0;
+}
+
+.effects-list,
+.favorites-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px; /* Space for scrollbar */
+    /* Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #c5a059 #333;
+}
+
+.effect-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.effect-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.effect-item input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #c5a059;
+}
+
+.effect-item label {
+    cursor: pointer;
+    flex: 1;
+}
+
+.favorites-list {
+    margin-bottom: 10px;
+}
+
+.favorite-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favorite-name {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.favorite-name:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.delete-favorite {
+    color: #e74c3c;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.delete-favorite:hover {
+    opacity: 1;
+}
+
+.no-favorites {
+    color: #777;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.save-favorite {
+    display: flex;
+    gap: 5px;
+    margin-top: auto; /* Push to bottom of col if list is short */
+    flex-shrink: 0;
+}
+
+.save-favorite input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #555;
+    color: #eee;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.save-favorite button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0 10px;
+    background: #c5a059;
+    color: #000;
+    border: none;
+}
+
+.save-favorite button:hover {
+    background: #d4b06a;
+}
+
+.pdnc-weather-mixer-wrapper .sheet-footer {
+    flex-shrink: 0;
+    padding: 10px;
+}
+
+.pdnc-weather-mixer-wrapper .sheet-footer button {
+    background: #c5a059;
+    color: #1a1a1a;
+    font-weight: bold;
+    border: 1px solid #c5a059;
+}
+
+.pdnc-weather-mixer-wrapper .sheet-footer button:hover {
+    background: #d4b06a;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+}
+/*
+ Moon
+ Config
+ UI
+*/
+.pdnc-moon-config .pdnc-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.pdnc-moon-config .pdnc-table th {
+    text-align: left;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-border-light-2);
+    font-weight: bold;
+}
+.pdnc-moon-config .pdnc-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--color-border-light-1);
+    vertical-align: middle;
+}
+.pdnc-moon-config .pdnc-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+.pdnc-moon-config input[type="text"], 
+.pdnc-moon-config input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    height: 28px;
+}
+.pdnc-moon-config select {
+    width: 100%;
+    height: 28px;
+}
+.pdnc-moon-config .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light-primary);
+    font-size: 1.1em;
+    padding: 0 4px;
+    line-height: 28px;
+}
+.pdnc-moon-config .icon-button:hover {
+    color: var(--color-text-error);
+    text-shadow: 0 0 5px red;
+}
+.text-center { text-align: center; }
+
+/* 
+ Premium Theme (Shared across windows)
+ */
+ .pdnc-premium-window .pdnc-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.pdnc-premium-window .pdnc-table th {
+    text-align: left;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-border-light-2);
+    font-weight: bold;
+}
+.pdnc-premium-window .pdnc-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--color-border-light-1);
+    vertical-align: middle;
+}
+.pdnc-premium-window .pdnc-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+.pdnc-premium-window input[type="text"], 
+.pdnc-premium-window input[type="number"],
+.pdnc-premium-window select {
+    width: 100%;
+    box-sizing: border-box;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #c5a059;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 4px;
+    padding: 0 4px;
+    font-family: var(--pdnc-font);
+}
+.pdnc-premium-window input:focus,
+.pdnc-premium-window select:focus {
+    outline: none;
+    border-color: #c5a059;
+    box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+}
+.pdnc-premium-window .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light-primary);
+    font-size: 1.1em;
+    padding: 0 4px;
+    line-height: 28px;
+}
+.pdnc-premium-window .icon-button:hover {
+    color: var(--color-text-error);
+    text-shadow: 0 0 5px red;
+}
+
+/* Premium Header Styling */
+.pdnc-premium-window header h1 {
+    font-family: var(--pdnc-font);
+    color: #c5a059;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.pdnc-premium-window header .notes {
+    font-size: 0.9em;
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.pdnc-premium-window h2 {
+    font-family: var(--pdnc-font);
+    color: #c5a059;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-top: none;
+}
+.pdnc-premium-window label {
+    font-weight: bold;
+    color: #dedede;
+}
+
+/* Premium Form Layouts */
+.pdnc-premium-window .form-group {
+    margin-bottom: 8px;
+}
+
+/* Premium Footer Buttons */
+.pdnc-premium-window footer button {
+    background: transparent;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    color: #c5a059;
+    border-radius: 4px;
+    font-family: var(--pdnc-font);
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.pdnc-premium-window footer button:hover {
+    background: rgba(197, 160, 89, 0.1);
+    border-color: #c5a059;
+    color: #fff;
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.3);
+}
+
+.pdnc-premium-window .form-fields{
+    align-items: center;
+}
+
+/* Premium Dropdown Option Visibility */
+.pdnc-premium-window select option {
+    background: #1a1a1a;
+    color: #c5a059;
+    padding: 5px;
+}
+/* Ensure tabs are visible */
+.pdnc-premium-window .sheet-tabs .item {
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    color: #888;
+    cursor: pointer;
+}
+.pdnc-premium-window .sheet-tabs .item.active {
+    color: #c5a059;
+    font-weight: bold;
+    border-bottom: 2px solid #c5a059;
+    text-shadow: 0 0 5px rgba(197, 160, 89, 0.4);
+}
+

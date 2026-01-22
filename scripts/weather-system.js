@@ -395,7 +395,8 @@ export class WeatherSystem {
             const timeData = calendar.getDate(game.time.worldTime); // Actually needs basic math if getDate doesn't give time
             // Re-use main app helpers or simple calculation
             const dayLength = 86400;
-            const currentSeconds = game.time.worldTime % dayLength;
+            // Use offset-corrected time and ensure positive modulo
+            const currentSeconds = ((currentWorldTime % dayLength) + dayLength) % dayLength;
             const hours = Math.floor(currentSeconds / 3600);
             const minutes = Math.floor((currentSeconds % 3600) / 60);
             const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
