@@ -57,6 +57,7 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 - 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
 - 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
 - 🎨 **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
+- 🌕 **Moon Cycle:** The widget accurately displays the current moon phase (Waxing, Full, Waning, New) synced to the calendar date.
 - 🖼️ **Custom Images:** Upload your own image for the clock face easily.
 - 🖱️ **Drag and Drop:** Place the clock anywhere on your screen.
 - 📅 **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
@@ -143,6 +144,7 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich aut
 - 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch passende Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
 - 💡 **Intelligente Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
 - 🎨 **Wunderschönes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
+- 🌕 **Mondzyklus:** Die Uhr zeigt die aktuelle Mondphase (Zunehmend, Voll, Abnehmend, Neu) synchron zum Kalenderdatum an.
 - 🖼️ **Benutzerdefinierte Bilder:** Lade ganz einfach dein eigenes Bild für das Zifferblatt hoch.
 - 🖱️ **Drag and Drop:** Platziere die Uhr frei an jeder beliebigen Stelle auf deinem Bildschirm.
 - 📅 **Integration des Kalenders:** Ein Klick öffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
@@ -234,6 +236,7 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
 
 
