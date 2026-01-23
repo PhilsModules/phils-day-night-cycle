@@ -71,7 +71,7 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 2.  Go to the **Addon Modules** tab.
 3.  Click **Install Module**.
 4.  Paste the following **Manifest URL** into the field:
-    ```text
+    ```
     https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json
     ```
 5.  Click **Install**.
@@ -124,6 +124,26 @@ The module automatically simulates weather.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
+### 5. Macros / API
+
+You can control the clock using Script Macros. Create a new Macro, set the type to **Script**, and paste the code below.
+
+**Toggle Clock Visibility**
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
+```
+
+**Set Time**
+```js
+// Change the time below (Hour, Minute)
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);
+```
+
+**Reset Clock Position**
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
+```
+
 <br>
 
 ---
@@ -136,7 +156,7 @@ The module automatically simulates weather.
 
 Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
 
-👉 **[Detaillierter Klimazonen Guide](klimazonen.md)** - Erfahre alles über die verschiedenen Klimate und ihre Lichtzeiten.
+👉 **[Detaillierter Guide zu Klimazonen](klimazonen.md)** - Erfahre alles über die verschiedenen Klimate und ihre Lichtzeiten.
 
 ## 🚀 Funktionen
 
@@ -158,7 +178,7 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich aut
 2.  Gehe zum Reiter **Addon Modules**.
 3.  Klicke auf **Install Module**.
 4.  Füge die folgende **Manifest URL** unten ein:
-    ```text
+    ```
     https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json
     ```
 5.  Klicke auf **Install**.
@@ -179,7 +199,7 @@ Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 
 - **Rechtsklick auf einen Tag:** Öffnet das Menü um einen neuen Termin zu erstellen.
 - **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
-- **Ansicht wechseln:** Nutze das Dropdown oben, um zwischen **Jahresansicht** (12-Monats-Raster), **Monatsansicht** und **Terminliste** (alle kommenden Events) zu wechseln.
+- **Ansicht wechseln:** Nutze das Dropdown oben, um zwischen **Jahresansicht** (12 Monate Raster), **Monatsansicht** und **Terminliste** (alle kommenden Events) zu wechseln.
 
 ### 3. Einstellungen
 
@@ -211,6 +231,26 @@ Das Modul simuliert das Wetter vollautomatisch.
 5.  Speichere deine Klimazone ab.
 6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
+### 5. Makros und API
+
+Du kannst die Uhr auch über Makros steuern. Erstelle dafür ein neues Makro vom Typ **Script** und füge den jeweiligen Code ein.
+
+**Uhr einblenden oder ausblenden**
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
+```
+
+**Zeit setzen**
+```js
+// Change the time below (Hour, Minute)
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);
+```
+
+**Position der Uhr zurücksetzen**
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
+```
+
 <br>
 
 ---
@@ -236,7 +276,3 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-
-
-
-
