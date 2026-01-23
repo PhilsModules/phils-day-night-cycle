@@ -1,6 +1,7 @@
 # 🌍 Klimazonen und zugehörige Länder
 
-Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".
+[Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".](https://upload.wikimedia.org/wikipedia/commons/5/50/Klimazonen_%283_Modelle%29_und_Makroklimate.png)
+
 
 ## 📑 Inhaltsverzeichnis
 
@@ -218,3 +219,4 @@ Der Mondzyklus (Standard: 30 Tage) beeinflusst die nächtliche Helligkeit. Nachf
 | 🌖 **Abnehmender Dreiviertelmond** | 17-20 | +13h | 0.20 | Hell. Geht am Abend auf. |
 | 🌗 **Letztes Viertel (Halbmond)** | 21-24 | +14h | 0.10 | Geht gegen 20:00 Uhr abends auf. |
 | 🌘 **Abnehmender Sichelmond** | 25-28 | +15h | 0.05 | Sichtbar bis zum frühen Morgen. |
+
