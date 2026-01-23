@@ -1,3 +1,10 @@
+## 4.3.0 - Cinematic Night Update
+
+- **🌙 Cinematic Moon:** The moon now adheres to strict "Cinematic Rules", ensuring it is visible primarily at night (Standard Offset: 9h+). No more confusion with "Daytime Moons" looking like night.
+- **💡 Dynamic Lighting:** The moon now actively contributes to scene lighting! A full moon night is significantly brighter (~0.65 darkness) than a new moon night (0.95 darkness). The light intensity fades realistically as the moon rises and sets.
+- **📖 Documentation:** Updated `Climate Zones` documentation (English & German) with detailed brightness levels and new moon phase timings.
+- **🐛 Fixes:** Resolved character encoding issues in the German documentation.
+
 ## 4.2.0 - New Moon Cycle
 
 - **🌕 New Feature: Moon Cycle:** The Moon Cycle has been completely implemented! The moon phase now accurately tracks the calendar date (e.g. Full Moon on the 15th) and displays the correct phase visual.

@@ -1262,12 +1262,9 @@ class PhilsDayNightCycle {
         const moonData = LightingSystem.getMoonData(worldTime);
 
         // Opacity Logic
-        // Position Logic: Continuous Solar Offset
-        // We calculate offset based on the smooth cycle age (0..30)
-        // Cycle 0 = Offset 0.
-        // Cycle 15 = Offset 12.
-        // Cycle 30 = Offset 24.
-        const continuousOffset = (moonData.smoothCycleAge / 30) * 24;
+        // Position Logic: Use Explicit Cinematic Offsets from DATA
+        // determining position strictly by phase definition, ensuring night visibility.
+        const continuousOffset = moonData.phase.solar_offset_hours;
         
         // Sun Glare Rule: If Moon is within +/- 2.5 hours of Sun, hide it.
         const dist = Math.min(Math.abs(continuousOffset), 24 - Math.abs(continuousOffset));

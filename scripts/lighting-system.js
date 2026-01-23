@@ -7,14 +7,14 @@ export const MOON_DATA = {
     cycle_length: 30,
     base_night_darkness: 0.95,
     phases: [
-        { id: 0, name: "PDNC.MoonPhase.New", days: [1, 2, 29, 30], solar_offset_hours: 0, icon_state: "empty", desc: "PDNC.MoonPhaseDesc.New" },
-        { id: 1, name: "PDNC.MoonPhase.WaxingCrescent", days: [3, 4, 5, 6], solar_offset_hours: 4, icon_state: "crescent", desc: "PDNC.MoonPhaseDesc.WaxingCrescent" },
-        { id: 2, name: "PDNC.MoonPhase.FirstQuarter", days: [7, 8, 9, 10], solar_offset_hours: 6, icon_state: "half", desc: "PDNC.MoonPhaseDesc.FirstQuarter" },
-        { id: 3, name: "PDNC.MoonPhase.WaxingGibbous", days: [11, 12, 13, 14], solar_offset_hours: 9, icon_state: "gibbous", desc: "PDNC.MoonPhaseDesc.WaxingGibbous" },
-        { id: 4, name: "PDNC.MoonPhase.Full", days: [15, 16], solar_offset_hours: 12, icon_state: "full", desc: "PDNC.MoonPhaseDesc.Full" },
-        { id: 5, name: "PDNC.MoonPhase.WaningGibbous", days: [17, 18, 19, 20], solar_offset_hours: 15, icon_state: "gibbous", desc: "PDNC.MoonPhaseDesc.WaningGibbous" },
-        { id: 6, name: "PDNC.MoonPhase.LastQuarter", days: [21, 22, 23, 24], solar_offset_hours: 18, icon_state: "half", desc: "PDNC.MoonPhaseDesc.LastQuarter" },
-        { id: 7, name: "PDNC.MoonPhase.WaningCrescent", days: [25, 26, 27, 28], solar_offset_hours: 21, icon_state: "crescent", desc: "PDNC.MoonPhaseDesc.WaningCrescent" }
+        { id: 0, name: "PDNC.MoonPhase.New", days: [1, 2, 29, 30], solar_offset_hours: 0, illumination: 0.0, icon_state: "empty", desc: "PDNC.MoonPhaseDesc.New" },
+        { id: 1, name: "PDNC.MoonPhase.WaxingCrescent", days: [3, 4, 5, 6], solar_offset_hours: 9, illumination: 0.05, icon_state: "crescent", desc: "PDNC.MoonPhaseDesc.WaxingCrescent" },
+        { id: 2, name: "PDNC.MoonPhase.FirstQuarter", days: [7, 8, 9, 10], solar_offset_hours: 10, illumination: 0.1, icon_state: "half", desc: "PDNC.MoonPhaseDesc.FirstQuarter" },
+        { id: 3, name: "PDNC.MoonPhase.WaxingGibbous", days: [11, 12, 13, 14], solar_offset_hours: 11, illumination: 0.2, icon_state: "gibbous", desc: "PDNC.MoonPhaseDesc.WaxingGibbous" },
+        { id: 4, name: "PDNC.MoonPhase.Full", days: [15, 16], solar_offset_hours: 12, illumination: 0.3, icon_state: "full", desc: "PDNC.MoonPhaseDesc.Full" },
+        { id: 5, name: "PDNC.MoonPhase.WaningGibbous", days: [17, 18, 19, 20], solar_offset_hours: 13, illumination: 0.2, icon_state: "gibbous", desc: "PDNC.MoonPhaseDesc.WaningGibbous" },
+        { id: 6, name: "PDNC.MoonPhase.LastQuarter", days: [21, 22, 23, 24], solar_offset_hours: 14, illumination: 0.1, icon_state: "half", desc: "PDNC.MoonPhaseDesc.LastQuarter" },
+        { id: 7, name: "PDNC.MoonPhase.WaningCrescent", days: [25, 26, 27, 28], solar_offset_hours: 15, illumination: 0.05, icon_state: "crescent", desc: "PDNC.MoonPhaseDesc.WaningCrescent" }
     ]
 };
 
@@ -162,27 +162,86 @@ export class LightingSystem {
     }
 
 
+    static calculateMoonBrightness(currentMinutes, moonData, noonMinutes) {
+        // 1. Calculate Peak Time (Moon Zenith)
+        // Formula: Peak = Noon + Offset
+        // Example: Full Moon (+12h) -> Peak = Noon + 12h = Midnight
+        const offsetMinutes = moonData.phase.solar_offset_hours * 60;
+        let peakParams = noonMinutes + offsetMinutes;
+        
+        // Normalize to 0-1440 cycle for distance check
+        // But for "Window" check, it's easier to keep absolute relative to noon and unwrap currentMinutes
+        
+        const dayLength = 1440;
+        
+        // Define Visibility Window (Rise to Set)
+        // Assuming ~12 hours visibility (Rise 6h before peak, Set 6h after)
+        const riseMinutes = peakParams - 360; // -6h
+        const setMinutes = peakParams + 360;  // +6h
+        
+        // We need to check if 'currentMinutes' is inside [riseMinutes, setMinutes]
+        // Handling wrapping: simpler to "unwrap" currentMinutes relative to the window
+        
+        let adjustedCurrent = currentMinutes;
+        
+        // If the window wraps around a day boundary, we might need to check multiple versions of currentMinutes
+        // Strategy: Normalize everything relative to Noon being 0 for easier math? 
+        // Or simpler: Check distance from Peak.
+        
+        // Distance from Peak (Shortest path on 1440 circle)
+        // 1. Normalize Peak to 0-1440
+        let normalizedPeak = peakParams % dayLength; 
+        if (normalizedPeak < 0) normalizedPeak += dayLength;
+        
+        let dist = Math.abs(currentMinutes - normalizedPeak);
+        if (dist > 720) dist = 1440 - dist; // Wrap around distance
+        
+        // 2. Check Height (Intensity)
+        // If distance < 360 (6 hours), it is "up".
+        // 0 distance = Zenith (100%)
+        // 360 distance = Horizon (0%)
+        
+        if (dist >= 360) return 0.0;
+        
+        // 3. Calculate Intensity Factor (Sine Wave for smooth arc)
+        // cos(0) = 1, cos(PI/2) = 0.
+        // Map dist 0..360 -> 0..PI/2
+        const rad = (dist / 360) * (Math.PI / 2);
+        const heightFactor = Math.cos(rad);
+        
+        // 4. Apply Phase Max Illumination
+        // e.g. Full Moon (0.3) * heightFactor
+        
+        // 5. Sun Glare Rule (Optional but requested)
+        // If Moon is effectively "New Moon" or very close to Sun, it's invisible.
+        // The Solar Offset itself tells us distance from sun.
+        // 0 = New Moon (With Sun). 12 = Full Moon (Opposite).
+        // If offset is small (< 2h?), brightness is negligible anyway (New Moon is 0.0).
+        // Our MOON_DATA.phases already handle this:
+        // New Moon has illumination 0.0.
+        // Waxing Crescent (4h offset) has 0.05.
+        // So explicit glare check might be redundant for brightness, but good for completeness.
+        
+        return moonData.phase.illumination * heightFactor;
+    }
+
     static calculateDarkness(worldTime) {
         const params = this.getClimateParams();
-        if (!params) return 0; // Default to bright if no data
-
-        // Check Types
         if (!params) return 0.0;
         if (params.type === "polar_day") return 0.0;
         if (params.type === "polar_night") return 1.0;
 
         // Validation for missing times
         if (!params.dawn || !params.noon || !params.dusk) {
-             console.warn("PDNC | LightingSystem: Missing dawn/noon/dusk parameters for current climate.");
+             // console.warn("PDNC | LightingSystem: Missing dawn/noon/dusk parameters.");
              return 0.0;
         }
 
-        // Current time in minutes of the day (adjusted by global timeOffset)
+        // Current time in minutes
         const dayLength = 86400;
-        const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0; // Minutes
+        const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0;
         const adjustedTime = worldTime + (timeOffset * 60);
 
-        // Handle negative time correctly for modulo
         const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
         const currentMinutes = Math.floor(currentSeconds / 60);
 
@@ -190,31 +249,30 @@ export class LightingSystem {
         const noon = this.parseTime(params.noon);
         const dusk = this.parseTime(params.dusk);
         let night = this.parseTime(params.night); 
-        // Note: night can be null for 'bright_night'
 
-        if (dawn === null || noon === null || dusk === null) return 0.0; // Safety check
+        if (dawn === null || noon === null || dusk === null) return 0.0;
         
+        // --- Calculate Moon Brightness (Dynamic) ---
         let moonDim = 0.0;
         if (game.settings.get(MODULE_ID, "enableMoonLighting")) {
              const moonData = this.getMoonData(worldTime);
-             moonDim = moonData.phase.illumination || 0.0;
-             // Some phase data might lack illumination if custom json is weird? 
-             // Default to 0.0
+             moonDim = this.calculateMoonBrightness(currentMinutes, moonData, noon);
         }
 
-        // Lifecycle: Dawn -> Noon -> Dusk -> Night
-        // Standard Day: 00:00 -> Dawn -> Noon -> Dusk -> Night -> 23:59
+        // --- Standard Solar Cycle ---
         
         // 1. Before Dawn (Night)
         if (currentMinutes < dawn) {
             const baseNight = MOON_DATA.base_night_darkness;
-            return baseNight - moonDim;
+            return Math.max(0, baseNight - moonDim);
         }
 
         // 2. Dawn -> Noon (Brightening)
-        // 1.0 -> 0.0
         if (currentMinutes >= dawn && currentMinutes < noon) {
             const progress = (currentMinutes - dawn) / (noon - dawn);
+            // Moon might still satisfy darkness if it's visible during day (often overpowered by sun)
+            // We usually just take Sun brightness.
+            // Darkness 1.0 -> 0.0
             return 1.0 - progress;
         }
 
@@ -227,21 +285,19 @@ export class LightingSystem {
         // 4. Dusk -> Night (Twilight) or End of Day
         if (night !== null) {
             const baseNight = MOON_DATA.base_night_darkness;
-            const nightLevel = baseNight - moonDim;
+            const targetDarkness = Math.max(0, baseNight - moonDim);
 
             if (currentMinutes >= dusk && currentMinutes < night) {
-                // Transition Dusk -> Night
-                // 0.5 -> nightLevel
+                // Transition Dusk (0.5) -> Night (Target)
                 const progress = (currentMinutes - dusk) / (night - dusk);
-                return 0.5 + (progress * (nightLevel - 0.5));
+                return 0.5 + (progress * (targetDarkness - 0.5));
             }
-            // After Night (Fully Dark but Lit by Moon)
+            // After Night
             if (currentMinutes >= night) {
-                return nightLevel;
+                return targetDarkness;
             }
         } else {
-            // Handle "Bright Night" (Mitternachtsdämmerung)
-            
+            // "Bright Night" support
             if (params.type === "bright_night") {
                 const midnight = 1440;
                 if (currentMinutes >= dusk) {
@@ -250,13 +306,13 @@ export class LightingSystem {
                    return Math.max(0, sunDarkness - moonDim);
                 }
             } else {
-                // Pre-Dawn (Night) - Also apply moon
+                 // Pre-Dawn Logic Fallback (should be covered by < dawn, but for safety)
                  const baseNight = MOON_DATA.base_night_darkness;
-                 return baseNight - moonDim;
+                 return Math.max(0, baseNight - moonDim);
             }
         }
         
-        return 0; // Should be covered by cases above
+        return 0; 
     }
 
     static async update(worldTime) {
