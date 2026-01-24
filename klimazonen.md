@@ -1,6 +1,6 @@
 # 🌍 Klimazonen und zugehörige Länder
 
-[Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".](https://upload.wikimedia.org/wikipedia/commons/5/50/Klimazonen_%283_Modelle%29_und_Makroklimate.png)
+[Basierend auf der Legende der Karte "Klimazonen (3 Modelle) und Makroklimate".](https://de.wikipedia.org/wiki/Klimazone#/media/Datei:Klimazonen_(3_Modelle)_und_Makroklimate.png)
 
 ## 📑 Inhaltsverzeichnis
 
@@ -246,5 +246,6 @@ Das Modul berechnet die Dunkelheit der Szene basierend auf dem Sonnenstand. Hier
 | **Mittag**          | 100%       | 0.0             | Maximale Helligkeit. Sonne steht am höchsten.                            |
 | **Abenddämmerung**  | 50%        | 0.5             | Sonnenuntergang. Helligkeit **sinkt fließend** zur Nacht ab.             |
 | **Nacht**           | ~5%        | 0.95            | Volle Nachtschwärze (wird durch Mondphasen aufgehellt).                  |
+
 
 > **Hinweis:** Die Lichtübergänge verlaufen **fließend** zwischen diesen Zeitpunkten (keine harten Sprünge).
