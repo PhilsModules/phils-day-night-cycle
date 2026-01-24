@@ -1,3 +1,26 @@
+## 4.5.0 - Event Rescheduling & Quest Sync
+
+- **📅 New Feature: Event Date Editing**
+  - **Move Events:** You can finally change the date of an existing event! Just open the event editor and adjust the day/month/year fields.
+  - **Smart Updates:** If you move an event, the calendar automatically handles the move, keeping all data intact.
+
+- **⚔️ Quest Tracker Sync:**
+  - **Two-Way Sync:** If you move a calendar event that is linked to a **Phils Quest Tracker** quest, the quest's start date acts accordingly!
+  - **Example:** Dragging a "Goblin Raid" event from Monday to Friday in the calendar effectively postpones the quest in the Quest Log too.
+
+- **🛠️ Fixes:**
+  - **Security:** Added missing translation keys for permission warnings (`PDNC.Warning.NoPermission`).
+  - **Testing:** Implemented a robust Unit Test suite (`tests/quest-sync.test.js`) to ensure calendar logic remains stable.
+
+## 4.4.1 - Dungeon Mode Logic & Test Suite
+
+- **🛡️ Security & Logic:**
+  - **Dungeon Mode Security:** The "Dungeon Mode" button in the clock widget is now **strictly restricted to GMs only**. It will no longer appear for players, and its functionality is secured on the backend.
+  - **Correction:** Fixed a logic error in the automatic lighting calculation where the transition from Night to Dawn caused a sudden jump in brightness. It is now perfectly smooth.
+
+- **🌍 Localization:**
+  - Added missing German translation keys for the Setup Wizard.
+
 ## 4.4.0 - Dungeon Mode & Polish
 
 - **🏰 New Feature: One-Click Dungeon Mode**
