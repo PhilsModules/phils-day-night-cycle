@@ -1,3 +1,7 @@
+## 4.5.2 - Wizard Scroll Fix
+
+- **🎨 UI Fix:** The **Startup Wizard** is now scrollable! Fixed an issue where the "Finish" button was unreachable on smaller screens by enforcing a maximum height and enabling vertical scrolling.
+
 ## 4.5.1 - Inverted Arc Hotfix
 
 - **🐛 Bugfix:** Fixed a visual glitch where the Sun and Moon Arcs were rendered upside down (inverted) for players or when the HUD controls were hidden. The geometry now correctly calculates the arc peak regardless of UI state.
