@@ -124,7 +124,7 @@ The module automatically simulates weather.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
-### 4. Pathfinder 2e Synchronization
+### 5. Pathfinder 2e Synchronization
 
 This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calendar perfectly aligned requires a specific workflow to match the official system time.
 
@@ -141,7 +141,7 @@ This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calen
 11. Finally, adjust the **Time** (Hour/Minute) via the settings menu or the macro if needed.
 12. Voila, done!
 
-### 5. Macros / API
+### 6. Macros / API
 
 You can control the clock using Script Macros. Create a new Macro, set the type to **Script**, and paste the code below.
 
@@ -257,7 +257,7 @@ Das Modul simuliert das Wetter vollautomatisch.
 5.  Speichere deine Klimazone ab.
 6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
-### 4. Pathfinder 2e Synchronisation
+### 5. Pathfinder 2e Synchronisation
 
 Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit übereinzustimmen.
 
@@ -274,7 +274,7 @@ Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert 
 11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder über das Menü oder über das Makro an.
 12. Voila, fertig.
 
-### 5. Makros und API
+### 6. Makros und API
 
 Du kannst die Uhr auch über Makros steuern. Erstelle dafür ein neues Makro vom Typ **Script** und füge den jeweiligen Code ein.
 
@@ -328,4 +328,5 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
+
 
