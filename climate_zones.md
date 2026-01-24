@@ -1,6 +1,6 @@
 # 🌍 Climate Zones and Associated Countries
 
-[Based on the map legend "Climate Zones (3 Models) and Macroclimates".](https://upload.wikimedia.org/wikipedia/commons/5/50/Klimazonen_%283_Modelle%29_und_Makroklimate.png)
+[Based on the map legend "Climate Zones (3 Models) and Macroclimates".](https://de.wikipedia.org/wiki/Klimazone#/media/Datei:Klimazonen_(3_Modelle)_und_Makroklimate.png)
 
 ## 📑 Table of Contents
 
@@ -247,5 +247,6 @@ The module calculates scene darkness based on the sun's position. Here are the b
 | **Noon**   | 100%       | 0.0      | Maximum brightness. Sun is at its peak.                       |
 | **Dusk**   | 50%        | 0.5      | Sunset. Light **gradually decreases** towards Night.          |
 | **Night**  | ~5%        | 0.95     | Full night darkness (modified by moon phase).                 |
+
 
 > **Note:** The light transitions **smoothly** between these points (no sudden jumps).
