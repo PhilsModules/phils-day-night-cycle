@@ -1,9 +1,9 @@
 <div align="center">
 
-# Phil's Day/Night Cycle ☀️🌙
+# Phil's Day&Night Cycle ☀️🌙
 
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-4.3.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-4.4.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -34,7 +34,7 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 <br>
 
 <div align="center">
-<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/pw.png" alt="Preview" width="800">
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/pv.png" alt="Preview" width="800">
 </div>
 
 <br>
@@ -124,24 +124,50 @@ The module automatically simulates weather.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
+### 4. Pathfinder 2e Synchronization
+
+This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calendar perfectly aligned requires a specific workflow to match the official system time.
+
+1.  **Activate** the module first.
+2.  Open the **System Clock** located on the left above the Token Controls (world clock).
+3.  Inside the **Startup Wizard** or the **Settings Menu** -> **Day & Night Cycle**, select **Golarion** and check the box for **Sync Pathfinder 2e**.
+4.  Take a look at the Wizard to see if the **Year** and **Day** are roughly correct.
+5.  Change the **Day** in the Wizard or adjust it via the Input Fields until it matches your world time.
+6.  Use the **Weekday Offset** field directly in the Wizard to ensure the correct day of the week (the module accepts values like `+8` or `-1` just fine).
+7.  Adjust the other settings in the Wizard and click **Finish Setup** (you can skip this if you are working directly in the menu).
+8.  Go to the **Module Settings** afterwards because the Wizard sometimes only provides a rough approximation for complex offsets.
+9.  Check the **Day Offset** and **Weekday Offset** in the settings again and adjust them if necessary.
+10. Press **F5** to refresh the page.
+11. Finally, adjust the **Time** (Hour/Minute) via the settings menu or the macro if needed.
+12. Voila, done!
+
 ### 5. Macros / API
 
 You can control the clock using Script Macros. Create a new Macro, set the type to **Script**, and paste the code below.
 
 **Toggle Clock Visibility**
+
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
 ```
 
 **Set Time**
+
 ```js
 // Change the time below (Hour, Minute)
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);
 ```
 
 **Reset Clock Position**
+
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
+```
+
+**Toggle Dungeon Mode**
+
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 ```
 
 <br>
@@ -231,24 +257,50 @@ Das Modul simuliert das Wetter vollautomatisch.
 5.  Speichere deine Klimazone ab.
 6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
+### 4. Pathfinder 2e Synchronisation
+
+Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit übereinzustimmen.
+
+1.  Aktiviere zuerst das Modul.
+2.  Öffne die **Systemuhr** in der linken Leiste über den Token Controls (Weltuhr).
+3.  Wähle im **Wizard** oder im **Menü** unter **Day & Night Cycle** die Option **Golarion** aus und setze den Haken bei **Sync Pathfinder 2e**.
+4.  Schau im Wizard grob nach, ob das **Jahr** und der **Tag** stimmen.
+5.  Ändere den **Tag** im Wizard oder stelle ihn über die Eingabefelder so ein, dass er passt.
+6.  Stelle nun direkt im Wizard den **Weekday Offset** (Wochentag-Verschiebung) ein, um den aktuellen Wochentag festzulegen (du kannst dort problemlos Werte wie `+8` oder `-1` eingeben).
+7.  Nimm die restlichen Einstellungen im Wizard vor und drücke abschließend auf **Finish Setup** (das kannst du überspringen, wenn du das direkt im Menü machst).
+8.  Geh danach in die **Module Settings**, da der Wizard die Werte manchmal nur grob übernimmt.
+9.  Kontrolliere den **Day Offset** und den **Weekday Offset** noch einmal und korrigiere sie, falls nötig.
+10. Drücke **F5**, um die Seite neu zu laden.
+11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder über das Menü oder über das Makro an.
+12. Voila, fertig.
+
 ### 5. Makros und API
 
 Du kannst die Uhr auch über Makros steuern. Erstelle dafür ein neues Makro vom Typ **Script** und füge den jeweiligen Code ein.
 
 **Uhr einblenden oder ausblenden**
+
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
 ```
 
 **Zeit setzen**
+
 ```js
 // Change the time below (Hour, Minute)
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);
 ```
 
 **Position der Uhr zurücksetzen**
+
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
+```
+
+**Dungeon Mode umschalten**
+
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 ```
 
 <br>
@@ -276,4 +328,3 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-

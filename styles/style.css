@@ -419,53 +419,53 @@
 
 /* --- Filter Menu --- */
 .pdnc-filter-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .pdnc-filter-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 5px;
-    background: #1a1a1a;
-    border: 1px solid #c5a059;
-    border-radius: 4px;
-    padding: 5px 0;
-    min-width: 160px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s;
-    text-align: left;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: #1a1a1a;
+  border: 1px solid #c5a059;
+  border-radius: 4px;
+  padding: 5px 0;
+  min-width: 160px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  text-align: left;
 }
 
 .pdnc-filter-menu.active {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .pdnc-filter-option {
-    padding: 8px 12px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 0.9em;
-    font-family: var(--pdnc-font);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.2s;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 0.9em;
+  font-family: var(--pdnc-font);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
 }
 
 .pdnc-filter-option:hover {
-    background: rgba(197, 160, 89, 0.2);
-    color: #fff;
+  background: rgba(197, 160, 89, 0.2);
+  color: #fff;
 }
 
 .pdnc-filter-option i {
-    width: 14px;
-    text-align: center;
-    color: #c5a059;
+  width: 14px;
+  text-align: center;
+  color: #c5a059;
 }
 
 .pdnc-calendar-header button {
@@ -493,7 +493,7 @@
 .pdnc-date-display-wrapper {
   justify-self: center;
   /* Ensure it doesn't expand unexpectedly */
-  width: 100%; 
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -652,7 +652,9 @@
   overflow: hidden;
   backdrop-filter: blur(10px);
   border: 1px solid #c5a059;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
@@ -699,7 +701,9 @@
   margin: 0;
   padding: 5px 10px;
   border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .pdnc-date-title:hover {
@@ -882,7 +886,9 @@
   overflow: hidden;
   backdrop-filter: blur(10px);
   border: 1px solid #c5a059;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
@@ -908,7 +914,6 @@
   color: #fff;
   text-shadow: 0 0 5px #fff;
 }
-
 
 .pdnc-event-editor-window form {
   display: flex;
@@ -1183,443 +1188,455 @@
 
 /* Hide Default Window Header/Background for this app */
 .pdnc-weather-window {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    min-width: 50px !important;
-    min-height: 50px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
 }
 
 .pdnc-weather-window .window-header {
-    display: none !important;
+  display: none !important;
 }
 
 .pdnc-weather-window .window-content {
-    background: transparent !important;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: none !important;
-    border: none !important;
+  background: transparent !important;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .weather-hud-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
 }
 
 .weather-preview-box {
-    /* 
+  /* 
        With header gone, maximizing space.
        JS will enforce square aspect ratio by setting explicit width/height.
     */
-    position: relative;
-    border: 2px solid #5c4830;
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
-    background-color: #000;
-    overflow: hidden;
-    border-radius: 8px; /* Slightly rounded corners */
-    
-    /* Centering logic handled by margin: auto in flex container */
-    margin: auto;
-    flex: 0 0 auto;
+  position: relative;
+  border: 2px solid #5c4830;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  background-color: #000;
+  overflow: hidden;
+  border-radius: 8px; /* Slightly rounded corners */
+
+  /* Centering logic handled by margin: auto in flex container */
+  margin: auto;
+  flex: 0 0 auto;
 }
 
 /* Overlay Controls - Smaller */
 .weather-overlay-controls {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 100; /* Above PIXI canvas */
-    padding: 3px 6px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.4); 
-    backdrop-filter: blur(2px);
-    transition: opacity 0.3s ease;
-    transform: scale(0.8); /* Scale down entire controls block */
-    transform-origin: top right;
-    
-    /* Auto-Hide: Hidden by default */
-    opacity: 0;
-    pointer-events: none; 
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 100; /* Above PIXI canvas */
+  padding: 3px 6px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+  transform: scale(0.8); /* Scale down entire controls block */
+  transform-origin: top right;
+
+  /* Auto-Hide: Hidden by default */
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Show on Hover */
 .weather-preview-box:hover .weather-overlay-controls {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Close Button */
 .weather-close-btn {
-    background: transparent;
-    border: none;
-    color: #eee;
-    font-size: 0.9em; /* Slightly smaller to match compact look */
-    cursor: pointer;
-    padding: 0 4px;
-    line-height: 1;
-    transition: color 0.2s;
-    width: auto; 
-    height: auto;
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 0.9em; /* Slightly smaller to match compact look */
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s;
+  width: auto;
+  height: auto;
 }
 
 .weather-close-btn:hover {
-    color: #ff6b6b;
-    text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+  color: #ff6b6b;
+  text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
 }
 
 /* Pause Button */
 .weather-pause-btn {
-    background: transparent;
-    border: none;
-    color: #eee;
-    font-size: 0.8em; /* Slightly smaller icon */
-    cursor: pointer;
-    padding: 0 4px;
-    line-height: 1;
-    transition: color 0.2s;
-    width: auto;
-    height: auto;
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 0.8em; /* Slightly smaller icon */
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s;
+  width: auto;
+  height: auto;
 }
 
 .weather-pause-btn:hover {
-    color: #ffd700; /* Gold hover for pause */
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  color: #ffd700; /* Gold hover for pause */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 /* Global Weather Button */
 .weather-global-btn {
-    background: transparent;
-    border: none;
-    color: #888; /* Inactive: Dim/Gray */
-    font-size: 0.9em;
-    cursor: pointer;
-    padding: 0 4px;
-    line-height: 1;
-    transition: all 0.2s;
-    width: auto;
-    height: auto;
+  background: transparent;
+  border: none;
+  color: #888; /* Inactive: Dim/Gray */
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: all 0.2s;
+  width: auto;
+  height: auto;
 }
 
 .weather-global-btn:hover {
-    color: #eee;
-    text-shadow: 0 0 3px rgba(255,255,255,0.3);
+  color: #eee;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 .weather-global-btn.active {
-    color: #00e5ff; /* Cyan or Gold to indicate ACTIVE logic? User said "wetter im vorschau", usually means linked to map. Active = Show on map. */
-    text-shadow: 0 0 5px rgba(0, 229, 255, 0.6);
+  color: #00e5ff; /* Cyan or Gold to indicate ACTIVE logic? User said "wetter im vorschau", usually means linked to map. Active = Show on map. */
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.6);
 }
 /* Let's stick to Gold/Green for active? Cyan is good for "Global/Magic" vibe. */
 
-
 /* --- Solar Arc (Sonnenverlauf) --- */
 .pdnc-solar-arc-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .pdnc-solar-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
 .pdnc-solar-track {
-    stroke: rgba(197, 160, 89, 0.2); /* Faint Gold */
-    /* stroke-dasharray: 5 5; Dotted? */
+  stroke: rgba(197, 160, 89, 0.2); /* Faint Gold */
+  /* stroke-dasharray: 5 5; Dotted? */
 }
 
 /* Sun Icon Group */
-.pdnc-solar-sun-group, .pdnc-moon-group {
-    transition: transform 0.5s ease; /* Smooth movement */
-    /* Transform will be set via JS on updateClock */
+.pdnc-solar-sun-group,
+.pdnc-moon-group {
+  transition: transform 0.5s ease; /* Smooth movement */
+  /* Transform will be set via JS on updateClock */
 }
 
 /* Rays Animation */
 .pdnc-solar-sun-group line {
-    animation: pdnc-sun-spin 8s linear infinite;
-    transform-origin: 0 0;
+  animation: pdnc-sun-spin 8s linear infinite;
+  transform-origin: 0 0;
 }
 
 @keyframes pdnc-sun-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* --- Chat Card Links --- */
 .pdnc-chat-card a.pdnc-event-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: rgba(197, 160, 89, 0.1);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    border-radius: 4px;
-    padding: 2px 6px;
-    text-decoration: none;
-    color: #c5a059;
-    font-weight: bold;
-    transition: all 0.2s ease;
-    margin-left: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 4px;
+  padding: 2px 6px;
+  text-decoration: none;
+  color: #c5a059;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  margin-left: 5px;
 }
 
 .pdnc-chat-card a.pdnc-event-link:hover {
-    background: rgba(197, 160, 89, 0.3);
-    border-color: #c5a059;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
-    transform: translateY(-1px);
+  background: rgba(197, 160, 89, 0.3);
+  border-color: #c5a059;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+  transform: translateY(-1px);
 }
 
 .pdnc-chat-card a.pdnc-event-link i {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .pdnc-chat-card h3 {
-    border-bottom: 2px solid #555;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    color: #c5a059;
+  border-bottom: 2px solid #555;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  color: #c5a059;
 }
 
 /* --- View Switcher --- */
 .pdnc-view-switcher {
-    position: relative;
-    display: inline-block;
-    margin-left: 5px;
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
 }
 
 .pdnc-view-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1a1a1a;
-    border: 1px solid #c5a059;
-    border-radius: 4px;
-    padding: 5px 0;
-    min-width: 140px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s;
-    margin-top: 5px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  border: 1px solid #c5a059;
+  border-radius: 4px;
+  padding: 5px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  margin-top: 5px;
 }
 
 .pdnc-view-menu.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 .pdnc-view-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 0.9em;
-    font-family: var(--pdnc-font);
-    transition: background 0.2s;
-    gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 0.9em;
+  font-family: var(--pdnc-font);
+  transition: background 0.2s;
+  gap: 15px;
 }
 
 .pdnc-view-item:hover {
-    background: rgba(197, 160, 89, 0.2);
-    color: #fff;
+  background: rgba(197, 160, 89, 0.2);
+  color: #fff;
 }
 
 .pdnc-view-preview {
-    height: 30px;
-    width: auto;
-    border-radius: 2px;
-    border: 1px solid #444;
-    transition: transform 0.2s ease, border-color 0.2s;
+  height: 30px;
+  width: auto;
+  border-radius: 2px;
+  border: 1px solid #444;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s;
 }
 
 .pdnc-view-item:hover .pdnc-view-preview {
-    transform: scale(1.1);
-    border-color: #c5a059;
+  transform: scale(1.1);
+  border-color: #c5a059;
 }
 
 /* --- Year View --- */
 .pdnc-year-view {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
-    gap: 10px;
-    padding: 5px;
-    overflow-y: auto;
-    flex: 1; /* Fill available space */
-    min-height: 0; /* REQUIRED for overflow to work in flex container */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+  gap: 10px;
+  padding: 5px;
+  overflow-y: auto;
+  flex: 1; /* Fill available space */
+  min-height: 0; /* REQUIRED for overflow to work in flex container */
 }
 
 .pdnc-mini-month {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
-    border-radius: 4px;
-    padding: 5px;
-    cursor: pointer;
-    transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .pdnc-mini-month:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #c5a059;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #c5a059;
 }
 
 .pdnc-mini-month h3 {
-    text-align: center;
-    margin: 0 0 5px 0;
-    font-size: 0.9em;
-    color: #c5a059;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-    padding-bottom: 2px;
+  text-align: center;
+  margin: 0 0 5px 0;
+  font-size: 0.9em;
+  color: #c5a059;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  padding-bottom: 2px;
 }
 
 .pdnc-mini-grid {
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(var(--week-length, 7), 1fr);
-    gap: 2px; /* Increased gap slightly for clarity */
+  gap: 2px; /* Increased gap slightly for clarity */
 }
 
 .pdnc-mini-weekday {
-    font-size: 0.7em;
-    color: #888;
-    text-align: center;
-    margin-bottom: 2px;
+  font-size: 0.7em;
+  color: #888;
+  text-align: center;
+  margin-bottom: 2px;
 }
 
 .pdnc-mini-day {
-    aspect-ratio: 1;
-    background: rgba(0,0,0,0.2);
-    border-radius: 2px;
-    display: flex; /* Centering text */
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7em; /* Small text */
-    color: #aaa;
-    cursor: default;
+  aspect-ratio: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  display: flex; /* Centering text */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em; /* Small text */
+  color: #aaa;
+  cursor: default;
 }
 
 .pdnc-mini-day.current {
-    background: rgba(197, 160, 89, 0.4);
-    box-shadow: 0 0 2px #c5a059;
+  background: rgba(197, 160, 89, 0.4);
+  box-shadow: 0 0 2px #c5a059;
 }
 
 .pdnc-mini-day.has-events {
-    background: rgba(255, 255, 255, 0.25); /* Default/Event = White/Grey to match white dots */
-    color: #fff;
-    font-weight: bold;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.25
+  ); /* Default/Event = White/Grey to match white dots */
+  color: #fff;
+  font-weight: bold;
 }
 
 .pdnc-mini-day.gm {
-    background: rgba(231, 76, 60, 0.4); /* Red */
-    box-shadow: 0 0 2px #e74c3c;
+  background: rgba(231, 76, 60, 0.4); /* Red */
+  box-shadow: 0 0 2px #e74c3c;
 }
 
 .pdnc-mini-day.player {
-    background: rgba(46, 204, 113, 0.4); /* Green */
+  background: rgba(46, 204, 113, 0.4); /* Green */
 }
 
 .pdnc-mini-day.quest {
-    background: rgba(255, 215, 0, 0.4); /* Bright Gold */
-    box-shadow: 0 0 3px #ffd700;
-    color: #fff;
+  background: rgba(255, 215, 0, 0.4); /* Bright Gold */
+  box-shadow: 0 0 3px #ffd700;
+  color: #fff;
 }
 
 .pdnc-mini-day.weather {
-    background: rgba(52, 152, 219, 0.4); /* Blue */
+  background: rgba(52, 152, 219, 0.4); /* Blue */
 }
-
 
 /* --- List View --- */
 .pdnc-list-view {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 5px;
-    overflow-y: auto;
-    flex: 1; /* Fill available space */
-    min-height: 0; /* REQUIRED for overflow to work in flex container */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 5px;
+  overflow-y: auto;
+  flex: 1; /* Fill available space */
+  min-height: 0; /* REQUIRED for overflow to work in flex container */
 }
 
 .pdnc-list-item {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid transparent; /* Placeholder for border */
-    border-bottom: 1px solid #333;
-    padding: 8px 10px;
-    cursor: pointer;
-    transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent; /* Placeholder for border */
+  border-bottom: 1px solid #333;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .pdnc-list-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .pdnc-list-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 85px;
-    flex-shrink: 0;
-    border-right: 1px solid #444;
-    margin-right: 12px;
-    padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  flex-shrink: 0;
+  border-right: 1px solid #444;
+  margin-right: 12px;
+  padding-right: 12px;
 }
 
 .pdnc-list-day {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #c5a059;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #c5a059;
 }
 
 .pdnc-list-month {
-    font-size: 0.7em;
-    color: #aaa;
-    text-transform: uppercase;
+  font-size: 0.7em;
+  color: #aaa;
+  text-transform: uppercase;
 }
 
 .pdnc-list-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .pdnc-list-title {
-    font-weight: bold;
-    color: #eee;
-    font-size: 1em;
+  font-weight: bold;
+  color: #eee;
+  font-size: 1em;
 }
 
 .pdnc-list-meta {
-    font-size: 0.8em;
-    color: #888;
+  font-size: 0.8em;
+  color: #888;
 }
 
 .pdnc-no-events {
-    text-align: center;
-    padding: 30px;
-    color: #666;
-    font-style: italic;
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-style: italic;
 }
 
 /* ========================================================== */
@@ -1627,125 +1644,125 @@
 /* ========================================================== */
 
 .pdnc-view-switcher {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .pdnc-view-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    min-width: 220px;
-    background: rgba(10, 10, 15, 0.95);
-    border: 1px solid #786452;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    border-radius: 4px;
-    padding: 5px 0;
-    display: none; /* Toggled by JS via style.display or class */
-    margin-top: 5px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  min-width: 220px;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid #786452;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 5px 0;
+  display: none; /* Toggled by JS via style.display or class */
+  margin-top: 5px;
 }
 
 .pdnc-view-menu.active {
-    display: block;
+  display: block;
 }
 
 .pdnc-view-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    color: #cecece;
-    transition: background 0.2s;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: #cecece;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .pdnc-view-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .pdnc-view-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
 }
 
 .pdnc-view-preview {
-    width: 50px;
-    height: 50px;
-    object-fit: contain; /* Ensure entire image is visible without cropping/stretching */
-    background: #000; /* Dark background for transparent images */
-    border: 1px solid #444;
-    border-radius: 2px;
-    margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Ensure entire image is visible without cropping/stretching */
+  background: #000; /* Dark background for transparent images */
+  border: 1px solid #444;
+  border-radius: 2px;
+  margin-left: 10px;
 }
 
 .pdnc-alt-name {
-    font-size: 0.75em;
-    color: #aaa;
-    vertical-align: middle;
-    margin-left: 0px;
+  font-size: 0.75em;
+  color: #aaa;
+  vertical-align: middle;
+  margin-left: 0px;
 }
 
 .pdnc-nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 /* --- Personal Notes --- */
 .pdnc-event-dot.personal {
-    background-color: #9b59b6;
-    border-color: #8e44ad;
+  background-color: #9b59b6;
+  border-color: #8e44ad;
 }
 
 .pdnc-event-card.personal {
-    border-left: 3px solid #9b59b6;
-    background: linear-gradient(to right, rgba(155, 89, 182, 0.1), transparent);
+  border-left: 3px solid #9b59b6;
+  background: linear-gradient(to right, rgba(155, 89, 182, 0.1), transparent);
 }
 
 .pdnc-mini-day.personal {
-    background: rgba(155, 89, 182, 0.4);
-    box-shadow: 0 0 2px #9b59b6;
-    color: #fff;
+  background: rgba(155, 89, 182, 0.4);
+  box-shadow: 0 0 2px #9b59b6;
+  color: #fff;
 }
 
 .pdnc-event-card.personal .pdnc-event-icon-wrapper {
-    color: #9b59b6;
-    background: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
+  background: rgba(155, 89, 182, 0.1);
 }
 
 .pdnc-event-card.weather {
-    border-left: 3px solid #3498db;
+  border-left: 3px solid #3498db;
 }
 
 .pdnc-event-card.weather .pdnc-event-icon-wrapper {
-    color: #3498db;
-    background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  background: rgba(52, 152, 219, 0.1);
 }
 
 .pdnc-calendar-root {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 .pdnc-calendar-header {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 /* --- Fix Calendar Scroll Constraints --- */
 .pdnc-calendar-window {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .pdnc-calendar-window .window-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 /* --- App V2 Standard Styling --- */
@@ -1758,7 +1775,9 @@
   color: #eee;
   backdrop-filter: blur(10px);
   border: 1px solid #c5a059;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
   font-family: var(--pdnc-font);
 }
 
@@ -1773,8 +1792,8 @@
   font-weight: bold;
 }
 
-.pdnc-app-v2 input, 
-.pdnc-app-v2 select {
+.pdnc-app-v2 .window-content input,
+.pdnc-app-v2 .window-content select {
   background: rgba(0, 0, 0, 0.4);
   color: #c5a059;
   border: 1px solid rgba(197, 160, 89, 0.2);
@@ -1786,26 +1805,28 @@
   color: #c5a059;
 }
 
-.pdnc-app-v2 input:focus, 
-.pdnc-app-v2 select:focus {
+.pdnc-app-v2 .window-content input:focus,
+.pdnc-app-v2 .window-content select:focus {
   border-color: #c5a059;
   box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
 }
 
-.pdnc-app-v2 button {
+.pdnc-app-v2 .window-content button {
   background: rgba(197, 160, 89, 0.1);
   border: 1px solid rgba(197, 160, 89, 0.4);
   color: #c5a059;
   transition: all 0.2s;
 }
 
-.pdnc-app-v2 button:hover {
+.pdnc-app-v2 .window-content button:hover {
   background: rgba(197, 160, 89, 0.25);
   color: #fff;
   box-shadow: 0 0 8px rgba(197, 160, 89, 0.4);
 }
 
-.pdnc-app-v2 h1, .pdnc-app-v2 h2, .pdnc-app-v2 h3 {
+.pdnc-app-v2 h1,
+.pdnc-app-v2 h2,
+.pdnc-app-v2 h3 {
   color: #c5a059;
   border-bottom-color: rgba(197, 160, 89, 0.3);
 }
@@ -1815,7 +1836,7 @@
 }
 
 /* Fix for check boxes having double borders */
-.pdnc-app-v2 input[type="checkbox"] {
+.pdnc-app-v2 .window-content input[type="checkbox"] {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1825,211 +1846,211 @@
   vertical-align: middle;
 }
 
-.pdnc-app-v2 input[type="checkbox"]:focus {
-    box-shadow: none;
-    border: none;
+.pdnc-app-v2 .window-content input[type="checkbox"]:focus {
+  box-shadow: none;
+  border: none;
 }
 
 /* --- Weather Chat Card --- */
 .pdnc-weather-chat {
-    background-image: url('../assets/weather_bg.webp');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff !important;
-    padding: 10px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    text-shadow: 1px 1px 2px #000000 !important;
-    font-family: 'Signika', sans-serif;
+  background-image: url("../assets/weather_bg.webp");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff !important;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  text-shadow: 1px 1px 2px #000000 !important;
+  font-family: "Signika", sans-serif;
 }
 
 .pdnc-weather-chat h3 {
-    color: #ffffff !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-    margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom-color: rgba(255, 255, 255, 0.3);
-    flex: none;
+  color: #ffffff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  margin-top: 0;
+  padding-bottom: 5px;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  flex: none;
 }
 
 .pdnc-weather-chat strong {
-    color: #eeeeee !important;
+  color: #eeeeee !important;
 }
 
 .pdnc-weather-temp {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 5px;
-    border-radius: 3px;
-    text-align: center;
-    color: #ffffff !important;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  color: #ffffff !important;
 }
 /* --- Weather Mixer --- */
 .pdnc-weather-mixer-window .window-content {
-    background: #1a1a1a;
-    color: #eee;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Manage overflow internally */
+  background: #1a1a1a;
+  color: #eee;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Manage overflow internally */
 }
 
 /* Wrapper to fix the "single root element" rule while keeping flex layout */
 .pdnc-weather-mixer-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pdnc-weather-mixer {
-    display: flex;
-    flex: 1;
-    overflow: hidden; /* Contain scroll areas */
-    border-bottom: 1px solid #444;
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Contain scroll areas */
+  border-bottom: 1px solid #444;
 }
 
 .effects-column,
 .favorites-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
 }
 
 .effects-column {
-    border-right: 1px solid #444;
+  border-right: 1px solid #444;
 }
 
 .effects-column h3,
 .favorites-column h3 {
-    margin: 0 0 10px 0;
-    border-bottom: 1px solid #c5a059;
-    color: #c5a059;
-    font-family: var(--pdnc-font);
-    padding-bottom: 5px;
-    flex-shrink: 0;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #c5a059;
+  color: #c5a059;
+  font-family: var(--pdnc-font);
+  padding-bottom: 5px;
+  flex-shrink: 0;
 }
 
 .effects-list,
 .favorites-list {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 5px; /* Space for scrollbar */
-    /* Scrollbar styling */
-    scrollbar-width: thin;
-    scrollbar-color: #c5a059 #333;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px; /* Space for scrollbar */
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #c5a059 #333;
 }
 
 .effect-item {
-    display: flex;
-    align-items: center;
-    padding: 4px 6px;
-    border-radius: 4px;
-    transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background 0.2s;
 }
 
 .effect-item:hover {
-    background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .effect-item input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: #c5a059;
+  margin-right: 8px;
+  accent-color: #c5a059;
 }
 
 .effect-item label {
-    cursor: pointer;
-    flex: 1;
+  cursor: pointer;
+  flex: 1;
 }
 
 .favorites-list {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .favorite-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 6px 8px;
-    margin-bottom: 5px;
-    align-items: center;
-    justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .favorite-name {
-    cursor: pointer;
-    font-weight: bold;
-    color: #ccc;
-    transition: color 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ccc;
+  transition: color 0.2s;
 }
 
 .favorite-name:hover {
-    color: #fff;
-    text-decoration: underline;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .delete-favorite {
-    color: #e74c3c;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+  color: #e74c3c;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
 .delete-favorite:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .no-favorites {
-    color: #777;
-    font-style: italic;
-    text-align: center;
-    margin-top: 20px;
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .save-favorite {
-    display: flex;
-    gap: 5px;
-    margin-top: auto; /* Push to bottom of col if list is short */
-    flex-shrink: 0;
+  display: flex;
+  gap: 5px;
+  margin-top: auto; /* Push to bottom of col if list is short */
+  flex-shrink: 0;
 }
 
 .save-favorite input {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid #555;
-    color: #eee;
-    border-radius: 4px;
-    padding: 4px 8px;
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #555;
+  color: #eee;
+  border-radius: 4px;
+  padding: 4px 8px;
 }
 
 .save-favorite button {
-    flex: 0 0 auto;
-    width: auto;
-    padding: 0 10px;
-    background: #c5a059;
-    color: #000;
-    border: none;
+  flex: 0 0 auto;
+  width: auto;
+  padding: 0 10px;
+  background: #c5a059;
+  color: #000;
+  border: none;
 }
 
 .save-favorite button:hover {
-    background: #d4b06a;
+  background: #d4b06a;
 }
 
 .pdnc-weather-mixer-wrapper .sheet-footer {
-    flex-shrink: 0;
-    padding: 10px;
+  flex-shrink: 0;
+  padding: 10px;
 }
 
 .pdnc-weather-mixer-wrapper .sheet-footer button {
-    background: #c5a059;
-    color: #1a1a1a;
-    font-weight: bold;
-    border: 1px solid #c5a059;
+  background: #c5a059;
+  color: #1a1a1a;
+  font-weight: bold;
+  border: 1px solid #c5a059;
 }
 
 .pdnc-weather-mixer-wrapper .sheet-footer button:hover {
-    background: #d4b06a;
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+  background: #d4b06a;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
 }
 /*
  Moon
@@ -2037,176 +2058,266 @@
  UI
 */
 .pdnc-moon-config .pdnc-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .pdnc-moon-config .pdnc-table th {
-    text-align: left;
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid var(--color-border-light-2);
-    font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid var(--color-border-light-2);
+  font-weight: bold;
 }
 .pdnc-moon-config .pdnc-table td {
-    padding: 4px 8px;
-    border-bottom: 1px solid var(--color-border-light-1);
-    vertical-align: middle;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--color-border-light-1);
+  vertical-align: middle;
 }
 .pdnc-moon-config .pdnc-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
-.pdnc-moon-config input[type="text"], 
+.pdnc-moon-config input[type="text"],
 .pdnc-moon-config input[type="number"] {
-    width: 100%;
-    box-sizing: border-box;
-    height: 28px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 28px;
 }
 .pdnc-moon-config select {
-    width: 100%;
-    height: 28px;
+  width: 100%;
+  height: 28px;
 }
 .pdnc-moon-config .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-light-primary);
-    font-size: 1.1em;
-    padding: 0 4px;
-    line-height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light-primary);
+  font-size: 1.1em;
+  padding: 0 4px;
+  line-height: 28px;
 }
 .pdnc-moon-config .icon-button:hover {
-    color: var(--color-text-error);
-    text-shadow: 0 0 5px red;
+  color: var(--color-text-error);
+  text-shadow: 0 0 5px red;
 }
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
 /* 
  Premium Theme (Shared across windows)
  */
- .pdnc-premium-window .pdnc-table {
-    width: 100%;
-    border-collapse: collapse;
+.pdnc-premium-window .pdnc-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 .pdnc-premium-window .pdnc-table th {
-    text-align: left;
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid var(--color-border-light-2);
-    font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid var(--color-border-light-2);
+  font-weight: bold;
 }
 .pdnc-premium-window .pdnc-table td {
-    padding: 4px 8px;
-    border-bottom: 1px solid var(--color-border-light-1);
-    vertical-align: middle;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--color-border-light-1);
+  vertical-align: middle;
 }
 .pdnc-premium-window .pdnc-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
-.pdnc-premium-window input[type="text"], 
+.pdnc-premium-window input[type="text"],
 .pdnc-premium-window input[type="number"],
 .pdnc-premium-window select {
-    width: 100%;
-    box-sizing: border-box;
-    height: 28px;
-    background: rgba(0, 0, 0, 0.4);
-    color: #c5a059;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    border-radius: 4px;
-    padding: 0 4px;
-    font-family: var(--pdnc-font);
+  width: 100%;
+  box-sizing: border-box;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #c5a059;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: var(--pdnc-font);
 }
 .pdnc-premium-window input:focus,
 .pdnc-premium-window select:focus {
-    outline: none;
-    border-color: #c5a059;
-    box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+  outline: none;
+  border-color: #c5a059;
+  box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
 }
 .pdnc-premium-window .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-light-primary);
-    font-size: 1.1em;
-    padding: 0 4px;
-    line-height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light-primary);
+  font-size: 1.1em;
+  padding: 0 4px;
+  line-height: 28px;
 }
 .pdnc-premium-window .icon-button:hover {
-    color: var(--color-text-error);
-    text-shadow: 0 0 5px red;
+  color: var(--color-text-error);
+  text-shadow: 0 0 5px red;
 }
 
 /* Premium Header Styling */
 .pdnc-premium-window header h1 {
-    font-family: var(--pdnc-font);
-    color: #c5a059;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+  font-family: var(--pdnc-font);
+  color: #c5a059;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 .pdnc-premium-window header .notes {
-    font-size: 0.9em;
-    color: #ccc;
-    font-style: italic;
-    margin-bottom: 15px;
+  font-size: 0.9em;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 15px;
 }
 .pdnc-premium-window h2 {
-    font-family: var(--pdnc-font);
-    color: #c5a059;
-    font-size: 1.2em;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-    margin-bottom: 10px;
-    padding-bottom: 4px;
-    border-top: none;
+  font-family: var(--pdnc-font);
+  color: #c5a059;
+  font-size: 1.2em;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-top: none;
 }
 .pdnc-premium-window label {
-    font-weight: bold;
-    color: #dedede;
+  font-weight: bold;
+  color: #dedede;
 }
 
 /* Premium Form Layouts */
 .pdnc-premium-window .form-group {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 /* Premium Footer Buttons */
 .pdnc-premium-window footer button {
-    background: transparent;
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    color: #c5a059;
-    border-radius: 4px;
-    font-family: var(--pdnc-font);
-    font-weight: bold;
-    transition: all 0.2s;
+  background: transparent;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: #c5a059;
+  border-radius: 4px;
+  font-family: var(--pdnc-font);
+  font-weight: bold;
+  transition: all 0.2s;
 }
 .pdnc-premium-window footer button:hover {
-    background: rgba(197, 160, 89, 0.1);
-    border-color: #c5a059;
-    color: #fff;
-    box-shadow: 0 0 8px rgba(197, 160, 89, 0.3);
+  background: rgba(197, 160, 89, 0.1);
+  border-color: #c5a059;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.3);
 }
 
-.pdnc-premium-window .form-fields{
-    align-items: center;
+.pdnc-premium-window .form-fields {
+  align-items: center;
 }
 
 /* Premium Dropdown Option Visibility */
 .pdnc-premium-window select option {
-    background: #1a1a1a;
-    color: #c5a059;
-    padding: 5px;
+  background: #1a1a1a;
+  color: #c5a059;
+  padding: 5px;
 }
 /* Ensure tabs are visible */
 .pdnc-premium-window .sheet-tabs .item {
-    padding: 5px 10px;
-    border: 1px solid transparent;
-    color: #888;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  color: #888;
+  cursor: pointer;
 }
 .pdnc-premium-window .sheet-tabs .item.active {
-    color: #c5a059;
-    font-weight: bold;
-    border-bottom: 2px solid #c5a059;
-    text-shadow: 0 0 5px rgba(197, 160, 89, 0.4);
+  color: #c5a059;
+  font-weight: bold;
+  border-bottom: 2px solid #c5a059;
+  text-shadow: 0 0 5px rgba(197, 160, 89, 0.4);
 }
 
+/* ========================================================== */
+/*  DUNGEON MODE UI                                           */
+/* ========================================================== */
+
+.pdnc-dungeon-mode {
+  padding: 10px;
+}
+
+.pdnc-dungeon-mode .pdnc-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  padding-bottom: 10px;
+}
+
+.pdnc-dungeon-mode h2 {
+  border: none;
+  margin: 0;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.pdnc-dungeon-mode .pdnc-notes {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #ccc;
+  font-style: italic;
+}
+
+.pdnc-dungeon-mode .pdnc-form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.pdnc-dungeon-mode label {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #dedede;
+}
+
+.pdnc-dungeon-mode .pdnc-form-fields {
+  flex: 0 0 auto;
+}
+
+.pdnc-dungeon-mode input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #c5a059;
+  cursor: pointer;
+}
+
+.pdnc-dungeon-mode .pdnc-hint {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pdnc-dungeon-mode .pdnc-hint:last-of-type {
+  border-bottom: none;
+}
+
+.pdnc-dungeon-mode .pdnc-sheet-footer {
+  padding-top: 10px;
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pdnc-dungeon-mode .pdnc-save-button {
+  background: rgba(197, 160, 89, 0.2);
+  border: 1px solid #c5a059;
+  color: #c5a059;
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pdnc-dungeon-mode .pdnc-save-button:hover {
+  background: rgba(197, 160, 89, 0.4);
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+  color: #fff;
+}

@@ -183,6 +183,7 @@
         "SetWorldTime": "Set World Time",
         "WeatherConfig": {
             "Title": "Weather Configuration",
+            "Subtitle": "Adjust the daily weather conditions.",
             "Climate": "Climate Zone",
             "Season": "Season",
             "Description": "Description",
@@ -214,6 +215,15 @@
             "Add": "Add Phase",
             "Save": "Save Configuration"
         },
+        "DungeonMode": {
+            "Title": "Dungeon Mode Configuration",
+            "Subtitle": "Control lighting and weather updates for this scene.",
+            "DisableLighting": "Disable Day/Night Lighting",
+            "DisableLightingHint": "If checked, the module will stop updating scene darkness and moon brightness for this scene.",
+            "DisableWeather": "Disable Auto Weather",
+            "DisableWeatherHint": "If checked, the module will exclude this scene from global weather updates."
+        },
+        "Apply": "Apply",
         "MoonPhase": {
             "New": "New Moon",
             "WaxingCrescent": "Waxing Crescent",
@@ -433,8 +443,9 @@
             "PausePreview": "Pause Preview"
         },
         "Wizard": {
-            "Title": "Welcome to Phils Day & Night Cycle",
+            "Title": "Welcome to Phils Day&Night Cycle",
             "Subtitle": "Let's set up your calendar and weather system.",
+            "Saved": "Configuration Saved!",
             "Step1Title": "Calendar Setup",
             "Step2Title": "Date & Time",
             "Step3Title": "Settings & Permissions",

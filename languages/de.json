@@ -213,6 +213,7 @@
         "SetWorldTime": "Weltzeit setzen",
         "WeatherConfig": {
             "Title": "Wetterkonfiguration",
+            "Subtitle": "Passe die täglichen Wetterbedingungen an.",
             "Climate": "Klimazone",
             "Season": "Jahreszeit",
             "Description": "Beschreibung",
@@ -245,6 +246,15 @@
             "Add": "Phase hinzufügen",
             "Save": "Konfiguration speichern"
         },
+        "DungeonMode": {
+            "Title": "Dungeon Modus Konfiguration",
+            "Subtitle": "Steuere Licht- und Wetterupdates für diese Szene.",
+            "DisableLighting": "Tag/Nacht Beleuchtung deaktivieren",
+            "DisableLightingHint": "Wenn aktiviert, stoppt das Modul die Anpassung der Szenenhelligkeit und Mondhelligkeit für diese Szene.",
+            "DisableWeather": "Automatisches Wetter deaktivieren",
+            "DisableWeatherHint": "Wenn aktiviert, wird diese Szene von globalen Wetterupdates ausgeschlossen."
+        },
+        "Apply": "Anwenden",
         "MoonPhase": {
             "New": "Neumond",
             "WaxingCrescent": "Zunehmende Sichel",

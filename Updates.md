@@ -1,3 +1,23 @@
+## 4.4.0 - Dungeon Mode & Polish
+
+- **🏰 New Feature: One-Click Dungeon Mode**
+  - Added a dedicated **Dungeon Button** (Gate Icon) directly to the top-left of the Clock Widget.
+  - One click instantly opens the **Dungeon Mode Configuration**, allowing you to quickly **disable global weather and lighting updates** for the current scene (perfect for indoor maps or tactical combat).
+  - This is no longer hidden in sub-menus but available right where you need it!
+
+- **🧙‍♂️ Setup Wizard:**
+  - Added a new **"Weekday Offset"** field directly to the Wizard for easier calendar alignment (especially for Pathfinder 2e).
+  - Complete visual overhaul of the Wizard UI: Cleaner headers, better spacing, and "Premium" styling.
+
+- **🎨 UI Refinement:**
+  - **Premium Design:** Completely restyled the **Weather Configuration** window to match the module's premium "Gold & Dark" theme.
+  - **Fixed Layouts:** Resolved alignment issues in the Dungeon Mode config and ensured buttons are perfectly sized.
+  - **CSS Scoping:** Implemented strict class scoping to prevent styles from leaking into the core Foundry UI.
+
+- **🌍 Localization:**
+  - Added the **Pathfinder 2e Synchronization Guide** to the README (English & German).
+  - Fixed duplicate translation keys and missing subtitles.
+
 ## 4.3.0 - Cinematic Night Update
 
 - **🌙 Cinematic Moon:** The moon now adheres to strict "Cinematic Rules", ensuring it is visible primarily at night (Standard Offset: 9h+). No more confusion with "Daytime Moons" looking like night.

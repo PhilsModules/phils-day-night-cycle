@@ -32,7 +32,7 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 width: 400,
                 height: "auto"
             },
-            classes: ["pdnc-app"],
+            classes: ["pdnc-app-v2", "pdnc-weather-config-window"],
             actions: {
                 reroll: WeatherConfigApp.prototype._onReroll,
                 apply: WeatherConfigApp.prototype._onApply,

@@ -373,6 +373,9 @@ export class WeatherSystem {
         const updates = [];
         // Iterate over all scenes to ensure consistent weather
         game.scenes.forEach(scene => {
+            // Dungeon Mode Check
+            if (scene.getFlag(MODULE_ID, "disableWeather")) return;
+            
             updates.push({ _id: scene.id, weather: fxEffect });
         });
         

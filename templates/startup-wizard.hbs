@@ -1,122 +1,132 @@
-<div class="pdnc-premium-window pdnc-wizard-content">
-    <header class="wizard-header text-center">
-        <h1>{{localize "PDNC.Wizard.Title"}}</h1>
-        <p class="notes">{{localize "PDNC.Wizard.Subtitle"}}</p>
+<div class="pdnc-premium-window pdnc-wizard-content" style="padding: 15px;">
+    <header class="pdnc-header text-center" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #c5a059;">
+        <h1 style="color: #c5a059; text-transform: uppercase; font-size: 2em; margin: 0; letter-spacing: 1px;">{{localize "PDNC.Wizard.Title"}}</h1>
+        <p class="pdnc-notes" style="color: #aaa; font-style: italic; margin-top: 5px;">{{localize "PDNC.Wizard.Subtitle"}}</p>
     </header>
 
     {{!-- Step 1: Calendar System --}}
-    <div class="wizard-step">
-        <h2><i class="fas fa-calendar-alt"></i> {{localize "PDNC.Wizard.Step1Title"}}</h2>
+    <div class="wizard-step" style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(197, 160, 89, 0.2);">
+        <h2 style="color: #c5a059; border-bottom: 1px solid rgba(197, 160, 89, 0.4); margin-bottom: 15px;">
+            <i class="fas fa-calendar-alt"></i> {{localize "PDNC.Wizard.Step1Title"}}
+        </h2>
         
-        <div class="form-group">
-            <label>{{localize "PDNC.SettingCalendarSystemName"}}</label>
+        <div class="pdnc-form-group" style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #ddd;">{{localize "PDNC.SettingCalendarSystemName"}}</label>
             <div class="form-fields">
-                <select name="calendarSystem">
+                <select name="calendarSystem" style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3); padding: 5px;">
                     {{selectOptions calendarSystems selected=calendarSystem}}
                 </select>
             </div>
-            <p class="notes">{{currentSystemDescription}}</p>
-            <p class="notes">{{localize "PDNC.SettingCalendarSystemHint"}}</p>
+            <p class="pdnc-notes" style="margin-top: 5px; color: #aaa; font-size: 0.9em;">
+                <i>{{currentSystemDescription}}</i>
+            </p>
         </div>
 
         {{!-- PF2e Sync - Only show if Golarion is selected --}}
         {{#if isGolarion}}
-        <div class="form-group pf2e-sync-group">
-            <label>{{localize "PDNC.Wizard.SyncName"}}</label>
-            <div class="form-fields">
-                <input type="checkbox" name="syncPF2e" {{checked syncPF2e}}>
+        <div class="pdnc-form-group pf2e-sync-group" style="display: flex; align-items: center; justify-content: space-between; background: rgba(197, 160, 89, 0.1); padding: 10px; border-radius: 4px; border: 1px solid rgba(197, 160, 89, 0.3);">
+            <div>
+                <label style="font-weight: bold; color: #c5a059;">{{localize "PDNC.Wizard.SyncName"}}</label>
+                <p class="pdnc-notes" style="margin: 0; font-size: 0.8em; color: #ccc;">{{localize "PDNC.Wizard.SyncHint"}}</p>
             </div>
-            <p class="notes">{{localize "PDNC.Wizard.SyncHint"}}</p>
+            <div class="form-fields">
+                <input type="checkbox" name="syncPF2e" {{checked syncPF2e}} style="width: 20px; height: 20px; accent-color: #c5a059;">
+            </div>
         </div>
         {{/if}}
     </div>
 
     {{!-- Step 2: Date & Time --}}
-    <div class="wizard-step">
-        <h2><i class="fas fa-clock"></i> {{localize "PDNC.Wizard.Step2Title"}}</h2>
-        <p class="notes">{{localize "PDNC.Wizard.DateHint"}}</p>
+    <div class="wizard-step" style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(197, 160, 89, 0.2);">
+        <h2 style="color: #c5a059; border-bottom: 1px solid rgba(197, 160, 89, 0.4); margin-bottom: 15px;">
+            <i class="fas fa-clock"></i> {{localize "PDNC.Wizard.Step2Title"}}
+        </h2>
+        <p class="pdnc-notes" style="margin-bottom: 15px; color: #ccc;">{{localize "PDNC.Wizard.DateHint"}}</p>
         
-        <div class="flexrow date-inputs" style="align-items: flex-end; gap: 10px;">
-            <div class="date-field">
-                <label>Year</label>
-                <input type="number" name="year" value="{{year}}" required>
+        <div class="date-inputs" style="display: flex; align-items: flex-end; gap: 10px; margin-bottom: 15px;">
+            <div class="date-field" style="flex: 1;">
+                <label style="display: block; margin-bottom: 3px; font-weight: bold;">{{localize "PDNC.Year"}}</label>
+                <input type="number" name="year" value="{{year}}" required style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
             </div>
             <div class="date-field" style="flex: 2;">
-                <label>Month</label>
-                <select name="month">
+                <label style="display: block; margin-bottom: 3px; font-weight: bold;">{{localize "PDNC.Month"}}</label>
+                <select name="month" style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
                     {{selectOptions monthOptions selected=month valueAttr="value" labelAttr="label"}}
                 </select>
             </div>
-            <div class="date-field">
-                <label>Day</label>
-                <input type="number" name="day" value="{{day}}" min="1" required>
+            <div class="date-field" style="flex: 1;">
+                <label style="display: block; margin-bottom: 3px; font-weight: bold;">{{localize "PDNC.Date"}}</label>
+                <input type="number" name="day" value="{{day}}" min="1" required style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
             </div>
         </div>
 
-        <div class="flexrow time-inputs" style="align-items: center; justify-content: flex-start; gap: 5px; margin-top: 10px;">
-            <div class="date-field" style="max-width: 60px;">
-                <label>Hour</label>
-                <input type="number" name="hour" value="{{hour}}" min="0" max="23" required>
+        <div class="time-inputs" style="display: flex; align-items: center; justify-content: flex-start; gap: 5px;">
+            <div class="date-field" style="flex: 0 0 auto; width: 60px;">
+                <label style="display:block; margin-bottom:2px; font-weight: bold;">{{localize "PDNC.TimeHour"}}</label>
+                <input type="number" name="hour" value="{{hour}}" min="0" max="23" required style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
             </div>
-             <div class="colon" style="font-weight: bold; padding-top: 15px;">:</div>
-            <div class="date-field" style="max-width: 60px;">
-                <label>Min</label>
-                <input type="number" name="minute" value="{{minute}}" min="0" max="59" required>
+             <div class="colon" style="font-weight: bold; margin-top: 18px; color: #c5a059;">:</div>
+            <div class="date-field" style="flex: 0 0 auto; width: 60px;">
+                <label style="display:block; margin-bottom:2px; font-weight: bold;">{{localize "PDNC.TimeMin"}}</label>
+                <input type="number" name="minute" value="{{minute}}" min="0" max="59" required style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
+            </div>
+            
+            <div style="flex: 0 0 auto; width: 20px;"></div> {{!-- Spacer --}}
+
+            <div class="date-field" style="flex: 0 0 auto; width: 100px;">
+                <label style="display:block; margin-bottom:2px; font-weight: bold;">{{localize "PDNC.SettingWeekdayOffsetName"}}</label>
+                <input type="number" name="weekdayOffset" value="{{weekdayOffset}}" style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);" placeholder="0">
             </div>
         </div>
     </div>
 
     {{!-- Step 3: Global Settings --}}
-    <div class="wizard-step">
-         <h2><i class="fas fa-cogs"></i> {{localize "PDNC.Wizard.Step3Title"}}</h2>
+    <div class="wizard-step" style="margin-bottom: 25px;">
+         <h2 style="color: #c5a059; border-bottom: 1px solid rgba(197, 160, 89, 0.4); margin-bottom: 15px;">
+            <i class="fas fa-cogs"></i> {{localize "PDNC.Wizard.Step3Title"}}
+         </h2>
          
-         {{!-- Real Names --}}
-         <div class="form-group">
-            <label>{{localize "PDNC.SettingShowRealNamesName"}}</label>
-            <div class="form-fields">
-                <input type="checkbox" name="showRealNames" {{checked showRealNames}}>
-            </div>
-         </div>
-         
-         {{!-- Climate --}}
-         <div class="form-group">
-            <label>{{localize "PDNC.SettingClimateZoneName"}}</label>
-            <div class="form-fields">
-                <select name="climateZone">
-                    {{selectOptions climateZones selected=climateZone}}
-                </select>
-            </div>
-         </div>
-         
-         {{!-- Unit --}}
-          <div class="form-group">
-            <label>Temperature Unit</label>
-            <div class="form-fields">
-                <select name="temperatureUnit">
-                    <option value="C" {{#if (eq temperatureUnit "C")}}selected{{/if}}>Celsius (°C)</option>
-                    <option value="F" {{#if (eq temperatureUnit "F")}}selected{{/if}}>Fahrenheit (°F)</option>
-                </select>
-            </div>
-         </div>
+         <div class="grid-settings" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+             {{!-- Left Col --}}
+             <div>
+                 <div class="pdnc-form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px;">{{localize "PDNC.SettingClimateZoneName"}}</label>
+                    <select name="climateZone" style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
+                        {{selectOptions climateZones selected=climateZone}}
+                    </select>
+                 </div>
+                 
+                 <div class="pdnc-form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Temperature Unit</label>
+                    <select name="temperatureUnit" style="width: 100%; background: rgba(0,0,0,0.3); color: #c5a059; border: 1px solid rgba(197, 160, 89, 0.3);">
+                        <option value="C" {{#if (eq temperatureUnit "C")}}selected{{/if}}>Celsius (°C)</option>
+                        <option value="F" {{#if (eq temperatureUnit "F")}}selected{{/if}}>Fahrenheit (°F)</option>
+                    </select>
+                 </div>
+             </div>
 
-         {{!-- Permissions --}}
-          <div class="form-group">
-            <label>{{localize "PDNC.SettingPlayerAdvanceName"}}</label>
-            <div class="form-fields">
-                <input type="checkbox" name="playerAdvanceTime" {{checked playerAdvanceTime}}>
-            </div>
-         </div>
+             {{!-- Right Col (Checkboxes) --}}
+             <div style="display: flex; flex-direction: column; gap: 10px;">
+                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px; background: rgba(255,255,255,0.03); border-radius: 4px;">
+                    <label style="font-weight: bold;">{{localize "PDNC.SettingShowRealNamesName"}}</label>
+                    <input type="checkbox" name="showRealNames" {{checked showRealNames}} style="accent-color: #c5a059;">
+                 </div>
+                 
+                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px; background: rgba(255,255,255,0.03); border-radius: 4px;">
+                    <label style="font-weight: bold;">{{localize "PDNC.SettingPlayerAdvanceName"}}</label>
+                    <input type="checkbox" name="playerAdvanceTime" {{checked playerAdvanceTime}} style="accent-color: #c5a059;">
+                 </div>
 
-         <div class="form-group">
-             <label>{{localize "PDNC.SettingPlayerCreateName"}}</label>
-             <div class="form-fields">
-                 <input type="checkbox" name="playerCreateEvents" {{checked playerCreateEvents}}>
+                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px; background: rgba(255,255,255,0.03); border-radius: 4px;">
+                     <label style="font-weight: bold;">{{localize "PDNC.SettingPlayerCreateName"}}</label>
+                     <input type="checkbox" name="playerCreateEvents" {{checked playerCreateEvents}} style="accent-color: #c5a059;">
+                 </div>
              </div>
          </div>
     </div>
 
-    <footer class="wizard-footer sheet-footer">
-        <button type="submit" class="save-button">
+    <footer class="wizard-footer pdnc-sheet-footer" style="padding-top: 15px; border-top: 1px solid rgba(197, 160, 89, 0.3); display: flex; justify-content: center;">
+        <button type="submit" class="save-button" style="background: #c5a059; color: #1a1a1a; padding: 10px 40px; font-size: 1.2em; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
             <i class="fas fa-check"></i> {{localize "PDNC.Wizard.Finish"}}
         </button>
     </footer>

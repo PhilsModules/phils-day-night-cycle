@@ -342,6 +342,12 @@ export class LightingSystem {
 
             // Update current scene if valid and ready
             if (canvas && canvas.ready && canvas.scene && canvas.scene.active) {
+                // Dungeon Mode Check
+                if (canvas.scene.getFlag(MODULE_ID, "disableLighting")) {
+                    // console.log("PDNC | Dungeon Mode Active: Lighting disabled for this scene.");
+                    return;
+                }
+
                 const currentDarkness = canvas.scene.environment?.darknessLevel ?? canvas.scene.darkness ?? 0;
                 
                 // Apply update

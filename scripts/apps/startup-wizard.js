@@ -100,6 +100,7 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
             day: currentDay,
             hour: currentHour,
             minute: currentMinute,
+            weekdayOffset: game.settings.get(MODULE_ID, "weekdayOffset") || 0,
 
             showRealNames: game.settings.get(MODULE_ID, "showRealNames"),
             climateZone: game.settings.get(MODULE_ID, "climateZone"),
@@ -243,13 +244,39 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
             const climateZone = data.climateZone;
             const temperatureUnit = data.temperatureUnit;
 
-            // 3. Logic: Calculate Total Minutes
+            // 3. Logic: Calculate Total Minutes (Settings Save Only)
             const minutesOfDay = (hour * 60) + minute;
 
-            // 4. Save Settings (Await all)
+            // 4. Logic: Calculate Offsets for Actual Calendar
+            // The calendar system relies on dayOffset/timeOffset to shift game.time.worldTime
+            // We must calculate the difference between the Desired Date and the Current World Time
+            
+            // A. Get Target Timestamp (in Seconds)
+            const tempSys = new CalendarSystem(system);
+            // getTimestamp returns start of the day (00:00) in seconds from Year 0
+            const targetDayStart = tempSys.getTimestamp(year, month, day); 
+            const targetTotalSeconds = targetDayStart + (hour * 3600) + (minute * 60);
+
+            // B. Get Current World Time
+            const currentWorldTime = game.time.worldTime;
+
+            // C. Calculate Difference
+            const diffSeconds = targetTotalSeconds - currentWorldTime;
+
+            // D. Split into Day Offset (Days) and Time Offset (Minutes)
+            // We use floor for days to keep days intact, remainder for minutes
+            const offsetDays = Math.floor(diffSeconds / 86400);
+            const remainderSeconds = diffSeconds % 86400;
+            const offsetMinutes = Math.round(remainderSeconds / 60);
+
+            // 5. Save Settings (Await all)
             console.log("PDNC | Wizard: Saving Configuration...");
+            console.log(`PDNC | Wizard: Target Date: ${year}-${month}-${day} ${hour}:${minute}`);
+            console.log(`PDNC | Wizard: Calculated Offsets -> Days: ${offsetDays}, Minutes: ${offsetMinutes}`);
             
             await game.settings.set(MODULE_ID, "calendarSystem", system);
+            
+            // Save Input Values (as display cache)
             await game.settings.set(MODULE_ID, "year", year);
             await game.settings.set(MODULE_ID, "month", month);
             await game.settings.set(MODULE_ID, "day", day);
@@ -265,14 +292,38 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
 
             // Sync Logic
             if (syncPF2e) {
-                // Golarion Epoch Offset
-                await game.settings.set(MODULE_ID, "dayOffset", 1725595);
+                // Golarion Epoch Offset takes precedence if checked
+                // Although user might have adjusted day, if 'Sync' is on, we force the specific offset?
+                // Visual Logic in render listener changed INPUTS when sync was checked.
+                // If user changed inputs AFTER checking sync, we should respect INPUTS (offsets calculated above).
+                // BUT: logic says 'Sync PF2e' implies standard Golarion offset. 
+                // Let's decide: If user manually adjusted date, they probably want THAT date.
+                // The check box is mostly a helper to pre-fill.
+                // However, saving 'syncPF2e' as true usually enforces the offset in main.js listeners?
+                // Let's look at main.v2.js -> onChange for syncPF2e sets dayOffset to 1725595.
+                // If we also set dayOffset here, it might conflict or be overwritten if we don't be careful.
+                
+                // If we save 'syncPF2e' as true, the hook in main.js might reset our custom date if we aren't careful.
+                // Actually, `await game.settings.set(..., "syncPF2e", syncPF2e)` will trigger the onChange hook.
+                // The hook sets dayOffset to 1725595.
+                // IF our calculated offset is DIFFERENT, then the user modified the date *after* syncing.
+                // In that case, we should probably turn OFF syncPF2e to preserve the custom date?
+                // OR we trust that `syncPF2e` just means "I used the preset".
+                
+                // Let's save the calculated offsets. If they differ significantly from the standard, maybe disable sync?
+                // For now, let's write our calculated value LAST to ensure it overrides any hook side-effects.
+                
+                await game.settings.set(MODULE_ID, "dayOffset", offsetDays); // Writes calculated
             } else {
-                // If we explicitly unchecked it, maybe reset? 
-                // Or if we are just setting connection, we keep current offset (0 default).
-                // Let's assume standard starts at 0 unless synced.
-                 await game.settings.set(MODULE_ID, "dayOffset", 0);
+                 await game.settings.set(MODULE_ID, "dayOffset", offsetDays);
             }
+            
+            // Save Minute Offset
+            await game.settings.set(MODULE_ID, "timeOffset", offsetMinutes);
+
+            // Save Weekday Offset
+            const weekdayOffset = Number(data.weekdayOffset) || 0;
+            await game.settings.set(MODULE_ID, "weekdayOffset", weekdayOffset);
 
             // 5. Mark Complete
             await game.settings.set(MODULE_ID, "wizardCompleted", true);

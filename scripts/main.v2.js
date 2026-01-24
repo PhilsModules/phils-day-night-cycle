@@ -10,6 +10,7 @@ import { CustomClimateApp } from "./apps/custom-climate.js";
 import { SeasonConfigApp } from "./apps/season-config.js";
 import { StartupWizard } from "./apps/startup-wizard.js";
 import { ClimateDataWizard } from "./climate-data-wizard.js";
+import { DungeonModeConfig } from "./apps/dungeon-mode-config.js";
 
 import { WeatherHUD } from "./weather-hud.js";
 
@@ -596,6 +597,7 @@ class PhilsDayNightCycle {
         // Expose API for Macros
         window.PhilsDayNightCycle = {
             toggle: () => this.toggleSetting(),
+            toggleDungeonMode: () => this.toggleDungeonMode(),
             refresh: () => this.refreshCalendar(),
             resetPosition: () => this.resetPosition(),
             setTime: (h, m) => this.setTime(h, m),
@@ -683,6 +685,8 @@ class PhilsDayNightCycle {
         <div class="pdnc-labels-container"></div>
       </div>
       <div class="pdnc-time-display">
+        <!-- Dungeon Mode Button (Top Left) -->
+        <i class="fas fa-dungeon pdnc-dungeon-btn" title="Dungeon Mode" style="position: absolute; top: 10px; left: 10px; cursor: pointer; color: #ccc; z-index: 10; font-size: 1.2em;"></i>
 
         <span class="pdnc-phase-icon"></span>
         <div class="pdnc-phase-text"></div>
@@ -928,6 +932,11 @@ class PhilsDayNightCycle {
         });
 
         // Toggle Clock Visibility
+        const dungeonBtn = uiContainer.querySelector(".pdnc-dungeon-btn");
+        if (dungeonBtn) {
+            dungeonBtn.addEventListener("click", () => this.toggleDungeonMode());
+        }
+
         const toggleBtn = uiContainer.querySelector(".pdnc-toggle-btn");
         toggleBtn.addEventListener("click", (e) => {
             e.stopPropagation();
@@ -1432,6 +1441,16 @@ class PhilsDayNightCycle {
         }
     }
 
+    async toggleDungeonMode() {
+        const scene = canvas.scene;
+        if (!scene) {
+            ui.notifications.warn("PDNC | No active scene to configure.");
+            return;
+        }
+        
+        new DungeonModeConfig().render({ force: true });
+    }
+
     async checkCalendarNotifications() {
         if (!game.user.isGM) return;
 
@@ -1675,6 +1694,12 @@ Hooks.once("ready", async () => {
                 name: "Set Time (Day/Night)",
                 command: `// Change the time below (Hour, Minute)\nif (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);`,
                 img: "icons/commodities/tech/watch.webp",
+                type: "script"
+            },
+            {
+                name: "Dungeon Mode (Scene Toggle)",
+                command: `if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();`,
+                img: "icons/environment/wilderness/mine-interior-dungeon-door.webp",
                 type: "script"
             }
         ];
