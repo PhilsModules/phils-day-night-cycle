@@ -103,7 +103,7 @@ In the module settings you can adjust various options.
 - Set time and date offsets.
 - **Toggle Weather System:** Disable the entire weather and lighting system if you only want the Clock and Calendar features.
 
-### 4. Weather System and Climate Zones
+### 4. Weather System
 
 The module automatically simulates weather.
 
@@ -112,7 +112,7 @@ The module automatically simulates weather.
 - Every morning a window automatically opens for the Gamemaster to determine the weather for the new day.
 - You can also manually change the weather at any time by clicking the small **Cloud Icon** on the clock widget at the top left.
 
-**Creating Custom Climate Zones**
+### 5. Custom Climate Zones
 
 1.  Open the **Module Settings**.
 2.  Click the **Manage Custom Climates** button.
@@ -124,7 +124,18 @@ The module automatically simulates weather.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
-### 5. Pathfinder 2e Synchronization
+### 6. Weather Mixer & Composer
+
+Want to create your own unique weather? Open the **Weather Mixer** by clicking the Flask Icon in the Weather Configuration window.
+
+- **Layering:** Combine multiple effects (e.g. Rain + Fog + Wind).
+- **Customization:** Fully control every aspect of the simulation:
+  - **Particles:** Adjust Density, Speed, Size, and Direction.
+  - **Filters:** Tweak Color, Intensity, and Speed of shaders.
+- **Preview:** Use the **Preview** button to test your mix live on the canvas without saving.
+- **Favorites:** Save your perfect storm to your list of favorites for instant access.
+
+### 7. Pathfinder 2e Synchronization
 
 This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calendar perfectly aligned requires a specific workflow to match the official system time.
 
@@ -141,7 +152,7 @@ This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calen
 11. Finally, adjust the **Time** (Hour/Minute) via the settings menu or the macro if needed.
 12. Voila, done!
 
-### 6. Macros / API
+### 8. Macros / API
 
 You can control the clock using Script Macros. Create a new Macro, set the type to **Script**, and paste the code below.
 
@@ -236,7 +247,7 @@ In den Moduleinstellungen kannst du diverse Dinge anpassen.
 - Versatz für Zeit und Datum einstellen.
 - **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
 
-### 4. Wettersystem und Klimazonen
+### 4. Wettersystem
 
 Das Modul simuliert das Wetter vollautomatisch.
 
@@ -245,7 +256,7 @@ Das Modul simuliert das Wetter vollautomatisch.
 - Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster in dem das Wetter für den neuen Tag bestimmt werden kann.
 - Du kannst das Wetter auch jederzeit manuell ändern indem du auf das kleine **Wolken Icon** in der Uhr oben links im Widget klickst.
 
-**Erstellung eigener Klimazonen**
+### 5. Eigene Klimazonen erstellen
 
 1.  Öffne die **Moduleinstellungen**.
 2.  Klicke auf den Button **Manage Custom Climates**.
@@ -257,7 +268,18 @@ Das Modul simuliert das Wetter vollautomatisch.
 5.  Speichere deine Klimazone ab.
 6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
-### 5. Pathfinder 2e Synchronisation
+### 6. Wetter Mixer & Komponist
+
+Möchtest du dein ganz eigenes Wetter erschaffen? Öffne den **Wetter Mixer** über das Reagenzglas-Icon im Wetter-Konfigurationsmenü.
+
+- **Schichten:** Kombiniere mehrere Effekte (z.B. Regen + Nebel + Wind).
+- **Anpassung:** Volle Kontrolle über jeden Aspekt der Simulation:
+  - **Partikel:** Passe Dichte, Geschwindigkeit, Größe und Richtung an.
+  - **Filter:** Ändere Farbe, Intensität und Geschwindigkeit von Shadern.
+- **Vorschau:** Nutze den **Vorschau** Button, um deinen Mix live auf der Szene zu testen, ohne ihn direkt zu speichern.
+- **Favoriten:** Speichere deinen perfekten Sturm in deiner Favoritenliste für sofortigen Zugriff.
+
+### 7. Pathfinder 2e Synchronisation
 
 Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit übereinzustimmen.
 
@@ -274,7 +296,7 @@ Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert 
 11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder über das Menü oder über das Makro an.
 12. Voila, fertig.
 
-### 6. Makros und API
+### 8. Makros und API
 
 Du kannst die Uhr auch über Makros steuern. Erstelle dafür ein neues Makro vom Typ **Script** und füge den jeweiligen Code ein.
 
@@ -328,6 +350,3 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-
-
-
