@@ -1,23 +1,25 @@
+## 4.5.1 - Inverted Arc Hotfix
+
+- **🐛 Bugfix:** Fixed a visual glitch where the Sun and Moon Arcs were rendered upside down (inverted) for players or when the HUD controls were hidden. The geometry now correctly calculates the arc peak regardless of UI state.
+
 ## 4.5.0 - Event Rescheduling & Quest Sync
 
-- **📅 New Feature: Event Date Editing** 
+- **📅 New Feature: Event Date Editing**
   - **Move Events:** You can finally change the date of an existing event! Just open the event editor and adjust the day/month/year fields.
-  - **Smart Updates:** If you move an event, the calendar automatically handles the move, keeping all data intact. 
-  
-  **🧪 New Feature: Advanced Weather Mixer:**
-  - **Full Control:** You can now manually tweak every aspect of your weather! Adjust **Particle Density**, **Speed**, **Size**, **Direction** and more to create the perfect storm.
-  - **Live Preview:** Added a **"Preview" button**. Test your particle/filter combinations directly on the canvas without saving.
-  - **Fixes:** Fixed an issue where the Fog Filter color wasn't applying correctly.
+  - **Smart Updates:** If you move an event, the calendar automatically handles the move, keeping all data intact.
 
 - **⚔️ Quest Tracker Sync:**
   - **Two-Way Sync:** If you move a calendar event that is linked to a **Phils Quest Tracker** quest, the quest's start date acts accordingly!
   - **Example:** Dragging a "Goblin Raid" event from Monday to Friday in the calendar effectively postpones the quest in the Quest Log too.
 
+- **🧪 Advanced Weather Mixer:**
+  - **Full Control:** You can now manually tweak every aspect of your weather! Adjust **Particle Density**, **Speed**, **Size**, **Direction** and more to create the perfect storm.
+  - **Live Preview:** Added a **"Preview" button**. Test your particle/filter combinations directly on the canvas without saving.
+  - **Fixes:** Fixed an issue where the Fog Filter color wasn't applying correctly.
+
 - **🛠️ Fixes:**
   - **Security:** Added missing translation keys for permission warnings (`PDNC.Warning.NoPermission`).
   - **Testing:** Implemented a robust Unit Test suite (`tests/quest-sync.test.js`) to ensure calendar logic remains stable.
-  
-  Danke @ Tiatan für die Vorschläge
 
 ## 4.4.1 - Dungeon Mode Logic & Test Suite
 
@@ -368,4 +370,3 @@ It is finally here! A massive update to the Calendar logic, making it a fully fe
 
 - **Custom Clock Image:** You can now upload your own image for the clock face in the module settings! (Thanks for the suggestion!)
 - **Stable Positioning:** Fixed a bug where the clock would shift slightly after every reload. It now stays exactly where you put it.
-
