@@ -1,4 +1,13 @@
-## 4.5.2 - Wizard Scroll Fix
+## 4.5.3 - Keybind & Weather Preview Button
+
+- **Feature:** Added "Toggle Calendar Window" macro and `Alt + C` keybind.
+- **Feature:** Weather Preview Button now toggles the window (Open/Close) and swaps icons (+/-).
+- **Improvement:** Weather Configuration button is now always visible (even without active weather).
+- **Dev:** Exposed `setPreviewIconState` API.
+
+---
+
+# 4.5.2 - Wizard Scroll Fix
 
 - **🎨 UI Fix:** The **Startup Wizard** is now scrollable! Fixed an issue where the "Finish" button was unreachable on smaller screens by enforcing a maximum height and enabling vertical scrolling.
 
