@@ -1,3 +1,21 @@
+## 4.6.1 - UI Polish & Hotfixes
+
+- **UI Polish:**
+  - **Theme Configuration:** Completely redesigned for compactness. Fixed window size (400px), cleanly formatted times (e.g., "16:30"), and implemented custom "Trash Can" file pickers for a premium feel.
+  - **Season Configuration:** Added the missing gold header to match other premium windows.
+- **Bug Fixes:**
+  - **Window Interaction:** Fixed an issue where opening _Custom Climate Zones_ would unexpectedly close the _Season Configuration_ window.
+  - **Clock Face:** Improved image scaling on the composite clock face to prevent adjacent sector corners from being visible.
+
+## 4.6.0 - Composite Clock & Themes
+
+- **Composite Clock Face**: The clock now behaves like a true graphical sundial/composite clock, displaying 8 distinct phase images simultaneously in a segmented layout.
+- **Automatic Mapping**: Your customized phase images (from "Theme Configuration") are now automatically inserted into the clock sectors. You pick the image, we handle the layout!
+- **Theme Presets**: Added a new settings lookup to instantly switch between themes. Includes "Standard Fantasy", "Standard v2", and the new "Mwangi Jungle".
+- **Refined Geometry**: Phases are now exactly 3 hours long and aligned with the cardinal directions (Noon = Bottom, Night = Top).
+- **Visual Improvements**: Optimized image scaling and positioning within the clock frame.
+- **Fixes**: Resolved issues with dynamic background updates in the new clock mode.
+
 ## 4.5.3 - Keybind & Weather Preview Button
 
 - **Feature:** Added "Toggle Calendar Window" macro and `Alt + C` keybind.
