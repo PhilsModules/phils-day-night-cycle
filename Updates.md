@@ -1,3 +1,38 @@
+## 4.6.5 - Dynamic Phases & UI Polish
+
+- **🕒 Dynamic Day Phases:** You can now add, delete, and rename all time slots in the Theme Configuration! 
+- **✨ Smart Clock Mapping:** The clock face now automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
+- **🖼️ Image Propagation:** "Smart Fill" logic for images. If you leave a phase image empty, it intelligently inherits the image from the previous phase.
+- **⏱️ HH:MM Format:** Time inputs in the Theme Configuration now use standard HH:MM format for a more intuitive setup.
+- **🐛 Stability Fixes:**
+  - Resolved a critical "race condition" error during module registration.
+  - Fixed an issue where empty phase images were not correctly rendered in the config UI.
+
+## 4.6.4 - Víkingar Calendar & Teaser
+
+- **📅 Víkingar Calendar Preset:** Added the historical Norse lunisolar calendar (Misseri).
+  - **Two-Season Structure:** Split into Summer (Náttleysi) and Winter (Skammdegi).
+  - **Leap Logic:** Correctly implements the 364-day year and 371-day leap year (Sumarauki).
+  - **Localization:** Full German and English support for all Norse month and weekday names.
+- **🛡️ Teaser:** Sneak preview for the upcoming **Viking Pathfinder 2 Supplement**!
+  - 24 Classes, 31 Backgrounds, 1974 Feats, 939 Spells, 22 Ancestries, 483 Items.
+
+## 4.6.3 - Custom Calendar Restoration
+
+- **📅 Custom Calendars:** Restored the ability to create and manage custom calendars!
+  - **New UI:** Added a dedicated "Custom Calendars" menu in settings with a modern, darker interface.
+  - **Editor:** A full-featured editor allows you to define Months, Weekdays, and Leap Year rules (None/Gregorian/Every 4 Years).
+  - **Integration:** Custom calendars now appear natively in the Startup Wizard dropdown.
+  - **JSON Import:** Added support for importing/exporting calendar definitions via JSON.
+- **🎨 UI Polish:**
+  - **Standard Headers:** Reverted custom window headers to standard Foundry VTT headers for better consistency with the core UI.
+  - **Styling:** Fixed the appearance of the "Close" button on premium windows to align with the new solid background style.
+- **🌍 Localization:** Added missing translation keys for the custom calendar interface and common button actions (`Save`, `Cancel`).
+
+## 4.6.2 - Hotfix
+
+- **🐛 Bugfixes:** Multiple bug fixes.
+
 ## 4.6.1 - UI Polish & Hotfixes
 
 - **UI Polish:**

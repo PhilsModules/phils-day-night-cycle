@@ -3,7 +3,7 @@
 # Phil's Day&Night Cycle ☀️🌙
 
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-4.6.1-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-4.6.5-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -26,6 +26,14 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 > **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
 > **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module für den Kalender benötigt.
+>
+> ---
+>
+> ### 🛡️ Víkingar Preview / Sneak Peek
+>
+> **English:** This version includes the new **Víkingar** calendar preset. This is a sneak preview of my upcoming **Viking Pathfinder 2 Supplement** featuring: **24** Classes, **31** Backgrounds, **1974** Feats, **939** Spells, **22** Ancestries, and **483** Items.
+>
+> **Deutsch:** Diese Version enthält das neue **Víkingar** Kalender-Preset. Dies ist eine Sneak Preview auf mein kommendes **Wikinger Pathfinder 2 Supplement** mit: **24** Klassen, **31** Hintergründen, **1974** Talenten, **939** Zaubern, **22** Abstammungen und **483** Gegenständen.
 
 <br>
 
@@ -47,13 +55,15 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 **An elegant clock widget with drag and drop functionality for Foundry VTT.**
 
-Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
+Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
 
 👉 **[Detailed Climate Zone Guide](climate_zones.md)** - Learn about the different climates and their lighting times.
 
 ## 🚀 Key Features
 
 - 🌦️ **Complete Weather System:** Simulates realistic weather including temperature, wind and humidity based on climate zones with over 1200 unique weather descriptions.
+- 🕒 **Dynamic Day Phases:** Add, delete, and rename all time slots in the Theme Configuration.
+- ✨ **Smart Clock Mapping:** The clock face automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
 - 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
 - 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
 - 🎨 **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
@@ -63,7 +73,7 @@ Phil's Day/Night Cycle adds a visually appealing clock that automatically syncs 
 - 📅 **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
 - 📝 **Notes and Events:** Create public events, GM notes or party notes.
 - 🕰️ **Time Machine:** Use the Time Machine to jump to any specific date (GM Only).
-- 🌍 **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e and Gregorian calendars.
+- 🌍 **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e, Gregorian, and the new **Víkingar** calendar.
 
 ## 📦 Installation
 
@@ -191,13 +201,15 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 
 **Eine elegante Uhr per Drag and Drop für Foundry VTT.**
 
-Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
+Phil's Day&Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
 
 👉 **[Detaillierter Guide zu Klimazonen](klimazonen.md)** - Erfahre alles über die verschiedenen Klimate und ihre Lichtzeiten.
 
 ## 🚀 Funktionen
 
 - 🌦️ **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
+- 🕒 **Dynamische Phasen:** Beliebig viele Phasen erstellen, löschen oder umbenennen in der Theme-Konfiguration.
+- ✨ **Intelligentes Uhr-Mapping:** Das Zifferblatt mappt automatisch jede Phasenanzahl (auch nur 2 oder 4) auf die 8 visuellen Segmente.
 - 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch passende Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
 - 💡 **Intelligente Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
 - 🎨 **Wunderschönes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
@@ -207,7 +219,7 @@ Phil's Day/Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich aut
 - 📅 **Integration des Kalenders:** Ein Klick öffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
 - 📝 **Notizen und Events:** Erstelle öffentliche Ereignisse sowie Notizen für den GM oder die ganze Gruppe.
 - 🕰️ **Zeitreise:** Nutze die Zeitmaschine um zu jedem beliebigen Datum zu springen (nur für den GM).
-- 🌍 **Unterstützung vieler Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e sowie den Gregorianischen Kalender.
+- 🌍 **Unterstützung vieler Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e, den Gregorianischen Kalender sowie den neuen **Víkingar** Kalender.
 
 ## 📦 Installation
 
@@ -329,6 +341,44 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 
 ---
 
+
+<br>
+
+## 📝 Custom Calendar JSON Example / Beispiel Kalender JSON
+
+<br>
+
+_If you want to import a calendar manually, you can use this structure:_
+<br>
+_Falls du einen Kalender manuell importieren möchtest, kannst du diese Struktur verwenden:_
+
+```json
+{
+  "name": "My Fantasy Calendar",
+  "description": "A custom calendar for my world.",
+  "months": [
+    { "name": "Frostfall", "days": 30, "leap": 0 },
+    { "name": "Sunrise", "days": 31, "leap": 0 },
+    { "name": "Goldenleaf", "days": 30, "leap": 1 }
+  ],
+  "weekdays": [
+    "Starday",
+    "Moonday",
+    "Sunth",
+    "Middas",
+    "Windsday"
+  ],
+  "leapYearRule": "every4", 
+  "yearZero": 0,
+  "weekdayStart": 1
+}
+```
+
+- **leapYearRule:** `none`, `gregorian`, or `every4`.
+- **leap:** Number of extra days added to this month in a leap year (0 for none).
+
+---
+
 ## 📜 License
 
 This module uses a dual license structure.
@@ -350,4 +400,3 @@ See `LICENSE` file for details.
     <br><br>
     <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
 </div>
-
