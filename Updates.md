@@ -1,3 +1,20 @@
+## 4.7.0 - Weather Rules, Migration & Vikingar Integration
+
+- **Weather Rules API:** Added a new integration layer so other systems or setting modules can inject weather rule notes into PDNC weather chat cards, including GM-only notes directly inside the same weather card.
+- **Semantic Weather Tags:** Weather now separates visual `fx` from semantic `weather.tags`, allowing generic PDNC guidance and system-specific rule integrations to work from stable rule markers instead of display effects.
+- **Provider Documentation:** Expanded the README with integration examples for external modules, including how imported or generated climate entries can pass semantic `tags` into PDNC.
+- **Simple Calendar Migration:** Added and documented the built-in importer that converts the currently active Simple Calendar setup into a PDNC custom calendar and migrates compatible notes/events.
+
+
+## 4.6.7 - Hotfix
+
+- **🐛 Custom Calendar Preservation:** Fixed an issue where the calendar system setting reverted to standard "Gregorian" upon a server restart when a custom calendar was selected.
+
+## 4.6.6 - Víkingar Design & Bugfixes
+
+- **🎨 Víkingar Preset:** Added new "Víkingar" high-quality clock preset.
+- **🐛 Bug Fixes:** Stability improvements and bug fixes in the theme system.
+
 ## 4.6.5 - Dynamic Phases & UI Polish
 
 - **🕒 Dynamic Day Phases:** You can now add, delete, and rename all time slots in the Theme Configuration! 

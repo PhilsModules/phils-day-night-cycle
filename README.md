@@ -1,15 +1,15 @@
-<div align="center">
+﻿<div align="center">
 
-# Phil's Day&Night Cycle ☀️🌙
+# Phil's Day&Night Cycle
 
 ![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-4.6.5-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-4.7.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
 **Bring your world to life with a beautiful, immersive clock widget.**
 <br>
-_Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget._
+_Erwecke deine Welt zum Leben mit einem wunderschoenen und immersiven Uhr Widget._
 
 <br>
 
@@ -21,19 +21,19 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 > [!NOTE]
 >
-> ### ⚠️ Kompatibilität / Compatibility
+> ### Kompatibilitaet / Compatibility
 >
 > **English:** This module works **standalone** and includes a full calendar system. It manages time and date natively using the reliable time tracking built into Foundry. No other calendar modules are required.
 >
-> **Deutsch:** Dieses Modul funktioniert **eigenständig** und enthält ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ über die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module für den Kalender benötigt.
+> **Deutsch:** Dieses Modul funktioniert **eigenstaendig** und enthaelt ein vollwertiges Kalendersystem. Es verwaltet Zeit und Datum nativ ueber die eingebaute Zeiterfassung von Foundry. Es werden keine weiteren Module fuer den Kalender benoetigt.
 >
 > ---
 >
-> ### 🛡️ Víkingar Preview / Sneak Peek
+> ### Vikingar Preview / Sneak Peek
 >
-> **English:** This version includes the new **Víkingar** calendar preset. This is a sneak preview of my upcoming **Viking Pathfinder 2 Supplement** featuring: **24** Classes, **31** Backgrounds, **1974** Feats, **939** Spells, **22** Ancestries, and **483** Items.
+> **English:** This version includes the new **Vikingar** calendar preset. This is a sneak preview of my upcoming **Viking Pathfinder 2 Supplement** featuring: **24** Classes, **31** Backgrounds, **1974** Feats, **939** Spells, **22** Ancestries, and **483** Items.
 >
-> **Deutsch:** Diese Version enthält das neue **Víkingar** Kalender-Preset. Dies ist eine Sneak Preview auf mein kommendes **Wikinger Pathfinder 2 Supplement** mit: **24** Klassen, **31** Hintergründen, **1974** Talenten, **939** Zaubern, **22** Abstammungen und **483** Gegenständen.
+> **Deutsch:** Diese Version enthaelt das neue **Vikingar** Kalender-Preset. Dies ist eine Sneak Preview auf mein kommendes **Wikinger Pathfinder 2 Supplement** mit: **24** Klassen, **31** Hintergruenden, **1974** Talenten, **939** Zaubern, **22** Abstammungen und **483** Gegenstaenden.
 
 <br>
 
@@ -57,25 +57,27 @@ _Erwecke deine Welt zum Leben mit einem wunderschönen und immersiven Uhr Widget
 
 Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs with the Foundry World Time. It shows not just the time but the current phase of day like Morning, Noon, Evening or Night in a beautiful design.
 
-👉 **[Detailed Climate Zone Guide](climate_zones.md)** - Learn about the different climates and their lighting times.
+-> **[Detailed Climate Zone Guide](climate_zones.md)** - Learn about the different climates and their lighting times.
 
-## 🚀 Key Features
+## Key Features
 
-- 🌦️ **Complete Weather System:** Simulates realistic weather including temperature, wind and humidity based on climate zones with over 1200 unique weather descriptions.
-- 🕒 **Dynamic Day Phases:** Add, delete, and rename all time slots in the Theme Configuration.
-- ✨ **Smart Clock Mapping:** The clock face automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
-- 🌩️ **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
-- 💡 **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
-- 🎨 **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
-- 🌕 **Moon Cycle:** The widget accurately displays the current moon phase (Waxing, Full, Waning, New) synced to the calendar date.
-- 🖼️ **Custom Images:** Upload your own image for the clock face easily.
-- 🖱️ **Drag and Drop:** Place the clock anywhere on your screen.
-- 📅 **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
-- 📝 **Notes and Events:** Create public events, GM notes or party notes.
-- 🕰️ **Time Machine:** Use the Time Machine to jump to any specific date (GM Only).
-- 🌍 **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e, Gregorian, and the new **Víkingar** calendar.
+- **Complete Weather System:** Simulates realistic weather including temperature, wind and humidity based on climate zones with over 1200 unique weather descriptions.
+- **Weather Rules Integration:** Other systems or content modules can inject GM-only weather rule notes into the generated weather chat cards.
+- **Simple Calendar Migration:** Import the currently active Simple Calendar setup into a PDNC custom calendar, including compatible notes and events.
+- **Dynamic Day Phases:** Add, delete, and rename all time slots in the Theme Configuration.
+- **Smart Clock Mapping:** The clock face automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
+- **Automatic FX:** Weather automatically applies Rain, Snow, Fog or Storm effects to your scene.
+- **Smart Lighting:** Scene darkness automatically adjusts based on time of day, season and cloud cover.
+- **Beautiful Design:** A high quality widget with a premium look and integrated weather display.
+- **Moon Cycle:** The widget accurately displays the current moon phase (Waxing, Full, Waning, New) synced to the calendar date.
+- **Custom Images:** Upload your own image for the clock face easily.
+- **Drag and Drop:** Place the clock anywhere on your screen.
+- **Calendar Integration:** Click to open the fully featured calendar complete with automatic daily Weather Reports.
+- **Notes and Events:** Create public events, GM notes or party notes.
+- **Time Machine:** Use the Time Machine to jump to any specific date (GM Only).
+- **System Support:** Supports Golarion for PF2e, Harptos for D&D 5e, Gregorian, and the new **Vikingar** calendar.
 
-## 📦 Installation
+## Installation
 
 1.  Open Foundry VTT.
 2.  Go to the **Addon Modules** tab.
@@ -86,7 +88,7 @@ Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs 
     ```
 5.  Click **Install**.
 
-## 📖 How to Use
+## How to Use
 
 ### 1. The Clock
 
@@ -112,6 +114,7 @@ In the module settings you can adjust various options.
 - Change the clock background image.
 - Set time and date offsets.
 - **Toggle Weather System:** Disable the entire weather and lighting system if you only want the Clock and Calendar features.
+- **Import From Simple Calendar:** Open the built-in migration tool to copy the currently active Simple Calendar calendar into PDNC and optionally migrate notes/events.
 
 ### 4. Weather System
 
@@ -121,6 +124,8 @@ The module automatically simulates weather.
 
 - Every morning a window automatically opens for the Gamemaster to determine the weather for the new day.
 - You can also manually change the weather at any time by clicking the small **Cloud Icon** on the clock widget at the top left.
+- The setting **Post Weather GM Notes** can keep general or provider-driven GM weather guidance embedded in the generated weather chat card.
+- Weather visuals and rule meaning are now separated: `fx` stays visual, while semantic `weather.tags` are used for generic and system-specific rule notes.
 
 ### 5. Custom Climate Zones
 
@@ -131,6 +136,7 @@ The module automatically simulates weather.
     - **Text:** The description posted to chat (example "A sandy wind is blowing").
     - **Temp:** The temperature range (example "30 to 40").
     - **FX:** The visual effect (example "FOG" for sandstorms).
+    - **Tags (optional in data/imports):** Semantic rule markers such as `wind:storm`, `visibility:fog`, or `precipitation:heavy-rain`.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
@@ -191,6 +197,53 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 ```
 
+**Weather Rules Integration**
+
+Other systems or setting modules can register a provider and inject system-specific rule notes into the weather card without modifying this module's core weather logic.
+
+The provider receives a `weather` object that now separates visual effects from rule semantics:
+
+```js
+{
+  fx: "storm",
+  fxList: ["storm"],
+  tags: ["hazard:storm", "wind:strong", "temperature:cold-mild"],
+  tempMin: 0,
+  tempMax: 6
+}
+```
+
+```js
+Hooks.once("ready", () => {
+  if (!window.PhilsDayNightCycle?.registerWeatherRulesProvider) return;
+
+  window.PhilsDayNightCycle.registerWeatherRulesProvider("my-module", ({ weather }) => {
+    if (!weather.tags.includes("wind:strong")) return null;
+
+    return {
+      title: "My System Weather Effects",
+      audience: "gm",
+      entries: [
+        "Ranged attacks beyond medium distance take a penalty.",
+        "Open flames are extinguished unless protected."
+      ]
+    };
+  });
+});
+```
+
+You can also use the `pdnc.collectWeatherRules` hook for simple synchronous integrations. Each provider may return a single section or an array of sections. A section can target `gm` or `public`, but GM-only notes are the intended default.
+If your own module imports or generates climate entries, you can provide an explicit `tags` array there and PDNC will pass it through to all weather-rule providers.
+
+**Simple Calendar Migration**
+
+PDNC also includes a built-in migration tool for the `foundryvtt-simple-calendar` module.
+
+- Open **Module Settings** and use **Import From Simple Calendar**.
+- The importer reads the currently active Simple Calendar calendar, creates a PDNC custom calendar from it, and can migrate compatible notes into PDNC events.
+- If you use multiple Simple Calendar calendars, activate the source calendar there first and then run the import in PDNC.
+- Current date/time sync is only offered when the Simple Calendar setup uses a standard `24 / 60 / 60` day structure.
+
 <br>
 
 ---
@@ -199,54 +252,56 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 
 # <img src="https://flagcdn.com/48x36/de.png" width="28" height="21" alt="DE"> Deutsche Anleitung
 
-**Eine elegante Uhr per Drag and Drop für Foundry VTT.**
+**Eine elegante Uhr per Drag and Drop fuer Foundry VTT.**
 
-Phil's Day&Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschönen Design.
+Phil's Day&Night Cycle fuegt eine visuell ansprechende Uhr hinzu welche sich automatisch mit der Weltzeit in Foundry synchronisiert. Sie zeigt nicht nur die Uhrzeit an sondern visualisiert auch die aktuelle Tagesphase wie Morgen, Mittag, Abend oder Nacht in einem wunderschoenen Design.
 
-👉 **[Detaillierter Guide zu Klimazonen](klimazonen.md)** - Erfahre alles über die verschiedenen Klimate und ihre Lichtzeiten.
+-> **[Detaillierter Guide zu Klimazonen](klimazonen.md)** - Erfahre alles ueber die verschiedenen Klimate und ihre Lichtzeiten.
 
-## 🚀 Funktionen
+## Funktionen
 
-- 🌦️ **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
-- 🕒 **Dynamische Phasen:** Beliebig viele Phasen erstellen, löschen oder umbenennen in der Theme-Konfiguration.
-- ✨ **Intelligentes Uhr-Mapping:** Das Zifferblatt mappt automatisch jede Phasenanzahl (auch nur 2 oder 4) auf die 8 visuellen Segmente.
-- 🌩️ **Automatische Effekte:** Das Wetter erzeugt automatisch passende Effekte für Regen, Schnee, Nebel oder Sturm in deiner Szene.
-- 💡 **Intelligente Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewölkung an.
-- 🎨 **Wunderschönes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
-- 🌕 **Mondzyklus:** Die Uhr zeigt die aktuelle Mondphase (Zunehmend, Voll, Abnehmend, Neu) synchron zum Kalenderdatum an.
-- 🖼️ **Benutzerdefinierte Bilder:** Lade ganz einfach dein eigenes Bild für das Zifferblatt hoch.
-- 🖱️ **Drag and Drop:** Platziere die Uhr frei an jeder beliebigen Stelle auf deinem Bildschirm.
-- 📅 **Integration des Kalenders:** Ein Klick öffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
-- 📝 **Notizen und Events:** Erstelle öffentliche Ereignisse sowie Notizen für den GM oder die ganze Gruppe.
-- 🕰️ **Zeitreise:** Nutze die Zeitmaschine um zu jedem beliebigen Datum zu springen (nur für den GM).
-- 🌍 **Unterstützung vieler Systeme:** Unterstützt Golarion für PF2e, Harptos für D&D 5e, den Gregorianischen Kalender sowie den neuen **Víkingar** Kalender.
+- **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit ueber 1200 einzigartigen Wetterbeschreibungen.
+- **Regel-Integration fuer Wetter:** Andere Systeme oder Content-Module koennen SL-exklusive Wetter-Regelhinweise in die erzeugten Wetterkarten einspeisen.
+- **Simple-Calendar-Migration:** Importiert den aktuell aktiven Simple-Calendar-Kalender als PDNC-Kalender und uebernimmt kompatible Notizen oder Ereignisse.
+- **Dynamische Phasen:** Beliebig viele Phasen erstellen, loeschen oder umbenennen in der Theme-Konfiguration.
+- **Intelligentes Uhr-Mapping:** Das Zifferblatt mappt automatisch jede Phasenanzahl (auch nur 2 oder 4) auf die 8 visuellen Segmente.
+- **Automatische Effekte:** Das Wetter erzeugt automatisch passende Effekte fuer Regen, Schnee, Nebel oder Sturm in deiner Szene.
+- **Intelligente Beleuchtung:** Die Helligkeit der Szene passt sich automatisch an Tageszeit, Jahreszeit und Bewoelkung an.
+- **Wunderschoenes Design:** Ein hochwertiges Widget im Premium Look mit integrierter Wetteranzeige.
+- **Mondzyklus:** Die Uhr zeigt die aktuelle Mondphase (Zunehmend, Voll, Abnehmend, Neu) synchron zum Kalenderdatum an.
+- **Benutzerdefinierte Bilder:** Lade ganz einfach dein eigenes Bild fuer das Zifferblatt hoch.
+- **Drag and Drop:** Platziere die Uhr frei an jeder beliebigen Stelle auf deinem Bildschirm.
+- **Integration des Kalenders:** Ein Klick oeffnet den vollwertigen Kalender mit automatischem Logbuch als Wetterbericht.
+- **Notizen und Events:** Erstelle oeffentliche Ereignisse sowie Notizen fuer den GM oder die ganze Gruppe.
+- **Zeitreise:** Nutze die Zeitmaschine um zu jedem beliebigen Datum zu springen (nur fuer den GM).
+- **Unterstuetzung vieler Systeme:** Unterstuetzt Golarion fuer PF2e, Harptos fuer D&D 5e, den Gregorianischen Kalender sowie den neuen **Vikingar** Kalender.
 
-## 📦 Installation
+## Installation
 
-1.  Öffne Foundry VTT.
+1.  Oeffne Foundry VTT.
 2.  Gehe zum Reiter **Addon Modules**.
 3.  Klicke auf **Install Module**.
-4.  Füge die folgende **Manifest URL** unten ein:
+4.  Fuege die folgende **Manifest URL** unten ein:
     ```
     https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json
     ```
 5.  Klicke auf **Install**.
 
-## 📖 Bedienung
+## Bedienung
 
 ### 1. Die Uhr
 
-Du findest die Uhr standardmäßig unten rechts.
+Du findest die Uhr standardmaessig unten rechts.
 
-- **Verschieben:** Ziehe sie einfach mit der Maus an den gewünschten Rand.
+- **Verschieben:** Ziehe sie einfach mit der Maus an den gewuenschten Rand.
 - **Ausblenden:** Klicke den kleinen Button unter der Uhr um das Zifferblatt ein oder auszuklappen.
-- **Kalender öffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
+- **Kalender oeffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
 ### 2. Der Kalender
 
-Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
+Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufuegen.
 
-- **Rechtsklick auf einen Tag:** Öffnet das Menü um einen neuen Termin zu erstellen.
+- **Rechtsklick auf einen Tag:** Oeffnet das Menue um einen neuen Termin zu erstellen.
 - **Linksklick auf einen Tag:** Zeigt alle Ereignisse dieses Tages an.
 - **Ansicht wechseln:** Nutze das Dropdown oben, um zwischen **Jahresansicht** (12 Monate Raster), **Monatsansicht** und **Terminliste** (alle kommenden Events) zu wechseln.
 
@@ -254,10 +309,11 @@ Im Kalender kannst du Tage anklicken um Ereignisse hinzuzufügen.
 
 In den Moduleinstellungen kannst du diverse Dinge anpassen.
 
-- Das Kalendersystem ändern (Golarion, Harptos und weitere).
+- Das Kalendersystem aendern (Golarion, Harptos und weitere).
 - Das Hintergrundbild der Uhr austauschen.
-- Versatz für Zeit und Datum einstellen.
-- **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen möchtest.
+- Versatz fuer Zeit und Datum einstellen.
+- **Wettersystem schalten:** Deaktiviere das gesamte Wetter und Lichtsystem falls du nur die Uhr und den Kalender nutzen moechtest.
+- **Aus Simple Calendar importieren:** Oeffnet das eingebaute Migrationstool, um den aktuell aktiven Simple-Calendar-Kalender nach PDNC zu uebernehmen und optional Notizen oder Ereignisse zu migrieren.
 
 ### 4. Wettersystem
 
@@ -265,52 +321,55 @@ Das Modul simuliert das Wetter vollautomatisch.
 
 **Konfiguration des Wetters**
 
-- Jeden Morgen öffnet sich automatisch ein Fenster für den Gamemaster in dem das Wetter für den neuen Tag bestimmt werden kann.
-- Du kannst das Wetter auch jederzeit manuell ändern indem du auf das kleine **Wolken Icon** in der Uhr oben links im Widget klickst.
+- Jeden Morgen oeffnet sich automatisch ein Fenster fuer den Gamemaster in dem das Wetter fuer den neuen Tag bestimmt werden kann.
+- Du kannst das Wetter auch jederzeit manuell aendern indem du auf das kleine **Wolken Icon** in der Uhr oben links im Widget klickst.
+- Die Einstellung **SL-Wetternotizen im Chat** kann allgemeine oder von anderen Modulen gelieferte Regelhinweise direkt in die erzeugte Wetterkarte einbetten.
+- Wetteroptik und Regelbedeutung sind jetzt getrennt: `fx` bleibt visuell, waehrend semantische `weather.tags` fuer allgemeine und systemspezifische Regelhinweise genutzt werden.
 
 ### 5. Eigene Klimazonen erstellen
 
-1.  Öffne die **Moduleinstellungen**.
+1.  Oeffne die **Moduleinstellungen**.
 2.  Klicke auf den Button **Manage Custom Climates**.
-3.  Erstelle eine neue Klimazone wie zum Beispiel Wüste oder Eiswelt.
-4.  Füge für jede Jahreszeit (Frühling, Sommer, Herbst, Winter) Einträge für das Wetter hinzu.
+3.  Erstelle eine neue Klimazone wie zum Beispiel Wueste oder Eiswelt.
+4.  Fuege fuer jede Jahreszeit (Fruehling, Sommer, Herbst, Winter) Eintraege fuer das Wetter hinzu.
     - **Text:** Die Beschreibung die im Chat gepostet wird (zum Beispiel "Ein sandiger Wind weht").
     - **Temp:** Der Temperaturbereich (zum Beispiel "30 bis 40").
-    - **FX:** Der visuelle Effekt (zum Beispiel "FOG" für Sandsturm).
+    - **FX:** Der visuelle Effekt (zum Beispiel "FOG" fuer Sandsturm).
+    - **Tags (optional in Daten/Importen):** Semantische Regelmarker wie `wind:storm`, `visibility:fog` oder `precipitation:heavy-rain`.
 5.  Speichere deine Klimazone ab.
-6.  Wähle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
+6.  Waehle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
 ### 6. Wetter Mixer & Komponist
 
-Möchtest du dein ganz eigenes Wetter erschaffen? Öffne den **Wetter Mixer** über das Reagenzglas-Icon im Wetter-Konfigurationsmenü.
+Moechtest du dein ganz eigenes Wetter erschaffen? Oeffne den **Wetter Mixer** ueber das Reagenzglas-Icon im Wetter-Konfigurationsmenue.
 
 - **Schichten:** Kombiniere mehrere Effekte (z.B. Regen + Nebel + Wind).
-- **Anpassung:** Volle Kontrolle über jeden Aspekt der Simulation:
-  - **Partikel:** Passe Dichte, Geschwindigkeit, Größe und Richtung an.
-  - **Filter:** Ändere Farbe, Intensität und Geschwindigkeit von Shadern.
+- **Anpassung:** Volle Kontrolle ueber jeden Aspekt der Simulation:
+  - **Partikel:** Passe Dichte, Geschwindigkeit, Groesse und Richtung an.
+  - **Filter:** Aendere Farbe, Intensitaet und Geschwindigkeit von Shadern.
 - **Vorschau:** Nutze den **Vorschau** Button, um deinen Mix live auf der Szene zu testen, ohne ihn direkt zu speichern.
-- **Favoriten:** Speichere deinen perfekten Sturm in deiner Favoritenliste für sofortigen Zugriff.
+- **Favoriten:** Speichere deinen perfekten Sturm in deiner Favoritenliste fuer sofortigen Zugriff.
 
 ### 7. Pathfinder 2e Synchronisation
 
-Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit übereinzustimmen.
+Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit uebereinzustimmen.
 
 1.  Aktiviere zuerst das Modul.
-2.  Öffne die **Systemuhr** in der linken Leiste über den Token Controls (Weltuhr).
-3.  Wähle im **Wizard** oder im **Menü** unter **Day & Night Cycle** die Option **Golarion** aus und setze den Haken bei **Sync Pathfinder 2e**.
+2.  Oeffne die **Systemuhr** in der linken Leiste ueber den Token Controls (Weltuhr).
+3.  Waehle im **Wizard** oder im **Menue** unter **Day & Night Cycle** die Option **Golarion** aus und setze den Haken bei **Sync Pathfinder 2e**.
 4.  Schau im Wizard grob nach, ob das **Jahr** und der **Tag** stimmen.
-5.  Ändere den **Tag** im Wizard oder stelle ihn über die Eingabefelder so ein, dass er passt.
+5.  Aendere den **Tag** im Wizard oder stelle ihn ueber die Eingabefelder so ein, dass er passt.
 6.  Stelle nun direkt im Wizard den **Weekday Offset** (Wochentag-Verschiebung) ein, um den aktuellen Wochentag festzulegen (du kannst dort problemlos Werte wie `+8` oder `-1` eingeben).
-7.  Nimm die restlichen Einstellungen im Wizard vor und drücke abschließend auf **Finish Setup** (das kannst du überspringen, wenn du das direkt im Menü machst).
-8.  Geh danach in die **Module Settings**, da der Wizard die Werte manchmal nur grob übernimmt.
-9.  Kontrolliere den **Day Offset** und den **Weekday Offset** noch einmal und korrigiere sie, falls nötig.
-10. Drücke **F5**, um die Seite neu zu laden.
-11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder über das Menü oder über das Makro an.
+7.  Nimm die restlichen Einstellungen im Wizard vor und druecke abschliessend auf **Finish Setup** (das kannst du ueberspringen, wenn du das direkt im Menue machst).
+8.  Geh danach in die **Module Settings**, da der Wizard die Werte manchmal nur grob uebernimmt.
+9.  Kontrolliere den **Day Offset** und den **Weekday Offset** noch einmal und korrigiere sie, falls noetig.
+10. Druecke **F5**, um die Seite neu zu laden.
+11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder ueber das Menue oder ueber das Makro an.
 12. Voila, fertig.
 
 ### 8. Makros und API
 
-Du kannst die Uhr auch über Makros steuern. Erstelle dafür ein neues Makro vom Typ **Script** und füge den jeweiligen Code ein.
+Du kannst die Uhr auch ueber Makros steuern. Erstelle dafuer ein neues Makro vom Typ **Script** und fuege den jeweiligen Code ein.
 
 **Uhr einblenden oder ausblenden**
 
@@ -325,7 +384,7 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.setTime(12, 0);
 ```
 
-**Position der Uhr zurücksetzen**
+**Position der Uhr zuruecksetzen**
 
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
@@ -337,6 +396,53 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.resetPosition();
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 ```
 
+**Integration von Wetter-Regeln**
+
+Andere Systeme oder Setting-Module koennen einen Provider registrieren und systemeigene Regelhinweise in die Wetterkarte einfuegen, ohne dass die Kernlogik dieses Moduls angepasst werden muss.
+
+Der Provider erhaelt jetzt ein `weather`-Objekt, das visuelle Effekte und Regelbedeutung trennt:
+
+```js
+{
+  fx: "storm",
+  fxList: ["storm"],
+  tags: ["hazard:storm", "wind:strong", "temperature:cold-mild"],
+  tempMin: 0,
+  tempMax: 6
+}
+```
+
+```js
+Hooks.once("ready", () => {
+  if (!window.PhilsDayNightCycle?.registerWeatherRulesProvider) return;
+
+  window.PhilsDayNightCycle.registerWeatherRulesProvider("mein-modul", ({ weather }) => {
+    if (!weather.tags.includes("wind:strong")) return null;
+
+    return {
+      title: "Wettereffekte meines Systems",
+      audience: "gm",
+      entries: [
+        "Fernangriffe jenseits mittlerer Distanz erhalten einen Malus.",
+        "Offene Flammen gehen aus, wenn sie nicht geschuetzt sind."
+      ]
+    };
+  });
+});
+```
+
+Fuer einfache synchrone Integrationen kannst du alternativ den Hook `pdnc.collectWeatherRules` nutzen. Ein Provider darf einen einzelnen Abschnitt oder ein Array von Abschnitten zurueckgeben. Ein Abschnitt kann an `gm` oder `public` gehen, gedacht ist das Feature aber primaer fuer SL-Hinweise.
+Wenn dein eigenes Modul Klimaeintraege importiert oder generiert, kannst du dort direkt ein `tags`-Array mitgeben und PDNC reicht es an alle Wetter-Regelprovider weiter.
+
+**Simple-Calendar-Migration**
+
+PDNC bringt ausserdem ein eingebautes Migrationstool fuer das Modul `foundryvtt-simple-calendar` mit.
+
+- Oeffne die **Moduleinstellungen** und nutze **Aus Simple Calendar importieren**.
+- Das Tool liest den aktuell aktiven Simple-Calendar-Kalender, legt daraus einen PDNC-Kalender an und kann kompatible Notizen als PDNC-Ereignisse uebernehmen.
+- Wenn du mehrere Simple-Calendar-Kalender nutzt, aktiviere zuerst dort den gewuenschten Quellkalender und starte danach den Import in PDNC.
+- Die Synchronisation von aktuellem Datum und Uhrzeit wird nur angeboten, wenn die Quelle ein Standard-Zeitschema mit `24 / 60 / 60` verwendet.
+
 <br>
 
 ---
@@ -344,13 +450,13 @@ if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleDungeonMode();
 
 <br>
 
-## 📝 Custom Calendar JSON Example / Beispiel Kalender JSON
+## Custom Calendar JSON Example / Beispiel Kalender JSON
 
 <br>
 
 _If you want to import a calendar manually, you can use this structure:_
 <br>
-_Falls du einen Kalender manuell importieren möchtest, kannst du diese Struktur verwenden:_
+_Falls du einen Kalender manuell importieren moechtest, kannst du diese Struktur verwenden:_
 
 ```json
 {
@@ -379,7 +485,7 @@ _Falls du einen Kalender manuell importieren möchtest, kannst du diese Struktur
 
 ---
 
-## 📜 License
+## License
 
 This module uses a dual license structure.
 
@@ -391,12 +497,12 @@ See `LICENSE` file for details.
 <br>
 
 <div align="center">
-    <h2>❤️ Support the Development</h2>
+    <h2>Support the Development</h2>
     <p>If you enjoy this module and want to support open source development for Foundry VTT check out my Patreon.</p>
-    <p>Gefällt dir das Modul? Unterstütze die Weiterentwicklung auf Patreon.</p>
+    <p>Gefaellt dir das Modul? Unterstuetze die Weiterentwicklung auf Patreon.</p>
     <a href="https://www.patreon.com/PhilsModules">
         <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" width="200" />
     </a>
     <br><br>
-    <p><i>Made with ❤️ for the Foundry VTT Community</i></p>
+    <p><i>Made for the Foundry VTT Community</i></p>
 </div>
