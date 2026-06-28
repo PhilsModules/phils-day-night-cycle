@@ -1,4 +1,72 @@
+## v4.9.2 - V14 Lighting Fixes & Smart UI
+
+- **V14 Lighting System:** Fixed an issue where automated lighting updates would fail silently in Foundry V14 due to mismatched scene properties. The module now reliably sets the darkness level across all supported Foundry versions.
+- **Smart Time Jump Button:** The "Next Sunrise/Sunset" button has been overhauled. It now dynamically displays a Moon or Sun icon depending on whether the next celestial event is dusk or dawn based on your active climate zone.
+- **Time Rewind Logic:** Holding `Ctrl` over the jump button now correctly shows the opposite event icon in red, indicating a jump backward in time. Furthermore, lighting is now correctly updated when rewinding time.
+- **Weather Performance Fix:** Fixed a severe lag and `IndexSizeError` crash in Foundry V14 caused by conflicts with the core `FogExtractor` and native weather properties. The module now correctly routes weather changes to its own custom particle engine without interfering with Foundry's core rendering pipeline.
+
+## v4.9.1 - Bug Fixes & Stability
+
+- **UI Disappearance Fix:** Resolved a critical issue in Foundry v12 strict mode where a loadTemplates deprecation warning would crash the module's initialization, causing the entire clock UI to disappear.
+- **Time Travel Fix:** Fixed an error (NaN) that occurred when clicking the "Next Sunrise/Sunset" button, caused by the new calendar system architecture.
+- **Encoding & Localization:** Fixed missing German umlauts (ä, ö, ü) in weather descriptions and corrected the temperature symbol displaying as Â°C instead of °C.
+
+## v4.9.0 - Feature Expansion
+
+- **Interval Recurring Events:** Added a new "Interval" recurring event type. You can now create events that repeat every X days (e.g., every 36 days), perfect for custom celestial phenomena or regular rituals.
+- **Event Colors & Icons:** Fully personalize your calendar! You can now assign custom colors and icons (FontAwesome classes or Image URLs) directly to your events. The calendar grid and Day Details view have been updated to cleanly display your custom designs.
+- **Climate Import/Export:** Added "Export" and "Import" functionality to Custom Climate Zones. Easily backup or share your custom weather generation tables as JSON files.
+- **Next Sunrise/Sunset Button:** Added a highly requested shortcut to the Time Machine window. A single click automatically calculates the exact time remaining until the next Dawn or Dusk and precisely advances the world clock.
+- **Localization:** Full English and German translations added for all new UI elements.
+
+## v4.8.1 - V14 UI Hardening & Bug Fixes
+
+- **ðŸ › Settings V14 Compatibility:** Massively hardened the UI injection for the Settings Menu (`Theme Config`). It now directly supports the Foundry V14 completely rewritten `ApplicationV2` settings interface and correctly targets Web Components (`<file-picker>`).
+- **ðŸ › Clock Face Dynamic Image:** Fixed an issue where the clock face background image was hardcoded to `clock.webp` and ignored the user's customized image in the settings. The composite clock now dynamically loads the configured image.
+- **âœ✨ Reset Button Integration:** A dedicated "Reset" button has been cleanly integrated next to the Clock Background Image selector, allowing you to quickly revert to the default clock face.
+
+## v4.8.0 - Calendar Graphics & Historical Dating
+
+- **Negative Year Formatting:** Added support for prefixes and postfixes in negative years (e.g., "500 bs"). Settings are now exposed in the module settings and apply globally to all UI components.
+- **Astronomical Moon Visualization:** Implemented a robust SVG-based moon badge system in the calendar grid. Moon phases are calculated in real-time based on the astronomical cycle.
+- **Lighting & Stability Fixes:** Resolved critical errors in the lighting system related to dawn/dusk transitions and moon brightness calculations.
+- **UI Polish:** Added a direct "Manage Custom Calendars" shortcut to the calendar header for quicker configuration. (Removed based on user feedback to keep UI clean).
+
+## v4.7.6 - PF2e Sync for All Calendars
+
+- **PF2e Sync Expansion:** Pathfinder sync can now be used with Golarion, Víkingar, and custom calendars.
+- **Wizard Sync Mapping:** Enabling PF2e Sync in the Startup Wizard now pre-fills date and time using the currently selected calendar system.
+- **Stability Improvement:** Removed the restrictive calendar guard that could disable PF2e Sync during setup.
+
+## v4.7.5 - Calendar Sync & Time Navigation Fixes
+
+- **Date Flow Fix:** Startup Wizard now initializes year, month, day, and time from live `worldTime` plus active offsets to keep Quick Setup aligned with the displayed calendar.
+- **PF2e Sync Availability:** Pathfinder sync can now be used with Golarion, Víkingar, and custom calendars without disabling the feature.
+- **Offset Save Order:** Wizard save flow now writes `dayOffset` and `timeOffset` first, then derives `syncPF2e` from the resulting state to prevent accidental epoch overrides.
+- **Time Navigation Stability:** Quick Setup and Time Machine now stay consistent when switching between custom dates and PF2e sync behavior.
+
+## v4.7.4
+
+- **Compatibility**: Auf V14 gepusht.
+
+## 4.7.3 - Bug Fixes
+
+- **Bug Fixes:** Bug fixes.
+
+## 4.7.2 - Simple Calendar Import Hardening
+
+- **ðŸ› Wrapped Note Import:** Fixed an additional Simple Calendar import case where events were listed in the migration window but not copied because note data was wrapped in a different object shape.
+- **ðŸ“… Day Index Correction:** Fixed a remaining day-index conversion issue so imported Simple Calendar events land on the correct PDNC date keys.
+- **ðŸ§ª Migration Coverage:** Added test coverage for wrapped Simple Calendar notes and verified the migration payload generation path.
+
+## 4.7.1 - Migrator Fix & Offset Corrected
+
+- **ðŸ› Simple Calendar Migration:** Fixed a critical bug where notes/events were found but not copied due to missing data wrappers in the SC API results.
+- **ðŸ“… Import Precision:** Resolved a 1-day offset issue where imported events were shifted by one day.
+- **ðŸ›¡ï¸ Visibility Logic:** Improved permission handling for imported notes to ensure "GM-only" and "Player" visibility is correctly mapped.
+
 ## 4.7.0 - Weather Rules, Migration & Vikingar Integration
+
 
 - **Weather Rules API:** Added a new integration layer so other systems or setting modules can inject weather rule notes into PDNC weather chat cards, including GM-only notes directly inside the same weather card.
 - **Semantic Weather Tags:** Weather now separates visual `fx` from semantic `weather.tags`, allowing generic PDNC guidance and system-specific rule integrations to work from stable rule markers instead of display effects.
@@ -8,47 +76,47 @@
 
 ## 4.6.7 - Hotfix
 
-- **🐛 Custom Calendar Preservation:** Fixed an issue where the calendar system setting reverted to standard "Gregorian" upon a server restart when a custom calendar was selected.
+- **ðŸ› Custom Calendar Preservation:** Fixed an issue where the calendar system setting reverted to standard "Gregorian" upon a server restart when a custom calendar was selected.
 
-## 4.6.6 - Víkingar Design & Bugfixes
+## 4.6.6 - VÃ­kingar Design & Bugfixes
 
-- **🎨 Víkingar Preset:** Added new "Víkingar" high-quality clock preset.
-- **🐛 Bug Fixes:** Stability improvements and bug fixes in the theme system.
+- **ðŸŽ¨ VÃ­kingar Preset:** Added new "VÃ­kingar" high-quality clock preset.
+- **ðŸ› Bug Fixes:** Stability improvements and bug fixes in the theme system.
 
 ## 4.6.5 - Dynamic Phases & UI Polish
 
-- **🕒 Dynamic Day Phases:** You can now add, delete, and rename all time slots in the Theme Configuration! 
-- **✨ Smart Clock Mapping:** The clock face now automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
-- **🖼️ Image Propagation:** "Smart Fill" logic for images. If you leave a phase image empty, it intelligently inherits the image from the previous phase.
-- **⏱️ HH:MM Format:** Time inputs in the Theme Configuration now use standard HH:MM format for a more intuitive setup.
-- **🐛 Stability Fixes:**
+- **ðŸ•’ Dynamic Day Phases:** You can now add, delete, and rename all time slots in the Theme Configuration! 
+- **âœ¨ Smart Clock Mapping:** The clock face now automatically maps any number of phases (even just 2 or 4) to its 8 visual segments using time-based windowing.
+- **ðŸ–¼ï¸ Image Propagation:** "Smart Fill" logic for images. If you leave a phase image empty, it intelligently inherits the image from the previous phase.
+- **â±ï¸ HH:MM Format:** Time inputs in the Theme Configuration now use standard HH:MM format for a more intuitive setup.
+- **ðŸ› Stability Fixes:**
   - Resolved a critical "race condition" error during module registration.
   - Fixed an issue where empty phase images were not correctly rendered in the config UI.
 
-## 4.6.4 - Víkingar Calendar & Teaser
+## 4.6.4 - VÃ­kingar Calendar & Teaser
 
-- **📅 Víkingar Calendar Preset:** Added the historical Norse lunisolar calendar (Misseri).
-  - **Two-Season Structure:** Split into Summer (Náttleysi) and Winter (Skammdegi).
+- **ðŸ“… VÃ­kingar Calendar Preset:** Added the historical Norse lunisolar calendar (Misseri).
+  - **Two-Season Structure:** Split into Summer (NÃ¡ttleysi) and Winter (Skammdegi).
   - **Leap Logic:** Correctly implements the 364-day year and 371-day leap year (Sumarauki).
   - **Localization:** Full German and English support for all Norse month and weekday names.
-- **🛡️ Teaser:** Sneak preview for the upcoming **Viking Pathfinder 2 Supplement**!
+- **ðŸ›¡ï¸ Teaser:** Sneak preview for the upcoming **Viking Pathfinder 2 Supplement**!
   - 24 Classes, 31 Backgrounds, 1974 Feats, 939 Spells, 22 Ancestries, 483 Items.
 
 ## 4.6.3 - Custom Calendar Restoration
 
-- **📅 Custom Calendars:** Restored the ability to create and manage custom calendars!
+- **ðŸ“… Custom Calendars:** Restored the ability to create and manage custom calendars!
   - **New UI:** Added a dedicated "Custom Calendars" menu in settings with a modern, darker interface.
   - **Editor:** A full-featured editor allows you to define Months, Weekdays, and Leap Year rules (None/Gregorian/Every 4 Years).
   - **Integration:** Custom calendars now appear natively in the Startup Wizard dropdown.
   - **JSON Import:** Added support for importing/exporting calendar definitions via JSON.
-- **🎨 UI Polish:**
+- **ðŸŽ¨ UI Polish:**
   - **Standard Headers:** Reverted custom window headers to standard Foundry VTT headers for better consistency with the core UI.
   - **Styling:** Fixed the appearance of the "Close" button on premium windows to align with the new solid background style.
-- **🌍 Localization:** Added missing translation keys for the custom calendar interface and common button actions (`Save`, `Cancel`).
+- **ðŸŒ Localization:** Added missing translation keys for the custom calendar interface and common button actions (`Save`, `Cancel`).
 
 ## 4.6.2 - Hotfix
 
-- **🐛 Bugfixes:** Multiple bug fixes.
+- **ðŸ› Bugfixes:** Multiple bug fixes.
 
 ## 4.6.1 - UI Polish & Hotfixes
 
@@ -79,216 +147,216 @@
 
 # 4.5.2 - Wizard Scroll Fix
 
-- **🎨 UI Fix:** The **Startup Wizard** is now scrollable! Fixed an issue where the "Finish" button was unreachable on smaller screens by enforcing a maximum height and enabling vertical scrolling.
+- **ðŸŽ¨ UI Fix:** The **Startup Wizard** is now scrollable! Fixed an issue where the "Finish" button was unreachable on smaller screens by enforcing a maximum height and enabling vertical scrolling.
 
 ## 4.5.1 - Inverted Arc Hotfix
 
-- **🐛 Bugfix:** Fixed a visual glitch where the Sun and Moon Arcs were rendered upside down (inverted) for players or when the HUD controls were hidden. The geometry now correctly calculates the arc peak regardless of UI state.
+- **ðŸ› Bugfix:** Fixed a visual glitch where the Sun and Moon Arcs were rendered upside down (inverted) for players or when the HUD controls were hidden. The geometry now correctly calculates the arc peak regardless of UI state.
 
 ## 4.5.0 - Event Rescheduling & Quest Sync
 
-- **📅 New Feature: Event Date Editing**
+- **ðŸ“… New Feature: Event Date Editing**
   - **Move Events:** You can finally change the date of an existing event! Just open the event editor and adjust the day/month/year fields.
   - **Smart Updates:** If you move an event, the calendar automatically handles the move, keeping all data intact.
 
-- **⚔️ Quest Tracker Sync:**
+- **âš”ï¸ Quest Tracker Sync:**
   - **Two-Way Sync:** If you move a calendar event that is linked to a **Phils Quest Tracker** quest, the quest's start date acts accordingly!
   - **Example:** Dragging a "Goblin Raid" event from Monday to Friday in the calendar effectively postpones the quest in the Quest Log too.
 
-- **🧪 Advanced Weather Mixer:**
+- **ðŸ§ª Advanced Weather Mixer:**
   - **Full Control:** You can now manually tweak every aspect of your weather! Adjust **Particle Density**, **Speed**, **Size**, **Direction** and more to create the perfect storm.
   - **Live Preview:** Added a **"Preview" button**. Test your particle/filter combinations directly on the canvas without saving.
   - **Fixes:** Fixed an issue where the Fog Filter color wasn't applying correctly.
 
-- **🛠️ Fixes:**
+- **ðŸ› ï¸ Fixes:**
   - **Security:** Added missing translation keys for permission warnings (`PDNC.Warning.NoPermission`).
   - **Testing:** Implemented a robust Unit Test suite (`tests/quest-sync.test.js`) to ensure calendar logic remains stable.
 
 ## 4.4.1 - Dungeon Mode Logic & Test Suite
 
-- **🛡️ Security & Logic:**
+- **ðŸ›¡ï¸ Security & Logic:**
   - **Dungeon Mode Security:** The "Dungeon Mode" button in the clock widget is now **strictly restricted to GMs only**. It will no longer appear for players, and its functionality is secured on the backend.
   - **Correction:** Fixed a logic error in the automatic lighting calculation where the transition from Night to Dawn caused a sudden jump in brightness. It is now perfectly smooth.
 
-- **🌍 Localization:**
+- **ðŸŒ Localization:**
   - Added missing German translation keys for the Setup Wizard.
 
 ## 4.4.0 - Dungeon Mode & Polish
 
-- **🏰 New Feature: One-Click Dungeon Mode**
+- **ðŸ° New Feature: One-Click Dungeon Mode**
   - Added a dedicated **Dungeon Button** (Gate Icon) directly to the top-left of the Clock Widget.
   - One click instantly opens the **Dungeon Mode Configuration**, allowing you to quickly **disable global weather and lighting updates** for the current scene (perfect for indoor maps or tactical combat).
   - This is no longer hidden in sub-menus but available right where you need it!
 
-- **🧙‍♂️ Setup Wizard:**
+- **ðŸ§™â€â™‚ï¸ Setup Wizard:**
   - Added a new **"Weekday Offset"** field directly to the Wizard for easier calendar alignment (especially for Pathfinder 2e).
   - Complete visual overhaul of the Wizard UI: Cleaner headers, better spacing, and "Premium" styling.
 
-- **🎨 UI Refinement:**
+- **ðŸŽ¨ UI Refinement:**
   - **Premium Design:** Completely restyled the **Weather Configuration** window to match the module's premium "Gold & Dark" theme.
   - **Fixed Layouts:** Resolved alignment issues in the Dungeon Mode config and ensured buttons are perfectly sized.
   - **CSS Scoping:** Implemented strict class scoping to prevent styles from leaking into the core Foundry UI.
 
-- **🌍 Localization:**
+- **ðŸŒ Localization:**
   - Added the **Pathfinder 2e Synchronization Guide** to the README (English & German).
   - Fixed duplicate translation keys and missing subtitles.
 
 ## 4.3.0 - Cinematic Night Update
 
-- **🌙 Cinematic Moon:** The moon now adheres to strict "Cinematic Rules", ensuring it is visible primarily at night (Standard Offset: 9h+). No more confusion with "Daytime Moons" looking like night.
-- **💡 Dynamic Lighting:** The moon now actively contributes to scene lighting! A full moon night is significantly brighter (~0.65 darkness) than a new moon night (0.95 darkness). The light intensity fades realistically as the moon rises and sets.
-- **📖 Documentation:** Updated `Climate Zones` documentation (English & German) with detailed brightness levels and new moon phase timings.
-- **🐛 Fixes:** Resolved character encoding issues in the German documentation.
+- **ðŸŒ™ Cinematic Moon:** The moon now adheres to strict "Cinematic Rules", ensuring it is visible primarily at night (Standard Offset: 9h+). No more confusion with "Daytime Moons" looking like night.
+- **ðŸ’¡ Dynamic Lighting:** The moon now actively contributes to scene lighting! A full moon night is significantly brighter (~0.65 darkness) than a new moon night (0.95 darkness). The light intensity fades realistically as the moon rises and sets.
+- **ðŸ“– Documentation:** Updated `Climate Zones` documentation (English & German) with detailed brightness levels and new moon phase timings.
+- **ðŸ› Fixes:** Resolved character encoding issues in the German documentation.
 
 ## 4.2.0 - New Moon Cycle
 
-- **🌕 New Feature: Moon Cycle:** The Moon Cycle has been completely implemented! The moon phase now accurately tracks the calendar date (e.g. Full Moon on the 15th) and displays the correct phase visual.
-- **🎢 Animations:** Fixed the "Flying Sun" and "Flying Moon" glitch. The celestial bodies now invisibly snap to the horizon when setting, preventing them from flying back across the screen when they rise again.
-- **🎨 Visuals:** Added a CSS transition to the Moon element to ensure it moves as smoothly as the Sun.
-- **🐛 Bugfix:** Fixed a CSS syntax error in the `style.css` file.
+- **ðŸŒ• New Feature: Moon Cycle:** The Moon Cycle has been completely implemented! The moon phase now accurately tracks the calendar date (e.g. Full Moon on the 15th) and displays the correct phase visual.
+- **ðŸŽ¢ Animations:** Fixed the "Flying Sun" and "Flying Moon" glitch. The celestial bodies now invisibly snap to the horizon when setting, preventing them from flying back across the screen when they rise again.
+- **ðŸŽ¨ Visuals:** Added a CSS transition to the Moon element to ensure it moves as smoothly as the Sun.
+- **ðŸ› Bugfix:** Fixed a CSS syntax error in the `style.css` file.
 
 ## 4.1.1 - Localization & Polish
 
-- **🇩🇪 Localization:** Fixed a duplicate translation for "Sunbeams". It is now correctly labeled as "Lichtbündel" to distinguish it from "Sonnenstrahlen" (Sun Rays).
-- **⭐ Improvement:** Saved **Weather Mixer Favorites** now automatically appear in the main "Visual Effects" dropdown in the Weather Configuration window, making it much easier to apply your custom mixes.
-- **✨ UX:** Creating a new mix now effectively uses the custom name provided in the input field.
+- **ðŸ‡©ðŸ‡ª Localization:** Fixed a duplicate translation for "Sunbeams". It is now correctly labeled as "LichtbÃ¼ndel" to distinguish it from "Sonnenstrahlen" (Sun Rays).
+- **â­ Improvement:** Saved **Weather Mixer Favorites** now automatically appear in the main "Visual Effects" dropdown in the Weather Configuration window, making it much easier to apply your custom mixes.
+- **âœ¨ UX:** Creating a new mix now effectively uses the custom name provided in the input field.
 
 ## 4.1.0 - Weather Mixer
 
-**🔥 New Feature: Mix & Match Weather**
+**ðŸ”¥ New Feature: Mix & Match Weather**
 
 By popular request, you can now **combine multiple weather effects** into your own custom mix!
 Want "Heavy Rain" AND "Fog"? Or perhaps "Snow" + "Wind" + "Cold"? Now you can!
 
-- **🧪 The Mixer:** Click the new **Flask Icon** in the Weather Configuration window to open the Mixer.
-- **✨ Layering:** Select as many effects as you want. The system will intelligently layer their particles and filters.
-- **⭐ Favorites:** Save your best combinations as "Favorites" (e.g. "My Perfect Storm") for instant access later. Favorites are stored individually for each world.
+- **ðŸ§ª The Mixer:** Click the new **Flask Icon** in the Weather Configuration window to open the Mixer.
+- **âœ¨ Layering:** Select as many effects as you want. The system will intelligently layer their particles and filters.
+- **â­ Favorites:** Save your best combinations as "Favorites" (e.g. "My Perfect Storm") for instant access later. Favorites are stored individually for each world.
 
 **Improvements & Fixes:**
 
-- **🇩🇪 Localization:** Full German support for the new Mixer interface.
-- **🧪 UI:** Added a dedicated Flask button to the weather config for quick access.
-- **🎨 Layout:** Cleaned up the Weather Config UI to ensure buttons align perfectly with dropdowns.
+- **ðŸ‡©ðŸ‡ª Localization:** Full German support for the new Mixer interface.
+- **ðŸ§ª UI:** Added a dedicated Flask button to the weather config for quick access.
+- **ðŸŽ¨ Layout:** Cleaned up the Weather Config UI to ensure buttons align perfectly with dropdowns.
 
 ## 4.0.0 - Weather Suppression Update
 
 **Major Fix:** This update addresses critical issues with visual effect masking for both Shaders and Particles.
 
-- **🛡️ Global Region Support:**
+- **ðŸ›¡ï¸ Global Region Support:**
   - **Shaders (Thick Fog/Heatwave):** Now properly acknowledge **V12/V13 Region Polygons** (including Complex Shapes & Holes).
   - **Particles (Rain/Snow):** Improved detection logic ensures weather is correctly suppressed in all region types.
-- **✨ Polish:**
+- **âœ¨ Polish:**
   - Shaders now strictly cover the entire canvas (Infinite Bounds), preventing "Edge gaps".
   - Fixed "Black Screen" issues on Heatwave/Rainbow effects.
   - Reverted experimental screen-space changes to keep the beloved "Move with Map" particle behavior.
 
 ## 3.9.1 - Performance & Polish
 
-- **🚀 Critical Performance Fix:** Implemented an aggressive "Debounce" and "Lazy Save" architecture for the Core Loop. The system now intelligently waits for user input to settle before writing to the database, completely eliminating the "Lag/Freeze" that occurred when rapidly advancing time.
-- **💾 Memory Caching:** The `CalendarDB` and `CalendarSystem` now use smart in-memory caching. This reduces the computational load of checking events/config from ~15ms per frame to nearly 0ms, effectively fixing the "Rain Stutter" issue during time advancement.
-- **🌧️ Weather Fix:** Fixed a logic error where the **Weather Preview** background would fail to update if the weather animation was paused.
-- **🐛 Bugfix:** Fixed an issue where the **Weather Report** saved to the calendar would display incorrect or negative times (e.g. `-8:-14`) by correctly accounting for time offsets and day wrapping.
-- **🖼️ UI Fix:** The **Weather Preview** now correctly updates its background image in real-time as the day progresses, ensuring the visualized time of day always matches the actual world time.
-- **📅 UI Fix:** Fixed a mismatch where the Calendar Grid and List View ignored the **Weekday Offset** setting (showing incorrect weekdays), while the Clock Widget displayed them correctly. They now align perfectly.
+- **ðŸš€ Critical Performance Fix:** Implemented an aggressive "Debounce" and "Lazy Save" architecture for the Core Loop. The system now intelligently waits for user input to settle before writing to the database, completely eliminating the "Lag/Freeze" that occurred when rapidly advancing time.
+- **ðŸ’¾ Memory Caching:** The `CalendarDB` and `CalendarSystem` now use smart in-memory caching. This reduces the computational load of checking events/config from ~15ms per frame to nearly 0ms, effectively fixing the "Rain Stutter" issue during time advancement.
+- **ðŸŒ§ï¸ Weather Fix:** Fixed a logic error where the **Weather Preview** background would fail to update if the weather animation was paused.
+- **ðŸ› Bugfix:** Fixed an issue where the **Weather Report** saved to the calendar would display incorrect or negative times (e.g. `-8:-14`) by correctly accounting for time offsets and day wrapping.
+- **ðŸ–¼ï¸ UI Fix:** The **Weather Preview** now correctly updates its background image in real-time as the day progresses, ensuring the visualized time of day always matches the actual world time.
+- **ðŸ“… UI Fix:** Fixed a mismatch where the Calendar Grid and List View ignored the **Weekday Offset** setting (showing incorrect weekdays), while the Clock Widget displayed them correctly. They now align perfectly.
 
 ## 3.9.0 - Calendar Precision & UI
 
-- **📅 Weekday Offset:** Added a new **Weekday Offset** setting. You can now shift the weekday alignment without changing the date, allowing for perfect sync with systems like Golarion/PF2e.
-- **🌍 Magaambya Fixes:** Corrected the Magaambya calendar to have 365 days and localized month names, fixing issues with year calculation.
-- **🔍 UI Improvements:** Hovering over abbreviated weekday names in the calendar now shows the full name via tooltip.
-- **🛡️ Stability:** Implemented a dynamic year estimation to prevent freezes on calendars with very short years (e.g. 10 days).
-- **🕰️ Time Machine:** The Time Machine now correctly respects all day and time offsets when displaying the target date.
+- **ðŸ“… Weekday Offset:** Added a new **Weekday Offset** setting. You can now shift the weekday alignment without changing the date, allowing for perfect sync with systems like Golarion/PF2e.
+- **ðŸŒ Magaambya Fixes:** Corrected the Magaambya calendar to have 365 days and localized month names, fixing issues with year calculation.
+- **ðŸ” UI Improvements:** Hovering over abbreviated weekday names in the calendar now shows the full name via tooltip.
+- **ðŸ›¡ï¸ Stability:** Implemented a dynamic year estimation to prevent freezes on calendars with very short years (e.g. 10 days).
+- **ðŸ•°ï¸ Time Machine:** The Time Machine now correctly respects all day and time offsets when displaying the target date.
 
 ## 3.8.1 - Quality of Life
 
-- **❄️ Feature:** **Global Pause:** The pause button in the **Weather Preview/HUD** now globally pauses the weather effects for you (Client Setting). This allows you to "freeze" the rain/snow in the background and in the preview window - perfect for dramatic moments or taking screenshots ("Standbild").
-- **🐛 Bugfix:** Fixed a `TypeError` that could occur when closing the weather preview window after disabling the weather system.
+- **â„ï¸ Feature:** **Global Pause:** The pause button in the **Weather Preview/HUD** now globally pauses the weather effects for you (Client Setting). This allows you to "freeze" the rain/snow in the background and in the preview window - perfect for dramatic moments or taking screenshots ("Standbild").
+- **ðŸ› Bugfix:** Fixed a `TypeError` that could occur when closing the weather preview window after disabling the weather system.
 
 ## 3.8.0 - User Experience Update
 
-- **🧙‍♂️ Startup Wizard:** A brand new, beautiful Setup Wizard that guides new users (and GMs) through the first-time setup! It handles Clock Image, Calendar System (PF2e/Gregorian/etc.), Time Settings, and Permissions in a simple step-by-step UI.
-- **🌍 PF2e Sync Improved:** The "Sync Pathfinder 2e" setting now works much more reliably, correctly handling the Golarion epoch offset to match the official system time.
-- **🌦️ Climate Data Refined:** Massive update to both English and German climate data. Lighting times (Dawn/Dusk) are now perfectly calculated for diverse biomes like "Ice Cap" or "Tropics" based on realistic latitude simulations.
-- **🐛 Fix:** Fixed a regression where the "Climate Zone" dropdown in Settings would sometimes show English names even when the system language was German.
+- **ðŸ§™â€â™‚ï¸ Startup Wizard:** A brand new, beautiful Setup Wizard that guides new users (and GMs) through the first-time setup! It handles Clock Image, Calendar System (PF2e/Gregorian/etc.), Time Settings, and Permissions in a simple step-by-step UI.
+- **ðŸŒ PF2e Sync Improved:** The "Sync Pathfinder 2e" setting now works much more reliably, correctly handling the Golarion epoch offset to match the official system time.
+- **ðŸŒ¦ï¸ Climate Data Refined:** Massive update to both English and German climate data. Lighting times (Dawn/Dusk) are now perfectly calculated for diverse biomes like "Ice Cap" or "Tropics" based on realistic latitude simulations.
+- **ðŸ› Fix:** Fixed a regression where the "Climate Zone" dropdown in Settings would sometimes show English names even when the system language was German.
 
 ## 3.7.3 - Bugfix & Stability
 
-- **🐛 Critical Fix:** Fixed a critical bug where formerly deleted Custom Climate Zones would persist as the "Active Climate", causing the weather generation to fail silently or produce errors.
-- **🛡️ Stability:** Added a self-healing validation check on startup that automatically detects if the active climate zone is invalid (e.g. was deleted) and resets it to the default "Marine West Coast" to prevent broken states.
+- **ðŸ› Critical Fix:** Fixed a critical bug where formerly deleted Custom Climate Zones would persist as the "Active Climate", causing the weather generation to fail silently or produce errors.
+- **ðŸ›¡ï¸ Stability:** Added a self-healing validation check on startup that automatically detects if the active climate zone is invalid (e.g. was deleted) and resets it to the default "Marine West Coast" to prevent broken states.
 
 ## 3.7.2 - Testing & Cleanup
 
-- **🛠️ Stability:** Removed the "Simple" calendar system which was causing initialization issues. Users who had this selected will automatically be switched to "Gregorian".
-- **🌍 Localization:** Fixed missing translation keys for Settings buttons (`Save`, `Reset`) and the Weather HUD `Close` button.
-- **💡 Lighting:** Fixed a minor inaccuracy in the "Marine West Coast" lighting calculation which caused "Noon" to not be perfectly bright (0.0 darkness).
+- **ðŸ› ï¸ Stability:** Removed the "Simple" calendar system which was causing initialization issues. Users who had this selected will automatically be switched to "Gregorian".
+- **ðŸŒ Localization:** Fixed missing translation keys for Settings buttons (`Save`, `Reset`) and the Weather HUD `Close` button.
+- **ðŸ’¡ Lighting:** Fixed a minor inaccuracy in the "Marine West Coast" lighting calculation which caused "Noon" to not be perfectly bright (0.0 darkness).
 
 ## 3.7.1 - Hotfix Collection
 
-- **🎨 Layout:** Widened the **List View** date column for better readability.
-- **🎨 CSS:** Refined spacing for context icons and applied minor CSS adjustments.
-- **🐛 Fix:** Fixed **List View** showing raw HTML for weekdays (Real Names).
-- **🐛 Fix:** Fixed **Weather Chat Card** showing raw HTML for dates (Real Names).
+- **ðŸŽ¨ Layout:** Widened the **List View** date column for better readability.
+- **ðŸŽ¨ CSS:** Refined spacing for context icons and applied minor CSS adjustments.
+- **ðŸ› Fix:** Fixed **List View** showing raw HTML for weekdays (Real Names).
+- **ðŸ› Fix:** Fixed **Weather Chat Card** showing raw HTML for dates (Real Names).
 
 ## 3.7.0 - Controls & Polish
 
-- **✨ Feature:** **Smart Shortcuts:** Holding `Ctrl` now inverts the time control buttons (e.g., `+1h` becomes `-1h`), allowing for quick rewinds.
-- **🎨 Visuals:** Adjusted the Solar Arc to sit higher and look cleaner above the text.
-- **🎨 Layout:** Date text now correctly breaks into two lines when "Real Names" are enabled for better readability.
-- **🐛 Bugfix:** Fixed localization for tooltips (`ToggleGlobalWeather`, `PausePreview`).
-- **🐛 Bugfix:** Resolved an issue where date names with "Real Names" enabled would show raw HTML tags in the calendar.
-- **❤️ Credits:** Special thanks to the community for the feature request! ;-p
+- **âœ¨ Feature:** **Smart Shortcuts:** Holding `Ctrl` now inverts the time control buttons (e.g., `+1h` becomes `-1h`), allowing for quick rewinds.
+- **ðŸŽ¨ Visuals:** Adjusted the Solar Arc to sit higher and look cleaner above the text.
+- **ðŸŽ¨ Layout:** Date text now correctly breaks into two lines when "Real Names" are enabled for better readability.
+- **ðŸ› Bugfix:** Fixed localization for tooltips (`ToggleGlobalWeather`, `PausePreview`).
+- **ðŸ› Bugfix:** Resolved an issue where date names with "Real Names" enabled would show raw HTML tags in the calendar.
+- **â¤ï¸ Credits:** Special thanks to the community for the feature request! ;-p
 
 ## 3.6.1 - Oopsie Localization
 
-- **🐛 Hotfix:** Fixed a regression where German localization for the Time Unit dropdown was accidentally reverted to English. Sorry!
+- **ðŸ› Hotfix:** Fixed a regression where German localization for the Time Unit dropdown was accidentally reverted to English. Sorry!
 
 ## 3.6.0 - UI Polish & Shortcuts
 
-- **✨ Feature:** Added handy **Quick Time Buttons** (+10m, +1h, +1d, +1w) directly to the HUD for rapid time adjustment.
-- **🎨 UI Refinement:** Massive visual overhaul of the Clock Widget.
+- **âœ¨ Feature:** Added handy **Quick Time Buttons** (+10m, +1h, +1d, +1w) directly to the HUD for rapid time adjustment.
+- **ðŸŽ¨ UI Refinement:** Massive visual overhaul of the Clock Widget.
   - **Compact Mode:** The widget is now significantly tighter and takes up less screen space while displaying more info.
   - **Solar Arc:** Re-engineered the solar arc geometry to sit perfectly above the text without clipping.
   - **Layout:** Optimized spacing and alignment for a cleaner, "Premium" look.
-- **🐛 Localization:** Fixed an issue where the Time Unit dropdown (Min, Hour, Day) would sometimes show mixed language abbreviations. It now consistently uses the correct localized terms (or English standards where requested).
+- **ðŸ› Localization:** Fixed an issue where the Time Unit dropdown (Min, Hour, Day) would sometimes show mixed language abbreviations. It now consistently uses the correct localized terms (or English standards where requested).
 
 ## 3.5.0 - Personal Notes & Code Quality
 
-- **📝 Personal Notes:** Added a new "Personal (Private)" event type.
+- **ðŸ“ Personal Notes:** Added a new "Personal (Private)" event type.
   - These events are **only visible to the GM and the specific player who created them**.
   - Useful for private reminders, character-specific journal entries, or secret GM tracking.
   - Personal notes appear with a distinct **Purple** color theme in all views.
   - Includes a unique "Lock" icon in the event editor.
-- **🛠️ Code Quality:** Massive refactor of the Calendar HTML templates.
+- **ðŸ› ï¸ Code Quality:** Massive refactor of the Calendar HTML templates.
   - Moved complex conditional logic from HTML attributes into the JavaScript controller.
   - Resolved 15+ strict HTML linter warnings, producing cleaner and more robust code.
-- **🐛 Localization Fix:** Fixed missing translations for the "Quest" event type and "Year View" in German.
-- **🎨 UI Fix:** Fixed missing icons and incorrect color coding for Quests, Weather, and Personal events in the "Day Details" view.
-- **🎨 Layout Fix:** The "Year View" and "Event List" now properly resize and become scrollable when needed, ensuring all content is accessible.
+- **ðŸ› Localization Fix:** Fixed missing translations for the "Quest" event type and "Year View" in German.
+- **ðŸŽ¨ UI Fix:** Fixed missing icons and incorrect color coding for Quests, Weather, and Personal events in the "Day Details" view.
+- **ðŸŽ¨ Layout Fix:** The "Year View" and "Event List" now properly resize and become scrollable when needed, ensuring all content is accessible.
 
 ## 3.4.0 - Performance & Features
 
-- **🚀 Performance:** Implemented a smart caching system for the calendar engine. Checking valid dates and calculating recurring events is now **orders of magnitude (O(1)) faster**. This completely eliminates the "freeze" when opening the calendar or jumping between years.
-- **📅 New Views:**
+- **ðŸš€ Performance:** Implemented a smart caching system for the calendar engine. Checking valid dates and calculating recurring events is now **orders of magnitude (O(1)) faster**. This completely eliminates the "freeze" when opening the calendar or jumping between years.
+- **ðŸ“… New Views:**
   - **Year View:** A complete 12-month overview grid to see your entire year at a glance.
   - **List View:** A chronological list of all upcoming events, filterable by category.
-- **👀 View Switcher:** Added a sleek switcher to easily toggle between Month, Year, and List views.
-- **🌍 Magaambya Calendar:** Full support for the Magaambya (Mwangi) calendar system including localized month names.
-- **✨ Enhancements:**
+- **ðŸ‘€ View Switcher:** Added a sleek switcher to easily toggle between Month, Year, and List views.
+- **ðŸŒ Magaambya Calendar:** Full support for the Magaambya (Mwangi) calendar system including localized month names.
+- **âœ¨ Enhancements:**
   - **"Real Names" Mode:** Option to show real-world month/weekday names (e.g., "January", "Monday") alongside fantasy names.
   - **Jump Date:** The "Set Current Date" context menu now calculates the difference in days and asks for confirmation in a localized, immersive way.
   - **Localization:** Fixed missing translations for the "None" weather option and added German translations for new features.
 
 ## 3.3.0 - Pathfinder 2e Sync
 
-- **✨ Feature:** Added a **"Sync Pathfinder 2e"** checkbox in the module settings. Enabling this automatically sets the day offset to `1,725,556`, perfectly aligning the calendar with the Golarion epoch used by the PF2e system.
+- **âœ¨ Feature:** Added a **"Sync Pathfinder 2e"** checkbox in the module settings. Enabling this automatically sets the day offset to `1,725,556`, perfectly aligning the calendar with the Golarion epoch used by the PF2e system.
 
 ## 3.2.6 - Calendar & Weather Fixes
 
-- **🐛 Bugfix:** Resolved an issue where resetting the world time to Year 0 (or jumping back significantly) would block notifications due to spam protection. The system now detects "World Resets" (> 1 year backward jump) and correctly resets the notification state.
-- **🐛 Logic Fix:** Calendar reminders for the "current day" are no longer blocked by the initialization check. You can now reliably get notifications for events happening today, even after reloads.
-- **✨ Weather Spam Fix:** Weather reports (which are stored as calendar events) are now correctly filtered out from the generic "New Calendar Event" notifications.
-- **🔗 Feature:** "Event Created" chat cards now include a **clickable link** to the specific day in the calendar, matching the behavior of reminders.
-- **🐛 Chat Fix:** Fixed an unclosed HTML tag in the Calendar notification system that could cause chat scrolling issues.
+- **ðŸ› Bugfix:** Resolved an issue where resetting the world time to Year 0 (or jumping back significantly) would block notifications due to spam protection. The system now detects "World Resets" (> 1 year backward jump) and correctly resets the notification state.
+- **ðŸ› Logic Fix:** Calendar reminders for the "current day" are no longer blocked by the initialization check. You can now reliably get notifications for events happening today, even after reloads.
+- **âœ¨ Weather Spam Fix:** Weather reports (which are stored as calendar events) are now correctly filtered out from the generic "New Calendar Event" notifications.
+- **ðŸ”— Feature:** "Event Created" chat cards now include a **clickable link** to the specific day in the calendar, matching the behavior of reminders.
+- **ðŸ› Chat Fix:** Fixed an unclosed HTML tag in the Calendar notification system that could cause chat scrolling issues.
 
 ## 3.2.5 - Maintenance
 
@@ -296,42 +364,42 @@ Want "Heavy Rain" AND "Fog"? Or perhaps "Snow" + "Wind" + "Cold"? Now you can!
 
 ## 3.2.4 - V13 Compatibility Update
 
-- **🔧 Compatibility:** Resolved multiple deprecation warnings for Foundry V13.
-- **🛠️ Refactor:** Updated `loadTemplates`, `renderTemplate`, and `Draggable` usages to their new V13 namespaced locations.
+- **ðŸ”§ Compatibility:** Resolved multiple deprecation warnings for Foundry V13.
+- **ðŸ› ï¸ Refactor:** Updated `loadTemplates`, `renderTemplate`, and `Draggable` usages to their new V13 namespaced locations.
 
 ## 3.2.3 - Weather Render Stability
 
-- **🐛 Bugfix:** Resolved an issue where custom weather particles (leaves, snow, etc.) would sometimes be invisible due to a texture packing error.
-- **🐛 Bugfix:** Fixed a race condition where rapid weather changes could cause destroyed weather engines to throw errors or incorrectly reset the global weather visibility ("Zombie Engines").
-- **🐛 Bugfix:** Default Foundry weather is now correctly suppressed (alpha 0) instead of hidden, preserving the animation loop for custom effects.
+- **ðŸ› Bugfix:** Resolved an issue where custom weather particles (leaves, snow, etc.) would sometimes be invisible due to a texture packing error.
+- **ðŸ› Bugfix:** Fixed a race condition where rapid weather changes could cause destroyed weather engines to throw errors or incorrectly reset the global weather visibility ("Zombie Engines").
+- **ðŸ› Bugfix:** Default Foundry weather is now correctly suppressed (alpha 0) instead of hidden, preserving the animation loop for custom effects.
 
 ## 3.2.2 - Weather Interaction Fix
 
-- **🐛 Bugfix:** Fixed an issue where weather effects (like Rain) were blocking mouse interactions with tokens and other canvas elements.
+- **ðŸ› Bugfix:** Fixed an issue where weather effects (like Rain) were blocking mouse interactions with tokens and other canvas elements.
 
 ## 3.2.1 - Quest Tracker Compatibility
 
-- **🤝 Phils Quest Tracker Compatibility:** Updated event filtering logic to support the new dynamic visibility features in Phils Quest Tracker v1.0.0. Hidden quests now remain correctly hidden in both the Calendar view and Day Details view.
-- **🐛 Bugfix:** Fixed an issue where "GM Only" events could sometimes be viewed by players in the Day Details window.
+- **ðŸ¤ Phils Quest Tracker Compatibility:** Updated event filtering logic to support the new dynamic visibility features in Phils Quest Tracker v1.0.0. Hidden quests now remain correctly hidden in both the Calendar view and Day Details view.
+- **ðŸ› Bugfix:** Fixed an issue where "GM Only" events could sometimes be viewed by players in the Day Details window.
 
 ## 3.2.0 - Calendar Power Update
 
-**🎉 MAJOR FEATURE: Advanced Calendar Events!**
+**ðŸŽ‰ MAJOR FEATURE: Advanced Calendar Events!**
 
 It is finally here! A massive update to the Calendar logic, making it a fully featured campaign management tool.
 
-- **📅 Recurring Series Events:** You can now create events that repeat daily, weekly, monthly, or yearly!
+- **ðŸ“… Recurring Series Events:** You can now create events that repeat daily, weekly, monthly, or yearly!
   - **Smart Deletion:** When deleting a series, you can choose to delete "Only this instance", "This and following", or "The entire series".
   - **Exceptions:** Moving or modifying a single instance of a series correctly creates an exception while keeping the rest of the series intact.
-- **🔔 Reminder System:** Set reminders (in days) for your events!
+- **ðŸ”” Reminder System:** Set reminders (in days) for your events!
   - **Automatic Notifications:** When a reminder is due, a chat card is automatically posted for the GM.
-- **💬 Enhanced Chat Cards:**
+- **ðŸ’¬ Enhanced Chat Cards:**
   - **Interactive Links:** Chat cards for Events and Reminders now contain **clickable buttons** that take you directly to the specific day in the calendar.
   - **Rich Icons:** Events and Reminders have distinct icons for quick visual identification.
-- **🗑️ Logic Overhaul:**
+- **ðŸ—‘ï¸ Logic Overhaul:**
   - **Ghost Busting:** Fixed a critical bug where deleted events would sometimes reappear ("Zombie Events").
   - **Duplicate Cleanup:** Implemented aggressive logic to clean up duplicate events that might have accumulated from previous bugs.
-- **🎨 UI Polish:**
+- **ðŸŽ¨ UI Polish:**
   - **Grid Header:** The calendar header layout is now rock-solid and doesn't jump around when months change.
   - **Styling:** Improved button styles and interaction feedback throughout the calendar.
 
@@ -359,7 +427,7 @@ It is finally here! A massive update to the Calendar logic, making it a fully fe
 
 ## 3.0.0 - Weather Effects Overhaul
 
-**🚀 MAJOR FEATURE: 60+ New Weather Effects!**
+**ðŸš€ MAJOR FEATURE: 60+ New Weather Effects!**
 
 - **Massive Weather Library:**
   - Completely overhauled the weather engine with over **60 high-quality effects**.
@@ -453,3 +521,10 @@ It is finally here! A massive update to the Calendar logic, making it a fully fe
 
 - **Custom Clock Image:** You can now upload your own image for the clock face in the module settings! (Thanks for the suggestion!)
 - **Stable Positioning:** Fixed a bug where the clock would shift slightly after every reload. It now stays exactly where you put it.
+
+
+
+
+
+
+
