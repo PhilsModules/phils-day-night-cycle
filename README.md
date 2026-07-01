@@ -95,7 +95,7 @@ Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs 
 The clock is visible in the bottom right by default.
 
 - **Move:** Simply drag it with your mouse to any position.
-- **Hide:** Click the small clock symbol located just to the left of the digital time to hide the large clock graphic.o
+- **Hide:** Click the small clock symbol located just to the left of the digital time to hide the large clock graphic.
 - **Open Calendar:** Click directly on the clock face or the date text.
 
 ### 2. The Calendar
