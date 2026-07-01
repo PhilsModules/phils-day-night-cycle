@@ -95,7 +95,7 @@ Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs 
 The clock is visible in the bottom right by default.
 
 - **Move:** Simply drag it with your mouse to any position.
-- **Hide:** Click the small button below the clock to toggle the clock face.
+- **Hide:** Click the small "clock" button below the clock to toggle the clock face.
 - **Open Calendar:** Click directly on the clock face or the date text.
 
 ### 2. The Calendar
@@ -294,7 +294,7 @@ Phil's Day&Night Cycle fuegt eine visuell ansprechende Uhr hinzu welche sich aut
 Du findest die Uhr standardmaessig unten rechts.
 
 - **Verschieben:** Ziehe sie einfach mit der Maus an den gewuenschten Rand.
-- **Ausblenden:** Klicke den kleinen Button unter der Uhr um das Zifferblatt ein oder auszuklappen.
+- **Ausblenden:** Klicke den kleinen "Uhr" Button unter der Uhr um das Zifferblatt ein oder auszuklappen.
 - **Kalender oeffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
 ### 2. Der Kalender
