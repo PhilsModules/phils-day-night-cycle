@@ -20,6 +20,27 @@ _Erwecke deine Welt zum Leben mit einem wunderschoenen und immersiven Uhr Widget
 <br>
 
 > [!NOTE]
+> **A Quick Note / Hinweis in eigener Sache**
+>
+> 🇬🇧 **Hi everyone!**  
+> A quick note before you start: I create these modules completely in my free time and offer them to the community for free. Since neither my partner nor I are professional graphic designers, translators, or full time developers, maintaining these projects takes a huge amount of effort. To make these modules possible, we use assistance from artificial intelligence, especially for translations and visual elements. Hiring professional designers or translators is simply something we cannot afford out of pocket.
+> 
+> If these modules should ever be removed from the official Foundry package listing due to rules regarding artificial intelligence, do not worry. The project will continue! You can always find all updates, releases, and support directly here on GitHub.
+> 
+> Thank you so much for your understanding and support!
+> 
+> ---
+> 
+> 🇩🇪 **Hallo zusammen!**  
+> Ein kleiner Hinweis in eigener Sache, bevor ihr startet: Ich erstelle diese Module komplett in meiner Freizeit und stelle sie der Community kostenlos zur Verfügung. Da weder meine Lebensgefährtin noch ich Grafikdesigner, gelernte Übersetzer oder hauptberufliche Entwickler sind, ist die Pflege extrem aufwendig. Um die Module in dieser Form überhaupt anbieten zu können, nutzen wir Hilfe von künstlicher Intelligenz, zum Beispiel für Übersetzungen und grafische Elemente. Professionelle Designer oder Übersetzer können wir uns privat schlicht nicht leisten.
+> 
+> Sollten die Module wegen der Nutzung von künstlicher Intelligenz oder veränderter Richtlinien irgendwann aus dem offiziellen Verzeichnis von Foundry gelöscht werden, müsst ihr euch keine Sorgen machen. Das Projekt stirbt nicht! Ihr findet alle Updates, neue Versionen und Unterstützung bei Problemen weiterhin direkt hier auf GitHub.
+> 
+> Vielen Dank für euer Verständnis und eure Unterstützung!
+
+<br>
+
+> [!NOTE]
 >
 > ### Kompatibilitaet / Compatibility
 >
