@@ -40,7 +40,7 @@ _Erwecke deine Welt zum Leben mit einem wunderschoenen und immersiven Uhr Widget
 
 <br>
 
-> [!NOTE]
+
 >
 > ### Kompatibilitaet / Compatibility
 >
