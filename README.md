@@ -179,20 +179,15 @@ Want to create your own unique weather? Open the **Weather Mixer** by clicking t
 
 ### 7. Pathfinder 2e Synchronization
 
-This module offers a "Sync Pathfinder 2e" option, but getting the Golarion calendar perfectly aligned requires a specific workflow to match the official system time.
+This module offers a seamless 1-click integration with Pathfinder 2e's native World Clock system.
 
-1.  **Activate** the module first.
-2.  Open the **System Clock** located on the left above the Token Controls (world clock).
-3.  Inside the **Startup Wizard** or the **Settings Menu** -> **Day & Night Cycle**, select **Golarion** and check the box for **Sync Pathfinder 2e**.
-4.  Take a look at the Wizard to see if the **Year** and **Day** are roughly correct.
-5.  Change the **Day** in the Wizard or adjust it via the Input Fields until it matches your world time.
-6.  Use the **Weekday Offset** field directly in the Wizard to ensure the correct day of the week (the module accepts values like `+8` or `-1` just fine).
-7.  Adjust the other settings in the Wizard and click **Finish Setup** (you can skip this if you are working directly in the menu).
-8.  Go to the **Module Settings** afterwards because the Wizard sometimes only provides a rough approximation for complex offsets.
-9.  Check the **Day Offset** and **Weekday Offset** in the settings again and adjust them if necessary.
-10. Press **F5** to refresh the page.
-11. Finally, adjust the **Time** (Hour/Minute) via the settings menu or the macro if needed.
-12. Voila, done!
+1. Open the **Setup Wizard** (runs automatically on first launch, or re-open anytime from **Module Settings** -> **Restart Setup Wizard**).
+2. Select **Golarion** as your calendar system.
+3. If running Pathfinder 2e, the wizard displays the **Pathfinder 2e World Clock Integration** panel.
+4. Click **Compare & Synchronize Times** to open the side-by-side comparison.
+5. Click **Synchronize PF2e Now** to align PF2e's creation timestamp directly with PDNC Master Time without touching `game.time.worldTime` (all spell durations, active effects, and journal events are preserved 100%).
+6. If the weekday differs, click **Align PDNC Week Start** to sync weekdays seamlessly.
+7. Done! Both systems stay in sync.
 
 ### 8. Macros / API
 
@@ -384,20 +379,15 @@ Moechtest du dein ganz eigenes Wetter erschaffen? Oeffne den **Wetter Mixer** ue
 
 ### 7. Pathfinder 2e Synchronisation
 
-Dieses Modul bietet eine "Sync Pathfinder 2e" Option, die Einrichtung erfordert jedoch einen bestimmten Workflow um perfekt mit der offiziellen Systemzeit uebereinzustimmen.
+Dieses Modul bietet eine nahtlose 1-Klick-Integration mit der nativen Weltuhr von Pathfinder 2e.
 
-1.  Aktiviere zuerst das Modul.
-2.  Oeffne die **Systemuhr** in der linken Leiste ueber den Token Controls (Weltuhr).
-3.  Waehle im **Wizard** oder im **Menue** unter **Day & Night Cycle** die Option **Golarion** aus und setze den Haken bei **Sync Pathfinder 2e**.
-4.  Schau im Wizard grob nach, ob das **Jahr** und der **Tag** stimmen.
-5.  Aendere den **Tag** im Wizard oder stelle ihn ueber die Eingabefelder so ein, dass er passt.
-6.  Stelle nun direkt im Wizard den **Weekday Offset** (Wochentag-Verschiebung) ein, um den aktuellen Wochentag festzulegen (du kannst dort problemlos Werte wie `+8` oder `-1` eingeben).
-7.  Nimm die restlichen Einstellungen im Wizard vor und druecke abschliessend auf **Finish Setup** (das kannst du ueberspringen, wenn du das direkt im Menue machst).
-8.  Geh danach in die **Module Settings**, da der Wizard die Werte manchmal nur grob uebernimmt.
-9.  Kontrolliere den **Day Offset** und den **Weekday Offset** noch einmal und korrigiere sie, falls noetig.
-10. Druecke **F5**, um die Seite neu zu laden.
-11. Passe zum Schluss bei Bedarf die **Uhrzeit** entweder ueber das Menue oder ueber das Makro an.
-12. Voila, fertig.
+1. Oeffne den **Setup-Assistenten** (startet beim ersten Laden automatisch oder jederzeit ueber **Moduleinstellungen** -> **Setup Assistent neu starten**).
+2. Waehle **Golarion** als Kalendersystem aus.
+3. Wenn Pathfinder 2e aktiv ist, zeigt der Assistent automatisch den Bereich **Pathfinder 2e Weltuhr-Abgleich** an.
+4. Klicke auf **PF2e ↔ PDNC Zeiten vergleichen & synchronisieren**, um den Live-Vergleich zu oeffnen.
+5. Klicke auf **PF2e jetzt synchronisieren**, um das Erstellungsdatum der PF2e-Weltuhr direkt an das PDNC Master-Datum anzupassen, ohne `game.time.worldTime` zu veraendern (alle Zauberdauern, Effekte und Tagebucheintraege bleiben zu 100% erhalten).
+6. Falls der Wochentag abweicht, klicke auf **PDNC Wochenstart angleichen**, um auch die Wochentage perfekt abzugleichen.
+7. Fertig! Beide Systeme sind synchronisiert.
 
 ### 8. Makros und API
 
