@@ -117,6 +117,10 @@ The clock is visible in the bottom right by default.
 - **Move:** Simply drag the widget with your mouse to any position on screen.
 - **Smart Clock Orientation:** When in *Automatic (Smart)* mode, the clock face automatically shifts to open above, below, left, or right based on the screen edge to stay completely visible.
 - **Orientation Selector (Right-Click):** Right-click the small clock icon on the widget to open a 3x3 directional popover menu (`Above ⬆️`, `Below ⬇️`, `Left ⬅️`, `Right ➡️`, or `Smart Auto 🪄`) to manually pin where the clock face opens with 1 click.
+<div align="center">
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/3x3.png" alt="Preview" width="400">
+</div>
+
 - **Hide / Collapse:** Click the clock icon to toggle the clock face open/closed (hiding the top arrow cleanly when collapsed).
 - **Open Calendar:** Click directly on the clock face or the date text.
 
@@ -318,6 +322,10 @@ Du findest die Uhr standardmaessig unten rechts.
 - **Verschieben:** Ziehe das Widget einfach mit der Maus an jeden beliebigen Bildschirmrand.
 - **Intelligente Ausrichtung (Smart Positioning):** Im *Automatisch (Smart)*-Modus erkennt die Uhr Bildschirmraender selbststaendig. Am oberen Rand oeffnet sich das Zifferblatt z. B. unter dem Bedienfeld, am linken Rand rechts davon usw.
 - **Schnell-Ausrichtung per Rechtsklick:** Mache einen **Rechtsklick auf das Uhr-Icon** im Bedienfeld, um ein diamantfoermiges Schnellmenue zu oeffnen. Dort kannst du mit 1 Klick bestimmen, wo das Zifferblatt aufklappen soll (`Oben ⬆️`, `Unten ⬇️`, `Links ⬅️`, `Rechts ➡️` oder `Smart Auto 🪄`).
+<div align="center">
+<img src="https://github.com/PhilsModules/phils-day-night-cycle/blob/main/3x3.png" alt="Preview" width="400">
+</div>
+
 - **Ausblenden:** Klicke auf das Uhr-Icon, um das Zifferblatt ein- oder auszuklappen (der Pfeil wird dabei sauber ausgeblendet).
 - **Kalender oeffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
