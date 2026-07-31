@@ -1,3 +1,16 @@
+## v5.1.0 - Pathfinder 2e Synchronization & Refactored Setup Wizard
+
+> [!IMPORTANT]
+> **Important Note Regarding Weekday Display:**  
+> Aligning the week start offset with the Pathfinder 2e System may shift the displayed weekday name in the PDNC calendar accordingly. Date, time, and all saved calendar events remain completely untouched and safe!
+
+- **🧭 Universal Setup Wizard:** The Setup Wizard now dynamically adapts to any game system (e.g., DnD 5e, Pathfinder 2e, DSA, Generic) and guides GMs with clean, intuitive explanations.
+- **⚖️ Pathfinder 2e World Clock Integration:** When running Pathfinder 2e, the Setup Wizard provides a dedicated integration panel to compare and align with Pathfinder 2e's World Clock.
+- **⏱️ Safe 1-Click Time Synchronization:** Gamemasters can compare Pathfinder 2e's native World Clock date, time, and weekday side-by-side with PDNC Master Time and sync them with one click. Active spell durations, status effect timers, and journal logs are preserved 100% without loss.
+- **🗓️ Weekday Start Alignment:** Includes a handy 1-click alignment tool to adjust the week start offset so weekdays match between the system and calendar seamlessly.
+- **✨ Pixel-Perfect Comparison Layout:** The comparison window layout has been visually polished with pixel-perfect vertical alignment for all metrics.
+
+
 ## v5.0.0 - Smart Clock Orientation & Direct Positioning Control
 
 - **🧭 Smart Clock Positioning:** The clock widget now dynamically detects screen boundaries when dragged. If placed at the top of the screen, the clock face automatically opens below the time display. If dragged to the left or right edges, it opens on the opposite side to prevent overflowing off-screen.
