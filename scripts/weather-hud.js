@@ -3,6 +3,7 @@ import { WeatherSystem } from "./weather-system.js";
 import { ParticleEngine } from "./particle-engine.js";
 import { WeatherEffectsRegistry } from "./weather-effects.js";
 import { WeatherFilterManager, HeatWaveFilter, OldFilmFilter, ChromaticAberrationFilter, UnderwaterFilter, RainbowFilter, HaloFilter, LightningFilter, GodRaysFilter, FogFilter, CloudCoverFilter, AuroraFilter, HolyLightFilter } from "./weather-filters.js";
+import { ThemeSystem } from "./theme-system.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -54,7 +55,10 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     async _onRender(context, options) {
         super._onRender(context, options);
         
-        
+        // Sync Icon State
+        if (window.PhilsDayNightCycle && window.PhilsDayNightCycle.setPreviewIconState) {
+            window.PhilsDayNightCycle.setPreviewIconState(true);
+        }
         // PDNC HUD | _onRender called
 
         // Always ensure container fills the window frame to allow resizing
@@ -364,22 +368,12 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
         time += (offsetMinutes * 60);
         time += (offsetDays * 86400);
 
-        const dayLength = 86400; 
-        const secondsOfDay = time % dayLength;
-        const hours = secondsOfDay / 3600;
+        // const dayLength = 86400; 
+        // const secondsOfDay = time % dayLength;
+        // const hours = secondsOfDay / 3600;
 
-        let bgImage = "Noon.webp";
-
-        if (hours >= 4 && hours < 6) bgImage = "Dawn.webp";
-        else if (hours >= 6 && hours < 10) bgImage = "Morning.webp";
-        else if (hours >= 10 && hours < 12) bgImage = "Late_morning.webp";
-        else if (hours >= 12 && hours < 14) bgImage = "Noon.webp";
-        else if (hours >= 14 && hours < 17) bgImage = "Afternoon.webp";
-        else if (hours >= 17 && hours < 20) bgImage = "Evening.webp";
-        else if (hours >= 20 && hours < 22) bgImage = "Late_Evening.webp";
-        else bgImage = "Night.webp";
-
-        const bgUrl = `modules/${MODULE_ID}/assets/${bgImage}`;
+        // Use ThemeSystem for unified logic
+        const bgUrl = ThemeSystem.getBackgroundImage();
 
         // OPTIMIZATION: Check if changed
         if (this._currentBgUrl === bgUrl) {
@@ -531,6 +525,11 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     async close(options) {
+        // Sync Icon State
+        if (window.PhilsDayNightCycle && window.PhilsDayNightCycle.setPreviewIconState) {
+            window.PhilsDayNightCycle.setPreviewIconState(false);
+        }
+
         if (this._resizeObserver) {
             this._resizeObserver.disconnect();
             this._resizeObserver = null;

@@ -1,7 +1,7 @@
 import { RuntimeTexturePacker } from "./texture-packer.js";
 
 /**
- * Custom Particle Engine for Phil's Day/Night Cycle
+ * Custom Particle Engine for Phil's Day&Night Cycle
  * Renders custom sprites (Leaves, Insects, Runes) using PIXI.ParticleContainer for performance.
  */
 export class ParticleEngine extends PIXI.Container {

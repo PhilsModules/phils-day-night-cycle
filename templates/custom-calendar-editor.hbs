@@ -1,0 +1,139 @@
+<div class="pdnc-premium-window pdnc-calendar-editor">
+    <div class="form-group" style="margin-bottom: 10px;">
+        <label>{{localize "PDNC.CustomCalendar.Name"}}</label>
+        <div class="form-fields">
+            <input type="text" name="name" value="{{editingCalendar.name}}" placeholder="{{localize 'PDNC.CustomCalendar.Name'}}" required>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>{{localize "PDNC.CustomCalendar.Description"}}</label>
+        <div class="form-fields">
+            <input type="text" name="description" value="{{editingCalendar.description}}" placeholder="{{localize 'PDNC.CustomCalendar.Description'}}">
+        </div>
+    </div>
+
+    <div class="pdnc-tabs" style="margin-bottom: 10px; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">
+        <nav class="sheet-tabs tabs" aria-role="tablist" style="justify-content: space-around;">
+            <a class="item {{#if (eq activeTab 'months')}}active{{/if}}" data-action="tab" data-tab="months" data-group="main">{{localize "PDNC.CustomCalendar.Months"}}</a>
+            <a class="item {{#if (eq activeTab 'weekdays')}}active{{/if}}" data-action="tab" data-tab="weekdays" data-group="main">{{localize "PDNC.CustomCalendar.Weekdays"}}</a>
+            <a class="item {{#if (eq activeTab 'settings')}}active{{/if}}" data-action="tab" data-tab="settings" data-group="main">{{localize "PDNC.CustomCalendar.Settings"}}</a>
+        </nav>
+    </div>
+
+    <div class="pdnc-scrollable content" style="max-height: 500px;">
+        
+        <!-- MONTHS TAB -->
+        <div class="tab {{#if (eq activeTab 'months')}}active{{/if}}" data-tab="months" data-group="main">
+            <table class="pdnc-table">
+                <thead>
+                    <tr>
+                        <th>{{localize "PDNC.CustomCalendar.MonthName"}}</th>
+                        <th style="width: 60px;">{{localize "PDNC.CustomCalendar.Days"}}</th>
+                        <th style="width: 60px;">{{localize "PDNC.CustomCalendar.LeapDays"}}</th>
+                        <th style="width: 30px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each editingCalendar.months as |month index|}}
+                    <tr>
+                        <td><input type="text" name="months.{{index}}.name" value="{{month.name}}" required></td>
+                        <td><input type="number" name="months.{{index}}.days" value="{{month.days}}" placeholder="30" min="1"></td>
+                        <td><input type="number" name="months.{{index}}.leap" value="{{month.leap}}" placeholder="" min="1"></td>
+                        <td class="text-center">
+                            <button type="button" class="icon-button" data-action="deleteMonth" data-index="{{index}}" style="color: #782e22;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <button type="button" data-action="addMonth" style="margin-top: 10px;">
+                <i class="fas fa-plus"></i> {{localize "PDNC.CustomCalendar.AddMonth"}}
+            </button>
+        </div>
+
+        <!-- WEEKDAYS TAB -->
+        <div class="tab {{#if (eq activeTab 'weekdays')}}active{{/if}}" data-tab="weekdays" data-group="main">
+            <table class="pdnc-table">
+                <thead>
+                    <tr>
+                        <th>{{localize "PDNC.CustomCalendar.WeekdayName"}}</th>
+                        <th style="width: 30px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each editingCalendar.weekdays as |day index|}}
+                    <tr>
+                        <td><input type="text" name="weekdays.{{index}}" value="{{day}}" required></td>
+                        <td class="text-center">
+                            <button type="button" class="icon-button" data-action="deleteWeekday" data-index="{{index}}" style="color: #782e22;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <button type="button" data-action="addWeekday" style="margin-top: 10px;">
+                <i class="fas fa-plus"></i> {{localize "PDNC.CustomCalendar.AddWeekday"}}
+            </button>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="tab {{#if (eq activeTab 'settings')}}active{{/if}}" data-tab="settings" data-group="main">
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.LeapYearRule"}}</label>
+                <select name="leapYearRule">
+                    {{selectOptions leapYearChoices selected=editingCalendar.leapYearRule localize=true}}
+                </select>
+                <p class="notes">{{localize "PDNC.CustomCalendar.LeapYearHint"}}</p>
+            </div>
+            
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.YearZero"}}</label>
+                <input type="number" name="yearZero" value="{{editingCalendar.yearZero}}" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.YearPrefix"}}</label>
+                <input type="text" name="yearPrefix" value="{{editingCalendar.yearPrefix}}" placeholder="AD">
+                <p class="notes">{{localize "PDNC.CustomCalendar.YearPrefixHint"}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.YearPostfix"}}</label>
+                <input type="text" name="yearPostfix" value="{{editingCalendar.yearPostfix}}" placeholder="AG">
+                <p class="notes">{{localize "PDNC.CustomCalendar.YearPostfixHint"}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.NegativeYearPrefix"}}</label>
+                <input type="text" name="negativeYearPrefix" value="{{editingCalendar.negativeYearPrefix}}">
+                <p class="notes">{{localize "PDNC.CustomCalendar.NegativeYearHint"}}</p>
+            </div>
+
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.NegativeYearPostfix"}}</label>
+                <input type="text" name="negativeYearPostfix" value="{{editingCalendar.negativeYearPostfix}}" placeholder="BC">
+            </div>
+             
+            <div class="form-group">
+                <label>{{localize "PDNC.CustomCalendar.WeekdayStart"}}</label>
+                <input type="number" name="weekdayStart" value="{{editingCalendar.weekdayStart}}" placeholder="0">
+                <p class="notes">{{localize "PDNC.CustomCalendar.WeekdayStartHint"}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="sheet-footer flexrow" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(197, 160, 89, 0.3);">
+        <button type="button" data-action="cancel">
+            <i class="fas fa-times"></i> {{localize "PDNC.Cancel"}}
+        </button>
+        <button type="button" data-action="save">
+            <i class="fas fa-save"></i> {{localize "PDNC.Save"}}
+        </button>
+    </footer>
+</div>

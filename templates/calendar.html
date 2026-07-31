@@ -6,8 +6,8 @@
              {{!-- View Switcher --}}
             <div class="pdnc-view-switcher">
                 <h2 class="pdnc-date-title" data-action="toggleViewMenu" title="Change View">
-                    {{#if isMonthView}}{{{monthName}}} {{year}}{{/if}}
-                    {{#if isYearView}}{{year}}{{/if}}
+                    {{#if isMonthView}}{{{monthName}}} {{displayYear}}{{/if}}
+                    {{#if isYearView}}{{displayYear}}{{/if}}
                     {{#if isListView}}{{localize 'PDNC.EventList'}}{{/if}}
                      <i class="fas fa-caret-down" style="font-size: 0.6em; opacity: 0.5; margin-left: 5px;"></i>
                 </h2>
@@ -67,9 +67,20 @@
 
             {{#unless this.isEmpty}}
             <span class="pdnc-day-number">{{this.number}}</span>
+            {{#if this.moon}}
+            <span class="pdnc-day-moon pdnc-moon-phase {{this.moon.cssClass}}" {{{this.moon.badgeStyleAttr}}} title="{{this.moon.title}}" aria-label="{{this.moon.title}}"></span>
+            {{/if}}
             <div class="pdnc-day-events">
                 {{#each this.events}}
-                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}" {{{this.styleAttr}}}></div>
+                <div class="pdnc-event-dot {{this.class}}" title="{{this.title}}" {{{this.styleAttr}}}>
+                    {{#if this.icon}}
+                        {{#if this.isImageIcon}}
+                            <img src="{{this.icon}}" style="width: 80%; height: 80%; object-fit: contain;" />
+                        {{else}}
+                            <i class="{{this.icon}}" style="font-size: 0.8em; line-height: 1; display:flex; justify-content:center; align-items:center; width:100%; height:100%;"></i>
+                        {{/if}}
+                    {{/if}}
+                </div>
                 {{/each}}
             </div>
             {{/unless}}
@@ -96,7 +107,12 @@
                      title="{{this.titleString}}"
                      {{{this.bgStyleAttr}}}
                      data-datekey="{{../../year}}-{{../index}}-{{this.number}}">
-                    {{#unless this.isEmpty}}{{this.number}}{{/unless}}
+                    {{#unless this.isEmpty}}
+                    <span class="pdnc-mini-day-number">{{this.number}}</span>
+                    {{#if this.moon}}
+                    <span class="pdnc-mini-moon pdnc-moon-phase {{this.moon.cssClass}}" {{{this.moon.badgeStyleAttr}}} title="{{this.moon.title}}" aria-label="{{this.moon.title}}"></span>
+                    {{/if}}
+                    {{/unless}}
                 </div>
                 {{/each}}
             </div>
@@ -116,7 +132,7 @@
             </div>
             <div class="pdnc-list-content">
                 <span class="pdnc-list-title">{{this.title}}</span>
-                <span class="pdnc-list-meta">{{this.year}} • {{{this.weekday}}}</span>
+                <span class="pdnc-list-meta">{{this.displayYear}} - {{{this.weekday}}}</span>
             </div>
         </div>
         {{else}}

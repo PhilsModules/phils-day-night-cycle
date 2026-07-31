@@ -1,0 +1,32 @@
+<div class="pdnc-premium-window pdnc-calendar-list">
+
+    
+    <div class="pdnc-scrollable">
+    {{#if (eq calendars.length 0)}}
+        <p class="notes text-center">{{localize "PDNC.CustomCalendar.NoCalendars"}}</p>
+    {{else}}
+        <ul class="pdnc-calendar-ul">
+            {{#each calendars}}
+            <li class="pdnc-calendar-li flexrow" data-id="{{this.id}}">
+                <span class="calendar-name">{{this.name}}</span>
+                <span class="calendar-desc">{{this.description}}</span>
+                <div class="calendar-controls">
+                    <button type="button" class="icon-button" data-action="edit" title="{{localize 'PDNC.Edit'}}"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="icon-button" data-action="export" title="{{localize 'PDNC.Export'}}"><i class="fas fa-file-export"></i></button>
+                    <button type="button" class="icon-button" data-action="delete" title="{{localize 'PDNC.Delete'}}"><i class="fas fa-trash"></i></button>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="button" data-action="create">
+            <i class="fas fa-plus"></i> {{localize "PDNC.CustomCalendar.Create"}}
+        </button>
+        <button type="button" data-action="import">
+            <i class="fas fa-file-import"></i> {{localize "PDNC.CustomCalendar.Import"}}
+        </button>
+    </footer>
+</div>

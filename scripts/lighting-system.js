@@ -44,6 +44,79 @@ export class LightingSystem {
     // Static State for Debouncing
     static _debounceTimer = null;
 
+    static calculateMoonPhaseAngle(dayInCycle, cycleLength, dayFraction = 0) {
+        const safeCycleLength = Math.max(1, Number(cycleLength) || 1);
+        const normalizedAge = ((((Number(dayInCycle) || 1) - 1) + dayFraction) % safeCycleLength + safeCycleLength) % safeCycleLength;
+        return (normalizedAge / safeCycleLength) * Math.PI * 2;
+    }
+
+    static calculateMoonIlluminationFraction(dayInCycle, cycleLength, dayFraction = 0) {
+        const phaseAngle = this.calculateMoonPhaseAngle(dayInCycle, cycleLength, dayFraction);
+        return (1 - Math.cos(phaseAngle)) / 2;
+    }
+
+    static _buildMoonPolygonPath(points, radius = 49, center = 50) {
+        if (!Array.isArray(points) || points.length === 0) return "";
+
+        const scalePoint = ([x, y]) => {
+            const px = center + (x * radius);
+            const py = center + (y * radius);
+            return `${px.toFixed(2)} ${py.toFixed(2)}`;
+        };
+
+        return `M ${points.map(scalePoint).join(" L ")} Z`;
+    }
+
+    static _sampleMoonShapePoints(phaseAngle, steps = 32) {
+        const safeSteps = Math.max(8, Number(steps) || 32);
+        const normalizedAngle = ((phaseAngle % (Math.PI * 2)) + (Math.PI * 2)) % (Math.PI * 2);
+        const cosine = Math.cos(normalizedAngle);
+        const isWaxing = normalizedAngle <= Math.PI;
+
+        const terminatorPoints = [];
+        for (let i = 0; i <= safeSteps; i++) {
+            const y = -1 + ((2 * i) / safeSteps);
+            const limbWidth = Math.sqrt(Math.max(0, 1 - (y * y)));
+            const x = (isWaxing ? cosine : -cosine) * limbWidth;
+            terminatorPoints.push([x, y]);
+        }
+
+        const outerPoints = [];
+        for (let i = 0; i <= safeSteps; i++) {
+            const t = -Math.PI / 2 + (Math.PI * i / safeSteps);
+            const x = (isWaxing ? 1 : -1) * Math.cos(t);
+            const y = Math.sin(t);
+            outerPoints.push([x, y]);
+        }
+
+        return isWaxing
+            ? [...terminatorPoints, ...outerPoints.reverse()]
+            : [...outerPoints, ...terminatorPoints.reverse()];
+    }
+
+    static buildMoonBadgeStyle(dayInCycle, cycleLength, dayFraction = 0) {
+        if (!dayInCycle || !cycleLength) return "";
+        const illuminationFraction = this.calculateMoonIlluminationFraction(dayInCycle, cycleLength, dayFraction);
+        const phaseAngle = this.calculateMoonPhaseAngle(dayInCycle, cycleLength, dayFraction);
+
+        let svg;
+        const colorMoon = "#f5efda"; // Light
+        const colorDark = "#101521"; // Shadow
+        
+        if (illuminationFraction <= 0.005) {
+            svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="49" fill="${colorDark}"/></svg>`;
+        } else if (illuminationFraction >= 0.995) {
+            svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="49" fill="${colorMoon}"/></svg>`;
+        } else {
+            const pts = this._sampleMoonShapePoints(phaseAngle, 32);
+            const pathData = this._buildMoonPolygonPath(pts, 49, 50);
+            svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" shape-rendering="geometricPrecision"><circle cx="50" cy="50" r="49" fill="${colorDark}"/><path d="${pathData}" fill="${colorMoon}"/></svg>`;
+        }
+
+        const b64 = btoa(svg);
+        return `background-image: url('data:image/svg+xml;base64,${b64}'); background-size: contain; background-repeat: no-repeat; background-position: center; border: none !important; box-shadow: none !important;`;
+    }
+
     static getClimateParams() {
         const climate = game.settings.get(MODULE_ID, "climateZone") || "marine_west_coast";
         
@@ -78,46 +151,6 @@ export class LightingSystem {
     }
 
     static getMoonData(worldTime) {
-        // Calculate Day Number (1-30)
-        // Try to sync with the visual Calendar System first
-        let dayInCycle = 1;
-        
-        if (window.PhilsDayNightCycle && window.PhilsDayNightCycle.calendar) {
-            // Get the visual date from the calendar system
-            const date = window.PhilsDayNightCycle.calendar.getDate(worldTime);
-            
-            dayInCycle = date.day % MOON_DATA.cycle_length;
-            if (dayInCycle === 0) dayInCycle = 30;
-            
-        } else {
-            // Fallback: Use Global Settings for Day Offset to assume "Current Day"
-            const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
-            const currentAbsoluteDay = Math.floor(worldTime / 86400) + offsetDays;
-            
-            // 1-based day for the cycle (1 to 30)
-            dayInCycle = (currentAbsoluteDay % MOON_DATA.cycle_length) + 1;
-        }
-        
-        // Calculate Smooth Cycle Age (for continuous offset)
-        // Cycle Length = 30 days.
-        // We need (DayIndex - 1) + (TimeOfDay / 24h).
-        // 1-based day -> 0-based index.
-        const secondsInDay = worldTime % 86400; // This might ignore offset?
-        // We should use the same visual consistency.
-        // Actually, let's just use the `secondsInDay` derived from the passed `worldTime`.
-        // Note: worldTime passed in here is already adjusted for timeOffset in main.v2.js?
-        // Let's check main.v2.js call site: 
-        // const globalTime = game.time.worldTime + (timeOffset * 60);
-        // So yes, it represents visual time.
-        
-        // Calculate fraction of day passed (0.0 to 0.99)
-        const dayLength = 86400;
-        let timeOfDay = worldTime % dayLength; 
-        if (timeOfDay < 0) timeOfDay += dayLength;
-        const dayFraction = timeOfDay / dayLength;
-        
-        const smoothCycleAge = (dayInCycle - 1) + dayFraction;
-        
         // Check if Custom Moon Phases are enabled
         const useCustom = game.settings.get(MODULE_ID, "useCustomMoonPhases");
         let phases = MOON_DATA.phases;
@@ -133,6 +166,24 @@ export class LightingSystem {
                 console.error("PDNC | Invalid Custom Moon Phase JSON:", e);
             }
         }
+
+        const cycleLength = Math.max(
+            1,
+            ...phases.flatMap(phase => Array.isArray(phase.days) ? phase.days : [])
+        );
+
+        // Calculate Day Number (1..cycleLength) based on absolute world time
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const currentAbsoluteDay = Math.floor(worldTime / 86400) + offsetDays;
+        
+        const dayInCycle = ((currentAbsoluteDay % cycleLength) + cycleLength) % cycleLength + 1;
+        
+        // Calculate Smooth Cycle Age (for continuous offset)
+        const dayLength = 86400;
+        let timeOfDay = worldTime % dayLength; 
+        if (timeOfDay < 0) timeOfDay += dayLength;
+        const dayFraction = timeOfDay / dayLength;
+        const smoothCycleAge = (dayInCycle - 1) + dayFraction;
         
         const phase = phases.find(p => p.days.includes(dayInCycle));
         const activePhase = phase || phases[0];
@@ -153,11 +204,30 @@ export class LightingSystem {
             }
         }
 
+        const waxingThreshold = cycleLength / 2;
+        const isWaning = dayInCycle > waxingThreshold;
+        const phaseLabel = activePhase?.name?.startsWith?.("PDNC.")
+            ? game.i18n.localize(activePhase.name)
+            : (activePhase?.name || "Moon Phase");
+        const phaseDescription = activePhase?.desc?.startsWith?.("PDNC.")
+            ? game.i18n.localize(activePhase.desc)
+            : (activePhase?.desc || phaseLabel);
+        const illuminationFraction = this.calculateMoonIlluminationFraction(dayInCycle, cycleLength, dayFraction);
+        const badgeStyle = this.buildMoonBadgeStyle(dayInCycle, cycleLength, dayFraction);
+
         return {
             phase: activePhase,
             dayInCycle: dayInCycle,
             smoothCycleAge: smoothCycleAge,
-            region: region
+            region: region,
+            cycleLength: cycleLength,
+            illuminationFraction: illuminationFraction,
+            isWaxing: !isWaning,
+            isWaning: isWaning,
+            phaseLabel: phaseLabel,
+            phaseDescription: phaseDescription,
+            phaseCssClass: `pdnc-moon-phase ${activePhase?.icon_state || "empty"} ${isWaning ? "waning" : "waxing"}`,
+            badgeStyle: badgeStyle
         };
     }
 
@@ -268,29 +338,34 @@ export class LightingSystem {
         }
 
         // 2. Dawn -> Noon (Brightening)
+        // Moon does NOT affect daytime brightness (sun dominates).
+        // We blend from (baseNight - moonDim) at dawn toward 0 at noon.
         if (currentMinutes >= dawn && currentMinutes < noon) {
-            const progress = (currentMinutes - dawn) / (noon - dawn);
-            // Moon might still satisfy darkness if it's visible during day (often overpowered by sun)
-            // We usually just take Sun brightness.
-            // Darkness 1.0 -> 0.0
-            return 1.0 - progress;
+            let progress = (currentMinutes - dawn) / (noon - dawn);
+            progress = Math.sin(progress * (Math.PI / 2));
+            const baseNight = MOON_DATA.base_night_darkness;
+            const dawnDarkness = Math.max(0, baseNight - moonDim); // How dark it still was at dawn
+            return Math.max(0, dawnDarkness * (1.0 - progress));
         }
 
-        // 3. Noon -> Dusk (Transition to sunset)
+        // 3. Noon -> Dusk (Transition to sunset - sun dominates, moon has no effect)
         if (currentMinutes >= noon && currentMinutes < dusk) {
-            const progress = (currentMinutes - noon) / (dusk - noon);
-            return progress * 0.5; // Target 0.5 at sunset
+            let progress = (currentMinutes - noon) / (dusk - noon);
+            progress = 1 - Math.cos(progress * (Math.PI / 2));
+            return Math.max(0, progress * 0.5); // Target 0.5 at dusk, no moon influence
         }
 
         // 4. Dusk -> Night (Twilight) or End of Day
         if (night !== null) {
             const baseNight = MOON_DATA.base_night_darkness;
             const targetDarkness = Math.max(0, baseNight - moonDim);
+            const duskDarkness = Math.max(0, 0.5 - moonDim);
 
             if (currentMinutes >= dusk && currentMinutes < night) {
-                // Transition Dusk (0.5) -> Night (Target)
-                const progress = (currentMinutes - dusk) / (night - dusk);
-                return 0.5 + (progress * (targetDarkness - 0.5));
+                // Transition Dusk -> Night (Target)
+                let progress = (currentMinutes - dusk) / (night - dusk);
+                progress = Math.sin(progress * (Math.PI / 2));
+                return duskDarkness + (progress * (targetDarkness - duskDarkness));
             }
             // After Night
             if (currentMinutes >= night) {
@@ -315,6 +390,10 @@ export class LightingSystem {
         return 0; 
     }
 
+    static refresh() {
+        this.update(game.time.worldTime);
+    }
+
     static async update(worldTime) {
         // Debounce Logic: Wait for 250ms of silence before updating
         if (this._debounceTimer) clearTimeout(this._debounceTimer);
@@ -333,30 +412,89 @@ export class LightingSystem {
             if (!game.user.isGM) return;
 
             const darkness = this.calculateDarkness(worldTime);
-            
+
             // Validate Result
             if (isNaN(darkness) || darkness < 0 || darkness > 1) {
-                // console.warn(`PDNC | LightingSystem computed invalid darkness: ${darkness}. Skipping update.`);
+                console.warn(`PDNC | LightingSystem: Invalid darkness value (${darkness}) – skipping update.`);
                 return;
             }
 
             // Update current scene if valid and ready
-            if (canvas && canvas.ready && canvas.scene && canvas.scene.active) {
+            if (canvas && canvas.ready && canvas.scene) {
                 // Dungeon Mode Check
                 if (canvas.scene.getFlag(MODULE_ID, "disableLighting")) {
-                    // console.log("PDNC | Dungeon Mode Active: Lighting disabled for this scene.");
+                    console.log("PDNC | LightingSystem: Dungeon Mode active – lighting update skipped.");
                     return;
                 }
 
-                const currentDarkness = canvas.scene.environment?.darknessLevel ?? canvas.scene.darkness ?? 0;
-                
-                // Apply update
-                if (Math.abs(currentDarkness - darkness) > 0.005) {
-                    await canvas.scene.update({ darkness: darkness }, { animate: true });
+                // --- Robust darkness read: try all known properties across v11/v12/v13/v14 ---
+                let currentDarkness = 0;
+                let readPath = "default(0)";
+                if (typeof canvas.scene.environment?.darknessLevel === "number") {
+                    currentDarkness = canvas.scene.environment.darknessLevel;
+                    readPath = "scene.environment.darknessLevel";
+                } else if (typeof canvas.scene.darknessLevel === "number") {
+                    currentDarkness = canvas.scene.darknessLevel;
+                    readPath = "scene.darknessLevel";
+                } else if (typeof canvas.scene.darkness === "number") {
+                    currentDarkness = canvas.scene.darkness;
+                    readPath = "scene.darkness";
+                }
+
+                // --- Detailed Debug Logging ---
+                const params = this.getClimateParams();
+                const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0;
+                const adjustedTime = worldTime + (timeOffset * 60);
+                const dayLength = 86400;
+                const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
+                const currentMinutes = Math.floor(currentSeconds / 60);
+                const hh = String(Math.floor(currentMinutes / 60)).padStart(2, "0");
+                const mm = String(currentMinutes % 60).padStart(2, "0");
+
+                let moonDim = 0.0;
+                let moonPhaseLabel = "—";
+                let moonIllumination = 0.0;
+                if (game.settings.get(MODULE_ID, "enableMoonLighting")) {
+                    const moonData = this.getMoonData(worldTime);
+                    moonDim = this.calculateMoonBrightness(currentMinutes, moonData, this.parseTime(params?.noon));
+                    moonPhaseLabel = moonData.phaseLabel;
+                    moonIllumination = moonData.illuminationFraction;
+                }
+
+                const delta = Math.abs(currentDarkness - darkness);
+                const willUpdate = delta > 0.005;
+
+                console.groupCollapsed(
+                    `%cPDNC | 🌗 Lighting @ ${hh}:${mm}  →  target: ${darkness.toFixed(4)}  ${willUpdate ? "✅ UPDATE" : "⏭ skipped (no change)"}`,
+                    `color: ${willUpdate ? "#7dffb3" : "#888"}; font-weight: bold;`
+                );
+                console.log(`  🕐 Time            : ${hh}:${mm} (${currentMinutes} min)`);
+                console.log(`  ☀️  Dawn/Noon/Dusk/Night : ${params?.dawn ?? "?"} / ${params?.noon ?? "?"} / ${params?.dusk ?? "?"} / ${params?.night ?? "?"}`);
+                console.log(`  🌙 Moon phase      : ${moonPhaseLabel}  (illumination: ${moonIllumination.toFixed(3)})`);
+                console.log(`  🌙 Moon dim        : ${moonDim.toFixed(4)}`);
+                console.log(`  📖 Read via        : ${readPath}  →  current: ${currentDarkness.toFixed(4)}`);
+                console.log(`  🔆 Darkness        : ${currentDarkness.toFixed(4)}  →  ${darkness.toFixed(4)}  (Δ ${delta.toFixed(4)})`);
+                console.log(`  🔧 Foundry version : v${game.release?.generation ?? "?"}`);
+                console.groupEnd();
+
+                // Apply update only if darkness changed meaningfully
+                if (willUpdate) {
+                    const updateData = {};
+                    const gen = game.release?.generation ?? 0;
+
+                    if (gen >= 12) {
+                        updateData["environment.darknessLevel"] = darkness;
+                        updateData["darkness"] = darkness;
+                    } else {
+                        updateData["darkness"] = darkness;
+                    }
+
+                    await canvas.scene.update(updateData);
                 }
             }
         } catch (err) {
             console.error("PDNC | LightingSystem.update Error:", err);
         }
     }
+
 }

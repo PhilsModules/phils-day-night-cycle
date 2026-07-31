@@ -20,7 +20,10 @@
     <p class="notes" style="text-align: center; margin-bottom: 15px;">
         {{localize "PDNC.TimeMachineHelp"}}
     </p>
-    <footer class="sheet-footer" style="display: flex; justify-content: center;">
+    <footer class="sheet-footer" style="display: flex; justify-content: center; gap: 10px;">
+        <button type="button" data-action="nextSun" class="pdnc-btn-secondary" title="Jump to next sunrise or sunset" style="width: auto;">
+            <i class="fas fa-sun"></i> {{localize "PDNC.NextSunriseSunset"}}
+        </button>
         <button type="button" data-action="save" class="pdnc-btn-save" style="width: auto;">
             <i class='fas fa-hourglass-start'></i> {{localize "PDNC.SetWorldTime"}}
         </button>

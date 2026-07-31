@@ -3,14 +3,14 @@
         <h1>{{localize "PDNC.CustomClimate.ListTitle"}}</h1>
     </header>
     
-    <div class="pdnc-scrollable" style="max-height: 400px;">
+    <div class="pdnc-scrollable">
     {{#if (eq climates.length 0)}}
-        <p class="notes text-center" style="margin-top: 20px;">{{localize "PDNC.CustomClimate.NoClimates"}}</p>
+        <p class="notes text-center">{{localize "PDNC.CustomClimate.NoClimates"}}</p>
     {{else}}
-        <ul class="pdnc-climate-ul" style="list-style: none; padding: 0; margin: 0;">
+        <ul class="pdnc-climate-ul">
             {{#each climates}}
-            <li class="pdnc-climate-li flexrow" data-id="{{this.id}}" style="padding: 10px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); align-items: center; justify-content: space-between;">
-                <span class="climate-name" style="font-family: var(--pdnc-font); color: #c5a059; font-size: 1.1em; cursor: pointer;">{{this.name}}</span>
+            <li class="pdnc-climate-li flexrow" data-id="{{this.id}}">
+                <span class="climate-name">{{this.name}}</span>
                 <div class="climate-controls">
                     <button type="button" class="icon-button" data-action="edit" title="Edit"><i class="fas fa-edit"></i></button>
                     <button type="button" class="icon-button" data-action="delete" title="Delete"><i class="fas fa-trash"></i></button>
@@ -21,9 +21,15 @@
     {{/if}}
     </div>
 
-    <footer class="sheet-footer flexrow" style="margin-top: 10px;">
+    <footer class="sheet-footer flexrow">
         <button type="button" data-action="create">
             <i class="fas fa-plus"></i> {{localize "PDNC.CustomClimate.Create"}}
+        </button>
+        <button type="button" data-action="export">
+            <i class="fas fa-file-export"></i> Export
+        </button>
+        <button type="button" data-action="import">
+            <i class="fas fa-file-import"></i> Import
         </button>
     </footer>
 </div>

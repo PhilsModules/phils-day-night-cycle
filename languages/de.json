@@ -1,11 +1,17 @@
 {
     "PDNC": {
+        "Save": "Speichern",
+        "Cancel": "Abbrechen",
+        "Edit": "Bearbeiten",
+        "Export": "Exportieren",
+        "Import": "Importieren",
         "SettingVisibleName": "Uhr anzeigen",
         "SettingVisibleHint": "Schaltet die Sichtbarkeit der Tag/Nacht-Uhr um.",
         "Wizard": {
             "Title": "Willkommen bei Phils Tag- & Nachtzyklus",
             "Subtitle": "Lass uns dein Kalender- und Wettersystem einrichten.",
             "Step1Title": "Kalender-Setup",
+            "Saved": "Konfiguration gespeichert!",
             "Step2Title": "Datum & Zeit",
             "Step3Title": "Einstellungen & Berechtigungen",
             "Finish": "Setup abschließen",
@@ -37,13 +43,38 @@
         "SettingTimeOffsetName": "Zeitversatz (Minuten)",
         "SettingTimeOffsetHint": "Passt die Uhr um diese Anzahl von Minuten an (positiv oder negativ). Beispiel: 300 für +5 Stunden, -60 für -1 Stunde.",
         "SettingDayOffsetName": "Datumsversatz (Tage)",
+        "SettingYearPrefixName": "Jahres-Präfix",
+        "SettingYearPrefixHint": "Wird bei eingebauten Kalendern vor positiven Jahren angezeigt, z.B. 'AD 1999'. Eigene Kalender können das überschreiben.",
+        "SettingYearPostfixName": "Jahres-Postfix",
+        "SettingYearPostfixHint": "Wird bei eingebauten Kalendern nach positiven Jahren angezeigt, z.B. '4725 AG'. Eigene Kalender können das überschreiben.",
+        "SettingNegativeYearPrefixName": "Negatives Jahres-Präfix",
+        "SettingNegativeYearPrefixHint": "Wird vor negativen Jahren angezeigt. Wenn gesetzt, wird das Minuszeichen ausgeblendet.",
+        "SettingNegativeYearPostfixName": "Negatives Jahres-Postfix",
+        "SettingNegativeYearPostfixHint": "Wird nach negativen Jahren angezeigt, z.B. '300 BC'. Wenn gesetzt, wird das Minuszeichen ausgeblendet.",
         "SettingDayOffsetHint": "Passt das Kalenderdatum um diese Anzahl von Tagen an. Nützlich zur Anpassung an andere Kalendermodule.",
         "SettingWeekdayOffsetName": "Wochentag Versatz",
         "SettingWeekdayOffsetHint": "Verschiebt den Wochentag (z.B. +1 für einen Tag später), ohne das Datum zu ändern.",
+        "SettingClockFaceModeName": "Zifferblatt-Stil",
+        "SettingClockFaceModeHint": "Wählen Sie zwischen einer segmentierten Ansicht aller Phasen oder einem einzelnen dynamischen Bild.",
+        "ClockFaceMode": {
+            "Composite": "Komposit (Alle Phasen)",
+            "Dynamic": "Dynamisch (Wechselt mit Zeit)"
+        },
+        "SettingClockPositionName": "Ausrichtung der Uhr",
+        "SettingClockPositionHint": "Bestimmt, auf welcher Seite des Bedienfelds die Uhr (das Zifferblatt) angezeigt wird. 'Automatisch' passt die Position je nach Bildschirmrand an.",
+        "ClockPosition": {
+            "Auto": "Automatisch (Smart)",
+            "Above": "Über dem Bedienfeld (Oben)",
+            "Below": "Unter dem Bedienfeld (Unten)",
+            "Left": "Links vom Bedienfeld",
+            "Right": "Rechts vom Bedienfeld"
+        },
         "SettingCalendarSystemName": "Kalendersystem",
         "SettingCalendarSystemHint": "Wählen Sie das zu verwendende Kalendersystem aus.",
         "SettingShowRealNamesName": "Reale Tages- und Monatsnamen anzeigen",
         "SettingShowRealNamesHint": "Wenn aktiviert, wird der reale/alternative Name in Klammern angezeigt (z.B. 'Abadius (Januar)').",
+        "SettingUse12HourFormatName": "12-Stunden-Format (AM/PM) nutzen",
+        "SettingUse12HourFormatHint": "Wenn aktiviert, werden Uhrzeiten im 12-Stunden-Format (AM/PM) angezeigt.",
         "SettingPlayerCreateName": "Spielern erlauben Termine zu erstellen",
         "SettingPlayerCreateHint": "Wenn aktiviert, können Spieler öffentliche und Gruppen-Notizen erstellen.",
         "SettingPlayerAdvanceName": "Spielern erlauben Zeit vorzuspulen",
@@ -150,16 +181,20 @@
         "TimeMin": "Min",
         "TimeHour": "Std",
         "TimeDay": "Tag",
-        "ToggleClock": "Uhr umschalten",
+        "ToggleClock": "Uhr einklappen/ausklappen (Rechtsklick: Ausrichtung)",
         "OpenCalendar": "Kalender öffnen",
         "OpenTimeMachine": "Zeit-Navigation öffnen",
+        "Keybinding": {
+            "ToggleCalendar": {
+                "Name": "Kalenderfenster umschalten",
+                "Hint": "Öffnet oder schließt das Hauptkalenderfenster."
+            }
+        },
         "CalendarTitle": "Weltkalender",
         "DayDetails": "Tagesdetails",
         "AddEvent": "Termin hinzufügen",
         "EditEvent": "Termin bearbeiten",
-        "Save": "Speichern",
         "Delete": "Löschen",
-        "Cancel": "Abbrechen",
         "Close": "Schließen",
         "SETTINGS": {
             "Save": "Einstellungen speichern",
@@ -168,6 +203,8 @@
         "Title": "Titel",
         "Description": "Beschreibung",
         "Type": "Typ",
+        "Color": "Farbe",
+        "Icon": "Icon",
         "Visibility": "Sichtbarkeit",
         "TypeEvent": "Öffentliches Ereignis",
         "TypeGM": "GM Notiz",
@@ -194,8 +231,10 @@
             "daily": "Täglich",
             "weekly": "Wöchentlich",
             "monthly": "Monatlich",
-            "yearly": "Jährlich"
+            "yearly": "Jährlich",
+            "interval": "Intervall (Alle X Tage)"
         },
+        "IntervalDays": "Intervall (Tage)",
         "EditAction": "Bearbeiten",
         "EditSeries": "Serie Bearbeiten",
         "DeleteSeries": "Serie löschen",
@@ -205,11 +244,13 @@
         "ReminderDays": "Erinnerung (Tage)",
         "PostToChat": "In Chat posten",
         "EventCreated": "Neuer Kalendertermin",
-        "Date": "Datum",
-        "Month": "Monat",
         "Year": "Jahr",
+        "Month": "Monat",
+        "Day": "Tag",
+        "Date": "Datum",
         "TimeMachineHelp": "Teleportiert die gesamte Welt zum gewählten Datum. Mit Vorsicht benutzen!",
         "TimeMachineTitle": "Zeitmaschine",
+        "NextSunriseSunset": "Nächster Sonnenauf-/untergang",
         "SetWorldTime": "Weltzeit setzen",
         "WeatherConfig": {
             "Title": "Wetterkonfiguration",
@@ -222,6 +263,12 @@
             "Reroll": "Wetter neu würfeln",
             "Apply": "Wetter anwenden"
         },
+        "ThemeConfig": {
+            "Title": "Themen Konfiguration",
+            "Hint": "Weisen Sie jedem Tagesabschnitt eigene Hintergrundbilder zu. Diese Bilder werden sowohl für die Uhr als auch für die Wettervorschau verwendet.",
+            "Saved": "Themen-Konfiguration gespeichert.",
+            "PhaseHint": "Aktiv während: {phase}"
+        },
         "CustomClimate": {
             "Title": "Benutzerdefinierte Klimazonen",
             "OpenMenu": "Klimazonen verwalten",
@@ -233,8 +280,68 @@
             "JSONHelp": "Geben Sie Wetterdaten als JSON-Array ein. Beispiel: [{\"temp\": \"10-15°C\", \"text\": \"Sonnig\", \"fx\": null}]",
             "EditorHelp": "Fügen Sie Wettereinträge hinzu. Temperatur kann ein Bereich sein (z.B. '10-20').",
             "AddWeather": "Wetter hinzufügen",
-
             "DeleteConfirm": "Sind Sie sicher, dass Sie diese Klimazone löschen möchten? Dies kann nicht rückgängig gemacht werden."
+        },
+        "CustomCalendar": {
+            "ListTitle": "Benutzerdefinierte Kalender",
+            "NoCalendars": "Keine eigenen Kalender gefunden.",
+            "Create": "Kalender erstellen",
+            "Import": "JSON Importieren",
+            "ImportSuccess": "Kalender erfolgreich importiert!",
+            "EditorTitle": "Kalender bearbeiten",
+            "Name": "Kalender Name",
+            "Description": "Beschreibung",
+            "Months": "Monate",
+            "Weekdays": "Wochentage",
+            "Settings": "Einstellungen",
+            "MonthName": "Monatsname",
+            "Days": "Tage",
+            "LeapDays": "Schalt",
+            "AddMonth": "Monat hinzufügen",
+            "WeekdayName": "Wochentag Name",
+            "AddWeekday": "Wochentag hinzufügen",
+            "LeapYearRule": "Schaltjahr Regel",
+            "RuleNone": "Keine",
+            "RuleGregorian": "Gregorianisch (Standard)",
+            "RuleEvery4": "Alle 4 Jahre",
+            "LeapYearHint": "Bestimmt, wann Schaltjahre stattfinden.",
+            "YearZero": "Jahr Null",
+            "YearPrefix": "Jahres-Präfix",
+            "YearPrefixHint": "Wird vor positiven Jahren angezeigt, z.B. 'AD 1999'.",
+            "YearPostfix": "Jahres-Postfix",
+            "YearPostfixHint": "Wird nach positiven Jahren angezeigt, z.B. '4725 AG'.",
+            "NegativeYearPrefix": "Negatives Jahres-Präfix",
+            "NegativeYearPostfix": "Negatives Jahres-Postfix",
+            "NegativeYearHint": "Wenn ein negatives Präfix oder Postfix gesetzt ist, werden negative Jahre ohne Minuszeichen angezeigt, z.B. '300 BC'.",
+            "WeekdayStart": "Wochentag Versatz",
+            "WeekdayStartHint": "Verschiebt den Start-Wochentag der Epoche.",
+            "ErrorNoName": "Bitte geben Sie dem Kalender einen Namen.",
+            "DeleteConfirm": "Sind Sie sicher, dass Sie diesen Kalender löschen möchten?"
+        },
+        "SimpleCalendarMigration": {
+            "Title": "Aus Simple Calendar importieren",
+            "MenuHint": "Erstellt einen PDNC-Kalender aus dem aktuell aktiven Simple-Calendar-Kalender und Ã¼bernimmt dessen Notizen.",
+            "Headline": "Simple Calendar Migration",
+            "ActiveSource": "Aktive Simple-Calendar-Quelle:",
+            "Help": "Es wird immer der aktuell aktive Simple-Calendar-Kalender importiert. Wenn Sie mehrere SC-Kalender verwenden, wechseln Sie dort zuerst den aktiven Kalender und starten Sie dann den Import.",
+            "TargetName": "Name des Zielkalenders",
+            "SetActive": "Importierten Kalender als aktiven PDNC-Kalender setzen",
+            "ImportEvents": "Simple-Calendar-Notizen als PDNC-Ereignisse importieren",
+            "ReplaceEvents": "Bereits importierte Ereignisse aus dieser Simple-Calendar-Quelle ersetzen",
+            "ImportDate": "Aktuelles Datum und Uhrzeit synchronisieren",
+            "TimeWarning": "Die Synchronisierung von Datum/Uhrzeit ist deaktiviert, weil dieser Simple-Calendar-Kalender keine standardmÃ¤ÃŸige Tages- oder ZeitlÃ¤nge verwendet, die PDNC nicht exakt abbilden kann.",
+            "RangeWarning": "MehrtÃ¤gige Simple-Calendar-Notizen werden nur bei endlichen, einmaligen ZeitrÃ¤umen in tagesweise PDNC-Ereignisse aufgeteilt. Wiederkehrende ZeitrÃ¤ume werden am Startdatum importiert, mit Hinweis auf den Original-Zeitraum in der Beschreibung.",
+            "Run": "Migration starten",
+            "Unavailable": "Simple Calendar ist in dieser Welt nicht aktiv oder seine API ist nicht verfÃ¼gbar.",
+            "NoActiveCalendar": "Simple Calendar ist aktiv, aber es konnte kein aktiver Kalender gelesen werden.",
+            "NotesFound": "Gefundene Notizen",
+            "RecurringFound": "Wiederkehrende Notizen",
+            "RangedFound": "Zeitraum-Notizen",
+            "CurrentDate": "Aktuelles SC-Datum",
+            "SuccessCalendar": "Kalender \"{name}\" importiert.",
+            "SuccessEvents": "{count} Ereignis-EintrÃ¤ge importiert.",
+            "SuccessDate": "Datum- und Zeit-Offsets wurden synchronisiert.",
+            "SkipDate": "Datum/Uhrzeit-Synchronisierung wurde Ã¼bersprungen."
         },
         "MoonConfig": {
             "Title": "Mondphasen Konfiguration",
@@ -276,20 +383,27 @@
             "WaningCrescent": "Morgen-Mond. Geht erst um 03:00 Uhr morgens auf. Mitternachts dunkel."
         },
         "WeatherMixer": {
-            "Title": "Wetter Mixer",
-            "AvailableEffects": "Verfügbare Effekte",
+            "Title": "Wetter Mixer & Komponist",
+            "ComposerTitle": "Wetter Komponist",
+            "ComposerHint": "Füge Effekte aus der Seitenleiste hinzu und passe ihre Eigenschaften an.",
+            "AvailableEffects": "Verfügbare Vorlagen",
             "Favorites": "Favoriten",
             "NoFavorites": "Keine Favoriten gespeichert.",
-            "FavoriteNamePlaceholder": "Name des Favoriten...",
+            "FavoriteNamePlaceholder": "Name deines Mixes...",
             "CreateMix": "Mix erstellen",
-            "WarnNoName": "Bitte geben Sie einen Namen für Ihren Favoriten ein.",
-            "WarnNoEffects": "Bitte wählen Sie mindestens einen Effekt aus.",
-            "SavedFavorite": "Favorit gespeichert: {name}"
+            "Preview": "Vorschau",
+            "PreviewStarted": "Vorschau gestartet (Nur Lokal)",
+            "ApplyMix": "Wetter anwenden",
+            "WarnNoName": "Bitte geben Sie einen Namen für Ihren Mix ein.",
+            "WarnNoEffects": "Bitte fügen Sie mindestens eine Ebene zum Mix hinzu.",
+            "SavedFavorite": "Mix gespeichert: {name}",
+            "EmptyState": "Füge eine Vorlage aus der Seitenleiste hinzu, um zu beginnen."
         },
+        "Remove": "Ebene entfernen",
         "LightingConfig": "Beleuchtungseinstellungen",
         "LightingStrategy": "Beleuchtungsstrategie",
         "Lighting": {
-             "Strategy": {
+            "Strategy": {
                 "Standard": "Standard (Tag/Nacht Zyklus)",
                 "BrightNight": "Helle Nacht (Weiße Nächte / Dämmerung)",
                 "PolarDay": "Polartag (Sonne geht nie unter)",
@@ -302,9 +416,11 @@
         },
         "MonthView": "Monatsansicht",
         "YearView": "Jahresansicht",
+        "CalendarMoonTitle": "{phase} - Tag {day}/{cycle}",
+        "CalendarEventCount": "{count} Ereignisse",
         "SetCurrentDate": "Als aktuelles Datum setzen",
         "ConfirmDateChange": "Möchtest du wirklich {days} Tage {direction} springen?",
-        "EventList": "Terminübersicht",
+        "EventList": "Terminliste",
         "NoEventsFound": "Keine Termine gefunden.",
         "DirectionForward": "in die Zukunft",
         "DirectionBackward": "in die Vergangenheit",
@@ -424,7 +540,7 @@
                 "Description": "D&D 5e Forgotten Realms Setting."
             },
             "Magaambya": {
-                 "Months": {
+                "Months": {
                     "Hawk Month": "Falkenmonat",
                     "Hawk Month_Alt": "Januar",
                     "Snake Month": "Schlangenmonat",
@@ -449,8 +565,8 @@
                     "Spider Month_Alt": "November",
                     "Magaambya Month": "Magaambyamonat",
                     "Magaambya Month_Alt": "Dezember"
-                 },
-                 "Weekdays": {
+                },
+                "Weekdays": {
                     "Moonday": "Mondtag",
                     "Moonday_Alt": "Montag",
                     "Toilday": "Mühtag",
@@ -465,13 +581,87 @@
                     "Starday_Alt": "Samstag",
                     "Sunday": "Sonntag",
                     "Sunday_Alt": "Sonntag"
-                 },
-                 "Description": "Mwangi Expanse Setting."
+                },
+                "Description": "Mwangi Expanse Setting."
+            },
+            "Vikingar": {
+                "Months": {
+                    "Gormanudur": "Gormánuður",
+                    "Gormanudur_Alt": "Schlachtmonat",
+                    "Ylir": "Ýlir",
+                    "Ylir_Alt": "Jul-Monat",
+                    "Morsugur": "Mörsugur",
+                    "Morsugur_Alt": "Fettsauger",
+                    "Thorri": "Þorri",
+                    "Thorri_Alt": "Thorri",
+                    "Goa": "Góa",
+                    "Goa_Alt": "Góa",
+                    "Einmanudur": "Einmánuður",
+                    "Einmanudur_Alt": "Einzelmonat",
+                    "Harpa": "Harpa",
+                    "Harpa_Alt": "Harpa",
+                    "Skerpla": "Skerpla",
+                    "Skerpla_Alt": "Skerpla",
+                    "Solmanudur": "Sólmánuður",
+                    "Solmanudur_Alt": "Sonnenmonat",
+                    "Heyannir": "Heyannir",
+                    "Heyannir_Alt": "Heu-Ernte",
+                    "Tvimanudur": "Tvímánuður",
+                    "Tvimanudur_Alt": "Zwi-Monat",
+                    "Haustmanudur": "Haustmánuður",
+                    "Haustmanudur_Alt": "Herbstmonat",
+                    "Sumarauki": "Sumarauki",
+                    "Sumarauki_Alt": "Sommerzugabe"
+                },
+                "Weekdays": {
+                    "Sunnudagr": "Sunnudagr",
+                    "Sunnudagr_Alt": "Sonntag",
+                    "Manadagr": "Mánadagr",
+                    "Manadagr_Alt": "Montag",
+                    "Tyrsdagr": "Týrsdagr",
+                    "Tyrsdagr_Alt": "Dienstag",
+                    "Odinsdagr": "Óðinsdagr",
+                    "Odinsdagr_Alt": "Mittwoch",
+                    "Thorsdagr": "Þórsdagr",
+                    "Thorsdagr_Alt": "Donnerstag",
+                    "Frjadagr": "Frjádagr",
+                    "Frjadagr_Alt": "Freitag",
+                    "Laugardagr": "Laugardagr",
+                    "Laugardagr_Alt": "Waschtag"
+                },
+                "Description": "Historischer gebundener Mondkalender der Wikinger mit dem Fokus auf Sommer- und Winterhalbjahr."
             }
         },
         "Tooltips": {
             "ToggleGlobalWeather": "Globales Wetter umschalten",
             "PausePreview": "Vorschau pausieren"
+        },
+        "Warning": {
+            "NoPermission": "Sie haben keine Berechtigung für diese Aktion."
+        },
+        "WeatherRules": {
+            "SettingName": "SL-Wetternotizen im Chat",
+            "SettingHint": "Fügt optionale, nur für die Spielleitung sichtbare Regelhinweise direkt in erzeugte Wetter-Chatkarten ein.",
+            "ChatTitle": "Wetterhinweise",
+            "ChatTitleGM": "SL-Notizen",
+            "Provider": {
+                "Title": "Wetterhinweise"
+            },
+            "Generic": {
+                "Title": "Allgemeine Wetterfolgen",
+                "WetVisibility": "Sichtlinien werden kürzer und offene Flächen werden rutschig.",
+                "WetExposure": "Längere Reisen können Ausrüstung, Kleidung und Lagerplätze durchn?ssen.",
+                "StormWind": "Starker Wind erschwert Geschosse, Gehör, offene Flammen und fragiles Lager.",
+                "Lightning": "Freies Gelände, Anhöhen und ungeschützte Reisewege werden besonders gefährlich.",
+                "SnowGround": "Schnee kann Bewegung bremsen, Spuren verdecken und Wege schwerer lesbar machen.",
+                "HailCover": "Wer keinen Schutz hat, riskiert Verletzungen durch Einschlag und sucht meist Deckung.",
+                "VisionLoss": "Die Sicht bricht stark ein; Hinterhalte, Verirrung und verpasste Orientierungspunkte werden wahrscheinlicher.",
+                "Navigation": "Navigation kann schon auf kurze Distanz scheitern, wenn keine Führung, Markierung oder Deckung vorhanden ist.",
+                "Steam": "Dunst und Dampf können selbst offenes Gelände als Deckung wirken lassen.",
+                "Cold": "Kälte wird für alle ohne trockene Kleidung, Schutz oder regelmäßige Wärmepausen zum Problem.",
+                "Heat": "Hitzestress zermürbt lange Märsche, schwere Arbeit und Reisen in Rüstung oder dicker Kleidung."
+            }
         }
     }
 }
+

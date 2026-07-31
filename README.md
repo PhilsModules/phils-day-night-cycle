@@ -1,9 +1,9 @@
-﻿<div align="center">
+<div align="center">
 
 # Phil's Day&Night Cycle
 
-![Foundry v14 Compatible](https://img.shields.io/badge/Foundry-v14-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-4.9.2-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
+[![Version](https://img.shields.io/badge/Version-5.0.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -20,27 +20,6 @@ _Erwecke deine Welt zum Leben mit einem wunderschoenen und immersiven Uhr Widget
 <br>
 
 > [!NOTE]
-> **A Quick Note / Hinweis in eigener Sache**
->
-> 🇬🇧 **Hi everyone!**  
-> A quick note before you start: I create these modules completely in my free time and offer them to the community for free. Since neither my partner nor I are professional graphic designers, translators, or full time developers, maintaining these projects takes a huge amount of effort. To make these modules possible, we use assistance from artificial intelligence, especially for translations and visual elements. Hiring professional designers or translators is simply something we cannot afford out of pocket.
-> 
-> If these modules should ever be removed from the official Foundry package listing due to rules regarding artificial intelligence, do not worry. The project will continue! You can always find all updates, releases, and support directly here on GitHub.
-> 
-> Thank you so much for your understanding and support!
-> 
-> ---
-> 
-> 🇩🇪 **Hallo zusammen!**  
-> Ein kleiner Hinweis in eigener Sache, bevor ihr startet: Ich erstelle diese Module komplett in meiner Freizeit und stelle sie der Community kostenlos zur Verfügung. Da weder meine Lebensgefährtin noch ich Grafikdesigner, gelernte Übersetzer oder hauptberufliche Entwickler sind, ist die Pflege extrem aufwendig. Um die Module in dieser Form überhaupt anbieten zu können, nutzen wir Hilfe von künstlicher Intelligenz, zum Beispiel für Übersetzungen und grafische Elemente. Professionelle Designer oder Übersetzer können wir uns privat schlicht nicht leisten.
-> 
-> Sollten die Module wegen der Nutzung von künstlicher Intelligenz oder veränderter Richtlinien irgendwann aus dem offiziellen Verzeichnis von Foundry gelöscht werden, müsst ihr euch keine Sorgen machen. Das Projekt stirbt nicht! Ihr findet alle Updates, neue Versionen und Unterstützung bei Problemen weiterhin direkt hier auf GitHub.
-> 
-> Vielen Dank für euer Verständnis und eure Unterstützung!
-
-<br>
-
-
 >
 > ### Kompatibilitaet / Compatibility
 >
@@ -115,8 +94,10 @@ Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs 
 
 The clock is visible in the bottom right by default.
 
-- **Move:** Simply drag it with your mouse to any position.
-- **Hide:** Click the small clock symbol located just to the left of the digital time to hide the large clock graphic.
+- **Move:** Simply drag the widget with your mouse to any position on screen.
+- **Smart Clock Orientation:** When in *Automatic (Smart)* mode, the clock face automatically shifts to open above, below, left, or right based on the screen edge to stay completely visible.
+- **Orientation Selector (Right-Click):** Right-click the small clock icon on the widget to open a 3x3 directional popover menu (`Above ⬆️`, `Below ⬇️`, `Left ⬅️`, `Right ➡️`, or `Smart Auto 🪄`) to manually pin where the clock face opens with 1 click.
+- **Hide / Collapse:** Click the clock icon to toggle the clock face open/closed (hiding the top arrow cleanly when collapsed).
 - **Open Calendar:** Click directly on the clock face or the date text.
 
 ### 2. The Calendar
@@ -314,8 +295,10 @@ Phil's Day&Night Cycle fuegt eine visuell ansprechende Uhr hinzu welche sich aut
 
 Du findest die Uhr standardmaessig unten rechts.
 
-- **Verschieben:** Ziehe sie einfach mit der Maus an den gewuenschten Rand.
-- **Ausblenden:** Klicke auf das kleine Uhrensymbol direkt links neben der digitalen Uhrzeit, um die große Uhr auszublenden.
+- **Verschieben:** Ziehe das Widget einfach mit der Maus an jeden beliebigen Bildschirmrand.
+- **Intelligente Ausrichtung (Smart Positioning):** Im *Automatisch (Smart)*-Modus erkennt die Uhr Bildschirmraender selbststaendig. Am oberen Rand oeffnet sich das Zifferblatt z. B. unter dem Bedienfeld, am linken Rand rechts davon usw.
+- **Schnell-Ausrichtung per Rechtsklick:** Mache einen **Rechtsklick auf das Uhr-Icon** im Bedienfeld, um ein diamantfoermiges Schnellmenue zu oeffnen. Dort kannst du mit 1 Klick bestimmen, wo das Zifferblatt aufklappen soll (`Oben ⬆️`, `Unten ⬇️`, `Links ⬅️`, `Rechts ➡️` oder `Smart Auto 🪄`).
+- **Ausblenden:** Klicke auf das Uhr-Icon, um das Zifferblatt ein- oder auszuklappen (der Pfeil wird dabei sauber ausgeblendet).
 - **Kalender oeffnen:** Klicke direkt auf das Zifferblatt oder das Datum.
 
 ### 2. Der Kalender

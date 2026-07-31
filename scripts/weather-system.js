@@ -2,6 +2,8 @@ import { CLIMATE_DATA_DE } from "./climate-data-de.js";
 import { CLIMATE_DATA_EN } from "./climate-data-en.js";
 import { CalendarSystem } from "./calendar-system.js";
 import { CalendarDB } from "./calendar-db.js";
+import { collectWeatherTags, ensureWeatherSemantics } from "./weather-tags.js";
+import { WeatherRulesRegistry } from "./weather-rules.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -135,8 +137,6 @@ export class WeatherSystem {
         // Also handles simple numbers if needed, but data is usually range.
         // Regex for finding two numbers (integers, potentially negative) separated by text
         // Looks for patterns like "-5 bis 2"
-        // Regex for finding two numbers (integers, potentially negative) separated by text
-        // Looks for patterns like "-5 bis 2"
         const regex = /(-?\d+)\s*(?:bis|to)\s*(-?\d+)/i;
         const match = tempStr.match(regex);
         if (match) {
@@ -179,6 +179,11 @@ export class WeatherSystem {
     /**
      * Calculates current temperature based on time of day using a Sine Wave approximation.
      * Coldest at 04:00 (Dawnish), Warmest at 16:00 (Afternoon).
+     *
+     * FIX (Issue #35): Now uses the same time normalization as LightingSystem.calculateDarkness():
+     *   - timeOffset is applied before calculation
+     *   - Safe positive modulo ((x % n + n) % n) prevents negative worldTime values
+     *     (e.g. from the Golarion/PF2e calendar) from landing on the wrong point of the sine wave.
      */
     static getCurrentTemperature() {
         // Get stored weather data
@@ -187,25 +192,29 @@ export class WeatherSystem {
 
         const time = game.time.worldTime;
         const dayLength = 86400;
-        const secondsOfDay = time % dayLength;
-        const hours = secondsOfDay / 3600;
+
+        // Apply timeOffset (mirrors LightingSystem.calculateDarkness) and use
+        // safe positive modulo so negative worldTime values (e.g. Golarion calendar)
+        // don't land on the wrong point of the sine wave.
+        const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const adjustedTime = time + (timeOffset * 60);
+        const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
+        const hours = currentSeconds / 3600;
 
         // Sine Wave Logic
         // We want Min at 4 (height -1) and Max at 16 (height 1).
         // Period is 24h.
         // Standard Sine: sin(x) starts 0 at 0. Peak 1 at PI/2.
-        // We want Peak at 16. 
-        // 16 hours = (16/24) * 2PI = 4/3 PI ≈ 4.18 rad
+        // We want Peak at 16.
         // Formula: Temp = Avg + (Amp * sin( (Hours - Shift) * Frequency ))
         // Peak of sin(t) is at PI/2.
         // t = (h - shift) * (2PI / 24)
         // We want PI/2 when h=16.
         // (16 - shift) * (PI/12) = PI/2
-        // 16 - shift = 6
-        // shift = 10.
+        // 16 - shift = 6  =>  shift = 10.
         // So: sin( (h - 10) * PI/12 )
-        // Check 4: (4-10)*PI/12 = -6PI/12 = -PI/2 -> -1 (Min). Correct.
-        // Check 16: (16-10)*PI/12 = 6PI/12 = PI/2 -> 1 (Max). Correct.
+        // Check 4:  (4-10)*PI/12  = -PI/2 -> -1 (Min). Correct.
+        // Check 16: (16-10)*PI/12 =  PI/2 ->  1 (Max). Correct.
 
         const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
         
@@ -287,6 +296,13 @@ export class WeatherSystem {
                 text: text, // Short text
                 description: text, // Currently same as text
                 fx: (Array.isArray(weatherEntry.fx) && weatherEntry.fx.length > 0) ? weatherEntry.fx[0] : null,
+                fxList: Array.isArray(weatherEntry.fx) ? [...weatherEntry.fx] : [],
+                tags: collectWeatherTags({
+                    tags: weatherEntry.tags,
+                    fx: weatherEntry.fx,
+                    tempMin: temps.minC,
+                    tempMax: temps.maxC
+                }),
                 generated: true,
                 climateName: climate.data.name,
                 img: climate.data.img,
@@ -315,6 +331,7 @@ export class WeatherSystem {
      * @param {Object} weatherStore 
      */
     static async applyWeather(weatherStore) {
+        weatherStore = ensureWeatherSemantics(weatherStore);
         let currentWorldTime = game.time.worldTime;
 
         // Apply Offsets
@@ -347,13 +364,28 @@ export class WeatherSystem {
             tempString = `${min}°F - ${max}°F`;
         }
 
+        const rulesEnabled = game.settings.get(MODULE_ID, "weatherRuleNotesEnabled");
+        const weatherRules = rulesEnabled
+            ? await WeatherRulesRegistry.collect(weatherStore, {
+                dateData,
+                dateLabel: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`,
+                todayId
+            })
+            : { publicSections: [], gmSections: [] };
+
         const messageContent = await foundry.applications.handlebars.renderTemplate(`modules/${MODULE_ID}/templates/weather-chat.html`, {
             climate: weatherStore.climateName,
             season: weatherStore.seasonName,
             text: weatherStore.description,
             temp: tempString,
             img: weatherStore.img,
-            date: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`
+            date: `${dateData.weekday}, ${dateData.day}. ${dateData.monthName} ${dateData.year}`,
+            publicRulesSections: weatherRules.publicSections,
+            gmRulesSections: weatherRules.gmSections,
+            hasPublicRules: weatherRules.publicSections.length > 0,
+            hasGmRules: weatherRules.gmSections.length > 0,
+            rulesTitle: game.i18n.localize("PDNC.WeatherRules.ChatTitle"),
+            gmRulesTitle: game.i18n.localize("PDNC.WeatherRules.ChatTitleGM")
         });
 
         // Create Chat Message
@@ -402,7 +434,7 @@ export class WeatherSystem {
             const currentSeconds = ((currentWorldTime % dayLength) + dayLength) % dayLength;
             const hours = Math.floor(currentSeconds / 3600);
             const minutes = Math.floor((currentSeconds % 3600) / 60);
-            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+            const timeString = CalendarSystem.formatTime(hours, minutes);
 
             const baseTitle = game.i18n.localize("PDNC.WeatherReport");
             const reportTitle = `${baseTitle} (${timeString})`;

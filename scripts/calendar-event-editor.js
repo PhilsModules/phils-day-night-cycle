@@ -56,6 +56,9 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         const isGM = game.user.isGM;
         const playerCreate = game.settings.get(MODULE_ID, "playerCreateEvents");
         const canCreate = isGM || playerCreate;
+        const calendarSystem = new CalendarSystem();
+        const parsedDate = CalendarSystem.parseDateKey(this.dateKey) ?? { year: 0, month: 0, day: 1 };
+        const maxDaysInMonth = calendarSystem.getDaysInMonth(parsedDate.year, parsedDate.month);
 
         // Determine title, description, and type
         let title = "";
@@ -77,9 +80,23 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             description: description,
             recurring: this.editEvent ? (this.editEvent.recurring || "none") : "none",
             reminder: this.editEvent ? (this.editEvent.reminder || 0) : 0,
+            color: this.editEvent ? (this.editEvent.color || "") : "",
+            icon: this.editEvent ? (this.editEvent.icon || "") : "",
+            intervalDays: this.editEvent ? (this.editEvent.intervalDays || 36) : 36,
             postToChat: !this.editEvent, 
             isEditing: !!this.editEvent,
-            isRecurringInstance: !!this.isRecurringInstance
+            isRecurringInstance: !!this.isRecurringInstance,
+            
+            // Date Editing Data
+            currentYear: parsedDate.year,
+            currentMonth: parsedDate.month,
+            currentDay: parsedDate.day,
+            maxDaysInMonth: maxDaysInMonth,
+            months: calendarSystem.config.months.map((m, i) => ({ 
+                index: i, 
+                name: CalendarSystem.stripMarkup(m.name)
+            })),
+            canEditDate: isGM // Only GM can move events (simpler for now)
         };
     }
 
@@ -89,7 +106,20 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         const type = formData.object.type;
         const recurring = formData.object.recurring;
         const reminder = parseInt(formData.object.reminder) || 0;
+        const color = formData.object.color;
+        const icon = formData.object.icon;
+        const intervalDays = parseInt(formData.object.intervalDays) || 36;
         const postToChat = formData.object.postToChat;
+
+        // Date Change
+        const newYear = parseInt(formData.object.dateYear);
+        const newMonth = parseInt(formData.object.dateMonth);
+        const newDay = parseInt(formData.object.dateDay);
+        
+        let targetDateKey = this.dateKey;
+        if (!isNaN(newYear) && !isNaN(newMonth) && !isNaN(newDay)) {
+            targetDateKey = `${newYear}-${newMonth}-${newDay}`;
+        }
         
         // New: Recurrence Scope
         const recurrenceScope = formData.object.recurrenceScope || 'series'; // 'series' or 'instance'
@@ -100,10 +130,14 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             type: type,
             recurring: recurring,
             reminder: reminder,
+            color: color,
+            icon: icon,
+            intervalDays: intervalDays,
             author: this.editEvent ? this.editEvent.author : game.user.id,
             timestamp: this.editEvent ? this.editEvent.timestamp : Date.now(),
             // Pass the scope back
-            recurrenceScope: recurrenceScope
+            recurrenceScope: recurrenceScope,
+            targetDateKey: targetDateKey
         };
 
         if (this.callback) {
@@ -116,19 +150,39 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         }
     }
 
+    _onRender(context, options) {
+        super._onRender(context, options);
+        const html = this.element;
+        
+        const recurringSelect = html.querySelector('select[name="recurring"]');
+        const intervalGroup = html.querySelector('#pdnc-interval-group');
+        if (recurringSelect && intervalGroup) {
+            recurringSelect.addEventListener('change', (e) => {
+                intervalGroup.style.display = e.target.value === 'interval' ? '' : 'none';
+            });
+        }
+        
+        // No clear color button logic anymore as <color-picker> handles it
+    }
+
     async _postCreationMessage(data) {
-         const config = new CalendarSystem().config; 
-         
-         const [year, month, day] = this.dateKey.split('-').map(Number);
-         const monthName = config.months[month].name;
+         const calendarSystem = new CalendarSystem();
+         const targetDateKey = data.targetDateKey || this.dateKey;
+         const { year, month, day } = CalendarSystem.parseDateKey(targetDateKey) ?? { year: 0, month: 0, day: 1 };
+         const displayDate = calendarSystem.formatDate({
+             year,
+             month,
+             day,
+             monthName: calendarSystem.config.months[month]?.name
+         }, { plainText: true });
          
          // Generate clickable link
-         const linkHtml = `<a class="pdnc-event-link" data-date="${this.dateKey}"><i class="fas fa-calendar-check"></i> ${data.title}</a>`;
+         const linkHtml = `<a class="pdnc-event-link" data-date="${targetDateKey}"><i class="fas fa-calendar-check"></i> ${data.title}</a>`;
 
          const content = `
              <div class="pdnc-chat-card">
                  <h3>${game.i18n.localize("PDNC.EventCreated")}</h3>
-                 <p><strong>${game.i18n.localize("PDNC.Date")}:</strong> ${day}. ${monthName}, ${year}</p>
+                 <p><strong>${game.i18n.localize("PDNC.Date")}:</strong> ${displayDate}</p>
                  <p><strong>${game.i18n.localize("PDNC.Title")}:</strong> ${linkHtml}</p>
                  <p>${data.description}</p>
                  ${data.recurring !== 'none' ? `<p><em>${game.i18n.localize("PDNC.Recurring")}: ${game.i18n.localize("PDNC.Recurs." + data.recurring)}</em></p>` : ''}

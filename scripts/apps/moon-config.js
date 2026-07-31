@@ -10,11 +10,11 @@ export class MoonConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
             title: "Moon Phase Configuration", // TODO: Localize
             icon: "fas fa-moon",
             resizable: true,
-            width: 700,
+            width: 600,
             height: 600
         },
         position: {
-            width: 700,
+            width: 600,
             height: 600
         },
         actions: {

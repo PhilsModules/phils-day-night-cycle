@@ -112,13 +112,14 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
     static get DEFAULT_OPTIONS() {
         return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
             tag: "form",
+            id: "pdnc-custom-climate",
             window: {
                 title: "PDNC.CustomClimate.Title",
                 icon: "fas fa-cloud-sun-rain",
                 resizable: true
             },
             position: {
-                width: 700,
+                width: 450,
                 height: "auto"
             },
             classes: ["pdnc-app", "standard-form"],
@@ -130,7 +131,9 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 cancel: CustomClimateApp.prototype._onCancel,
                 validate: CustomClimateApp.prototype._onValidate,
                 addRow: CustomClimateApp.prototype._onAddRow,
-                deleteRow: CustomClimateApp.prototype._onDeleteRow
+                deleteRow: CustomClimateApp.prototype._onDeleteRow,
+                export: CustomClimateApp.prototype._onExport,
+                import: CustomClimateApp.prototype._onImport
             },
             tabGroups: {
                 seasons: "spring"
@@ -350,5 +353,35 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _onValidate(event, target) {
          // No longer needed with form inputs, but keeping method strictly to avoid break if triggered?
          // We can remove it from template.
+    }
+
+    async _onExport(event, target) {
+        const climates = game.settings.get(MODULE_ID, "customClimates") || {};
+        const data = JSON.stringify(climates, null, 2);
+        saveDataToFile(data, "application/json", "pdnc-custom-climates.json");
+    }
+
+    async _onImport(event, target) {
+        new Promise((resolve) => {
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = ".json";
+            input.onchange = () => {
+                const file = input.files[0];
+                if (file) {
+                    readTextFromFile(file).then(async text => {
+                        try {
+                            const data = JSON.parse(text);
+                            await game.settings.set(MODULE_ID, "customClimates", data);
+                            ui.notifications.info("Custom climates imported successfully!");
+                            this.render();
+                        } catch (e) {
+                            ui.notifications.error("Failed to parse JSON file.");
+                        }
+                    });
+                }
+            };
+            input.click();
+        });
     }
 }

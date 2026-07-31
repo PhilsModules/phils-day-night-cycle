@@ -1,33 +1,40 @@
+## v5.0.0 - Smart Clock Orientation & Direct Positioning Control
+
+- **🧭 Smart Clock Positioning:** The clock widget now dynamically detects screen boundaries when dragged. If placed at the top of the screen, the clock face automatically opens below the time display. If dragged to the left or right edges, it opens on the opposite side to prevent overflowing off-screen.
+- **💎 Direct Orientation Controls (Right-Click Selector):** Right-clicking the clock icon on the widget now opens a sleek 3x3 diamond popover menu directly on screen (`Above ⬆️`, `Below ⬇️`, `Left ⬅️`, `Right ➡️`, or `Smart Auto 🪄`). This allows GMs and players to manually pin the clock face direction instantly with one click.
+- **🎯 Arrow Pointer Hiding:** When the clock face is collapsed or hidden, the top arrow pointer is now cleanly hidden so no stray icon artifacts remain on screen.
+- **Lighting Synchronization for All Scenes:** Fixed an issue where automatic scene lighting updates would fail to update when a Gamemaster was viewing an unactivated scene. Lighting updates now reliably apply to whichever scene the Gamemaster is currently viewing.
+- **Instant Scene Lighting Sync:** Scene lighting now automatically updates and synchronizes to match the current world time as soon as a scene finishes loading or switching.
+- **Dungeon Mode Shortcut:** Fixed an issue where clicking the top-left Dungeon Mode icon failed to open the configuration window. The Dungeon Mode window now opens cleanly as expected.
+
+## v4.9.4 - 12-Hour Time Format
+
+- **12-Hour Format Option:** Added a new setting to toggle the clock and UI times to a 12-hour AM/PM format. This updates the digital clock, hover tooltips, and weather reports while preserving the internal 24-hour cycle logic for compatibility.
+- **Localization:** Added full English and German translations for the new 12-hour format setting.
+
+## v4.9.3 - Climate Data Overhaul & Temperature Fixes
+
+- **Temperature Calculation Fix:** Fixed a critical bug (Issue #35) where negative world times or offsets caused the temperature sine-wave to invert, resulting in extreme temperatures before sunrise. Temperatures now correctly reach their minimum just before dawn.
+- **Climate Data Rebalancing:** Capped extreme temperature spikes across all 15 climate zones (e.g., lowered Marine West Coast max from 40°C to 34°C, Ice Cap min from -60°C to -40°C) to improve realism and prevent instant death in survival games.
+- **Weather FX Synchronization:** Repaired the German climate weather tables to ensure all particle weather effects (like rain and sandstorms) correctly trigger for German language settings.
+- **Immersive Climate Data Overhaul:** Completely rewrote the weather descriptions for all 12 climate zones across all seasons in both English and German. Replaced thousands of overly technical meteorological terms (e.g., "Inversionswetterlage", "Evapotranspiration") with highly atmospheric, RPG-friendly text focusing on immersion, extreme weather, and survival conditions.
+- **Weather Favorites:** Fixed an issue where saved weather favorites could fail to load properly.
+
 ## v4.9.2 - V14 Lighting Fixes & Smart UI
 
-- **V14 Lighting System:** Fixed an issue where automated lighting updates would fail silently in Foundry V14 due to mismatched scene properties. The module now reliably sets the darkness level across all supported Foundry versions.
+- **V14 Lighting System:** Fixed an issue where automated lighting updates would fail silently in Foundry V14 due to updated scene lighting properties. The module now reliably sets the darkness level across all supported Foundry versions.
 - **Smart Time Jump Button:** The "Next Sunrise/Sunset" button has been overhauled. It now dynamically displays a Moon or Sun icon depending on whether the next celestial event is dusk or dawn based on your active climate zone.
 - **Time Rewind Logic:** Holding `Ctrl` over the jump button now correctly shows the opposite event icon in red, indicating a jump backward in time. Furthermore, lighting is now correctly updated when rewinding time.
-- **Weather Performance Fix:** Fixed a severe lag and `IndexSizeError` crash in Foundry V14 caused by conflicts with the core `FogExtractor` and native weather properties. The module now correctly routes weather changes to its own custom particle engine without interfering with Foundry's core rendering pipeline.
+- **Weather Performance Fix:** Fixed a severe lag and rendering crash in Foundry V14 caused by conflicts with native weather and fog rendering. The module now correctly routes weather changes to its own custom particle engine without interfering with Foundry's core rendering pipeline.
 
 ## v4.9.1 - Bug Fixes & Stability
 
-- **UI Disappearance Fix:** Resolved a critical issue in Foundry v12 strict mode where a loadTemplates deprecation warning would crash the module's initialization, causing the entire clock UI to disappear.
+- **UI Disappearance Fix:** Resolved a critical issue in Foundry v12 strict mode where a template loading warning would crash the module's initialization, causing the entire clock UI to disappear.
 - **Time Travel Fix:** Fixed an error (NaN) that occurred when clicking the "Next Sunrise/Sunset" button, caused by the new calendar system architecture.
 - **Encoding & Localization:** Fixed missing German umlauts (ä, ö, ü) in weather descriptions and corrected the temperature symbol displaying as Â°C instead of °C.
 
 ## v4.9.0 - Feature Expansion
 
-- **Interval Recurring Events:** Added a new "Interval" recurring event type. You can now create events that repeat every X days (e.g., every 36 days), perfect for custom celestial phenomena or regular rituals.
-- **Event Colors & Icons:** Fully personalize your calendar! You can now assign custom colors and icons (FontAwesome classes or Image URLs) directly to your events. The calendar grid and Day Details view have been updated to cleanly display your custom designs.
-- **Climate Import/Export:** Added "Export" and "Import" functionality to Custom Climate Zones. Easily backup or share your custom weather generation tables as JSON files.
-- **Next Sunrise/Sunset Button:** Added a highly requested shortcut to the Time Machine window. A single click automatically calculates the exact time remaining until the next Dawn or Dusk and precisely advances the world clock.
-- **Localization:** Full English and German translations added for all new UI elements.
-
-## v4.8.1 - V14 UI Hardening & Bug Fixes
-
-- **ðŸ › Settings V14 Compatibility:** Massively hardened the UI injection for the Settings Menu (`Theme Config`). It now directly supports the Foundry V14 completely rewritten `ApplicationV2` settings interface and correctly targets Web Components (`<file-picker>`).
-- **ðŸ › Clock Face Dynamic Image:** Fixed an issue where the clock face background image was hardcoded to `clock.webp` and ignored the user's customized image in the settings. The composite clock now dynamically loads the configured image.
-- **âœ✨ Reset Button Integration:** A dedicated "Reset" button has been cleanly integrated next to the Clock Background Image selector, allowing you to quickly revert to the default clock face.
-
-## v4.8.0 - Calendar Graphics & Historical Dating
-
-- **Negative Year Formatting:** Added support for prefixes and postfixes in negative years (e.g., "500 bs"). Settings are now exposed in the module settings and apply globally to all UI components.
 - **Astronomical Moon Visualization:** Implemented a robust SVG-based moon badge system in the calendar grid. Moon phases are calculated in real-time based on the astronomical cycle.
 - **Lighting & Stability Fixes:** Resolved critical errors in the lighting system related to dawn/dusk transitions and moon brightness calculations.
 - **UI Polish:** Added a direct "Manage Custom Calendars" shortcut to the calendar header for quicker configuration. (Removed based on user feedback to keep UI clean).
@@ -40,9 +47,9 @@
 
 ## v4.7.5 - Calendar Sync & Time Navigation Fixes
 
-- **Date Flow Fix:** Startup Wizard now initializes year, month, day, and time from live `worldTime` plus active offsets to keep Quick Setup aligned with the displayed calendar.
+- **Date Flow Fix:** Startup Wizard now initializes year, month, day, and time from live world time plus active offsets to keep Quick Setup aligned with the displayed calendar.
 - **PF2e Sync Availability:** Pathfinder sync can now be used with Golarion, Víkingar, and custom calendars without disabling the feature.
-- **Offset Save Order:** Wizard save flow now writes `dayOffset` and `timeOffset` first, then derives `syncPF2e` from the resulting state to prevent accidental epoch overrides.
+- **Offset Save Order:** Wizard save flow now writes day and time offsets first, then derives Pathfinder 2e sync from the resulting state to prevent accidental epoch overrides.
 - **Time Navigation Stability:** Quick Setup and Time Machine now stay consistent when switching between custom dates and PF2e sync behavior.
 
 ## v4.7.4

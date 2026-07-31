@@ -2,13 +2,15 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 const MODULE_ID = "phils-day-night-cycle";
 import { CalendarDB } from "./calendar-db.js";
+import { CalendarSystem } from "./calendar-system.js";
 
 export class CalendarDayViewer extends HandlebarsApplicationMixin(ApplicationV2) {
-    constructor(dateKey, events, onEditCallback) {
+    constructor(dateKey, events, onEditCallback, system = null) {
         super({});
         this.dateKey = dateKey;
         this.events = events;
         this.onEditCallback = onEditCallback;
+        this.system = system || new CalendarSystem();
     }
 
     get title() {
@@ -100,8 +102,11 @@ export class CalendarDayViewer extends HandlebarsApplicationMixin(ApplicationV2)
              this.events = [...filteredReal, ...projections];
         }
 
+        const { year, month, day } = CalendarSystem.parseDateKey(this.dateKey) ?? { year: 0, month: 0, day: 1 };
+
         return {
             dateKey: this.dateKey,
+            displayDate: this.system.formatDate({ year, month, day }, { includeWeekday: true, plainText: true }),
             events: this.events,
             hasEvents: this.events.length > 0
         };

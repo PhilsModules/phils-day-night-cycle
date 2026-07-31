@@ -22,8 +22,7 @@
             </p>
         </div>
 
-        {{!-- PF2e Sync - Only show if Golarion is selected --}}
-        {{#if isGolarion}}
+        {{!-- PF2e Sync --}}
         <div class="pdnc-form-group pf2e-sync-group" style="display: flex; align-items: center; justify-content: space-between; background: rgba(197, 160, 89, 0.1); padding: 10px; border-radius: 4px; border: 1px solid rgba(197, 160, 89, 0.3);">
             <div>
                 <label style="font-weight: bold; color: #c5a059;">{{localize "PDNC.Wizard.SyncName"}}</label>
@@ -33,7 +32,6 @@
                 <input type="checkbox" name="syncPF2e" {{checked syncPF2e}} style="width: 20px; height: 20px; accent-color: #c5a059;">
             </div>
         </div>
-        {{/if}}
     </div>
 
     {{!-- Step 2: Date & Time --}}

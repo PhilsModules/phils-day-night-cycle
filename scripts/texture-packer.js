@@ -1,5 +1,5 @@
 /**
- * Runtime Texture Packer for Phil's Day/Night Cycle
+ * Runtime Texture Packer for Phil's Day&Night Cycle
  * packs multiple PIXI.Textures into a single Render Texture (Atlas)
  * to enable efficient batch rendering via PIXI.ParticleContainer.
  */

@@ -4,7 +4,7 @@ import { ParticleEngine } from "./particle-engine.js";
 
 
 /**
- * Extensible Weather Effects Registry for Phil's Day/Night Cycle
+ * Extensible Weather Effects Registry for Phil's Day&Night Cycle
  * Allows easy registration of new particle-based weather effects.
  */
 export class WeatherEffectsRegistry {
@@ -219,6 +219,9 @@ export class WeatherEffectsRegistry {
 
     /**
      * Load favorites from settings and register them as effects.
+     * Handles two storage formats:
+     *   - Old format: Array of effect keys (e.g. ["rain", "snow"])
+     *   - New format: Full composite config object (saved by WeatherMixerApp._onSaveFavorite)
      */
     static loadFavorites() {
         try {
@@ -227,19 +230,30 @@ export class WeatherEffectsRegistry {
             
             const favorites = game.settings.get("phils-day-night-cycle", "weatherMixerFavorites") || {};
             
-            for (const [name, keys] of Object.entries(favorites)) {
+            for (const [name, data] of Object.entries(favorites)) {
                 // Ensure ID is safe and unique
                 const safeKey = name.toLowerCase().replace(/[^a-z0-9]/g, "_");
                 const id = `fav_${safeKey}`;
-                
-                // Generate and Register
-                const config = this.generateCompositeConfig(id, name, keys);
+
+                let config;
+                if (Array.isArray(data)) {
+                    // Old format: list of effect keys → generate composite from them
+                    config = this.generateCompositeConfig(id, name, data);
+                } else if (data && typeof data === "object") {
+                    // New format: full composite config object (saved by WeatherMixerApp._onSaveFavorite)
+                    config = { ...data, id, label: name };
+                } else {
+                    console.warn(`PDNC | loadFavorites: Skipping invalid favorite "${name}"`);
+                    continue;
+                }
+
                 this.registerEffect(id, config);
             }
         } catch (e) {
             console.warn("PDNC | Failed to load favorites:", e);
         }
     }
+
 
     /**
      * Registers a new weather effect with Foundry's configuration.
@@ -534,6 +548,14 @@ export class WeatherEffectsRegistry {
         });
 
         // --- 4. NATURE & DUST (27-38) ---
+
+        this.registerEffect("wind", {
+            id: "wind",
+            label: "25a. Wind / Gusts",
+            effects: [
+                { type: "particles", config: { type: "snow", density: 1.0, speed: 15.0, direction: 20, scale: 0.3, tint: [0.8, 0.8, 0.8] } } // Fast moving dust/debris
+            ]
+        });
 
         this.registerEffect("autumn_leaves", {
             id: "autumn_leaves",

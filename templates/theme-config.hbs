@@ -1,0 +1,56 @@
+<div class="pdnc-premium-window pdnc-theme-config">
+    <header>
+        <h1>{{localize "PDNC.ThemeConfig.Title"}}</h1>
+        <p class="notes text-center">{{localize "PDNC.ThemeConfig.Hint"}}</p>
+    </header>
+    
+    <div class="pdnc-scrollable">
+        <div class="form-group-stacked">
+            {{#each phases}}
+            <div class="form-group pdnc-phase-row">
+                <div class="pdnc-phase-meta">
+                    <input type="hidden" name="phases.{{@index}}.id" value="{{this.id}}">
+                    <input type="text" name="phases.{{@index}}.label" value="{{this.label}}" placeholder="Phase Name">
+                    
+                    <div class="time-inputs">
+                        <input type="text" name="phases.{{@index}}.startTime" value="{{this.startTime}}" placeholder="00:00" title="Start Time (HH:MM)">
+                        <span>-</span>
+                        <input type="text" name="phases.{{@index}}.endTime" value="{{this.endTime}}" placeholder="00:00" title="End Time (HH:MM)">
+                    </div>
+
+                    <button type="button" class="pdnc-btn-icon" data-action="deletePhase" data-index="{{@index}}" title="{{localize 'Delete'}}">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="form-fields file-picker-group">
+                    <input type="text" name="phases.{{@index}}.imagePath" value="{{this.currentImage}}" 
+                           placeholder="{{this.resolvedImage}}" 
+                           {{#unless this.currentImage}}class="propagated"{{/unless}}
+                           title="Will use: {{this.resolvedImage}}">
+                    
+                    <button type="button" data-action="browse" data-target="phases.{{@index}}.imagePath" title="{{localize 'Browse'}}">
+                        <i class="fas fa-file-import"></i>
+                    </button>
+                    <button type="button" data-action="clear" data-target="phases.{{@index}}.imagePath" title="{{localize 'Clear'}}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <hr>
+            {{/each}}
+        </div>
+
+        <div class="flexrow" style="padding: 10px;">
+            <button type="button" data-action="addPhase">
+                <i class="fas fa-plus"></i> {{localize "Add Phase"}}
+            </button>
+        </div>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+        <button type="submit">
+            <i class="fas fa-save"></i> {{localize "Save & Apply"}}
+        </button>
+    </footer>
+</div>

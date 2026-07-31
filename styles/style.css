@@ -203,6 +203,7 @@
   border-right: 7px solid transparent;
   border-bottom: 7px solid #444;
   /* Matches box border */
+  transition: border 0.2s ease;
 }
 
 .pdnc-time-display::after {
@@ -217,7 +218,240 @@
   border-right: 6px solid transparent;
   border-bottom: 6px solid #1a1a1e;
   /* Matches box bg approx */
+  transition: border 0.2s ease;
 }
+
+/* Hide arrow when clock disk is collapsed / hidden */
+.pdnc-disk.hidden ~ .pdnc-time-display::before,
+.pdnc-disk.hidden ~ .pdnc-time-display::after,
+#phils-day-night-cycle-container.clock-hidden .pdnc-time-display::before,
+#phils-day-night-cycle-container.clock-hidden .pdnc-time-display::after {
+  display: none !important;
+}
+
+/* 
+  Clock Orientation / Positioning Modes
+*/
+
+/* Default / Above Layout (Disk Above Panel) */
+#phils-day-night-cycle-container,
+#phils-day-night-cycle-container.pdnc-pos-above {
+  flex-direction: column;
+  align-items: center;
+  width: var(--pdnc-size);
+}
+
+#phils-day-night-cycle-container.pdnc-pos-above .pdnc-disk {
+  margin-bottom: 10px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-above .pdnc-time-display::before {
+  top: -8px;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #444;
+  border-top: none;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-above .pdnc-time-display::after {
+  top: -6px;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #1a1a1e;
+  border-top: none;
+}
+
+/* Below Layout (Disk Below Panel) */
+#phils-day-night-cycle-container.pdnc-pos-below {
+  flex-direction: column-reverse;
+  align-items: center;
+  width: var(--pdnc-size);
+}
+
+#phils-day-night-cycle-container.pdnc-pos-below .pdnc-disk {
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-below .pdnc-time-display::before {
+  top: auto;
+  bottom: -8px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #444;
+  border-bottom: none;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-below .pdnc-time-display::after {
+  top: auto;
+  bottom: -6px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #1a1a1e;
+  border-bottom: none;
+}
+
+/* Left Layout (Disk to the Left of Panel) */
+#phils-day-night-cycle-container.pdnc-pos-left {
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-left .pdnc-disk {
+  margin-right: 12px;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-left .pdnc-time-display::before {
+  top: 50%;
+  bottom: auto;
+  left: -8px;
+  right: auto;
+  transform: translateY(-50%);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid #444;
+  border-left: none;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-left .pdnc-time-display::after {
+  top: 50%;
+  bottom: auto;
+  left: -6px;
+  right: auto;
+  transform: translateY(-50%);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #1a1a1e;
+  border-left: none;
+}
+
+/* Right Layout (Disk to the Right of Panel) */
+#phils-day-night-cycle-container.pdnc-pos-right {
+  flex-direction: row-reverse;
+  align-items: center;
+  width: auto;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-right .pdnc-disk {
+  margin-left: 12px;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-right: 0;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-right .pdnc-time-display::before {
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: -8px;
+  transform: translateY(-50%);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #444;
+  border-right: none;
+}
+
+#phils-day-night-cycle-container.pdnc-pos-right .pdnc-time-display::after {
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: -6px;
+  transform: translateY(-50%);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #1a1a1e;
+  border-right: none;
+}
+
+/* Quick Directional Selector Popup */
+.pdnc-orientation-menu {
+  position: absolute;
+  z-index: 1000;
+  background: rgba(15, 15, 22, 0.95);
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(197, 160, 89, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  animation: pdnc-pop-in 0.15s ease-out;
+}
+
+@keyframes pdnc-pop-in {
+  from { opacity: 0; transform: scale(0.9) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.pdnc-orientation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  grid-template-rows: repeat(3, 30px);
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pdnc-orient-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: all 0.15s ease;
+}
+
+.pdnc-orient-btn:hover {
+  background: rgba(197, 160, 89, 0.3);
+  color: #fff;
+  border-color: #c5a059;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.4);
+}
+
+.pdnc-orient-btn.active {
+  background: #c5a059;
+  color: #111;
+  border-color: #ffe099;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.6);
+}
+
+.pdnc-orient-btn[data-pos="above"] { grid-column: 2; grid-row: 1; }
+.pdnc-orient-btn[data-pos="left"]  { grid-column: 1; grid-row: 2; }
+.pdnc-orient-btn[data-pos="auto"]  { grid-column: 2; grid-row: 2; }
+.pdnc-orient-btn[data-pos="right"] { grid-column: 3; grid-row: 2; }
+.pdnc-orient-btn[data-pos="below"] { grid-column: 2; grid-row: 3; }
 
 .pdnc-phase-icon {
   font-size: 1.6em;
@@ -565,12 +799,83 @@
   font-size: 14px;
   display: block;
   margin-bottom: 2px;
+  padding-right: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .pdnc-day-events {
   display: flex;
   gap: 3px;
   flex-wrap: wrap;
+}
+
+.pdnc-day-moon,
+.pdnc-mini-moon {
+  pointer-events: none;
+}
+
+.pdnc-day-moon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 12px;
+  height: 12px;
+}
+
+.pdnc-moon-phase {
+  --pdnc-moon-dark: #101521;
+  --pdnc-moon-light: #f5efda;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--pdnc-moon-dark);
+}
+
+.pdnc-moon-phase.full {
+  background: var(--pdnc-moon-light);
+}
+
+.pdnc-moon-phase.half.waxing {
+  background: linear-gradient(
+    90deg,
+    var(--pdnc-moon-dark) 0 50%,
+    var(--pdnc-moon-light) 50% 100%
+  );
+}
+
+.pdnc-moon-phase.half.waning {
+  background: linear-gradient(
+    90deg,
+    var(--pdnc-moon-light) 0 50%,
+    var(--pdnc-moon-dark) 50% 100%
+  );
+}
+
+.pdnc-moon-phase.crescent.waxing {
+  background:
+    radial-gradient(circle at 30% 50%, var(--pdnc-moon-dark) 0 60%, transparent 61%),
+    radial-gradient(circle at 50% 50%, var(--pdnc-moon-light) 0 50%, transparent 51%),
+    var(--pdnc-moon-dark);
+}
+
+.pdnc-moon-phase.crescent.waning {
+  background:
+    radial-gradient(circle at 70% 50%, var(--pdnc-moon-dark) 0 60%, transparent 61%),
+    radial-gradient(circle at 50% 50%, var(--pdnc-moon-light) 0 50%, transparent 51%),
+    var(--pdnc-moon-dark);
+}
+
+.pdnc-moon-phase.gibbous.waxing {
+  background:
+    radial-gradient(circle at 18% 50%, var(--pdnc-moon-dark) 0 42%, transparent 43%),
+    var(--pdnc-moon-light);
+}
+
+.pdnc-moon-phase.gibbous.waning {
+  background:
+    radial-gradient(circle at 82% 50%, var(--pdnc-moon-dark) 0 42%, transparent 43%),
+    var(--pdnc-moon-light);
 }
 
 .pdnc-event-dot {
@@ -1528,6 +1833,23 @@
   font-size: 0.7em; /* Small text */
   color: #aaa;
   cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.pdnc-mini-day-number {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.pdnc-mini-moon {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 7px;
+  height: 7px;
+  border-width: 1px;
 }
 
 .pdnc-mini-day.current {
@@ -1900,6 +2222,11 @@
   flex-direction: column;
   height: 100%;
 }
+
+.pdnc-weather-mixer-window form {
+    height: 100%;
+}
+
 
 .pdnc-weather-mixer {
   display: flex;
@@ -2320,4 +2647,567 @@
   background: rgba(197, 160, 89, 0.4);
   box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
   color: #fff;
+}
+
+/* Advanced Weather Mixer */
+.pdnc-weather-mixer-wrapper.advanced {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 15px;
+    padding: 10px;
+    background: #1a1a1a;
+    color: #eee;
+}
+
+.pdnc-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #444;
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+.pdnc-sidebar h3 {
+    border-bottom: 2px solid #c5a059;
+    color: #c5a059;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.pdnc-preset-list, .pdnc-favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.pdnc-preset-item {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.pdnc-preset-item:hover {
+    background: rgba(197, 160, 89, 0.2);
+    border-color: #c5a059;
+    color: #fff;
+    transform: translateX(2px);
+}
+
+.pdnc-preset-item i {
+    color: #888;
+}
+.pdnc-preset-item:hover i {
+    color: #c5a059;
+}
+
+.pdnc-mixer-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+}
+
+.mixer-header {
+    margin-bottom: 15px;
+}
+.mixer-header h2 {
+    border: none;
+    color: #c5a059;
+    text-transform: uppercase;
+    margin: 0;
+}
+.mixer-header .hint {
+    color: #999;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.pdnc-layers-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+.pdnc-layer-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.pdnc-layer-header {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pdnc-layer-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pdnc-layer-header .layer-title {
+    flex: 1;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.pdnc-layer-header .layer-controls i {
+    color: #e74c3c;
+    cursor: pointer;
+    padding: 5px;
+}
+.pdnc-layer-header .layer-controls i:hover {
+    color: #ff6b6b;
+    text-shadow: 0 0 5px red;
+}
+
+.pdnc-layer-content {
+    padding: 15px;
+    border-top: 1px solid #444;
+}
+
+.pdnc-component-block h4 {
+    color: #aaa;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.pdnc-param-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.pdnc-param-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pdnc-param-row label {
+    font-size: 0.85em;
+    color: #ccc;
+}
+
+.range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.range-wrapper input {
+    flex: 1;
+}
+.range-wrapper output {
+    width: 30px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.color-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.color-wrapper input[type="color"] {
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.mixer-footer {
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+}
+
+.mixer-footer .input-group {
+    flex: 1;
+}
+
+.mixer-footer input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #555;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.mixer-footer .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.mixer-footer button {
+    background: transparent;
+    border: 1px solid #c5a059;
+    color: #c5a059;
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mixer-footer button.primary {
+    background: #c5a059;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+.mixer-footer button:hover {
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+/* --- Wizard Scroll Fix --- */
+.pdnc-wizard-window {
+    max-height: 90vh !important;
+}
+
+.pdnc-wizard-window .window-content {
+    overflow-y: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdnc-wizard-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Generic Premium Window Styles --- */
+.pdnc-premium-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    background: #151515; /* Fallback/Base */
+}
+
+.pdnc-premium-window header {
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #c5a059;
+    text-align: center;
+}
+
+.pdnc-premium-window header h1 {
+    font-family: var(--pdnc-font);
+    color: #c5a059;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    margin: 0;
+}
+
+.pdnc-premium-window .notes {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.pdnc-premium-window .pdnc-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(197,160,89, 0.2);
+    border-radius: 4px;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #c5a059 #1a1a1a;
+}
+
+.pdnc-premium-window .sheet-footer {
+    flex: 0 0 auto;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(197,160,89, 0.3);
+}
+
+.pdnc-premium-window button {
+    background: rgba(197,160,89, 0.1);
+    border: 1px solid #c5a059;
+    color: #c5a059;
+    font-family: var(--pdnc-font);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.pdnc-premium-window button:hover {
+    background: rgba(197,160,89, 0.3);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(197,160,89, 0.2);
+}
+
+/* --- Theme Configuration Specifics --- */
+.pdnc-theme-config .form-group {
+    background: rgba(0,0,0,0.2);
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.pdnc-theme-config label {
+    font-family: var(--pdnc-font);
+    font-weight: bold;
+    color: #eee;
+    font-size: 1.1em;
+}
+
+.pdnc-theme-config hr {
+    border: 0;
+    border-bottom: 1px solid rgba(197,160,89, 0.2);
+    margin: 10px 0;
+}
+
+/* Styled File Picker for Premium Windows */
+/* Styled File Picker for Premium Windows */
+.pdnc-theme-config .file-picker-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%; /* Ensure it fills the fields container */
+}
+
+.pdnc-theme-config .file-picker-group input[type="text"] {
+    background: rgba(0, 0, 0, 0.5); /* Darker background for contrast */
+    border: 1px solid #444;
+    color: #ffffff; /* Bright white text */
+    padding: 2px 5px; /* Compact padding */
+    height: 24px; /* Compact height */
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+    flex: 1;
+}
+
+/* Target all buttons inside file-picker (Browse and Clear/Delete) */
+.pdnc-theme-config .file-picker-group button {
+    flex: 0 0 auto;
+    width: 24px; /* Compact square button */
+    height: 24px;
+    padding: 0;
+    line-height: normal; /* Center icon */
+    display: flex;       /* Center icon */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c5a059;
+    background: rgba(197,160,89, 0.1);
+    color: #c5a059;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.8em; /* Smaller icon */
+}
+
+.pdnc-theme-config .file-picker-group button:hover {
+    background: #c5a059;
+    color: #000;
+}
+
+/* Time Range Span Styling */
+.pdnc-theme-config label .time-range {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-left: 8px; /* Space between name and time */
+    color: #c5a059;   /* Gold tint */
+    font-weight: normal;
+}
+
+
+/* ========================================================== */
+/*  PREMIUM WINDOW STYLES (Custom Calendars, etc.)            */
+/* ========================================================== */
+
+/* ========================================================== */
+/*  PREMIUM WINDOW STYLES (Custom Calendars, etc.)            */
+/* ========================================================== */
+
+.pdnc-premium-window {
+    background: #1a1a1a !important; /* Force solid background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9) !important;
+    border: 1px solid #c5a059;
+    border-radius: 4px;
+}
+
+.pdnc-premium-window .window-content {
+    background: transparent !important; /* Let parent handle bg */
+    border: none !important;
+    box-shadow: none !important;
+    color: #eee;
+    padding: 0;
+    overflow: hidden;
+}
+
+.pdnc-premium-window .window-header {
+    background: linear-gradient(to bottom, #222, #111);
+    border-bottom: 1px solid #c5a059;
+    color: #c5a059;
+    font-family: var(--pdnc-font);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: space-between; /* Ensure spacing */
+    align-items: center;
+}
+
+.pdnc-premium-window .window-title {
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+    flex: 1;
+}
+
+/* Fix for Close Button */
+.pdnc-premium-window .window-header .window-control.close, 
+.pdnc-premium-window .window-header .close {
+    color: #c5a059 !important;
+    opacity: 0.8;
+    text-shadow: none;
+    transition: all 0.2s;
+    background: transparent !important;
+    border: 1px solid rgba(197, 160, 89, 0.3) !important;
+    font-size: 14px !important;
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 22px !important; /* Center vertical */
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow: none !important;
+}
+
+.pdnc-premium-window .window-header .window-control.close:hover,
+.pdnc-premium-window .window-header .close:hover {
+    color: #fff !important;
+    opacity: 1;
+    background: #c5a059 !important;
+    border-color: #c5a059 !important;
+    text-shadow: none;
+    transform: none !important; /* Remove scaling if it looks weird */
+}
+
+/* Ensure icon inside is centered */
+.pdnc-premium-window .window-header .close i,
+.pdnc-premium-window .window-header .window-control.close i {
+    margin: 0;
+    display: block;
+}
+
+.pdnc-premium-window .window-header .close:hover {
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 0 8px #c5a059;
+    transform: scale(1.1);
+}
+
+/* Specific Content Padding for these apps */
+.pdnc-premium-window .pdnc-calendar-list,
+.pdnc-premium-window .pdnc-calendar-editor {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Scrollable areas in premium windows */
+.pdnc-premium-window .pdnc-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #c5a059 #1a1a1a;
+}
+/* --- Theme Config Premium Styles --- */
+.pdnc-theme-config .pdnc-phase-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 5px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+.pdnc-theme-config .pdnc-phase-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pdnc-theme-config .pdnc-phase-meta input[type="text"] {
+  flex: 1;
+  font-weight: bold;
+  color: #c5a059;
+}
+
+.pdnc-theme-config .time-inputs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.pdnc-theme-config .time-inputs input {
+  width: 50px !important;
+  text-align: center;
+  border: none !important;
+  background: transparent !important;
+  color: #aaa !important;
+  font-size: 0.9em;
+}
+
+.pdnc-theme-config .time-inputs span {
+  color: #666;
+}
+
+.pdnc-theme-config .file-picker-group input.propagated::placeholder {
+  color: #c5a059 !important;
+  opacity: 0.4 !important;
+  font-style: italic !important;
+}
+
+.pdnc-theme-config .file-picker-group input:not(.propagated) {
+  border-left: 2px solid #c5a059 !important;
+}
+.pdnc-theme-config .pdnc-btn-icon {
+  background: transparent !important;
+  border: none !important;
+  color: #666;
+  cursor: pointer;
+  padding: 0 5px;
+  transition: color 0.2s;
+}
+
+.pdnc-theme-config .pdnc-btn-icon:hover {
+  color: #ff4444;
 }

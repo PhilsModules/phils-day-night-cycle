@@ -1,42 +1,112 @@
-<div class="pdnc-weather-mixer-wrapper">
-    <div class="pdnc-weather-mixer">
-        <div class="effects-column">
-            <h3>{{localize "PDNC.WeatherMixer.AvailableEffects"}}</h3>
-            <div class="effects-list">
-                {{#each effects as |label key|}}
-                <div class="effect-item">
-                    <input type="checkbox" id="fx-{{key}}" name="effects" value="{{key}}">
-                    <label for="fx-{{key}}">{{label}}</label>
+<div class="pdnc-weather-mixer-wrapper advanced">
+    <!-- Sidebar: Available Presets -->
+    <aside class="pdnc-sidebar">
+        <h3>{{localize "PDNC.WeatherMixer.AvailableEffects"}}</h3>
+        <div class="pdnc-preset-list">
+            {{#each effects as |label key|}}
+            <div class="pdnc-preset-item" data-action="add-layer" data-key="{{key}}">
+                <span class="preset-name">{{label}}</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            {{/each}}
+        </div>
+        
+        <h3>{{localize "PDNC.WeatherMixer.Favorites"}}</h3>
+        <div class="pdnc-favorites-list">
+             {{#each favorites as |val key|}}
+            <div class="pdnc-preset-item favorite">
+                <span class="preset-name" data-action="load-favorite" data-key="{{key}}">{{key}}</span>
+                <i class="fas fa-trash delete-favorite" data-action="delete-favorite" data-key="{{key}}"></i>
+            </div>
+            {{else}}
+            <p class="no-favorites">{{localize "PDNC.WeatherMixer.NoFavorites"}}</p>
+            {{/each}}
+        </div>
+    </aside>
+
+    <!-- Main Area: Composition -->
+    <main class="pdnc-mixer-main">
+        <header class="mixer-header">
+            <h2>{{localize "PDNC.WeatherMixer.ComposerTitle"}}</h2>
+            <p class="hint">{{localize "PDNC.WeatherMixer.ComposerHint"}}</p>
+        </header>
+
+        <div class="pdnc-layers-scroll">
+            {{#if layers.length}}
+                {{#each layers as |layer lIdx|}}
+                <div class="pdnc-layer-card {{#if layer.collapsed}}collapsed{{/if}}">
+                    <div class="pdnc-layer-header" data-action="toggle-collapse" data-index="{{lIdx}}">
+                        <i class="fas {{#if layer.collapsed}}fa-chevron-right{{else}}fa-chevron-down{{/if}} toggle-icon"></i>
+                        <span class="layer-title">{{layer.label}}</span>
+                        <div class="layer-controls">
+                            <i class="fas fa-trash remove-layer" data-action="remove-layer" data-index="{{lIdx}}" title="{{localize 'PDNC.Remove'}}"></i>
+                        </div>
+                    </div>
+
+                    {{#unless layer.collapsed}}
+                    <div class="pdnc-layer-content">
+                        {{#each layer.components as |comp cIdx|}}
+                        <div class="pdnc-component-block">
+                            <h4>{{comp.label}}</h4>
+                            <div class="pdnc-param-grid">
+                                {{#each comp.params as |param|}}
+                                <div class="pdnc-param-row">
+                                    <label>{{param.label}}</label>
+                                    {{#if (eq param.type "range")}}
+                                        <div class="range-wrapper">
+                                            <input type="range" 
+                                                data-action="update-param" 
+                                                data-layer="{{lIdx}}" 
+                                                data-component="{{cIdx}}"
+                                                data-param="{{param.id}}"
+                                                min="{{param.min}}" max="{{param.max}}" step="{{param.step}}" value="{{param.value}}"
+                                                oninput="this.nextElementSibling.value = this.value">
+                                            <output>{{param.value}}</output>
+                                            {{#if param.unit}}<span class="unit">{{param.unit}}</span>{{/if}}
+                                        </div>
+                                    {{else if (eq param.type "color")}}
+                                        <div class="color-wrapper">
+                                            <input type="color" 
+                                                data-action="update-param" 
+                                                data-layer="{{lIdx}}" 
+                                                data-component="{{cIdx}}"
+                                                data-param="{{param.id}}"
+                                                value="{{param.value}}">
+                                            <span class="color-code">{{param.value}}</span>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{/unless}}
                 </div>
                 {{/each}}
-            </div>
+            {{else}}
+                <div class="pdnc-empty-state">
+                    <i class="fas fa-cloud-sun-rain"></i>
+                    <p>{{localize "PDNC.WeatherMixer.EmptyState"}}</p>
+                </div>
+            {{/if}}
         </div>
 
-        <div class="favorites-column">
-            <h3>{{localize "PDNC.WeatherMixer.Favorites"}}</h3>
-            <div class="favorites-list">
-                {{#each favorites as |fav key|}}
-                <div class="favorite-item flexrow">
-                    <span class="favorite-name" data-action="load-favorite" data-key="{{key}}">{{key}}</span>
-                    <i class="fas fa-trash delete-favorite" data-action="delete-favorite" data-key="{{key}}" title="{{localize 'PDNC.Delete'}}"></i>
-                </div>
-                {{else}}
-                <p class="no-favorites">{{localize "PDNC.WeatherMixer.NoFavorites"}}</p>
-                {{/each}}
+        <footer class="mixer-footer">
+            <div class="input-group">
+                <input type="text" name="favoriteName" value="{{mixName}}" placeholder="{{localize 'PDNC.WeatherMixer.FavoriteNamePlaceholder'}}">
             </div>
-
-            <div class="save-favorite">
-                <input type="text" name="favoriteName" placeholder="{{localize 'PDNC.WeatherMixer.FavoriteNamePlaceholder'}}">
+            <div class="button-group">
                 <button type="button" data-action="save-favorite">
                     <i class="fas fa-save"></i> {{localize "PDNC.Save"}}
                 </button>
+                <button type="button" data-action="preview-mix">
+                <i class="fas fa-eye"></i> {{localize "PDNC.WeatherMixer.Preview"}}
+            </button>
+            <button type="submit" data-action="create-mix" class="primary">
+                <i class="fas fa-wand-magic-sparkles"></i> {{localize "PDNC.WeatherMixer.CreateMix"}}
+            </button>
             </div>
-        </div>
-    </div>
-
-    <footer class="sheet-footer flexrow">
-        <button type="submit" data-action="create-mix">
-            <i class="fas fa-flask"></i> {{localize "PDNC.WeatherMixer.CreateMix"}}
-        </button>
-    </footer>
+        </footer>
+    </main>
 </div>

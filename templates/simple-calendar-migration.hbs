@@ -1,0 +1,69 @@
+{{#if available}}
+<div class="pdnc-scrollable" style="display:flex; flex-direction:column; gap:12px;">
+    <div>
+        <h2 style="margin:0 0 6px 0;">{{localize "PDNC.SimpleCalendarMigration.Headline"}}</h2>
+        <p style="margin:0;">{{localize "PDNC.SimpleCalendarMigration.ActiveSource"}} <strong>{{sourceName}}</strong></p>
+        <p style="margin:6px 0 0 0;">{{localize "PDNC.SimpleCalendarMigration.Help"}}</p>
+    </div>
+
+    <div class="pdnc-form-group">
+        <label for="pdnc-sc-target-name">{{localize "PDNC.SimpleCalendarMigration.TargetName"}}</label>
+        <input id="pdnc-sc-target-name" type="text" name="targetName" value="{{formState.targetName}}" required>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:8px;">
+        <div class="pdnc-form-group" style="margin:0;">
+            <label>{{localize "PDNC.SimpleCalendarMigration.NotesFound"}}</label>
+            <div>{{noteSummary.total}}</div>
+        </div>
+        <div class="pdnc-form-group" style="margin:0;">
+            <label>{{localize "PDNC.SimpleCalendarMigration.RecurringFound"}}</label>
+            <div>{{noteSummary.recurring}}</div>
+        </div>
+        <div class="pdnc-form-group" style="margin:0;">
+            <label>{{localize "PDNC.SimpleCalendarMigration.RangedFound"}}</label>
+            <div>{{noteSummary.ranged}}</div>
+        </div>
+        <div class="pdnc-form-group" style="margin:0;">
+            <label>{{localize "PDNC.SimpleCalendarMigration.CurrentDate"}}</label>
+            <div>{{#if currentDateLabel}}{{currentDateLabel}}{{else}}-{{/if}}</div>
+        </div>
+    </div>
+
+    <div class="pdnc-form-group-checkbox">
+        <input type="checkbox" id="pdnc-sc-set-active" name="setActiveCalendar" {{#if formState.setActiveCalendar}}checked{{/if}}>
+        <label for="pdnc-sc-set-active">{{localize "PDNC.SimpleCalendarMigration.SetActive"}}</label>
+    </div>
+
+    <div class="pdnc-form-group-checkbox">
+        <input type="checkbox" id="pdnc-sc-import-events" name="importEvents" {{#if formState.importEvents}}checked{{/if}}>
+        <label for="pdnc-sc-import-events">{{localize "PDNC.SimpleCalendarMigration.ImportEvents"}}</label>
+    </div>
+
+    <div class="pdnc-form-group-checkbox">
+        <input type="checkbox" id="pdnc-sc-replace-events" name="replaceImportedEvents" {{#if formState.replaceImportedEvents}}checked{{/if}}>
+        <label for="pdnc-sc-replace-events">{{localize "PDNC.SimpleCalendarMigration.ReplaceEvents"}}</label>
+    </div>
+
+    <div class="pdnc-form-group-checkbox">
+        <input type="checkbox" id="pdnc-sc-import-date" name="importCurrentDate" {{#if formState.importCurrentDate}}checked{{/if}} {{#unless timeCompatible}}disabled{{/unless}}>
+        <label for="pdnc-sc-import-date">{{localize "PDNC.SimpleCalendarMigration.ImportDate"}}</label>
+    </div>
+
+    {{#unless timeCompatible}}
+    <p style="margin:0; color:#d38b5d;">{{localize "PDNC.SimpleCalendarMigration.TimeWarning"}}</p>
+    {{/unless}}
+
+    <p style="margin:0; color:#a9a39a;">{{localize "PDNC.SimpleCalendarMigration.RangeWarning"}}</p>
+
+    <footer style="display:flex; justify-content:flex-end;">
+        <button type="submit" class="pdnc-btn-save">
+            <i class="fas fa-right-left"></i> {{localize "PDNC.SimpleCalendarMigration.Run"}}
+        </button>
+    </footer>
+</div>
+{{else}}
+<div style="display:flex; flex-direction:column; gap:10px;">
+    <p style="margin:0;">{{reason}}</p>
+</div>
+{{/if}}

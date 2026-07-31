@@ -1,4 +1,4 @@
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+﻿const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 import { CalendarSystem } from "../calendar-system.js";
 import { WeatherSystem } from "../weather-system.js";
 
@@ -63,17 +63,21 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
         // 2. Get Climate Zones
         const climateZones = WeatherSystem.getClimateList();
 
-        // 3. Prepare Date/Time Defaults
-        // If we have state from a re-render (e.g. changing system), use that. 
-        // Otherwise grab from settings.
-        
-        const currentYear = game.settings.get(MODULE_ID, "year") || 2024;
-        const currentMonthIdx = game.settings.get(MODULE_ID, "month") || 0; // 0-based index
-        const currentDay = game.settings.get(MODULE_ID, "day") || 1;
-        
-        const timeVal = game.settings.get(MODULE_ID, "time");
-        const currentHour = Math.floor(timeVal / 60);
-        const currentMinute = timeVal % 60;
+        // 3. Prepare Date/Time Defaults from live world time + offsets
+        // This keeps Wizard fields in sync with what the clock/calendar currently display.
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        const adjustedWorldTime = game.time.worldTime + (offsetDays * 86400) + (offsetMinutes * 60);
+
+        const liveCalendar = new CalendarSystem(this._wizardState.calendarSystem);
+        const liveDate = liveCalendar.getDate(adjustedWorldTime);
+        const secondsInDay = ((adjustedWorldTime % 86400) + 86400) % 86400;
+
+        const currentYear = liveDate.year;
+        const currentMonthIdx = liveDate.month; // 0-based index
+        const currentDay = liveDate.day;
+        const currentHour = Math.floor(secondsInDay / 3600);
+        const currentMinute = Math.floor((secondsInDay % 3600) / 60);
 
         // 4. Get Month List for *Selected* System (from internal state)
         const sysConfig = CalendarSystem.SYSTEMS[this._wizardState.calendarSystem];
@@ -122,7 +126,7 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
         if (sysSelect) {
             sysSelect.addEventListener("change", (e) => {
                 this._wizardState.calendarSystem = e.target.value;
-                this.render(); // Re-render to update months list and PF2e checkbox visibility
+                this.render(); // Re-render to update month list and calendar description
             });
         }
 
@@ -133,7 +137,7 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
                 const isChecked = e.target.checked;
                 this._wizardState.syncPF2e = isChecked;
                 
-                if (isChecked && this._wizardState.calendarSystem === "golarion") {
+                if (isChecked) {
                     // Perform Sync Logic
                     // 1. Get World Time (seconds)
                     const worldTime = game.time.worldTime;
@@ -143,25 +147,25 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
                     
                     const offsetSeconds = (GOLARION_OFFSET_DAYS * 86400) + (timeOffsetMinutes * 60);
                     
-                    // 2. Convert to Golarion Date using our CalendarSystem
-                    // Apply offset to get target date
-                     const tempSys = new CalendarSystem("golarion");
-                     const dateData = tempSys.getDate(worldTime + offsetSeconds);
-                     
-                     // 3. Update Inputs
-                     const dayInput = this.element.querySelector("input[name='day']");
-                     const monthSelect = this.element.querySelector("select[name='month']");
-                     const yearInput = this.element.querySelector("input[name='year']"); 
-                     
-                     // Time Calculation (Handle negative worldTime safely)
-                     // We must use the SAME adjusted time as getDate for consistency
-                     const totalAdjustedSeconds = worldTime + offsetSeconds;
-                     const timeInDaySeconds = ((totalAdjustedSeconds % 86400) + 86400) % 86400;
-                     const h = Math.floor(timeInDaySeconds / 3600);
-                     const m = Math.floor((timeInDaySeconds % 3600) / 60);
-                     
-                     const hourInput = this.element.querySelector("input[name='hour']"); // WAS: timeHour
-                     const minInput = this.element.querySelector("input[name='minute']"); // WAS: timeMin
+                    // 2. Convert to date in the currently selected calendar
+                    // Apply the PF2e epoch offset, but keep the user's calendar system.
+                    const tempSys = new CalendarSystem(this._wizardState.calendarSystem);
+                    const dateData = tempSys.getDate(worldTime + offsetSeconds);
+                    
+                    // 3. Update Inputs
+                    const dayInput = this.element.querySelector("input[name='day']");
+                    const monthSelect = this.element.querySelector("select[name='month']");
+                    const yearInput = this.element.querySelector("input[name='year']"); 
+                    
+                    // Time Calculation (Handle negative worldTime safely)
+                    // We must use the SAME adjusted time as getDate for consistency
+                    const totalAdjustedSeconds = worldTime + offsetSeconds;
+                    const timeInDaySeconds = ((totalAdjustedSeconds % 86400) + 86400) % 86400;
+                    const h = Math.floor(timeInDaySeconds / 3600);
+                    const m = Math.floor((timeInDaySeconds % 3600) / 60);
+                    
+                    const hourInput = this.element.querySelector("input[name='hour']"); // WAS: timeHour
+                    const minInput = this.element.querySelector("input[name='minute']"); // WAS: timeMin
 
                      if (dayInput) {
                          dayInput.value = dateData.day;
@@ -236,7 +240,7 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
             // We need to explicitly check known booleans.
             const getBool = (key) => formData.get(key) !== null;
 
-            const syncPF2e = getBool("syncPF2e");
+            const wantsPF2eSync = getBool("syncPF2e");
             const showRealNames = getBool("showRealNames");
             const playerAdvanceTime = getBool("playerAdvanceTime");
             const playerCreateEvents = getBool("playerCreateEvents");
@@ -288,38 +292,13 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
             
             await game.settings.set(MODULE_ID, "playerAdvanceTime", playerAdvanceTime);
             await game.settings.set(MODULE_ID, "playerCreateEvents", playerCreateEvents);
-            await game.settings.set(MODULE_ID, "syncPF2e", syncPF2e);
 
-            // Sync Logic
-            if (syncPF2e) {
-                // Golarion Epoch Offset takes precedence if checked
-                // Although user might have adjusted day, if 'Sync' is on, we force the specific offset?
-                // Visual Logic in render listener changed INPUTS when sync was checked.
-                // If user changed inputs AFTER checking sync, we should respect INPUTS (offsets calculated above).
-                // BUT: logic says 'Sync PF2e' implies standard Golarion offset. 
-                // Let's decide: If user manually adjusted date, they probably want THAT date.
-                // The check box is mostly a helper to pre-fill.
-                // However, saving 'syncPF2e' as true usually enforces the offset in main.js listeners?
-                // Let's look at main.v2.js -> onChange for syncPF2e sets dayOffset to 1725595.
-                // If we also set dayOffset here, it might conflict or be overwritten if we don't be careful.
-                
-                // If we save 'syncPF2e' as true, the hook in main.js might reset our custom date if we aren't careful.
-                // Actually, `await game.settings.set(..., "syncPF2e", syncPF2e)` will trigger the onChange hook.
-                // The hook sets dayOffset to 1725595.
-                // IF our calculated offset is DIFFERENT, then the user modified the date *after* syncing.
-                // In that case, we should probably turn OFF syncPF2e to preserve the custom date?
-                // OR we trust that `syncPF2e` just means "I used the preset".
-                
-                // Let's save the calculated offsets. If they differ significantly from the standard, maybe disable sync?
-                // For now, let's write our calculated value LAST to ensure it overrides any hook side-effects.
-                
-                await game.settings.set(MODULE_ID, "dayOffset", offsetDays); // Writes calculated
-            } else {
-                 await game.settings.set(MODULE_ID, "dayOffset", offsetDays);
-            }
-            
-            // Save Minute Offset
+            // Persist offsets first. syncPF2e is derived from the final offset state.
+            await game.settings.set(MODULE_ID, "dayOffset", offsetDays);
             await game.settings.set(MODULE_ID, "timeOffset", offsetMinutes);
+
+            const shouldPersistPF2eSync = wantsPF2eSync && (offsetDays === 1725595);
+            await game.settings.set(MODULE_ID, "syncPF2e", shouldPersistPF2eSync);
 
             // Save Weekday Offset
             const weekdayOffset = Number(data.weekdayOffset) || 0;
@@ -374,3 +353,5 @@ export class StartupWizard extends HandlebarsApplicationMixin(ApplicationV2) {
         }
     }
 }
+
+

@@ -1,49 +1,49 @@
 {
-    "id": "phils-day-night-cycle",
-    "title": "Phils Day&Night Cycle",
-    "version": "4.4.0",
-    "compatibility": {
-        "minimum": "12",
-        "verified": "13"
+  "id": "phils-day-night-cycle",
+  "title": "Phil's Day&Night Cycle",
+  "version": "5.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Phil",
+      "url": "https://github.com/PhilsModules",
+      "discord": "._.phil"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
     },
-    "authors": [
-        {
-            "name": "Phil",
-            "url": "https://github.com/PhilsModules",
-            "discord": "._.phil"
-        }
-    ],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "languages/en.json"
-        },
-        {
-            "lang": "de",
-            "name": "Deutsch",
-            "path": "languages/de.json"
-        }
-    ],
-    "esmodules": [
-        "scripts/calendar-system.js",
-        "scripts/calendar-event-editor.js",
-        "scripts/calendar-day-viewer.js",
-        "scripts/calendar-app.js",
-        "scripts/climate-data-de.js",
-        "scripts/climate-data-en.js",
-        "scripts/particle-engine.js",
-        "scripts/weather-filters.js",
-        "scripts/weather-effects.js",
-        "scripts/weather-system.js",
-        "scripts/climate-data-wizard.js",
-        "scripts/main.v2.js"
-    ],
-    "styles": [
-        "styles/style.css"
-    ],
-    "description": "Bring your world to life with a beautiful, immersive Clock, Calendar, and Weather System. Features an elegant widget with Solar Arc, robust Calendar supports, and a Living Weather engine with 60+ dynamic effects.",
-    "url": "https://github.com/PhilsModules/phils-day-night-cycle",
-    "manifest": "https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json",
-    "download": "https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.zip"
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "languages/de.json"
+    }
+  ],
+  "esmodules": [
+    "scripts/calendar-system.js",
+    "scripts/calendar-event-editor.js",
+    "scripts/calendar-day-viewer.js",
+    "scripts/calendar-app.js",
+    "scripts/climate-data-de.js",
+    "scripts/climate-data-en.js",
+    "scripts/particle-engine.js",
+    "scripts/weather-filters.js",
+    "scripts/weather-effects.js",
+    "scripts/weather-system.js",
+    "scripts/climate-data-wizard.js",
+    "scripts/main.v2.js"
+  ],
+  "styles": [
+    "styles/style.css"
+  ],
+  "description": "Bring your world to life with a beautiful, immersive Clock, Calendar, and Weather System. Features an elegant widget with Solar Arc, robust Calendar supports, and a Living Weather engine with 60+ dynamic effects.",
+  "url": "https://github.com/PhilsModules/phils-day-night-cycle",
+  "manifest": "https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.json",
+  "download": "https://github.com/PhilsModules/phils-day-night-cycle/releases/latest/download/module.zip"
 }

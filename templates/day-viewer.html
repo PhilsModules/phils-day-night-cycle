@@ -1,6 +1,6 @@
 <div class="pdnc-day-viewer-container">
     <header class="pdnc-day-header">
-        <h2>{{dateKey}}</h2>
+        <h2>{{displayDate}}</h2>
         <div class="pdnc-header-decoration"></div>
         <button type="button" data-action="addEvent" title="{{localize 'PDNC.AddEvent'}}"
             style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #c5a059; font-size: 1.2em; cursor: pointer; transition: color 0.2s;">
@@ -13,13 +13,21 @@
         <ul class="pdnc-event-list">
             {{#each events}}
             <li class="pdnc-event-card {{this.type}}" data-action="editEvent" data-index="{{@index}}">
-                <div class="pdnc-event-icon-wrapper">
+                <div class="pdnc-event-icon-wrapper" {{#if this.color}}style="color: {{this.color}};"{{/if}}>
+                    {{#if this.icon}}
+                        {{#if this.isImageIcon}}
+                        <img src="{{this.icon}}" style="width: 1.2em; height: 1.2em; object-fit: contain; vertical-align: middle;" />
+                        {{else}}
+                        <i class="{{this.icon}}"></i>
+                        {{/if}}
+                    {{else}}
                     {{#if (eq this.type "gm")}}<i class="fas fa-user-secret"></i>{{/if}}
                     {{#if (eq this.type "player")}}<i class="fas fa-feather-alt"></i>{{/if}}
                     {{#if (eq this.type "event")}}<i class="fas fa-scroll"></i>{{/if}}
                     {{#if (eq this.type "personal")}}<i class="fas fa-user-lock"></i>{{/if}}
                     {{#if (eq this.type "quest")}}<i class="fas fa-exclamation-circle"></i>{{/if}}
                     {{#if (eq this.type "weather")}}<i class="fas fa-cloud-sun"></i>{{/if}}
+                    {{/if}}
                 </div>
                 <div class="pdnc-event-details">
                     <span class="pdnc-event-type-label">
