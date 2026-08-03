@@ -1,3 +1,22 @@
+## v5.1.2 - Quest Tracker Theme Alignment, Legibility & Performance Improvements
+
+- **🎨 Quest Tracker & Module Theme Alignment:** Unified the look of all module windows (calendar, day viewer, event editor, season config, theme config, moon phase config, time machine, etc.) with the dark matte aesthetic of Phils Quest Tracker.
+- **✨ Enhanced Text Legibility:** Fixed pitch-black titles, headings, help notes, labels, and table cells across all dialogs to provide high contrast and readability on dark backgrounds.
+- **🛠️ Header Control Icon Restoration:** Resolved an issue where window header control icons (close 'X', menu controls) were rendered as missing font glyph boxes by preserving Font Awesome 6 font rendering.
+- **🎛️ Form Controls & Layouts:** Polished input fields, dropdown selects, primary/secondary action buttons, file pickers, and scrollable container areas for clean, responsive alignment.
+- **✨ Permanent Date Display:** Month and year names in the calendar header (e.g., *Abadius 4447*) now remain clearly visible in gold at all times without needing to hover over them.
+- **🚀 Smooth Window Animations:** Optimized window rendering so opening and closing calendar windows runs butter-smooth without any stuttering or frame drops.
+- **🌙 Restored Moon Phase Displays:** Repaired the moon phase badges in the calendar grid, ensuring moon phases once again show in the top right corner of each day.
+- **🛡️ Clean Layout Protection:** Isolated the calendar's visual design so module windows look great while leaving standard Foundry sheets and windows completely untouched.
+
+## v5.1.1 - Quest Tracker Integration & Season Configuration Fixes
+
+- **📜 Quest Tracker Integration:** Clicking a quest event in the calendar now directly opens the quest sheet or quest overview from the **Phils Quest Tracker** module. If the Quest Tracker module is not installed, the calendar smoothly uses its built-in quest editor.
+- **🌋 Season Configuration Fix:** Fixed an issue where the "Configure Seasons" window failed to open in Pathfinder 2e (Golarion) calendar worlds. Gamemasters can now set start dates for all seasons across all calendar systems.
+- **🛡️ Stability & Dialog Handling:** Resolved unexpected crashes when closing or re-rendering calendar windows, ensuring smooth window positioning and background updates.
+- **💬 Foundry v13 Compatibility:** Updated internal chat card rendering to prevent compatibility warnings in Foundry v13 while maintaining full support for Foundry v12.
+- **🌐 Localization & Setup Wizard Fixes:** Corrected the day header in the Setup Wizard (now displaying *Tag* in German and *Day* in English) and updated missing translations across all dialogs.
+
 ## v5.1.0 - Pathfinder 2e Synchronization & Refactored Setup Wizard
 
 > [!IMPORTANT]
