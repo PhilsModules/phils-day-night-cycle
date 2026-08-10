@@ -2,7 +2,7 @@
 
 # Phil's Day&Night Cycle
 
-![Foundry v14 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
+![Foundry v13 Compatible](https://img.shields.io/badge/Foundry-v13-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
 [![Version](https://img.shields.io/badge/Version-5.1.9-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
@@ -162,7 +162,7 @@ The module automatically simulates weather.
     - **Text:** The description posted to chat (example "A sandy wind is blowing").
     - **Temp:** The temperature range (example "30 to 40").
     - **FX:** The visual effect (example "FOG" for sandstorms).
-    - **Tags (optional in data/imports):** Semantic rule markers such as `wind:storm`, `visibility:fog`, or `precipitation:heavy-rain`.
+    - **Weather Traits (optional):** Special weather traits such as storm, strong wind, or fog.
 5.  Save your climate zone.
 6.  Select it in the main settings under **Climate Zone**.
 
@@ -173,11 +173,19 @@ Want to create your own unique weather? Open the **Weather Mixer** by clicking t
 - **Layering:** Combine multiple effects (e.g. Rain + Fog + Wind).
 - **Customization:** Fully control every aspect of the simulation:
   - **Particles:** Adjust Density, Speed, Size, and Direction.
-  - **Filters:** Tweak Color, Intensity, and Speed of shaders.
+  - **Visual Effects:** Tweak Color, Intensity, and Speed of atmospheric filters.
 - **Preview:** Use the **Preview** button to test your mix live on the canvas without saving.
 - **Favorites:** Save your perfect storm to your list of favorites for instant access.
 
-### 7. Pathfinder 2e Synchronization
+### 7. Climate Data Wizard (GM Only)
+
+Quickly inspect and apply preset weather conditions for any climate zone and season:
+
+- **Location:** Click the **Climate Data Wizard** button located in the left toolbar under **Lighting Controls** (light bulb icon 💡).
+- **Preset Browsing:** Select any climate zone (e.g. Marine West Coast, Mediterranean, Desert) and season (Spring, Summer, Autumn, Winter) to view matching preset weather conditions.
+- **Instant Application:** Click **Apply Weather** on any entry to immediately set that weather condition in your game world.
+
+### 8. Pathfinder 2e Synchronization
 
 This module offers a seamless 1-click integration with Pathfinder 2e's native World Clock system.
 
@@ -189,7 +197,7 @@ This module offers a seamless 1-click integration with Pathfinder 2e's native Wo
 6. If the weekday differs, click **Align PDNC Week Start** to sync weekdays seamlessly.
 7. Done! Both systems stay in sync.
 
-### 8. Macros / API
+### 9. Macros
 
 You can control the clock using Script Macros. Create a new Macro, set the type to **Script**, and paste the code below.
 
@@ -197,6 +205,12 @@ You can control the clock using Script Macros. Create a new Macro, set the type 
 
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
+```
+
+**Toggle Clock Face (Fold / Expand)**
+
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleClockFace();
 ```
 
 **Set Time**
@@ -362,7 +376,7 @@ Das Modul simuliert das Wetter vollautomatisch.
     - **Text:** Die Beschreibung die im Chat gepostet wird (zum Beispiel "Ein sandiger Wind weht").
     - **Temp:** Der Temperaturbereich (zum Beispiel "30 bis 40").
     - **FX:** Der visuelle Effekt (zum Beispiel "FOG" fuer Sandsturm).
-    - **Tags (optional in Daten/Importen):** Semantische Regelmarker wie `wind:storm`, `visibility:fog` oder `precipitation:heavy-rain`.
+    - **Wetter-Merkmale (optional):** Besondere Wettermerkmale wie Sturm, Wind oder Nebel.
 5.  Speichere deine Klimazone ab.
 6.  Waehle sie nun in den Haupteinstellungen unter **Climate Zone** aus.
 
@@ -373,11 +387,19 @@ Moechtest du dein ganz eigenes Wetter erschaffen? Oeffne den **Wetter Mixer** ue
 - **Schichten:** Kombiniere mehrere Effekte (z.B. Regen + Nebel + Wind).
 - **Anpassung:** Volle Kontrolle ueber jeden Aspekt der Simulation:
   - **Partikel:** Passe Dichte, Geschwindigkeit, Groesse und Richtung an.
-  - **Filter:** Aendere Farbe, Intensitaet und Geschwindigkeit von Shadern.
+  - **Visuelle Effekte:** Passe Farbe, Intensitaet und Geschwindigkeit der Effekte an.
 - **Vorschau:** Nutze den **Vorschau** Button, um deinen Mix live auf der Szene zu testen, ohne ihn direkt zu speichern.
 - **Favoriten:** Speichere deinen perfekten Sturm in deiner Favoritenliste fuer sofortigen Zugriff.
 
-### 7. Pathfinder 2e Synchronisation
+### 7. Klima-Assistent (nur für den Spielleiter)
+
+Durchstöbere und wende vorgefertigte Wetterzustände für jede Klimazone und Jahreszeit mit einem Klick an:
+
+- **Zugriff:** Klicke in der linken Werkzeugleiste unter dem Tab **Beleuchtungs-Steuerung** (Glühbirnen-Symbol 💡) auf das Icon **Klima-Assistent**.
+- **Klimazonen durchstöbern:** Wähle eine Klimazone (z. B. Seeklima, Mittelmeerklima, Wüste) und eine Jahreszeit (Frühling, Sommer, Herbst, Winter) aus, um passende Wettervorlagen anzuzeigen.
+- **Sofort anwenden:** Klicke auf **Wetter anwenden**, um das ausgewählte Wetter direkt in der Spielwelt zu aktivieren.
+
+### 8. Pathfinder 2e Synchronisation
 
 Dieses Modul bietet eine nahtlose 1-Klick-Integration mit der nativen Weltuhr von Pathfinder 2e.
 
@@ -389,7 +411,7 @@ Dieses Modul bietet eine nahtlose 1-Klick-Integration mit der nativen Weltuhr vo
 6. Falls der Wochentag abweicht, klicke auf **PDNC Wochenstart angleichen**, um auch die Wochentage perfekt abzugleichen.
 7. Fertig! Beide Systeme sind synchronisiert.
 
-### 8. Makros und API
+### 9. Makros
 
 Du kannst die Uhr auch ueber Makros steuern. Erstelle dafuer ein neues Makro vom Typ **Script** und fuege den jeweiligen Code ein.
 
@@ -397,6 +419,12 @@ Du kannst die Uhr auch ueber Makros steuern. Erstelle dafuer ein neues Makro vom
 
 ```js
 if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();
+```
+
+**Zifferblatt ein-/ausklappen**
+
+```js
+if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleClockFace();
 ```
 
 **Zeit setzen**

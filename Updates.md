@@ -1,3 +1,48 @@
+## v5.1.9 - Toggle Macro Repair & Macro Directory Folder Organization
+
+- **⏰ Reliable Clock Toggle Macro:** Fixed an issue where the clock visibility macro stopped hiding and showing the clock widget. The macro now works reliably across all scenes.
+- **📁 Organized Macro Directory Folder:** All module macros (*Toggle Day/Night Clock*, *Toggle Clock Face (Fold)*, *Reset Clock Position*, *Set Time (Day/Night)*, *Toggle Calendar Window*, and *Dungeon Mode*) are now automatically created and neatly organized inside a dedicated **Phil's Day & Night Cycle** folder in your Macro Directory.
+- **⏱️ Clock Face Fold Macro:** Added a handy new macro to quickly fold or expand the circular clock face with a single click, keeping the main time bar in view.
+
+
+## v5.1.8 - Collapsed Widget Pointer & Arrow Fix
+
+- **⏰ Clean Collapsed Widget:** Restored pointer arrow hiding when the clock face is folded closed. The widget now collapses cleanly into a dark, rounded container without any stray arrows or side bars sticking out in any orientation.
+
+
+## v5.1.7 - Climate Data Wizard & Window Scrolling Fix
+
+- **☀️ Climate Data Wizard:** Gamemasters can now access the **Climate Data Wizard** directly from the left toolbar under **Lighting Controls** (light bulb icon 💡). This tool allows GMs to easily browse preset weather conditions for any climate zone and season, and apply them instantly to the game world with a single click.
+- **📜 Smooth Window Scrolling:** Fixed scrolling behavior inside the Climate Data Wizard so all weather entries can be cleanly scrolled through down to the very bottom of the window.
+- **🌐 Full Localization:** Added full English and German translations for the Climate Data Wizard titles and controls.
+
+
+## v5.1.6 - Clock Fold State Persistence & Fixed Positioning Anchor
+
+- **⏰ Persistent Clock Fold State:** The clock now remembers whether it was expanded or collapsed across session restarts and reloads.
+- **⚓ Fixed Widget Position Anchor:** The main widget bar now remains firmly fixed in its place when opening or closing the clock face, opening smoothly without any layout shifting or jumping regardless of orientation.
+
+
+## v5.1.5 - Clock Orientation & Positioning Fix
+
+- **🧭 Clock Icon Orientation Menu:** Resolved an issue where right-clicking the small clock icon opened the "Orientation" menu at the top-right corner of the screen. The menu now opens cleanly attached right next to the small clock icon.
+- **📐 Instant Clock Face Positioning:** Selecting a direction (*Above*, *Below*, *Left*, *Right*, or *Smart Auto*) now immediately shifts the clock face to the chosen side around the control panel.
+- **🏹 Dynamic Pointer Alignment:** The small pointer arrow on the time display now automatically aligns towards the open clock face.
+- **🌐 Complete Localization:** Added full English and German translations for all direction menu options and titles.
+
+
+## v5.1.4 - Pathfinder 2e World Clock Window Auto-Open Fix
+
+- **⏱️ Pathfinder 2e World Clock Fix:** Fixed an issue where Pathfinder 2e's native World Clock window ("Weltuhr") was forced open automatically on every world load during background time synchronization. The window now remains closed on startup and only refreshes when explicitly opened by the user.
+
+## v5.1.3 - Weather Mixer UI Repair, Visual Shader Enhancements & Climate Data Audit
+
+- **🎛️ Weather Mixer & UI Control Fixes:** Restored smooth layout alignment and fixed button click handling in the Weather Mixer. Deleting layers and saving favorite presets now work seamlessly without closing or interrupting active dialogs.
+- **✨ Enhanced Particle Dynamics:** Upgraded particle movements with natural, multi-harmonic wind eddies for falling leaves, petals, snow, pollen, and ash, paired with immersive 3D depth parallax scaling.
+- **🌌 Volumetric Visual Shaders:** Upgraded visual weather filters with realistic multi-strike lightning physics, organic rolling mist tendrils for fog and cloud cover, and golden dust motes floating in sunbeams.
+- **🌐 Comprehensive Climate Data Audit:** Audited over 13,000 lines of climate data across both English and German datasets. Corrected broken weather effect links, fixed mismatched weather descriptions (such as fog appearing during stifling heat), and seamlessly linked visual effects for dry lightning storms, sandstorms, blizzards, fireflies, and autumn leaves.
+- **🎨 Quest Tracker Window Theme Alignment:** Unified window headers, titles, and control buttons across all module windows to match **Phils Quest Tracker**'s sleek, dark obsidian aesthetic.
+
 ## v5.1.2 - Quest Tracker Theme Alignment, Legibility & Performance Improvements
 
 - **🎨 Quest Tracker & Module Theme Alignment:** Unified the look of all module windows (calendar, day viewer, event editor, season config, theme config, moon phase config, time machine, etc.) with the dark matte aesthetic of Phils Quest Tracker.
