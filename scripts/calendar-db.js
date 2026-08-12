@@ -29,14 +29,18 @@ export class CalendarDB {
         const oldData = game.settings.get(this.FLAG_SCOPE, "calendarEvents") || {};
 
         if (!journal) {
-            // Create new Journal
             journal = await JournalEntry.create({
                 name: this.DB_NAME,
-                text: {
-                    content: "<h1>Phils Calendar Data</h1><p>Do not edit this content manually. Data is stored in Flags.</p>"
-                },
+                pages: [{
+                    name: "Phils Calendar Data",
+                    type: "text",
+                    text: {
+                        content: "<p>Do not edit this content manually. Data is stored in Flags.</p>",
+                        format: CONST.JOURNAL_ENTRY_PAGE_FORMATS.HTML
+                    }
+                }],
                 ownership: {
-                    default: 3 // OWNER permissions for everyone
+                    default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER
                 },
                 flags: {
                     [this.FLAG_SCOPE]: {
@@ -46,25 +50,12 @@ export class CalendarDB {
             });
 
             await game.settings.set(this.FLAG_SCOPE, "dbJournalId", journal.id);
-
         } else {
-            if (journal.ownership.default !== 3) {
-                await journal.update({ "ownership.default": 3 });
+            if (journal.ownership.default !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) {
+                await journal.update({ "ownership.default": CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER });
             }
-            // Ensure flag exists if we have empty flag but data in content? 
-            // Or just ensure flag exists if missing
-            const flags = journal.getFlag(this.FLAG_SCOPE, "events");
 
-
-            // MIGRATION / CLEANUP CHECK
-            // If data exists in Settings but NOT in Flags, move it (Migration)
-            // REMOVED: This causes empty calendars (deleted events) to be re-filled with old data.
-            // If the Journal exists, we assume it is the Source of Truth, even if empty.
-
-
-            // CLEANUP: If data exists in Settings, clear it to prevent "undelete" zombies
             if (Object.keys(oldData).length > 0) {
-
                 await game.settings.set(this.FLAG_SCOPE, "calendarEvents", {});
             }
         }
@@ -96,6 +87,11 @@ export class CalendarDB {
             if (!journal) {
                 console.error("Phils Day Night Cycle | Cannot save, DB Journal missing.");
                 return;
+            }
+
+            // Clean up any lingering legacy "-=" keys from old bugs
+            for (const k of Object.keys(events)) {
+                if (k.startsWith("-=")) delete events[k];
             }
 
             // Update Cache Immediately
@@ -161,7 +157,6 @@ export class CalendarDB {
             if (events[dateKey].length < initialLen) {
                 if (events[dateKey].length === 0) {
                     delete events[dateKey];
-                    events["-=" + dateKey] = null;
                 }
                 await this.saveEvents(events);
 
@@ -183,27 +178,19 @@ export class CalendarDB {
             let changed = false;
 
             for (const dateKey in events) {
-                const initialLen = events[dateKey].length;
-                const before = events[dateKey].length;
-                
-                // Detailed check
-                const matching = events[dateKey].filter(e => e.documentId == docId); // Relaxed check
-                if (matching.length > 0) {
-
-                } else {
-                     // Debug non-matches if we are looking for something specific?
-                     // Verify if we have ANY documentIds
-                     const hasIds = events[dateKey].some(e => e.documentId);
-
+                if (dateKey.startsWith("-=")) {
+                    delete events[dateKey];
+                    changed = true;
+                    continue;
                 }
 
+                const initialLen = events[dateKey].length;
                 events[dateKey] = events[dateKey].filter(e => e.documentId != docId); // Relaxed check
                 
                 if (events[dateKey].length !== initialLen) {
                     changed = true;
                     if (events[dateKey].length === 0) {
                         delete events[dateKey];
-                        events["-=" + dateKey] = null;
                     }
                 }
             }

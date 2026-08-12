@@ -7,17 +7,14 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
     constructor(dateKey, eventToEdit, defaultType = 'event', callback) {
         super({});
         this.dateKey = dateKey;
-        // If eventToEdit is passed, use it. checking for _index is handled by caller.
         this.editEvent = eventToEdit ? (typeof eventToEdit === 'string' ? { title: eventToEdit, type: 'event', author: game.user.id } : eventToEdit) : null;
         this.defaultType = defaultType;
         this.callback = callback;
         
-        // Treat Start Date of Series as an "Instance" so we can delete/modify it using the same dialog flow
         const isLegacyRecur = this.editEvent && this.editEvent.recurring && this.editEvent.recurring !== 'none';
         this.isRecurringInstance = (this.editEvent && this.editEvent.isRecurring) || isLegacyRecur;
     }
 
-    // ... (Getters and Options remain same)
     get title() {
         return this.editEvent ? game.i18n.localize("PDNC.EditEvent") : game.i18n.localize("PDNC.AddEvent");
     }
@@ -25,16 +22,15 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
     static DEFAULT_OPTIONS = {
         tag: "form",
         id: "phils-calendar-editor",
+        classes: ["pdnc-app-v2", "pdnc-event-editor-window"],
         window: {
             resizable: true,
             icon: "fas fa-edit",
-            width: 400,
-            height: "auto",
             classes: ["pdnc-event-editor-window"]
         },
         position: {
             width: 400,
-            height: "auto"
+            height: 480
         },
         actions: {
             delete: CalendarEventEditor.prototype._onDelete
@@ -45,6 +41,17 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             closeOnSubmit: true
         }
     };
+
+    async _preClose(options) {
+        // Web Animations API fade — awaited before element is removed from DOM
+        if (this.element?.isConnected) {
+            await this.element.animate(
+                [{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(0.97)" }],
+                { duration: 120, easing: "ease-in", fill: "forwards" }
+            ).finished;
+        }
+        return super._preClose(options);
+    }
 
     static PARTS = {
         form: {
@@ -60,7 +67,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         const parsedDate = CalendarSystem.parseDateKey(this.dateKey) ?? { year: 0, month: 0, day: 1 };
         const maxDaysInMonth = calendarSystem.getDaysInMonth(parsedDate.year, parsedDate.month);
 
-        // Determine title, description, and type
         let title = "";
         let description = "";
         let type = this.defaultType;
@@ -87,7 +93,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             isEditing: !!this.editEvent,
             isRecurringInstance: !!this.isRecurringInstance,
             
-            // Date Editing Data
             currentYear: parsedDate.year,
             currentMonth: parsedDate.month,
             currentDay: parsedDate.day,
@@ -96,7 +101,7 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
                 index: i, 
                 name: CalendarSystem.stripMarkup(m.name)
             })),
-            canEditDate: isGM // Only GM can move events (simpler for now)
+            canEditDate: isGM
         };
     }
 
@@ -111,7 +116,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
         const intervalDays = parseInt(formData.object.intervalDays) || 36;
         const postToChat = formData.object.postToChat;
 
-        // Date Change
         const newYear = parseInt(formData.object.dateYear);
         const newMonth = parseInt(formData.object.dateMonth);
         const newDay = parseInt(formData.object.dateDay);
@@ -121,8 +125,7 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             targetDateKey = `${newYear}-${newMonth}-${newDay}`;
         }
         
-        // New: Recurrence Scope
-        const recurrenceScope = formData.object.recurrenceScope || 'series'; // 'series' or 'instance'
+        const recurrenceScope = formData.object.recurrenceScope || 'series';
 
         const eventData = {
             title: title,
@@ -135,7 +138,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             intervalDays: intervalDays,
             author: this.editEvent ? this.editEvent.author : game.user.id,
             timestamp: this.editEvent ? this.editEvent.timestamp : Date.now(),
-            // Pass the scope back
             recurrenceScope: recurrenceScope,
             targetDateKey: targetDateKey
         };
@@ -144,7 +146,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
             this.callback(this.editEvent ? 'save' : 'save-new', eventData, this.editEvent);
         }
 
-        // Post to Chat logic
         if (postToChat && !this.editEvent && type !== 'gm' && type !== 'personal') { 
             this._postCreationMessage(eventData);
         }
@@ -161,8 +162,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
                 intervalGroup.style.display = e.target.value === 'interval' ? '' : 'none';
             });
         }
-        
-        // No clear color button logic anymore as <color-picker> handles it
     }
 
     async _postCreationMessage(data) {
@@ -176,7 +175,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
              monthName: calendarSystem.config.months[month]?.name
          }, { plainText: true });
          
-         // Generate clickable link
          const linkHtml = `<a class="pdnc-event-link" data-date="${targetDateKey}"><i class="fas fa-calendar-check"></i> ${data.title}</a>`;
 
          const content = `
@@ -235,7 +233,6 @@ export class CalendarEventEditor extends HandlebarsApplicationMixin(ApplicationV
                  this.close();
             }
         } else {
-            // Standard Event
              if (this.callback) {
                 this.callback('delete', null, this.editEvent);
                 this.close();

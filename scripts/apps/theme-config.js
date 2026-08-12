@@ -7,6 +7,7 @@ export class ThemeConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
     static DEFAULT_OPTIONS = {
         id: "pdnc-theme-config",
         tag: "form",
+        classes: ["pdnc-app-v2", "pdnc-theme-config-window"],
         window: {
             title: "PDNC.ThemeConfig.Title",
             icon: "fas fa-images",

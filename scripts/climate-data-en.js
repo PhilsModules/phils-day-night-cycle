@@ -6,7 +6,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The long polar night finally breaks, revealing a breathtaking, crystal-clear sunrise.",
+                        "text": "First sunrise after polar night; visibility clear.",
                         "temp": {
                             "minC": -35,
                             "maxC": -30,
@@ -16,7 +16,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Vicious, freezing winds sweep mercilessly across the desolate ice plateau.",
+                        "text": "Severe katabatic winds sweeping across the plateau.",
                         "temp": {
                             "minC": -40,
                             "maxC": -35,
@@ -26,7 +26,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The blinding glare of fresh snow fiercely stings the eyes of any traveler.",
+                        "text": "Fresh snow glares so fiercely it stings the eyes.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -36,7 +36,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Glimmering diamond dust fills the air, casting ethereal halos around the weak sun.",
+                        "text": "Diamond dust in the air; halo phenomena possible.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -48,7 +48,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive, shifting snowdrifts block the way, burying the terrain under mounds of white.",
+                        "text": "Massive snowdrifts blocking terrain.",
                         "temp": {
                             "minC": -28,
                             "maxC": -22,
@@ -60,7 +60,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An endless, deep blue sky stretches still and silent over the frozen wasteland.",
+                        "text": "A deep blue sky stands clear and still.",
                         "temp": {
                             "minC": -32,
                             "maxC": -28,
@@ -70,7 +70,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A blinding whiteout erases the horizon, leaving you utterly lost in a sea of snow.",
+                        "text": "Loss of contrast due to diffuse light; Whiteout conditions.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -82,7 +82,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The bitter cold slightly eases as milder, wandering winds briefly move in.",
+                        "text": "The cold eases as milder winds move in.",
                         "temp": {
                             "minC": -18,
                             "maxC": -12,
@@ -92,7 +92,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dense, creeping ice fog reduces visibility to mere paces, swallowing all sound.",
+                        "text": "Dense ice fog; visibility less than 10 meters.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -104,7 +104,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Sudden, unruly gusts of wind rake the frozen ground, tearing at cloaks and tents.",
+                        "text": "Gusts rake the ground in sudden, unruly bursts.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -114,7 +114,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A mystical, shimmering halo of light appears suspended in the thick, freezing fog.",
+                        "text": "Glory phenomenon in the fog.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -126,7 +126,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Heavy snow begins to drift, sending razor-sharp ice crystals dancing near the ground.",
+                        "text": "Heavy drifting snow; crystals are transported near ground.",
                         "temp": {
                             "minC": -24,
                             "maxC": -19,
@@ -138,7 +138,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "In the suffocating stillness of the ice, the freezing cold bites ever deeper into your bones.",
+                        "text": "In the stillness, the cold bites ever deeper.",
                         "temp": {
                             "minC": -35,
                             "maxC": -30,
@@ -148,7 +148,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "High, looming cloud fields cast a temporary, ominous shadow over the glacier.",
+                        "text": "Temporary darkening due to high-altitude cloud fields.",
                         "temp": {
                             "minC": -20,
                             "maxC": -16,
@@ -158,7 +158,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A prolonged twilight bathes the frozen world in haunting shades of deep violet.",
+                        "text": "Prolonged twilight; sky colored violet.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -168,7 +168,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The ancient glacier groans beneath you, echoing with sharp, terrifying cracks.",
+                        "text": "The glacier groans with sharp, echoing cracks.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -178,7 +178,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A severe, roaring blizzard descends, threatening to bury everything in its path.",
+                        "text": "Severe blizzard conditions.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -190,7 +190,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is crystal clear, offering a pristine, unbroken view to the far horizon.",
+                        "text": "Crystal clear air; excellent visibility to the horizon.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -200,7 +200,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy coat of sparkling hoarfrost forms quickly on armor, weapons, and provisions.",
+                        "text": "Heavy hoarfrost formation on equipment and surfaces.",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -210,7 +210,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rising sun finally offers a faint, desperately welcome touch of radiant heat.",
+                        "text": "First noticeable radiant heat from the sun.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -222,111 +222,111 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "The midnight sun hangs stubbornly in the sky, offering endless hours of unforgiving daylight.",
+                        "text": "Midnight sun; 24 hours of daylight without interruption.",
                         "temp": {
-                            "minC": -10,
-                            "maxC": -5,
-                            "minF": 14,
-                            "maxF": 23
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
                         },
                         "fx": []
                     },
                     {
-                        "text": "A brief surface thaw begins, forming treacherous pools of icy meltwater.",
+                        "text": "Surface thaw; formation of meltwater pools.",
                         "temp": {
-                            "minC": -7,
-                            "maxC": -5,
-                            "minF": 19,
-                            "maxF": 23
+                            "minC": 0,
+                            "maxC": 2,
+                            "minF": 32,
+                            "maxF": 36
                         },
                         "fx": []
                     },
                     {
-                        "text": "A brilliant, clear sky arches overhead, completely devoid of any sheltering clouds.",
+                        "text": "Bright clear sky; no cloud formation.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
                         },
                         "fx": []
                     },
                     {
-                        "text": "Wandering banks of thick fog drift silently across the endless white plains.",
+                        "text": "Local fog banks moving across the plain.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": -1,
+                            "maxC": 2,
+                            "minF": 30,
+                            "maxF": 36
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The once-solid ice surface turns soft and dangerously slushy beneath your boots.",
+                        "text": "Ice surface soft and slushy.",
                         "temp": {
-                            "minC": -7,
-                            "maxC": -5,
-                            "minF": 19,
-                            "maxF": 23
+                            "minC": 1,
+                            "maxC": 3,
+                            "minF": 34,
+                            "maxF": 37
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden intrusion of warm air triggers a massive, rapid thaw across the ice field.",
+                        "text": "Warm air intrusion; massive thaw.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": 2,
+                            "maxC": 5,
+                            "minF": 36,
+                            "maxF": 41
                         },
                         "fx": []
                     },
                     {
-                        "text": "The fierce, unwavering glare of the sun on the snow threatens to blind the unwary.",
+                        "text": "Snow glare is fierce enough to blind the unwary.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
                         },
                         "fx": []
                     },
                     {
-                        "text": "A harsh, stinging mix of sleet and snow lashes violently down from the sky.",
+                        "text": "A harsh mix of rain and snow falls from above.",
                         "temp": {
-                            "minC": -7,
-                            "maxC": -5,
-                            "minF": 19,
-                            "maxF": 23
+                            "minC": 1,
+                            "maxC": 3,
+                            "minF": 34,
+                            "maxF": 37
                         },
                         "fx": [
                             "hail"
                         ]
                     },
                     {
-                        "text": "An eerie, unnatural calm settles over the ice, accompanied by unusually warm air.",
+                        "text": "Calm and mild; unusually warm conditions.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
                         },
                         "fx": []
                     },
                     {
-                        "text": "Passing clouds cast vast, racing shadows across the endless expanse of ice.",
+                        "text": "Passing clouds create moving shadows on the ice.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
                         },
                         "fx": []
                     },
                     {
-                        "text": "The brief thaw violently snaps shut as the meltwater suddenly freezes solid again.",
+                        "text": "The thaw snaps shut as meltwater turns to ice.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -336,109 +336,109 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy dome of icy haze settles over the land, severely restricting visibility.",
+                        "text": "Haze dome restricts visibility.",
                         "temp": {
-                            "minC": -7,
-                            "maxC": -5,
-                            "minF": 19,
-                            "maxF": 23
+                            "minC": -1,
+                            "maxC": 1,
+                            "minF": 30,
+                            "maxF": 34
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "A sudden, howling snow squall sweeps out of nowhere just as midday approaches.",
+                        "text": "A sudden snow squall sweeps in around midday.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": -3,
+                            "maxC": 0,
+                            "minF": 27,
+                            "maxF": 32
                         },
                         "fx": [
                             "snow"
                         ]
                     },
                     {
-                        "text": "Diffuse, milky light washes out all shadows, making the ground treacherously difficult to read.",
+                        "text": "Diffuse, milky light; contrasts barely perceptible.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": -2,
+                            "maxC": 1,
+                            "minF": 28,
+                            "maxF": 34
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The sun burns down harshly from a pitiless sky, offering no escape from the glare.",
+                        "text": "The sun burns harshly from a pitiless sky.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": -5,
+                            "maxC": -1,
+                            "minF": 23,
+                            "maxF": 30
                         },
                         "fx": []
                     },
                     {
-                        "text": "Deep, yawning glacial mills roar to life as intense meltwater rushes into the darkness.",
+                        "text": "Intense meltwater formation at glacial mills.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": 1,
+                            "maxC": 4,
+                            "minF": 34,
+                            "maxF": 39
                         },
                         "fx": []
                     },
                     {
-                        "text": "A light, ghostly evening fog rises from the ice as the sun begins its shallow dip.",
+                        "text": "Light evening fog rising as sun dips.",
                         "temp": {
-                            "minC": -7,
-                            "maxC": -5,
-                            "minF": 19,
-                            "maxF": 23
+                            "minC": -2,
+                            "maxC": 0,
+                            "minF": 28,
+                            "maxF": 32
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "A steady, biting wind blows continuously, carrying the relentless chill of the ice.",
+                        "text": "Steady, cooling wind.",
                         "temp": {
-                            "minC": -8,
-                            "maxC": -5,
-                            "minF": 18,
-                            "maxF": 23
+                            "minC": -4,
+                            "maxC": -1,
+                            "minF": 25,
+                            "maxF": 30
                         },
                         "fx": []
                     },
                     {
-                        "text": "A shimmering mirage distorts the horizon, a strange trick of the shifting air.",
+                        "text": "Strong atmospheric refraction; mirage on the horizon.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The sun briefly touches the horizon, plunging the world into a fleeting, magical twilight.",
+                        "text": "Sun touches the horizon; brief twilight phase.",
                         "temp": {
-                            "minC": -9,
-                            "maxC": -5,
-                            "minF": 16,
-                            "maxF": 23
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
                         },
                         "fx": []
                     }
                 ],
                 "autumn": [
                     {
-                        "text": "The first true sunset of the season falls, signaling the impending return of the dark.",
+                        "text": "First sunset of the season.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -448,7 +448,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air pressure plummets as a ferocious winter storm begins to howl.",
+                        "text": "Onset of winter storm; barometer dropping rapidly.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -460,7 +460,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifyingly rapid drop in temperature freezes the breath in your lungs.",
+                        "text": "Dramatic temperature drop within a few hours.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -470,7 +470,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A suffocating, overcast sky unleashes a continuous, heavy snowfall.",
+                        "text": "Overcast sky with continuous snowfall.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -482,7 +482,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A bone-chilling wind tears through the camp, threatening immediate frostbite.",
+                        "text": "High wind chill factor; risk of frostbite.",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -492,7 +492,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A permanent, ghostly twilight seems to stretch endlessly through the days.",
+                        "text": "Permanent, diffuse twilight.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -502,7 +502,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting wind hardens the snowpack into a treacherous, icy crust.",
+                        "text": "Crust formation on snowpack; surface hardening.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -512,7 +512,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Spiky, crystalline ice grows rapidly over every exposed surface.",
+                        "text": "Crystalline ice growth on all surfaces.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -522,7 +522,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A total whiteout descends, obliterating all sense of direction and distance.",
+                        "text": "Total whiteout conditions.",
                         "temp": {
                             "minC": -18,
                             "maxC": -13,
@@ -534,7 +534,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The evening sky bleeds deep red as the fading light scatters through airborne ice.",
+                        "text": "Evening sky colored deep red; scattering by ice crystals.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -544,7 +544,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep valleys are quickly swallowed by a creeping, impenetrable ice fog.",
+                        "text": "Valleys filled with ice fog.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -556,7 +556,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Gale-force gusts hurl old snow into the air, blinding anyone caught in the open.",
+                        "text": "Gale gusts whirling up old snow; visibility reduced.",
                         "temp": {
                             "minC": -16,
                             "maxC": -12,
@@ -568,7 +568,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The encroaching, deep cold causes the ancient ice to crack with deafening, cannon-like booms.",
+                        "text": "Ice cracks loudly in the hardening cold.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -578,7 +578,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The first faint, ghostly ribbons of the Aurora Borealis dance in the darkening sky.",
+                        "text": "First weak Aurora Borealis visible.",
                         "temp": {
                             "minC": -35,
                             "maxC": -30,
@@ -590,7 +590,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The days grow terribly short, the weak sun barely scraping the frozen horizon.",
+                        "text": "Extremely short day length; sun barely above horizon.",
                         "temp": {
                             "minC": -28,
                             "maxC": -22,
@@ -600,7 +600,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A stable, bitter cold settles in, leaving the sky incredibly clear and deadly freezing.",
+                        "text": "Stable high pressure system; cold and clear.",
                         "temp": {
                             "minC": -32,
                             "maxC": -28,
@@ -610,7 +610,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A continuous shower of fine diamond dust sparkles beautifully, yet chillingly, in the air.",
+                        "text": "Precipitation of fine ice crystals/diamond dust.",
                         "temp": {
                             "minC": -24,
                             "maxC": -20,
@@ -622,7 +622,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deceptive calm falls over the ice, masking the fact that the temperature is still plummeting.",
+                        "text": "Deceptive calm; air temperature continues to drop.",
                         "temp": {
                             "minC": -30,
                             "maxC": -26,
@@ -632,7 +632,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly low sun casts long, eerie shadows that stretch across the glacier.",
+                        "text": "Low sun angle casts extremely long shadows.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -642,7 +642,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A wall of dark, bruised clouds advances rapidly, bringing the promise of heavy snow.",
+                        "text": "Dark frontal clouds approaching; heavy snow expected.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -654,39 +654,39 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "The endless polar night begins, plunging the frozen wasteland into complete darkness.",
+                        "text": "Start of polar night; complete darkness.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
                         },
                         "fx": []
                     },
                     {
-                        "text": "Intense, vibrant auroras paint the star-strewn sky in dancing ribbons of green and violet.",
+                        "text": "High geomagnetic activity; intense auroras.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
                         },
                         "fx": [
                             "aurora"
                         ]
                     },
                     {
-                        "text": "The temperature drops to life-threatening extremes, freezing the very air.",
+                        "text": "Life-threatening low temperatures.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -60,
+                            "maxC": -55,
+                            "minF": -76,
+                            "maxF": -67
                         },
                         "fx": []
                     },
                     {
-                        "text": "A monstrous blizzard roars with hurricane force, reducing visibility to absolutely zero.",
+                        "text": "Severe blizzard; zero visibility and hurricane gusts.",
                         "temp": {
                             "minC": -40,
                             "maxC": -35,
@@ -698,59 +698,59 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An exceptionally clear, star-studded sky reveals the brilliant sweep of the cosmos.",
+                        "text": "Exceptionally clear starry sky; Milky Way visible.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
                         },
                         "fx": []
                     },
                     {
-                        "text": "Moisture freezes instantly in the air, creating a suffocating, dense ice fog.",
+                        "text": "Instant freezing of moisture/sublimation; ice fog.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -34,
-                            "minF": -40,
-                            "maxF": -29
+                            "minC": -48,
+                            "maxC": -42,
+                            "minF": -54,
+                            "maxF": -44
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "A dead, heavy silence falls over the ice, entirely devoid of even the whisper of wind.",
+                        "text": "Dead silence; no wind noise.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -36,
-                            "minF": -40,
-                            "maxF": -33
+                            "minC": -52,
+                            "maxC": -48,
+                            "minF": -62,
+                            "maxF": -54
                         },
                         "fx": []
                     },
                     {
-                        "text": "Bright, silvery moonlight reflects off the ice, illuminating the night like a ghostly day.",
+                        "text": "Bright moonlight reflected by ice; good night visibility.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
                         },
                         "fx": []
                     },
                     {
-                        "text": "Every exhaled breath crystallizes instantly, falling like snow before your eyes.",
+                        "text": "Instant crystallization of breath.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -34,
-                            "minF": -40,
-                            "maxF": -29
+                            "minC": -58,
+                            "maxC": -52,
+                            "minF": -72,
+                            "maxF": -62
                         },
                         "fx": []
                     },
                     {
-                        "text": "Furious, blowing snow obscures the ground entirely, making every step a perilous gamble.",
+                        "text": "Ground visibility impossible due to blowing snow.",
                         "temp": {
                             "minC": -38,
                             "maxC": -32,
@@ -762,7 +762,57 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The intense, unnatural cold makes leather crack and steel dangerously brittle.",
+                        "text": "Material embrittlement due to intense cold.",
+                        "temp": {
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Nautical twilight at noon; only faint horizon glow.",
+                        "temp": {
+                            "minC": -42,
+                            "maxC": -38,
+                            "minF": -44,
+                            "maxF": -36
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Extremely dry air; high static charge.",
+                        "temp": {
+                            "minC": -46,
+                            "maxC": -40,
+                            "minF": -51,
+                            "maxF": -40
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Ground surface frozen hard as steel.",
+                        "temp": {
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Acute frostbite risk within <5 minutes.",
+                        "temp": {
+                            "minC": -60,
+                            "maxC": -55,
+                            "minF": -76,
+                            "maxF": -67
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Monotonous, howling wind.",
                         "temp": {
                             "minC": -40,
                             "maxC": -35,
@@ -772,92 +822,42 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Even at noon, only a faint, sickly glow on the horizon hints at the hidden sun.",
+                        "text": "Bizarre crystal growth on the ground.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -36,
-                            "minF": -40,
-                            "maxF": -33
+                            "minC": -45,
+                            "maxC": -40,
+                            "minF": -49,
+                            "maxF": -40
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is bone-dry and crackles with strange, static energy.",
+                        "text": "Prolonged absolute darkness.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -34,
-                            "minF": -40,
-                            "maxF": -29
+                            "minC": -50,
+                            "maxC": -45,
+                            "minF": -58,
+                            "maxF": -49
                         },
                         "fx": []
                     },
                     {
-                        "text": "The frozen ground is as hard as tempered steel, impossible to break or dig.",
+                        "text": "Excellent astronomical visibility.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
+                            "minC": -55,
+                            "maxC": -50,
+                            "minF": -67,
+                            "maxF": -58
                         },
                         "fx": []
                     },
                     {
-                        "text": "Exposing bare skin to the air guarantees severe frostbite within mere minutes.",
+                        "text": "Light breeze lowers wind chill temperature drastically.",
                         "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "A monotonous, mournful wind howls ceaselessly across the barren ice.",
-                        "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "Bizarre, jagged frost crystals grow like crystal weeds from the frozen earth.",
-                        "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "A prolonged, absolute darkness reigns, broken only by the cold stars.",
-                        "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The crystal-clear, freezing night offers an unparalleled view of the heavens.",
-                        "temp": {
-                            "minC": -40,
-                            "maxC": -35,
-                            "minF": -40,
-                            "maxF": -31
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "Even a light breeze feels like icy daggers, drastically worsening the brutal cold.",
-                        "temp": {
-                            "minC": -40,
-                            "maxC": -36,
-                            "minF": -40,
-                            "maxF": -33
+                            "minC": -48,
+                            "maxC": -44,
+                            "minF": -54,
+                            "maxF": -47
                         },
                         "fx": []
                     }
@@ -876,7 +876,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "Vibrant blossoms burst forth, painting the waking landscape in vivid colors.",
+                        "text": "Nature awakens with a colorful explosion of blossoms.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -886,7 +886,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A gentle warmth and clear skies beckon travelers to the open road.",
+                        "text": "Mild temperatures and sunny weather invité hiking.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -896,7 +896,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Sudden, brief showers wash the world clean, leaving the foliage glistening.",
+                        "text": "Occasional rain showers refresh the green landscape.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -908,7 +908,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A crisp, salty breeze blows in from the sea, carrying the scent of adventure.",
+                        "text": "A fresh breeze blows from the sea.",
                         "temp": {
                             "minC": 16,
                             "maxC": 19,
@@ -918,7 +918,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is pristine and sharp after a passing shower, offering unmatched visibility.",
+                        "text": "Crystal clear visibility after a short shower.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -928,7 +928,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The chill of the night quickly surrenders to the radiant warmth of the morning sun.",
+                        "text": "Rapid warming in the morning sun.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -938,7 +938,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Verdant plains stretch as far as the eye can see, flourishing before the looming summer heat.",
+                        "text": "Fields are covered in lush green before the summer drought.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -948,7 +948,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A few scattered, fluffy clouds drift lazily across an endless azure sky.",
+                        "text": "Scattered clouds drift lazily across the deep blue sky.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -958,7 +958,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Pleasantly warm days give way to crisp, refreshing nights.",
+                        "text": "Warm days but still refreshingly cool nights.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -968,7 +968,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A delicate morning mist clings to the valleys before being chased away by the sun.",
+                        "text": "Light mist in the valleys clears quickly.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -980,7 +980,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The rich, earthy aroma of wild herbs bakes in the afternoon sun.",
+                        "text": "Mediterranean herbs spread their scent in the sun.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -990,17 +990,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The coastal waters finally shed their winter chill, inviting weary travelers to bathe.",
+                        "text": "First days suitable for swimming in the sea.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
                             "minF": 72,
                             "maxF": 79
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "A sullen bank of gray clouds rolls in, casting a gloomy pall over the land.",
+                        "text": "A passing low brings a day of gray skies.",
                         "temp": {
                             "minC": 15,
                             "maxC": 18,
@@ -1012,17 +1014,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Sudden gusts of wind whip up blinding clouds of dust along the dry, worn paths.",
+                        "text": "Gusty winds swirl up dust on the dry paths.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
                             "minF": 66,
                             "maxF": 73
                         },
-                        "fx": []
+                        "fx": [
+                            "drizzle"
+                        ]
                     },
                     {
-                        "text": "Dark, bruised clouds gather on the horizon, promising a fierce afternoon thunderstorm.",
+                        "text": "Thunderstorm warning for the late afternoon.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -1034,17 +1038,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Radiant shafts of sunlight pierce through the breaking cloud cover, illuminating the earth below.",
+                        "text": "Sunbeams break through the cloud cover.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
                             "minF": 63,
                             "maxF": 70
                         },
-                        "fx": []
+                        "fx": [
+                            "sunbeams"
+                        ]
                     },
                     {
-                        "text": "The weather holds steady and fair, offering perfect conditions for a long journey.",
+                        "text": "Perfect travel weather with stable high pressure.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -1054,7 +1060,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Crashing waves hurl a fine spray of sea foam high against the jagged coastal cliffs.",
+                        "text": "Sea foam sprays up on the cliffs.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -1064,7 +1070,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A soft, rhythmic rain falls, gently nourishing the ancient groves.",
+                        "text": "Gentle rain falls on the olive groves.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -1076,7 +1082,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is alive with the chorus of birdsong and the undeniable energy of spring.",
+                        "text": "The air is filled with bird song and spring fever.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -1088,29 +1094,29 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "A suffocating dome of haze settles over the baking landscape.",
+                        "text": "Haze dome over the landscape due to heat.",
                         "temp": {
-                            "minC": 29,
-                            "maxC": 34,
-                            "minF": 84,
-                            "maxF": 93
+                            "minC": 30,
+                            "maxC": 35,
+                            "minF": 86,
+                            "maxF": 95
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "A relentless sun beats down mercilessly from a cloudless, unforgiving sky.",
+                        "text": "Relentless sun burns from a cloudless sky.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": []
                     },
                     {
-                        "text": "Hot, dry winds sweep across the land, parching the cracked soil.",
+                        "text": "Etesian winds bring relief but dry out the soil.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -1120,17 +1126,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The wilderness is tinder-dry; a single spark could ignite a raging inferno.",
+                        "text": "Everything is dry; high forest fire danger.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "Stifling, hot nights offer absolutely no relief from the day's brutal heat.",
+                        "text": "Hot and dry nights offer little cooling.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -1140,19 +1146,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Waves of shimmering heat distort the horizon above the scorching stones.",
+                        "text": "Shimmering heat over the stone.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "A humid sea breeze rolls in, cooling the air but leaving everything sticky.",
+                        "text": "Sea breeze brings humid but cooler air.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -1162,7 +1168,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun is a cruel tyrant; finding a patch of shade feels like a divine blessing.",
+                        "text": "The sun is merciless; shade is a blessing.",
+                        "temp": {
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Chirping of cicadas is deafening.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -1172,39 +1188,29 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deafening, rhythmic chirping of cicadas drowns out all other sounds.",
+                        "text": "Not a single cloud to be seen all day.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "Not a single cloud dares to mar the endless expanse of the blue sky.",
+                        "text": "Dust devils form on open fields.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "Swirling dust devils dance ominously across the baked, open fields.",
-                        "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": [
                             "sandstorm"
                         ]
                     },
                     {
-                        "text": "Sultry, heavy air suddenly cracks as a violent afternoon thunderstorm erupts.",
+                        "text": "Sultry air causes afternoon thunderstorms.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -1216,27 +1222,27 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A gust of wind washes over you, feeling like the breath of an open furnace.",
+                        "text": "Warm wind feels like a hair dryer.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "The once-green vegetation has surrendered to the drought, turning sick yellow and brown.",
+                        "text": "Vegetation has turned yellow and brown.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
                         },
                         "fx": []
                     },
                     {
-                        "text": "The dying sun bleeds across the horizon, dipping the sea in deep crimson light.",
+                        "text": "Sunset dips the sea in red light.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -1246,27 +1252,29 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A perfectly clear, star-studded sky offers a breathtaking view of the cosmos.",
+                        "text": "Starry clear night, perfect for observation.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
                             "minF": 68,
                             "maxF": 75
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "An oppressive, heavy heat pools in the valleys, making every breath an effort.",
+                        "text": "Oppressive heat builds up in valleys.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, desperately needed shower falls, but the drops sizzle and evaporate instantly.",
+                        "text": "Brief refreshing shower evaporates immediately.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -1278,7 +1286,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy sea air leaves a gritty, uncomfortable crust of salt on your skin.",
+                        "text": "Salt crust on the skin from the sea air.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -1288,19 +1296,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, lazy silence smothers the land during the brutal noon heat.",
+                        "text": "Lazy silence lies over the land at noon.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     }
                 ],
                 "autumn": [
                     {
-                        "text": "The first heavy, driving rains wash months of accumulated dust away.",
+                        "text": "First heavy rains wash the dust away.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -1308,11 +1316,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 75
                         },
                         "fx": [
-                            "heavy_rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The sea retains its summer warmth, contrasting with the cooling autumn air.",
+                        "text": "The sea is still warm enough for swimming.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -1322,7 +1330,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky groans with unstable weather, unleashing frequent, violent thunderstorms.",
+                        "text": "Unstable weather with frequent thunderstorms.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -1334,7 +1342,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The parched landscape drinks eagerly from the rain, flashing a brief, renewed green.",
+                        "text": "Renewed greening of the landscape after the rain.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -1344,7 +1352,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A golden Indian summer blesses the land with a few last days of gentle warmth.",
+                        "text": "Mild and sunny days (Indian Summer).",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -1354,7 +1362,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A howling autumn gale whips the darkened sea into a frenzy of towering waves.",
+                        "text": "Stormy wind whips up the waves.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -1366,7 +1374,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Sudden, raging flash floods tear dangerously through the dry, rocky riverbeds.",
+                        "text": "Flash floods possible in dry riverbeds.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -1378,7 +1386,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, chilling fog rolls out of the woods, swallowing the morning in gray.",
+                        "text": "Fog fields form in the morning.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -1390,7 +1398,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A dismal gray sky weeps continuously, soaking everything in a persistent drizzle.",
+                        "text": "Cloudy sky with persistent drizzle.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -1402,7 +1410,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sharp chill bites the air the moment the sun dips below the horizon.",
+                        "text": "Cooling is noticeable, especially at night.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -1412,7 +1420,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Majestic, towering cloud formations drift slowly over the restless sea.",
+                        "text": "Beautiful cloud formations over the sea.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -1422,7 +1430,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sweet smell of overripe grapes and crushed olives signals the autumn harvest.",
+                        "text": "Harvest time for grapes and olives.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -1432,7 +1440,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, biting cold front sweeps in, violently dropping the temperature.",
+                        "text": "Sudden temperature drop after cold front.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -1442,7 +1450,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brilliant rainbow arches triumphantly over the rain-slicked coastline.",
+                        "text": "Rainbows are frequently observed.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -1454,7 +1462,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Slippery, decaying leaves carpet the damp forest floor in shades of brown and gold.",
+                        "text": "Damp leaves cover the ground.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -1464,7 +1472,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Violent gusts of wind rattle the skeletal trees, tearing away their last leaves.",
+                        "text": "Gusts shake the trees.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -1476,17 +1484,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A soft, melancholic autumn light bathes the fading world in golden hues.",
+                        "text": "Soft light creates a melancholy atmosphere.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
                             "minF": 63,
                             "maxF": 70
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "A steady, drumming rain turns the world gray, perfect for seeking shelter in a tavern.",
+                        "text": "Rainy day, perfect for indoors.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -1498,7 +1508,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy clouds tear open at dusk, revealing a clear, freezing evening sky.",
+                        "text": "Clearing up in the evening.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -1508,7 +1518,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Huge flocks of migratory birds blacken the sky, fleeing south before the winter.",
+                        "text": "Migratory birds gather for the journey south.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -1520,7 +1530,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A miserable, bone-chilling dampness clings to the mild winter air.",
+                        "text": "Mild but humid winter weather.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -1532,7 +1542,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The ground remains stubbornly bare; true snow is a mythical rarity here.",
+                        "text": "Snow is an absolute rarity here.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -1542,7 +1552,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A furious winter storm lashes the coast with torrential, unforgiving rainfall.",
+                        "text": "Storm low brings heavy rainfall.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -1554,7 +1564,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brilliant, sunny winter day reveals a landscape sharp and crystal clear.",
+                        "text": "Sunny winter days with crystal clear air.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -1564,7 +1574,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A raw, biting wind howls down from the frozen mountain peaks.",
+                        "text": "Raw wind from the mountains.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -1574,7 +1584,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Monstrous waves crash violently against the rocky coast with thunderous force.",
+                        "text": "High waves crash against the coast.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -1584,7 +1594,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Stubborn green vegetation clings to life, defying the gray winter chill.",
+                        "text": "Green vegetation stays throughout winter.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -1594,7 +1604,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The damp cold gnaws at your bones, feeling far worse than a dry freeze.",
+                        "text": "Damp cold feels colder than it is.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -1604,7 +1614,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fickle sky shifts wildly between bright sun and freezing, sudden showers.",
+                        "text": "Frequent changes between sun and showers.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -1616,7 +1626,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A rare, biting night frost leaves a thin, treacherous glaze of ice by dawn.",
+                        "text": "Night frost is possible but rare.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -1626,7 +1636,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The distant, rolling hinterland is crowned with a brilliant mantle of snow.",
+                        "text": "Hills in the hinterland are covered in snow.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -1636,7 +1646,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A few bold almond trees sprout early blossoms, defying the lingering winter.",
+                        "text": "Almond trees begin to bloom early.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -1646,7 +1656,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A solid, impenetrable veil of gray clouds completely smothers the sun.",
+                        "text": "Gray veil of clouds covers the sun.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -1658,7 +1668,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Relentless, heavy rains turn the low-lying plains into a treacherous, muddy swamp.",
+                        "text": "Flooding in low-lying areas after continuous rain.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -1670,7 +1680,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The bitter chill outside makes the thought of a roaring tavern hearth irresistible.",
+                        "text": "Cozy atmosphere by the fireplace.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -1680,7 +1690,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent hail storm pelts the earth, turning the streets briefly white.",
+                        "text": "Brief hail shower whitens the streets.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -1692,7 +1702,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An angry, roaring surf pounds the beaches as the winter sea churns.",
+                        "text": "Strong surf on the beach.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -1702,7 +1712,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The daylight quickly surrenders, plunging the land into a long, dreary twilight.",
+                        "text": "Early twilight in the afternoon.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -1712,7 +1722,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A breathtakingly clear, starry sky emerges in the freezing wake of a rainy front.",
+                        "text": "Starry sky after a rainy front.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -1722,7 +1732,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A hushed, expectant silence falls over the sleeping land, awaiting the coming spring.",
+                        "text": "Quiet days before the new spring.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -1746,7 +1756,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "A pleasant, balmy breeze stirs the humid air, carrying the sweet scent of blooming jasmine.",
+                        "text": "High pressure influence provides sunny and mild spring weather.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -1756,7 +1766,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The morning dew is heavy and warm, sparkling on the lush, fast-growing vegetation.",
+                        "text": "Passage of a cold front triggers thunderstorm activity.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -1768,7 +1778,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, torrential downpour washes the humid world clean, leaving the air sticky and warm.",
+                        "text": "High pollen concentration reduces visibility and air quality.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -1780,7 +1790,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sun beats down with surprising intensity, hinting at the sweltering summer to come.",
+                        "text": "Warmer winds arrive from the south.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -1790,7 +1800,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Vibrant flowers burst into bloom everywhere, painting the green landscape in riotous colors.",
+                        "text": "Last ground frost phenomena in the early morning hours.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -1800,7 +1810,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dense, muggy fog clings to the swamps and lowlands, refusing to burn away until noon.",
+                        "text": "Fast moving shower bands during the day.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -1812,7 +1822,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce, rolling thunderstorm suddenly darkens the sky, unleashing jagged lightning.",
+                        "text": "Noticeable increase in relative humidity.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -1822,7 +1832,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air feels heavy and oppressive, making even a short walk incredibly exhausting.",
+                        "text": "Supercell formation possible; acute tornado warning for the sector.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -1834,7 +1844,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Warm rain falls in massive drops, beating a loud, rhythmic tattoo against the wide leaves.",
+                        "text": "Warning of heavy hail and crop damage.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -1846,7 +1856,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, fleeting cold snap surprises the land, sending a shiver through the waking trees.",
+                        "text": "Gusty wind with changing cloud cover.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -1856,7 +1866,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The evening brings a chorus of thousands of tree frogs, deafening and rhythmic.",
+                        "text": "High solar radiation; apparent temperature is above the measured value.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -1866,7 +1876,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rivers run high and fast, swollen by the frequent, heavy spring rains.",
+                        "text": "Inversion weather keeps morning fog in the valleys.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -1878,7 +1888,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brilliant, unblemished blue sky arches over the steamy, breathing landscape.",
+                        "text": "Cold air intrusion brings unsettled weather with rain.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -1890,7 +1900,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The incredibly humid air distorts the horizon, making the distant trees shimmer.",
+                        "text": "Intense tree blossoming.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -1900,7 +1910,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A light, warm drizzle falls continuously, turning the dirt roads into a slick, red mud.",
+                        "text": "Heavy, humid air heralds the start of summer.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -1910,7 +1920,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden squall blows in from the sea, bringing blinding rain and howling winds.",
+                        "text": "Cloudburst-like precipitation; risk of flash floods.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -1922,7 +1932,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The thick, heavy air makes it difficult to draw a full, satisfying breath.",
+                        "text": "Azure sky; stable atmospheric conditions.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -1932,7 +1942,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Dazzlingly bright sunshine quickly evaporates the rain, turning the forest into a steam bath.",
+                        "text": "Unusually mild night temperatures; clouds prevent radiative cooling.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -1942,7 +1952,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are uncomfortably warm and incredibly humid, offering little relief from the day.",
+                        "text": "Dryness and wind favor dust swirls.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -1952,7 +1962,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive swarms of mosquitoes and gnats rise from the swamps, hungry and relentless.",
+                        "text": "Dew point extremely high; air feels clammy.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -1964,17 +1974,17 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "An absolutely brutal, suffocating heat settles over the land like a heavy, wet blanket.",
+                        "text": "High heat stress conditions.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is so incredibly humid that sweat refuses to evaporate, leaving you drenched.",
+                        "text": "Heat thunderstorm in the afternoon brings brief cooling.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -1986,7 +1996,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The relentless sun turns the swamps into bubbling cauldrons of steam and rot.",
+                        "text": "The air hangs still, thick and stifling.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -1996,7 +2006,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A violent, daily afternoon thunderstorm provides the only, brief relief from the baking heat.",
+                        "text": "Hurricane warning; center of the cyclone approaches the coast.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -2008,17 +2018,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sky turns a terrifying, bruised purple as a massive tropical storm approaches.",
+                        "text": "Sunlight beats down without mercy.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "Fierce, hurricane-force winds threaten to tear the very trees from the sodden earth.",
+                        "text": "Tropical night; lows do not drop below 25 degrees.",
                         "temp": {
                             "minC": 24,
                             "maxC": 27,
@@ -2028,19 +2038,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The torrential rain falls in blinding, solid sheets, instantly flooding the lowlands.",
+                        "text": "Haze dome over urban areas; inversion condition.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "Even in the deep shade of the massive, moss-draped trees, the heat is utterly inescapable.",
+                        "text": "Heavy rain event with warm precipitation.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -2052,7 +2062,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The stagnant, incredibly thick air reeks of rotting vegetation and hot mud.",
+                        "text": "Loud chirping of cicadas.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -2062,17 +2072,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A perfectly still, breathless day makes the blazing heat feel completely unbearable.",
+                        "text": "Ozone warning; poor air quality in the noon hours.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
                         },
                         "fx": []
                     },
                     {
-                        "text": "The deafening roar of cicadas vibrates in the hot air, drowning out all other sounds.",
+                        "text": "Muggy sea breeze transports moisture inland.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -2082,7 +2092,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The blazing sun beats down without mercy from a hazy, white-hot summer sky.",
+                        "text": "Heat shimmers above the ground in wavering veils.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": [
+                            "heat_wave"
+                        ]
+                    },
+                    {
+                        "text": "Great storm clouds tower high overhead.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -2090,21 +2112,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 93
                         },
                         "fx": [
-                            "heat_wave"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "A sudden, incredibly violent microburst of wind snaps branches and flattens crops.",
-                        "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The heavy, stifling nights offer absolutely no cooling; sleep is restless and sweaty.",
+                        "text": "Combination of heat and high evaporation.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -2114,7 +2126,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The swamp waters are dangerously warm, teeming with aggressive, heat-agitated predators.",
+                        "text": "Ground saturated; risk of local flooding after rain.",
                         "temp": {
                             "minC": 26,
                             "maxC": 29,
@@ -2126,17 +2138,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A magnificent, vibrant rainbow arches triumphantly over the steaming, rain-slicked jungle.",
+                        "text": "Sky colored milky white by water droplets in the air.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": []
                     },
                     {
-                        "text": "The incredibly bright, glaring sunlight threatens to blind anyone not wearing a wide brim.",
+                        "text": "High mosquito activity near stagnant water.",
                         "temp": {
                             "minC": 25,
                             "maxC": 28,
@@ -2146,7 +2158,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A massive, churning wall of black clouds rolls in, bringing the fury of a squall line.",
+                        "text": "Evaporation effect makes short showers disappear immediately.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -2158,17 +2170,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The hot, wet earth steams visibly, releasing a rich, intoxicating, and heavy perfume.",
+                        "text": "Lack of air movement increases the heat index drastically.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 34,
-                            "minF": 86,
-                            "maxF": 93
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "The relentless, sweltering heat presses down on the chest, making every movement a chore.",
+                        "text": "Evening clearing; rainbow formation in the east.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -2182,7 +2194,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The brutal, sweltering heat finally breaks, replaced by a wonderfully mild, pleasant warmth.",
+                        "text": "Deep blue sky; decrease in humidity.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -2192,7 +2204,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly humid air slowly begins to dry out, making breathing remarkably easier.",
+                        "text": "Tropical storm/Ex-Hurricane affects the weather.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -2204,7 +2216,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The threat of massive, destructive hurricanes still looms heavily over the nervous coast.",
+                        "text": "Influx of dry continental air; pleasant conditions.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -2214,7 +2226,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, torrential autumn storm lashes the trees, stripping them of their weaker leaves.",
+                        "text": "Indian Summer conditions; foliage coloration at peak.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -2224,7 +2236,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The evenings bring a surprising, delicious coolness that feels like a divine blessing.",
+                        "text": "Strong radiation fog formation in the morning hours.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -2236,7 +2248,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, ghostly morning mist rises from the cooling swamps, lingering until mid-morning.",
+                        "text": "Strong nocturnal radiative cooling; chilly drop in temperature.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -2246,7 +2258,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The lush, green vegetation slowly begins to fade into subtle shades of yellow and brown.",
+                        "text": "Frontal passage with rain and freshening wind.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -2258,7 +2270,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A gentle, steady rain falls, peacefully soaking the exhausted, sun-baked earth.",
+                        "text": "Solar radiation still warms strongly during the day.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -2268,7 +2280,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly clear, crisp autumn sky is a breathtaking shade of deep, flawless blue.",
+                        "text": "First frost warning issued for the coming night.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -2278,7 +2290,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly strong, cool wind blows in from the north, chasing away the stagnant heat.",
+                        "text": "Autumn storm defoliates trees extensively.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -2288,7 +2300,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive rivers slowly begin to recede from their swollen, muddy summer banks.",
+                        "text": "High fog-like cloud cover and drizzle.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -2300,7 +2312,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights grow delightfully cool, finally allowing for a restful, deep sleep.",
+                        "text": "Dry and clear.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -2310,7 +2322,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent squall line blows through, dropping the temperature by twenty degrees.",
+                        "text": "Reddish sky coloration in the evening indicates wind.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -2320,7 +2332,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun casts long, golden shadows across the cooling, peaceful landscape.",
+                        "text": "Brief return of tropical humidity.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -2330,7 +2342,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is incredibly fresh and clean, washed completely free of the summer's oppressive dust.",
+                        "text": "Migratory bird formations observable in the sky.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -2340,7 +2352,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, cold dew coats the grass every morning, sparkling brilliantly in the pale sun.",
+                        "text": "Calm high pressure situation; cloudless.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -2350,7 +2362,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive flocks of migratory birds fill the sky, fleeing the coming northern winter.",
+                        "text": "A northern wind drives colder air across the land.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -2360,7 +2372,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A lingering, unseasonable heatwave makes the days feel like a sudden return to summer.",
+                        "text": "Stubborn ground fog clears only at noon.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -2372,7 +2384,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The leaves of the deciduous trees finally turn, painting the woods in unexpected, fiery colors.",
+                        "text": "Passage of a thunderstorm front ends the warm phase.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -2384,7 +2396,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A calm, peaceful silence settles over the land as the frenetic energy of summer dies away.",
+                        "text": "Frost formation on green areas in the early morning.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -2396,7 +2408,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A surprisingly sharp, biting chill cuts through the usually mild, humid winter air.",
+                        "text": "Clear winter day with high visibility.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -2406,7 +2418,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun shines brightly from a clear blue sky, but offers only a weak, distant warmth.",
+                        "text": "Warning of black ice/freezing rain on sealed surfaces.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -2418,7 +2430,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, deadly overnight frost blackens the tender leaves of the tropical plants.",
+                        "text": "Snow line dropping; wet and heavy snow.",
                         "temp": {
                             "minC": 0,
                             "maxC": 3,
@@ -2430,7 +2442,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A miserable, cold rain falls steadily, chilling the bone far worse than actual snow.",
+                        "text": "Warm air intrusion causes thaw.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -2440,7 +2452,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dense, gray clouds hang low and heavy, threatening days of depressing, endless drizzle.",
+                        "text": "Hard radiation frost in the morning.",
                         "temp": {
                             "minC": -5,
                             "maxC": -2,
@@ -2450,7 +2462,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The mighty swamps are eerily quiet, the deafening chorus of insects and frogs finally silenced.",
+                        "text": "Under a leaden sky, rain and snow mingle.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -2462,7 +2474,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brutal, unexpected cold snap sweeps down from the north, freezing the shallow puddles.",
+                        "text": "The sun shines, yet the cold scarcely relents.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -2472,7 +2484,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting wind howls through the bare, skeletal branches of the deciduous trees.",
+                        "text": "Storm low (Nor'easter) brings cold and precipitation.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -2484,7 +2496,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, suffocating sea fog rolls in, turning the world into a damp, gray mystery.",
+                        "text": "Atypical warm period for the season.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -2494,7 +2506,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The usually vibrant, green landscape is reduced to drab, melancholic shades of brown and gray.",
+                        "text": "Ground conditions muddy due to thawing processes.",
                         "temp": {
                             "minC": 2,
                             "maxC": 5,
@@ -2504,7 +2516,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A rare, beautiful flurry of snow falls, melting the very second it touches the warm earth.",
+                        "text": "Biting wind (wind chill) under clear skies.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -2514,7 +2526,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are bitterly, surprisingly cold, demanding thick blankets and roaring hearth fires.",
+                        "text": "Rare winter thunderstorm in the cold air.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -2526,7 +2538,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The incredibly damp cold seems to seep right through leather and wool, settling in the joints.",
+                        "text": "Hoarfrost coats the landscape white.",
                         "temp": {
                             "minC": -4,
                             "maxC": 0,
@@ -2536,17 +2548,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A crisp, wonderfully clear winter day offers a breathtaking view of the distant, hazy horizon.",
+                        "text": "Starry night; temperatures dropping sharply.",
                         "temp": {
-                            "minC": -5,
-                            "maxC": -2,
-                            "minF": 23,
-                            "maxF": 28
+                            "minC": -6,
+                            "maxC": -3,
+                            "minF": 21,
+                            "maxF": 27
                         },
                         "fx": []
                     },
                     {
-                        "text": "The rivers run dark and cold, swollen by the constant, miserable winter rains.",
+                        "text": "Raw and wet foggy weather; high humidity.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -2558,7 +2570,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The pale winter sun casts long, eerie shadows across the silent, sleeping landscape.",
+                        "text": "Snow melts immediately on ground contact.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -2570,7 +2582,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden return to balmy, warm weather completely confuses the blooming plants.",
+                        "text": "Gloomy high fog cover; no sunshine.",
                         "temp": {
                             "minC": 3,
                             "maxC": 6,
@@ -2582,7 +2594,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy, moss-draped live oaks stand like silent, gray ghosts in the freezing mist.",
+                        "text": "Icicle formation observed on roof overhangs.",
                         "temp": {
                             "minC": -2,
                             "maxC": 1,
@@ -2592,7 +2604,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce, cold wind whips the gray sea into a frenzy of churning, white-capped waves.",
+                        "text": "Storm makes temperatures feel colder than measured.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -2604,7 +2616,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The chilling dampness is absolute and inescapable, clinging stubbornly to skin and clothing.",
+                        "text": "Warning of flash freezing wetness at night.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -2630,7 +2642,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The weak spring sun finally begins to cast a noticeable, thawing warmth over the tundra.",
+                        "text": "Increasing intensity of solar radiation noticeable.",
                         "temp": {
                             "minC": -5,
                             "maxC": 0,
@@ -2640,7 +2652,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The onset of snowmelt turns the frozen plains into a sprawling, treacherous quagmire.",
+                        "text": "Onset of snowmelt causes extensive muddy conditions.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -2650,7 +2662,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A piercing, icy wind cuts through clothing, making the air feel dangerously cold.",
+                        "text": "High wind chill factor due to icy wind.",
                         "temp": {
                             "minC": -8,
                             "maxC": -3,
@@ -2660,7 +2672,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The distant cries of the first returning migratory birds herald the end of the deep winter.",
+                        "text": "Return of first migratory birds observed.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -2670,7 +2682,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The frozen river violently breaks apart, echoing with the thunderous cracking of huge ice floes.",
+                        "text": "Ice breakup on the river with loud noise development.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -2680,7 +2692,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A bitter, creeping fog drifts low across the melting snowfields, chilling the bone.",
+                        "text": "Cold fog drifts low across the snowfields.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -2692,7 +2704,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, heavy snow shower violently drags the waking land back into winter's grip.",
+                        "text": "Relapse into winter conditions due to snow shower.",
                         "temp": {
                             "minC": -6,
                             "maxC": -2,
@@ -2704,7 +2716,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Patches of dead, brown vegetation finally emerge from beneath the retreating snow.",
+                        "text": "Exposure of brown vegetation under the snow cover.",
                         "temp": {
                             "minC": 0,
                             "maxC": 3,
@@ -2714,7 +2726,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sodden, muddy terrain makes travel slow and absolutely miserable.",
+                        "text": "Terrain soaked and impassable for vehicles.",
                         "temp": {
                             "minC": 2,
                             "maxC": 5,
@@ -2724,7 +2736,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Even the dirty, melting snow throws a harsh, blinding glare in the spring sunlight.",
+                        "text": "Even old snow throws a bitter glare.",
                         "temp": {
                             "minC": -4,
                             "maxC": 1,
@@ -2734,7 +2746,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A late, severe blizzard roars across the plains, punishing the unprepared.",
+                        "text": "Severe blizzard conditions.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -2746,7 +2758,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "As soon as the sun sets, a severe, biting frost reclaims the melting earth.",
+                        "text": "Nocturnal radiation leads to severe frost.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -2756,7 +2768,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A low, ragged ceiling of gray clouds seems to scrape against the flat earth.",
+                        "text": "Low cloud base (Stratus fractus) almost touches the ground.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -2766,7 +2778,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Hardy, tiny tundra flowers boldly push their first blooms through the frost.",
+                        "text": "First bloom of extremely cold-resistant plant species.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -2776,7 +2788,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Freezing rain pelts the frozen ground, instantly forming a deadly slick of black ice.",
+                        "text": "Liquid precipitation falls on frozen ground (black ice).",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -2788,7 +2800,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A heavy, stagnant fog settles over the land, deadening all sound and sight.",
+                        "text": "Calm inversion weather with fog formation.",
                         "temp": {
                             "minC": 0,
                             "maxC": 3,
@@ -2800,7 +2812,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive fields of drift ice grind against each other on the cold, open waters.",
+                        "text": "Drift ice fields visible on open waters.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -2810,7 +2822,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A persistently dreary, overcast sky casts a gloomy gray pall over the waking world.",
+                        "text": "Persistently overcast sky.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -2820,7 +2832,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Biting polar air sweeps away the clouds, leaving the horizon unnaturally sharp and clear.",
+                        "text": "Biting polar air leaves the horizon sharp and clear.",
                         "temp": {
                             "minC": -7,
                             "maxC": -2,
@@ -2830,7 +2842,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden influx of warm southern air accelerates the great spring thaw.",
+                        "text": "Warm air supply from the south accelerates thawing processes.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -2842,7 +2854,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "The polar day reigns; the sun circles the sky without ever dipping below the horizon.",
+                        "text": "Polar day; sun stands above the horizon even at midnight.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -2852,7 +2864,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A humid, stagnant warmth settles over the endless bogs and meltwater pools.",
+                        "text": "Humid, warm and calm conditions over stagnant waters.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -2862,7 +2874,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The permafrost reluctantly yields, turning the upper earth into a sprawling, mosquito-filled swamp.",
+                        "text": "Active layer of permafrost thaws; swamp formation.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -2872,7 +2884,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A stiff, fresh wind mercifully drives away the maddening clouds of insects.",
+                        "text": "Freshening wind temporarily reduces insect activity.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -2882,17 +2894,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Unusually high, stable temperatures bake the damp tundra in a rare heat.",
+                        "text": "High pressure area brings unusually high temperatures.",
                         "temp": {
-                            "minC": 14,
-                            "maxC": 18,
-                            "minF": 57,
-                            "maxF": 64
+                            "minC": 15,
+                            "maxC": 19,
+                            "minF": 59,
+                            "maxF": 66
                         },
                         "fx": []
                     },
                     {
-                        "text": "A ghostly, freezing sea smoke suddenly rolls inland, swallowing the coastline.",
+                        "text": "Sea fog (Sea Smoke) rolls in suddenly from the sea.",
                         "temp": {
                             "minC": 6,
                             "maxC": 9,
@@ -2904,7 +2916,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brief tundra summer reaches its peak, painting the plains in a sudden explosion of wildflowers.",
+                        "text": "Vegetation period at its peak; colorful tundra bloom.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -2914,7 +2926,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden cold front sweeps in, unleashing heavy, miserable showers.",
+                        "text": "Cold front passage with shower-like rainfall.",
                         "temp": {
                             "minC": 7,
                             "maxC": 10,
@@ -2926,7 +2938,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The spongy, waterlogged earth threatens to suck the boots right off your feet.",
+                        "text": "Ground conditions extremely soft and swampy.",
                         "temp": {
                             "minC": 10,
                             "maxC": 13,
@@ -2936,7 +2948,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brilliantly cloudless sky offers a majestic, unending view across the vast plains.",
+                        "text": "Cloudless sky allows maximum visibility.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -2946,7 +2958,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A freak, isolated thunderstorm rumbles across the plains, a rare and ominous sight here.",
+                        "text": "Isolated thunderstorm; rare event at this latitude.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -2958,7 +2970,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deceptive summer chill warns that thick cloaks are still an absolute necessity.",
+                        "text": "Cool weather requires protective clothing.",
                         "temp": {
                             "minC": 8,
                             "maxC": 11,
@@ -2968,7 +2980,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The low bushes are heavy with tart, ripening berries, drawing hungry wildlife.",
+                        "text": "Ripening time for berries and fruits in the tundra.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -2978,7 +2990,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, breathless calm hangs over the wetlands; the air feels thick and stagnant.",
+                        "text": "Calm over wetlands; air feels stagnant.",
                         "temp": {
                             "minC": 15,
                             "maxC": 18,
@@ -2988,7 +3000,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "True night never falls; a strange, luminous twilight lingers through the midnight hours.",
+                        "text": "Nocturnal twilight phase without complete darkness.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -2998,7 +3010,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, shocking shower of soft hail interrupts the fleeting summer warmth.",
+                        "text": "Soft hail shower despite summer season.",
                         "temp": {
                             "minC": 3,
                             "maxC": 6,
@@ -3010,7 +3022,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brilliant rainbow arcs perfectly over the flat, seemingly endless plain.",
+                        "text": "Rainbow spans across the plain.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -3022,7 +3034,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A persistent, chilling wind blows steadily from the frozen north.",
+                        "text": "Persistent wind from the northern direction.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -3032,7 +3044,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A miserable front of continuous drizzle keeps everything damp and thoroughly chilled.",
+                        "text": "Drizzle front causes wetness all day.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -3044,7 +3056,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fierce, gale-force gusts flatten the tough tundra grass against the muddy earth.",
+                        "text": "Gale gusts press grass vegetation down.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -3058,7 +3070,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The sprawling vegetation erupts in a fiery, dying display of deep reds and golds.",
+                        "text": "Vegetation shows intense autumn coloration (red/gold).",
                         "temp": {
                             "minC": 0,
                             "maxC": 5,
@@ -3068,7 +3080,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The first permanent snow of the season falls, signaling the end of the brief reprieve.",
+                        "text": "First permanent snow cover forms.",
                         "temp": {
                             "minC": -2,
                             "maxC": 1,
@@ -3078,7 +3090,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A cruel polar north wind howls, carrying the undeniable scent of the coming winter.",
+                        "text": "Polar north wind marks the beginning of winter.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -3088,7 +3100,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A terribly still, bitter night leaves the dead grass encased in sparkling hoarfrost.",
+                        "text": "A still, bitter night leaves hoarfrost by dawn.",
                         "temp": {
                             "minC": -4,
                             "maxC": 0,
@@ -3098,7 +3110,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The shallow, stagnant pools begin to freeze, their edges hardening into fragile ice.",
+                        "text": "Beginning ice formation on standing waters.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -3108,7 +3120,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive flocks of birds darken the sky, fleeing south before the ice takes the land.",
+                        "text": "Massive departure of migratory birds towards the south.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -3118,7 +3130,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A freezing rain hardens into a miserable, driving sleet that coats everything in ice.",
+                        "text": "Rain hardens into a miserable sleet.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -3130,7 +3142,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The muddy topsoil finally freezes solid, turning the ground as hard as stone once more.",
+                        "text": "Topsoil freezes completely again.",
                         "temp": {
                             "minC": -6,
                             "maxC": -2,
@@ -3140,7 +3152,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A freezing fog rolls through, coating every twig and rock in thick, white rime ice.",
+                        "text": "Fog deposits freeze on vegetation (hoarfrost).",
                         "temp": {
                             "minC": -3,
                             "maxC": 0,
@@ -3152,7 +3164,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A violent autumn storm sweeps completely unchecked across the unprotected plains.",
+                        "text": "Autumn storm sweeps across unprotected plains.",
                         "temp": {
                             "minC": -4,
                             "maxC": 1,
@@ -3164,7 +3176,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The days shrink with terrifying speed, the sun dipping lower with every passing week.",
+                        "text": "Rapid shortening of daylight duration.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -3174,17 +3186,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun casts its last, desperately weak rays before the long dark season begins.",
+                        "text": "Last hours of sun before the dark season.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
                             "minF": 36,
                             "maxF": 43
                         },
-                        "fx": []
+                        "fx": [
+                            "sunbeams"
+                        ]
                     },
                     {
-                        "text": "A treacherous layer of crystalline ice glazes over the frozen puddles and streams.",
+                        "text": "Crystalline ice covers all surfaces.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -3194,7 +3208,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, brutal cold snap ambushes unwary travelers, freezing water skins solid.",
+                        "text": "Sudden cold snap surprises travelers.",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -3204,7 +3218,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dense, freezing fog chokes the plains, reducing visibility to less than a spear's length.",
+                        "text": "Visibility strongly restricted by dense fog.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -3216,7 +3230,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An eerie, dead silence falls under a heavy, suffocating gray sky.",
+                        "text": "Acoustic silence; gray sky.",
                         "temp": {
                             "minC": -3,
                             "maxC": 0,
@@ -3226,7 +3240,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The wind begins to carve the first sweeping snowdrifts in the lee of large rocks.",
+                        "text": "Formation of first snowdrifts in the lee of obstacles.",
                         "temp": {
                             "minC": -6,
                             "maxC": -3,
@@ -3238,7 +3252,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The pale sun shines brightly but offers absolutely no warmth against the biting chill.",
+                        "text": "Weak solar radiation without warming effect.",
                         "temp": {
                             "minC": -4,
                             "maxC": -1,
@@ -3248,7 +3262,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Glimmering diamond dust falls from the clear sky, a beautiful but deadly sign of the deep cold.",
+                        "text": "Diamond dust visible in the air.",
                         "temp": {
                             "minC": -7,
                             "maxC": -3,
@@ -3260,7 +3274,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A solid wall of dark, bruised clouds advances from the horizon, promising heavy snow.",
+                        "text": "Approach of dark frontal clouds on the horizon.",
                         "temp": {
                             "minC": -5,
                             "maxC": 0,
@@ -3274,7 +3288,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A roaring, monstrous blizzard obliterates the world in a screaming wall of white.",
+                        "text": "Severe blizzard; visibility zero.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -3286,7 +3300,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The long polar night claims the land, plunging the tundra into months of permanent darkness.",
+                        "text": "Polar night; permanent darkness without daylight.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -3296,7 +3310,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly sharp, bitter air allows you to see for miles under the stars.",
+                        "text": "Extremely high visibility in bitter cold air.",
                         "temp": {
                             "minC": -35,
                             "maxC": -30,
@@ -3306,7 +3320,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The night sky explodes with the dancing, vibrant colors of a massive aurora.",
+                        "text": "Intense Aurora Borealis at the night sky.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -3318,7 +3332,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The relentless wind and cold have hammered the snow cover into a concrete-hard shell.",
+                        "text": "Snow cover frozen concrete-hard by wind and cold.",
                         "temp": {
                             "minC": -32,
                             "maxC": -28,
@@ -3328,17 +3342,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A howling wind strips away all warmth, making the air feel lethally cold.",
+                        "text": "Extreme wind chill factor.",
                         "temp": {
-                            "minC": -35,
-                            "maxC": -30,
-                            "minF": -31,
-                            "maxF": -22
+                            "minC": -40,
+                            "maxC": -35,
+                            "minF": -40,
+                            "maxF": -31
                         },
                         "fx": []
                     },
                     {
-                        "text": "The bright, silvery moonlight reflects off the endless snow, illuminating the night.",
+                        "text": "Bright moonlit night due to reflection on snow surfaces.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -3348,7 +3362,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A choking, dense ice fog reduces the world to a small, freezing bubble of white.",
+                        "text": "Ice fog reduces visibility to a few meters.",
                         "temp": {
                             "minC": -30,
                             "maxC": -26,
@@ -3360,7 +3374,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An absolute, terrifying silence rules the tundra, completely devoid of life or wind.",
+                        "text": "Absolute acoustic silence in the tundra.",
                         "temp": {
                             "minC": -28,
                             "maxC": -22,
@@ -3370,7 +3384,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive, impassable snowdrifts block the way, sculpted by the ceaseless wind.",
+                        "text": "Impassable snowdrifts block route.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -3380,17 +3394,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Every drawn breath freezes instantly, falling away as a shower of tiny ice crystals.",
+                        "text": "Breath freezes instantly into ice crystals.",
                         "temp": {
-                            "minC": -35,
-                            "maxC": -29,
-                            "minF": -31,
-                            "maxF": -20
+                            "minC": -38,
+                            "maxC": -32,
+                            "minF": -36,
+                            "maxF": -26
                         },
                         "fx": []
                     },
                     {
-                        "text": "At midday, only a faint, ghostly twilight on the horizon proves the sun still exists.",
+                        "text": "Nautical twilight is the only daylight around noon.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -3400,7 +3414,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, unbroken darkness provides a spectacular, dizzying view of shooting stars.",
+                        "text": "Shooting stars particularly visible in the darkness.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -3410,7 +3424,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The oppressive, inescapable cold constantly threatens to seep into your very soul.",
+                        "text": "Extreme cold stress.",
                         "temp": {
                             "minC": -35,
                             "maxC": -30,
@@ -3420,7 +3434,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dizzying whiteout descends, completely destroying any sense of direction or distance.",
+                        "text": "Whiteout conditions; complete loss of orientation.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -3432,7 +3446,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A freezing mist of diamond dust glitters beautifully in the still, deadly air.",
+                        "text": "Diamond dust glitters in the air.",
                         "temp": {
                             "minC": -26,
                             "maxC": -22,
@@ -3444,7 +3458,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce ground wind sweeps the frozen plains, driving a relentless river of sharp snow crystals.",
+                        "text": "Strong ground wind (drift) transports snow crystals.",
                         "temp": {
                             "minC": -24,
                             "maxC": -18,
@@ -3456,7 +3470,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A breathtakingly clear, starry sky offers the only light in the freezing expanse.",
+                        "text": "Overwhelming starry sky in clear cold air.",
                         "temp": {
                             "minC": -32,
                             "maxC": -28,
@@ -3466,7 +3480,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Treacherous, unstable snowdrifts threaten to collapse entirely under careless footsteps.",
+                        "text": "High avalanche danger on slopes due to drifting snow.",
                         "temp": {
                             "minC": -20,
                             "maxC": -16,
@@ -3476,7 +3490,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The psychologically crushing, seemingly endless darkness weighs heavily on the mind.",
+                        "text": "Psychologically stressful, seemingly endless darkness.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -3500,7 +3514,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The biting cold of the long winter finally yields to a deceptively pleasant warmth.",
+                        "text": "Brief but intense blooming phase of the steppe vegetation.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -3510,7 +3524,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brief, gentle shower falls, instantly soaked up by the dusty, thirsty earth.",
+                        "text": "Steady wind dries the muddy surfaces.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -3520,7 +3534,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The desolate, brown steppes are suddenly, miraculously painted in vibrant shades of green.",
+                        "text": "Snowmelt creates temporary watercourses.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -3530,7 +3544,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce, gusty wind blows relentlessly, carrying the smell of distant rain.",
+                        "text": "Sky wide and bright blue; high atmospheric transparency.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -3540,7 +3554,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun shines brightly from a crystal-clear blue sky, rapidly drying the morning dew.",
+                        "text": "Rising sandstorm dims air quality massively.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -3552,7 +3566,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent dust devil dances erratically across the newly sprouting grass.",
+                        "text": "Another still night leaves frost along the ground.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -3562,7 +3576,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive flocks of birds return, filling the vast, open sky with their noisy calls.",
+                        "text": "Foehn weather condition (Chinook); warm katabatic wind causes rapid warming.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -3572,7 +3586,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature wildly fluctuates, sweltering at noon but freezing by midnight.",
+                        "text": "Storm clouds gather along the horizon.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -3582,7 +3596,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A rare, heavy downpour turns the dusty trails into slick, impassable mud for hours.",
+                        "text": "Grassland waves like a sea in the wind.",
                         "temp": {
                             "minC": 16,
                             "maxC": 21,
@@ -3592,7 +3606,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The crisp, fresh air smells heavily of crushed sagebrush and damp earth.",
+                        "text": "Cold front passage with short hail shower.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -3604,7 +3618,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brief explosion of spring wildflowers paints the endless plains in yellow and purple.",
+                        "text": "Visibility range extremely high due to lack of obstacles.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -3614,7 +3628,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A biting, cold wind sweeps down from the mountains, a sharp reminder of winter.",
+                        "text": "Dry ground leads to dust swirling with every step.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -3626,7 +3640,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The incredibly vast, open horizon shimmers slightly in the growing heat of the day.",
+                        "text": "Rainbow spans the entire plain.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -3638,7 +3652,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fast-moving storm drops a sudden shower of small hail that quickly melts away.",
+                        "text": "Cool northern winds move in.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -3648,7 +3662,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sparse, hardy bushes burst into small, tough leaves, anticipating the coming heat.",
+                        "text": "Wind noise over the steppe.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -3658,7 +3672,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The long, golden shadows of early evening offer a beautiful, peaceful respite.",
+                        "text": "Cloud shadows move quickly across the terrain.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -3668,7 +3682,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry riverbeds briefly hold a trickle of muddy water before drying up again.",
+                        "text": "Soil soft and fertile due to moisture.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -3678,7 +3692,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, rumbling thunder echoes across the steppes, but the promised rain never falls.",
+                        "text": "Sudden weather change brings precipitation.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -3690,7 +3704,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The harsh, rocky soil seems to radiate a newfound, hopeful warmth under the sun.",
+                        "text": "Evening sky shows violet coloration due to particle scattering.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -3700,7 +3714,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brief, beautiful spring breathes frantic life into the desolate, unforgiving plains.",
+                        "text": "High intensity of solar radiation noticeable.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -3712,7 +3726,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "An absolutely blistering, relentless sun bakes the endless, dusty plains.",
+                        "text": "The plain wavers beneath relentless heat.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -3724,7 +3738,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brief flash of green spring grass has already withered into dry, brittle straw.",
+                        "text": "Whirling dust devils dance across the heated ground.",
                         "temp": {
                             "minC": 28,
                             "maxC": 33,
@@ -3736,37 +3750,39 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A suffocating, oven-like heat radiates fiercely from the baked, cracked earth.",
+                        "text": "Vegetation completely dried out and yellowed.",
+                        "temp": {
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Dry thunderstorm without precipitation; high forest fire risk.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
                             "minF": 88,
                             "maxF": 95
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "Fierce, hot winds whip across the steppes, carrying stinging, blinding sand and dust.",
+                        "text": "No shading whatsoever available in the area of operations.",
                         "temp": {
-                            "minC": 31,
-                            "maxC": 35,
-                            "minF": 88,
-                            "maxF": 95
+                            "minC": 33,
+                            "maxC": 38,
+                            "minF": 91,
+                            "maxF": 100
                         },
                         "fx": []
                     },
                     {
-                        "text": "The intense heat creates massive, watery mirages that brutally taunt thirsty travelers.",
-                        "temp": {
-                            "minC": 30,
-                            "maxC": 35,
-                            "minF": 86,
-                            "maxF": 95
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The sky is a pale, hazy, and unforgiving white, devoid of a single, merciful cloud.",
+                        "text": "Nocturnal cooling brings relief.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -3776,7 +3792,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A terrifying, fast-moving brush fire sweeps across the dry grass, turning day to night.",
+                        "text": "Strongly desiccating wind.",
                         "temp": {
                             "minC": 29,
                             "maxC": 34,
@@ -3786,7 +3802,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is incredibly dry, cracking lips and burning the throat with every harsh breath.",
+                        "text": "Cloudburst (heavy rain) turns paths into torrents.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -3798,7 +3814,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent dry lightning storm strikes the earth, sparking new, deadly fires.",
+                        "text": "Intense chirping of cicadas.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -3810,7 +3826,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The few, precious waterholes shrink rapidly, becoming thick, muddy, and stagnant.",
+                        "text": "Steel blue sky stands cloudless over the landscape.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -3820,17 +3836,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The stifling, oppressive heat of midday forces all life to seek deep shelter.",
+                        "text": "Desiccation cracks in the ground deepen due to drought.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 35,
-                            "minF": 86,
-                            "maxF": 95
+                            "minC": 34,
+                            "maxC": 39,
+                            "minF": 93,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "The blazing sun seems unnaturally large and hostile, a fiery eye glaring at the earth.",
+                        "text": "Extreme dryness favors formation of dust whirls.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -3842,7 +3858,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, freak torrential downpour causes dangerous, muddy flash floods in the gullies.",
+                        "text": "Haze dome lies over the horizon.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -3854,17 +3870,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights offer a surprisingly sharp chill, a welcome relief from the baking days.",
+                        "text": "Calm weather situation; air feels oppressive.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 35,
-                            "minF": 86,
-                            "maxF": 95
+                            "minC": 32,
+                            "maxC": 37,
+                            "minF": 90,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "The smell of hot dust and scorched earth completely dominates the breathless air.",
+                        "text": "Spectacular sunset due to dust particles in the air.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -3874,7 +3890,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, rocky landscape offers absolutely no sanctuary or shade from the brutal sun.",
+                        "text": "Birds wheel high upon rising warm currents.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -3884,7 +3900,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The completely clear, night sky reveals an overwhelming, dizzying sea of cold stars.",
+                        "text": "Precipitation evaporates before reaching the ground (Virga).",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -3894,29 +3910,29 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked, and exhausted landscape.",
+                        "text": "Salt dust perceptible in the breath.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 35,
-                            "minF": 86,
-                            "maxF": 95
+                            "minC": 31,
+                            "maxC": 36,
+                            "minF": 88,
+                            "maxF": 97
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The fierce, dusty wind erases all tracks within minutes, making navigation impossible.",
+                        "text": "The sun is harsh enough to scorch bare skin.",
                         "temp": {
-                            "minC": 30,
-                            "maxC": 35,
-                            "minF": 86,
-                            "maxF": 95
+                            "minC": 33,
+                            "maxC": 38,
+                            "minF": 91,
+                            "maxF": 100
                         },
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal heat tests the absolute limits of endurance for all living things.",
+                        "text": "Rapid temperature rise after cool morning.",
                         "temp": {
                             "minC": 18,
                             "maxC": 30,
@@ -3928,7 +3944,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The brutal, scorching heat finally begins to break, giving way to a crisp, dry coolness.",
+                        "text": "Clear air bathes the land in golden light.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -3938,7 +3954,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The relentless, hot summer winds are replaced by a steady, biting chill from the north.",
+                        "text": "Cold wind marks the transition to the winter season.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -3948,7 +3964,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, golden steppes seem to stretch on forever under a flawless, deep blue sky.",
+                        "text": "Gale warning; visibility obstruction due to massive dust whirling.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -3960,7 +3976,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent autumn storm sweeps the plains, dropping icy rain and sleet.",
+                        "text": "Hoarfrost formation on dry vegetation in the morning.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -3972,7 +3988,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The crisp, completely clear air offers a breathtakingly sharp view of the distant horizon.",
+                        "text": "Crystal clear sky; maximum visibility.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -3982,7 +3998,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few remaining tough bushes finally drop their withered leaves to the dry earth.",
+                        "text": "Gathering of migratory birds before departure observed.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -3992,7 +4008,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature plummets rapidly as soon as the sun dips below the vast horizon.",
+                        "text": "Rapid temperature drop in the evening hours.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -4002,7 +4018,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A thick, ghostly ground fog occasionally forms in the low hollows during the freezing night.",
+                        "text": "Dry cold combined with biting wind.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -4012,7 +4028,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dusty, rutted trails harden into rock-solid, treacherous paths in the creeping cold.",
+                        "text": "Windy weather with high particle load (dust).",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -4022,7 +4038,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive herds of grazing animals begin their long, desperate migration southward.",
+                        "text": "High fog-like cloud cover; no direct sun.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -4032,7 +4048,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly warm, golden afternoon offers a fleeting, beautiful Indian Summer.",
+                        "text": "First snowfall melts immediately on ground contact.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -4044,7 +4060,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The biting, cold wind howls mournfully across the vast, completely empty plains.",
+                        "text": "Phenomenal long-distance visibility across the plain.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -4054,7 +4070,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of dry dust is replaced by the sharp, metallic scent of impending snow.",
+                        "text": "Dry rustling of bushes in the wind audible.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -4064,7 +4080,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of dry, powdery snow falls, blowing fiercely across the frozen ground.",
+                        "text": "Red moonrise due to atmospheric turbidity.",
                         "temp": {
                             "minC": -1,
                             "maxC": 4,
@@ -4074,7 +4090,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The water in the shallow pools freezes solid overnight, cracking loudly underfoot.",
+                        "text": "Absolute acoustic silence in the wasteland.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -4084,7 +4100,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The low-hanging, gray clouds promise days of miserable, freezing, and endless drizzle.",
+                        "text": "Cloud banks pass through at high speed.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -4094,7 +4110,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, rocky soil seems to absorb and radiate the bitter cold of the coming winter.",
+                        "text": "Icy shower (soft hail) comes down.",
                         "temp": {
                             "minC": 2,
                             "maxC": 5,
@@ -4106,7 +4122,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The setting sun casts incredibly long, melancholic shadows across the dying grass.",
+                        "text": "Ground frost leads to hardening of the earth surface.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -4116,7 +4132,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, waiting silence falls over the plains as the land prepares for the deep freeze.",
+                        "text": "Low warming effect of the sun.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -4126,7 +4142,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, desolate beauty of the steppes is magnified by the crisp, freezing air.",
+                        "text": "Shooting star activity visible at night.",
                         "temp": {
                             "minC": -4,
                             "maxC": 0,
@@ -4138,7 +4154,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A bitter, howling blizzard sweeps the open plains, dropping visibility to absolute zero.",
+                        "text": "Strong wind over the snow cover.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -4148,7 +4164,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless steppes are completely buried under a thick, unbroken blanket of pristine snow.",
+                        "text": "Landscape is lightly powdered white; no closed cover.",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -4160,7 +4176,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An incredibly sharp, cutting wind slices straight through the thickest furs and leathers.",
+                        "text": "Extreme black frost without insulating snow layer.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -4170,7 +4186,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature is brutally, dangerously cold, freezing exposed skin in mere minutes.",
+                        "text": "Cloudless, pale sky.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -4180,7 +4196,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliantly clear, deep blue sky offers absolutely no warmth from the pale, distant sun.",
+                        "text": "Blizzard-like conditions in higher locations.",
                         "temp": {
                             "minC": -8,
                             "maxC": -3,
@@ -4192,19 +4208,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifying, silent 'whiteout' makes navigation completely impossible and deadly.",
+                        "text": "Ice fog formation in the early morning hours.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -10,
-                            "minF": 5,
-                            "maxF": 14
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The deep, powdery snow makes travel exhausting, agonizingly slow, and treacherous.",
+                        "text": "Ground deep-frozen and extremely hard.",
                         "temp": {
                             "minC": -14,
                             "maxC": -10,
@@ -4214,17 +4230,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, freezing wind sculpts the massive snowdrifts into bizarre, beautiful shapes.",
+                        "text": "Halo phenomenon (sun dogs) visible in the sky.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -11,
-                            "minF": 5,
-                            "maxF": 12
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is so incredibly cold that every drawn breath burns the lungs like swallowed fire.",
+                        "text": "Snowdrifts block paths and ways.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -4236,7 +4252,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, brief thaw turns the top layer of snow into a dangerous, breakable icy crust.",
+                        "text": "Sunshine deceives; air temperature extremely low.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -4246,17 +4262,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly, agonizingly long, plunging the world into a deep, freezing darkness.",
+                        "text": "Dangerous wind chill factor; risk of frostbite.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -11,
-                            "minF": 5,
-                            "maxF": 12
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
                         },
                         "fx": []
                     },
                     {
-                        "text": "The intense reflection of the sun on the vast, white plains threatens severe snow blindness.",
+                        "text": "Gray clouds announce snowfall.",
                         "temp": {
                             "minC": -8,
                             "maxC": -5,
@@ -4268,7 +4284,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The absolutely clear, freezing night sky reveals a breathtaking, sweeping view of the stars.",
+                        "text": "Strong wind exposure in open areas.",
                         "temp": {
                             "minC": -14,
                             "maxC": -10,
@@ -4278,17 +4294,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The eerie, shifting glow of the aurora borealis occasionally dances across the dark horizon.",
+                        "text": "Starry and icy night.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -10,
-                            "minF": 5,
-                            "maxF": 14
+                            "minC": -20,
+                            "maxC": -15,
+                            "minF": -4,
+                            "maxF": 5
                         },
                         "fx": []
                     },
                     {
-                        "text": "A deep, oppressive silence rules the frozen landscape, broken only by the howling wind.",
+                        "text": "Hoarfrost crystals cover grass blades.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -4300,7 +4316,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The meager, skeletal bushes are completely encased in thick, incredibly heavy ice.",
+                        "text": "Short solar radiation without significant warmth.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -4310,7 +4326,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The frozen earth is as hard as iron, completely rejecting any attempt to dig or camp.",
+                        "text": "Icy dust (ice particles) in the air.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -4322,17 +4338,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden influx of slightly warmer air brings a miserable, freezing rain instead of snow.",
+                        "text": "Howling wind sounds.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -11,
-                            "minF": 5,
-                            "maxF": 12
+                            "minC": -16,
+                            "maxC": -12,
+                            "minF": 3,
+                            "maxF": 10
                         },
                         "fx": []
                     },
                     {
-                        "text": "The brutal, unforgiving winter storms test the absolute limits of human endurance.",
+                        "text": "Black ice formation on rocky ground.",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -4342,12 +4358,12 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The vast, frozen steppes are a beautiful, but incredibly deadly, white wasteland.",
+                        "text": "Inversion weather condition keeps cold pool on the ground.",
                         "temp": {
-                            "minC": -15,
-                            "maxC": -11,
-                            "minF": 5,
-                            "maxF": 12
+                            "minC": -18,
+                            "maxC": -14,
+                            "minF": 0,
+                            "maxF": 7
                         },
                         "fx": [
                             "thick_fog"
@@ -4368,19 +4384,19 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The stifling, breathless heat builds daily as the dry season slowly comes to an end.",
+                        "text": "Heat shimmer visible over red laterite dust.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The sun-baked savanna is a sea of dead, yellow grass waiting desperately for rain.",
+                        "text": "Desiccating hot wind irritates the skin.",
                         "temp": {
                             "minC": 34,
                             "maxC": 38,
@@ -4392,29 +4408,29 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A massive, terrifying wildfire races across the dry plains, leaving black ash behind.",
+                        "text": "Hot, dry wind blowing through bushes.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "Thick, choking dust devils dance across the parched, cracked earth.",
+                        "text": "Pale and whitish sky due to heat haze.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The waterholes have shrunk to stagnant, muddy puddles, drawing desperate wildlife.",
+                        "text": "Dust devils move over the barren ground.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -4426,49 +4442,49 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is incredibly dry, cracking lips and burning the throat with every breath.",
+                        "text": "Water points reduced to mud puddles.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
                         },
                         "fx": []
                     },
                     {
-                        "text": "A tantalizing buildup of dark clouds promises rain, but yields only dry lightning.",
+                        "text": "Merciless burning of the sun scorches the ground.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
                         },
                         "fx": []
                     },
                     {
-                        "text": "The heat shimmers violently over the plains, creating deceptive, watery mirages.",
+                        "text": "Merciless sun stands alone in a cloudless sky.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": []
                     },
                     {
-                        "text": "The relentless sun beats down mercilessly from a pale, hazy, and unforgiving sky.",
+                        "text": "Smell of smoke from distant bushfires.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "A sudden, fierce gust of wind sweeps up a blinding wall of red dust.",
+                        "text": "Warm air rises into the cloudless sky.",
                         "temp": {
                             "minC": 34,
                             "maxC": 38,
@@ -4478,7 +4494,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Finally, the first heavy, enormous drops of rain strike the dusty earth like coins.",
+                        "text": "Even night brings little relief from the heat.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4488,7 +4504,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of wet dust—petrichor—rises powerfully from the desperately thirsty ground.",
+                        "text": "Visibility obstruction due to rising sandstorm.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -4500,17 +4516,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A violent, localized thunderstorm erupts, offering brief but intense relief.",
+                        "text": "Widening of desiccation cracks in the ground.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 40,
+                            "maxC": 44,
+                            "minF": 104,
+                            "maxF": 111
                         },
                         "fx": []
                     },
                     {
-                        "text": "The dry riverbeds suddenly roar to life with dangerous, unexpected flash floods.",
+                        "text": "Extremely dry air with low humidity.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -4520,7 +4536,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Almost overnight, a faint, hopeful tinge of green appears among the blackened ash.",
+                        "text": "Atmospheric tension before the weather change.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Cloud banks on the horizon simulate rain.",
                         "temp": {
                             "minC": 34,
                             "maxC": 38,
@@ -4530,39 +4556,29 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The suffocating heat is temporarily broken by a cool, rushing wind preceding a storm.",
+                        "text": "Wind gusts whirl up ash particles.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "Massive flocks of birds return to the savanna, anticipating the coming abundance.",
-                        "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": [
                             "sandstorm"
                         ]
                     },
                     {
-                        "text": "The sky grows bruised and heavy, crackling with raw, untamed electrical energy.",
+                        "text": "Stifling heat even in the shade.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 37,
+                            "maxC": 41,
+                            "minF": 99,
+                            "maxF": 106
                         },
                         "fx": []
                     },
                     {
-                        "text": "A steady, soaking rain falls through the night, beginning to heal the scorched earth.",
+                        "text": "Purple sunset ends the day.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4574,19 +4590,21 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The long drought finally breaks, giving way to the chaotic birth of the wet season.",
+                        "text": "Deathly silent heat without air movement.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     }
                 ],
                 "summer": [
                     {
-                        "text": "The sky opens up, unleashing a torrential, deafening deluge of tropical rain.",
+                        "text": "Cooling downdrafts from thunderstorm.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4598,7 +4616,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-dead savanna has exploded into a vibrant, impassable sea of tall green grass.",
+                        "text": "Flash floods fill the wadis.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4610,7 +4628,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fierce, daily thunderstorms roll across the plains, bringing spectacular lightning displays.",
+                        "text": "Ground fog after precipitation.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -4618,11 +4636,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 88
                         },
                         "fx": [
-                            "thick_fog"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The muddy, waterlogged earth makes travel on foot incredibly exhausting and slow.",
+                        "text": "Immediate evaporation of rain on hot stone.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -4634,7 +4652,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A heavy, sweltering humidity settles over the tall grass after the morning rain.",
+                        "text": "Intense smell of wet dust (Petrichor).",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -4646,7 +4664,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The rivers burst their banks, turning the lowlands into massive, shallow lakes.",
+                        "text": "Humid air preceding a thunderstorm.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4656,17 +4674,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air buzzes with millions of insects, a maddening and constant distraction.",
+                        "text": "Rapid approach of a dark cloud wall.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
                             "minF": 75,
                             "maxF": 82
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "A magnificent, vibrant rainbow arcs across the dark, stormy sky after a downpour.",
+                        "text": "Strong rainbow against dark cloud wall.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4678,7 +4698,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sun breaks through the clouds, turning the wet plains into a suffocating steam bath.",
+                        "text": "Wind gusts whip the rain ahead of them.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -4690,7 +4710,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive herds of herbivores graze peacefully in the sudden, lush abundance of food.",
+                        "text": "Difficult traveling due to muddying.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -4700,7 +4720,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the deafening chorus of frogs and insects.",
+                        "text": "Warm, humid air after the rain.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -4710,7 +4730,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent squall line flattens the tall grass and tears branches from baobabs.",
+                        "text": "The air is heavy, muggy, and oppressive.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -4722,7 +4742,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy rains wash away old tracks entirely, making navigation and hunting difficult.",
+                        "text": "Violent cloud-to-ground lightning over the plain.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -4734,7 +4754,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A beautifully clear, starry night offers a brief respite from the relentless daily storms.",
+                        "text": "Short warm rain shower comes down.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -4746,7 +4766,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The oppressive heat gathers quickly in the morning before the afternoon rains break it.",
+                        "text": "Puddles reflecting the breaking sun.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4756,7 +4776,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, warm drizzle falls continuously, soaking everything completely to the bone.",
+                        "text": "Quick breaking through of the sun after shower.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -4766,7 +4786,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The swollen rivers are dangerous to cross, teeming with hidden, hungry predators.",
+                        "text": "Warm and humid night conditions.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -4776,7 +4796,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A breathtaking, blood-red sunset reflects brilliantly off the flooded, glassy plains.",
+                        "text": "Surprising hail shower.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -4788,7 +4808,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is thick with the sweet, intoxicating scent of millions of blooming savanna flowers.",
+                        "text": "Combination of heat and humidity.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4798,7 +4818,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The torrential wet season reigns supreme, transforming the harsh land into a lush paradise.",
+                        "text": "Constant thunder rolling as accompanying sound.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -4812,7 +4832,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The daily rains begin to taper off, leaving the savanna in a state of lush perfection.",
+                        "text": "Slow return of brown vegetation coloring.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4822,7 +4842,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The tall, green grasses slowly begin to turn golden as the moisture leaves the soil.",
+                        "text": "Pleasant wind ensures cooling.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4832,7 +4852,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A cool, dry wind begins to blow steadily, signaling the approaching end of the wet season.",
+                        "text": "Clear and blue sky.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -4842,7 +4862,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The swollen rivers slowly recede, leaving behind incredibly fertile, dark mud.",
+                        "text": "Fresh and clear morning mood.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -4852,7 +4872,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky clears to a brilliant, flawless blue, entirely free of the heavy storm clouds.",
+                        "text": "Dissolution of last cloud remnants.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -4862,7 +4882,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive herds begin to migrate, following the last remaining green pastures.",
+                        "text": "Noticeable drop in humidity.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -4872,7 +4892,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly crisp, cool morning requires a cloak before the sun heats the day.",
+                        "text": "Golden light over the bushland.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -4882,7 +4902,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The once-muddy trails finally harden into solid, deeply rutted paths.",
+                        "text": "Mild temperatures and clear skies.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4892,7 +4912,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The scorching midday heat returns with a vengeance as the cooling rains vanish.",
+                        "text": "Deposition of dust particles on the ground.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -4904,7 +4924,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A dry, crackling energy fills the air, replacing the heavy humidity of the summer.",
+                        "text": "Perfect sunset in the evening.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -4914,7 +4934,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The waterholes begin to shrink noticeably, drawing predators and prey together.",
+                        "text": "Pleasant nocturnal cooling.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -4924,7 +4944,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun casts incredibly long, golden shadows across the fading yellow grass.",
+                        "text": "Steady breeze carrying dust and seeds.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -4934,7 +4954,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, freak thunderstorm rolls through, a final, violent echo of the wet season.",
+                        "text": "Hot, desiccating winds.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -4944,7 +4964,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights grow delightfully cool and clear, offering a perfect view of the stars.",
+                        "text": "Dry air and wide visibility.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -4954,7 +4974,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The last of the savanna flowers wither, scattering their seeds to the dry wind.",
+                        "text": "Drying winds and decreasing humidity.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -4964,7 +4984,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A steady, dusty wind begins to whip across the plains, drying the earth completely.",
+                        "text": "Calmness lets the warmth stand.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -4974,7 +4994,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is perfectly still and incredibly hot during the unforgiving afternoon hours.",
+                        "text": "Shimmering heat due to solar radiation.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -4984,7 +5004,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The once-impassable swamps dry up, revealing cracked mud and trapped fish.",
+                        "text": "Direct sunlight casting sharp shadows.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -4994,7 +5014,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry season tightens its grip on the land, turning the golden grass to brittle straw.",
+                        "text": "Particularly bright shining of the stars.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -5004,7 +5024,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A peaceful, waiting silence falls over the plains as the land prepares for the drought.",
+                        "text": "Warming sun without stinging intensity.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -5016,7 +5036,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A brutal, relentless sun bakes the cracked earth from a completely cloudless sky.",
+                        "text": "Dusty Harmattan trade wind blows.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -5026,7 +5046,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The savanna is a desolate sea of dry, brittle, yellow straw, completely devoid of green.",
+                        "text": "Noticeably cold night phase.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -5036,7 +5056,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The waterholes have dried up completely, leaving only desperately cracked, barren mud.",
+                        "text": "Pale sunshine through dust filter.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -5048,7 +5068,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fierce, hot winds whip up massive, blinding dust storms that blot out the sun.",
+                        "text": "Constant, drying wind.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -5058,7 +5078,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The intense, shimmering heat creates massive, watery mirages that taunt thirsty travelers.",
+                        "text": "Extremely low humidity.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -5070,7 +5090,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifying, fast-moving wildfire sweeps across the dry grass, turning day into night.",
+                        "text": "Gray dust veil covers the sky.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -5078,11 +5098,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 81
                         },
                         "fx": [
-                            "sandstorm"
+                            "snow"
                         ]
                     },
                     {
-                        "text": "The air is so incredibly dry that it cracks lips and causes skin to flake and bleed.",
+                        "text": "Hot winds swirl up dust.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -5092,7 +5112,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are surprisingly, bitterly cold, requiring thick blankets and a roaring fire.",
+                        "text": "Cool morning temperatures before sunrise.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -5102,7 +5122,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Not a single drop of rain has fallen in months; the earth is as hard as baked stone.",
+                        "text": "Strong restriction of visibility.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -5114,7 +5134,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The few remaining, precious water sources are heavily guarded by dangerous predators.",
+                        "text": "Windy and extremely dry weather.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -5124,7 +5144,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A howling, dusty wind blows relentlessly, tearing at tents and blinding the eyes.",
+                        "text": "Reddish sunrise due to sand particles.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -5134,7 +5154,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The blazing sun seems unnaturally large and hostile in the hazy, pale sky.",
+                        "text": "Complete absence of dew formation.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -5146,7 +5166,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, dry lightning storm strikes the earth, sparking new, dangerous brush fires.",
+                        "text": "Dry heat determines the day.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -5156,7 +5176,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The skeletal remains of massive, ancient trees offer the only meager shade from the heat.",
+                        "text": "High electrostatic charge.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -5166,7 +5186,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The stifling heat of midday forces all life to seek shelter and rest in the shadows.",
+                        "text": "Blurred appearance of the moon.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -5178,7 +5198,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is completely still and suffocatingly hot, smelling of dry dust and old ash.",
+                        "text": "Dusty winds around water sources.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -5188,7 +5208,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry, thorny bushes catch on clothing and armor, tearing at the desperate traveler.",
+                        "text": "Fine dust hangs in the air.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -5200,7 +5220,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The completely clear, freezing night sky reveals an overwhelming, dizzying sea of stars.",
+                        "text": "Feeling of cold during evening calm.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -5210,7 +5230,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked landscape.",
+                        "text": "Welcome coolness in shadow areas.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -5220,7 +5240,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal drought tests the absolute limits of endurance for all living things.",
+                        "text": "Invisibility of shooting stars in the haze.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -5246,7 +5266,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "A sudden surge of warm wind finally breaks winter's iron grip.",
+                        "text": "A surge of warmer wind sets the thaw loose.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -5256,7 +5276,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The melting snow leaves the forest floor a treacherous, waterlogged swamp.",
+                        "text": "Snow cover water-saturated.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -5266,7 +5286,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A warm breeze sweeps through the thawing pines, carrying the rich scent of wet earth.",
+                        "text": "Warm wind over thawing ground.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -5276,7 +5296,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Thick, ghostly evaporation fog rises from the melting snow, blinding travelers.",
+                        "text": "Evaporation fog over snow areas hinders visibility.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -5288,7 +5308,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The frozen rivers crack and roar as massive ice bridges dangerously break apart.",
+                        "text": "Warning of ice drift and breaking ice bridges on waters.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -5298,7 +5318,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A bitter night frost turns the muddy trails into a deadly slick of solid ice.",
+                        "text": "Nocturnal frost solidifies slush into dangerous trip hazards.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -5308,7 +5328,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The first brave buds of pioneer trees push through the lingering frost.",
+                        "text": "Start of vegetation on pioneer trees.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -5318,7 +5338,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A late, trailing snowstorm violently lashes through the dark trees.",
+                        "text": "Trailing snowstorm moves through the forest.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -5330,7 +5350,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Mild air finally begins to melt the stubborn, dirty snowbanks.",
+                        "text": "Mild temperatures start melting remaining snow.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -5340,7 +5360,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Swollen, roaring rivers overflow their banks, completely blocking the path ahead.",
+                        "text": "High water levels in rivers impede terrain movement.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -5350,7 +5370,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A rare, pleasant heat gathers in the sheltered clearings of the deep forest.",
+                        "text": "Pleasant heat development in sheltered locations.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -5360,7 +5380,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dismal gray sky weeps continuously, soaking the forest in a miserable drizzle.",
+                        "text": "Gray stratus clouds with continuous drizzle.",
                         "temp": {
                             "minC": 4,
                             "maxC": 7,
@@ -5372,7 +5392,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Stubborn patches of old snow hide in the deep, freezing shadows of the woods.",
+                        "text": "Remnants of old snow present in shady forest areas.",
                         "temp": {
                             "minC": 3,
                             "maxC": 6,
@@ -5382,7 +5402,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A lively, whistling wind dances and rustles through the high treetops.",
+                        "text": "Lively winds audible in the treetops.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -5392,7 +5412,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sodden ground threatens to suck the boots right off your feet.",
+                        "text": "Soil conditions swampy and unstable due to saturation.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -5402,7 +5422,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, chilling draft of polar air sweeps down from the freezing north.",
+                        "text": "Cold air advance from northerly direction.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -5412,7 +5432,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The pristine air offers incredibly sharp visibility through the leafless trees.",
+                        "text": "High transparency of the atmosphere; clear visibility.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -5422,7 +5442,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The heavy, unstable air suddenly cracks with the first violent thunderstorm of spring.",
+                        "text": "Unstable stratification announces first thunderstorm of the season.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -5434,7 +5454,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Countless new meltwater pools mirror the bright, waking sky.",
+                        "text": "Formation of meltwater pools.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -5444,7 +5464,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A treacherous ground frost creeps back under the cover of the starry night.",
+                        "text": "Ground-level frost in the night hours.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -5456,7 +5476,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "A surprisingly fierce heat bakes the dense, fragrant coniferous forest.",
+                        "text": "High air temperature in coniferous forest.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -5466,7 +5486,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A stagnant, suffocating humidity settles heavily under the forest canopy.",
+                        "text": "High humidity and stillness.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -5476,7 +5496,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun lingers in the sky for nearly twenty hours, casting endless, long shadows.",
+                        "text": "Extremely long sunshine duration (nearly 20h).",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -5486,7 +5506,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A violent heat thunderstorm erupts, tearing the sky apart with jagged lightning.",
+                        "text": "Heat thunderstorm with high electrical activity.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -5498,7 +5518,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The deep forest is eerily calm, wrapped in a suffocating, damp heat.",
+                        "text": "Calm and high humidity inside the stand.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -5508,7 +5528,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The undergrowth is tinder-dry; a single stray spark could doom the entire forest.",
+                        "text": "Extreme forest fire danger.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -5518,7 +5538,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A warm, desperately needed summer rain gently wets the thirsty forest floor.",
+                        "text": "Warm summer rain wets the forest floor.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -5530,7 +5550,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, white morning fog rolls mysteriously off the surface of the dark forest lakes.",
+                        "text": "Morning lake fog over waters.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -5542,7 +5562,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The vast, untamed forest is bursting with lush life and vibrant green.",
+                        "text": "Vegetation in full maturity.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -5552,7 +5572,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A cooling, welcome breeze rustles pleasantly through the high canopy.",
+                        "text": "Cool breeze ensures air movement in the crowns.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -5562,7 +5582,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Drifting cumulus clouds offer fleeting, merciful moments of shade.",
+                        "text": "Changing cloud cover (Cumulus) provides shade at times.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -5572,7 +5592,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dark forest lakes lie perfectly still, mirroring the sky like black glass.",
+                        "text": "Calm water surfaces in windless conditions.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -5582,7 +5602,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A humid, sweltering heat dominates the forest floor, making every breath heavy.",
+                        "text": "Humid-warm weather dominates the forest floor.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -5592,7 +5612,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The magical midsummer nights are bright enough to read by, banishing true darkness.",
+                        "text": "Bright nights (Midsummer).",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -5602,7 +5622,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The bone-dry pine needles crunch and rustle loudly under every cautious footstep.",
+                        "text": "Dry air makes needle litter rustle.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -5612,7 +5632,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, painful shower of hail pelts down from the bruised sky.",
+                        "text": "Local hail shower near thunderstorm.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -5620,11 +5640,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 66
                         },
                         "fx": [
-                            "hail"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "Acrid smoke from a distant forest fire heavily taints the summer air.",
+                        "text": "Smoke from distant forest fires.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -5636,7 +5656,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Brilliant sunlight glints blindingly off the surface of the rushing streams.",
+                        "text": "Sunlight glinting on water surfaces.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -5646,7 +5666,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A miserable, persistent drizzle turns the summer day gloomy and gray.",
+                        "text": "Gloomy weather picture with drizzle.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -5658,7 +5678,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brutal cold front sweeps in, dropping the temperature with shocking speed.",
+                        "text": "Cold front passage leads to abrupt temperature drop.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -5670,7 +5690,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "A sharp, cool draft slips like a ghost through the darkening forest paths.",
+                        "text": "Cool air slips through the forest paths.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -5680,7 +5700,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The first gentle snowfall sticks stubbornly to the dark green pine needles.",
+                        "text": "First snowfall sticks in the tree crowns.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -5692,7 +5712,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A howling storm fiercely whips the massive ancient trees back and forth.",
+                        "text": "Storm low moves the tree stand strongly.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -5704,7 +5724,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Dense, suffocating fog banks refuse to lift, swallowing the forest all day.",
+                        "text": "Dense fog banks persist all day in the forest.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -5716,7 +5736,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brutal morning frost coats the world in white after a bitterly clear night.",
+                        "text": "Strong morning frost after clear night.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -5726,7 +5746,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The freezing rain suddenly hardens into a miserable, stinging sleet.",
+                        "text": "Rain hardens into a miserable sleet.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -5738,7 +5758,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The days shrink terrifyingly fast as the long dark of winter approaches.",
+                        "text": "Daylight duration decreases rapidly.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -5748,7 +5768,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A blast of polar air strips the haze away, leaving the forest unnaturally sharp.",
+                        "text": "Polar cold air ensures extremely clear visibility.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -5758,7 +5778,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The muddy earth begins to freeze solid, turning into treacherous black frost.",
+                        "text": "Beginning ground freezing (black frost).",
                         "temp": {
                             "minC": -4,
                             "maxC": 0,
@@ -5768,7 +5788,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting cold penetrates deep into the soil, freezing the forest floor rock solid.",
+                        "text": "Frost penetrates deep into the topsoil.",
                         "temp": {
                             "minC": -1,
                             "maxC": 2,
@@ -5778,7 +5798,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, unbroken ceiling of gray clouds plunges the woods into an eerie gloom.",
+                        "text": "Gloomy lighting conditions due to closed cloud cover.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -5788,7 +5808,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy silence falls; the thick moss and mist dampen every sound.",
+                        "text": "Acoustic damping; silence in the forest.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -5798,7 +5818,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fleeting Indian Summer grants the forest one last, golden breath of warmth.",
+                        "text": "Last warm period (Indian Summer) before winter.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -5808,7 +5828,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "An icy wind shrieks like a banshee through the barren, skeletal branches.",
+                        "text": "Icy wind causes whistling sounds in the branches.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -5818,7 +5838,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A thick crust of sparkling hoarfrost coats the ancient mosses and lichens.",
+                        "text": "Hoarfrost formation on mosses and lichens.",
                         "temp": {
                             "minC": -3,
                             "maxC": 0,
@@ -5830,7 +5850,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The shallow edges of the dark forest lakes begin to freeze with sharp cracks.",
+                        "text": "Edge areas of still waters freeze over.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -5840,7 +5860,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of blinding snow heavily obscures the path ahead.",
+                        "text": "Snow flurry reduces visibility considerably.",
                         "temp": {
                             "minC": -4,
                             "maxC": -1,
@@ -5852,7 +5872,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An unnatural, dead calm settles heavily over the waiting forest.",
+                        "text": "Windstill and calm atmosphere.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -5862,7 +5882,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A miserable, raw wetness seeps through clothing and chills the bone.",
+                        "text": "Raw and wet weather sensation.",
                         "temp": {
                             "minC": 0,
                             "maxC": 3,
@@ -5874,7 +5894,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A wall of black, bruised clouds advances, bringing the fury of the winter front.",
+                        "text": "Approach of a winter front with dark clouds.",
                         "temp": {
                             "minC": -6,
                             "maxC": -2,
@@ -5888,7 +5908,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A thick blanket of pristine powder snow completely muffles the sound of footsteps.",
+                        "text": "Thick powder snow cover muffles footstep sounds.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -5900,7 +5920,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The ancient trees groan under the immense, crushing weight of heavy snow.",
+                        "text": "High snow load on trees.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -5912,7 +5932,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brutal, icy north wind screams relentlessly across the open clearings.",
+                        "text": "Icy north wind on open clearings.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -5922,7 +5942,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky arches overhead, a beautiful, freezing, and utterly cloudless deep blue.",
+                        "text": "Sky cloudless, deep blue and cold.",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -5932,7 +5952,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Deep within the heart of the forest, the freezing air is completely, eerily still.",
+                        "text": "Calm conditions inside the forest.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -5942,7 +5962,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Fine, dry diamond dust falls continuously, glittering in the deadly cold air.",
+                        "text": "Precipitation of fine, dry snow (snow grains).",
                         "temp": {
                             "minC": -14,
                             "maxC": -10,
@@ -5954,7 +5974,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The trees occasionally snap and crack loudly as the sap freezes within them.",
+                        "text": "Frost cracking on trees.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -5964,7 +5984,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The pristine, untouched snow makes it effortlessly easy to track passing prey.",
+                        "text": "Tracking reliability in snow excellent.",
                         "temp": {
                             "minC": -16,
                             "maxC": -12,
@@ -5974,7 +5994,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A monstrous blizzard roars through the woods, erasing all visibility in a whiteout.",
+                        "text": "Buran (blizzard); visibility zero due to drifting snow.",
                         "temp": {
                             "minC": -18,
                             "maxC": -12,
@@ -5986,7 +6006,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The weak sun barely crests the horizon, casting pale, dying light for only a few hours.",
+                        "text": "Short daylight phase with weak intensity.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -5996,7 +6016,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Jagged, bizarre hoarfrost needles grow rapidly on every exposed surface.",
+                        "text": "Growth of hoarfrost needles on objects.",
                         "temp": {
                             "minC": -20,
                             "maxC": -16,
@@ -6008,7 +6028,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The deep forest lakes freeze solid, thick enough to carry a fully armored knight.",
+                        "text": "Waters frozen solid enough to carry weight.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -6018,7 +6038,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The frozen breath of travelers hangs in the air long after they have passed.",
+                        "text": "Condensation clouds of breath extremely long-lasting.",
                         "temp": {
                             "minC": -25,
                             "maxC": -20,
@@ -6028,7 +6048,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The terrible, cracking cold of the clear night threatens to freeze the blood.",
+                        "text": "Cracking cold in a clear frosty night.",
                         "temp": {
                             "minC": -30,
                             "maxC": -25,
@@ -6038,7 +6058,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, ominous bank of clouds builds in the north, promising a massive snowfall.",
+                        "text": "Cloud build-up indicates fresh snow.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -6048,7 +6068,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive, spear-like icicles hang dangerously from the rocky overhangs and branches.",
+                        "text": "Long icicles formed on overhangs.",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -6058,7 +6078,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The bitterly cold snow crunches incredibly loudly under the weight of heavy boots.",
+                        "text": "Loud crunching of snow under load.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -6070,7 +6090,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The magical, shifting ribbons of the Aurora Borealis dance above the dark treetops.",
+                        "text": "Aurora Borealis visible over the treetops.",
                         "temp": {
                             "minC": -28,
                             "maxC": -24,
@@ -6082,7 +6102,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden influx of warm air turns the snow into a treacherous, heavy, wet slush.",
+                        "text": "Warm air intrusion brings wet packing snow.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -6094,7 +6114,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy snowpack on the treeless slopes threatens to unleash a deadly avalanche.",
+                        "text": "Acute avalanche danger on unwooded slopes.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -6118,7 +6138,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The bitter, biting winter cold slowly begins to loosen its iron grip on the barren land.",
+                        "text": "Violent sandstorm; poor visibility.",
                         "temp": {
                             "minC": 5,
                             "maxC": 10,
@@ -6130,7 +6150,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce, dry wind howls across the rocky plains, carrying a stinging, freezing dust.",
+                        "text": "Despite sunshine icy wind prevails.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -6140,7 +6160,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The pale sun shines brightly from a cloudless sky, but offers only a weak, distant warmth.",
+                        "text": "Extreme temperature fluctuation measured during the day.",
                         "temp": {
                             "minC": 2,
                             "maxC": 15,
@@ -6150,7 +6170,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The desolate, stony ground begins to thaw slightly, turning the top layer into a freezing mud.",
+                        "text": "Active dust devil formation observed on the ground.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -6160,7 +6180,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brief, tantalizing flurry of snow falls, instantly melting on the dark, sun-warmed rocks.",
+                        "text": "Sky coloration pale and dusty.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -6172,7 +6192,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is incredibly dry and sharp, cracking lips and burning the throat with every breath.",
+                        "text": "Severe frost in the morning hours.",
                         "temp": {
                             "minC": -5,
                             "maxC": 0,
@@ -6182,7 +6202,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A few incredibly hardy, tiny flowers stubbornly push through the cracks in the frozen stone.",
+                        "text": "Extremely low humidity; extremely dry air.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -6192,7 +6212,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature fluctuates wildly, offering a deceptive warmth at noon and a killing frost at night.",
+                        "text": "Rare thunderstorm event with hardly measurable precipitation.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -6204,7 +6224,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive, howling dust devils sweep across the vast, empty plains, turning the sky a hazy gray.",
+                        "text": "Stone surfaces warm while shadow areas remain cold.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -6214,7 +6234,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, rumbling wind echoing through the canyons sounds eerily like a distant, angry beast.",
+                        "text": "Extremely low humidity.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -6224,7 +6244,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly clear, crisp air allows for breathtakingly sharp views of the distant, snow-capped peaks.",
+                        "text": "Wind noise in rock formations.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -6234,7 +6254,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rare, precious water seeps begin to flow again, drawing the few desperate animals of the desert.",
+                        "text": "Gray clouds without precipitation activity.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -6244,7 +6264,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent squall drops a mixture of icy rain and sharp sleet that stings exposed skin.",
+                        "text": "Isolated snowfall without sticking.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -6256,7 +6276,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The setting sun casts incredibly long, melancholic shadows across the vast, stony emptiness.",
+                        "text": "Dry air leaves the world crystal clear.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -6266,7 +6286,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The night sky is a completely flawless, dizzying canopy of stars, but the cold is absolutely brutal.",
+                        "text": "Mild air current at ground level.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -6276,7 +6296,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce ground wind erases all tracks in the loose, freezing sand within mere minutes.",
+                        "text": "Glaring effect of the sun on the wide horizon.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -6286,7 +6306,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, desolate beauty of the cold desert is magnified by the stark, shifting light of spring.",
+                        "text": "Calm conditions.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -6296,7 +6316,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few remaining scrub bushes begin to show tiny, desperately hopeful signs of green life.",
+                        "text": "Reddish sunset due to dust particle scattering.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -6306,7 +6326,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The oppressive, waiting silence of the deep desert is broken only by the relentless, wailing wind.",
+                        "text": "Refreezing at night.",
                         "temp": {
                             "minC": -3,
                             "maxC": 2,
@@ -6316,7 +6336,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The land is caught in a brutal, beautiful struggle between the dying winter and the coming heat.",
+                        "text": "Warm katabatic wind (foehn) causes temperature rise.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -6330,7 +6350,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "An absolutely blinding, relentless sun beats down mercilessly from a pale, hazy, and cloudless sky.",
+                        "text": "Strong heat shimmer over the desert floor.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -6342,7 +6362,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-freezing desert is now a baking, sweltering oven of scorching rock and hot, dry sand.",
+                        "text": "Cloudless deep blue sky.",
                         "temp": {
                             "minC": 34,
                             "maxC": 38,
@@ -6352,37 +6372,37 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Fierce, hot winds whip up massive, choking dust storms that completely blot out the sun.",
+                        "text": "Surface temperature extremely high; avoid contact.",
                         "temp": {
-                            "minC": 33,
-                            "maxC": 38,
-                            "minF": 91,
-                            "maxF": 100
+                            "minC": 40,
+                            "maxC": 45,
+                            "minF": 104,
+                            "maxF": 113
                         },
                         "fx": []
                     },
                     {
-                        "text": "The intense, shimmering heat creates massive, watery mirages that cruelly taunt thirsty travelers.",
+                        "text": "Dry wind with foehn effect dries everything out.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "The incredibly dry air sucks the moisture from the body at a terrifying, life-threatening rate.",
+                        "text": "Extreme heat; high solar radiation intensity.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent dry lightning storm strikes the rocky outcrops, leaving a sharp smell of ozone.",
+                        "text": "Strong nocturnal radiation brings cooling.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -6392,7 +6412,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The stifling, oppressive heat of midday forces absolutely all life to seek deep, cool shelter.",
+                        "text": "Fine dust is whirled up with every step.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -6404,17 +6424,49 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The rocky earth is as hot as a forged anvil, burning the bare skin of anyone foolish enough to touch it.",
+                        "text": "Dry thunderstorm causes wildfires.",
                         "temp": {
                             "minC": 32,
                             "maxC": 38,
                             "minF": 90,
                             "maxF": 100
                         },
+                        "fx": [
+                            "lightning_flash"
+                        ]
+                    },
+                    {
+                        "text": "Painfully glaring sunlight.",
+                        "temp": {
+                            "minC": 38,
+                            "maxC": 42,
+                            "minF": 100,
+                            "maxF": 108
+                        },
                         "fx": []
                     },
                     {
-                        "text": "A brief, freak thunderstorm drops a torrent of rain that instantly turns to blinding steam on the rocks.",
+                        "text": "Calm conditions at noon.",
+                        "temp": {
+                            "minC": 39,
+                            "maxC": 43,
+                            "minF": 102,
+                            "maxF": 109
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Reflection of the sun on salt crusts.",
+                        "temp": {
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Heat accumulation in sheltered rock crevices.",
                         "temp": {
                             "minC": 34,
                             "maxC": 38,
@@ -6424,37 +6476,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few, precious waterholes shrink visibly under the relentless sun, becoming muddy and foul.",
-                        "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The nights offer a surprisingly sharp, biting chill, a stark and welcome contrast to the baking days.",
-                        "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The blazing sun seems unnaturally large and hostile, a fiery, unforgiving eye glaring at the earth.",
-                        "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The smell of hot dust and scorched stone completely dominates the breathless, dead air of the desert.",
+                        "text": "Brief filling of a wadi by flash flood.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -6466,7 +6488,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The harsh, desolate landscape offers absolutely no sanctuary or shade from the brutal, burning light.",
+                        "text": "Overwhelmingly clear starry sky at night.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -6476,19 +6498,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The completely clear, freezing night sky reveals an overwhelming, dizzying sea of cold, bright stars.",
+                        "text": "Strong refraction causes Fata Morgana.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 36,
+                            "maxC": 40,
+                            "minF": 97,
+                            "maxF": 104
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked, and exhausted desert plains.",
+                        "text": "Wind noise in vegetation.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -6498,7 +6520,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, dusty wind erases all tracks within minutes, making navigation a deadly challenge.",
+                        "text": "The air is so clear it seems washed clean.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -6508,7 +6530,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal heat tests the absolute limits of human endurance and mental sanity.",
+                        "text": "Heat rises hard from the bare stone.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -6518,17 +6540,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few, incredibly tough scrub bushes seem to wither and retreat under the scorching assault.",
+                        "text": "Increased ozone levels near the ground.",
                         "temp": {
-                            "minC": 34,
-                            "maxC": 38,
-                            "minF": 93,
-                            "maxF": 100
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "The deep desert is a beautiful, but incredibly deadly, sea of burning stone and blinding light.",
+                        "text": "Cooling stone clicks and cracks by evening.",
                         "temp": {
                             "minC": 25,
                             "maxC": 30,
@@ -6540,7 +6562,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The brutal, scorching summer heat finally begins to break, giving way to a crisp, dry coolness.",
+                        "text": "Crystal clear visibility to the horizon.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -6550,7 +6572,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The relentless, hot summer winds are abruptly replaced by a steady, biting chill from the mountains.",
+                        "text": "Icy winds arriving herald winter.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -6560,7 +6582,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, rocky plains seem to stretch on forever under a flawless, incredibly deep blue sky.",
+                        "text": "Solar radiation has only low warming effect.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -6570,7 +6592,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent autumn storm sweeps the desert, dropping a miserable mixture of icy rain and sleet.",
+                        "text": "Severe night frost measured.",
                         "temp": {
                             "minC": -5,
                             "maxC": 0,
@@ -6580,7 +6602,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The crisp, completely clear air offers a breathtakingly sharp, pristine view of the distant horizon.",
+                        "text": "Deep blue cloudless sky.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -6590,7 +6612,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature plummets rapidly and brutally as soon as the pale sun dips below the rocky horizon.",
+                        "text": "Dust storms sweep across the plain.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -6602,7 +6624,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, ghostly ground fog occasionally forms in the deep, freezing canyons during the long night.",
+                        "text": "Dry cold causes shivering.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -6612,7 +6634,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dusty, treacherous trails harden into rock-solid, unforgiving paths in the creeping, bitter cold.",
+                        "text": "Ground frozen but snow-free.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -6622,7 +6644,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly warm, golden afternoon offers a fleeting, beautiful, and desperately needed respite.",
+                        "text": "Evening light bathes desert in red colors.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -6632,7 +6654,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting, cold wind howls mournfully and relentlessly across the vast, completely empty wasteland.",
+                        "text": "Calm phase with high sound perception.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -6642,7 +6664,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of dry, hot dust is replaced by the sharp, clean, and metallic scent of impending snow.",
+                        "text": "Gray and cold daytime weather.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -6652,7 +6674,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of dry, powdery snow blows fiercely across the hardened, cracked desert floor.",
+                        "text": "Hoarfrost formation on stones in the morning.",
                         "temp": {
                             "minC": -4,
                             "maxC": 1,
@@ -6664,7 +6686,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The water in the rare, shallow pools freezes solid overnight, cracking loudly and sharply underfoot.",
+                        "text": "High static charge of the air.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -6674,7 +6696,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky remains stubbornly clear, offering absolutely no hope of warmth to the freezing, stony land.",
+                        "text": "Migrating dunes in motion due to wind pressure.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -6684,7 +6706,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, rocky soil seems to absorb and radiate the bitter, bone-deep cold of the freezing night.",
+                        "text": "Extremely long shadows due to low sun.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -6694,7 +6716,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun casts incredibly long, melancholic, and purple shadows across the desolate plains.",
+                        "text": "Short soft hail shower comes down.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -6706,7 +6728,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deep, waiting silence falls over the desert as the harsh land prepares for the deadly winter.",
+                        "text": "The air is cool and clear.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -6716,7 +6738,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few remaining desert creatures become increasingly desperate as the meager food supply vanishes.",
+                        "text": "Extremely bright full moon night.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -6726,7 +6748,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The transition brings a stark, beautiful, but deadly contrast between the cool days and freezing nights.",
+                        "text": "Wind chill makes evening stay uncomfortable.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -6736,7 +6758,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brutal, desolate beauty of the cold desert is magnified by the crisp, freezing autumn air.",
+                        "text": "Sudden temperature drop after sunset.",
                         "temp": {
                             "minC": -3,
                             "maxC": 2,
@@ -6748,7 +6770,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A bitter, howling blizzard sweeps the open desert, dropping visibility to an absolute, deadly zero.",
+                        "text": "Black frost without insulating snow cover.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -6758,7 +6780,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, rocky plains are completely buried under a thick, unbroken blanket of pristine snow.",
+                        "text": "Sandstorm mixed with ice grains.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -6766,11 +6788,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 18
                         },
                         "fx": [
-                            "hail"
+                            "sandstorm"
                         ]
                     },
                     {
-                        "text": "An incredibly sharp, cutting wind slices straight through the thickest furs and heaviest leathers.",
+                        "text": "Ground surface frozen granite-hard.",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -6780,7 +6802,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature is brutally, dangerously cold, instantly freezing exposed skin in mere minutes.",
+                        "text": "Bright sun without significant heat output.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -6790,7 +6812,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliantly clear, deep blue sky offers absolutely no warmth from the pale, distant, and weak sun.",
+                        "text": "Sublimation of a thin snow layer (evaporation).",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -6802,7 +6824,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifying, silent 'whiteout' makes navigation completely impossible, turning the desert into a trap.",
+                        "text": "Icy wind causes pain in the face.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -6812,17 +6834,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, powdery snow and hidden rocks make travel exhausting, agonizingly slow, and treacherous.",
+                        "text": "Cloudless and extremely cold.",
                         "temp": {
-                            "minC": -20,
-                            "maxC": -16,
-                            "minF": -4,
-                            "maxF": 3
+                            "minC": -22,
+                            "maxC": -18,
+                            "minF": -8,
+                            "maxF": 0
                         },
                         "fx": []
                     },
                     {
-                        "text": "The fierce, freezing wind sculpts the massive snowdrifts into bizarre, razor-sharp, and beautiful shapes.",
+                        "text": "Dusty haze dims the atmosphere.",
                         "temp": {
                             "minC": -14,
                             "maxC": -10,
@@ -6834,17 +6856,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is so incredibly cold that every drawn breath burns the lungs like swallowed, jagged ice.",
+                        "text": "Cold shattering of rock audible.",
                         "temp": {
-                            "minC": -20,
-                            "maxC": -15,
-                            "minF": -4,
-                            "maxF": 5
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, brief thaw turns the top layer of snow into a dangerous, breakable, and jagged icy crust.",
+                        "text": "Calm conditions.",
                         "temp": {
                             "minC": -16,
                             "maxC": -12,
@@ -6854,7 +6876,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly, agonizingly long, plunging the world into a deep, freezing, absolute darkness.",
+                        "text": "Growth of frost flowers in rock crevices.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -6866,7 +6888,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The intense reflection of the sun on the vast, white plains threatens severe, painful snow blindness.",
+                        "text": "Gray sky without tendency to snow.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -6876,7 +6898,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The absolutely clear, freezing night sky reveals a breathtaking, sweeping, and majestic view of the stars.",
+                        "text": "Silent and motionless winter landscape.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -6886,17 +6908,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, oppressive, and deadly silence rules the frozen landscape, broken only by the wailing wind.",
+                        "text": "Life-threatening cold at night.",
                         "temp": {
-                            "minC": -20,
-                            "maxC": -15,
-                            "minF": -4,
-                            "maxF": 5
+                            "minC": -30,
+                            "maxC": -25,
+                            "minF": -22,
+                            "maxF": -13
                         },
                         "fx": []
                     },
                     {
-                        "text": "The meager, skeletal bushes are completely encased in thick, incredibly heavy, and beautiful ice.",
+                        "text": "Salty dust in the air.",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -6908,17 +6930,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The frozen earth is as hard as forged iron, completely rejecting any attempt to dig or make camp.",
+                        "text": "Extremely high wind chill factor.",
                         "temp": {
-                            "minC": -20,
-                            "maxC": -15,
-                            "minF": -4,
-                            "maxF": 5
+                            "minC": -25,
+                            "maxC": -20,
+                            "minF": -13,
+                            "maxF": -4
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden influx of slightly warmer air brings a miserable, freezing rain that instantly turns to solid ice.",
+                        "text": "Inversion weather condition keeps dust on the ground.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -6930,7 +6952,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brutal, unforgiving winter storms test the absolute, final limits of human endurance and willpower.",
+                        "text": "Rare blizzard turns landscape white.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -6942,7 +6964,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The vast, frozen desert is a breathtakingly beautiful, but incredibly deadly, white and stony wasteland.",
+                        "text": "Low and pale sun position.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -6952,7 +6974,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The stark, alien contrast of the pale sun and the freezing wind creates a harsh, unforgiving hell.",
+                        "text": "Black ice formation at spring outlets.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -6976,7 +6998,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The suffocating, humid heat builds rapidly, warning of the approaching monsoon.",
+                        "text": "Explosive vegetation growth determined by rainfall.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -6988,7 +7010,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive, ancient baobab trees finally burst into fragrant, hopeful bloom.",
+                        "text": "Sudden tornado warning in the transition zone.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7000,17 +7022,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sky groans with distant, rumbling thunder, promising relief to the dry earth.",
+                        "text": "High humidity makes heat harder to bear.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
                             "minF": 84,
                             "maxF": 91
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "A fierce, hot wind sweeps across the plains, tearing at the dry, yellow grass.",
+                        "text": "Morning haze over the wetlands.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7022,7 +7046,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The first heavy, scattered showers fall, instantly sinking into the thirsty, cracked mud.",
+                        "text": "Brief, violent tropical thunderstorm.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7034,17 +7058,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A massive, terrifying dust storm rolls in, turning the midday sky a bruised red.",
+                        "text": "Saturated green of the grass landscape.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
                             "minF": 77,
                             "maxF": 84
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "The air is thick, incredibly still, and heavy with the promise of torrential rain.",
+                        "text": "Intermittent rain showers during the day.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7056,7 +7082,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A spectacular, dry lightning storm dances violently across the dark night sky.",
+                        "text": "Accumulating heat clouds in the afternoon.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7066,7 +7092,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry riverbeds remain empty, but the air smells heavily of distant rain.",
+                        "text": "Warm wind moves the tall grass.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7076,7 +7102,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brutal sun bakes the earth, but massive clouds gather on the horizon by afternoon.",
+                        "text": "Buzzing insects in humid air.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7086,7 +7112,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, fierce downpour catches travelers unaware, turning the dust into slick mud.",
+                        "text": "Heat thunderstorm with Virga (rain evaporates in the air).",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7098,7 +7124,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The first brave shoots of bright green grass push defiantly through the baked earth.",
+                        "text": "Swampy ground conditions hinder movement.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7108,7 +7134,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The heat is incredibly oppressive, clinging to the skin like a warm, wet blanket.",
+                        "text": "Rainbow spans the savannah.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7120,7 +7146,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deafening chorus of insects awakens, anticipating the coming of the great rains.",
+                        "text": "Persistent drizzle makes everything clammy.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7132,7 +7158,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive herds begin to stir restlessly, sensing the changing pressure in the air.",
+                        "text": "Sun breaks through dark rain clouds.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7142,7 +7168,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A violent, localized squall tears through the camp, ripping tents from their stakes.",
+                        "text": "River levels rise visibly.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7154,7 +7180,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The night offers absolutely no relief from the stifling, breathless heat of the day.",
+                        "text": "Oppressive sultriness before the discharge.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7164,7 +7190,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of petrichor—wet dust and ozone—is strong and intoxicating on the wind.",
+                        "text": "Croaking of frogs indicates rain.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7174,7 +7200,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The skies finally open up, unleashing the first true, heavy deluge of the wet season.",
+                        "text": "Clear view after the rain washes out dust.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7184,7 +7210,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The land eagerly drinks the falling rain, signaling the violent rebirth of the savanna.",
+                        "text": "Flying termites swarm after the rain.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7196,7 +7222,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "A torrential, deafening monsoon rain falls in solid, white sheets, blinding all travelers.",
+                        "text": "Monsoon rains flood the depression.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7208,7 +7234,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-dry savanna is completely transformed into an endless, lush ocean of tall grass.",
+                        "text": "Continuous rain for 24 hours.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7220,7 +7246,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive, rolling thunderstorms violently shake the earth every single afternoon without fail.",
+                        "text": "Extreme humidity; mold formation risk.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7230,7 +7256,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rivers burst their banks entirely, flooding the plains in shallow, muddy lakes.",
+                        "text": "Steamy air over the vegetation.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7242,7 +7268,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is suffocatingly humid, a massive, sweltering steam bath under the tropical sun.",
+                        "text": "Deafening noise of the rain.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7250,11 +7276,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 84
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "Travel is incredibly slow and exhausting; the mud sucks greedily at every footstep.",
+                        "text": "Violent electrical discharges (lightning).",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7266,7 +7292,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Millions of mosquitoes swarm aggressively in the humid air, driving men and beasts mad.",
+                        "text": "Paths turned into raging streams.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -7278,7 +7304,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brilliant, colossal rainbow arcs perfectly over the flooded, vibrant green landscape.",
+                        "text": "No visibility in heavy rain.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7290,7 +7316,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy, continuous rain washes out all trails, leaving you lost in a sea of green.",
+                        "text": "Warm soaking wetness.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7302,7 +7328,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The flooded swamps teem with unseen, dangerous predators lurking just beneath the surface.",
+                        "text": "Vegetation grows visibly fast.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7312,7 +7338,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Even when the sun breaks through, the intense heat immediately turns the rain into thick steam.",
+                        "text": "Short interruptions by sunshine.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7322,7 +7348,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the roar of rain and the chorus of frogs.",
+                        "text": "Mud avalanches on slopes possible.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7334,7 +7360,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifyingly violent squall flattens the tall grass and threatens to drown the unwary.",
+                        "text": "Cloud cover touches the treetops.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -7344,7 +7370,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive herds of herbivores feast endlessly on the incredible, lush abundance of the plains.",
+                        "text": "Tropical storm sweeps across the land.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7356,7 +7382,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy, gray storm clouds seem to hang so low you could almost touch them.",
+                        "text": "Warm night with chirping concert.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -7366,7 +7392,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, painful shower of tropical hail pelts the flooded earth during a severe storm.",
+                        "text": "Rotten smell of swamp water.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7376,7 +7402,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The damp heat makes leather rot rapidly and iron weapons rust almost before your eyes.",
+                        "text": "Water droplets glisten on every leaf.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7388,7 +7414,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A breathtakingly clear, washed sky occasionally appears, revealing a flawless, deep blue.",
+                        "text": "Mist rises from the ground.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7400,7 +7426,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy, sweet scent of countless blooming flowers hangs heavily in the stagnant air.",
+                        "text": "Sun draws water (visible rays).",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7410,7 +7436,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless rains rule the land absolutely, an unstoppable, chaotic force of nature.",
+                        "text": "Calm before the next shower.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -7422,7 +7448,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The heavy, daily monsoons finally begin to lessen, though the earth remains deeply soaked.",
+                        "text": "Rain intervals become longer; soil dries.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7432,7 +7458,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly tall, lush grass slowly begins to turn a golden, vibrant yellow at the tips.",
+                        "text": "Grass begins to turn yellow; fire risk rises.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7442,7 +7468,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly cool, refreshing breeze finally breaks the stagnant, suffocating humidity.",
+                        "text": "Single violent thunderstorms mark end of rainy season.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7454,7 +7480,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive, flooded rivers slowly begin to recede back into their muddy, deep channels.",
+                        "text": "Clear starry sky is visible again.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -7464,7 +7490,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky clears to a brilliant, endless blue, washed completely clean by months of rain.",
+                        "text": "Morning dew is heavy.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -7474,7 +7500,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive herds begin their slow migration, moving as the waters slowly dry up.",
+                        "text": "Wind freshens up and directs to North.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7484,7 +7510,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The muddy, treacherous trails finally begin to harden into deep, sun-baked ruts.",
+                        "text": "Lower humidity makes heat bearable.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7494,7 +7520,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights grow delightfully cool and crisp, a welcome relief from the sweltering summer.",
+                        "text": "Scattered clouds, but no rain.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7504,7 +7530,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The morning air is thick with a ghostly, dense fog rising from the drying swamps.",
+                        "text": "Animals gather at remaining water holes.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -7514,7 +7540,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The blazing sun returns, quickly baking the moisture out of the exposed, dark earth.",
+                        "text": "Reddish dust settles on plants.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7524,7 +7550,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A beautiful, golden light bathes the turning grass in the late, peaceful afternoon.",
+                        "text": "Pleasantly mild evening wind.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -7534,7 +7560,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, freak thunderstorm rolls through—a violent, dying echo of the wet season.",
+                        "text": "Drying mud cracks.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -7544,7 +7570,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air feels incredibly fresh and crisp, carrying the sweet scent of drying grass.",
+                        "text": "Distant sheet lightning on the horizon.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7554,7 +7580,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The waterholes remain full and clear, drawing incredible, massive gatherings of wildlife.",
+                        "text": "Fog banks in river valleys at night.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -7566,17 +7592,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The biting insects finally begin to die off as the night temperatures slowly drop.",
+                        "text": "Sunburnt landscape.",
                         "temp": {
-                            "minC": 32,
-                            "maxC": 36,
-                            "minF": 90,
-                            "maxF": 97
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "A steady, dry wind begins to blow, rustling loudly through the tall, golden stalks.",
+                        "text": "Gusty wind distributes seeds.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7586,17 +7612,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The once-deafening chorus of frogs falls silent as the shallow puddles disappear.",
+                        "text": "Last green islands disappear.",
                         "temp": {
-                            "minC": 32,
-                            "maxC": 36,
-                            "minF": 90,
-                            "maxF": 97
+                            "minC": 34,
+                            "maxC": 38,
+                            "minF": 93,
+                            "maxF": 100
                         },
                         "fx": []
                     },
                     {
-                        "text": "The clear, beautiful night sky reveals a dizzying, brilliant canopy of countless stars.",
+                        "text": "Dry heat begins to dominate.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -7606,17 +7632,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The savanna is in a state of absolute, golden perfection before the deep drought sets in.",
+                        "text": "Shadow becomes the most important resource.",
                         "temp": {
-                            "minC": 32,
-                            "maxC": 36,
-                            "minF": 90,
-                            "maxF": 97
+                            "minC": 35,
+                            "maxC": 39,
+                            "minF": 95,
+                            "maxF": 102
                         },
                         "fx": []
                     },
                     {
-                        "text": "A peaceful, waiting silence falls over the plains as the great drying begins.",
+                        "text": "Cool night allows deep sleep.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -7628,7 +7654,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A brutal, unforgiving sun beats down mercilessly from a pale, completely cloudless sky.",
+                        "text": "High grass is dry and flammable.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -7638,17 +7664,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless savanna is a dry, crackling sea of brittle straw, desperate for a single drop of water.",
+                        "text": "Cool nights require warm blanket.",
                         "temp": {
-                            "minC": 15,
-                            "maxC": 19,
-                            "minF": 59,
-                            "maxF": 66
+                            "minC": 12,
+                            "maxC": 16,
+                            "minF": 54,
+                            "maxF": 61
                         },
                         "fx": []
                     },
                     {
-                        "text": "The waterholes have shrunk to desperate, muddy puddles guarded by aggressive predators.",
+                        "text": "Clear visibility; no dust in the air yet.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7658,7 +7684,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce, hot wind whips up massive, blinding dust storms that turn the day into a hazy twilight.",
+                        "text": "Pleasant daytime temperatures.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7668,7 +7694,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The intense, shimmering heat creates massive, watery mirages that taunt the dying plains.",
+                        "text": "Strong smoke development from bushfires.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -7680,7 +7706,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifying, fast-moving wildfire sweeps violently across the dry grass, leaving only black ash.",
+                        "text": "Ash rains down.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7692,7 +7718,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is so incredibly dry that it cracks lips and causes skin to ache and bleed.",
+                        "text": "Dry wind rustles in the dry grass.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7702,7 +7728,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are surprisingly, bitterly cold, requiring thick blankets and roaring, bright fires.",
+                        "text": "Pale blue sky.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -7712,7 +7738,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Not a single drop of rain has fallen in months; the earth is hard as baked, cracked stone.",
+                        "text": "Animals migrate to permanent water.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -7722,19 +7748,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dusty, howling wind tears at the few remaining leaves on the skeletal baobab trees.",
+                        "text": "Nocturnal ground fog.",
                         "temp": {
-                            "minC": 15,
-                            "maxC": 19,
-                            "minF": 59,
-                            "maxF": 66
+                            "minC": 10,
+                            "maxC": 14,
+                            "minF": 50,
+                            "maxF": 57
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The blazing sun seems unnaturally large and hostile, a fiery eye glaring down at the earth.",
+                        "text": "Brisk wind creates moderate wind chill.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -7744,7 +7770,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, dry lightning storm strikes the ground, sparking new, terrifying brush fires.",
+                        "text": "Dust haze reduces distance visibility.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -7756,7 +7782,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The meager shade of a solitary acacia tree offers the only relief from the baking heat.",
+                        "text": "Sun rises red.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -7766,17 +7792,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The stifling heat of midday forces all life to stop, hide, and pant in the deep shadows.",
+                        "text": "Dry season at its peak.",
                         "temp": {
-                            "minC": 32,
-                            "maxC": 36,
-                            "minF": 90,
-                            "maxF": 97
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is completely still and suffocatingly hot, reeking strongly of dry dust and old ash.",
+                        "text": "Soil is dusty and hard.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -7786,17 +7812,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry, thorny bushes catch on clothing, tearing at anyone foolish enough to walk off-path.",
+                        "text": "Night sky extremely clear.",
                         "temp": {
-                            "minC": 15,
-                            "maxC": 19,
-                            "minF": 59,
-                            "maxF": 66
+                            "minC": 11,
+                            "maxC": 15,
+                            "minF": 52,
+                            "maxF": 59
                         },
                         "fx": []
                     },
                     {
-                        "text": "The completely clear, freezing night sky reveals a breathtaking, sweeping view of the Milky Way.",
+                        "text": "Wind whirling up dust.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -7808,7 +7834,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked, and exhausted landscape.",
+                        "text": "Warm but not hot days.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -7818,7 +7844,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, dusty wind erases all tracks within minutes, making navigation incredibly difficult.",
+                        "text": "Shade is pleasant.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -7828,12 +7854,12 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal drought tests the absolute limits of endurance for all living things.",
+                        "text": "Dewless morning.",
                         "temp": {
-                            "minC": 15,
-                            "maxC": 19,
-                            "minF": 59,
-                            "maxF": 66
+                            "minC": 13,
+                            "maxC": 17,
+                            "minF": 55,
+                            "maxF": 63
                         },
                         "fx": []
                     }
@@ -7852,7 +7878,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The fickle spring sky wildly shifts between brilliant, warm sun and sudden, freezing showers.",
+                        "text": "Classic April weather with rapid change of sun and showers.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -7864,7 +7890,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A gentle, steady rain falls, coaxing the first green shoots from the muddy earth.",
+                        "text": "Gentle and steady rain promotes plant growth.",
                         "temp": {
                             "minC": 10,
                             "maxC": 13,
@@ -7876,7 +7902,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A stiff, gusty wind chases fast-moving clouds across the waking blue sky.",
+                        "text": "Sunshine breaks through the cloud cover at times.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -7886,7 +7912,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sharp, biting chill of the morning air gives way to a surprisingly warm afternoon.",
+                        "text": "Dense morning fog lies over the fields.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -7898,7 +7924,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, deafening spring thunderstorm rolls through, washing the world clean.",
+                        "text": "Cool wind from northerly direction lowers the perceived temperature.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -7908,17 +7934,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rivers roar with brown, turbulent meltwater, threatening to overflow their banks.",
+                        "text": "Warming sun rays in the morning.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
                             "minF": 57,
                             "maxF": 64
                         },
-                        "fx": []
+                        "fx": [
+                            "sunbeams"
+                        ]
                     },
                     {
-                        "text": "A treacherous late frost strikes at night, coating the budding flowers in icy armor.",
+                        "text": "Warning of soft hail showers in the afternoon hours.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -7930,7 +7958,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The dense morning fog slowly burns away, revealing a landscape bursting with new life.",
+                        "text": "Unusually mild and sunny weather for the season.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -7940,7 +7968,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A raw, biting wind carries the undeniable scent of rain and wet soil.",
+                        "text": "Rising river levels due to snowmelt water from the mountains.",
                         "temp": {
                             "minC": 9,
                             "maxC": 12,
@@ -7950,7 +7978,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The earth is completely waterlogged, making travel off the main roads a muddy nightmare.",
+                        "text": "Stormy winds whirl up dust and pollen.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -7960,7 +7988,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brilliant, flawless blue sky arches over fields of vibrant, blooming wildflowers.",
+                        "text": "Risk of ground frost in the coming night.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -7970,7 +7998,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of wet, miserable snow reminds everyone that winter is not yet dead.",
+                        "text": "Grass areas soaked by heavy morning dew.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -7980,7 +8008,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is incredibly fresh and clear, invigorated by the recent, heavy showers.",
+                        "text": "Cloud conditions changing by the minute.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -7990,7 +8018,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A thick, suffocating bank of gray clouds settles in, bringing a day of endless drizzle.",
+                        "text": "First weak thunder rumbling audible in the distance.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -8002,7 +8030,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sun breaks triumphantly through the dark storm clouds, casting majestic rays of light.",
+                        "text": "The air smells of damp earth and forest floor.",
                         "temp": {
                             "minC": 11,
                             "maxC": 14,
@@ -8012,7 +8040,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly hot, humid day makes the heavy winter clothes completely unbearable.",
+                        "text": "Gray and rainy weather situation determines the day.",
                         "temp": {
                             "minC": 8,
                             "maxC": 11,
@@ -8024,7 +8052,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce gale whips through the budding trees, tearing away the weakest new leaves.",
+                        "text": "Sudden clearing ensures noticeable warming.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -8034,7 +8062,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The soft, golden evening light bathes the fresh green landscape in a magical glow.",
+                        "text": "Rainbow phenomenon spans the valley area.",
                         "temp": {
                             "minC": 12,
                             "maxC": 15,
@@ -8046,7 +8074,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden drop in temperature brings a painful, stinging shower of small hail.",
+                        "text": "Loud wind noise in the branches.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -8056,7 +8084,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air hums with life as massive swarms of insects hatch in the warming sun.",
+                        "text": "Soil condition deep and muddy.",
                         "temp": {
                             "minC": 9,
                             "maxC": 12,
@@ -8068,7 +8096,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "A suffocating, heavy heat settles over the land, making the very air shimmer and dance.",
+                        "text": "Intensive solar radiation under cloudless sky.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -8078,7 +8106,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Not a single cloud dares to mar the endless, blistering expanse of the blue sky.",
+                        "text": "Approach of a heat thunderstorm in the late afternoon.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -8090,7 +8118,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The afternoon heat becomes unbearable until a violent, roaring thunderstorm finally breaks it.",
+                        "text": "The thick, humid air weighs on every breath.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -8100,7 +8128,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A gentle, cooling breeze provides a desperately needed, brief respite from the baking sun.",
+                        "text": "Balmy summer night with stable temperatures.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -8110,17 +8138,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry, cracked earth begs for water under a relentless, unforgiving sun.",
+                        "text": "Extreme weather situation with nationwide heat development.",
                         "temp": {
-                            "minC": 28,
-                            "maxC": 32,
-                            "minF": 82,
-                            "maxF": 90
+                            "minC": 30,
+                            "maxC": 34,
+                            "minF": 86,
+                            "maxF": 93
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, torrential downpour turns the dusty roads into rushing, muddy rivers in minutes.",
+                        "text": "Warm steady rain brings hardly any cooling effect.",
                         "temp": {
                             "minC": 22,
                             "maxC": 25,
@@ -8132,7 +8160,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The humid air is thick and sticky, clinging to the skin like a warm, wet blanket.",
+                        "text": "Haze veil lies over the meadow areas in the morning.",
                         "temp": {
                             "minC": 16,
                             "maxC": 19,
@@ -8144,19 +8172,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A magnificent, brightly colored rainbow arches across the sky in the wake of the storm.",
+                        "text": "Hazy air due to summer heat.",
                         "temp": {
-                            "minC": 28,
-                            "maxC": 32,
-                            "minF": 82,
-                            "maxF": 90
+                            "minC": 29,
+                            "maxC": 33,
+                            "minF": 84,
+                            "maxF": 91
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The deafening chorus of cicadas rises in a rhythmic wave from the baking fields.",
+                        "text": "Dried out grass vegetation rustles in the wind.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -8166,7 +8194,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly cool, refreshing night follows a brutally hot and exhausting day.",
+                        "text": "Heavy hail moves across the area.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -8174,11 +8202,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 75
                         },
                         "fx": [
-                            "hail"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The stagnant air is incredibly thick, promising another fierce thunderstorm by evening.",
+                        "text": "Windless weather with shimmering heat above the ground.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -8188,7 +8216,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, terrifyingly violent hail storm pummels the earth, destroying fragile crops.",
+                        "text": "Cumulus clouds tower up like castles.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -8198,7 +8226,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The oppressive heat gathers in the valleys, offering absolutely no escape or shade.",
+                        "text": "Refreshing wind from northwesterly direction.",
                         "temp": {
                             "minC": 20,
                             "maxC": 23,
@@ -8208,7 +8236,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A light, warm summer rain falls steadily, carrying the rich scent of wet dust and leaves.",
+                        "text": "Spectacular sunset on the western horizon.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -8218,17 +8246,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun bleeds across the horizon in spectacular, fiery shades of red and gold.",
+                        "text": "Forest fire danger at extremely high level.",
                         "temp": {
-                            "minC": 28,
-                            "maxC": 32,
-                            "minF": 82,
-                            "maxF": 90
+                            "minC": 31,
+                            "maxC": 35,
+                            "minF": 88,
+                            "maxF": 95
                         },
                         "fx": []
                     },
                     {
-                        "text": "A thick, strangely cool morning mist clings stubbornly to the rivers and lakes.",
+                        "text": "Windless twilight phase.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -8238,7 +8266,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The star-studded summer night is wonderfully warm, inviting travelers to sleep under the open sky.",
+                        "text": "Short but heavy downpour (heavy rain).",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -8250,17 +8278,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fierce, hot winds whip up blinding clouds of dust along the dry, worn paths.",
+                        "text": "Heat shimmer visible over sealed surfaces.",
                         "temp": {
-                            "minC": 28,
-                            "maxC": 32,
-                            "minF": 82,
-                            "maxF": 90
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden cold front sweeps in, rapidly dropping the temperature and bringing blessed relief.",
+                        "text": "Gentle summer wind moves the foliage.",
                         "temp": {
                             "minC": 24,
                             "maxC": 27,
@@ -8270,7 +8298,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is heavy with the sweet, intoxicating scent of blooming fields and warm pine.",
+                        "text": "Good visibility of shooting stars at night.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -8284,7 +8312,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "A sharp, biting chill in the morning air signals the undeniable death of summer.",
+                        "text": "Golden October weather with clear lighting conditions.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -8294,7 +8322,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The trees erupt in a final, glorious blaze of fiery red, vibrant orange, and gold.",
+                        "text": "Gale warning active; danger from breaking branches.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -8304,7 +8332,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A howling autumn gale fiercely tears the dying leaves from the shivering trees.",
+                        "text": "Continuous steady rain softens waysides.",
                         "temp": {
                             "minC": 8,
                             "maxC": 11,
@@ -8316,7 +8344,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, cold fog rolls out of the woods, swallowing the landscape in a gray, ghostly silence.",
+                        "text": "Stubborn fog persists until noon.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -8328,17 +8356,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A miserable, steady rain falls continuously, turning the world gray and the roads to muck.",
+                        "text": "Wind gusts whirl up colorful autumn leaves.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
                             "minF": 50,
                             "maxF": 57
                         },
-                        "fx": []
+                        "fx": [
+                            "autumn_leaves"
+                        ]
                     },
                     {
-                        "text": "A beautiful, fleeting Indian Summer blesses the land with a few last days of golden warmth.",
+                        "text": "Raw, wet, and uncomfortable weather picture.",
                         "temp": {
                             "minC": 6,
                             "maxC": 9,
@@ -8350,7 +8380,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The first severe night frost leaves the dead grass sparkling under a treacherous layer of ice.",
+                        "text": "Golden light and clear air.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -8360,7 +8390,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky is a bleak, unforgiving gray, heavy with the promise of more endless rain.",
+                        "text": "First night frost of the season expected.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -8370,7 +8400,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The earthy, sweet smell of decaying leaves and wet soil hangs heavily in the damp air.",
+                        "text": "Gray high fog cover lets no sunlight through.",
                         "temp": {
                             "minC": 7,
                             "maxC": 10,
@@ -8382,7 +8412,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent storm lashes the countryside, driving the rain almost horizontally.",
+                        "text": "Intense mushroom smell in damp undergrowth.",
                         "temp": {
                             "minC": 9,
                             "maxC": 12,
@@ -8392,7 +8422,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The days grow noticeably shorter, the sun casting long, melancholic shadows by late afternoon.",
+                        "text": "Violent autumn storm drives rain horizontally.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -8404,7 +8434,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A surprisingly clear, crisp day offers a breathtakingly sharp view of the distant hills.",
+                        "text": "Low sun causes strong blinding effect.",
                         "temp": {
                             "minC": 10,
                             "maxC": 13,
@@ -8414,7 +8444,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The puddles in the ruts of the road crack loudly underfoot, frozen by the creeping cold.",
+                        "text": "Hoarfrost formation on crops in the morning.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -8426,7 +8456,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A massive flock of crows circles ominously in the darkening, turbulent autumn sky.",
+                        "text": "Fast moving cloud shreds in the sky (Fractus).",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -8436,7 +8466,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The damp cold seems to seep directly into your bones, feeling worse than the deepest winter.",
+                        "text": "Calmness and melancholic quiet in nature.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -8446,7 +8476,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of wet snow mixes with the rain, melting the moment it hits the muddy ground.",
+                        "text": "Cold rain shower occurs surprisingly.",
                         "temp": {
                             "minC": 6,
                             "maxC": 9,
@@ -8458,7 +8488,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The low-hanging clouds seem to scrape against the tops of the bare, skeletal trees.",
+                        "text": "Post-frontal weather ensures extreme visibility.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -8468,7 +8498,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce gust of wind whips up a blinding, swirling tornado of dead leaves and dust.",
+                        "text": "Steady wind from the northern direction.",
                         "temp": {
                             "minC": 8,
                             "maxC": 11,
@@ -8478,7 +8508,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The evening sky glows with a strange, bruised purple light before plunging into cold darkness.",
+                        "text": "Slushy weather makes progress difficult.",
                         "temp": {
                             "minC": 5,
                             "maxC": 8,
@@ -8490,7 +8520,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A heavy, suffocating silence falls over the land as the last of the wildlife seeks shelter.",
+                        "text": "Sleet begins to fall early in the evening.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -8504,7 +8534,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A thick, pristine blanket of snow completely covers the world, silencing all ambient sound.",
+                        "text": "Sound insulation by thick snow cover.",
                         "temp": {
                             "minC": -4,
                             "maxC": -1,
@@ -8516,7 +8546,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A roaring, blinding blizzard descends, making it impossible to see further than an arm's length.",
+                        "text": "Clear frosty weather with sunshine.",
                         "temp": {
                             "minC": -6,
                             "maxC": -2,
@@ -8526,7 +8556,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly cold, sharp air burns the lungs with every drawn breath.",
+                        "text": "Freezing rain turns surfaces into slides.",
                         "temp": {
                             "minC": -1,
                             "maxC": 1,
@@ -8538,7 +8568,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A flawlessly clear, deep blue sky arches over a bitterly freezing, sunlit landscape.",
+                        "text": "Gray cloud cover brings fresh snowfall.",
                         "temp": {
                             "minC": -3,
                             "maxC": 0,
@@ -8550,7 +8580,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A vicious, howling wind cuts straight through the thickest cloaks like a razor.",
+                        "text": "Bitter cold east wind lowers perceived temperature drastically.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -8560,7 +8590,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The heavy snowfall finally stops, leaving the pine branches groaning under the massive weight.",
+                        "text": "Onset of thaw leads to slush formation.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -8570,7 +8600,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, brief thaw turns the snow into a treacherous, sloppy slush.",
+                        "text": "High snow load presses on the tree stand.",
                         "temp": {
                             "minC": -2,
                             "maxC": 1,
@@ -8582,7 +8612,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The melted slush freezes violently overnight, turning the roads into deadly sheets of black ice.",
+                        "text": "Freezing fog on branches and twigs.",
                         "temp": {
                             "minC": -5,
                             "maxC": -3,
@@ -8594,7 +8624,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A heavy, suffocating bank of gray clouds promises days of endless, miserable snowfall.",
+                        "text": "Dense snow flurry reduces visibility to zero.",
                         "temp": {
                             "minC": -4,
                             "maxC": -1,
@@ -8606,7 +8636,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Bizarre, beautiful frost patterns grow rapidly over every cold surface in the freezing night.",
+                        "text": "Black ice makes paths and roads dangerous.",
                         "temp": {
                             "minC": -2,
                             "maxC": 0,
@@ -8616,7 +8646,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, unbroken snow makes travel incredibly exhausting and painfully slow.",
+                        "text": "Calm cold; breath condenses immediately.",
                         "temp": {
                             "minC": -7,
                             "maxC": -4,
@@ -8626,7 +8656,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly bright reflection of the sun on the snow threatens to blind the unwary.",
+                        "text": "Winter storm howls around building corners.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -8638,7 +8668,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The deep lakes and rivers freeze solid, groaning and cracking loudly in the intense cold.",
+                        "text": "The winter sun gives light, but little warmth.",
                         "temp": {
                             "minC": -8,
                             "maxC": -5,
@@ -8648,7 +8678,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A strange, freezing fog rolls in, coating everything it touches in a thick layer of rime ice.",
+                        "text": "Icicle formation on rock ledges and roofs.",
                         "temp": {
                             "minC": -5,
                             "maxC": -2,
@@ -8658,17 +8688,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The days are depressingly short, the pale sun barely cresting the horizon before sinking again.",
+                        "text": "Starry night with severe frost.",
                         "temp": {
-                            "minC": -10,
-                            "maxC": -6,
-                            "minF": 14,
-                            "maxF": 21
+                            "minC": -12,
+                            "maxC": -8,
+                            "minF": 10,
+                            "maxF": 18
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden influx of slightly warmer air brings a miserable, freezing rain instead of snow.",
+                        "text": "Dirty old snow lies at waysides.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -8678,7 +8708,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The crisp, silent winter night reveals an incredibly vast and brilliant canopy of stars.",
+                        "text": "Permanent high fog prevents daylight brightness.",
                         "temp": {
                             "minC": -4,
                             "maxC": -1,
@@ -8690,7 +8720,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The trees occasionally snap with a sound like a musket shot as the sap freezes within them.",
+                        "text": "Snowdrifts block pass roads.",
                         "temp": {
                             "minC": -6,
                             "maxC": -3,
@@ -8702,7 +8732,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce ground wind sweeps the fields, driving a relentless, stinging river of sharp snow crystals.",
+                        "text": "Short hail shower comes down unexpectedly.",
                         "temp": {
                             "minC": 0,
                             "maxC": 3,
@@ -8714,7 +8744,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The bone-deep cold is absolute and unforgiving, demanding respect and a roaring fire.",
+                        "text": "Freezing of lakes due to cracking cold.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -8738,7 +8768,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The scorching heat of the day begins to build rapidly as the sun clears the dunes.",
+                        "text": "Severe sandstorm darkens the daylight massively.",
                         "temp": {
                             "minC": 25,
                             "maxC": 30,
@@ -8750,7 +8780,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce, hot wind whips across the endless sands, stinging the eyes and skin.",
+                        "text": "Unbearable desert wind (Khamsin) blows.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -8760,7 +8790,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly rare sight of a solitary, blooming desert flower offers a fleeting hope.",
+                        "text": "Air coloration yellow due to high dust concentration.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -8772,7 +8802,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sky is a hazy, pale white, completely devoid of even the smallest cloud.",
+                        "text": "Extreme temperature fluctuation during the day.",
                         "temp": {
                             "minC": 15,
                             "maxC": 30,
@@ -8782,7 +8812,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A massive, terrifying sandstorm rolls across the horizon, turning the sky a bruised red.",
+                        "text": "Pale and cloudless sky.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -8792,7 +8822,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is so incredibly dry that it cracks the lips and makes every breath painful.",
+                        "text": "Visible migration of dunes due to wind pressure.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -8802,7 +8832,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few remaining, precious waterholes shrink visibly under the relentless, baking sun.",
+                        "text": "Enormous power of solar radiation noticeable.",
                         "temp": {
                             "minC": 32,
                             "maxC": 36,
@@ -8812,7 +8842,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent dust devil dances erratically across the hard-packed, cracked clay.",
+                        "text": "The air is parched and utterly dry.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -8822,7 +8852,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The shimmering heat creates massive, watery mirages that taunt desperate, thirsty travelers.",
+                        "text": "Noticeable chill in the morning hours.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -8832,7 +8862,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature plummets surprisingly fast as soon as the sun dips below the horizon.",
+                        "text": "Fine dust penetrates into smallest cracks.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -8844,7 +8874,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brief, tantalizing drizzle falls, but completely evaporates before hitting the hot sand.",
+                        "text": "Raindrops evaporate whilst falling (Virga).",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -8856,7 +8886,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The blinding reflection of the sun on the white salt flats threatens severe snow blindness.",
+                        "text": "Warming stone gives off sharp cracking sounds.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -8866,7 +8896,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A completely cloudless, freezing night sky reveals a breathtaking, dizzying sea of stars.",
+                        "text": "Uncomfortable and windy weather situation.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -8876,7 +8906,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The oppressive, silent heat of midday forces all desert life to seek deep, cool shelter.",
+                        "text": "Minimal visibility due to dust haze.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -8888,7 +8918,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, dry lightning storm strikes the rocky outcrops, leaving a sharp smell of ozone.",
+                        "text": "Intense heat radiating from the ground.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -8898,7 +8928,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The wind howls mournfully through the twisted, skeletal remains of ancient, dead trees.",
+                        "text": "Noticeable electrostatic discharges in the air.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -8908,7 +8938,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, rocky terrain radiates the day's intense heat long into the freezing night.",
+                        "text": "Red haze veil lies on the horizon.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -8920,7 +8950,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A massive swarm of locusts suddenly darkens the sky, devouring the sparse vegetation.",
+                        "text": "Howling wind noise in the canyons.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -8930,7 +8960,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The absolute, deafening silence of the deep desert is both beautiful and terrifying.",
+                        "text": "Sudden silence occurs in the evening.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -8940,7 +8970,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The relentless, brutal environment tests the absolute limits of endurance for all life.",
+                        "text": "Star visibility low due to dust turbidity.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -8954,113 +8984,113 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "An absolutely blistering, merciless sun bakes the endless dunes from a white-hot sky.",
+                        "text": "Life-threatening heat levels measured.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 45,
+                            "maxC": 50,
+                            "minF": 113,
+                            "maxF": 122
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The suffocating, oven-like heat radiates fiercely from the scorching, shifting sands.",
+                        "text": "Ground temperature extremely high (cooking temperature).",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 50,
+                            "maxC": 55,
+                            "minF": 122,
+                            "maxF": 131
                         },
                         "fx": []
                     },
                     {
-                        "text": "A terrifying, blinding sandstorm reduces visibility to zero and strips flesh from bone.",
+                        "text": "Strong heat shimmer of air layers.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 46,
+                            "maxC": 51,
+                            "minF": 115,
+                            "maxF": 124
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The intense heat creates massive, realistic mirages of non-existent, shimmering lakes.",
+                        "text": "Complete absence of cast shadow.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 44,
+                            "maxC": 48,
+                            "minF": 111,
+                            "maxF": 118
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is incredibly dry, sucking the moisture from the body at an alarming rate.",
+                        "text": "Desiccating foehn wind irritates the eyes.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 43,
+                            "maxC": 47,
+                            "minF": 109,
+                            "maxF": 117
                         },
                         "fx": []
                     },
                     {
-                        "text": "The sky is a hazy, pale yellow, choked with fine, suspended dust and relentless heat.",
+                        "text": "Dark blue to black-blue sky coloration.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 45,
+                            "maxC": 49,
+                            "minF": 113,
+                            "maxF": 120
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, freak torrential downpour causes dangerous, muddy flash floods in the wadis.",
+                        "text": "Extreme heat accumulation near the ground.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 47,
+                            "maxC": 52,
+                            "minF": 117,
+                            "maxF": 126
                         },
                         "fx": []
                     },
                     {
-                        "text": "The few, precious oases are fiercely guarded by desperate, aggressive predators.",
+                        "text": "Mirage simulates large water surfaces.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 42,
+                            "maxC": 46,
+                            "minF": 108,
+                            "maxF": 115
                         },
                         "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The stifling, oppressive heat of midday makes the very air shimmer and dance violently.",
+                        "text": "Wind movement brings no cooling effect whatsoever.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 44,
+                            "maxC": 49,
+                            "minF": 111,
+                            "maxF": 120
                         },
                         "fx": []
                     },
                     {
-                        "text": "The blazing sun seems unnaturally large and hostile, a fiery eye glaring at the earth.",
+                        "text": "Stones are untouchable due to heat.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 48,
+                            "maxC": 53,
+                            "minF": 118,
+                            "maxF": 127
                         },
                         "fx": []
                     },
                     {
-                        "text": "A sudden, violent dry lightning storm strikes the dunes, but yields absolutely no rain.",
+                        "text": "Hardly any temperature drop at night.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -9070,47 +9100,47 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights offer a surprisingly sharp chill, a welcome relief from the baking days.",
+                        "text": "Dust devil wanders through the blazing heat.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 43,
+                            "maxC": 47,
+                            "minF": 109,
+                            "maxF": 117
                         },
                         "fx": []
                     },
                     {
-                        "text": "The smell of hot sand and scorched rock completely dominates the breathless, dead air.",
+                        "text": "Glaring and painful sunlight.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 45,
+                            "maxC": 50,
+                            "minF": 113,
+                            "maxF": 122
                         },
                         "fx": []
                     },
                     {
-                        "text": "The harsh, desolate landscape offers absolutely no sanctuary or shade from the brutal sun.",
+                        "text": "Absolute silence in the midday heat.",
                         "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
+                            "minC": 46,
+                            "maxC": 51,
+                            "minF": 115,
+                            "maxF": 124
                         },
                         "fx": []
                     },
                     {
-                        "text": "The completely clear night sky reveals an overwhelming, dizzying sea of cold stars.",
+                        "text": "Immediate evaporation of water.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 44,
+                            "maxC": 48,
+                            "minF": 111,
+                            "maxF": 118
                         },
                         "fx": []
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked, and exhausted desert.",
+                        "text": "Extreme heat accumulation in depressions.",
                         "temp": {
                             "minC": 38,
                             "maxC": 42,
@@ -9120,27 +9150,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, sandy wind erases all tracks within minutes, making navigation impossible.",
+                        "text": "Blinding white shine of salt crystals.",
                         "temp": {
-                            "minC": 41,
-                            "maxC": 45,
-                            "minF": 106,
-                            "maxF": 113
+                            "minC": 42,
+                            "maxC": 46,
+                            "minF": 108,
+                            "maxF": 115
                         },
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal heat tests the absolute limits of human endurance and sanity.",
-                        "temp": {
-                            "minC": 40,
-                            "maxC": 45,
-                            "minF": 104,
-                            "maxF": 113
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "A rare, brief shower of warm rain falls, instantly turning to steam on the hot rocks.",
+                        "text": "Heat thunderstorm without precipitation rumbles.",
                         "temp": {
                             "minC": 40,
                             "maxC": 45,
@@ -9148,11 +9168,23 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 113
                         },
                         "fx": [
+                            "lightning_flash"
+                        ]
+                    },
+                    {
+                        "text": "Complete blurring of the horizon.",
+                        "temp": {
+                            "minC": 43,
+                            "maxC": 48,
+                            "minF": 109,
+                            "maxF": 118
+                        },
+                        "fx": [
                             "heat_wave"
                         ]
                     },
                     {
-                        "text": "The deep desert is a beautiful, but incredibly deadly, sea of burning, golden sand.",
+                        "text": "Purple twilight sky in the evening.",
                         "temp": {
                             "minC": 35,
                             "maxC": 40,
@@ -9164,7 +9196,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The brutal, scorching heat finally begins to lessen slightly, though the sun remains fierce.",
+                        "text": "Atmosphere crystal clear and pure.",
                         "temp": {
                             "minC": 25,
                             "maxC": 30,
@@ -9174,7 +9206,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The relentless, hot summer winds are replaced by a steady, biting chill in the evening.",
+                        "text": "Pleasant travel warmth prevails.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -9184,7 +9216,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The endless, golden dunes seem to stretch on forever under a flawless, deep blue sky.",
+                        "text": "Nocturnal cooling clearly noticeable.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -9196,7 +9228,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent autumn windstorm sweeps the desert, carrying stinging, blinding sand.",
+                        "text": "Deep blue and beautiful sky.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9206,7 +9238,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The crisp, completely clear air offers a breathtakingly sharp view of the distant dunes.",
+                        "text": "Razor-sharp shadow contours.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9216,7 +9248,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature plummets rapidly and brutally as soon as the sun dips below the horizon.",
+                        "text": "Gentle breeze over the dune crests.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9228,7 +9260,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, ghostly ground fog occasionally forms in the deep wadis during the freezing night.",
+                        "text": "Coolness and silence in the morning.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -9238,7 +9270,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rocky, treacherous trails harden into rock-solid paths in the creeping evening cold.",
+                        "text": "Soft and golden daylight.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9248,7 +9280,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly warm, golden afternoon offers a fleeting, beautiful respite from the wind.",
+                        "text": "Dust-free visibility conditions.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -9258,7 +9290,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting, cold wind howls mournfully across the vast, completely empty wasteland.",
+                        "text": "Jewel-like twinkling of stars at night.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -9268,7 +9300,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of dry dust is replaced by the sharp, metallic scent of the cooling desert.",
+                        "text": "Red glow of rocks in the sun.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9278,7 +9310,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden flurry of dry, powdery sand blows fiercely across the hardened, cracked clay.",
+                        "text": "Perfect conditions for desert travel.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9288,7 +9320,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The water in the rare, shallow pools freezes solid overnight, cracking loudly underfoot.",
+                        "text": "Calm phase throughout the entire day.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9298,7 +9330,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky remains stubbornly clear, offering no hope of rain to the desperate, thirsty land.",
+                        "text": "Intensive irradiation warms the rocks.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9308,7 +9340,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, rocky soil seems to absorb and radiate the bitter cold of the freezing night.",
+                        "text": "Spectacular moonrise observable.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -9318,7 +9350,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun casts incredibly long, melancholic shadows across the shifting dunes.",
+                        "text": "Quiet rustling of dry grasses.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -9328,7 +9360,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, waiting silence falls over the desert as the land prepares for the colder months.",
+                        "text": "Unlimited long-distance visibility.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -9338,7 +9370,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, desolate beauty of the desert is magnified by the crisp, freezing night air.",
+                        "text": "Cool evening breeze blows.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -9348,7 +9380,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few remaining desert creatures become incredibly active in the cooler, twilight hours.",
+                        "text": "Quiet trickling of sand on dune slopes.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9358,7 +9390,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The transition brings a stark, beautiful contrast between the hot days and freezing nights.",
+                        "text": "Numerous meteors visible at night.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -9370,19 +9402,19 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A bitter, howling wind sweeps the open desert, carrying a surprising, biting chill.",
+                        "text": "Ground frost on sand surfaces in the morning.",
                         "temp": {
-                            "minC": 5,
-                            "maxC": 9,
-                            "minF": 41,
-                            "maxF": 48
+                            "minC": -2,
+                            "maxC": 2,
+                            "minF": 28,
+                            "maxF": 36
                         },
                         "fx": [
                             "snow"
                         ]
                     },
                     {
-                        "text": "The endless dunes are occasionally dusted with a thin, beautiful layer of white frost.",
+                        "text": "Pleasant sunshine during the day.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -9392,17 +9424,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "An incredibly sharp, cutting wind slices straight through the thickest cloaks and leathers.",
+                        "text": "Freezing cold night conditions.",
                         "temp": {
-                            "minC": 5,
-                            "maxC": 9,
-                            "minF": 41,
-                            "maxF": 48
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
                         },
                         "fx": []
                     },
                     {
-                        "text": "The temperature is brutally cold at night, freezing exposed water in mere minutes.",
+                        "text": "Cold wind causes shivering.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -9412,7 +9444,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliantly clear, deep blue sky offers absolutely no warmth from the pale, distant sun.",
+                        "text": "Pale blue sky coloration.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -9422,7 +9454,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A terrifying, blinding sandstorm fueled by cold winds makes navigation completely impossible.",
+                        "text": "Solar radiation warms rock surfaces.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -9432,7 +9464,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The shifting, loose sand makes travel exhausting, agonizingly slow, and treacherous.",
+                        "text": "Rare cloud veil passes through.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -9442,7 +9474,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, freezing wind sculpts the massive dunes into bizarre, razor-sharp shapes.",
+                        "text": "Strong nocturnal temperature drop.",
+                        "temp": {
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
+                        },
+                        "fx": []
+                    },
+                    {
+                        "text": "Morning mood characterized by silence and cold.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -9452,17 +9494,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is so incredibly cold at night that every drawn breath burns the lungs.",
-                        "temp": {
-                            "minC": 5,
-                            "maxC": 9,
-                            "minF": 41,
-                            "maxF": 48
-                        },
-                        "fx": []
-                    },
-                    {
-                        "text": "The days are surprisingly pleasant, offering a brief, warm respite from the freezing nights.",
+                        "text": "Extremely dry and clear air.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -9472,7 +9504,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly, agonizingly long, plunging the world into a deep, freezing darkness.",
+                        "text": "Cool and deep shadows.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -9482,7 +9514,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The intense reflection of the sun on the pale sand threatens severe snow blindness.",
+                        "text": "Sandstorm feels icy.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -9494,7 +9526,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The absolutely clear, freezing night sky reveals a breathtaking, sweeping view of the stars.",
+                        "text": "Stones store hardly any heat energy.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -9504,19 +9536,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, oppressive silence rules the frozen landscape, broken only by the howling wind.",
+                        "text": "Brief glitter of hoarfrost at sunrise.",
                         "temp": {
-                            "minC": 5,
-                            "maxC": 9,
-                            "minF": 41,
-                            "maxF": 48
+                            "minC": -1,
+                            "maxC": 3,
+                            "minF": 30,
+                            "maxF": 37
                         },
                         "fx": [
                             "snow"
                         ]
                     },
                     {
-                        "text": "The meager, skeletal bushes are completely encased in a thin, fragile layer of morning ice.",
+                        "text": "Firm and dry ground conditions.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -9526,7 +9558,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rocky earth is as hard as iron, completely rejecting any attempt to dig a warm shelter.",
+                        "text": "Wind whirls up cold dust.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -9536,7 +9568,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A rare, sudden influx of moisture brings a miserable, freezing rain that turns to ice.",
+                        "text": "Rare gray day possible.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -9546,7 +9578,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brutal, unforgiving desert nights test the absolute limits of human endurance.",
+                        "text": "Short and cold twilight phase.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -9556,17 +9588,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The vast, cold desert is a beautiful, but incredibly deadly, sea of freezing sand.",
+                        "text": "Wintrily clear starry sky.",
                         "temp": {
-                            "minC": 5,
-                            "maxC": 10,
-                            "minF": 41,
-                            "maxF": 50
+                            "minC": 0,
+                            "maxC": 5,
+                            "minF": 32,
+                            "maxF": 41
                         },
                         "fx": []
                     },
                     {
-                        "text": "The stark contrast of the pale sun and the freezing wind creates a harsh, alien environment.",
+                        "text": "Far-reaching silence in the cold air.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -9590,7 +9622,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "A heavy, suffocating humidity clings to the dense, dark undergrowth of the jungle.",
+                        "text": "High humidity leads to warm drizzle in the canopy.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9598,11 +9630,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 86
                         },
                         "fx": [
-                            "drizzle"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The massive, ancient canopy completely blocks the sun, creating an eternal, green twilight.",
+                        "text": "Massive thunderstorm cell shakes the forest area.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9614,7 +9646,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, torrential downpour crashes through the leaves, soaking everything instantly.",
+                        "text": "Relative humidity near saturation point; fine mist falls.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9626,7 +9658,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is incredibly thick and heavy, smelling strongly of rich soil and rotting wood.",
+                        "text": "Continuous heavy rain patters on vegetation.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9638,7 +9670,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Millions of insects buzz incessantly, a maddening, deafening, and constant chorus.",
+                        "text": "Forest floor completely muddy and slippery due to rain.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9650,7 +9682,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The ground is a treacherous, slippery mess of wet leaves, deep mud, and hidden roots.",
+                        "text": "Air pressure dropping rapidly before the storm.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9662,7 +9694,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A surprisingly strong, cool wind occasionally manages to pierce the dense, humid jungle.",
+                        "text": "Sunbeams briefly break through the haze.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -9670,11 +9702,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 90
                         },
                         "fx": [
-                            "thick_fog"
+                            "sunbeams"
                         ]
                     },
                     {
-                        "text": "Vibrant, massive orchids and exotic flowers bloom suddenly, dotting the green darkness.",
+                        "text": "Air is saturated with moisture; constant dripping.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9686,7 +9718,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heat is incredibly oppressive, making every single step exhausting and difficult.",
+                        "text": "Threatening swelling of river levels.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -9694,11 +9726,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 81
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "A heavy, ghostly morning mist clings stubbornly to the winding, dark river channels.",
+                        "text": "Stifling heat accompanied by heavy tropical rain.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -9706,11 +9738,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 91
                         },
                         "fx": [
-                            "rain"
+                            "heat_wave"
                         ]
                     },
                     {
-                        "text": "The sudden, terrifying roar of an unseen predator echoes through the thick vegetation.",
+                        "text": "Dense rain curtain obstructing visibility.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9722,7 +9754,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The continuous dripping of condensation from the canopy acts like a permanent, slow rain.",
+                        "text": "Precipitation temperature unusually warm.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9734,7 +9766,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A breathtakingly beautiful, iridescent butterfly flutters through a rare shaft of sunlight.",
+                        "text": "Warm, humid conditions with steady rainfall.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9746,7 +9778,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The swollen river rushes violently, carrying massive, uprooted trees and dark mud.",
+                        "text": "Permanent thunder rumbling throughout the day.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9758,7 +9790,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the shrieks of monkeys and the croaks of frogs.",
+                        "text": "Diffuse green twilight under rainy sky.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9770,7 +9802,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The stifling heat of midday forces all jungle life to stop and pant in the deep shadows.",
+                        "text": "Dripping water from all vegetation layers.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -9778,11 +9810,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 84
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The incredibly dense, thorny vines catch on clothing, making travel agonizingly slow.",
+                        "text": "Tropically warm and loud rainy night.",
                         "temp": {
                             "minC": 23,
                             "maxC": 26,
@@ -9794,7 +9826,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent squall tears branches from the canopy, dropping them dangerously.",
+                        "text": "Gale gusts breaking branches in the canopy.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -9804,21 +9836,11 @@ export const CLIMATE_DATA_EN = {
                         "fx": [
                             "storm"
                         ]
-                    },
-                    {
-                        "idx": 18,
-                        "text": "The air is completely still and suffocatingly hot, reeking of sweet rot and blooming life.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 19,
-                        "text": "The relentless, brutal environment tests the absolute limits of endurance and sanity.",
-                        "fx": []
                     }
                 ],
                 "summer": [
                     {
-                        "text": "The brutal, sweltering heat is trapped beneath the canopy, turning the jungle into an oven.",
+                        "text": "Increased solar radiation interrupts the rain briefly.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -9830,7 +9852,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A torrential, deafening monsoon rain falls in solid sheets, completely blinding travelers.",
+                        "text": "Isolated short shower in the afternoon.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -9838,11 +9860,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 91
                         },
                         "fx": [
-                            "rising_steam"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The once-passable trails are entirely washed away, replaced by deep, rushing mudslides.",
+                        "text": "Bright sunshine flooding wet clearings.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -9854,7 +9876,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is so incredibly humid that sweat refuses to evaporate, leaving you drenched.",
+                        "text": "Slight drop in river water levels.",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
@@ -9866,31 +9888,31 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The intense heat accelerates the decay of fallen trees, filling the air with a sweet stench.",
+                        "text": "Steam rises from water surfaces due to rain.",
                         "temp": {
-                            "minC": 31,
-                            "maxC": 35,
-                            "minF": 88,
-                            "maxF": 95
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": [
                             "rising_steam"
                         ]
                     },
                     {
-                        "text": "Massive, rolling thunderstorms violently shake the earth every single afternoon without fail.",
+                        "text": "Heavy rain makes leaves rustle loudly.",
                         "temp": {
-                            "minC": 31,
-                            "maxC": 35,
-                            "minF": 88,
-                            "maxF": 95
+                            "minC": 33,
+                            "maxC": 37,
+                            "minF": 91,
+                            "maxF": 99
                         },
                         "fx": [
                             "rain"
                         ]
                     },
                     {
-                        "text": "The rivers burst their banks entirely, flooding the jungle floor in shallow, muddy lakes.",
+                        "text": "Rain washes the air clean; good visibility.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -9902,7 +9924,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Millions of aggressive mosquitoes swarm in the humid air, driving men and beasts mad.",
+                        "text": "Warm night with persistent tropical shower.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -9910,11 +9932,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 82
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "A brilliant, colossal rainbow arcs over the canopy, briefly visible through a rare clearing.",
+                        "text": "Heat thunderstorm brings hardly any cooling.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -9926,29 +9948,31 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The flooded swamps teem with unseen, dangerous predators lurking just beneath the surface.",
+                        "text": "Oppressive heat with onset of rain.",
                         "temp": {
-                            "minC": 31,
-                            "maxC": 35,
-                            "minF": 88,
-                            "maxF": 95
+                            "minC": 32,
+                            "maxC": 36,
+                            "minF": 90,
+                            "maxF": 97
                         },
                         "fx": [
                             "rain"
                         ]
                     },
                     {
-                        "text": "Even when the sun breaks through, the intense heat immediately turns the rain into steam.",
+                        "text": "Weak wind moves the upper treetops.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
                             "minF": 82,
                             "maxF": 90
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the roar of rain and the chorus of insects.",
+                        "text": "Heavy, humid warmth settles in with a fine drizzle.",
                         "temp": {
                             "minC": 29,
                             "maxC": 33,
@@ -9960,7 +9984,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifyingly violent squall flattens the undergrowth and threatens to drown the unwary.",
+                        "text": "Rain subsides as golden sunset ends the day.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -9970,7 +9994,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly lush, vibrant vegetation grows at an alarming, almost visible rate.",
+                        "text": "Hot and humid morning with rain showers.",
                         "temp": {
                             "minC": 30,
                             "maxC": 34,
@@ -9982,44 +10006,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heavy, gray storm clouds seem to hang so low they touch the tops of the giant trees.",
+                        "text": "Precipitation-free day (exceptional phenomenon).",
                         "temp": {
                             "minC": 31,
                             "maxC": 35,
                             "minF": 88,
                             "maxF": 95
                         },
-                        "fx": []
-                    },
-                    {
-                        "idx": 15,
-                        "text": "A sudden, painful shower of large, heavy raindrops pelts the ground during a severe storm.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 16,
-                        "text": "The damp heat makes leather rot rapidly and iron weapons rust almost before your eyes.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 17,
-                        "text": "The heavy, sweet scent of countless blooming flowers hangs heavily in the stagnant air.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 18,
-                        "text": "The endless rains rule the land absolutely, an unstoppable, chaotic force of nature.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 19,
-                        "text": "The deep jungle is a beautiful, but incredibly deadly, sea of green, suffocating heat.",
                         "fx": []
                     }
                 ],
                 "autumn": [
                     {
-                        "text": "The heavy, daily monsoons finally begin to lessen, though the earth remains deeply soaked.",
+                        "text": "Approach of a black cloud front (Squall Line).",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -10031,7 +10030,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A surprisingly cool, refreshing breeze finally breaks the stagnant, suffocating humidity.",
+                        "text": "Gale gusts drive rain horizontally through the forest.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10043,7 +10042,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive, flooded rivers slowly begin to recede back into their muddy, deep channels.",
+                        "text": "Extremely high lightning frequency (stroboscopic effect).",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -10055,7 +10054,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The canopy allows slightly more light through, casting long, eerie shadows on the ground.",
+                        "text": "Extensive flooding of the forest floor.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10067,7 +10066,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The muddy, treacherous trails finally begin to harden slightly, but remain slippery.",
+                        "text": "Dark cloud cover and steady rain.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10079,7 +10078,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights grow delightfully cool, a welcome and desperately needed relief from the heat.",
+                        "text": "Musty smell of rot dominates the air.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -10089,7 +10088,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The morning air is thick with a ghostly, dense fog rising from the drying swamps.",
+                        "text": "Temperature drop during the rain shower.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -10097,11 +10096,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 79
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The blazing sun returns, quickly baking the moisture out of the exposed, dark earth.",
+                        "text": "Spontaneous formation of waterfalls on slopes.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -10113,7 +10112,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, freak thunderstorm rolls through—a violent, dying echo of the heavy wet season.",
+                        "text": "Surfaces extremely slippery due to rain and algae.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10125,7 +10124,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air feels slightly less oppressive, carrying the sharp scent of wet, decaying leaves.",
+                        "text": "Rising water levels due to heavy rain.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -10137,7 +10136,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The waterholes remain full and clear, drawing incredible, massive gatherings of wildlife.",
+                        "text": "Continuous rain lasting for several hours.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10149,7 +10148,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The biting insects finally begin to die off slightly as the night temperatures slowly drop.",
+                        "text": "Ground fog wafts through the undergrowth.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -10161,7 +10160,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-deafening chorus of frogs falls slightly quieter as the shallow puddles disappear.",
+                        "text": "Pattering rain noise drowns out all ambient sounds.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10173,7 +10172,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The clear, beautiful night sky is rarely visible through the massive, overlapping leaves.",
+                        "text": "Stagnant, humid air with continuous drizzle.",
                         "temp": {
                             "minC": 27,
                             "maxC": 31,
@@ -10185,7 +10184,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The jungle remains incredibly lush and green, untouched by the concept of autumn colors.",
+                        "text": "Immediate evaporation during brief sunshine.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -10197,7 +10196,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A peaceful, waiting silence occasionally falls over the jungle, a rare and eerie treat.",
+                        "text": "Continuous, heavy rainfall.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -10209,7 +10208,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive, ancient trees drop heavy, hard fruits that crash dangerously to the floor.",
+                        "text": "Soil structure unstable; rain softens ground.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10221,7 +10220,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The transition brings a stark, beautiful contrast between the hot days and cooler nights.",
+                        "text": "Vegetation is thoroughly soaked.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10231,7 +10230,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, unforgiving jungle environment continues to demand absolute respect and caution.",
+                        "text": "Pitch black and wet night.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -10239,16 +10238,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 79
                         },
                         "fx": []
-                    },
-                    {
-                        "idx": 19,
-                        "text": "The endless cycle of life, death, and rapid decay continues unbroken in the green twilight.",
-                        "fx": []
                     }
                 ],
                 "winter": [
                     {
-                        "text": "The brutal, sweltering heat is only slightly tempered by a continuous, miserable drizzle.",
+                        "text": "Unusually fresh morning temperatures with rain.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -10260,7 +10254,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air remains incredibly humid, clinging to the skin like a warm, wet, and heavy blanket.",
+                        "text": "Steady fine drizzle falls.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -10272,7 +10266,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The massive canopy completely blocks the pale sun, creating a permanent, gloomy twilight.",
+                        "text": "Low sun shines through the rain.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -10280,11 +10274,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 82
                         },
                         "fx": [
-                            "rain"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "A sudden, torrential downpour crashes through the leaves, soaking everything instantly.",
+                        "text": "Fog formation persists until noon.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -10296,7 +10290,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is incredibly thick and heavy, smelling strongly of rich soil and rotting wood.",
+                        "text": "Pleasantly cool breeze carries rain drops.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10308,7 +10302,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Millions of insects buzz incessantly, a maddening, deafening, and constant chorus.",
+                        "text": "Rainclouds move quietly over the forest.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -10320,7 +10314,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The ground is a treacherous, slippery mess of wet leaves, deep mud, and hidden roots.",
+                        "text": "Nocturnal rain brings some cooling.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -10332,7 +10326,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The rivers remain high and fast, swollen by the frequent, heavy, and endless rains.",
+                        "text": "Rainbow spans the river course.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10344,7 +10338,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The heat is incredibly oppressive, making every single step exhausting and difficult.",
+                        "text": "Cooler temperatures and rain dampen activity.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -10356,7 +10350,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A heavy, ghostly morning mist clings stubbornly to the winding, dark river channels.",
+                        "text": "Moss vegetation glows in lush green.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -10366,7 +10360,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sudden, terrifying roar of an unseen predator echoes through the thick vegetation.",
+                        "text": "Rain feels cold and refreshing.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -10378,7 +10372,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The continuous dripping of condensation from the canopy acts like a permanent, slow rain.",
+                        "text": "Rain improves visibility by binding dust.",
                         "temp": {
                             "minC": 25,
                             "maxC": 29,
@@ -10390,7 +10384,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the shrieks of monkeys and the croaks of frogs.",
+                        "text": "Condensation drips steadily from leaves.",
                         "temp": {
                             "minC": 21,
                             "maxC": 25,
@@ -10402,7 +10396,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The stifling heat of midday forces all jungle life to stop and pant in the deep shadows.",
+                        "text": "Sound of rain carries over long distances.",
                         "temp": {
                             "minC": 23,
                             "maxC": 27,
@@ -10414,7 +10408,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The incredibly dense, thorny vines catch on clothing, making travel agonizingly slow.",
+                        "text": "Superficial drying of mud despite drizzle.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
@@ -10426,33 +10420,13 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent squall tears branches from the canopy, dropping them dangerously.",
+                        "text": "Starry sky ends the day.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
                             "minF": 66,
                             "maxF": 73
                         },
-                        "fx": []
-                    },
-                    {
-                        "idx": 16,
-                        "text": "The air is completely still and suffocatingly hot, reeking of sweet rot and blooming life.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 17,
-                        "text": "The relentless, brutal environment tests the absolute limits of endurance and sanity.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 18,
-                        "text": "The deep jungle knows no true winter, only a slight lessening of the eternal, sweltering heat.",
-                        "fx": []
-                    },
-                    {
-                        "idx": 19,
-                        "text": "The endless, chaotic struggle for survival continues unabated in the dark, green depths.",
                         "fx": []
                     }
                 ]
@@ -10470,7 +10444,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The ancient moss covering the forest floor is completely water-saturated by a relentless spring rain.",
+                        "text": "Moss vegetation completely water-saturated by spring rain.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -10482,7 +10456,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The first warm rays of sun gently uncurl the giant, ancient fern fronds.",
+                        "text": "Solar radiation hits unfurled fern fronds.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10492,7 +10466,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A ghostly, thick evaporation fog rises slowly from the damp, breathing forest floor.",
+                        "text": "Rising evaporation fog over the forest floor.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -10504,7 +10478,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The swollen river rushes violently through the valley, roaring with icy meltwater.",
+                        "text": "Wild rushing of the river due to meltwater supply.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -10514,7 +10488,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dismal, continuous drizzle completely soaks everything, turning the day gloomy and gray.",
+                        "text": "Continuous all-day drizzle.",
                         "temp": {
                             "minC": 9,
                             "maxC": 12,
@@ -10526,7 +10500,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A surprisingly mild breeze sweeps through the damp air, carrying the promise of longer days.",
+                        "text": "Mild air and increasing daylight.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -10536,7 +10510,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, intoxicating scent of rich tree resin and ancient forest soil hangs heavy in the air.",
+                        "text": "Intense smell of tree resin and forest soil.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -10546,7 +10520,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, painful hail shower rattles loudly against the dense canopy above.",
+                        "text": "Short hail shower comes down over the canopy.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -10558,7 +10532,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden gust of wind shakes the massive branches, unleashing a cold, secondary shower of trapped raindrops.",
+                        "text": "Wind movement shakes rain drops from the branches.",
                         "temp": {
                             "minC": 10,
                             "maxC": 13,
@@ -10570,7 +10544,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fleeting gaps in the dark clouds offer brief, desperately hopeful glimpses of blue sky.",
+                        "text": "Cloud gaps let blue skylight through.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -10580,7 +10554,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly thick, spongy moss layer is completely soaked by the continuous, drumming rain.",
+                        "text": "Thick moss layer soaked by continuous rain.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -10592,7 +10566,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A magnificent, glowing rainbow arcs through the roaring spray of a hidden forest waterfall.",
+                        "text": "Rainbow phenomenon in the waterfall spray.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -10604,7 +10578,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is incredibly mild but oppressively, miserably wet.",
+                        "text": "Mild but extremely wet weather.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10616,7 +10590,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Vibrant, almost glowing patches of alien-looking lichen burst into bright spring colors.",
+                        "text": "Lichen growth glows in bright colors.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -10626,7 +10600,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A furious sea storm tears through the valley, bending even the giant ancient trees.",
+                        "text": "Sea storm bends the giant trees in the wind.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -10638,7 +10612,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A chilling airflow channels sharply through the damp valley, cutting through wet clothes.",
+                        "text": "Cool airflow moves through the valley.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -10648,7 +10622,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Millions of clinging water drops glitter like scattered diamonds in a rare flash of sunlight.",
+                        "text": "Diamond-like glittering of water drops.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -10658,7 +10632,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, suffocating blanket of gray clouds promises yet another deluge of rain.",
+                        "text": "Gray cloud cover brings further rainfall.",
                         "temp": {
                             "minC": 8,
                             "maxC": 11,
@@ -10670,7 +10644,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A frost-free but terribly damp night descends, cloaking the forest in thick, mysterious mist.",
+                        "text": "Frost-free and damp misty night.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -10682,7 +10656,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The waking landscape is suddenly dipped in an incredibly lush, vibrant shade of deep green.",
+                        "text": "Landscape dipped in lush green.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10694,7 +10668,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "The stubborn morning fog finally burns away around noon, revealing a steaming forest.",
+                        "text": "Dissipation of morning fog around noon.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -10706,7 +10680,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A rare, beautifully warm summer day blesses the usually damp, shadowy woods.",
+                        "text": "Rare warm summer day.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -10716,17 +10690,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A magical play of golden light and deep shadows dances across the lush undergrowth.",
+                        "text": "Play of light from sunbeams in the undergrowth.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
                             "minF": 63,
                             "maxF": 70
                         },
-                        "fx": []
+                        "fx": [
+                            "sunbeams"
+                        ]
                     },
                     {
-                        "text": "A shockingly cool sea breeze blows inland, carrying a sudden, thick coastal mist.",
+                        "text": "Cool sea breeze blows inland bringing mist.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -10738,7 +10714,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The humid air is heavy with the spicy, earthy, and warm scent of the living forest.",
+                        "text": "Spicy and warm forest smell.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -10748,7 +10724,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brief, ghostly mist sweeps through the trees, moistening the already damp air.",
+                        "text": "Short mist moistens the air.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -10760,7 +10736,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Fluffy cumulus clouds drift lazily over the towering treetops.",
+                        "text": "Cumulus clouds move over the treetops.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -10770,7 +10746,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Visible motes of golden dust dance magically in the bright shafts of sunlight piercing the canopy.",
+                        "text": "Visible dust particles in light beams (Tyndall effect).",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -10780,7 +10756,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A wonderfully cool, crystal-clear summer night settles peacefully over the woods.",
+                        "text": "Cool and clear summer night.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10790,17 +10766,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Glorious, warm sunshine quickly burns away the last clinging tendrils of morning mist.",
+                        "text": "Warm sunshine following morning mist.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
                             "minF": 63,
                             "maxF": 70
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "A stubborn, high fog persists stubbornly, refusing to let the sun warm the damp earth.",
+                        "text": "Stubborn high fog persists.",
                         "temp": {
                             "minC": 13,
                             "maxC": 17,
@@ -10812,7 +10790,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The deep, ominous rumbling of distant thunder echoes ominously through the mountains.",
+                        "text": "Distant thunder rumbling in the mountains.",
                         "temp": {
                             "minC": 19,
                             "maxC": 23,
@@ -10822,7 +10800,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air clears perfectly, offering breathtaking visibility of the distant, glittering glaciers.",
+                        "text": "Perfect visibility conditions of glacier regions.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -10832,7 +10810,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The usually damp undergrowth turns bone-dry, crackling loudly under every footstep.",
+                        "text": "Bone-dry undergrowth and clear air.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -10842,7 +10820,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Warm, invisible currents of air rise from the baking valley floor.",
+                        "text": "Warm currents rise from the valley floor.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -10852,7 +10830,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Deep, incredibly cool shadow zones offer a welcome refuge from the summer heat.",
+                        "text": "Deep and cool shadow zones.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -10862,7 +10840,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air in the sunlit patches is completely still and baking hot.",
+                        "text": "Warm, still air in sunlit patches.",
                         "temp": {
                             "minC": 17,
                             "maxC": 21,
@@ -10872,7 +10850,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A spectacular, fiery afterglow paints the undersides of the scattered clouds in crimson.",
+                        "text": "Afterglow colors the underside of clouds.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -10882,7 +10860,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The crystal-clear water of the forest stream babbles merrily, offering sweet refreshment.",
+                        "text": "Crystal clear water in the stream course.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -10892,7 +10870,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A profound, peaceful silence rules the ancient forest, broken only by the hum of insects.",
+                        "text": "Peaceful silence in nature.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -10904,7 +10882,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The spongy soil is already soaked, battered by a relentless, cold autumn rain.",
+                        "text": "Damp soil and cool rain.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10916,7 +10894,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifyingly heavy autumn storm savagely bends the giant trees, threatening to snap them.",
+                        "text": "Heavy autumn storm bends the giant trees.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -10928,7 +10906,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Continuous, pouring rain turns the quiet forest paths into treacherous, rushing torrents.",
+                        "text": "Continuous rain turns paths into torrents.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -10940,7 +10918,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Ghostly, creeping breaths of fog weave silently between the dark, massive trunks.",
+                        "text": "Ghostly fog breath inside the forest.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -10952,7 +10930,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A slippery, wet carpet of incredibly colorful autumn foliage completely covers the forest floor.",
+                        "text": "Wet colorful foliage covers the ground.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -10962,7 +10940,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, musty, and deeply earthy smell of decay and dampness fills the air.",
+                        "text": "Musty earthy smell lies in the air.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -10972,7 +10950,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, shockingly cold wind bites through clothing, causing violent shivering.",
+                        "text": "Cold wind causes shivering.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -10982,7 +10960,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Low, ragged shreds of fog hang ominously in the skeletal branches of the deciduous trees.",
+                        "text": "Low fog shreds hang in the branches.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -10994,7 +10972,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A pale, sickly gray light struggles through the constant, miserable rain.",
+                        "text": "Pale and gray rainy light.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -11006,7 +10984,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A brilliant, defiant rainbow shines brightly against a terrifyingly dark wall of storm clouds.",
+                        "text": "Rainbow shines against dark cloud wall.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -11018,7 +10996,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrible storm surge warning sweeps the coast, bringing apocalyptic, driving rain.",
+                        "text": "Storm surge warning for the coastal section.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -11030,7 +11008,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive, rotten deadwood occasionally crashes to the forest floor with a terrifying, thunderous boom.",
+                        "text": "Falling deadwood crashes to the ground.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -11040,7 +11018,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Even at noon, the forest is shrouded in a dim, gloomy, and melancholic twilight.",
+                        "text": "Dim lighting mood already at noon.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -11050,7 +11028,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A short, desperate glimpse of the pale sun offers absolutely no warmth against the chill.",
+                        "text": "Short glimpse of sun without warming effect.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -11060,7 +11038,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Constant, dripping condensation falls from every leaf and branch, acting like a second rain.",
+                        "text": "Dripping condensation on all surfaces.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -11072,7 +11050,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Thousands of intricate spider webs are beautifully, yet chillingly, outlined by heavy dewdrops.",
+                        "text": "Dewdrop-covered spider webs.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -11082,7 +11060,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The normally clear river is transformed into a roaring, brown torrent of mud and sediment.",
+                        "text": "River flow with brown sediment water from rain.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -11094,7 +11072,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A dense, suffocating fog swallows the forest, deadening every ambient sound to a mere whisper.",
+                        "text": "Dense fog muffling all sounds.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -11106,7 +11084,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A stormy, incredibly loud night makes sleep completely impossible in the roaring forest.",
+                        "text": "Stormy and loud night.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -11118,7 +11096,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deep, miserable cold sensation slowly but surely creeps into your very bones.",
+                        "text": "Cold sensation creeps into the limbs.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -11130,7 +11108,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A permanent, ghostly, and incredibly foggy twilight rules the dark winter forest.",
+                        "text": "Permanent foggy twilight in the forest.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -11142,7 +11120,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An agonizingly icy rain whips viciously through the bare and shivering tree stand.",
+                        "text": "Icy rain whips through the tree stand.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -11154,7 +11132,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The beautiful, falling snow melts instantly upon touching the terribly damp, miserable ground.",
+                        "text": "Snowfall melts immediately on ground contact.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -11166,7 +11144,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A hurricane-like storm roars in from the dark ocean, bringing blinding, freezing rain.",
+                        "text": "Hurricane-like storm from the ocean.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -11178,7 +11156,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The ancient mosses glow with an almost toxic, unnatural green in the gloomy gray light.",
+                        "text": "Toxic green glow of mosses in the gray.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -11188,7 +11166,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Absolutely everything is miserably soaked, freezing cold, and clammy to the touch.",
+                        "text": "Everything is soaked and clammy from rain.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -11200,7 +11178,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Every painful breath immediately forms a thick, white cloud of condensation in the freezing air.",
+                        "text": "Breath forms small condensation clouds.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -11210,7 +11188,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The thick, freezing fog acts like a suffocating blanket, muffling every single ambient sound.",
+                        "text": "Fog muffles every ambient sound.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -11222,7 +11200,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Savage, roaring wind gusts violently snap massive branches, sending them crashing down.",
+                        "text": "Strong wind gusts breaking branches.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -11234,7 +11212,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The swollen, angry river threatens to flood the banks due to a rapid thaw and endless rain.",
+                        "text": "Swollen river due to rapid thaw and rain.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -11246,7 +11224,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, painfully sharp shower of soft hail patters loudly against the forest floor.",
+                        "text": "Pattering soft hail showers.",
                         "temp": {
                             "minC": 1,
                             "maxC": 4,
@@ -11258,17 +11236,19 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A single, rare sunbeam piercing the gloom feels like a divine, impossible miracle.",
+                        "text": "Rare sunbeam seems like a miracle.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
                             "minF": 41,
                             "maxF": 48
                         },
-                        "fx": []
+                        "fx": [
+                            "sunbeams"
+                        ]
                     },
                     {
-                        "text": "The terrible, freezing night seems to stretch on endlessly, vastly outlasting the short, gray day.",
+                        "text": "Night length exceeds day duration significantly.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -11278,7 +11258,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "An eerie, dead silence prevails; the forest seems to be holding its frozen breath.",
+                        "text": "Eerie silence prevails.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -11288,7 +11268,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A persistent, miserable wetness promotes the rapid, cold decay of everything it touches.",
+                        "text": "Persistent wetness promoting decay.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -11300,7 +11280,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The relentless winter rain has turned the forest floor into a treacherous, freezing swamp.",
+                        "text": "Soil condition resembles a swamp due to rain.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -11312,7 +11292,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Delicate, beautiful hoarfrost tips finally appear on the surviving fern fronds.",
+                        "text": "Hoarfrost tips visible on fern fronds.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -11324,7 +11304,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A biting, agonizing wetness easily penetrates the best armor, driven by a freezing wind.",
+                        "text": "Biting wetness due to cold wind and rain.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -11336,7 +11316,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A solid, impenetrable ceiling of dark gray clouds seems to hang heavily down to the ground.",
+                        "text": "Dark clouds hang down to the ground.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -11346,7 +11326,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A breathtakingly clear, freezing starry sky appears, an absolute rarity in this damp hell.",
+                        "text": "Clear starry sky as absolute rarity.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -11370,7 +11350,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The relentless heat bakes the cracked earth, offering no relief to the thirsty land.",
+                        "text": "Fast blooming of the desert after short, intense rain.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -11382,7 +11362,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A dry, howling wind violently shakes the skeletal, thorny acacia trees.",
+                        "text": "Flash flood warning for canyons and wadis.",
                         "temp": {
                             "minC": 18,
                             "maxC": 23,
@@ -11394,7 +11374,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "Massive, choking dust devils spiral erratically across the barren, red plains.",
+                        "text": "Strong dust storm reduces visibility to zero.",
                         "temp": {
                             "minC": 22,
                             "maxC": 26,
@@ -11406,7 +11386,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The few remaining waterholes shrink to nothing but stinking, cracked mud.",
+                        "text": "Dry and clear air; high visibility.",
                         "temp": {
                             "minC": 20,
                             "maxC": 25,
@@ -11416,7 +11396,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sun beats down mercilessly from a pale, hazy, and completely cloudless sky.",
+                        "text": "Hot fall winds raise the temperature drastically.",
                         "temp": {
                             "minC": 25,
                             "maxC": 30,
@@ -11426,7 +11406,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, fierce sandstorm reduces visibility to arm's length and strips the skin.",
+                        "text": "Cool night brings relief after hot day.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -11436,7 +11416,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is incredibly dry, cracking lips and burning the lungs with every breath.",
+                        "text": "Thunderstorm front with many lightning strikes but little rain.",
                         "temp": {
                             "minC": 24,
                             "maxC": 28,
@@ -11448,7 +11428,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A tantalizing but cruel dry lightning storm offers no rain, only the threat of fire.",
+                        "text": "Virga (precipitation evaporating before touching ground) visible.",
                         "temp": {
                             "minC": 26,
                             "maxC": 31,
@@ -11458,7 +11438,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Even the tough, thorny bushes seem to wither and brown under the scorching sun.",
+                        "text": "Gusty wind drives tumbleweeds across the plain.",
                         "temp": {
                             "minC": 19,
                             "maxC": 24,
@@ -11468,7 +11448,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The heat shimmers violently over the stones, creating deceptive, watery mirages.",
+                        "text": "Rapid temperature drop after sunset.",
                         "temp": {
                             "minC": 12,
                             "maxC": 17,
@@ -11478,7 +11458,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brief, incredibly sparse shower falls, evaporating before it even touches the ground.",
+                        "text": "High cloud fields dim the sunlight.",
                         "temp": {
                             "minC": 21,
                             "maxC": 26,
@@ -11488,17 +11468,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The smell of hot dust and baked stone completely dominates the breathless air.",
+                        "text": "Dust devils form in the noon heat.",
                         "temp": {
                             "minC": 23,
                             "maxC": 28,
                             "minF": 73,
                             "maxF": 82
                         },
-                        "fx": []
+                        "fx": [
+                            "sandstorm"
+                        ]
                     },
                     {
-                        "text": "A desperate silence falls over the plains during the sweltering, deadly midday heat.",
+                        "text": "Inversion traps dust and smoke near the ground.",
                         "temp": {
                             "minC": 16,
                             "maxC": 21,
@@ -11510,7 +11492,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights are surprisingly cold, a stark, bitter contrast to the baking days.",
+                        "text": "Pleasant mild weather for travel.",
                         "temp": {
                             "minC": 20,
                             "maxC": 24,
@@ -11520,7 +11502,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Massive, dark clouds gather on the horizon, a false promise of impending rain.",
+                        "text": "Intense color contrasts between red soil and blue sky.",
                         "temp": {
                             "minC": 22,
                             "maxC": 27,
@@ -11530,7 +11512,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The earth is as hard as baked clay, making travel incredibly jarring and exhausting.",
+                        "text": "Sudden cloudburst (flash flood risk).",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -11542,7 +11524,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The fierce, hot wind erases all tracks within minutes, making navigation a nightmare.",
+                        "text": "Haze makes the horizon indistinct.",
                         "temp": {
                             "minC": 24,
                             "maxC": 29,
@@ -11554,7 +11536,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A deep, rumbling thunder echoes in the distance, though the sky above remains clear.",
+                        "text": "Cool morning followed by boiling hot afternoon.",
                         "temp": {
                             "minC": 14,
                             "maxC": 28,
@@ -11564,7 +11546,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The few, desperate animals that remain guard the tiny water seeps aggressively.",
+                        "text": "Static electricity in the air is palpable.",
                         "temp": {
                             "minC": 25,
                             "maxC": 30,
@@ -11574,7 +11556,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, thorny landscape offers absolutely no sanctuary from the brutal sun.",
+                        "text": "First excessive heat wave of the year.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -11586,7 +11568,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "The sky finally opens, unleashing a brief but violently intense torrential downpour.",
+                        "text": "Scorching heat; shimmering air layer above the ground.",
                         "temp": {
                             "minC": 35,
                             "maxC": 40,
@@ -11594,11 +11576,11 @@ export const CLIMATE_DATA_EN = {
                             "maxF": 104
                         },
                         "fx": [
-                            "heat_wave"
+                            "lightning_flash"
                         ]
                     },
                     {
-                        "text": "The bone-dry earth cannot absorb the sudden rain, creating dangerous flash floods.",
+                        "text": "Dust devils move over the barren ground.",
                         "temp": {
                             "minC": 33,
                             "maxC": 37,
@@ -11608,7 +11590,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "For a fleeting moment, the thorny scrub explodes into a sea of brilliant, tiny flowers.",
+                        "text": "Monsoon rain brings heavy precipitation.",
                         "temp": {
                             "minC": 28,
                             "maxC": 33,
@@ -11620,7 +11602,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A massive, deafening thunderstorm rolls across the plains, striking the earth with fury.",
+                        "text": "The sun is fierce enough to scorch the careless.",
                         "temp": {
                             "minC": 36,
                             "maxC": 42,
@@ -11630,7 +11612,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air becomes incredibly humid and stifling immediately after the heavy rains.",
+                        "text": "Hot wind dries out mucous membranes.",
                         "temp": {
                             "minC": 34,
                             "maxC": 39,
@@ -11640,17 +11622,19 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The dry riverbeds roar to life, transforming into raging, muddy brown torrents.",
+                        "text": "Night does not bring significant cooling.",
                         "temp": {
                             "minC": 26,
                             "maxC": 30,
                             "minF": 79,
                             "maxF": 86
                         },
-                        "fx": []
+                        "fx": [
+                            "lightning_flash"
+                        ]
                     },
                     {
-                        "text": "Millions of insects hatch almost instantly, swarming aggressively in the damp air.",
+                        "text": "Lonely storm clouds brood overhead, yet no rain comes.",
                         "temp": {
                             "minC": 33,
                             "maxC": 38,
@@ -11660,7 +11644,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A brilliant, colossal rainbow arcs over the suddenly green, rejuvenated landscape.",
+                        "text": "Dust haze colors the sky yellow-brown.",
                         "temp": {
                             "minC": 31,
                             "maxC": 36,
@@ -11672,7 +11656,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sun breaks through the storm clouds, instantly turning the wet earth into a steam bath.",
+                        "text": "Brief, violent downpour floods streets.",
                         "temp": {
                             "minC": 29,
                             "maxC": 34,
@@ -11684,17 +11668,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-barren plains are briefly covered in a thin, fragile layer of bright green grass.",
+                        "text": "Oven-like heat; no wind movement.",
                         "temp": {
-                            "minC": 37,
-                            "maxC": 42,
-                            "minF": 99,
-                            "maxF": 108
+                            "minC": 38,
+                            "maxC": 43,
+                            "minF": 100,
+                            "maxF": 109
                         },
                         "fx": []
                     },
                     {
-                        "text": "The nights are incredibly loud, filled with the sudden, deafening chorus of desperate frogs.",
+                        "text": "Rainbow against dark cloud wall.",
                         "temp": {
                             "minC": 30,
                             "maxC": 35,
@@ -11706,7 +11690,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A violent, localized squall tears through the thorny bushes, snapping brittle branches.",
+                        "text": "Humidity rises unpleasantly high.",
                         "temp": {
                             "minC": 28,
                             "maxC": 32,
@@ -11716,7 +11700,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The muddy, waterlogged earth makes travel on foot incredibly slippery and exhausting.",
+                        "text": "Sandstorm scours surfaces.",
                         "temp": {
                             "minC": 32,
                             "maxC": 37,
@@ -11728,17 +11712,17 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A beautifully clear, starry night offers a brief respite from the violent daily storms.",
+                        "text": "Unbearable heat in the shade.",
                         "temp": {
-                            "minC": 37,
-                            "maxC": 42,
-                            "minF": 99,
-                            "maxF": 108
+                            "minC": 39,
+                            "maxC": 44,
+                            "minF": 102,
+                            "maxF": 111
                         },
                         "fx": []
                     },
                     {
-                        "text": "The oppressive heat gathers quickly in the morning before the afternoon rains break it.",
+                        "text": "Afternoon breeze brings minimal relief.",
                         "temp": {
                             "minC": 35,
                             "maxC": 40,
@@ -11748,7 +11732,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, warm drizzle falls continuously, soaking everything completely to the bone.",
+                        "text": "Cactus bloom after rare rain.",
                         "temp": {
                             "minC": 29,
                             "maxC": 34,
@@ -11758,7 +11742,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The swollen, muddy rivers are treacherous to cross and hide unseen, hungry predators.",
+                        "text": "Atmospheric transparency very low due to dust.",
                         "temp": {
                             "minC": 33,
                             "maxC": 38,
@@ -11770,7 +11754,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A breathtaking, blood-red sunset reflects brilliantly off the newly formed, shallow lakes.",
+                        "text": "Cloudless radiant weather.",
                         "temp": {
                             "minC": 36,
                             "maxC": 41,
@@ -11780,7 +11764,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is thick with the sweet, intoxicating scent of blooming acacia and wet dust.",
+                        "text": "Sweltering heat before a storm.",
                         "temp": {
                             "minC": 34,
                             "maxC": 39,
@@ -11790,7 +11774,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brief, violent wet season breathes a chaotic, beautiful life into the harsh land.",
+                        "text": "Mirage on the horizon.",
                         "temp": {
                             "minC": 37,
                             "maxC": 42,
@@ -11802,7 +11786,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "The fleeting, violent rains suddenly cease, leaving the land lush but rapidly drying.",
+                        "text": "Clear, mild day with long visibility.",
                         "temp": {
                             "minC": 22,
                             "maxC": 27,
@@ -11812,7 +11796,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The thin, fragile green grass immediately begins to wither and turn a pale, dusty yellow.",
+                        "text": "Sudden temperature drop introduces autumn.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -11822,7 +11806,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A steady, dry wind returns, relentlessly sucking the precious moisture from the earth.",
+                        "text": "Dust storm warning for open areas.",
                         "temp": {
                             "minC": 20,
                             "maxC": 25,
@@ -11834,7 +11818,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The swollen flash-flood rivers shrink rapidly, leaving behind deeply cracked, drying mud.",
+                        "text": "Pleasant temperatures for physical activities.",
                         "temp": {
                             "minC": 18,
                             "maxC": 23,
@@ -11844,17 +11828,17 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sky clears to a brilliant, unblemished blue, entirely free of the heavy storm clouds.",
+                        "text": "First cold night; ground cools down.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 5,
+                            "maxC": 10,
+                            "minF": 41,
+                            "maxF": 50
                         },
                         "fx": []
                     },
                     {
-                        "text": "The sudden burst of insects dies off just as quickly as it began, silencing the plains.",
+                        "text": "Wind turns to north; bringing cold air.",
                         "temp": {
                             "minC": 12,
                             "maxC": 17,
@@ -11864,7 +11848,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A surprisingly crisp, cool morning requires a heavy cloak before the sun heats the day.",
+                        "text": "Golden light illuminates the steppe.",
                         "temp": {
                             "minC": 16,
                             "maxC": 21,
@@ -11874,7 +11858,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The muddy, treacherous trails rapidly bake into rock-hard, deeply rutted paths.",
+                        "text": "Light rain moistens the dust.",
                         "temp": {
                             "minC": 14,
                             "maxC": 19,
@@ -11886,7 +11870,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The scorching midday heat returns with a vengeance, asserting its dominance over the land.",
+                        "text": "Deep blue sky without clouds.",
                         "temp": {
                             "minC": 19,
                             "maxC": 24,
@@ -11896,7 +11880,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A dry, crackling energy fills the air, replacing the heavy, suffocating humidity.",
+                        "text": "Increased wildfire risk due to dried vegetation.",
                         "temp": {
                             "minC": 23,
                             "maxC": 28,
@@ -11906,7 +11890,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The newly formed waterholes begin to evaporate noticeably, drawing desperate prey.",
+                        "text": "Stormy wind whirls up dust.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -11918,7 +11902,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The setting sun casts incredibly long, golden shadows across the rapidly fading grass.",
+                        "text": "Warm Indian Summer day.",
                         "temp": {
                             "minC": 21,
                             "maxC": 26,
@@ -11928,7 +11912,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, freak thunderstorm rolls through—a final, violent, and completely dry echo.",
+                        "text": "Cold front brings scattered showers.",
                         "temp": {
                             "minC": 13,
                             "maxC": 18,
@@ -11940,7 +11924,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights grow delightfully cool and crystal clear, offering a perfect view of the stars.",
+                        "text": "Overcast sky; gray in gray.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -11950,7 +11934,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The tiny, brilliant flowers of the thorn bushes wither, scattering seeds to the wind.",
+                        "text": "Sharp temperature contrast between sun and shade.",
                         "temp": {
                             "minC": 17,
                             "maxC": 22,
@@ -11960,7 +11944,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A steady, dusty wind begins to whip across the plains, blinding anyone without protection.",
+                        "text": "Quiet day; hardly any wind noise.",
                         "temp": {
                             "minC": 18,
                             "maxC": 23,
@@ -11970,27 +11954,27 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is perfectly still and incredibly hot during the unforgiving, silent afternoon hours.",
+                        "text": "First frost warning for high altitudes.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 2,
+                            "maxC": 7,
+                            "minF": 36,
+                            "maxF": 45
                         },
                         "fx": []
                     },
                     {
-                        "text": "The once-impassable, muddy bogs dry up entirely, revealing cracked earth and dead frogs.",
+                        "text": "Dry, penetrating cold.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 8,
+                            "maxC": 13,
+                            "minF": 46,
+                            "maxF": 55
                         },
                         "fx": []
                     },
                     {
-                        "text": "The dry season tightens its iron grip on the land, returning it to a harsh, thorny wasteland.",
+                        "text": "Migratory birds gather in wetlands.",
                         "temp": {
                             "minC": 12,
                             "maxC": 17,
@@ -12000,131 +11984,131 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A peaceful, waiting silence falls over the plains as the land prepares for the deep drought.",
+                        "text": "Winter is announced by icy wind.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 6,
+                            "maxC": 11,
+                            "minF": 43,
+                            "maxF": 52
                         },
                         "fx": [
-                            "clouds"
+                            "lightning_flash"
                         ]
                     }
                 ],
                 "winter": [
                     {
-                        "text": "A brutal, relentless sun bakes the cracked earth from a completely cloudless, hazy sky.",
+                        "text": "Clear, cold night with starry sky.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
                         },
                         "fx": []
                     },
                     {
-                        "text": "The thorn savanna is a desolate sea of dry, brittle bushes, completely devoid of leaves.",
+                        "text": "Light snowfall covers the desert with white powder.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
                         },
                         "fx": [
                             "snow"
                         ]
                     },
                     {
-                        "text": "The waterholes have dried up completely, leaving only desperately cracked, barren mud.",
+                        "text": "Sunny day despite low temperatures.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 5,
+                            "maxC": 10,
+                            "minF": 41,
+                            "maxF": 50
                         },
                         "fx": []
                     },
                     {
-                        "text": "Fierce, hot winds whip up massive, blinding dust storms that blot out the pale sun.",
+                        "text": "Rare winter thunderstorm in the cold air.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": 4,
+                            "maxC": 8,
+                            "minF": 39,
+                            "maxF": 46
                         },
                         "fx": [
                             "storm"
                         ]
                     },
                     {
-                        "text": "The intense, shimmering heat creates massive, watery mirages that taunt thirsty travelers.",
+                        "text": "Rain transforms the ground into sticky mud.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 2,
+                            "maxC": 7,
+                            "minF": 36,
+                            "maxF": 45
                         },
                         "fx": [
                             "rain"
                         ]
                     },
                     {
-                        "text": "A terrifying, fast-moving wildfire sweeps across the dry brush, turning day into night.",
+                        "text": "The night's cold skins puddles with ice.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": -6,
+                            "maxC": -2,
+                            "minF": 21,
+                            "maxF": 28
                         },
                         "fx": []
                     },
                     {
-                        "text": "The air is so incredibly dry that it cracks lips and causes skin to flake and bleed.",
+                        "text": "High fog holds stubbornly all day.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The nights are surprisingly, bitterly cold, requiring thick blankets and a roaring fire.",
+                        "text": "Biting wind makes it feel colder.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -4,
+                            "maxC": 1,
+                            "minF": 25,
+                            "maxF": 34
                         },
                         "fx": []
                     },
                     {
-                        "text": "Not a single drop of rain has fallen in months; the earth is as hard as baked stone.",
+                        "text": "Ice breaking on water holes.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -3,
+                            "maxC": 2,
+                            "minF": 27,
+                            "maxF": 36
                         },
                         "fx": []
                     },
                     {
-                        "text": "The dusty, howling wind tears at the wicked thorns, creating an eerie, whistling sound.",
+                        "text": "Dust and snow mixed in the wind.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -5,
+                            "maxC": 0,
+                            "minF": 23,
+                            "maxF": 32
                         },
                         "fx": [
                             "snow"
                         ]
                     },
                     {
-                        "text": "The blazing sun seems unnaturally large and hostile, a fiery eye glaring at the earth.",
+                        "text": "Surprisingly warm day; thaw weather.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -12134,96 +12118,96 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, dry lightning storm strikes the ground, sparking new, terrifying brush fires.",
+                        "text": "Dense cloud cover prevents warming.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": 1,
+                            "maxC": 5,
+                            "minF": 34,
+                            "maxF": 41
                         },
                         "fx": []
                     },
                     {
-                        "text": "The meager shade of a solitary, thorny acacia offers the only relief from the baking heat.",
+                        "text": "Hard frost damages sensitive plants.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 13,
-                            "minF": 50,
-                            "maxF": 55
+                            "minC": -7,
+                            "maxC": -4,
+                            "minF": 19,
+                            "maxF": 25
                         },
                         "fx": []
                     },
                     {
-                        "text": "The stifling heat of midday forces all life to stop, hide, and pant in the deep shadows.",
+                        "text": "Ice fog forms in the morning.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": -9,
+                            "maxC": -5,
+                            "minF": 16,
+                            "maxF": 23
                         },
                         "fx": [
                             "thick_fog"
                         ]
                     },
                     {
-                        "text": "The air is completely still and suffocatingly hot, reeking strongly of dry dust and old ash.",
+                        "text": "Crystal clear visibility after passage of a front.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": 3,
+                            "maxC": 8,
+                            "minF": 37,
+                            "maxF": 46
                         },
                         "fx": []
                     },
                     {
-                        "text": "The dry, incredibly sharp thorns catch on clothing and flesh, tearing at the traveler.",
+                        "text": "Sleet slicks the roads beneath each passing shower.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": 0,
+                            "maxC": 4,
+                            "minF": 32,
+                            "maxF": 39
                         },
                         "fx": [
                             "rain"
                         ]
                     },
                     {
-                        "text": "The completely clear, freezing night sky reveals an overwhelming, dizzying sea of stars.",
+                        "text": "Temperature inversion; warmer on hills than in valleys.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 15,
-                            "minF": 50,
-                            "maxF": 59
+                            "minC": -2,
+                            "maxC": 3,
+                            "minF": 28,
+                            "maxF": 37
                         },
                         "fx": []
                     },
                     {
-                        "text": "A deep, almost oppressive silence rules the dead, sun-baked, and exhausted landscape.",
+                        "text": "Dry freeze; ground hard as stone.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 13,
-                            "minF": 50,
-                            "maxF": 55
+                            "minC": -6,
+                            "maxC": -3,
+                            "minF": 21,
+                            "maxF": 27
                         },
                         "fx": []
                     },
                     {
-                        "text": "The fierce, dusty wind erases all tracks within minutes, making navigation incredibly difficult.",
+                        "text": "Pale winter sun casts long shadows.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": 2,
+                            "maxC": 6,
+                            "minF": 36,
+                            "maxF": 43
                         },
                         "fx": []
                     },
                     {
-                        "text": "The endless, brutal drought tests the absolute limits of endurance for all living things.",
+                        "text": "Heavy snow shower surprises region.",
                         "temp": {
-                            "minC": 10,
-                            "maxC": 14,
-                            "minF": 50,
-                            "maxF": 57
+                            "minC": -3,
+                            "maxC": 1,
+                            "minF": 27,
+                            "maxF": 34
                         },
                         "fx": [
                             "snow"
@@ -12244,7 +12228,7 @@ export const CLIMATE_DATA_EN = {
             "seasons": {
                 "spring": [
                     {
-                        "text": "The massive winter snowpack finally begins to melt, feeding roaring, icy waterfalls.",
+                        "text": "Rapid drop in air pressure due to Foehn wind.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -12254,7 +12238,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce, cold wind whips through the high mountain passes, whistling sharply.",
+                        "text": "Rapid warming of the snowpack.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -12264,7 +12248,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The thin, crisp air is incredibly incredibly fresh, smelling of pine and wet stone.",
+                        "text": "Roaring mountain streams due to snowmelt.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -12274,7 +12258,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "Tiny, vibrant alpine flowers push stubbornly through the melting edges of snowbanks.",
+                        "text": "Contrast between warm valley and snowy peaks.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -12284,7 +12268,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature fluctuates wildly, warm in the sun but freezing in the deep shadows.",
+                        "text": "Sudden weather drop with fresh snow.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -12296,7 +12280,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, unpredictable squall drops a blinding flurry of wet, heavy snow.",
+                        "text": "High sunlight intensity and brightness.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -12306,7 +12290,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The echoing roar of distant avalanches rumbles ominously through the rocky valleys.",
+                        "text": "Rising valley fog reduces visibility.",
                         "temp": {
                             "minC": 4,
                             "maxC": 8,
@@ -12318,7 +12302,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The blinding reflection of the sun on the remaining snowfields threatens snow blindness.",
+                        "text": "Rain-softened snowpack.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -12330,7 +12314,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The sky is a flawless, incredibly deep blue, seemingly closer at this high altitude.",
+                        "text": "Intense solar radiation on south slopes.",
                         "temp": {
                             "minC": 7,
                             "maxC": 11,
@@ -12340,7 +12324,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, damp fog occasionally rolls up from the valleys, swallowing the mountainside.",
+                        "text": "Rainbow spans across the valley.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -12352,7 +12336,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The rushing streams are dangerously swollen, churning with freezing, white meltwater.",
+                        "text": "Clear long-distance visibility in the mountain air.",
                         "temp": {
                             "minC": 5,
                             "maxC": 10,
@@ -12362,7 +12346,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The biting cold returns instantly the moment the sun dips behind the towering peaks.",
+                        "text": "Passage of a cold front thunderstorm.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -12374,7 +12358,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A fierce, localized thunderstorm erupts suddenly, hurling jagged lightning at the rocks.",
+                        "text": "Warm sun melting snow patches.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -12384,7 +12368,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The thin air makes every physical exertion incredibly tiring and leaves you breathless.",
+                        "text": "Cloud shreds chase around the summit ridges.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -12394,7 +12378,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliant sunshine rapidly warms the dark rocks, providing a brief, pleasant heat.",
+                        "text": "Gusty and unpredictable wind.",
                         "temp": {
                             "minC": 4,
                             "maxC": 9,
@@ -12404,7 +12388,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sharp, metallic scent of ozone lingers heavily after a fierce spring lightning storm.",
+                        "text": "Rain in the valley turns into high-altitude snow.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -12416,7 +12400,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A surprisingly balmy breeze blows up from the lowlands, carrying the scent of green valleys.",
+                        "text": "Nocturnal freezing of slush.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -12426,7 +12410,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights remain bitterly cold, freezing the meltwater trails into treacherous ice slicks.",
+                        "text": "Rapid change after sunny morning.",
                         "temp": {
                             "minC": 7,
                             "maxC": 12,
@@ -12436,7 +12420,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The desolate, rocky slopes slowly reveal themselves as the massive snowdrifts retreat.",
+                        "text": "Snow line retreating slowly.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -12446,7 +12430,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, unforgiving alpine spring is a chaotic battle between returning life and clinging winter.",
+                        "text": "Crystal clear and thin mountain air.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -12458,7 +12442,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "summer": [
                     {
-                        "text": "The intense, unfiltered sun beats down fiercely through the thin, incredibly clear mountain air.",
+                        "text": "Development of a heat thunderstorm in the afternoon.",
                         "temp": {
                             "minC": 18,
                             "maxC": 22,
@@ -12470,7 +12454,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, violent afternoon thunderstorm erupts daily, violently shaking the rocky peaks.",
+                        "text": "The sunlight is fierce and unforgiving.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -12480,7 +12464,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rocky slopes are beautifully blanketed in a brief, vibrant carpet of alpine wildflowers.",
+                        "text": "Cooling glacier wind in the afternoon.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -12490,7 +12474,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The air is perfectly crisp and cool, a wonderful relief from the sweltering lowlands.",
+                        "text": "Sea of clouds lies below the summit.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -12500,7 +12484,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A fierce, icy wind constantly howls around the highest, exposed mountain passes.",
+                        "text": "Radiant blue mountain sky.",
                         "temp": {
                             "minC": 16,
                             "maxC": 21,
@@ -12510,7 +12494,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The unpredictable weather changes in minutes, shifting from warm sun to freezing hail.",
+                        "text": "Sudden onset of fog.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -12522,7 +12506,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A magnificent, glowing rainbow arcs perfectly over the deep valley after a sudden downpour.",
+                        "text": "Red Alpenglow in the evening sky.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -12532,7 +12516,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The massive glaciers groan and crack loudly in the summer heat, echoing for miles.",
+                        "text": "Cool breeze on the ridge area.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -12542,7 +12526,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are surprisingly cold, requiring a good fire even in the height of summer.",
+                        "text": "Surprising soft hail shower.",
                         "temp": {
                             "minC": 9,
                             "maxC": 13,
@@ -12554,7 +12538,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The incredibly clear, unpolluted night sky reveals a dizzying, breathtaking sea of stars.",
+                        "text": "Clear visibility and mild temperatures.",
                         "temp": {
                             "minC": 15,
                             "maxC": 19,
@@ -12564,7 +12548,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A heavy, suffocating cloud bank occasionally settles directly on the mountainside.",
+                        "text": "Warm and dry rock contact.",
                         "temp": {
                             "minC": 17,
                             "maxC": 22,
@@ -12574,7 +12558,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The melting snowfields turn the rocky trails into slippery, treacherous, and muddy paths.",
+                        "text": "Strong warm drafts climb along the ridge.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -12584,7 +12568,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliant sun feels incredibly hot on the skin, but the ambient air remains sharply cool.",
+                        "text": "Thunderstorm cell gets stuck in the valley.",
                         "temp": {
                             "minC": 14,
                             "maxC": 18,
@@ -12596,7 +12580,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A sudden, painful shower of sharp hail pelts the mountainside during a fierce summer storm.",
+                        "text": "Dry rock and stable high pressure.",
                         "temp": {
                             "minC": 15,
                             "maxC": 20,
@@ -12606,7 +12590,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, permanently shadowed ravines hold stubborn pockets of ancient, dirty snow.",
+                        "text": "High cumulus cloud formation over the peaks.",
                         "temp": {
                             "minC": 16,
                             "maxC": 20,
@@ -12616,7 +12600,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rushing mountain streams are crystal clear and agonizingly, numbingly cold.",
+                        "text": "High water level in the mountain stream.",
                         "temp": {
                             "minC": 11,
                             "maxC": 15,
@@ -12626,7 +12610,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A stark, beautiful contrast exists between the lush valleys and the barren, rocky peaks.",
+                        "text": "Starry and fresh mountain night.",
                         "temp": {
                             "minC": 5,
                             "maxC": 9,
@@ -12636,7 +12620,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The thin air leaves lowlanders gasping for breath during strenuous climbs.",
+                        "text": "Calmness at the summit cross.",
                         "temp": {
                             "minC": 12,
                             "maxC": 16,
@@ -12646,7 +12630,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The setting sun paints the towering, rocky peaks in spectacular shades of gold and crimson.",
+                        "text": "Blinding effect due to snowfields in the sun.",
                         "temp": {
                             "minC": 10,
                             "maxC": 14,
@@ -12656,7 +12640,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brief alpine summer is a beautiful, dangerous, and fleeting paradise.",
+                        "text": "Cold snap due to weather change.",
                         "temp": {
                             "minC": 6,
                             "maxC": 10,
@@ -12668,7 +12652,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "autumn": [
                     {
-                        "text": "A sharp, biting chill returns to the mountain air, signaling the rapid approach of winter.",
+                        "text": "Endless visibility from the summit.",
                         "temp": {
                             "minC": 5,
                             "maxC": 10,
@@ -12678,7 +12662,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The sudden, violent winds tear the golden, dying leaves from the few hardy scrub trees.",
+                        "text": "Sea of fog fills the valley locations.",
                         "temp": {
                             "minC": 8,
                             "maxC": 13,
@@ -12690,7 +12674,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A thick, freezing fog rolls in frequently, turning the treacherous passes into deadly traps.",
+                        "text": "Golden light over the larch forests.",
                         "temp": {
                             "minC": 7,
                             "maxC": 12,
@@ -12700,7 +12684,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliant, deep blue sky is often obscured by fast-moving, heavy gray storm clouds.",
+                        "text": "First snowfall powders the peaks white.",
                         "temp": {
                             "minC": -2,
                             "maxC": 3,
@@ -12712,7 +12696,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The first heavy, serious snowfalls of the season begin to dust the highest peaks in white.",
+                        "text": "Incredible clarity of the mountain air.",
                         "temp": {
                             "minC": 6,
                             "maxC": 11,
@@ -12722,7 +12706,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The incredibly crisp air carries the sharp, metallic, and undeniable scent of impending snow.",
+                        "text": "Whistling cold wind on the ridge.",
                         "temp": {
                             "minC": 0,
                             "maxC": 5,
@@ -12732,7 +12716,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The rushing mountain streams begin to slow and freeze at the edges during the bitter nights.",
+                        "text": "Pleasant solar warmth in sheltered locations.",
                         "temp": {
                             "minC": 9,
                             "maxC": 14,
@@ -12742,7 +12726,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, fierce blizzard can strike without warning, trapping unwary travelers for days.",
+                        "text": "Icing on shady north sides.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -12752,7 +12736,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The desolate, rocky slopes lose their vibrant colors, fading to drab gray and brown.",
+                        "text": "Absolute quiet and calmness.",
                         "temp": {
                             "minC": 8,
                             "maxC": 12,
@@ -12762,7 +12746,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature plummets brutally as soon as the pale sun drops behind the mountains.",
+                        "text": "Red moonrise over the mountains.",
                         "temp": {
                             "minC": 2,
                             "maxC": 6,
@@ -12772,7 +12756,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The nights are bitterly, dangerously cold, demanding thick furs and roaring, large fires.",
+                        "text": "Hoarfrost cover on rocks in the morning.",
                         "temp": {
                             "minC": -4,
                             "maxC": 0,
@@ -12784,7 +12768,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The long, melancholic shadows of autumn stretch deeply across the echoing, empty valleys.",
+                        "text": "Approaching storm announces winter.",
                         "temp": {
                             "minC": -1,
                             "maxC": 4,
@@ -12796,7 +12780,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The once-muddy trails freeze into rock-hard, deeply rutted, and ankle-breaking paths.",
+                        "text": "Freezing of water in puddles.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -12806,7 +12790,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A beautiful, fleeting Indian summer occasionally offers a single, perfectly clear, warm day.",
+                        "text": "Cloud caps sit on the peaks.",
                         "temp": {
                             "minC": -3,
                             "maxC": 1,
@@ -12816,7 +12800,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The piercing, howling wind sounds like a chorus of wailing spirits in the deep canyons.",
+                        "text": "Mild autumn sun despite cool air.",
                         "temp": {
                             "minC": 10,
                             "maxC": 15,
@@ -12826,7 +12810,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The wild game begins to migrate rapidly down to the valleys to escape the coming freeze.",
+                        "text": "Temperature fluctuations around freezing point.",
                         "temp": {
                             "minC": 1,
                             "maxC": 5,
@@ -12836,7 +12820,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A sudden, terrifying ice storm coats the rocks and trails in a deadly, frictionless glaze.",
+                        "text": "Short and cold twilight phase.",
                         "temp": {
                             "minC": -1,
                             "maxC": 3,
@@ -12846,7 +12830,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The harsh, desolate beauty of the mountains is magnified by the crisp, freezing autumn air.",
+                        "text": "Passage of a soft hail shower.",
                         "temp": {
                             "minC": 0,
                             "maxC": 4,
@@ -12858,7 +12842,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The completely clear, freezing night sky reveals a breathtaking, sweeping view of the cosmos.",
+                        "text": "Falling temperatures and first snowflakes.",
                         "temp": {
                             "minC": 3,
                             "maxC": 7,
@@ -12870,7 +12854,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brief alpine autumn is a desperate, frantic race to prepare for the deep winter.",
+                        "text": "Twinkling stars in frosty weather.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -12882,7 +12866,7 @@ export const CLIMATE_DATA_EN = {
                 ],
                 "winter": [
                     {
-                        "text": "A brutal, howling blizzard sweeps the high passes, dropping visibility to absolute zero.",
+                        "text": "Snowstorm with thunder.",
                         "temp": {
                             "minC": -5,
                             "maxC": 0,
@@ -12894,7 +12878,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The mountains are completely buried under a massive, crushing weight of deep, pristine snow.",
+                        "text": "Heavy snowfall accumulating rapidly.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -12906,7 +12890,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "An incredibly sharp, cutting wind slices straight through the thickest furs and leathers.",
+                        "text": "Unstable snowpack due to fresh snow and wind.",
                         "temp": {
                             "minC": -8,
                             "maxC": -3,
@@ -12916,7 +12900,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The temperature is brutally, dangerously cold, freezing exposed skin in mere minutes.",
+                        "text": "Dream weather with sun and frost.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -12926,7 +12910,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The brilliantly clear, deep blue sky offers absolutely no warmth from the pale, distant sun.",
+                        "text": "Ice fog envelops the surroundings.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,
@@ -12938,7 +12922,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "A terrifying, silent 'whiteout' makes navigation completely impossible and instantly deadly.",
+                        "text": "Snow transport by strong wind.",
                         "temp": {
                             "minC": -14,
                             "maxC": -9,
@@ -12948,7 +12932,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The deep, powdery snow and hidden crevasses make travel exhausting and incredibly treacherous.",
+                        "text": "Extreme and biting cold.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -12958,7 +12942,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The fierce, freezing wind sculpts the massive snowdrifts into bizarre, beautiful, sharp shapes.",
+                        "text": "Dense fresh snow on glaciers.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -12970,7 +12954,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The air is so incredibly cold that every drawn breath burns the lungs like swallowed fire.",
+                        "text": "Persistent frost after thaw.",
                         "temp": {
                             "minC": -8,
                             "maxC": -4,
@@ -12980,7 +12964,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The terrifying, thunderous roar of a massive avalanche echoes violently through the valley.",
+                        "text": "Inversion weather condition; sun above, fog below.",
                         "temp": {
                             "minC": -2,
                             "maxC": 2,
@@ -12992,7 +12976,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The nights are incredibly, agonizingly long, plunging the peaks into a deep, freezing darkness.",
+                        "text": "Gray fog lies in the valley.",
                         "temp": {
                             "minC": -5,
                             "maxC": -1,
@@ -13004,7 +12988,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The intense reflection of the sun on the vast, white snowfields threatens severe snow blindness.",
+                        "text": "Strong wind transports snow.",
                         "temp": {
                             "minC": -12,
                             "maxC": -7,
@@ -13014,7 +12998,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The absolutely clear, freezing night sky reveals a breathtaking, sweeping view of the stars.",
+                        "text": "Dense clouds merging with the snow.",
                         "temp": {
                             "minC": -10,
                             "maxC": -5,
@@ -13024,7 +13008,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "A deep, oppressive silence rules the frozen landscape, broken only by the howling, bitter wind.",
+                        "text": "Heavy driving snow during storm.",
                         "temp": {
                             "minC": -15,
                             "maxC": -10,
@@ -13036,7 +13020,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The dark, exposed rocks are completely encased in thick, incredibly heavy, and beautiful ice.",
+                        "text": "Ice crystals glitter in the air (Diamond Dust).",
                         "temp": {
                             "minC": -18,
                             "maxC": -14,
@@ -13048,7 +13032,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The frozen earth is as hard as iron, completely rejecting any attempt to dig or make camp.",
+                        "text": "Halo (Glory) around own shadow.",
                         "temp": {
                             "minC": -6,
                             "maxC": -2,
@@ -13058,7 +13042,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The treacherous mountain passes are entirely blocked by massive, impassable walls of snow.",
+                        "text": "Freezing rain coats everything.",
                         "temp": {
                             "minC": -10,
                             "maxC": -6,
@@ -13070,7 +13054,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The brutal, unforgiving winter storms test the absolute limits of human endurance and sanity.",
+                        "text": "Overwhelming starry sky at altitude.",
                         "temp": {
                             "minC": -20,
                             "maxC": -15,
@@ -13080,7 +13064,7 @@ export const CLIMATE_DATA_EN = {
                         "fx": []
                     },
                     {
-                        "text": "The vast, frozen mountains are a breathtakingly beautiful, but incredibly deadly, white hell.",
+                        "text": "Blizzard makes movement impossible.",
                         "temp": {
                             "minC": -22,
                             "maxC": -18,
@@ -13092,7 +13076,7 @@ export const CLIMATE_DATA_EN = {
                         ]
                     },
                     {
-                        "text": "The stark contrast of the pale sun and the freezing wind creates a harsh, unforgiving environment.",
+                        "text": "Dead silence in the snow landscape.",
                         "temp": {
                             "minC": -12,
                             "maxC": -8,

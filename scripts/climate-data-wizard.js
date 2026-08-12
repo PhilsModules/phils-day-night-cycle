@@ -25,7 +25,7 @@ export class ClimateDataWizard extends HandlebarsApplicationMixin(ApplicationV2)
         id: "climate-data-wizard",
         tag: "form",
         window: {
-            title: "Climate Data Wizard",
+            title: "PDNC.ClimateWizard.Title",
             icon: "fas fa-cloud-sun-rain",
             resizable: true,
             controls: []
@@ -34,13 +34,17 @@ export class ClimateDataWizard extends HandlebarsApplicationMixin(ApplicationV2)
             width: 700,
             height: 600
         },
-        classes: ["pdnc-app-v2"],
+        classes: ["pdnc-app-v2", "pdnc-climate-wizard-window"],
         actions: {
             applyWeather: function(event, target) {
                  this._applyWeather(target.dataset.index);
             }
         }
     };
+
+    get title() {
+        return game.i18n.localize("PDNC.ClimateWizard.Title");
+    }
 
     static PARTS = {
         form: {

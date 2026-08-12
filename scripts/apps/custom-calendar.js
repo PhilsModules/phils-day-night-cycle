@@ -19,7 +19,7 @@ export class CustomCalendarList extends HandlebarsApplicationMixin(ApplicationV2
             width: 500,
             height: "auto"
         },
-        classes: ["pdnc-app"],
+        classes: ["pdnc-app-v2", "pdnc-calendar-list-window"],
         actions: {
             create: CustomCalendarList.prototype._onCreate,
             edit: CustomCalendarList.prototype._onEdit,
@@ -72,9 +72,6 @@ export class CustomCalendarList extends HandlebarsApplicationMixin(ApplicationV2
             delete calendars[id];
             await game.settings.set(MODULE_ID, "customCalendars", calendars);
             this.render();
-            
-            // If this was the active system, revert to gregorian?
-            // This logic relies on CalendarSystem handling missing keys gracefully (which it does).
         }
     }
 
@@ -88,8 +85,6 @@ export class CustomCalendarList extends HandlebarsApplicationMixin(ApplicationV2
     }
 
     async _onImport(event, target) {
-        // Simple File Picker or standard browser upload? 
-        // Let's use a standard file input trigger
         const input = document.createElement("input");
         input.type = "file";
         input.accept = ".json";
@@ -105,7 +100,6 @@ export class CustomCalendarList extends HandlebarsApplicationMixin(ApplicationV2
                     throw new Error("Invalid Calendar Format");
                 }
                 
-                // Create ID
                 const id = `custom_${Date.now()}`;
                 const calendars = game.settings.get(MODULE_ID, "customCalendars") || {};
                 calendars[id] = json;
@@ -145,7 +139,7 @@ export class CustomCalendarEditor extends HandlebarsApplicationMixin(Application
             width: 600,
             height: "auto"
         },
-        classes: ["pdnc-app"],
+        classes: ["pdnc-app-v2", "pdnc-calendar-editor-window"],
         actions: {
             save: CustomCalendarEditor.prototype._onSave,
             cancel: CustomCalendarEditor.prototype._onCancel,
@@ -172,7 +166,6 @@ export class CustomCalendarEditor extends HandlebarsApplicationMixin(Application
                 const calendars = game.settings.get(MODULE_ID, "customCalendars");
                 this.tempData = foundry.utils.deepClone(calendars[this.editingId]);
             } else {
-                // Default New
                 this.tempData = {
                     name: "New Calendar",
                     description: "",
@@ -203,7 +196,6 @@ export class CustomCalendarEditor extends HandlebarsApplicationMixin(Application
     }
 
     _updateTempData(formData) {
-        // Name & Desc
         this.tempData.name = formData.get("name");
         this.tempData.description = formData.get("description");
         this.tempData.leapYearRule = formData.get("leapYearRule");
@@ -214,14 +206,6 @@ export class CustomCalendarEditor extends HandlebarsApplicationMixin(Application
         this.tempData.negativeYearPrefix = formData.get("negativeYearPrefix") || "";
         this.tempData.negativeYearPostfix = formData.get("negativeYearPostfix") || "";
 
-        // Reconstruct Arrays
-        // Months
-        const months = [];
-        // Map entries manually because indices might be sparse if we used index based names?
-        // Actually, handlebars loop uses index 0..N.
-        // We can just iterate until we stop finding them? Or use expandObject
-        
-        // Easier: Use expandObject
         const expanded = foundry.utils.expandObject(Object.fromEntries(formData));
         
         if (expanded.months) {
@@ -287,7 +271,6 @@ export class CustomCalendarEditor extends HandlebarsApplicationMixin(Application
         
         await game.settings.set(MODULE_ID, "customCalendars", calendars);
         
-        // Refresh List app if open
         const listApp = foundry.applications.instances.get("pdnc-custom-calendar-list");
         if (listApp) listApp.render();
         

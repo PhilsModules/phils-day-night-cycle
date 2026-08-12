@@ -67,22 +67,10 @@ export class DungeonModeConfig extends HandlebarsApplicationMixin(ApplicationV2)
         if (disableWeather) {
             await scene.update({ weather: "" });
         } else {
-            // Refresh Global Weather
-            if (window.PhilsDayNightCycle) {
-                const globalWeather = game.settings.get(MODULE_ID, "currentWeather");
-                if (globalWeather && globalWeather.fx) {
-                    await scene.update({ weather: globalWeather.fx });
-                }
+            const globalWeather = game.settings.get(MODULE_ID, "currentWeather");
+            if (globalWeather && globalWeather.fx) {
+                await scene.update({ weather: globalWeather.fx });
             }
-        }
-        
-        // Lighting: If re-enabling, we trust the next update cycle (250ms debounce) or manual tick.
-        if (!disableLighting) {
-             // Optional: Force lighting update
-             // We can check if LightingSystem is available externally or just wait
-             // Since this is esmodule, we can import LightingSystem?
-             // No, circular dependency risk if we aren't careful, but usually fine.
-             // But simpler to just let the main loop handle it.
         }
 
         this.close();

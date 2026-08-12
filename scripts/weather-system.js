@@ -99,15 +99,13 @@ export class WeatherSystem {
                 }
             }
 
-            // If config is broken, use default
+            // If config is incomplete (fewer than 4 seasons), fill missing entries from defaults
             if (seasons.length < 4) {
-                 // Fallback logic could go here, or just populate missing
-                 // This happens if user sets weird things, strictly we should trust settings
-                 // But let's assume valid config for now or push defaults if empty
-                 if (seasons.length === 0) {
-                     // Push defaults
-                     defaultSeasons.forEach(s => seasons.push({ id: s.id, value: (s.month * 100) + s.day }));
-                 }
+                for (const def of defaultSeasons) {
+                    if (!seasons.some(s => s.id === def.id)) {
+                        seasons.push({ id: def.id, value: (def.month * 100) + def.day });
+                    }
+                }
             }
 
             // Sort descending by value (Latest in year first)
@@ -133,10 +131,7 @@ export class WeatherSystem {
     }
 
     static parseTemperature(tempStr) {
-        // Matches "X bis Y°C" or "-X to -Y°C"
-        // Also handles simple numbers if needed, but data is usually range.
-        // Regex for finding two numbers (integers, potentially negative) separated by text
-        // Looks for patterns like "-5 bis 2"
+        if (!tempStr || typeof tempStr !== "string") return { min: 10, max: 15 };
         const regex = /(-?\d+)\s*(?:bis|to)\s*(-?\d+)/i;
         const match = tempStr.match(regex);
         if (match) {
@@ -145,18 +140,24 @@ export class WeatherSystem {
                 max: parseInt(match[2])
             };
         }
-        // Fallback for single number or weird format?
-        // If single number "5°C"
         const singleRegex = /(-?\d+)/;
         const singleMatch = tempStr.match(singleRegex);
         if (singleMatch) {
             const val = parseInt(singleMatch[1]);
             return { min: val, max: val };
         }
-        return { min: 10, max: 15 }; // Total Fallback
+        return { min: 10, max: 15 };
     }
 
-    static getTemperatureRange(entry) {
+    static getTemperatureRange(entry, seasonStr) {
+        if (typeof entry === "string") {
+            const climateZone = entry;
+            const season = seasonStr || "spring";
+            const data = (game.i18n.lang === "de") ? CLIMATE_DATA_DE : CLIMATE_DATA_EN;
+            const climateObj = data[climateZone] || data["marine_west_coast"];
+            entry = climateObj?.seasons?.[season] || climateObj?.seasons?.["spring"] || {};
+        }
+        if (!entry) entry = {};
         if (typeof entry.temp === "object" && entry.temp !== null) {
             return {
                 minC: entry.temp.minC,
@@ -166,7 +167,6 @@ export class WeatherSystem {
             };
         }
         
-        // Fallback for Old String Format (Assumed C)
         const temps = this.parseTemperature(entry.temp);
         return {
             minC: temps.min,
@@ -193,43 +193,27 @@ export class WeatherSystem {
         const time = game.time.worldTime;
         const dayLength = 86400;
 
-        // Apply timeOffset (mirrors LightingSystem.calculateDarkness) and use
-        // safe positive modulo so negative worldTime values (e.g. Golarion calendar)
-        // don't land on the wrong point of the sine wave.
         const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0;
         const adjustedTime = time + (timeOffset * 60);
         const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
         const hours = currentSeconds / 3600;
 
-        // Sine Wave Logic
-        // We want Min at 4 (height -1) and Max at 16 (height 1).
-        // Period is 24h.
-        // Standard Sine: sin(x) starts 0 at 0. Peak 1 at PI/2.
-        // We want Peak at 16.
-        // Formula: Temp = Avg + (Amp * sin( (Hours - Shift) * Frequency ))
-        // Peak of sin(t) is at PI/2.
-        // t = (h - shift) * (2PI / 24)
-        // We want PI/2 when h=16.
-        // (16 - shift) * (PI/12) = PI/2
-        // 16 - shift = 6  =>  shift = 10.
-        // So: sin( (h - 10) * PI/12 )
-        // Check 4:  (4-10)*PI/12  = -PI/2 -> -1 (Min). Correct.
-        // Check 16: (16-10)*PI/12 =  PI/2 ->  1 (Max). Correct.
-
         const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
         
-        // Determine Min/Max based on Unit
-        let min = weather.tempMin;
-        let max = weather.tempMax;
-
+        let min, max;
         if (unit === "F") {
             if (weather.tempMinF !== undefined) {
                 min = weather.tempMinF;
                 max = weather.tempMaxF;
             } else {
-                 min = (weather.tempMin * 9/5) + 32;
-                 max = (weather.tempMax * 9/5) + 32;
+                const baseMin = weather.tempMinC ?? weather.tempMin ?? 10;
+                const baseMax = weather.tempMaxC ?? weather.tempMax ?? 20;
+                min = (baseMin * 9/5) + 32;
+                max = (baseMax * 9/5) + 32;
             }
+        } else {
+            min = weather.tempMinC ?? weather.tempMin ?? 10;
+            max = weather.tempMaxC ?? weather.tempMax ?? 20;
         }
 
         const avg = (min + max) / 2;
@@ -350,11 +334,6 @@ export class WeatherSystem {
         await game.settings.set(MODULE_ID, "lastWeatherDateId", todayId);
 
         // Post Chat Message
-        // We might want to avoid spamming if we are just editing? 
-        // The user request implies "Reroll" -> So likely new chat message is desired.
-        // If "Editing" existing? Maybe just update?
-        // For simplicity, we always post a "Weather Update" for now, or we could check if it changed significantly.
-        // Let's just Post.
         const unit = game.settings.get(MODULE_ID, "temperatureUnit") || "C";
         let tempString = `${weatherStore.tempMin}°C - ${weatherStore.tempMax}°C`;
         if (unit === "F") {
@@ -395,13 +374,9 @@ export class WeatherSystem {
             content: messageContent,
             flags: { [MODULE_ID]: { isWeather: true } }
         });
-        
-        // PDNC | Applied weather for ${todayId}:`, weatherStore);
 
         // Update All Scenes Weather
         let fxEffect = weatherStore.fx;
-        // PDNC | Updating ALL scenes to weather: ${fxEffect}`);
-        
         const updates = [];
         // Iterate over all scenes to ensure consistent weather
         game.scenes.forEach(scene => {
@@ -515,19 +490,12 @@ export class WeatherSystem {
     }
 
     /**
-     * Legacy/Automated method. Now primarily used if "Manual/Prompt" is disabled, or to trigger the flow.
+     * Automated daily weather generation.
      */
     static async generateDailyWeather() {
         if (!game.user.isGM) return;
-
         if (!this.checkForNewDay()) return;
 
-        // If we are here, it IS a new day.
-        // We should just generate and apply IF we are in auto-mode?
-        // But we want to support the PROMPT.
-        // So this method might be split: "handleNewDay()"
-        
-        // For backwards compatibility or default auto behavior:
         const weather = this.generateWeather();
         await this.applyWeather(weather);
     }

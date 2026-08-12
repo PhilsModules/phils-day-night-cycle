@@ -35,17 +35,13 @@ export class WeatherFilterManager {
     addFilter(id, filter, targetLayer = 'stage') {
         if (this.activeFilters.has(id)) return;
 
-        // If targetLayer is an object (PIXI Container/App Stage), apply directly
         if (typeof targetLayer === 'object' && targetLayer.filters !== undefined) {
              this.activeFilters.set(id, { filter, targetObject: targetLayer });
-             // Ensure array
              if (!targetLayer.filters) targetLayer.filters = [];
              targetLayer.filters = [...targetLayer.filters, filter];
-             // PDNC | Added filter: ${id} to custom target
              return;
         }
 
-        // Default String-based behavior (Canvas Layers)
         this.activeFilters.set(id, { filter, targetLayer });
 
         if (targetLayer === 'stage') {
@@ -55,8 +51,6 @@ export class WeatherFilterManager {
             const currentFilters = canvas[targetLayer].filters || [];
             canvas[targetLayer].filters = [...currentFilters, filter];
         }
-        
-        // PDNC | Added filter: ${id}
     }
 
     /**
@@ -68,13 +62,11 @@ export class WeatherFilterManager {
         
         const { filter, targetLayer, targetObject } = this.activeFilters.get(id);
         
-        // Remove from custom object
         if (targetObject) {
              if (targetObject.filters) {
                  targetObject.filters = targetObject.filters.filter(f => f !== filter);
              }
         } 
-        // Remove from stage/layer (Legacy/String)
         else if (targetLayer === 'stage' && canvas.stage?.filters) {
             canvas.stage.filters = canvas.stage.filters.filter(f => f !== filter);
         } else if (targetLayer && canvas[targetLayer]?.filters) {
@@ -82,7 +74,6 @@ export class WeatherFilterManager {
         }
 
         this.activeFilters.delete(id);
-        // PDNC | Removed filter: ${id}
     }
 
     clearFilters() {
@@ -435,26 +426,36 @@ export class LightningFilter extends PIXI.Filter {
             uniform float intensity;
             uniform sampler2D uSuppressionMask;
             
-            float rand(float n){return fract(sin(n) * 43758.5453123);}
+            float rand(vec2 co) {
+                return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+            }
 
             void main() {
                 vec4 color = texture2D(uSampler, vTextureCoord);
                 
-                // Simple flash effect
-                float flash = 0.0;
+                // Multi-pulse realistic lightning strike timeline
+                float windowSize = 4.0;
+                float seed = floor(time / windowSize);
+                float strikeProgress = mod(time, windowSize);
                 
-                // Randomly trigger flashes based on time
-                // We use time to seed random events
-                float seed = floor(time * 5.0); // Change seed every 0.2s
-                if (rand(seed) > 0.995) { // 0.5% chance per 0.2s (extremely rare)
-                    flash = intensity * rand(seed + 1.0);
+                float flash = 0.0;
+                if (rand(vec2(seed, 3.14)) > 0.88) { // Natural strike frequency
+                    if (strikeProgress < 0.6) {
+                        float t = strikeProgress * 12.0; // Speed of strike sequence
+                        float mainFlash = exp(-t * 2.5);
+                        float echo1 = exp(-pow(t - 1.2, 2.0) * 15.0) * 0.75;
+                        float echo2 = exp(-pow(t - 2.1, 2.0) * 12.0) * 0.45;
+                        flash = (mainFlash + echo1 + echo2) * intensity;
+                    }
                 }
                 
                 // SUPPRESSION
                 float allowed = texture2D(uSuppressionMask, vTextureCoord).r;
                 flash *= allowed;
 
-                gl_FragColor = color + vec4(flash, flash, flash, 0.0);
+                // Warm skyglow boost
+                vec3 flashColor = vec3(0.85, 0.92, 1.0) * flash;
+                gl_FragColor = vec4(color.rgb + flashColor, color.a);
             }
         `;
         super(vertex, fragment);
@@ -492,26 +493,34 @@ export class GodRaysFilter extends PIXI.Filter {
             uniform float angle; 
             uniform sampler2D uSuppressionMask;
             
+            float rand(vec2 co) {
+                return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+            }
+
             void main() {
                 vec4 color = texture2D(uSampler, vTextureCoord);
                 vec2 uv = vTextureCoord;
 
-                // Move beams slowly
-                float t = time * 0.2;
+                // Move beams slowly with organic shimmer
+                float t = time * 0.15;
                 
-                // Diagonal stripes pattern
-                // Use sine waves
-                float beams = sin(uv.x * 20.0 + uv.y * 10.0 * angle - t) 
-                            + sin(uv.x * 30.0 + uv.y * 5.0 * angle + t * 0.5);
+                // Multi-frequency diagonal light shafts
+                float beams = sin(uv.x * 18.0 + uv.y * 8.0 * angle - t) 
+                            + sin(uv.x * 28.0 + uv.y * 4.0 * angle + t * 0.7) * 0.5
+                            + sin(uv.x * 42.0 - t * 1.3) * 0.25;
                             
-                beams = smoothstep(0.5, 1.5, beams); // Sharpen
+                beams = smoothstep(0.4, 1.6, beams);
                 
-                vec3 beamColor = vec3(1.0, 1.0, 0.8); // Warm
+                // Dust mote shimmer inside rays
+                float motes = rand(uv * 15.0 + vec2(t * 0.05)) * step(0.6, beams);
+                
+                vec3 beamColor = vec3(1.0, 0.95, 0.78); // Soft Golden Sunbeams
                 
                 // SUPPRESSION
                 float allowed = texture2D(uSuppressionMask, uv).r;
                 
-                gl_FragColor = color + vec4(beamColor * beams * alpha * 0.2 * allowed, 0.0);
+                vec3 lightBoost = beamColor * (beams + motes * 0.15) * alpha * 0.25 * allowed;
+                gl_FragColor = vec4(color.rgb + lightBoost, color.a);
             }
         `;
         super(vertex, fragment);
@@ -642,7 +651,7 @@ export class HaloFilter extends PIXI.Filter {
  */
  
 
-// --- 10. Fog Filter (FBM Noise) ---
+// --- 10. Fog Filter (FBM Noise with Domain Warping) ---
 export class FogFilter extends PIXI.Filter {
     constructor(speed = 1.0, density = 0.5, color, gradient = false, gradientStart = 0.65) {
         const vertex = `
@@ -706,11 +715,14 @@ export class FogFilter extends PIXI.Filter {
                 // Texture color
                 vec4 texColor = texture2D(uSampler, uv);
                 
-                // Move fog
-                vec2 fogUV = uv * 3.0 + vec2(time * 0.05 * speed, time * 0.02 * speed);
+                // Move fog with domain warping for organic rolling mist
+                vec2 fogUV = uv * 3.0 + vec2(time * 0.04 * speed, time * 0.015 * speed);
+                vec2 warp = vec2(
+                    fbm(fogUV + vec2(0.0, time * 0.02 * speed)),
+                    fbm(fogUV + vec2(time * 0.02 * speed, 1.6))
+                ) * 0.35;
                 
-                // Calculate noise density
-                float f = fbm(fogUV);
+                float f = fbm(fogUV + warp);
                 
                 // Alpha Logic: Base density + noise variation
                 float fogAlpha = clamp((f * density * 2.0), 0.0, 1.0);
@@ -897,22 +909,26 @@ export class CloudCoverFilter extends PIXI.Filter {
                 vec2 uv = vTextureCoord;
                 vec4 texColor = texture2D(uSampler, uv);
                 
-                // Cloud Motion
-                vec2 cloudUV = uv * (3.0 * scale) + vec2(time * 0.02 * speed, time * 0.005 * speed);
+                // Cloud Motion with subtle domain warping for fluffy volumetric edges
+                vec2 cloudUV = uv * (2.8 * scale) + vec2(time * 0.018 * speed, time * 0.006 * speed);
+                vec2 warp = vec2(fbm(cloudUV + vec2(time * 0.01)), fbm(cloudUV + vec2(1.2))) * 0.2;
                 
-                float n = fbm(cloudUV);
+                float n = fbm(cloudUV + warp);
                 
-                // Thresholding: Create distinct cloud shapes
-                float cVal = smoothstep(0.4, 0.7, n);
+                // Soft volumetric cloud density curves
+                float cloudDensity = smoothstep(0.38, 0.72, n);
+                float shadowRim = smoothstep(0.35, 0.45, n) * (1.0 - cloudDensity) * 0.3; // Volumetric rim shadow
                 
                 // SUPPRESSION
                 float allowed = texture2D(uSuppressionMask, uv).r;
                 
-                // Apply global alpha
-                float finalAlpha = cVal * alpha * allowed;
+                // Final Alpha & Shaded Color
+                float finalAlpha = cloudDensity * alpha * allowed;
+                vec3 cloudShade = mix(color * 0.75, color, smoothstep(0.4, 0.8, n));
+                cloudShade = mix(cloudShade, vec3(0.0), shadowRim);
                 
                 // Blend with scene
-                vec3 finalColor = mix(texColor.rgb, color, finalAlpha);
+                vec3 finalColor = mix(texColor.rgb, cloudShade, finalAlpha);
                 gl_FragColor = vec4(finalColor, texColor.a);
             }
         `;

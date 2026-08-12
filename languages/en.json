@@ -1,12 +1,88 @@
 {
+    "Delete": "Delete",
+    "Browse": "Browse",
+    "Clear": "Clear",
+    "Add Phase": "Add Phase",
+    "Save & Apply": "Save & Apply",
     "PDNC": {
         "Save": "Save",
         "Cancel": "Cancel",
         "Edit": "Edit",
         "Export": "Export",
         "Import": "Import",
+        "NoData": "No data available.",
         "SettingVisibleName": "Show Clock",
         "SettingVisibleHint": "Toggles the visibility of the Day/Night clock.",
+        "TimeDialog": {
+            "Title": "Adjust Time & System Date",
+            "Header": "Master Time Control & System Synchronization",
+            "Subheader": "Precisely adjust your world's date and time and sync it with the Pathfinder 2e system.",
+            "PDNCDate": "PDNC Master Date",
+            "SystemDate": "Pathfinder 2e World Time",
+            "Year": "Year (e.g., 4720)",
+            "Month": "Month",
+            "Day": "Day",
+            "Hour": "Hour (0-23)",
+            "Minute": "Minute (0-59)",
+            "QuickAdjust": "Quick Step",
+            "ApplyMasterTime": "Apply Date & Time to World",
+            "SyncPF2eBtn": "Sync with PF2e",
+            "SyncPF2eHint": "Synchronizes the PF2e World Clock settings directly with the entered date.",
+            "PF2eHintText": "<strong>Tip for Pathfinder 2e:</strong> If the PF2e window still differs, click 'Sync with PF2e' above or adjust the creation date in Pathfinder 2e System Settings ('World Clock')."
+        },
+        "SyncDialog": {
+            "WindowTitle": "PF2e \u2194 PDNC Time Synchronization",
+            "Title": "Compare & Synchronize Times",
+            "Subtitle": "See the difference between the PF2e World Clock and PDNC \u2014 and sync them with one click.",
+            "SystemLabel": "PF2e World Clock",
+            "MasterSource": "PDNC Calendar & Offsets",
+            "AlreadyInSync": "Both systems are in sync.",
+            "OutOfSync": "Date / time differs. Synchronization recommended.",
+            "SafetyNote": "<strong>Safety & Note:</strong> Synchronization only adjusts the PF2e 'World Created On' timestamp. <code>game.time.worldTime</code> is never changed (all events, effects, and data are preserved). Note: Adjusting the week start offset may shift the weekday display in PDNC accordingly.",
+            "SyncButton": "Synchronize PF2e Now",
+            "RefreshButton": "Refresh",
+            "WeekdayMismatch": "Weekday does not match!",
+            "FixWeekdayButton": "Fix Weekday"
+        },
+        "Wizard": {
+            "Title": "Welcome to Phils Day & Night Cycle",
+            "Subtitle": "Let's set up your calendar and weather system.",
+            "Step1Title": "Calendar Setup",
+            "Saved": "Configuration saved!",
+            "Step2Title": "Date & Time",
+            "Step3Title": "Settings & Permissions",
+            "Finish": "Complete Setup",
+            "ImportSystemDate": "Import Live Date & Time from PF2e / World Clock",
+            "Calendar": {
+                "Golarion": {
+                    "Description": "Pathfinder 2e Golarion Calendar (Age of Lost Omens).",
+                    "Months": {
+                        "Abadius": "Abadius",
+                        "Calistril": "Calistril",
+                        "Pharast": "Pharast",
+                        "Gozran": "Gozran",
+                        "Desnus": "Desnus",
+                        "Sarenith": "Sarenith",
+                        "Erastus": "Erastus",
+                        "Arodus": "Arodus",
+                        "Rova": "Rova",
+                        "Lamashan": "Lamashan",
+                        "Neth": "Neth",
+                        "Kuthona": "Kuthona"
+                    },
+                    "Weekdays": {
+                        "Moonday": "Moonday",
+                        "Toilday": "Toilday",
+                        "Wealday": "Wealday",
+                        "Oathday": "Oathday",
+                        "Fireday": "Fireday",
+                        "Starday": "Starday",
+                        "Sunday": "Sunday"
+                    }
+                }
+            }
+        },
+
         "SettingPostXName": "Position X",
         "SettingPosYName": "Position Y",
         "SettingTimeOffsetName": "Time Offset (Minutes)",
@@ -58,6 +134,8 @@
         "SettingClimateZoneHint": "Select the dominant climate for daily weather generation.",
         "SettingAutoLightingName": "Automatic Lighting",
         "SettingAutoLightingHint": "Automatically adjust scene darkness based on climate and time of day.",
+        "SettingEnableMoonLightingName": "Enable Moon Lighting",
+        "SettingEnableMoonLightingHint": "Adjust nighttime darkness dynamically based on moon phases and lunar illumination.",
         "SettingSeasonConfigName": "Season Configuration",
         "SettingSeasonConfigHint": "Configure the start dates for each season.",
         "OpenSeasonConfig": "Configure Seasons",
@@ -151,6 +229,12 @@
         "TimeHour": "Hour",
         "TimeDay": "Day",
         "ToggleClock": "Toggle Clock (Right-Click: Orientation)",
+        "Orientation": "Orientation",
+        "OrientAbove": "Above Control Panel (Top)",
+        "OrientLeft": "Left of Control Panel",
+        "OrientAuto": "Automatic (Smart)",
+        "OrientRight": "Right of Control Panel",
+        "OrientBelow": "Below Control Panel (Bottom)",
         "OpenCalendar": "Open Calendar",
         "OpenTimeMachine": "Open Time Navigation",
         "Keybinding": {
@@ -221,6 +305,10 @@
         "Date": "Date",
         "TimeMachineHelp": "Teleports the entire world to the selected date. Interact with care!",
         "TimeMachineTitle": "Time Machine",
+        "ClimateWizard": {
+            "Title": "Climate Data Wizard",
+            "ToolTitle": "Climate Data Wizard"
+        },
         "NextSunriseSunset": "Next Sunrise/Sunset",
         "SetWorldTime": "Set World Time",
         "WeatherConfig": {

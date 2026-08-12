@@ -1,12 +1,49 @@
 {
+    "Delete": "Löschen",
+    "Browse": "Durchsuchen",
+    "Clear": "Leeren",
+    "Add Phase": "Phase hinzufügen",
+    "Save & Apply": "Speichern & Anwenden",
     "PDNC": {
         "Save": "Speichern",
         "Cancel": "Abbrechen",
         "Edit": "Bearbeiten",
         "Export": "Exportieren",
         "Import": "Importieren",
+        "NoData": "Keine Daten vorhanden.",
         "SettingVisibleName": "Uhr anzeigen",
         "SettingVisibleHint": "Schaltet die Sichtbarkeit der Tag/Nacht-Uhr um.",
+        "TimeDialog": {
+            "Title": "Zeit- & System-Datum anpassen",
+            "Header": "Master-Zeitsteuerung & System-Synchronisation",
+            "Subheader": "Passe Datum und Uhrzeit deiner Welt exakt an und glich sie mit dem Pathfinder 2e System ab.",
+            "PDNCDate": "PDNC Master-Datum",
+            "SystemDate": "Pathfinder 2e Weltzeit",
+            "Year": "Jahr (z.B. 4720)",
+            "Month": "Monat",
+            "Day": "Tag",
+            "Hour": "Stunde (0-23)",
+            "Minute": "Minute (0-59)",
+            "QuickAdjust": "Schnell-Anpassung",
+            "ApplyMasterTime": "Datum & Uhrzeit auf Welt anwenden",
+            "SyncPF2eBtn": "Mit PF2e abgleichen",
+            "SyncPF2eHint": "Synchronisiert die PF2e-Weltuhr-Einstellungen direkt mit dem eingegebenen Datum.",
+            "PF2eHintText": "<strong>Tipp für Pathfinder 2e:</strong> Falls das PF2e-Fenster noch abweicht, klicke oben auf 'Mit PF2e abgleichen' oder passe in den Pathfinder 2e Systemeinstellungen ('Weltuhr') das Erstellungsdatum an."
+        },
+        "SyncDialog": {
+            "WindowTitle": "PF2e ↔ PDNC Zeitsynchronisation",
+            "Title": "Zeiten vergleichen & synchronisieren",
+            "Subtitle": "Sieh den Unterschied zwischen der PF2e-Weltuhr und PDNC – und gleiche sie mit einem Klick an.",
+            "SystemLabel": "PF2e Weltuhr",
+            "MasterSource": "PDNC Kalender & Offsets",
+            "AlreadyInSync": "Beide Systeme sind synchronisiert.",
+            "OutOfSync": "Datum / Uhrzeit weicht ab. Synchronisation empfohlen.",
+            "SafetyNote": "<strong>Sicherheit & Hinweis:</strong> Beim Synchronisieren wird nur die PF2e \"Erstellungszeit der Welt\" angepasst. <code>game.time.worldTime</code> bleibt unverändert (alle Events, Effekte und Quests bleiben erhalten). Beachte: Durch Anpassen des Wochenstarts kann sich die Wochentags-Anzeige in PDNC entsprechend verschieben.",
+            "SyncButton": "PF2e jetzt synchronisieren",
+            "RefreshButton": "Aktualisieren",
+            "WeekdayMismatch": "Wochentag weicht ab (PF2e nutzt echte ISO-Wochentage, kein eigenes Offset-Setting)",
+            "FixWeekdayButton": "PDNC Wochenstart angleichen"
+        },
         "Wizard": {
             "Title": "Willkommen bei Phils Tag- & Nachtzyklus",
             "Subtitle": "Lass uns dein Kalender- und Wettersystem einrichten.",
@@ -20,6 +57,91 @@
             "DateHint": "Stellen Sie das aktuelle Datum und die Uhrzeit für Ihre Welt ein.",
             "RestartWizardLabel": "Setup Assistent neu starten",
             "RestartWizardHint": "Startet den initialen Setup-Assistenten erneut, um das Modul von Grund auf neu zu konfigurieren.",
+            "ImportSystemDate": "Live-Datum & Zeit aus PF2e / Weltuhr übernehmen",
+            "Calendar": {
+                "Golarion": {
+                    "Description": "Pathfinder 2e Golarion-Kalender (Zeitalter der Verlorenen Omen).",
+                    "Months": {
+                        "Abadius": "Abadius",
+                        "Calistril": "Calistril",
+                        "Pharast": "Pharast",
+                        "Gozran": "Gozran",
+                        "Desnus": "Desnus",
+                        "Sarenith": "Sarenith",
+                        "Erastus": "Erastus",
+                        "Arodus": "Arodus",
+                        "Rova": "Rova",
+                        "Lamashan": "Lamashan",
+                        "Neth": "Neth",
+                        "Kuthona": "Kuthona"
+                    },
+                    "Weekdays": {
+                        "Moonday": "Mondtag",
+                        "Toilday": "Mühsamtag",
+                        "Wealday": "Wohltag",
+                        "Oathday": "Schwurtag",
+                        "Fireday": "Feuertag",
+                        "Starday": "Sterntag",
+                        "Sunday": "Sonntag"
+                    }
+                },
+                "Gregorian": {
+                    "Description": "Standardmäßiger realer Gregorianischer Kalender.",
+                    "Months": {
+                        "January": "Januar",
+                        "February": "Februar",
+                        "March": "März",
+                        "April": "April",
+                        "May": "Mai",
+                        "June": "Juni",
+                        "July": "Juli",
+                        "August": "August",
+                        "September": "September",
+                        "October": "Oktober",
+                        "November": "November",
+                        "December": "Dezember"
+                    },
+                    "Weekdays": {
+                        "Monday": "Montag",
+                        "Tuesday": "Dienstag",
+                        "Wednesday": "Mittwoch",
+                        "Thursday": "Donnerstag",
+                        "Friday": "Freitag",
+                        "Saturday": "Samstag",
+                        "Sunday": "Sonntag"
+                    }
+                },
+                "Harptos": {
+                    "Description": "D&D 5e Harptos-Kalender (Vergessene Reiche).",
+                    "Months": {
+                        "Hammer": "Hammer",
+                        "Alturiak": "Alturiak",
+                        "Ches": "Ches",
+                        "Tarsakh": "Tarsakh",
+                        "Mirtul": "Mirtul",
+                        "Kythorn": "Kythorn",
+                        "Flamerule": "Flammeriegel",
+                        "Eleasis": "Eleasis",
+                        "Eleint": "Eleint",
+                        "Marpenoth": "Marpenoth",
+                        "Uktar": "Uktar",
+                        "Nightal": "Nachtal"
+                    },
+                    "Weekdays": {
+                        "Firstday": "Erster Tag",
+                        "Seconday": "Zweiter Tag",
+                        "Thirdday": "Dritter Tag",
+                        "Middleday": "Mittag",
+                        "Fifthday": "Fünfter Tag",
+                        "Sixthday": "Sechster Tag",
+                        "Seventhday": "Siebter Tag",
+                        "Eighthday": "Achter Tag",
+                        "Ninthday": "Neunter Tag",
+                        "Tenthday": "Zehnter Tag"
+                    }
+                }
+            },
+
             "Climates": {
                 "ice_cap": "Eiswüstenklimate",
                 "marine_west_coast": "Westseitenklimate",
@@ -89,6 +211,8 @@
         "SettingClimateZoneHint": "Wähle das vorherrschende Klima für die tägliche Wettergenerierung.",
         "SettingAutoLightingName": "Automatische Beleuchtung",
         "SettingAutoLightingHint": "Passt die Helligkeit der Szene automatisch basierend auf Klima und Tageszeit an.",
+        "SettingEnableMoonLightingName": "Mondbeleuchtung aktivieren",
+        "SettingEnableMoonLightingHint": "Passt die Dunkelheit bei Nacht dynamisch an die Mondphasen und das Mondlicht an.",
         "SettingSeasonConfigName": "Jahreszeiten-Konfiguration",
         "SettingSeasonConfigHint": "Konfigurieren Sie den Startzeitpunkt der Jahreszeiten.",
         "OpenSeasonConfig": "Jahreszeiten konfigurieren",
@@ -182,6 +306,12 @@
         "TimeHour": "Std",
         "TimeDay": "Tag",
         "ToggleClock": "Uhr einklappen/ausklappen (Rechtsklick: Ausrichtung)",
+        "Orientation": "Ausrichtung",
+        "OrientAbove": "Über dem Bedienfeld (Oben)",
+        "OrientLeft": "Links vom Bedienfeld",
+        "OrientAuto": "Automatisch (Smart)",
+        "OrientRight": "Rechts vom Bedienfeld",
+        "OrientBelow": "Unter dem Bedienfeld (Unten)",
         "OpenCalendar": "Kalender öffnen",
         "OpenTimeMachine": "Zeit-Navigation öffnen",
         "Keybinding": {
@@ -250,6 +380,10 @@
         "Date": "Datum",
         "TimeMachineHelp": "Teleportiert die gesamte Welt zum gewählten Datum. Mit Vorsicht benutzen!",
         "TimeMachineTitle": "Zeitmaschine",
+        "ClimateWizard": {
+            "Title": "Klima-Assistent",
+            "ToolTitle": "Klima-Assistent"
+        },
         "NextSunriseSunset": "Nächster Sonnenauf-/untergang",
         "SetWorldTime": "Weltzeit setzen",
         "WeatherConfig": {
@@ -650,7 +784,7 @@
             "Generic": {
                 "Title": "Allgemeine Wetterfolgen",
                 "WetVisibility": "Sichtlinien werden kürzer und offene Flächen werden rutschig.",
-                "WetExposure": "Längere Reisen können Ausrüstung, Kleidung und Lagerplätze durchn?ssen.",
+                "WetExposure": "Längere Reisen können Ausrüstung, Kleidung und Lagerplätze durchnässen.",
                 "StormWind": "Starker Wind erschwert Geschosse, Gehör, offene Flammen und fragiles Lager.",
                 "Lightning": "Freies Gelände, Anhöhen und ungeschützte Reisewege werden besonders gefährlich.",
                 "SnowGround": "Schnee kann Bewegung bremsen, Spuren verdecken und Wege schwerer lesbar machen.",
@@ -660,6 +794,37 @@
                 "Steam": "Dunst und Dampf können selbst offenes Gelände als Deckung wirken lassen.",
                 "Cold": "Kälte wird für alle ohne trockene Kleidung, Schutz oder regelmäßige Wärmepausen zum Problem.",
                 "Heat": "Hitzestress zermürbt lange Märsche, schwere Arbeit und Reisen in Rüstung oder dicker Kleidung."
+            }
+        },
+        "Wizard": {
+            "Title": "Willkommen bei Phils Tag- & Nachtzyklus",
+            "Subtitle": "Lass uns dein Kalender- und Wettersystem einrichten.",
+            "Saved": "Konfiguration gespeichert!",
+            "Step1Title": "Kalender-Setup",
+            "Step2Title": "Datum & Zeit",
+            "Step3Title": "Einstellungen & Berechtigungen",
+            "Finish": "Setup abschließen",
+            "SyncName": "Pathfinder 2e synchronisieren",
+            "SyncHint": "Setzt den Datumsversatz automatisch auf 1.725.595, um mit Golarions AR 4700+ Ära übereinzustimmen.",
+            "DateHint": "Stelle das aktuelle Datum und die Uhrzeit für deine Spielwelt ein.",
+            "RestartWizardLabel": "Setup-Assistent neu starten",
+            "RestartWizardHint": "Startet den Setup-Assistenten erneut, um das Modul von Grund auf zu konfigurieren.",
+            "Climates": {
+                "ice_cap": "Eiskappe (Polare Wüste)",
+                "marine_west_coast": "Westseitenklima (Mittelmeer)",
+                "humid_subtropical": "Feuchte Subtropen",
+                "tundra": "Tundra",
+                "semiarid": "Semiarid (Steppe)",
+                "dry_savanna": "Trockene Savanne",
+                "boreal_forest": "Borealer Nadelwald (Taiga)",
+                "cold_desert": "Kalte Wüste",
+                "wet_savanna": "Feuchtsavanne",
+                "humid_continental": "Feuchtes Kontinentalklima",
+                "hot_desert": "Heiße Wüste",
+                "tropical_rainforest": "Tropischer Regenwald",
+                "temperate_rainforest": "Gemäßigter Regenwald",
+                "thorn_savanna": "Dornsavanne",
+                "highland": "Hochland (Alpin)"
             }
         }
     }

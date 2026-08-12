@@ -233,65 +233,21 @@ export class LightingSystem {
 
 
     static calculateMoonBrightness(currentMinutes, moonData, noonMinutes) {
-        // 1. Calculate Peak Time (Moon Zenith)
-        // Formula: Peak = Noon + Offset
-        // Example: Full Moon (+12h) -> Peak = Noon + 12h = Midnight
         const offsetMinutes = moonData.phase.solar_offset_hours * 60;
-        let peakParams = noonMinutes + offsetMinutes;
-        
-        // Normalize to 0-1440 cycle for distance check
-        // But for "Window" check, it's easier to keep absolute relative to noon and unwrap currentMinutes
-        
+        const peakParams = noonMinutes + offsetMinutes;
         const dayLength = 1440;
-        
-        // Define Visibility Window (Rise to Set)
-        // Assuming ~12 hours visibility (Rise 6h before peak, Set 6h after)
-        const riseMinutes = peakParams - 360; // -6h
-        const setMinutes = peakParams + 360;  // +6h
-        
-        // We need to check if 'currentMinutes' is inside [riseMinutes, setMinutes]
-        // Handling wrapping: simpler to "unwrap" currentMinutes relative to the window
-        
-        let adjustedCurrent = currentMinutes;
-        
-        // If the window wraps around a day boundary, we might need to check multiple versions of currentMinutes
-        // Strategy: Normalize everything relative to Noon being 0 for easier math? 
-        // Or simpler: Check distance from Peak.
-        
-        // Distance from Peak (Shortest path on 1440 circle)
-        // 1. Normalize Peak to 0-1440
+
         let normalizedPeak = peakParams % dayLength; 
         if (normalizedPeak < 0) normalizedPeak += dayLength;
-        
+
         let dist = Math.abs(currentMinutes - normalizedPeak);
-        if (dist > 720) dist = 1440 - dist; // Wrap around distance
-        
-        // 2. Check Height (Intensity)
-        // If distance < 360 (6 hours), it is "up".
-        // 0 distance = Zenith (100%)
-        // 360 distance = Horizon (0%)
-        
+        if (dist > 720) dist = 1440 - dist;
+
         if (dist >= 360) return 0.0;
-        
-        // 3. Calculate Intensity Factor (Sine Wave for smooth arc)
-        // cos(0) = 1, cos(PI/2) = 0.
-        // Map dist 0..360 -> 0..PI/2
+
         const rad = (dist / 360) * (Math.PI / 2);
         const heightFactor = Math.cos(rad);
-        
-        // 4. Apply Phase Max Illumination
-        // e.g. Full Moon (0.3) * heightFactor
-        
-        // 5. Sun Glare Rule (Optional but requested)
-        // If Moon is effectively "New Moon" or very close to Sun, it's invisible.
-        // The Solar Offset itself tells us distance from sun.
-        // 0 = New Moon (With Sun). 12 = Full Moon (Opposite).
-        // If offset is small (< 2h?), brightness is negligible anyway (New Moon is 0.0).
-        // Our MOON_DATA.phases already handle this:
-        // New Moon has illumination 0.0.
-        // Waxing Crescent (4h offset) has 0.05.
-        // So explicit glare check might be redundant for brightness, but good for completeness.
-        
+
         return moonData.phase.illumination * heightFactor;
     }
 
@@ -311,9 +267,13 @@ export class LightingSystem {
         const dayLength = 86400;
         const timeOffset = game.settings.get(MODULE_ID, "timeOffset") || 0;
         const adjustedTime = worldTime + (timeOffset * 60);
-
         const currentSeconds = ((adjustedTime % dayLength) + dayLength) % dayLength;
+
+
         const currentMinutes = Math.floor(currentSeconds / 60);
+
+
+
 
         const dawn = this.parseTime(params.dawn);
         const noon = this.parseTime(params.noon);
@@ -464,31 +424,11 @@ export class LightingSystem {
                 const delta = Math.abs(currentDarkness - darkness);
                 const willUpdate = delta > 0.005;
 
-                console.groupCollapsed(
-                    `%cPDNC | 🌗 Lighting @ ${hh}:${mm}  →  target: ${darkness.toFixed(4)}  ${willUpdate ? "✅ UPDATE" : "⏭ skipped (no change)"}`,
-                    `color: ${willUpdate ? "#7dffb3" : "#888"}; font-weight: bold;`
-                );
-                console.log(`  🕐 Time            : ${hh}:${mm} (${currentMinutes} min)`);
-                console.log(`  ☀️  Dawn/Noon/Dusk/Night : ${params?.dawn ?? "?"} / ${params?.noon ?? "?"} / ${params?.dusk ?? "?"} / ${params?.night ?? "?"}`);
-                console.log(`  🌙 Moon phase      : ${moonPhaseLabel}  (illumination: ${moonIllumination.toFixed(3)})`);
-                console.log(`  🌙 Moon dim        : ${moonDim.toFixed(4)}`);
-                console.log(`  📖 Read via        : ${readPath}  →  current: ${currentDarkness.toFixed(4)}`);
-                console.log(`  🔆 Darkness        : ${currentDarkness.toFixed(4)}  →  ${darkness.toFixed(4)}  (Δ ${delta.toFixed(4)})`);
-                console.log(`  🔧 Foundry version : v${game.release?.generation ?? "?"}`);
-                console.groupEnd();
-
-                // Apply update only if darkness changed meaningfully
                 if (willUpdate) {
-                    const updateData = {};
-                    const gen = game.release?.generation ?? 0;
-
-                    if (gen >= 12) {
-                        updateData["environment.darknessLevel"] = darkness;
-                        updateData["darkness"] = darkness;
-                    } else {
-                        updateData["darkness"] = darkness;
-                    }
-
+                    const updateData = {
+                        "environment.darknessLevel": darkness,
+                        "darkness": darkness
+                    };
                     await canvas.scene.update(updateData);
                 }
             }

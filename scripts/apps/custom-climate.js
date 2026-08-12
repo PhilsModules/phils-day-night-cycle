@@ -99,13 +99,8 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
             lighting: lighting,
             fxChoices: fxChoices,
             strategyChoices: strategyChoices,
-            activeSeason: this.tabGroups?.seasons || "spring",
-            tabs: this._getTabs() 
+            activeSeason: this.tabGroups?.seasons || "spring"
         };
-    }
-    
-    _getTabs() {
-        return {};
     }
 
     // Define tab groups for the mixin to handle active state
@@ -122,7 +117,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 width: 450,
                 height: "auto"
             },
-            classes: ["pdnc-app", "standard-form"],
+            classes: ["pdnc-app-v2", "pdnc-custom-climate-window", "standard-form"],
             actions: {
                 create: CustomClimateApp.prototype._onCreate,
                 edit: CustomClimateApp.prototype._onEdit,
@@ -149,11 +144,6 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 scrollable: [".content"]
             }
         };
-    }
-
-    async render(options) {
-        if (typeof options === "boolean") options = { force: options };
-        return super.render(options);
     }
 
     async _onCreate(event, target) {
@@ -278,11 +268,9 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     async _onAddRow(event, target) {
-        console.log("PDNC | Adding row for season:", target.dataset.season);
         this._updateTempDataFromForm();
         const season = target.dataset.season;
         
-        // Ensure initialized if missing (e.g. if form data was empty)
         if (this.tempData && !this.tempData.data.seasons[season]) {
             this.tempData.data.seasons[season] = [];
         }
@@ -293,10 +281,7 @@ export class CustomClimateApp extends HandlebarsApplicationMixin(ApplicationV2) 
                 temp: { minC: 10, maxC: 20, minF: 50, maxF: 68 },
                 fx: []
             });
-            console.log("PDNC | New season data:", this.tempData.data.seasons[season]);
             this.render();
-        } else {
-             console.error("PDNC | Failed to add row, data missing", this.tempData);
         }
     }
 

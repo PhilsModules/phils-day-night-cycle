@@ -452,7 +452,7 @@ export class SimpleCalendarMigrationApp extends HandlebarsApplicationMixin(Appli
     static DEFAULT_OPTIONS = {
         tag: "form",
         id: "pdnc-simple-calendar-migration",
-        classes: ["pdnc-app"],
+        classes: ["pdnc-app-v2", "pdnc-migration-window"],
         window: {
             title: "PDNC.SimpleCalendarMigration.Title",
             icon: "fas fa-right-left",

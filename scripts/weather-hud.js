@@ -26,7 +26,7 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     static DEFAULT_OPTIONS = {
         id: "weather-hud",
         tag: "form",
-        classes: ["pdnc-weather-window"],
+        classes: ["pdnc-app-v2", "pdnc-weather-window"],
         window: {
             resizable: true,
             title: "PDNC.WeatherPreview",
@@ -55,46 +55,35 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
     async _onRender(context, options) {
         super._onRender(context, options);
         
-        // Sync Icon State
         if (window.PhilsDayNightCycle && window.PhilsDayNightCycle.setPreviewIconState) {
             window.PhilsDayNightCycle.setPreviewIconState(true);
         }
-        // PDNC HUD | _onRender called
 
-        // Always ensure container fills the window frame to allow resizing
         const container = this.element.querySelector('#weather-preview-box');
         if (container) {
             container.style.width = "100%";
             container.style.height = "100%";
         }
 
-        // Restore State (Position, Size, Paused)
         const state = game.settings.get(MODULE_ID, "weatherPreviewState");
         if (state) {
-            // Restore Size
             if (state.width && state.height) {
-                 // Also set window frame size if needed, but frameless handles mostly via content
                  this.setPosition({ width: state.width, height: state.height });
             }
 
-            // Restore Position
             if (state.x !== null && state.y !== null) {
                  this.setPosition({ left: state.x, top: state.y });
             }
         }
         
-        // Update Saved State: Open = true
         this._saveState({ open: true });
 
-        // Initialize PIXI App for Preview if not exists
         if (!this.pixiApp) {
              this._initPreview();
         }
 
-        // Bind Global Toggle Button
         const globalBtn = this.element.querySelector('.weather-global-btn');
         if (globalBtn) {
-            // Set Initial State
             const currentMode = game.settings.get(MODULE_ID, "weatherDisplayMode");
             if (currentMode === "global") globalBtn.classList.add("active");
 
@@ -102,19 +91,15 @@ export class WeatherHUD extends HandlebarsApplicationMixin(ApplicationV2) {
                 e.stopPropagation();
                 
                 const isGlobal = globalBtn.classList.contains("active");
-                const newMode = isGlobal ? "window" : "global"; // Toggle
+                const newMode = isGlobal ? "window" : "global";
                 
-                // Update UI immediately for responsiveness
                 if (newMode === "global") globalBtn.classList.add("active");
                 else globalBtn.classList.remove("active");
 
-                // Log:("PDNC HUD | Mode switched to:", newMode);
                 await game.settings.set(MODULE_ID, "weatherDisplayMode", newMode);
                 
-                // Trigger local refresh immediately
                 const weather = game.settings.get(MODULE_ID, "currentWeather");
                 if (weather && weather.fx) {
-                    // Update global canvas visibility
                     WeatherEffectsRegistry.applyWeatherFilters(weather.fx);
                 }
             });

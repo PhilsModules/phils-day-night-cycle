@@ -1,47 +1,27 @@
-import { RuntimeTexturePacker } from "./texture-packer.js";
-
-/**
- * Custom Particle Engine for Phil's Day&Night Cycle
- * Renders custom sprites (Leaves, Insects, Runes) using PIXI.ParticleContainer for performance.
- */
 export class ParticleEngine extends PIXI.Container {
     constructor(config, targetContainer = null, ticker = null) {
         super();
         this.config = config;
         this.particles = [];
-        this.textures = []; // Array of valid textures
+        this.textures = [];
         this.validTextures = [];
-        this.targetContainer = targetContainer; // Optional specific target
+        this.targetContainer = targetContainer;
         this.customTicker = ticker;
         
-        // We use canvas.app.ticker for better synchronization with Foundry, unless provided
         this._tickHandler = this.animate.bind(this);
         
         this.init();
         
-        // Fix: Explicitly disable interaction so clicks pass through to canvas
         this.eventMode = 'none';
         this.interactive = false;
         this.interactiveChildren = false;
         
-        // Performance: Use ParticleContainer
         this.particleContainer = null;
         this.usingAtlas = false;
-        this._destroyed = false; // Track destruction state
+        this._destroyed = false;
     }
 
     async init() {
-        // PDNC | Custom Particle Engine Init | Type:", this.config.type
-        
-        // If we are strictly on the main canvas weather layer (default behavior if no target or target is weather)
-        // Ensure visibility.
-        // CHANGE: Do NOT force visibility if we are about to hide it in the manager. 
-        // In fact, if we are custom, we often want the default layer HIDDEN.
-        // if (!this.targetContainer && canvas.weather) {
-        //      canvas.weather.visible = true;
-        //      canvas.weather.alpha = 1.0;
-        // }
-
         let targetAssets = [];
 
         if (this.config.type === "leaf") {
@@ -122,50 +102,13 @@ export class ParticleEngine extends PIXI.Container {
 
         await Promise.all(promises);
 
-        // RACE CONDITION CHECK: If engine was destroyed while loading, stop.
         if (this._destroyed) {
             return;
         }
 
         if (this.validTextures.length > 0) {
-            // Log:(`PDNC | Loaded ${this.validTextures.length} textures for ${this.config.type}. Attempting Atlas Packing...`);
-
-            // --- PACKING START ---
-            // NOTE: Atlas Packing (ParticleContainer) is disabled for stability.
-            // It caused invisible particles on some clients. 
-            // Standard PIXI.Container handles < 2000 sprites fine.
-            /*
-            try {
-                const packed = await RuntimeTexturePacker.pack(this.validTextures);
-                if (packed) {
-                    this.atlasTexture = packed.texture;
-                    this.atlasFrames = []; 
-                    
-                    for (const [oldTex, rect] of packed.frames) {
-                        const t = new PIXI.Texture(this.atlasTexture, rect);
-                        this.atlasFrames.push(t);
-                    }
-
-                    this.particleContainer = new PIXI.ParticleContainer(10000, {
-                        scale: true, position: true, rotation: true, uvs: true, alpha: true, tint: true
-                    });
-                    
-                    if (this.config.blendMode === "add") this.particleContainer.blendMode = PIXI.BLEND_MODES.ADD;
-                    else if (this.config.blendMode === "screen") this.particleContainer.blendMode = PIXI.BLEND_MODES.SCREEN;
-
-                    this.addChild(this.particleContainer);
-                    this.usingAtlas = true;
-                    // Log:("PDNC | Texture Atlas Created & ParticleContainer initialized.");
-                }
-            } catch (e) {
-                console.error("PDNC | Texture Packing Failed:", e);
-            }
-            */
-            // --- PACKING END ---
-
             this.spawnParticles();
             
-            // Start Ticker
             this.lastTime = performance.now();
             const ticker = this.customTicker || canvas.app.ticker;
             ticker.add(this._tickHandler);
@@ -218,18 +161,11 @@ export class ParticleEngine extends PIXI.Container {
         const areaStandard = 1920 * 1080;
         const areaCurrent = bounds.w * bounds.h;
         const areaRatio = areaCurrent / areaStandard;
-        
         const scaleFactor = areaRatio; 
         const baseCount = (this.config.density || 0.5) * densityMultiplier;
         
-        // High Performance Mode: We can afford MORE particles if using Atlas!
-        // But stick to original logic for consistency unless user asked for MORE.
-        // User asked for "improvement without reducing density". This implies stability.
-        
         let count = Math.floor(baseCount * scaleFactor);
         
-        // Ensure at least 1 particle if density suggests we should have some, 
-        // especially for Preview Window (small area)
         if (baseCount >= 1 && count < 1) {
             count = 1;
         }
@@ -372,10 +308,13 @@ export class ParticleEngine extends PIXI.Container {
             p.y = initial ? Math.random() * bounds.h : -100;
         }
 
-        // Scale
+        // Scale & Parallax Depth (Foreground vs Background variation)
+        const depth = 0.5 + Math.random() * 0.7; // 0.5 (far) to 1.2 (near)
+        p._depthSpeed = depth;
+        
         const scaleFactor = this.getScaleFactor();
         const baseConfigScale = this.config.scale || 1.0;
-        const randomVariation = (0.8 + Math.random() * 0.4);
+        const randomVariation = (0.8 + Math.random() * 0.4) * (0.75 + depth * 0.35);
         const baseScale = baseConfigScale * randomVariation;
 
         p._baseScale = baseScale; // Store for resizing
@@ -383,11 +322,12 @@ export class ParticleEngine extends PIXI.Container {
         // Apply Resolution Scale
         p.scale.set(baseScale * scaleFactor);
 
-        // Alpha
+        // Alpha (Background particles are slightly softer)
+        const depthAlphaMod = 0.6 + (depth * 0.4);
         if (this.config.lifespan) {
              p.alpha = 0; // Start invisible, fade in via animate()
         } else {
-             p.alpha = (this.config.alpha ?? 1.0) * (0.6 + Math.random() * 0.4);
+             p.alpha = (this.config.alpha ?? 1.0) * (0.6 + Math.random() * 0.4) * depthAlphaMod;
         }
 
         // Tint
@@ -503,12 +443,7 @@ export class ParticleEngine extends PIXI.Container {
     }
 
     animate(deltaInput) {
-        // Fix: Allow animation if we have a specific target (Preview Window) 
-        // OR if global weather is visible.
-        
-        // GLOBAL PAUSE CHECK
-        // GLOBAL PAUSE CHECK
-        // Safety: Check if setting exists to prevent "not a registered setting" crash on early ticks
+        // Global pause check
         if (game.settings.settings.has("phils-day-night-cycle.weatherPaused")) {
             if (game.settings.get("phils-day-night-cycle", "weatherPaused")) {
                  return; 
@@ -518,21 +453,13 @@ export class ParticleEngine extends PIXI.Container {
         if (!this.visible) return;
         if (!this.targetContainer && (!canvas.weather || !canvas.weather.visible)) return;
 
-        // Robust Time-Based Delta
         const now = performance.now();
         if (!this.lastTime) this.lastTime = now;
         const dtMS = now - this.lastTime;
         this.lastTime = now;
 
-        // Convert MS to "Frame Units" (approx 1.0 at 60fps / 16.6ms)
-        // dtMS * 0.06 => 16.6 * 0.06 ~= 1.0
         let delta = dtMS * 0.06;
-        
-        // Safety cap for lag spikes (max 3 frames)
         if (delta > 3.0) delta = 3.0;
-        // Safety min to prevent zero-updates
-        if (delta < 0.01) delta = 0.01;
-
         if (delta < 0.01) delta = 0.01;
 
         const bounds = this.getBounds();
@@ -545,13 +472,18 @@ export class ParticleEngine extends PIXI.Container {
 
 
         for (const p of this.particles) {
-            p.x += p.vx * delta;
-            p.y += p.vy * delta;
+            const depthMult = p._depthSpeed || 1.0;
+            p.x += p.vx * delta * depthMult;
+            p.y += p.vy * delta * depthMult;
 
-            // Wobble effect (only if moving)
-            if ((this.config.speed ?? 1.0) > 0.1) {
+            // Organic Aerodynamic Swirl (leaves, snow, petals, ash, pollen)
+            if ((this.config.speed ?? 1.0) > 0.05 && this.config.type !== "rain" && this.config.type !== "custom_rain") {
                 p.wobble += p.wobbleSpeed * delta;
-                p.x += Math.sin(p.wobble) * 0.5;
+                // Dual harmonic sine/cosine swirl for realistic wind eddies
+                const swirlX = Math.sin(p.wobble) * 0.6 + Math.cos(p.wobble * 1.6) * 0.3;
+                const swirlY = Math.cos(p.wobble * 0.7) * 0.25;
+                p.x += swirlX * depthMult;
+                p.y += swirlY * depthMult;
             }
 
             // INSECT BEHAVIOR: Erratic Movement
@@ -734,13 +666,8 @@ export class ParticleEngine extends PIXI.Container {
      * Retrieves all active Regions with "Suppress Weather" behavior.
      * @returns {RegionDocument[]}
      */
-    /**
-     * Retrieves all active Regions with "Suppress Weather" behavior.
-     * @returns {RegionDocument[]}
-     */
     _getSuppressionRegions() {
         if (!canvas || !canvas.regions || !canvas.regions.placeables) {
-             // console.warn("PDNC DEBUG | No Canvas/Regions Layer found");
              return [];
         }
 
@@ -766,7 +693,8 @@ export class ParticleEngine extends PIXI.Container {
     destroy(options) {
         this._destroyed = true; 
         if (this._tickHandler) {
-            canvas.app.ticker.remove(this._tickHandler);
+            const ticker = this.customTicker || canvas?.app?.ticker;
+            if (ticker) ticker.remove(this._tickHandler);
             this._tickHandler = null;
         }
         

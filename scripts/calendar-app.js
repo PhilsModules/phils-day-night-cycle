@@ -6,6 +6,7 @@ import { CalendarDayViewer } from "./calendar-day-viewer.js";
 import { WeatherHUD } from "./weather-hud.js";
 import { LightingSystem } from "./lighting-system.js";
 import { CustomCalendarList } from "./apps/custom-calendar.js";
+import { PF2eSyncDialog } from "./apps/pf2e-sync-dialog.js";
 
 const MODULE_ID = "phils-day-night-cycle";
 
@@ -43,7 +44,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
     static DEFAULT_OPTIONS = {
         id: "phils-calendar-app",
         tag: "form",
-        classes: ["pdnc-calendar-window", "pdnc-event-editor-window"],
+        classes: ["pdnc-app-v2", "pdnc-calendar-window"],
         window: {
             resizable: true,
             width: 500,
@@ -51,7 +52,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         },
         position: {
             width: 500,
-            height: "auto"
+            height: 550
         },
         actions: {
             prevView: PhilsCalendarApp.prototype._onPrevView,
@@ -74,17 +75,24 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         }
     };
 
+    async _preClose(options) {
+        // _preClose is the correct ApplicationV2 hook for pre-removal cleanup/animation.
+        // It is awaited by the core close sequence, so an animation started here
+        // completes before the element is detached from the DOM.
+        if (this.element?.isConnected) {
+            await this.element.animate(
+                [{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(0.97)" }],
+                { duration: 120, easing: "ease-in", fill: "forwards" }
+            ).finished;
+        }
+        return super._preClose(options);
+    }
+
     /**
      * Override to set explicit dimensions based on view mode
      */
     _configureRenderOptions(options) {
         super._configureRenderOptions(options);
-        // If we want to adapt window size based on view
-        if (this.viewMode === 'year') {
-             // Wider for grid? 
-             // options.window.width = 800; // Example
-             // Stick to CSS handling resizing for now, flex grid
-        }
     }
 
     async _prepareContext(options) {
@@ -97,13 +105,15 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
         const currentDate = this.system.getDate(worldTime);
 
-        // Init view state if undefined
-        if (this.viewYear === undefined) this.viewYear = currentDate.year;
-        if (this.viewMonth === undefined) this.viewMonth = currentDate.month;
-
+        // Init view state if undefined or out of bounds
         const config = this.system.config;
-        const monthConfig = config.months[this.viewMonth];
-        const monthName = monthConfig.name;
+        if (this.viewYear === undefined) this.viewYear = currentDate.year;
+        if (this.viewMonth === undefined || this.viewMonth < 0 || this.viewMonth >= config.months.length) {
+            this.viewMonth = Math.min(Math.max(currentDate.month, 0), Math.max(config.months.length - 1, 0));
+        }
+
+        const monthConfig = config.months[this.viewMonth] || config.months[0] || { name: "", nameHtml: "" };
+        const monthName = monthConfig.nameHtml || monthConfig.name;
 
         // Context Data
         const context = {
@@ -271,7 +281,6 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                      if ((event.type === 'gm' || event.gmOnly) && !isGM) continue;
                      if (event.type === 'personal' && !isGM && event.author !== game.user.id) continue;
 
-                     // Determine class (copy-paste logic from map)
                      let cssClass = (event.type || 'event') + ' recurring';
                      let styleAttr = event.color ? `style="background-color: ${event.color}; border-color: ${event.color};"` : "";
                      
@@ -302,19 +311,13 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _prepareYearData(viewYear, currentDate) {
         const config = this.system.config;
         const months = [];
-        const savedEvents = await CalendarDB.getEvents(); // Optimization: Fetch once
-        // Note: For full year view, calculating recurrence for every day is heavy.
-        // We will only check explicit events for now, or lightweight check?
-        // Let's stick to explicit events for V1 of Year View to ensure performance.
+        const savedEvents = await CalendarDB.getEvents();
         
         for (let m = 0; m < config.months.length; m++) {
             const mName = config.months[m].name;
             const daysInMonth = this.system.getDaysInMonth(viewYear, m);
             const simpleDays = [];
 
-            // We need to know start weekday for the mini grid to align properly?
-            // Usually year view just lists days or has a mini grid. 
-            // Let's make it a proper mini grid.
             const totalDaysBefore = this._calculateTotalDaysBefore(viewYear, m);
             const weekdayOffset = game.settings.get(MODULE_ID, "weekdayOffset") || 0;
             const startWeekday = (totalDaysBefore + (config.weekdayStart || 0) + weekdayOffset) % config.weekdays.length;
@@ -459,7 +462,7 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
                      month: m,
                      day: d,
                      // Derived for display
-                     monthName: this.system.config.months[m].name,
+                     monthName: this.system.config.months[m] ? (this.system.config.months[m].nameHtml || this.system.config.months[m].name) : `Month ${m + 1}`,
                      weekday: this.system.getWeekdayName(y, m, d),
                      timestampRaw: this.system.getTimestamp(y, m, d)
                  });
@@ -495,8 +498,6 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         } else if (this.viewMode === 'year') {
             this.viewYear--;
         }
-        // List view doesn't really have "Prev" unless paginated, or maybe jump year? 
-        // For now list view is all events.
         
         this.render();
     }
@@ -628,8 +629,6 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         const targetDateKey = dateKey;
         const { year: tY, month: tM, day: tD } = parseDateKeyOrFallback(targetDateKey);
 
-        // Optimization: Pre-check if any recurring events exist to avoid empty loops if none
-        // but getting object keys is cheap
         for (const [key, eventList] of Object.entries(allSaved)) {
              if (key.startsWith("-=") || !Array.isArray(eventList)) continue;
              for (const event of eventList) {
@@ -662,12 +661,26 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
         
         // Open Read-Only Viewer with Edit Callback
         new CalendarDayViewer(dateKey, currentEvents, (indexToEdit) => {
+            if (indexToEdit === null) {
+                this._openEditor(dateKey, 'event');
+                return;
+            }
             const eventToEdit = currentEvents[indexToEdit];
-            this._openEditor(dateKey, 'event', eventToEdit);
+            const type = eventToEdit?.type || 'event';
+            this._openEditor(dateKey, type, eventToEdit);
         }, this.system).render(true);
     }
 
     async _openEditor(dateKey, type = 'event', existingEvent = null) {
+        const isQuest = type === 'quest' || existingEvent?.type === 'quest' || !!existingEvent?.documentId;
+        const pqtActive = game.modules.get("phils-quest-tracker")?.active || !!window.PhilsQuestTracker;
+
+        if (isQuest && pqtActive) {
+            if (this._openQuestTracker(existingEvent)) {
+                return;
+            }
+        }
+
         if (!game.user.isGM && !game.settings.get(MODULE_ID, "playerCreateEvents")) {
             ui.notifications.warn(game.i18n.localize("PDNC.Warning.NoPermission"));
             return;
@@ -677,254 +690,251 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
              this._handleSaveEvent(action, data, old, dateKey);
         }).render(true);
     }
-    
+
+    _openQuestTracker(existingEvent = null) {
+        const pqtActive = game.modules.get("phils-quest-tracker")?.active || !!window.PhilsQuestTracker;
+        if (!pqtActive) return false;
+
+        const docId = existingEvent?.documentId;
+
+        // 1. If a specific quest/document ID is linked:
+        if (docId) {
+            if (window.PhilsQuestTracker?.openQuest) {
+                window.PhilsQuestTracker.openQuest(docId);
+                return true;
+            }
+            const journal = game.journal.get(docId);
+            if (journal) {
+                journal.sheet.render(true);
+                return true;
+            }
+        }
+
+        // 2. Otherwise (or if specific quest not found), open Quest Tracker overview/log:
+        if (window.PhilsQuestTracker?.toggleQuestLog) {
+            window.PhilsQuestTracker.toggleQuestLog();
+            return true;
+        }
+
+        if (foundry?.applications?.instances) {
+            for (const app of foundry.applications.instances.values()) {
+                if (app.id === "phils-quest-log") {
+                    if (app.rendered) app.bringToTop();
+                    else app.render(true);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     async _handleSaveEvent(action, eventData, oldEvent, dateKey) {
-            // Fetch Current DB State
-            const currentSaved = await CalendarDB.getEvents(); // Reference to cache/object
+        // Fetch Current DB State
+        const currentSaved = await CalendarDB.getEvents(); // Reference to cache/object
+        
+        // Helper to match events (Robust matching for Delete/Update)
+        const isMatch = (e, evt) => {
+            if (!e || !evt) return false;
+            if (typeof e === 'string') {
+                const evtIsLegacy = !evt.timestamp;
+                return evtIsLegacy && e === evt.title && (!evt.type || evt.type === 'event');
+            }
+            if (e.timestamp && evt.timestamp) {
+                 return e.timestamp === evt.timestamp;
+            }
+            const r1 = e.recurring || 'none';
+            const r2 = evt.recurring || 'none';
+            const d1 = e.description || "";
+            const d2 = evt.description || "";
             
-            // Helper to match events (Robust matching for Delete/Update)
-            const isMatch = (e, evt) => {
-                if (!e || !evt) return false;
-                if (typeof e === 'string') {
-                    const evtIsLegacy = !evt.timestamp;
-                    return evtIsLegacy && e === evt.title && (!evt.type || evt.type === 'event');
-                }
-                if (e.timestamp && evt.timestamp) {
-                     return e.timestamp === evt.timestamp;
-                }
-                const r1 = e.recurring || 'none';
-                const r2 = evt.recurring || 'none';
-                const d1 = e.description || "";
-                const d2 = evt.description || "";
-                
-                if (e.title === evt.title && 
-                    d1 === d2 && 
-                    e.type === evt.type && 
-                    r1 === r2 &&
-                    e.author === evt.author) return true;
-                return false;
-            };
+            if (e.title === evt.title && 
+                d1 === d2 && 
+                e.type === evt.type && 
+                r1 === r2 &&
+                e.author === evt.author) return true;
+            return false;
+        };
 
-            const findIndex = (list, evt) => {
-                if (!list) return -1;
-                return list.findIndex(e => isMatch(e, evt));
-            };
+        const findIndex = (list, evt) => {
+            if (!list) return -1;
+            return list.findIndex(e => isMatch(e, evt));
+        };
 
-            if (action === 'save-new') {
-                // If saving new, we respect target date key from editor (which defaults to opened date)
-                const saveDate = eventData.targetDateKey || dateKey;
-                if (!currentSaved[saveDate]) currentSaved[saveDate] = [];
-                
+        if (action === 'save-new') {
+            // If saving new, we respect target date key from editor (which defaults to opened date)
+            const saveDate = eventData.targetDateKey || dateKey;
+            if (!currentSaved[saveDate]) currentSaved[saveDate] = [];
+            
+            delete eventData.recurrenceScope;
+            delete eventData.originalDate;
+            delete eventData.targetDateKey;
+            
+            currentSaved[saveDate].push(eventData);
+        
+        } else if (action === 'save') {
+            const targetDate = eventData.targetDateKey || dateKey;
+
+            const isRecurringSplit = (eventData.recurrenceScope === 'instance' && oldEvent && oldEvent.isRecurring);
+            
+            if (isRecurringSplit) {
+                // Split Instance Logic ...
+                const originDate = oldEvent.originalDate;
+                if (!originDate) {
+                     if (currentSaved[dateKey]) {
+                         const idx = findIndex(currentSaved[dateKey], oldEvent);
+                         if (idx >= 0) {
+                             const original = currentSaved[dateKey][idx];
+                             if (!original.excludeDates) original.excludeDates = [];
+                             original.excludeDates.push(dateKey); // Exclude from old
+                         }
+                    }
+                } else {
+                    if (currentSaved[originDate]) {
+                        const originalIdx = findIndex(currentSaved[originDate], oldEvent);
+                        if (originalIdx >= 0) {
+                            const original = currentSaved[originDate][originalIdx];
+                            if (!original.excludeDates) original.excludeDates = [];
+                            if (!original.excludeDates.includes(dateKey)) {
+                                original.excludeDates.push(dateKey); // Exclude from series
+                            }
+                        }
+                    }
+                }
+
+                // Create New Event on NEW Target Date
+                if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
+                eventData.recurring = 'none'; 
+                eventData.timestamp = Date.now();
                 delete eventData.recurrenceScope;
-                delete eventData.originalDate;
+                delete eventData.originalDate; 
                 delete eventData.targetDateKey;
                 
-                currentSaved[saveDate].push(eventData);
-            
-            } else if (action === 'save') {
-                const targetDate = eventData.targetDateKey || dateKey;
-                const dateChanged = targetDate !== dateKey;
+                currentSaved[targetDate].push(eventData);
 
-                const isRecurringSplit = (eventData.recurrenceScope === 'instance' && oldEvent && oldEvent.isRecurring);
-                
-                if (isRecurringSplit) {
-                    // Split Instance Logic ...
-                    // (If splitting, we create NEW event on targetDate, effectively moving the instance copy)
-                    const originDate = oldEvent.originalDate;
-                    if (!originDate) {
-                         if (currentSaved[dateKey]) {
-                             const idx = findIndex(currentSaved[dateKey], oldEvent);
-                             if (idx >= 0) {
-                                 const original = currentSaved[dateKey][idx];
-                                 if (!original.excludeDates) original.excludeDates = [];
-                                 original.excludeDates.push(dateKey); // Exclude from old
-                             }
-                        }
-                    } else {
-                        if (currentSaved[originDate]) {
-                            const originalIdx = findIndex(currentSaved[originDate], oldEvent);
-                            if (originalIdx >= 0) {
-                                const original = currentSaved[originDate][originalIdx];
-                                if (!original.excludeDates) original.excludeDates = [];
-                                if (!original.excludeDates.includes(dateKey)) {
-                                    original.excludeDates.push(dateKey); // Exclude from series
-                                }
-                            }
-                        }
-                    }
-
-                    // Create New Event on NEW Target Date
-                    if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
-                    eventData.recurring = 'none'; 
-                    eventData.timestamp = Date.now();
-                    delete eventData.recurrenceScope;
-                    delete eventData.originalDate; 
-                    delete eventData.targetDateKey;
-                    
-                    currentSaved[targetDate].push(eventData);
-
-                } else {
-                    // Standard Update (Series or Single)
-                    // If Date Changed, we must Move
-                    
-                    const isRecurring = oldEvent && oldEvent.recurring && oldEvent.recurring !== 'none';
-                    // The "Source" date where the event CURRENTLY resides in DB structure
-                    const sourceDate = (isRecurring && oldEvent.originalDate) ? oldEvent.originalDate : dateKey;
-                    
-                    // If we are editing a SERIES, does changing date mean moving the START date? Yes.
-                    // If we are editing a SINGLE event, we move it.
-                    
-                    // 1. Remove from Old location
-                    let existed = false;
-                    if (currentSaved[sourceDate]) {
-                        const idx = findIndex(currentSaved[sourceDate], oldEvent);
-
-                        if (idx >= 0) {
-                            // If Date Changed on a Series, we act as if we remove and re-add?
-                            // Or we just update properties.
-                            // BUT if keys are dates, we must Move the array entry if the Key changes.
-                            // If it is a Series, sourceDate IS the Key.
-                            // If we change date of Series Start, we are changing the Key.
-                            
-                            // Check if targetDate is different from sourceDate
-                            // Check if targetDate is different from sourceDate
-                            if (targetDate !== sourceDate) {
-                                // MOVE
-                                currentSaved[sourceDate].splice(idx, 1);
-                                if (currentSaved[sourceDate].length === 0) {
-                                    delete currentSaved[sourceDate];
-                                    currentSaved["-=" + sourceDate] = null;
-                                }
-                                
-                                if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
-                                delete eventData.recurrenceScope;
-                                delete eventData.targetDateKey;
-                                // We might need to keep original creation fields? handled by ...eventData spread
-                                currentSaved[targetDate].push(eventData);
-                                existed = true;
-                            } else {
-                                // SAME DATE, just update
-                                let baseObj = (typeof currentSaved[sourceDate][idx] === 'string') ? { title: currentSaved[sourceDate][idx], type: 'event' } : currentSaved[sourceDate][idx];
-                                delete eventData.recurrenceScope;
-                                delete eventData.targetDateKey;
-                                currentSaved[sourceDate][idx] = { ...baseObj, ...eventData };
-                                existed = true;
-                            }
-                        }
-                    }
-                    
-                    if (!existed) {
-                        // Fallback: Create New if not found
-                         if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
-                         delete eventData.recurrenceScope;
-                         delete eventData.targetDateKey;
-                         currentSaved[targetDate].push(eventData);
-                    }
-
-                    // --- SYNC TO LINKED QUEST DOCUMENT ---
-                    if (oldEvent && oldEvent.documentId && targetDate) {
-                        const doc = game.journal.get(oldEvent.documentId);
-                        if (doc) {
-                            const questFlag = doc.getFlag("phils-quest-tracker", "data");
-                            if (questFlag && questFlag.type === 'quest') {
-                                const targetQuestDate = parseDateKeyOrFallback(targetDate);
-                                const questDisplayDate = `${String(targetQuestDate.day).padStart(2, '0')}. ${String(targetQuestDate.month + 1).padStart(2, '0')}. ${targetQuestDate.year}`;
-                                // Check if sync is enabled on the quest side or just force it?
-                                // User asked for sync. We assume if linked, we sync.
-                                // Store both a human-readable date and the exact calendar date key.
-                                await doc.setFlag("phils-quest-tracker", "data", {
-                                    dates: {
-                                        start: questDisplayDate,
-                                        startKey: targetDate
-                                    }
-                                });
-                                // Note: Quest Tracker hook will fire and might try to update Calendar back?
-                                // Our Quest Tracker check (preUpdate) handles this loop? 
-                                // Quest Tracker 'updateJournalEntry' calls 'addToCalendar' if 'syncWithCalendar' is true.
-                                // 'addToCalendar' does 'removeLinkedEvent' then 'addEvent'.
-                                // If we just updated the Calendar, and then Update Quest, Quest Updates Calendar...
-                                // It effectively RE-WRITES the event we just saved.
-                                // This is fine, as long as data matches.
-                                // However, description edits in Calendar might be lost if Quest overrides them?
-                                // Quest 'addToCalendar' takes description from Quest.
-                                // So yes, Quest is Source of Truth for Linked Events.
-                            }
-                        }
-                    } 
-                    // -------------------------------------
-
-                }
-
-            } else if (action === 'delete' || action === 'delete-series') {
+            } else {
+                // Standard Update (Series or Single)
                 const isRecurring = oldEvent && oldEvent.recurring && oldEvent.recurring !== 'none';
-                const targetDate = (isRecurring && oldEvent.originalDate) ? oldEvent.originalDate : dateKey;
-                if (currentSaved[targetDate]) {
-                    const initialLength = currentSaved[targetDate].length;
-                    currentSaved[targetDate] = currentSaved[targetDate].filter(e => !isMatch(e, oldEvent));
-                    
-                    // Soft match cleanup if needed (simplified here)
-                    if (initialLength === currentSaved[targetDate].length) {
-                         // try soft match
-                        currentSaved[targetDate] = currentSaved[targetDate].filter(e => {
-                            const t1 = (e.title || "").trim();
-                            const t2 = (oldEvent.title || "").trim();
-                            if (t1 === t2 && e.type === oldEvent.type) return false;
-                            return true;
-                        });
-                    }
+                const sourceDate = (isRecurring && oldEvent.originalDate) ? oldEvent.originalDate : dateKey;
+                
+                let existed = false;
+                if (currentSaved[sourceDate]) {
+                    const idx = findIndex(currentSaved[sourceDate], oldEvent);
 
-                    if (currentSaved[targetDate].length === 0) {
-                        delete currentSaved[targetDate];
-                        currentSaved["-=" + targetDate] = null;
+                    if (idx >= 0) {
+                        if (targetDate !== sourceDate) {
+                            // MOVE
+                            currentSaved[sourceDate].splice(idx, 1);
+                            if (currentSaved[sourceDate].length === 0) {
+                                delete currentSaved[sourceDate];
+                            }
+                            
+                            if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
+                            delete eventData.recurrenceScope;
+                            delete eventData.targetDateKey;
+                            currentSaved[targetDate].push(eventData);
+                            existed = true;
+                        } else {
+                            // SAME DATE, just update
+                            let baseObj = (typeof currentSaved[sourceDate][idx] === 'string') ? { title: currentSaved[sourceDate][idx], type: 'event' } : currentSaved[sourceDate][idx];
+                            delete eventData.recurrenceScope;
+                            delete eventData.targetDateKey;
+                            currentSaved[sourceDate][idx] = { ...baseObj, ...eventData };
+                            existed = true;
+                        }
                     }
                 }
-            } else if (action === 'delete-instance') {
-                 const originDate = oldEvent.originalDate || dateKey; 
-                 if (currentSaved[originDate]) {
-                    const originalIdx = findIndex(currentSaved[originDate], oldEvent);
-                    if (originalIdx >= 0) {
-                        const original = currentSaved[originDate][originalIdx];
-                        if (!original.excludeDates) original.excludeDates = [];
-                        if (!original.excludeDates.includes(dateKey)) {
-                            original.excludeDates.push(dateKey);
+                
+                if (!existed) {
+                    // Fallback: Create New if not found
+                     if (!currentSaved[targetDate]) currentSaved[targetDate] = [];
+                     delete eventData.recurrenceScope;
+                     delete eventData.targetDateKey;
+                     currentSaved[targetDate].push(eventData);
+                }
+
+                // --- SYNC TO LINKED QUEST DOCUMENT ---
+                if (oldEvent && oldEvent.documentId && targetDate) {
+                    const doc = game.journal.get(oldEvent.documentId);
+                    if (doc) {
+                        const questFlag = doc.getFlag("phils-quest-tracker", "data");
+                        if (questFlag && questFlag.type === 'quest') {
+                            const targetQuestDate = parseDateKeyOrFallback(targetDate);
+                            const questDisplayDate = `${String(targetQuestDate.day).padStart(2, '0')}. ${String(targetQuestDate.month + 1).padStart(2, '0')}. ${targetQuestDate.year}`;
+                            await doc.setFlag("phils-quest-tracker", "data", {
+                                dates: {
+                                    start: questDisplayDate,
+                                    startKey: targetDate
+                                }
+                            });
                         }
                     }
-                 }
-            } else if (action === 'delete-future') {
-                 const originDate = oldEvent.originalDate || dateKey;
-                 if (originDate === dateKey) {
-                     // Start date -> delete series
-                     if (currentSaved[originDate]) {
-                        currentSaved[originDate] = currentSaved[originDate].filter(e => !isMatch(e, oldEvent));
-                        if (currentSaved[originDate].length === 0) {
-                             delete currentSaved[originDate];
-                             currentSaved["-=" + originDate] = null;
-                        }
-                     }
-                 } else {
-                     if (currentSaved[originDate]) {
-                         const originalIdx = findIndex(currentSaved[originDate], oldEvent);
-                         if (originalIdx >= 0) {
-                             const original = currentSaved[originDate][originalIdx];
-                             const { year, month, day } = parseDateKeyOrFallback(dateKey);
-                             const ts = this.system.getTimestamp(year, month, day);
-                             const yesterdayTs = ts - 86400; 
-                             const yesterdayDate = this.system.getDate(yesterdayTs);
-                             original.untilDate = `${yesterdayDate.year}-${yesterdayDate.month}-${yesterdayDate.day}`;
-                             this.render(); // Refresh UI
-                         }
-                     }
-                 }
+                }
             }
 
-            await CalendarDB.saveEvents(currentSaved);
-            this.render();
+        } else if (action === 'delete' || action === 'delete-series') {
+            const isRecurring = oldEvent && oldEvent.recurring && oldEvent.recurring !== 'none';
+            const targetDate = (isRecurring && oldEvent.originalDate) ? oldEvent.originalDate : dateKey;
+            if (currentSaved[targetDate]) {
+                const initialLength = currentSaved[targetDate].length;
+                currentSaved[targetDate] = currentSaved[targetDate].filter(e => !isMatch(e, oldEvent));
+                
+                if (initialLength === currentSaved[targetDate].length) {
+                    currentSaved[targetDate] = currentSaved[targetDate].filter(e => {
+                        const t1 = (e.title || "").trim();
+                        const t2 = (oldEvent.title || "").trim();
+                        if (t1 === t2 && e.type === oldEvent.type) return false;
+                        return true;
+                    });
+                }
+
+                if (currentSaved[targetDate].length === 0) {
+                    delete currentSaved[targetDate];
+                }
+            }
+        } else if (action === 'delete-instance') {
+             const originDate = oldEvent.originalDate || dateKey; 
+             if (currentSaved[originDate]) {
+                const originalIdx = findIndex(currentSaved[originDate], oldEvent);
+                if (originalIdx >= 0) {
+                    const original = currentSaved[originDate][originalIdx];
+                    if (!original.excludeDates) original.excludeDates = [];
+                    if (!original.excludeDates.includes(dateKey)) {
+                        original.excludeDates.push(dateKey);
+                    }
+                }
+             }
+        } else if (action === 'delete-future') {
+             const originDate = oldEvent.originalDate || dateKey;
+             if (originDate === dateKey) {
+                 if (currentSaved[originDate]) {
+                    currentSaved[originDate] = currentSaved[originDate].filter(e => !isMatch(e, oldEvent));
+                    if (currentSaved[originDate].length === 0) {
+                         delete currentSaved[originDate];
+                    }
+                 }
+             } else {
+                 if (currentSaved[originDate]) {
+                     const originalIdx = findIndex(currentSaved[originDate], oldEvent);
+                     if (originalIdx >= 0) {
+                         const original = currentSaved[originDate][originalIdx];
+                         const { year, month, day } = parseDateKeyOrFallback(dateKey);
+                         const ts = this.system.getTimestamp(year, month, day);
+                         const yesterdayTs = ts - 86400; 
+                         const yesterdayDate = this.system.getDate(yesterdayTs);
+                         original.untilDate = `${yesterdayDate.year}-${yesterdayDate.month}-${yesterdayDate.day}`;
+                     }
+                 }
+             }
+        }
+
+        await CalendarDB.saveEvents(currentSaved);
+        if (this.element && this.element.isConnected) this.render();
     }
 
     async _onRender(context, options) {
         super._onRender(context, options);
 
-        // Context Menu Handler
         const days = this.element.querySelectorAll('.pdnc-day');
         days.forEach(day => {
             day.addEventListener('contextmenu', (e) => {
@@ -934,10 +944,9 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             });
         });
 
-        // DB Hook
         if (!this._dbHook) {
             this._debouncedRender = foundry.utils.debounce(() => {
-                if (this.element) this.render(); 
+                if (this.element && this.element.isConnected) this.render(); 
             }, 100);
 
             this._dbHook = Hooks.on("updateJournalEntry", (doc, change, options, userId) => {
@@ -1001,26 +1010,35 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
             });
         }
 
-        $('.pdnc-context-menu').remove();
+        document.querySelectorAll('.pdnc-context-menu').forEach(el => el.remove());
 
-        const menu = $(`<div class="pdnc-context-menu"></div>`);
+        const menu = document.createElement('div');
+        menu.className = 'pdnc-context-menu';
+        menu.style.position = 'absolute';
+        menu.style.top = `${clientY}px`;
+        menu.style.left = `${clientX}px`;
+        menu.style.zIndex = '1000';
+        menu.style.background = '#eee';
+        menu.style.border = '1px solid #000';
+        menu.style.padding = '5px';
+
         menuItems.forEach(item => {
-            const el = $(`<div class="pdnc-context-item">${item.icon} ${item.name}</div>`);
-            el.click(() => {
+            const el = document.createElement('div');
+            el.className = 'pdnc-context-item';
+            el.innerHTML = `${item.icon} ${item.name}`;
+            el.style.cursor = 'pointer';
+            el.style.padding = '5px';
+            el.addEventListener('click', () => {
                 item.callback();
                 menu.remove();
             });
-            menu.append(el);
+            menu.appendChild(el);
         });
 
-        $('body').append(menu);
-        menu.css({
-            top: clientY,
-            left: clientX
-        });
+        document.body.appendChild(menu);
 
         const closeMenu = (e) => {
-            if (!menu[0].contains(e.target)) {
+            if (!menu.contains(e.target)) {
                 menu.remove();
                 document.removeEventListener('click', closeMenu);
                 document.removeEventListener('contextmenu', closeMenu);
@@ -1036,7 +1054,6 @@ export class PhilsCalendarApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _onChangeDate(targetDateKey) {
         if (!game.user.isGM) return;
 
-        // Calculate diff
         const { year: tY, month: tM, day: tD } = parseDateKeyOrFallback(targetDateKey);
         
         // Fix: Include current offsets to get the correct "Visual Date"

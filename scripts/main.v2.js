@@ -16,6 +16,8 @@ import { ThemeSystem } from "./theme-system.js";
 import { CustomCalendarList } from "./apps/custom-calendar.js";
 import { SimpleCalendarMigrationApp } from "./apps/simple-calendar-migration.js";
 import { WeatherRulesRegistry } from "./weather-rules.js";
+import { PF2eSyncDialog } from "./apps/pf2e-sync-dialog.js";
+import { TimeMachineApp } from "./apps/time-machine.js";
 
 import { WeatherHUD } from "./weather-hud.js";
 
@@ -98,7 +100,6 @@ class PhilsDayNightCycle {
         // Register Templates
         const templatePaths = [
             `modules/${MODULE_ID}/templates/weather-config-form.hbs`,
-            `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
             `modules/${MODULE_ID}/templates/custom-climate-list.hbs`,
             `modules/${MODULE_ID}/templates/custom-climate-editor.hbs`,
             `modules/${MODULE_ID}/templates/climate-wizard.hbs`
@@ -333,7 +334,7 @@ class PhilsDayNightCycle {
         });
 
         game.settings.register(MODULE_ID, "enableMoonLighting", {
-            name: "Enable Moon Lighting", // TODO: localize
+            name: game.i18n.localize("PDNC.SettingEnableMoonLightingName"),
             hint: "If enabled, the moon phase will affect the darkness level of the scene at night.",
             scope: "world",
             config: true,
@@ -390,54 +391,36 @@ class PhilsDayNightCycle {
         });
 
         game.settings.register(MODULE_ID, "syncPF2e", {
-            name: "Sync Pathfinder 2e",
-            hint: "Automatically sets the day offset to 1,725,595 to align with Golarion's epoch.",
             scope: "world",
-            config: true,
+            config: false,
             type: Boolean,
-            default: false,
-            onChange: async (value) => {
-                if (!value) return;
-
-                await game.settings.set(MODULE_ID, "dayOffset", 1725595);
-                ui.notifications.info("PDNC | Calendar Synced to Pathfinder 2e Epoch.");
-            }
+            default: false
         });
 
         game.settings.register(MODULE_ID, "timeOffset", {
-            name: game.i18n.localize("PDNC.SettingTimeOffsetName"),
-            hint: game.i18n.localize("PDNC.SettingTimeOffsetHint"),
             scope: "world",
-            config: true,
+            config: false,
             type: Number,
             default: 0,
             onChange: () => this.updateClock()
         });
 
         game.settings.register(MODULE_ID, "dayOffset", {
-            name: game.i18n.localize("PDNC.SettingDayOffsetName"),
-            hint: game.i18n.localize("PDNC.SettingDayOffsetHint"),
             scope: "world",
-            config: true,
-            type: Number,
-            default: 0,
-            onChange: (value) => {
-                this.updateClock();
-                if (value !== 1725595 && game.settings.get(MODULE_ID, "syncPF2e")) {
-                    game.settings.set(MODULE_ID, "syncPF2e", false);
-                }
-            }
-        });
-
-        game.settings.register(MODULE_ID, "weekdayOffset", {
-            name: game.i18n.localize("PDNC.SettingWeekdayOffsetName"),
-            hint: game.i18n.localize("PDNC.SettingWeekdayOffsetHint"),
-            scope: "world",
-            config: true,
+            config: false,
             type: Number,
             default: 0,
             onChange: () => this.updateClock()
         });
+
+        game.settings.register(MODULE_ID, "weekdayOffset", {
+            scope: "world",
+            config: false,
+            type: Number,
+            default: 0,
+            onChange: () => this.updateClock()
+        });
+
 
         // ========================================================================
         // 6. PERMISSIONS
@@ -509,6 +492,14 @@ class PhilsDayNightCycle {
             config: false,
             type: Number,
             default: -1
+        });
+        
+        game.settings.register(MODULE_ID, "clockHidden", {
+            name: "Clock Hidden",
+            scope: "client",
+            config: false,
+            type: Boolean,
+            default: false
         });
         
         game.settings.register(MODULE_ID, "customMoonPhases", {
@@ -627,14 +618,11 @@ class PhilsDayNightCycle {
              }
         });
 
-        // Add Scene Control Button
-        // Add Scene Control Button
         Hooks.on("getSceneControlButtons", (controls) => {
             if (!game.user.isGM) return;
             
             let controlsArray = controls;
 
-            // Handle non-array input (e.g. from module conflicts or core updates)
             if (!Array.isArray(controls)) {
                 if (typeof controls === 'object' && controls !== null) {
                     controlsArray = Object.values(controls);
@@ -648,7 +636,6 @@ class PhilsDayNightCycle {
             if (lightingControl) {
                 if (!lightingControl.tools) lightingControl.tools = [];
                 
-                // Helper to check for existing tool
                 let exists = false;
                 if (Array.isArray(lightingControl.tools)) {
                     exists = !!lightingControl.tools.find(t => t.name === "climate-wizard");
@@ -659,7 +646,7 @@ class PhilsDayNightCycle {
                 if (!exists) {
                     const newTool = {
                         name: "climate-wizard",
-                        title: "Climate Data Wizard",
+                        title: "PDNC.ClimateWizard.ToolTitle",
                         icon: "fas fa-cloud-sun-rain",
                         onClick: () => {
                             new ClimateDataWizard().render({ force: true });
@@ -667,27 +654,19 @@ class PhilsDayNightCycle {
                         button: true
                     };
 
-                    // Add new tool
                     if (Array.isArray(lightingControl.tools)) {
                         lightingControl.tools.push(newTool);
+                    } else if (lightingControl.tools instanceof Map) {
+                        lightingControl.tools.set("climate-wizard", newTool);
                     } else if (typeof lightingControl.tools === 'object') {
-                        // If it's an object, we assume we need to assign it by key?
-                        // Or maybe it's a numeric dictionary?
-                        // We'll try to use the name as key if it's an object map.
-                        if (lightingControl.tools instanceof Map) {
-                             lightingControl.tools.set("climate-wizard", newTool);
+                        const keys = Object.keys(lightingControl.tools);
+                        const isNumeric = keys.every(k => !isNaN(parseInt(k)));
+                        
+                        if (isNumeric) {
+                            const nextIdx = keys.length > 0 ? Math.max(...keys.map(Number)) + 1 : 0;
+                            lightingControl.tools[nextIdx] = newTool;
                         } else {
-                             // Plain object logic
-                             // Check if numeric keys?
-                             const keys = Object.keys(lightingControl.tools);
-                             const isNumeric = keys.every(k => !isNaN(parseInt(k)));
-                             
-                             if (isNumeric) {
-                                 const nextIdx = keys.length > 0 ? Math.max(...keys.map(Number)) + 1 : 0;
-                                 lightingControl.tools[nextIdx] = newTool;
-                             } else {
-                                 lightingControl.tools["climate-wizard"] = newTool;
-                             }
+                            lightingControl.tools["climate-wizard"] = newTool;
                         }
                     }
                 }
@@ -696,9 +675,14 @@ class PhilsDayNightCycle {
 
         this.calendar = new CalendarSystem();
 
-        // Expose API for Macros
+        // Expose API for Macros & System Integration
         window.PhilsDayNightCycle = {
-            toggle: () => this.toggleSetting(),
+            get calendar() { return dayNightCycle?.calendar || this._calendar || (this._calendar = new CalendarSystem()); },
+            set calendar(val) { if (dayNightCycle) dayNightCycle.calendar = val; this._calendar = val; },
+            _calendar: this.calendar,
+            toggle: (force) => this.toggle(force),
+            toggleSetting: () => this.toggleSetting(),
+            toggleClockFace: (force) => this.toggleClockFace(force),
             toggleCalendar: () => this.toggleCalendar(),
             toggleDungeonMode: () => this.toggleDungeonMode(),
             refresh: () => this.refreshCalendar(),
@@ -708,17 +692,28 @@ class PhilsDayNightCycle {
             removeEvent: (date, title) => CalendarDB.removeEvent(date, title),
             removeLinkedEvent: (docId) => CalendarDB.removeEventByDocumentId(docId),
             PhilsCalendarApp: PhilsCalendarApp, // Expose Class for Picker
-            calendar: this.calendar, // Expose Calendar System
             createUI: () => this.createUI(),
             updateClock: () => this.updateClock(),
+            alignPF2eClock: (y = 4720, m = 7, d = 8, h = 20, min = 1) => CalendarSystem.alignPF2eClockToPDNC(y, m, d, h, min),
+            openSyncDialog: () => new PF2eSyncDialog().render({ force: true }),
             setPreviewIconState: (isOpen) => this.setPreviewIconState(isOpen),
+            runTests: async () => {
+                let testModule;
+                try {
+                    testModule = await import(`/modules/${MODULE_ID}/dev/tests/foundry-console.js`);
+                } catch (e) {
+                    testModule = await import(`/modules/${MODULE_ID}/tests/foundry-console.js`);
+                }
+                return await testModule.runFoundryConsoleTests();
+            },
+
             registerWeatherRulesProvider: (id, provider) => WeatherRulesRegistry.register(id, provider),
             unregisterWeatherRulesProvider: (id) => WeatherRulesRegistry.unregister(id)
         };
         // this.updateClock(); // Moved to ready/updateWorldTime
 
         // Auto-Open Weather HUD if it was open
-        Hooks.once("ready", () => {
+        Hooks.once("ready", async () => {
              const state = game.settings.get(MODULE_ID, "weatherPreviewState");
              if (state && state.open) {
                  new WeatherHUD().render(true);
@@ -727,18 +722,25 @@ class PhilsDayNightCycle {
              // Validate Settings (Fix for deleted climates)
              WeatherSystem.validateSettings();
 
+             await CalendarSystem.syncPF2eClockToPDNC();
+
+             if (game.user.isGM) {
+                 this.updateClock();
+             }
+
+
+
+
              // Launch Startup Wizard if needed
              if (game.user.isGM && !game.settings.get(MODULE_ID, "wizardCompleted")) {
                  new StartupWizard().render({ force: true });
               }
          });
 
-        Hooks.on("renderChatMessage", (message, html) => {
-            if (!message?.flags?.[MODULE_ID]?.isWeather) return;
-            stripRestrictedWeatherChatContent(html);
-        });
 
-        Hooks.on("renderChatMessageHTML", (message, html) => {
+        const hasHTMLHook = typeof foundry !== 'undefined' && foundry.utils?.isNewerVersion?.(game.version, "12.999");
+        const chatHookName = hasHTMLHook ? "renderChatMessageHTML" : "renderChatMessage";
+        Hooks.on(chatHookName, (message, html) => {
             if (!message?.flags?.[MODULE_ID]?.isWeather) return;
             stripRestrictedWeatherChatContent(html);
         });
@@ -875,12 +877,32 @@ class PhilsDayNightCycle {
 
     toggle(isVisible) {
         if (!this.container) return;
-        if (isVisible) {
-            this.container.style.display = "flex";
+        const shouldBeVisible = isVisible !== undefined ? isVisible : !game.settings.get(MODULE_ID, "visible");
+        if (isVisible === undefined) {
+            game.settings.set(MODULE_ID, "visible", shouldBeVisible);
+            return;
+        }
+        if (shouldBeVisible) {
+            this.container.classList.remove("hidden");
+            this.container.style.removeProperty("display");
             this.updateClock();
         } else {
-            this.container.style.display = "none";
+            this.container.classList.add("hidden");
+            this.container.style.setProperty("display", "none", "important");
         }
+    }
+
+    async toggleClockFace(force) {
+        if (!this.container) return;
+        const disk = this.container.querySelector(".pdnc-disk");
+        const toggleBtn = this.container.querySelector(".pdnc-toggle-btn");
+        const currentHidden = disk ? disk.classList.contains("hidden") : game.settings.get(MODULE_ID, "clockHidden");
+        const isHidden = force !== undefined ? !force : !currentHidden;
+        if (disk) disk.classList.toggle("hidden", isHidden);
+        this.container.classList.toggle("clock-hidden", isHidden);
+        if (toggleBtn) toggleBtn.classList.toggle("active", isHidden);
+        await game.settings.set(MODULE_ID, "clockHidden", isHidden);
+        this._updateSmartPosition();
     }
 
     setPreviewIconState(isOpen) {
@@ -901,7 +923,6 @@ class PhilsDayNightCycle {
         const uiContainer = document.createElement("div");
         uiContainer.id = "phils-day-night-cycle-container";
 
-        // Added Weather Icon and Temp to HTML structure
         const dungeonBtnHtml = game.user.isGM ? `<i class="fas fa-dungeon pdnc-dungeon-btn" title="Dungeon Mode" style="position: absolute; top: 10px; left: 10px; cursor: pointer; color: #ccc; z-index: 10; font-size: 1.2em;"></i>` : "";
 
         uiContainer.innerHTML = `
@@ -912,20 +933,15 @@ class PhilsDayNightCycle {
         <div class="pdnc-labels-container"></div>
       </div>
       <div class="pdnc-time-display">
-        <!-- Dungeon Mode Button (Top Left) -->
         ${dungeonBtnHtml}
 
         <span class="pdnc-phase-icon"></span>
         <div class="pdnc-phase-text"></div>
         <div class="pdnc-solar-arc-container">
             <svg class="pdnc-solar-svg">
-                <!-- Track Arc -->
                 <path class="pdnc-solar-track" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" />
-                <!-- Progress Arc (Optional, showing passed time?) - Let's just do the Sun Icon for now -->
-                <!-- Sun Icon Group -->
                 <g class="pdnc-solar-sun-group">
                     <circle cx="0" cy="0" r="4" fill="#ffcc00" stroke="#ffaa00" stroke-width="1" />
-                    <!-- Rays -->
                     <line x1="0" y1="-6" x2="0" y2="-8" stroke="#ffcc00" stroke-width="1" />
                     <line x1="0" y1="6" x2="0" y2="8" stroke="#ffcc00" stroke-width="1" />
                     <line x1="-6" y1="0" x2="-8" y2="0" stroke="#ffcc00" stroke-width="1" />
@@ -935,11 +951,8 @@ class PhilsDayNightCycle {
                     <line x1="-4" y1="4" x2="-6" y2="6" stroke="#ffcc00" stroke-width="1" />
                     <line x1="4" y1="4" x2="6" y2="6" stroke="#ffcc00" stroke-width="1" />
                 </g>
-                <!-- Moon Group -->
                 <g class="pdnc-moon-group" style="opacity: 0;">
-                    <!-- Base Dark Moon -->
                     <circle cx="0" cy="0" r="5" fill="#222" stroke="#555" stroke-width="1" />
-                    <!-- Lit Part (Phase) -->
                     <path class="pdnc-moon-phase" fill="#eee" d="" />
                 </g>
             </svg>
@@ -998,11 +1011,8 @@ class PhilsDayNightCycle {
         this.moonGroup = uiContainer.querySelector(".pdnc-moon-group");
         this.moonPhasePath = uiContainer.querySelector(".pdnc-moon-phase");
 
-        // Check Permissions for Controls
         if (game.user.isGM || game.settings.get(MODULE_ID, "playerAdvanceTime")) {
             this.controls.style.display = "flex";
-            // Shortcuts display is now handled by parent flex, but we might want to ensure they aren't hidden
-            // Since we set display:flex inline in the HTML above, this is fine.
         }
 
         // Restore Position
@@ -1030,6 +1040,17 @@ class PhilsDayNightCycle {
 
         // Add Drag Listeners
         this.dragElement(uiContainer);
+
+        // Restore Clock Hidden State
+        const isClockHidden = game.settings.get(MODULE_ID, "clockHidden");
+        if (isClockHidden) {
+            const disk = uiContainer.querySelector(".pdnc-disk");
+            const toggleBtn = uiContainer.querySelector(".pdnc-toggle-btn");
+            if (disk) disk.classList.add("hidden");
+            uiContainer.classList.add("clock-hidden");
+            if (toggleBtn) toggleBtn.classList.add("active");
+        }
+
         this._updateSmartPosition();
         window.addEventListener("resize", () => this._updateSmartPosition());
 
@@ -1054,15 +1075,11 @@ class PhilsDayNightCycle {
         });
         this.dateText.style.cursor = "pointer";
         
-        // Open Weather on Click (Icon)
-
-        // Open Weather on Click (Icon)
-        // Open Weather Config on Click (Icon) - RESTORED
+        // Open Weather Config on Click
         this.weatherIcon.addEventListener("click", () => {
             const weather = game.settings.get(MODULE_ID, "currentWeather");
             
             if (game.user.isGM) {
-                // GM: Open Config to Edit/Reroll
                 let weatherData = weather;
                 if (!weatherData || !weatherData.generated) {
                     weatherData = WeatherSystem.generateWeather();
@@ -1073,7 +1090,6 @@ class PhilsDayNightCycle {
                 }
                 new WeatherConfigApp({ weather: weatherData }).render({ force: true });
             } else {
-                // Player: View Only
                 if(weather && weather.description) {
                     new Dialog({
                         title: game.i18n.localize("PDNC.WeatherForecast"),
@@ -1087,12 +1103,9 @@ class PhilsDayNightCycle {
             }
         });
 
-        // Open Weather Preview Window on Click (Magnifying Glass) - NEW
-        // Open Weather Preview Window on Click (Magnifying Glass) - TOGGLE
+        // Weather Preview Window Toggle
         this.previewIcon.addEventListener("click", () => {
-             // Check if already open
              const existingApp = foundry.applications.instances.get("weather-hud");
-             
              if (existingApp) {
                  existingApp.close();
              } else {
@@ -1100,9 +1113,7 @@ class PhilsDayNightCycle {
              }
         });
 
-        // Hook to update Icon State when WeatherHUD opens/closes (handles manual close via X)
         const updateIconState = (isOpen) => {
-             // this.previewIcon is the <i> element itself since createUI assigns it via querySelector(".pdnc-preview-icon")
              const icon = this.previewIcon; 
              if (icon) {
                  if (isOpen) {
@@ -1115,20 +1126,17 @@ class PhilsDayNightCycle {
              }
         };
 
-        // Check initial state
         if (foundry.applications.instances.get("weather-hud")) {
             updateIconState(true);
         }
 
         Hooks.on("renderApplication", (app) => {
-             // LOG: console.log("PDNC DEBUG | Render App:", app.id, app?.options?.id);
              if (app.id === "weather-hud" || app?.options?.id === "weather-hud") {
                  updateIconState(true);
              }
         });
 
         Hooks.on("closeApplication", (app) => {
-             // LOG: console.log("PDNC DEBUG | Close App:", app.id);
              if (app.id === "weather-hud" || app?.options?.id === "weather-hud") {
                  updateIconState(false);
              }
@@ -1146,24 +1154,18 @@ class PhilsDayNightCycle {
             const amount = parseInt(inputAmount.value) || 1;
             const unit = parseInt(selectUnit.value);
             const delta = amount * unit * multiplier;
-            // game.time.advance is usually for forward, but we can do simple worldTime update via Hook or execute
-            // For simple usage: game.time.advance(delta) works perfectly for positive.
-            // For negative? game.time.advance only adds. We might need to manually set worldTime.
 
             if (delta > 0) {
                 if (game.user.isGM) {
                     game.time.advance(delta);
                 } else {
-                    // game.socket.emit(`module.${MODULE_ID}`, { action: "changeTime", delta: delta });
                     game.user.setFlag(MODULE_ID, "timeRequest", { delta: delta, id: Date.now() });
                 }
             } else {
                 if (!game.user.isGM) {
-                    // game.socket.emit(`module.${MODULE_ID}`, { action: "changeTime", delta: delta });
                     game.user.setFlag(MODULE_ID, "timeRequest", { delta: delta, id: Date.now() });
                     return;
                 }
-                // GM Local Rewind
                 const newTime = game.time.worldTime + delta;
                 game.settings.set("core", "time", newTime);
             }
@@ -1231,14 +1233,9 @@ class PhilsDayNightCycle {
         }
 
         const toggleBtn = uiContainer.querySelector(".pdnc-toggle-btn");
-        toggleBtn.addEventListener("click", (e) => {
+        toggleBtn.addEventListener("click", async (e) => {
             e.stopPropagation();
-            const disk = uiContainer.querySelector(".pdnc-disk");
-            const isHidden = disk.classList.toggle("hidden");
-            uiContainer.classList.toggle("clock-hidden", isHidden);
-            // Toggle active state on button for styling
-            toggleBtn.classList.toggle("active");
-            this._updateSmartPosition();
+            await this.toggleClockFace();
         });
 
         toggleBtn.addEventListener("contextmenu", (e) => {
@@ -1349,24 +1346,6 @@ class PhilsDayNightCycle {
         const defs = document.createElementNS(svgNS, "defs");
         svg.appendChild(defs);
 
-        // Defined Visual Order for 9 Sectors (Clockwise from Top)
-        // 1. Night (Top)
-        // 2. Midnight
-        // 3. Dawn
-        // 4. Morning
-        // 5. Forenoon
-        // 6. Noon
-        // 7. Dusk
-        // 8. Evening
-        // 9. LateEvening
-        // --- SECTOR ATLAS (Manual Configuration) ---
-        // Defined visual fields for the 8-part clock frame (mwclock.png).
-        // User confirmed 8 Windows.
-        // We have 8 Phases. Perfect 1:1 Mapping.
-        // Geometry: 360 / 8 = 45 degrees per sector.
-        // Anchor: Night Centered at Top (-90).
-        // Start: -90 - 22.5 = -112.5.
-        
         const SECTOR_ATLAS = [
             { id: "night",        start: -112.5, end: -67.5, label: "Night (Top)" },
             { id: "dawn",         start: -67.5,  end: -22.5, label: "Dawn" },
@@ -1378,7 +1357,6 @@ class PhilsDayNightCycle {
             { id: "late_evening", start: 202.5,  end: 247.5, label: "Late Evening" }
         ];
 
-        // DEBUG MODE: Set to true to see colored sectors and labels instead of images
         const DEBUG_MODE = false;
         const DEBUG_COLORS = [
             "#000000", // Night (Black)
@@ -1474,18 +1452,8 @@ class PhilsDayNightCycle {
             svg.appendChild(g);
         });
         
-        // Prepend to container so it sits behind existing hands
-        // But hands are DIVs inside the container. SVG needs to be behind them.
-        // Container has .pdnc-hand, .pdnc-hand-minute, etc.
-        // If we append, it covers them unless z-index is lower.
-        // Inserting as first child is safer. // SVG at bottom
-        
-        // --- FRAME OVERLAY ---
-        // Create an overlay image for the "Frame" (clock.png)
-        // This sits ON TOP of the SVG sectors (filling the transparent holes)
-        // but BEHIND the hands.
+        // Frame Overlay
         const frameImg = document.createElement("img");
-        // Using clock.webp as requested (in root assets folder)
         frameImg.src = game.settings.get(MODULE_ID, "clockImage") || `modules/${MODULE_ID}/assets/clock.webp`;
         frameImg.className = "pdnc-composite-frame";
         frameImg.style.position = "absolute";
@@ -1493,17 +1461,10 @@ class PhilsDayNightCycle {
         frameImg.style.left = "0";
         frameImg.style.width = "100%";
         frameImg.style.height = "100%";
-        frameImg.style.zIndex = "1"; // Above SVG sections
-        frameImg.style.pointerEvents = "none"; // Let clicks pass through to disk/sectors
+        frameImg.style.zIndex = "1";
+        frameImg.style.pointerEvents = "none";
 
-        // Append SVG then Frame
-        // But we want them to be the FIRST children, so hands (zIndex auto/higher) are on top.
-        // SVG first (z=0)
         container.insertBefore(svg, container.firstChild);
-        // Frame second (z=1) - Insert before Hands (which we assume are after the first child now)
-        // Actually, just append to container? No, hands need to be top.
-        // If we insertBefore(svg, first) -> SVG is first.
-        // Then insertBefore(frame, svg.nextSibling) -> Frame is second.
         container.insertBefore(frameImg, svg.nextSibling);
     }
 
@@ -1620,27 +1581,49 @@ class PhilsDayNightCycle {
 
         const currentSetting = game.settings.get(MODULE_ID, "clockPosition") || "auto";
 
+        const titleText = game.i18n.localize("PDNC.Orientation") || "Ausrichtung";
+        const tAbove = game.i18n.localize("PDNC.OrientAbove") || "Über dem Bedienfeld (Oben)";
+        const tLeft = game.i18n.localize("PDNC.OrientLeft") || "Links vom Bedienfeld";
+        const tAuto = game.i18n.localize("PDNC.OrientAuto") || "Automatisch (Smart)";
+        const tRight = game.i18n.localize("PDNC.OrientRight") || "Rechts vom Bedienfeld";
+        const tBelow = game.i18n.localize("PDNC.OrientBelow") || "Unter dem Bedienfeld (Unten)";
+
         const menu = document.createElement("div");
         menu.className = "pdnc-orientation-menu";
         menu.innerHTML = `
-            <div style="font-size: 0.75em; color: #c5a059; opacity: 0.85; font-weight: bold; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Ausrichtung</div>
+            <div class="pdnc-orientation-header">${titleText}</div>
             <div class="pdnc-orientation-grid">
-                <button class="pdnc-orient-btn ${currentSetting === 'above' ? 'active' : ''}" data-pos="above" title="Über dem Bedienfeld (Oben)"><i class="fas fa-arrow-up"></i></button>
-                <button class="pdnc-orient-btn ${currentSetting === 'left' ? 'active' : ''}" data-pos="left" title="Links vom Bedienfeld"><i class="fas fa-arrow-left"></i></button>
-                <button class="pdnc-orient-btn ${currentSetting === 'auto' ? 'active' : ''}" data-pos="auto" title="Automatisch (Smart)"><i class="fas fa-wand-magic-sparkles"></i></button>
-                <button class="pdnc-orient-btn ${currentSetting === 'right' ? 'active' : ''}" data-pos="right" title="Rechts vom Bedienfeld"><i class="fas fa-arrow-right"></i></button>
-                <button class="pdnc-orient-btn ${currentSetting === 'below' ? 'active' : ''}" data-pos="below" title="Unter dem Bedienfeld (Unten)"><i class="fas fa-arrow-down"></i></button>
+                <button class="pdnc-orient-btn ${currentSetting === 'above' ? 'active' : ''}" data-pos="above" title="${tAbove}"><i class="fas fa-arrow-up"></i></button>
+                <button class="pdnc-orient-btn ${currentSetting === 'left' ? 'active' : ''}" data-pos="left" title="${tLeft}"><i class="fas fa-arrow-left"></i></button>
+                <button class="pdnc-orient-btn ${currentSetting === 'auto' ? 'active' : ''}" data-pos="auto" title="${tAuto}"><i class="fas fa-wand-magic-sparkles"></i></button>
+                <button class="pdnc-orient-btn ${currentSetting === 'right' ? 'active' : ''}" data-pos="right" title="${tRight}"><i class="fas fa-arrow-right"></i></button>
+                <button class="pdnc-orient-btn ${currentSetting === 'below' ? 'active' : ''}" data-pos="below" title="${tBelow}"><i class="fas fa-arrow-down"></i></button>
             </div>
         `;
 
         document.body.appendChild(menu);
         const rect = anchorBtn.getBoundingClientRect();
-        menu.style.left = `${Math.max(10, rect.left + rect.width / 2 - 55)}px`;
-        menu.style.top = `${Math.max(10, rect.top - 125)}px`;
+        
+        const menuWidth = 130;
+        const menuHeight = 115;
+
+        let left = rect.left + (rect.width / 2) - (menuWidth / 2);
+        let top = rect.top - menuHeight - 8;
+
+        if (top < 10) {
+            top = rect.bottom + 8;
+        }
+
+        left = Math.max(10, Math.min(window.innerWidth - menuWidth - 10, left));
+        top = Math.max(10, Math.min(window.innerHeight - menuHeight - 10, top));
+
+        menu.style.left = `${left}px`;
+        menu.style.top = `${top}px`;
 
         const btns = menu.querySelectorAll(".pdnc-orient-btn");
         btns.forEach(btn => {
             btn.addEventListener("click", async (ev) => {
+                ev.preventDefault();
                 ev.stopPropagation();
                 const pos = btn.dataset.pos;
                 await game.settings.set(MODULE_ID, "clockPosition", pos);
@@ -1770,31 +1753,23 @@ class PhilsDayNightCycle {
     updateClock() {
         if (!this.container) return;
 
-        // Get current world time in seconds
-        let worldTime = game.time.worldTime;
+        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+        let worldTime = game.time.worldTime + (offsetDays * 86400) + (offsetMinutes * 60);
 
-        // Apply Offset (Days)
-        const offsetDays = game.settings.get(MODULE_ID, "dayOffset");
-        worldTime += (offsetDays * 86400);
-
-        // Apply Offset (Minutes)
-        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset");
-        worldTime += (offsetMinutes * 60);
-
-        // // Log:("PDNC Debug | Day Offset:", offsetDays, "Time Offset:", offsetMinutes);
-        // // Log:("PDNC Debug | Original Time:", game.time.worldTime, "Adjusted Time:", worldTime);
-
-        // Calculate seconds elapsed in the current day
-        // Assuming a standard 24h day = 86400 seconds
         const dayLength = 86400;
-        let timeOfDay = worldTime % dayLength; // Seconds since midnight
-
-        // Handle negative modulo result if offset keeps it negative (JS % operator behavior)
+        let timeOfDay = worldTime % dayLength;
         if (timeOfDay < 0) timeOfDay += dayLength;
+
 
         const minutesOfDay = Math.floor(timeOfDay / 60);
         const hours = Math.floor(minutesOfDay / 60);
         const minutes = minutesOfDay % 60;
+
+
+
+
+
 
         // Calculate rotation (0 to 360 degrees)
         const rotation = (minutesOfDay / 1440) * 360;
@@ -1818,27 +1793,14 @@ class PhilsDayNightCycle {
         const cw = rect.width;
         const ch = rect.height;
         
-        // Find Reference Points
-        // Find Reference Points
         const controls = this.container.querySelector(".pdnc-controls");
-        
-        // Fix: Check visibility. If display:none, offsetTop is 0, causing inverted arc.
         const controlsVisible = controls && controls.offsetParent !== null;
-        // If visible, use its top. If hidden, use container bottom with some padding.
         const controlsY = controlsVisible ? controls.offsetTop : ch - 15; 
 
-        // Define Geometry (Dynamic)
-        // Anchor slightly above the separator line (align with Weekday text)
-        // ControlsY is the top of the buttons.
         const startY = controlsY - 45;
         const endY = controlsY - 45;
-        
-        // Padding from sides
         const paddingX = 15;
-        
-        
-        // Peak Position (Top of card, or just above "Dawn/Morning" text)
-        const peakY = 10; // Compromise: 14px gives clearance but keeps it tight 
+        const peakY = 10; 
 
         const p0 = { x: paddingX, y: startY };
         const p2 = { x: cw - paddingX, y: endY };
@@ -2267,10 +2229,6 @@ class PhilsDayNightCycle {
             await game.settings.set(MODULE_ID, "lastNotificationState", newState);
         }
     }
-
-    toggleDungeonMode() {
-        new DungeonModeConfig().render(true);
-    }
 }
 
 const dayNightCycle = new PhilsDayNightCycle();
@@ -2340,12 +2298,19 @@ Hooks.once("ready", async () => {
         }
         dayNightCycle.updateClock();
 
-        // --- Automatic Macro Creation ---
+        // --- Automatic Macro Creation in Macro Directory Folder ---
+        const folderName = "Phil's Day & Night Cycle";
         const macros = [
             {
                 name: "Toggle Day/Night Clock",
                 command: `if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggle();`,
                 img: "icons/magic/time/day-night-sunset-sunrise.webp",
+                type: "script"
+            },
+            {
+                name: "Toggle Clock Face (Fold)",
+                command: `if (window.PhilsDayNightCycle) window.PhilsDayNightCycle.toggleClockFace();`,
+                img: "icons/magic/time/clock-analog-gray.webp",
                 type: "script"
             },
             {
@@ -2375,14 +2340,28 @@ Hooks.once("ready", async () => {
         ];
 
         if (game.user.isGM) {
+            let folder = game.folders.find(f => (f.name === folderName || f.name === "Phil's Day&Night Cycle" || f.name === "Phils Day & Night Cycle") && f.type === "Macro");
+            if (!folder) {
+                folder = await Folder.create({
+                    name: folderName,
+                    type: "Macro",
+                    color: "#c5a059"
+                });
+            }
+
             for (const data of macros) {
                 const existing = game.macros.find(m => m.name === data.name);
                 if (!existing) {
-                    await Macro.create(data);
-                    // Log:(`${MODULE_ID} | Created macro: ${data.name}`);
+                    await Macro.create({
+                        ...data,
+                        folder: folder?.id || null,
+                        ownership: { default: 3 }
+                    });
                 } else {
-                    await existing.update(data);
-                    // Log:(`${MODULE_ID} | Updated macro: ${data.name}`);
+                    const updates = { ...data };
+                    if (folder && existing.folder?.id !== folder.id) updates.folder = folder.id;
+                    if (!existing.ownership || existing.ownership.default !== 3) updates["ownership.default"] = 3;
+                    await existing.update(updates);
                 }
             }
         }
@@ -2390,160 +2369,3 @@ Hooks.once("ready", async () => {
         console.error(`${MODULE_ID} | CRITICAL ERROR in Ready Hook:`, err);
     }
 });
-
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
-
-class TimeMachineApp extends HandlebarsApplicationMixin(ApplicationV2) {
-    static get DEFAULT_OPTIONS() {
-        return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
-            tag: "form",
-            id: "phils-time-machine",
-            window: {
-                title: "PDNC.TimeMachineTitle",
-                icon: "fas fa-hourglass-start",
-                resizable: false
-            },
-            position: {
-                width: 400,
-                height: "auto"
-            },
-            classes: ["pdnc-event-editor-window", "pdnc-nav-window"],
-            actions: {
-                save: TimeMachineApp.prototype._onSave,
-                nextSun: TimeMachineApp.prototype._onNextSun
-            }
-        });
-    }
-
-    static PARTS = {
-        form: {
-            template: `modules/${MODULE_ID}/templates/time-machine.html`
-        }
-    };
-
-    get title() {
-        return game.i18n.localize("PDNC.TimeMachineTitle");
-    }
-
-    /** @override */
-    async _prepareContext(options) {
-        const calendar = dayNightCycle.calendar;
-        const config = calendar.config;
-
-        // Apply Offsets for Visual Consistency
-        let worldTime = game.time.worldTime;
-        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
-        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
-        worldTime += (offsetDays * 86400) + (offsetMinutes * 60);
-
-        // Get current date
-        const dateData = calendar.getDate(worldTime);
-        // dateData has: year, month (index), day (1-based), etc.
-
-        return {
-            config: config,
-            currentYear: dateData.year,
-            currentMonth: dateData.month, // Index
-            currentDay: dateData.day, // 1-based
-            months: config.months.map((m, i) => {
-                // Strip HTML tags for dropdown visibility
-                const tempDiv = document.createElement("div");
-                tempDiv.innerHTML = m.name;
-                const plainName = tempDiv.textContent || tempDiv.innerText || m.name;
-
-                return {
-                    value: i,
-                    label: plainName,
-                    selected: i === dateData.month
-                };
-            })
-        };
-    }
-
-    /**
-     * Handle save action
-     * @param {PointerEvent} event
-     * @param {HTMLElement} target
-     */
-    async _onSave(event, target) {
-        event.preventDefault();
-        event.stopPropagation();
-        // Log:("PDNC | Time Machine Save Action Triggered");
-        
-        const form = this.element; // In V2, this.element is the form if tag: 'form'
-        // Or if tag is div, we look for form. But manual ID access works fine here.
-
-        const d = Number(form.querySelector('#pdnc-nav-day').value);
-        const m = Number(form.querySelector('#pdnc-nav-month').value);
-        const y = Number(form.querySelector('#pdnc-nav-year').value);
-
-        let timestamp = dayNightCycle.calendar.getTimestamp(y, m, d);
-
-        // Reverse Offsets to set correct engine time
-        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
-        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
-        timestamp -= (offsetDays * 86400) + (offsetMinutes * 60);
-
-        await game.settings.set("core", "time", timestamp);
-
-        // Refresh Calendar if open
-        const app = foundry.applications.instances.get("phils-calendar-app");
-        if (app) {
-            app.viewYear = y;
-            app.viewMonth = m;
-            app.render();
-        }
-        this.close();
-    }
-
-    async _onNextSun(event, target) {
-        event.preventDefault();
-        event.stopPropagation();
-        
-        if (!window.dayNightCycle) return;
-
-        const currentWorldTime = game.time.worldTime;
-        const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
-        const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
-        const totalTime = currentWorldTime + (offsetDays * 86400) + (offsetMinutes * 60);
-
-        const dateData = dayNightCycle.calendar.getDate(totalTime);
-        const minutesOfDay = (dateData.hours * 60) + dateData.minutes;
-
-        const season = dayNightCycle.weather?.currentSeason || "spring";
-        const zone = game.settings.get(MODULE_ID, "climateZone") || "marine_west_coast";
-        let dawnMinutes = 360; 
-        let duskMinutes = 1080; 
-
-        if (dayNightCycle.lighting) {
-             const lightingParams = dayNightCycle.lighting.getLightingForSeasonAndZone(season, zone);
-             if (lightingParams) {
-                 if (lightingParams.dawn) dawnMinutes = dayNightCycle.lighting.constructor.parseTime(lightingParams.dawn) || dawnMinutes;
-                 if (lightingParams.dusk) duskMinutes = dayNightCycle.lighting.constructor.parseTime(lightingParams.dusk) || duskMinutes;
-             }
-        }
-
-        let targetMinutesOfDay = 0;
-        let daysToAdd = 0;
-
-        if (minutesOfDay < dawnMinutes) {
-            targetMinutesOfDay = dawnMinutes;
-        } else if (minutesOfDay < duskMinutes) {
-            targetMinutesOfDay = duskMinutes;
-        } else {
-            targetMinutesOfDay = dawnMinutes;
-            daysToAdd = 1;
-        }
-
-        let diffMinutes = targetMinutesOfDay - minutesOfDay;
-        if (daysToAdd > 0) {
-            // Check if dayNightCycle.calendar config has hours per day, assume 24 hours
-            const hoursPerDay = dayNightCycle.calendar.config?.hours_per_day || 24;
-            diffMinutes += hoursPerDay * 60;
-        }
-
-        const advanceSeconds = diffMinutes * 60;
-        await game.time.advance(advanceSeconds);
-        this.close();
-    }
-}

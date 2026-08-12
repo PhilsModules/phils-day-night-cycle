@@ -22,81 +22,61 @@ export class WeatherEffectsRegistry {
     }
 
     static registerHooks() {
-        // Apply filters when scene weather updates
         Hooks.on("updateScene", (scene, data, options, userId) => {
             if (data.weather !== undefined) {
-                // Log:(`PDNC | updateScene detected weather change to: ${data.weather}`);
                 this.applyWeatherFilters(data.weather);
             }
         });
 
-        // Re-apply on canvas ready (scene load)
         Hooks.on("canvasReady", (canvas) => {
             const weather = canvas.scene.weather;
-            // Log:(`PDNC | canvasReady, applying weather: ${weather}`);
             this.applyWeatherFilters(weather);
         });
 
-        // FORCE CLEANUP on Ready (Nuclear Option for stubborn defaults)
         Hooks.once("ready", () => {
             if (CONFIG.Weather && CONFIG.Weather.effects) {
-                // Log:("PDNC | Performing final cleanup of unwanted effects...");
-                
                 const effectsToDelete = [];
                 for (const [key, effect] of Object.entries(CONFIG.Weather.effects)) {
                     const lowerKey = key.toLowerCase();
                     const label = effect.label || "";
                     
-                    // Check for exact matches on key or Label
                     if (lowerKey === "fog" || lowerKey === "soot" || label === "Fog" || label === "Soot") {
                         effectsToDelete.push(key);
                     }
                 }
 
                 effectsToDelete.forEach(key => {
-                    // Log:(`PDNC | Removing unwanted effect: ${key}`);
                     delete CONFIG.Weather.effects[key];
                 });
             }
             
-            // Load Favorites as Effects (so they appear in Config)
             WeatherEffectsRegistry.loadFavorites();
         });
     }
 
     static applyWeatherFilters(weatherKey) {
-        // Log:(`PDNC | applyWeatherFilters called for: ${weatherKey}`);
-        
         if (!game.weatherFilters) {
             console.warn("PDNC | game.weatherFilters is MISSING! Shaders will not work.");
         } else {
-             // 1. Clear Shaders
             game.weatherFilters.clearFilters();
         }
 
-        // 2. Clear Custom Particles
-        // 2. Clear Custom Particles
         if (game.customParticleEngines) {
             game.customParticleEngines.forEach(engine => engine.destroy({children: true}));
             game.customParticleEngines = [];
         }
-        // Legacy Cleanup (in case a single instance persists from before)
         if (game.customParticleEngine) {
             game.customParticleEngine.destroy();
             game.customParticleEngine = null;
         }
 
-        // If no weather key (e.g. "none" or null), just return after clearing
         if (!weatherKey || weatherKey === "none") {
-            // Log:("PDNC | Weather cleared.");
-            if (canvas.weather) canvas.weather.visible = true; // Reset visibility just in case
+            if (canvas.weather) canvas.weather.visible = true;
             return;
         }
 
-        // Check Display Mode (Client Setting)
         let displayMode = "global";
         try {
-            // Safely attempt to get setting. If not registered, default to "global"
             if (game.settings.settings.has("phils-day-night-cycle.weatherDisplayMode")) {
                 displayMode = game.settings.get("phils-day-night-cycle", "weatherDisplayMode");
             }
@@ -105,7 +85,6 @@ export class WeatherEffectsRegistry {
         }
 
         if (displayMode === "window") {
-            // Log:("PDNC | Weather Display Mode is 'window'. Suppressing global effects.");
             if (canvas.weather) canvas.weather.visible = false;
             return; 
         } else {
@@ -179,14 +158,13 @@ export class WeatherEffectsRegistry {
                     const engine = new ParticleEngine(eff);
                     game.customParticleEngines.push(engine);
                     
-                    // Log:("PDNC | DEBUG: Adding Engine to canvas.stage (Root)");
-                    canvas.stage.addChild(engine);
-                    engine.zIndex = 1000;
+                    if (canvas?.stage) {
+                        canvas.stage.addChild(engine);
+                        engine.zIndex = 1000;
+                    }
 
                     // FIX: Suppress default foundry weather layer to prevent double-rendering (e.g. double rain)
-                    if (canvas.weather) {
-                        // Log:("PDNC | Hiding default Weather Layer to prevent duplication.");
-                        // canvas.weather.visible = false; // <-- CAUSES FREEZE because anim loop checks this!
+                    if (canvas?.weather) {
                         canvas.weather.alpha = 0; // Visual fix only
                     }
                 }
@@ -295,29 +273,24 @@ export class WeatherEffectsRegistry {
                     const customEngineTypes = ["ember", "leaf", "insect", "rune", "petal", "star", "glow", "cloud", "rain", "snow", "custom_rain", "custom_snow", "firefly", "droplets", "bird"];
                     
                     if (customEngineTypes.includes(cfg.type) || (cfg.type === "cloud" && cfg.direction === 270)) {
-                        // Log:(`PDNC | Preserving Custom Type: ${cfg.type}`);
-                        // Pass through! Do not adapt type.
+                        // Pass through
                     } else {
-                        // Fallback logic for Core
                         switch (cfg.type) {
                             case "fog":
                             case "breath":
                             case "smoke":
                             case "dust_devils":
                             case "clouds":
-                                // Map miscellaneous types to 'cloud' for consistent handling
                                 cfg.type = "cloud"; 
                                 break;
                             case "rain":
                             case "snow":
-                                // Valid Core types
                                 break;
                             default:
-                                cfg.type = "snow"; // Fallback
+                                cfg.type = "snow";
                                 break;
                         }
                     }
-                    // Log:(`PDNC | Adapted ${eff.config.type} -> ${cfg.type}`, cfg);
                     return cfg;
                 }
                 return eff;
@@ -325,7 +298,6 @@ export class WeatherEffectsRegistry {
         }
 
         CONFIG.Weather.effects[key] = config;
-        // Log:(`PDNC | Registered weather effect: ${key}`);
     }
 
     /**

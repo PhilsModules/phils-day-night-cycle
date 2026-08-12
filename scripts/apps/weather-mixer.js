@@ -24,7 +24,7 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
                 width: 900,
                 height: 700
             },
-            classes: ["pdnc-app", "pdnc-weather-mixer-window"],
+            classes: ["pdnc-app-v2", "pdnc-weather-mixer-window"],
             position: { width: 900, height: 700 },
             actions: {
                 "remove-layer": WeatherMixerApp.prototype._onRemoveLayer,
@@ -42,6 +42,16 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
         };
     }
 
+    async _onClose(options) {
+        if (this.isPreviewing) {
+            const weather = game.settings.get(MODULE_ID, "currentWeather");
+            const fx = weather?.fx || "none";
+            WeatherEffectsRegistry.applyWeatherFilters(fx);
+            this.isPreviewing = false;
+        }
+        return super._onClose(options);
+    }
+
     async _onPreviewMix(event, target) {
         event.preventDefault();
         
@@ -53,8 +63,6 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
             // Start Preview
             const composite = this._buildCompositeConfig("preview_temp", "Preview");
             
-
-
             // Register Temp
             WeatherEffectsRegistry.registerEffect("preview_temp", composite);
             
@@ -71,9 +79,8 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
             // Stop Preview
             // Revert to global weather
             const weather = game.settings.get(MODULE_ID, "currentWeather");
-            if (weather) {
-                WeatherEffectsRegistry.applyWeatherFilters(weather.fx);
-            }
+            const fx = weather?.fx || "none";
+            WeatherEffectsRegistry.applyWeatherFilters(fx);
             
             // Update UI
             if (btn) {
@@ -143,13 +150,16 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     async _onAddLayer(event, target) {
         const key = target.dataset.key;
-        const config = CONFIG.Weather.effects[key];
+        const config = CONFIG.Weather?.effects?.[key];
         if (!config) return;
+
+        const nameSpan = target.querySelector(".preset-name");
+        const labelText = nameSpan ? nameSpan.innerText.trim() : target.innerText.trim();
 
         const layer = {
             id: foundry.utils.randomID(),
             sourceKey: key,
-            label: target.innerText, // Name from the list
+            label: labelText,
             collapsed: false,
             components: this._generateComponentData(config)
         };
@@ -170,9 +180,12 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     async _onRemoveLayer(event, target) {
+        event.stopPropagation();
         const index = parseInt(target.dataset.index);
-        this.currentLayers.splice(index, 1);
-        this.render();
+        if (!isNaN(index) && this.currentLayers[index]) {
+            this.currentLayers.splice(index, 1);
+            this.render();
+        }
     }
 
     async _onAddComponent(event, target) {
@@ -224,15 +237,21 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     async _onToggleCollapse(event, target) {
+        if (event.target.closest(".remove-layer") || event.target.closest(".layer-controls")) return;
         const index = parseInt(target.dataset.index);
-        this.currentLayers[index].collapsed = !this.currentLayers[index].collapsed;
-        this.render();
+        if (!isNaN(index) && this.currentLayers[index]) {
+            this.currentLayers[index].collapsed = !this.currentLayers[index].collapsed;
+            this.render();
+        }
     }
 
     async _onUpdateParam(event, target) {
+        if (!target) target = event.currentTarget || event.target;
         const layerIndex = parseInt(target.dataset.layer);
         const compIndex = parseInt(target.dataset.component);
         const paramId = target.dataset.param;
+        if (isNaN(layerIndex) || isNaN(compIndex) || !paramId) return;
+
         let value = target.type === "checkbox" ? target.checked : target.value;
 
         // Numeric conversion
@@ -240,7 +259,9 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
            value = parseFloat(value);
         }
 
-        const component = this.currentLayers[layerIndex].components[compIndex];
+        const component = this.currentLayers[layerIndex]?.components?.[compIndex];
+        if (!component) return;
+
         const param = component.params.find(p => p.id === paramId);
         if (param) {
             param.value = value;
@@ -264,28 +285,12 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     async _onSaveFavorite(event, target) {
         const input = this.element.querySelector('input[name="favoriteName"]');
-        const name = input.value.trim();
+        const name = input ? input.value.trim() : "";
         if (!name) return ui.notifications.warn("PDNC.WeatherMixer.WarnNoName", { localize: true });
 
         if (this.currentLayers.length === 0) return ui.notifications.warn("PDNC.WeatherMixer.WarnNoEffects", { localize: true });
 
         const favorites = game.settings.get(MODULE_ID, "weatherMixerFavorites") || {};
-        
-        // We save the FULL CONFIG now, not just keys, because layers are custom.
-        // Wait, the existing system saves "keys". We need to adapt.
-        // If we want to save *Custom Parameters*, we can't use the simple [key1, key2] format anymore?
-        // Actually, for this "Advanced" version, we should probably save the Composite Config itself into settings?
-        // Or we register a new "Effect" for this favorite and save that?
-        // Let's stick to the Pattern: Favorites are just shortcuts to Apply a Config.
-        
-        // BUT the existing `weatherMixerFavorites` is defined as `Object<String, Array<String>>` in likelyhood (mapping Name -> [Keys]).
-        // If we want to save detailed parameters, we need a new structure.
-        // Let's assume we can store Objects in the favorites or we need a new setting "weatherMixerAdvancedFavorites".
-        // To keep it simple and compatible: Use a new setting for complex mixes? 
-        // Or just store the 'compositeConfig' object in the setting value instead of an array of strings.
-        
-        // Let's check `_onSaveFavorite` in previous code... it stored `selectedKeys` (Array).
-        // I will upgrade the storage to allow Objects.
         
         const composite = this._buildCompositeConfig(`fav_${name.toLowerCase().replace(/[^a-z0-9]/g, "_")}`, name);
         
@@ -293,13 +298,13 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
         await game.settings.set(MODULE_ID, "weatherMixerFavorites", favorites);
         
-        WeatherEffectsRegistry.loadFavorites(); // This needs to handle Objects now
+        WeatherEffectsRegistry.loadFavorites();
         ui.notifications.info(game.i18n.format("PDNC.WeatherMixer.SavedFavorite", { name }));
         this.render();
     }
     
-    // Deleting is same...
     async _onDeleteFavorite(event, target) {
+         event.stopPropagation();
          const key = target.dataset.key;
          const favorites = game.settings.get(MODULE_ID, "weatherMixerFavorites") || {};
          if (favorites[key]) {
@@ -308,8 +313,8 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
              
              // Unregister
              const safeKey = key.toLowerCase().replace(/[^a-z0-9]/g, "_");
-            const id = `fav_${safeKey}`;
-             if (CONFIG.Weather.effects[id]) delete CONFIG.Weather.effects[id];
+             const id = `fav_${safeKey}`;
+             if (CONFIG.Weather?.effects?.[id]) delete CONFIG.Weather.effects[id];
 
              this.render();
          }
@@ -338,18 +343,9 @@ export class WeatherMixerApp extends HandlebarsApplicationMixin(ApplicationV2) {
                 }
             }
         } else if (savedData && typeof savedData === 'object') {
-             // New format: Reconstruct layers from the Composite Config
-             // This is harder because we flattened it.
-             // Actually, if we want to "Edit" a favorite, we should probably store the 'Layer State' in the favorite, not just the compiled config.
-             // For now, let's just say if you load a Complex Favorite, it imports the compiled effects as one big layer?
-             // No, that defeats the purpose.
-             
-             // Workaround: We will store the `layerData` in the Favorite Object as a special property `_layers`
              if (savedData._layers) {
                  this.currentLayers = foundry.utils.deepClone(savedData._layers);
              } else {
-                 // Fallback if we only have the raw valid config
-                 // Treat is as a single "Custom" layer
                  this.currentLayers.push({
                      id: foundry.utils.randomID(),
                      sourceKey: "custom",

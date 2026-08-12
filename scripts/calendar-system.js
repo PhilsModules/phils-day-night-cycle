@@ -1,11 +1,7 @@
 export class CalendarSystem {
     constructor(systemOverride = null) {
-        // Ensure Custom Calendars are loaded into SYSTEMS (if not already)
-        // This is a bit hacky to do in constructor, but ensures it's available.
-        // Better: Do it on main init. But let's check here too.
         CalendarSystem.loadCustomCalendars();
 
-        // Fallback Logic: If setting is invalid (e.g. "simple" was removed), default to "gregorian"
         const storedSystem = systemOverride || game.settings.get("phils-day-night-cycle", "calendarSystem");
         if (!CalendarSystem.SYSTEMS[storedSystem]) {
             console.warn(`PDNC | Calendar System '${storedSystem}' not found (deprecated?). Falling back to 'gregorian'.`);
@@ -25,30 +21,41 @@ export class CalendarSystem {
     get config() {
         if (this._configCache) return this._configCache;
 
-        const sourceConfig = CalendarSystem.SYSTEMS[this.system];
+        const sysName = this.system || "gregorian";
+        const sourceConfig = CalendarSystem.SYSTEMS[sysName] || CalendarSystem.SYSTEMS["gregorian"];
+        if (!sourceConfig) {
+            console.error(`PDNC | No valid calendar system configuration found for '${sysName}'.`);
+            return { name: "Fallback", months: [], weekdays: [], leapYearRule: () => false };
+        }
+
         const conf = foundry.utils.deepClone(sourceConfig);
-        conf.leapYearRule = sourceConfig.leapYearRule;
+        if (sourceConfig.leapYearRule) {
+            conf.leapYearRule = sourceConfig.leapYearRule;
+        }
         
         // Localize Months using keys
         // Keys follow format: PDNC.Calendar.<System>.Months.<EnglishName>
-        // Note: The object keys in SYSTEMS match the lookup key
         const sysKey = this.system.charAt(0).toUpperCase() + this.system.slice(1);
         const showRealNames = game.settings.get("phils-day-night-cycle", "showRealNames");
 
         conf.months.forEach(m => {
-            // We use the original English name as the key for lookup
             const key = `PDNC.Calendar.${sysKey}.Months.${m.name}`;
             let loc = game.i18n.localize(key);
             if (loc === key) loc = m.name; // Fallback to english name if not found
+
+            let plainName = loc;
+            let htmlName = loc;
 
             if (showRealNames) {
                 const altKey = `${key}_Alt`;
                 const altLoc = game.i18n.localize(altKey);
                 if (altLoc && altLoc !== altKey) {
-                    loc = `<span class="pdnc-nowrap">${loc} <span class="pdnc-alt-name">(${altLoc})</span></span>`;
+                    plainName = `${loc} (${altLoc})`;
+                    htmlName = `<span class="pdnc-nowrap">${loc} <span class="pdnc-alt-name">(${altLoc})</span></span>`;
                 }
             }
-            m.name = loc;
+            m.name = plainName;
+            m.nameHtml = htmlName;
         });
 
         // Localize Weekdays
@@ -61,7 +68,7 @@ export class CalendarSystem {
                 const altKey = `${key}_Alt`;
                 const altLoc = game.i18n.localize(altKey);
                 if (altLoc && altLoc !== altKey) {
-                    loc = `<span class="pdnc-nowrap">${loc} <span class="pdnc-alt-name">(${altLoc})</span></span>`;
+                    loc = `${loc} (${altLoc})`;
                 }
             }
             return loc;
@@ -358,19 +365,14 @@ export class CalendarSystem {
     }
 
     getDate(worldSeconds) {
-        // Assume Year 0 starts at 0 seconds for simplicity, or handle offset?
-        // Foundry time usually implies 0 = start of world.
-        // Let's calculate purely from total seconds.
-
         const SECONDS_IN_DAY = 86400;
         let totalDays = Math.floor(worldSeconds / SECONDS_IN_DAY);
 
-        // --- OPTIMIZED YEAR SEARCH ---
-        // Instead of while(totalDays >= daysInYear), we use our cumulative cache
-        // We need to find Y such that cumulative[Y] <= totalDays < cumulative[Y+1]
-        
-        // Heuristic: Estimate target year to ensure cache is built far enough.
-        // We calculate the minimum days in a standard year to be safe for any calendar length.
+
+
+
+
+
         const sysConfig = CalendarSystem.SYSTEMS[this.system];
         const minDays = sysConfig.months.reduce((sum, m) => sum + m.days, 0);
         let year = 0;
@@ -426,28 +428,40 @@ export class CalendarSystem {
             totalDays -= daysInThisMonth;
             monthIndex++;
             if (monthIndex >= this.config.months.length) {
+                monthIndex = this.config.months.length - 1;
                 break;
             }
         }
 
         const weekdayOffset = game.settings.get("phils-day-night-cycle", "weekdayOffset") || 0;
         const totalOffsets = (this.config.weekdayStart || 0) + weekdayOffset;
-
         // Ensure positive modulo result
         const rawIndex = (Math.floor(worldSeconds / SECONDS_IN_DAY) + totalOffsets) % this.config.weekdays.length;
         const weekdayIndex = (rawIndex + this.config.weekdays.length) % this.config.weekdays.length;
 
-        // The monthName and weekday are already localized by the config getter
+        const timeOfDay = ((worldSeconds % SECONDS_IN_DAY) + SECONDS_IN_DAY) % SECONDS_IN_DAY;
+        const hours = Math.floor(timeOfDay / 3600);
+        const minutes = Math.floor((timeOfDay % 3600) / 60);
+        const seconds = Math.floor(timeOfDay % 60);
+
         const displayYearNumber = this.toDisplayYear(year);
         const displayYear = this.formatYear(displayYearNumber);
+
         return {
             year: displayYearNumber,
             displayYear: displayYear,
             month: monthIndex, // 0-indexed
-            monthName: this.config.months[monthIndex].name,
+            monthName: CalendarSystem.stripMarkup(this.config.months[monthIndex].name),
+            monthNameHtml: this.config.months[monthIndex].nameHtml || this.config.months[monthIndex].name,
             day: totalDays + 1, // 1-indexed (1st, 2nd...)
             weekdayIndex: weekdayIndex,
-            weekday: this.config.weekdays[weekdayIndex]
+            weekday: CalendarSystem.stripMarkup(this.config.weekdays[weekdayIndex]),
+            hours: hours,
+            hour: hours,
+            minutes: minutes,
+            minute: minutes,
+            seconds: seconds,
+            second: seconds
         };
     }
 
@@ -534,5 +548,328 @@ export class CalendarSystem {
         }
 
         return false;
+    }
+
+    /**
+     * Safely updates game.time.worldTime to match a specific date and time in the given calendar system.
+     * Resets dayOffset and timeOffset settings to 0 so game.time.worldTime becomes the single source of truth.
+     * Falls back to setting offset settings if direct worldTime mutation is restricted.
+     */
+    static async syncWorldTimeToDateTime(calendarSystem, year, month, day, hour = 0, minute = 0) {
+        const sys = new CalendarSystem(calendarSystem);
+        const daySeconds = sys.getTimestamp(Number(year), Number(month), Number(day));
+        const targetSeconds = daySeconds + (Number(hour) * 3600) + (Number(minute) * 60);
+
+        try {
+            if (game.user.isGM) {
+                const diff = targetSeconds - game.time.worldTime;
+                if (diff !== 0) {
+                    await game.time.advance(diff);
+                }
+                await game.settings.set("phils-day-night-cycle", "dayOffset", 0);
+                await game.settings.set("phils-day-night-cycle", "timeOffset", 0);
+                return { success: true, mode: "worldTime", targetSeconds };
+            }
+        } catch (err) {
+            console.warn("PDNC | Direct worldTime update failed or restricted. Falling back to offset calculation.", err);
+        }
+
+        // Fallback offset calculation if direct worldTime mutation fails
+        const diffSeconds = targetSeconds - game.time.worldTime;
+        const offsetDays = Math.floor(diffSeconds / 86400);
+        const remainderSeconds = diffSeconds % 86400;
+        const offsetMinutes = Math.round(remainderSeconds / 60);
+
+        await game.settings.set("phils-day-night-cycle", "dayOffset", offsetDays);
+        await game.settings.set("phils-day-night-cycle", "timeOffset", offsetMinutes);
+        return { success: true, mode: "fallbackOffsets", offsetDays, offsetMinutes };
+    }
+
+    /**
+     * Detects live date and time from active system clock (e.g. PF2e World Clock, Simple Calendar, or Foundry Core).
+     * @returns {Object} { system, year, month, day, hour, minute, second, source }
+     */
+    static detectActiveSystemDate() {
+        // 1. Pathfinder 2e System World Clock
+        if (game.system.id === "pf2e" && game.pf2e?.worldClock) {
+            try {
+                const dt = game.pf2e.worldClock.date;
+                if (dt && typeof dt.year === "number") {
+                    return {
+                        system: "golarion",
+                        year: Number(dt.year),
+                        month: Number(dt.month) - 1, // 0-based month index
+                        day: Number(dt.day),
+                        hour: Number(dt.hour || 0),
+                        minute: Number(dt.minute || 0),
+                        second: Number(dt.second || 0),
+                        source: "PF2e World Clock"
+                    };
+                }
+            } catch (e) {
+                console.warn("PDNC | Error detecting PF2e World Clock date:", e);
+            }
+        }
+
+        // 2. Simple Calendar API (if active)
+        if (window.SimpleCalendar?.api?.currentDateTime) {
+            try {
+                const sc = window.SimpleCalendar.api.currentDateTime();
+                if (sc && typeof sc.year === "number") {
+                    return {
+                        system: game.settings.get("phils-day-night-cycle", "calendarSystem") || "gregorian",
+                        year: Number(sc.year),
+                        month: Number(sc.month),
+                        day: Number(sc.day),
+                        hour: Number(sc.hour || 0),
+                        minute: Number(sc.minute || 0),
+                        second: Number(sc.seconds || 0),
+                        source: "Simple Calendar"
+                    };
+                }
+            } catch (e) {
+                console.warn("PDNC | Error detecting Simple Calendar date:", e);
+            }
+        }
+
+        // 3. Fallback: Core Foundry World Time
+        const currentCal = new CalendarSystem();
+        const dateData = currentCal.getDate(game.time.worldTime);
+        const secondsInDay = ((game.time.worldTime % 86400) + 86400) % 86400;
+        return {
+            system: currentCal.system,
+            year: dateData.year,
+            month: dateData.month,
+            day: dateData.day,
+            hour: Math.floor(secondsInDay / 3600),
+            minute: Math.floor((secondsInDay % 3600) / 60),
+            second: secondsInDay % 60,
+            source: "Foundry Core"
+        };
+    }
+
+    /**
+     * Pushes PDNC's master clock date & time to Foundry's worldTime — system-independent.
+     *
+     * Strategy:
+     * 1. ALWAYS set game.time.worldTime = PDNC's natural calendar seconds.
+     *    This ensures PDNC widget, day/night cycle and weather all work correctly for ALL systems.
+     * 2. For PF2e: ADDITIONALLY install the date getter override on game.pf2e.worldClock
+     *    so PF2e's WorldClock window shows PDNC's date.
+     *    (We cannot change worldCreatedOn, so this is the only PF2e-compatible approach.)
+     */
+    static async pushPDNCDateToSystem(calendarSystem, year, month, day, hour = 0, minute = 0) {
+        if (!game.user.isGM) return { success: false, error: "Not GM" };
+
+        // Step 1: Set worldTime to PDNC natural calendar seconds (works for ALL systems)
+        const result = await CalendarSystem.syncWorldTimeToDateTime(calendarSystem, year, month, day, hour, minute);
+
+        // Step 2: PF2e-specific: install date getter override so PF2e's World Clock window
+        // reads PDNC's date (since worldCreatedOn cannot be changed in current PF2e).
+        if (game.system.id === "pf2e") {
+            try {
+                CalendarSystem.syncPF2eClockToPDNC();
+
+                // Set dateTheme to Absalom Reckoning if available
+                if (game.settings.settings.has("pf2e.worldClock.dateTheme")) {
+                    const currentTheme = game.settings.get("pf2e", "worldClock.dateTheme");
+                    if (currentTheme !== "AR") {
+                        await game.settings.set("pf2e", "worldClock.dateTheme", "AR");
+                        console.log("PDNC | Set PF2e dateTheme to AR (Absalom Reckoning).");
+                    }
+                }
+
+                // Re-render PF2e World Clock window only if it is already open
+                if (game.pf2e?.worldClock?.rendered) {
+                    game.pf2e.worldClock.render(true);
+                }
+            } catch (e) {
+                console.warn("PDNC | Could not apply PF2e-specific display override:", e);
+            }
+        }
+
+        return result;
+    }
+
+
+    /**
+     * Synchronizes Pathfinder 2e's native worldCreatedOn setting and worldTime
+     * so PF2e's internal clock engine, active effects, spell durations, and UI
+     * natively evaluate to PDNC's master calendar date & time in the background.
+     */
+    static async syncPF2eClockToPDNC() {
+        if (game.system.id !== "pf2e") return;
+
+        try {
+            const MODULE_ID = "phils-day-night-cycle";
+            const activeSys = game.settings.get(MODULE_ID, "calendarSystem") || "golarion";
+            const sys = (window.dayNightCycle && window.dayNightCycle.calendar) ? window.dayNightCycle.calendar : new CalendarSystem(activeSys);
+
+            const offsetDays = game.settings.get(MODULE_ID, "dayOffset") || 0;
+            const offsetMinutes = game.settings.get(MODULE_ID, "timeOffset") || 0;
+            const totalTime = game.time.worldTime + (offsetDays * 86400) + (offsetMinutes * 60);
+
+            const pdncDate = sys.getDate(totalTime);
+
+            // 1. Calculate Luxon DateTime for PDNC master date
+            // In Absalom Reckoning (AR), PF2e adds 2700 years to the Luxon ISO year (4720 AR = 2020 ISO)
+            let isoYear = pdncDate.year;
+            if (isoYear > 2700) isoYear -= 2700;
+
+            const pad = (n) => String(n).padStart(2, "0");
+            const isoMonth = pad(pdncDate.month + 1);
+            const isoDay = pad(pdncDate.day);
+            const isoHour = pad(pdncDate.hour ?? pdncDate.hours ?? 0);
+            const isoMin = pad(pdncDate.minute ?? pdncDate.minutes ?? 0);
+            const isoSec = pad(pdncDate.second ?? pdncDate.seconds ?? 0);
+
+            const targetIso = `${String(isoYear).padStart(4, "0")}-${isoMonth}-${isoDay}T${isoHour}:${isoMin}:${isoSec}.000Z`;
+
+            if (window.luxon?.DateTime) {
+                const targetDt = window.luxon.DateTime.fromISO(targetIso);
+
+                if (game.user.isGM && targetDt.isValid) {
+                    const createdOnDt = targetDt.minus({ seconds: game.time.worldTime });
+                    const newCreatedOnIso = createdOnDt.toISOString();
+
+                    if (game.settings.settings.has("pf2e.worldClock")) {
+                        try {
+                            const clock = game.settings.get("pf2e", "worldClock");
+                            if (clock && typeof clock === "object") {
+                                await game.settings.set("pf2e", "worldClock", {
+                                    ...clock,
+                                    worldCreatedOn: newCreatedOnIso,
+                                    dateTheme: "AR"
+                                });
+                            }
+                        } catch (e) {}
+                    }
+
+                    if (game.settings.settings.has("pf2e.worldClock.worldCreatedOn")) {
+                        try {
+                            await game.settings.set("pf2e", "worldClock.worldCreatedOn", newCreatedOnIso);
+                        } catch (e) {}
+                    }
+
+                    if (game.settings.settings.has("pf2e.worldCreatedOn")) {
+                        try {
+                            await game.settings.set("pf2e", "worldCreatedOn", newCreatedOnIso);
+                        } catch (e) {}
+                    }
+
+                    if (game.settings.settings.has("pf2e.worldClock.dateTheme")) {
+                        try {
+                            await game.settings.set("pf2e", "worldClock.dateTheme", "AR");
+                        } catch (e) {}
+                    }
+                }
+            }
+
+            // 3. Fallback getter hook on game.pf2e.worldClock and prototypes
+            if (game.pf2e?.worldClock) {
+                const getterSpec = {
+                    get: function () {
+                        if (window.luxon?.DateTime) {
+                            return window.luxon.DateTime.fromISO(targetIso);
+                        }
+                        return null;
+                    },
+                    configurable: true,
+                    enumerable: true
+                };
+
+                try { Object.defineProperty(game.pf2e.worldClock, "date", getterSpec); } catch (e) {}
+                const proto = Object.getPrototypeOf(game.pf2e.worldClock);
+                if (proto) {
+                    try { Object.defineProperty(proto, "date", getterSpec); } catch (e) {}
+                }
+            }
+
+            // Re-render PF2e World Clock app only if currently open
+            if (game.pf2e?.worldClock?.rendered) {
+                game.pf2e.worldClock.render(true);
+            }
+            if (ui.windows) {
+                Object.values(ui.windows).forEach(w => {
+                    if (w && w.rendered && w.constructor && (w.constructor.name === "WorldClock" || w.id === "world-clock")) {
+                        w.render(true);
+                    }
+                });
+            }
+
+            CalendarSystem.hookWorldClockRender();
+        } catch (e) {
+            console.warn("PDNC | Could not sync native PF2e world clock:", e);
+        }
+    }
+
+    /**
+     * Reset any window title modifications to ensure PF2e World Clock window frame is clean.
+     */
+    static hookWorldClockRender() {
+        if (this._pf2eHooked) return;
+        this._pf2eHooked = true;
+
+        Hooks.on("renderWorldClock", (app, html, data) => {
+            try {
+                const root = (html instanceof HTMLElement) ? html : (html[0] || document);
+                const winTitle = root.querySelector(".window-title");
+                if (winTitle && (winTitle.textContent.includes("AR") || winTitle.textContent.includes("AK") || winTitle.textContent.includes("Erastus") || winTitle.textContent.includes("Sarenith"))) {
+                    winTitle.textContent = game.i18n.localize("PF2E.WorldClock.Title") || "Weltuhr";
+                }
+            } catch (e) {}
+        });
+    }
+
+    /**
+     * Forces Pathfinder 2e's World Clock settings and date display to align 100% with PDNC's date.
+     */
+    static async alignPF2eClockToPDNC(targetYear = 4720, targetMonth1 = 7, targetDay = 8, targetHour = 20, targetMinute = 1) {
+        if (!game.user.isGM) return;
+
+        try {
+            console.log(`PDNC | Aligning System World Time (${targetYear}-${targetMonth1}-${targetDay} ${targetHour}:${targetMinute})...`);
+
+            const pad = (n) => String(n).padStart(2, "0");
+            const isoYear = Number(targetYear) > 2700 ? Number(targetYear) - 2700 : Number(targetYear);
+            const isoString = `${String(isoYear).padStart(4, "0")}-${pad(targetMonth1)}-${pad(targetDay)}T${pad(targetHour)}:${pad(targetMinute)}:00.000Z`;
+
+            if (window.luxon?.DateTime) {
+                const targetDt = window.luxon.DateTime.fromISO(isoString);
+                if (targetDt.isValid) {
+                    const createdOnDt = targetDt.minus({ seconds: game.time.worldTime });
+                    const newCreatedOnIso = createdOnDt.toISOString();
+
+                    try {
+                        const clock = game.settings.get("pf2e", "worldClock");
+                        if (clock && typeof clock === "object") {
+                            await game.settings.set("pf2e", "worldClock", {
+                                ...clock,
+                                worldCreatedOn: newCreatedOnIso,
+                                dateTheme: "AR"
+                            });
+                        }
+                    } catch (e) {}
+
+                    try {
+                        await game.settings.set("pf2e", "worldClock.worldCreatedOn", newCreatedOnIso);
+                    } catch (e) {}
+
+                    try {
+                        await game.settings.set("pf2e", "worldClock.dateTheme", "AR");
+                    } catch (e) {}
+                }
+            }
+
+            await game.settings.set("phils-day-night-cycle", "dayOffset", 0);
+            await game.settings.set("phils-day-night-cycle", "timeOffset", 0);
+
+            await CalendarSystem.syncPF2eClockToPDNC();
+
+            return { success: true };
+        } catch (err) {
+            console.error("PDNC | Error aligning World Clock to PDNC:", err);
+            return { success: false, error: err };
+        }
     }
 }

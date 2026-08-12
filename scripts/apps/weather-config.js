@@ -44,18 +44,6 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
     async _onOpenMixer(event, target) {
         new WeatherMixerApp({
             callback: (mixedKey) => {
-                // Determine label (Custom Mix)
-                const config = CONFIG.Weather.effects[mixedKey];
-                const label = config.label || "Custom Mix";
-                
-                // We need to inject this into the choices and select it
-                // Since this isn't React, we should re-render or hack it into the DOM.
-                // Best to re-render.
-                
-                // We fake it by setting it in our data temporarily? 
-                // No, render() rebuilds choices from CONFIG.Weather.effects
-                // and we just registered it there. So we just need to select it.
-                
                 this.weatherData.fx = mixedKey;
                 this.render();
             }
@@ -72,11 +60,6 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
         };
     }
 
-    async render(options) {
-        if (typeof options === "boolean") options = { force: options };
-        return super.render(options);
-    }
-
     async _prepareContext(options) {
         const fxChoices = {
             "rain": game.i18n.localize("PDNC.WeatherFX.Rain"),
@@ -84,15 +67,12 @@ export class WeatherConfigApp extends HandlebarsApplicationMixin(ApplicationV2) 
             "clouds": game.i18n.localize("PDNC.WeatherFX.Clouds")
         };
 
-        // Add custom effects from configuration
-        // Helper to Convert keys (e.g. "heavy_rain" or "heavyRain") to PascalCase ("HeavyRain")
         const toPascalCase = (str) => {
             return str
-                .replace(/[-_ ]+(\w)/g, (_, c) => c.toUpperCase()) // snake_case/kebab-case to camelCase
-                .replace(/^(\w)/, (_, c) => c.toUpperCase()); // first char to Upper
+                .replace(/[-_ ]+(\w)/g, (_, c) => c.toUpperCase())
+                .replace(/^(\w)/, (_, c) => c.toUpperCase());
         };
 
-        // Add custom effects from configuration
         if (CONFIG.Weather && CONFIG.Weather.effects) {
             for (const [key, config] of Object.entries(CONFIG.Weather.effects)) {
                 // 1. Try generic method (if label is a translation key)
