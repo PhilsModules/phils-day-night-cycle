@@ -1,25 +1,38 @@
-<div class="pdnc-weather-chat">
-  {{#if img}}
-    <img src="{{img}}" style="float: right; width: 48px; height: 48px; border: none; margin-left: 5px; margin-bottom: 5px;" class="pdnc-weather-icon" />
-  {{/if}}
-  <h3>{{{date}}}</h3>
-  <div style="font-size: 0.9em; opacity: 0.9; margin-bottom: 8px">
-    <strong>Region:</strong> {{climate}}<br />
-    <strong>Season:</strong> {{season}}
+<div class="pdnc-weather-chat-card pdnc-weather-chat">
+  <div class="pdnc-weather-chat-overlay"></div>
+
+  <header class="pdnc-weather-chat-header">
+    <div class="pdnc-weather-title-group">
+      <div class="pdnc-weather-date">{{{date}}}</div>
+      <div class="pdnc-weather-meta-pills">
+        <span class="pdnc-meta-badge"><i class="fas fa-compass"></i> {{climate}}</span>
+        <span class="pdnc-meta-badge"><i class="fas fa-sun"></i> {{season}}</span>
+      </div>
+    </div>
+    {{#if img}}
+      <img src="{{img}}" class="pdnc-weather-icon-badge" />
+    {{/if}}
+  </header>
+
+  <div class="pdnc-weather-body">
+    <div class="pdnc-weather-desc">
+      {{text}}
+    </div>
+
+    <div class="pdnc-weather-temp-badge">
+      <i class="fas fa-thermometer-half"></i> <span>{{temp}}</span>
+    </div>
   </div>
-  <div style="font-size: 1.1em; margin-bottom: 10px; font-weight: bold; line-height: 1.4;">
-    {{text}}
-  </div>
-  <div class="pdnc-weather-temp">
-    <i class="fas fa-thermometer-half"></i> {{temp}}
-  </div>
+
   {{#if hasPublicRules}}
-    <div class="pdnc-weather-rules" style="margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 10px;">
-      <div style="font-size: 0.9em; font-weight: bold; margin-bottom: 6px;">{{rulesTitle}}</div>
+    <div class="pdnc-weather-rules-section">
+      <div class="pdnc-weather-rules-header">
+        <i class="fas fa-scroll"></i> {{rulesTitle}}
+      </div>
       {{#each publicRulesSections}}
-        <div style="margin-bottom: 8px;">
-          <div style="font-weight: bold; opacity: 0.9; margin-bottom: 4px;">{{title}}</div>
-          <ul style="margin: 0; padding-left: 18px;">
+        <div class="pdnc-weather-rule-block">
+          <div class="pdnc-weather-rule-subtitle">{{title}}</div>
+          <ul class="pdnc-weather-rule-list">
             {{#each entries}}
               <li>{{#if label}}<strong>{{label}}:</strong> {{/if}}{{text}}</li>
             {{/each}}
@@ -28,15 +41,16 @@
       {{/each}}
     </div>
   {{/if}}
+
   {{#if hasGmRules}}
-    <div class="pdnc-weather-rules-gm" data-visibility="gm" style="margin-top: 12px; border-top: 1px dashed rgba(255,215,0,0.35); padding-top: 10px;">
-      <div style="font-size: 0.9em; font-weight: bold; margin-bottom: 6px;">
-        <i class="fas fa-user-secret" style="margin-right: 4px;"></i>{{gmRulesTitle}}
+    <div class="pdnc-weather-rules-section pdnc-gm-rules" data-visibility="gm">
+      <div class="pdnc-weather-rules-header pdnc-gm-header">
+        <i class="fas fa-user-secret"></i> {{gmRulesTitle}}
       </div>
       {{#each gmRulesSections}}
-        <div style="margin-bottom: 8px;">
-          <div style="font-weight: bold; opacity: 0.9; margin-bottom: 4px;">{{title}}</div>
-          <ul style="margin: 0; padding-left: 18px;">
+        <div class="pdnc-weather-rule-block">
+          <div class="pdnc-weather-rule-subtitle">{{title}}</div>
+          <ul class="pdnc-weather-rule-list">
             {{#each entries}}
               <li>{{#if label}}<strong>{{label}}:</strong> {{/if}}{{text}}</li>
             {{/each}}

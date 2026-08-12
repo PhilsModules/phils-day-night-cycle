@@ -1,4 +1,4 @@
-<form class="pdnc-climate-wizard">
+<div class="pdnc-climate-wizard">
     <header class="wizard-header" style="padding: 10px; background: rgba(0,0,0,0.1); border-bottom: 1px solid var(--color-border-light); display: flex; gap: 10px; align-items: center;">
         <div class="form-group" style="flex: 1;">
             <label style="font-weight: bold; display: block; margin-bottom: 5px;">{{localize "PDNC.WeatherConfig.Climate"}}</label>
@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <div class="wizard-content" style="height: calc(100% - 80px); overflow-y: auto; padding: 10px;">
+    <div class="wizard-content">
         <ul class="weather-list" style="list-style: none; margin: 0; padding: 0;">
             {{#each entries}}
             <li class="weather-entry flexrow" style="background: rgba(255,255,255,0.05); margin-bottom: 5px; padding: 8px; border-radius: 4px; align-items: center; border: 1px solid transparent;">
@@ -48,11 +48,4 @@
             {{/each}}
         </ul>
     </div>
-</form>
-
-<style>
-.pdnc-climate-wizard .weather-entry:hover {
-    background: rgba(255,255,255,0.1) !important;
-    border-color: var(--color-border-light);
-}
-</style>
+</div>

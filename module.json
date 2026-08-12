@@ -1,7 +1,7 @@
 {
   "id": "phils-day-night-cycle",
   "title": "Phil's Day&Night Cycle",
-  "version": "5.0.0",
+  "version": "5.2.0",
   "compatibility": {
     "minimum": "12",
     "verified": "14"
@@ -13,6 +13,19 @@
       "discord": "._.phil"
     }
   ],
+  "relationships": {
+    "requires": [],
+    "recommends": [
+      {
+        "id": "phils-quest-tracker",
+        "type": "module",
+        "title": "Phils Quest Tracker",
+        "compatibility": {
+          "minimum": "1.6.0"
+        }
+      }
+    ]
+  },
   "languages": [
     {
       "lang": "en",
@@ -26,17 +39,6 @@
     }
   ],
   "esmodules": [
-    "scripts/calendar-system.js",
-    "scripts/calendar-event-editor.js",
-    "scripts/calendar-day-viewer.js",
-    "scripts/calendar-app.js",
-    "scripts/climate-data-de.js",
-    "scripts/climate-data-en.js",
-    "scripts/particle-engine.js",
-    "scripts/weather-filters.js",
-    "scripts/weather-effects.js",
-    "scripts/weather-system.js",
-    "scripts/climate-data-wizard.js",
     "scripts/main.v2.js"
   ],
   "styles": [

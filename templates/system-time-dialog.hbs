@@ -1,0 +1,87 @@
+<div class="pdnc-time-dialog-root">
+    <div class="pdnc-dialog-header-banner">
+        <i class="fas fa-clock pdnc-banner-icon"></i>
+        <div class="pdnc-banner-text">
+            <h3>{{localize 'PDNC.TimeDialog.Header'}}</h3>
+            <p>{{localize 'PDNC.TimeDialog.Subheader'}}</p>
+        </div>
+    </div>
+
+    {{!-- Current Status Card --}}
+    <div class="pdnc-status-card">
+        <div class="pdnc-status-col">
+            <span class="pdnc-status-label"><i class="fas fa-calendar-day"></i> {{localize 'PDNC.TimeDialog.PDNCDate'}}</span>
+            <span class="pdnc-status-value">{{pdncDateString}}</span>
+        </div>
+        <div class="pdnc-status-divider"><i class="fas fa-arrow-right"></i></div>
+        <div class="pdnc-status-col">
+            <span class="pdnc-status-label"><i class="fas fa-globe"></i> {{localize 'PDNC.TimeDialog.SystemDate'}}</span>
+            <span class="pdnc-status-value">{{systemDateString}}</span>
+        </div>
+    </div>
+
+    {{!-- Manual Inputs Form --}}
+    <div class="pdnc-inputs-grid">
+        <div class="pdnc-input-group">
+            <label><i class="fas fa-calendar"></i> {{localize 'PDNC.TimeDialog.Year'}}</label>
+            <input type="number" name="year" value="{{year}}" min="0" max="9999" class="pdnc-input-field">
+        </div>
+
+        <div class="pdnc-input-group">
+            <label><i class="fas fa-calendar-alt"></i> {{localize 'PDNC.TimeDialog.Month'}}</label>
+            <select name="month" class="pdnc-input-field">
+                {{#each months}}
+                <option value="{{@index}}" {{#if this.selected}}selected{{/if}}>{{{this.name}}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="pdnc-input-group">
+            <label><i class="fas fa-hashtag"></i> {{localize 'PDNC.TimeDialog.Day'}}</label>
+            <input type="number" name="day" value="{{day}}" min="1" max="31" class="pdnc-input-field">
+        </div>
+
+        <div class="pdnc-input-group">
+            <label><i class="fas fa-clock"></i> {{localize 'PDNC.TimeDialog.Hour'}}</label>
+            <input type="number" name="hour" value="{{hour}}" min="0" max="23" class="pdnc-input-field">
+        </div>
+
+        <div class="pdnc-input-group">
+            <label><i class="fas fa-stopwatch"></i> {{localize 'PDNC.TimeDialog.Minute'}}</label>
+            <input type="number" name="minute" value="{{minute}}" min="0" max="59" class="pdnc-input-field">
+        </div>
+    </div>
+
+    {{!-- Quick Step Buttons --}}
+    <div class="pdnc-quick-steps-wrapper">
+        <span class="pdnc-quick-label">{{localize 'PDNC.TimeDialog.QuickAdjust'}}:</span>
+        <div class="pdnc-quick-buttons">
+            <button type="button" data-action="adjustStep" data-step="-86400" title="-1 Tag">-1 Tag</button>
+            <button type="button" data-action="adjustStep" data-step="86400" title="+1 Tag">+1 Tag</button>
+            <button type="button" data-action="adjustStep" data-step="3600" title="+1 Stunde">+1 Std</button>
+            <button type="button" data-action="adjustStep" data-step="600" title="+10 Min">+10 Min</button>
+            <button type="button" data-action="adjustStep" data-step="2592000" title="+1 Monat">+1 Monat</button>
+            <button type="button" data-action="adjustStep" data-step="31536000" title="+1 Jahr">+1 Jahr</button>
+        </div>
+    </div>
+
+    {{!-- Primary Action Buttons --}}
+    <div class="pdnc-dialog-actions">
+        <button type="button" data-action="applyTime" class="pdnc-btn-primary">
+            <i class="fas fa-check-circle"></i> {{localize 'PDNC.TimeDialog.ApplyMasterTime'}}
+        </button>
+
+        {{#if isPF2e}}
+        <button type="button" data-action="syncPF2e" class="pdnc-btn-secondary" title="{{localize 'PDNC.TimeDialog.SyncPF2eHint'}}">
+            <i class="fas fa-sync-alt"></i> {{localize 'PDNC.TimeDialog.SyncPF2eBtn'}}
+        </button>
+        {{/if}}
+    </div>
+
+    {{#if isPF2e}}
+    <div class="pdnc-system-hint">
+        <i class="fas fa-info-circle"></i>
+        <span>{{{localize 'PDNC.TimeDialog.PF2eHintText'}}}</span>
+    </div>
+    {{/if}}
+</div>

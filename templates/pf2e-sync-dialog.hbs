@@ -1,0 +1,122 @@
+<div class="pdnc-sync-dialog">
+
+  {{!-- Header --}}
+  <div class="pdnc-sync-header">
+    <i class="fas fa-clock-rotate-left"></i>
+    <div>
+      <h3>{{localize "PDNC.SyncDialog.Title"}}</h3>
+      <p>{{localize "PDNC.SyncDialog.Subtitle"}}</p>
+    </div>
+  </div>
+
+  {{!-- Comparison Panel --}}
+  <div class="pdnc-sync-comparison">
+
+    {{!-- PF2e Column --}}
+    <div class="pdnc-sync-col pdnc-sync-col-system">
+      <div class="pdnc-sync-col-header">
+        <img src="systems/pf2e/assets/icons/pathfinder-logomark.webp" class="pdnc-sync-col-icon" onerror="this.style.display='none'">
+        <span>{{localize "PDNC.SyncDialog.SystemLabel"}}</span>
+      </div>
+      <div class="pdnc-sync-values">
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-calendar-day"></i>
+          <span class="pdnc-sync-val {{#unless datesMatch}}pdnc-val-mismatch{{/unless}}">{{pf2eDate}}</span>
+        </div>
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-clock"></i>
+          <span class="pdnc-sync-val {{#unless timesMatch}}pdnc-val-mismatch{{/unless}}">{{pf2eTime}}</span>
+        </div>
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-calendar-week"></i>
+          <span class="pdnc-sync-val {{#unless weekdaysMatch}}pdnc-val-mismatch{{/unless}}">{{pf2eWeekday}}</span>
+        </div>
+        <div class="pdnc-sync-value-row pdnc-sync-worldtime">
+          <i class="fas fa-code"></i>
+          <span class="pdnc-sync-meta">worldTime: {{worldTime}}s</span>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Arrow --}}
+    <div class="pdnc-sync-arrow">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+
+    {{!-- PDNC Column --}}
+    <div class="pdnc-sync-col pdnc-sync-col-pdnc">
+      <div class="pdnc-sync-col-header">
+        <i class="fas fa-sun pdnc-sync-col-icon-fa"></i>
+        <span>PDNC Master</span>
+      </div>
+      <div class="pdnc-sync-values">
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-calendar-day"></i>
+          <span class="pdnc-sync-val pdnc-val-master">{{pdncDate}}</span>
+        </div>
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-clock"></i>
+          <span class="pdnc-sync-val pdnc-val-master">{{pdncTime}}</span>
+        </div>
+        <div class="pdnc-sync-value-row">
+          <i class="fas fa-calendar-week"></i>
+          <span class="pdnc-sync-val pdnc-val-master">{{pdncWeekday}}</span>
+        </div>
+        <div class="pdnc-sync-value-row pdnc-sync-worldtime">
+          <i class="fas fa-code"></i>
+          <span class="pdnc-sync-meta">{{localize "PDNC.SyncDialog.MasterSource"}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {{!-- Weekday Mismatch Warning + Fix Button --}}
+  {{#unless weekdaysMatch}}
+  <div class="pdnc-sync-weekday-warn">
+    <div class="pdnc-sync-weekday-warn-text">
+      <i class="fas fa-calendar-xmark"></i>
+      <div>
+        <strong>{{localize "PDNC.SyncDialog.WeekdayMismatch"}}</strong>
+        <p>PF2e: <em>{{pf2eWeekday}}</em> &nbsp;→&nbsp; PDNC: <em>{{pdncWeekday}}</em> &nbsp;(Versatz: {{weekdayDelta}} Tag(e))</p>
+      </div>
+    </div>
+    <button type="button" data-action="fixWeekday" class="pdnc-sync-btn-fix">
+      <i class="fas fa-screwdriver-wrench"></i>
+      {{localize "PDNC.SyncDialog.FixWeekdayButton"}}
+    </button>
+  </div>
+  {{/unless}}
+
+  {{!-- Status Bar --}}
+  {{#if allMatch}}
+  <div class="pdnc-sync-status pdnc-status-ok">
+    <i class="fas fa-check-circle"></i>
+    <span>{{localize "PDNC.SyncDialog.AlreadyInSync"}}</span>
+  </div>
+  {{else}}
+  <div class="pdnc-sync-status pdnc-status-warn">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>{{localize "PDNC.SyncDialog.OutOfSync"}}</span>
+  </div>
+  {{/if}}
+
+  {{!-- Info Box --}}
+  <div class="pdnc-sync-info">
+    <i class="fas fa-shield-alt"></i>
+    <p>{{{localize "PDNC.SyncDialog.SafetyNote"}}}</p>
+  </div>
+
+  {{!-- Action Buttons --}}
+  <div class="pdnc-sync-actions">
+    <button type="button" data-action="doSync" class="pdnc-sync-btn-primary" {{#if allMatch}}disabled{{/if}}>
+      <i class="fas fa-sync-alt"></i>
+      {{localize "PDNC.SyncDialog.SyncButton"}}
+    </button>
+    <button type="button" data-action="refreshDialog" class="pdnc-sync-btn-ghost">
+      <i class="fas fa-refresh"></i>
+      {{localize "PDNC.SyncDialog.RefreshButton"}}
+    </button>
+  </div>
+
+</div>
