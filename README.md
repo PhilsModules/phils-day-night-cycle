@@ -3,7 +3,7 @@
 # Phil's Day&Night Cycle
 
 ![Foundry v14 Compatible](https://img.shields.io/badge/Foundry-v14-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-5.2.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-6.0.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -81,6 +81,14 @@ Phil's Day&Night Cycle adds a visually appealing clock that automatically syncs 
 
 ## Key Features
 
+- **🌦️ Living Atmosphere & Dynamic Zoom-LOD Engine:** Intelligent altitude simulation seamlessly handles 5 ft tactical maps, 500 ft city maps, and giant overland continents:
+  - *Satellite & Overview View:* Renders majestic, volumetric storm clouds from high altitude while suppressing microscopic raindrops.
+  - *Cloud Deck Breakthrough:* As you zoom down into streets and houses, the camera smoothly breaks through the cloud ceiling—white cloud bodies vanish so your tokens, furniture, and rooms stay 100% visible!
+  - *Moving Ground Shadows & Rain:* Beneath the clouds, soft ambient cloud shadows glide across the terrain while fine, needle-thin raindrops and splashes appear right in front of your camera.
+- **🎚️ Configurable Particle & Effect Scaling (Live Preview):** Fine-tune raindrop, snow, and splash size from 40% to 300% via a live slider with instantaneous real-time preview on your active battle map.
+- **🎯 Viewport-Focused Clustering & Needle-Fine Rain Physics:** Concentrates active particles directly inside your visible camera window, preventing sparse distribution on large maps while keeping particles needle-thin at high zoom.
+- **🎨 Cinematic Overcast Day-Grading:** Smooth daylight desaturation and cool atmospheric slate grading during rainstorms, with built-in indoor suppression masking for bright, warm building interiors and caves.
+- **🌍 Universal Unit & Grid Normalizer:** Automatically supports any grid size and unit (feet, miles, kilometers, meters, leagues, yards, and hexes).
 - **Complete Weather System:** Simulates realistic weather including temperature, wind and humidity based on climate zones with over 1200 unique weather descriptions.
 - **Weather Rules Integration:** Other systems or content modules can inject GM-only weather rule notes into the generated weather chat cards.
 - **Simple Calendar Migration:** Import the currently active Simple Calendar setup into a PDNC custom calendar, including compatible notes and events.
@@ -295,6 +303,14 @@ Phil's Day&Night Cycle fügt eine visuell ansprechende Uhr hinzu welche sich aut
 
 ## Funktionen
 
+- **🌦️ Lebendige Atmosphäre & Dynamische Zoom-LOD Engine:** Intelligente physikalische Höhen- und Maßstabs-Simulation für 5-Fuß-Battlemaps, 500-Fuß-Stadtkarten und riesige Weltkarten:
+  - *Satelliten- & Übersichtsansicht:* Aus hoher Flughöhe werden majestätische Unwetterwolken gerendert, während mikroskopische Regentropfen unsichtbar bleiben.
+  - *Durchstoßen der Wolkendecke:* Beim Heranzoomen auf Häuser und Straßen durchbricht die Kamera die Wolkenschicht – die weißen Wolkenkörper verschwinden komplett, sodass Räume, Möbel und Tokens zu 100% frei und unverdeckt bleiben!
+  - *Wandernde Wolkenschatten & Regen:* Unterhalb der Wolkendecke gleiten weiche, stimmungsvolle Wolkenschatten über den Boden, während sich feine Regentropfen und Bodenspritzer direkt vor deiner Kamera einblenden.
+- **🎚️ Einstellbare Partikel- & Effektgröße (mit Live-Vorschau):** Passe die Größe von Regentropfen, Schnee und Spritzern von 40% bis 300% per Schieberegler mit sofortiger Live-Vorschau auf deiner aktiven Karte an.
+- **🎯 Viewport-Clustering & Nadelfeine Regentropfen:** Konzentriert Partikel dynamisch im sichtbaren Kameraausschnitt und verhindert dicke Balken-Effekte bei starker Vergrößerung.
+- **🎨 Atmosphärische Regentag-Lichtstimmung:** Sanfte Entsättigung und kühle Tageslicht-Stimmung bei Regen, mit Innenraum-Maskierung für warme, helle und trockene Innenräume.
+- **🌍 Universeller Einheiten- & Gitter-Normalisierer:** Unterstützt automatisch alle Gitter-Größen und Einheiten (Fuß, Meilen, Kilometer, Meter, Seemeilen, Yards und Hexes).
 - **Volles Wettersystem:** Simulation von realistischem Wetter inklusive Temperatur, Wind und Luftfeuchtigkeit basierend auf Klimazonen mit über 1200 einzigartigen Wetterbeschreibungen.
 - **Regel-Integration für Wetter:** Andere Systeme oder Content-Module können SL-exklusive Wetter-Regelhinweise in die erzeugten Wetterkarten einspeisen.
 - **Simple-Calendar-Migration:** Importiert den aktuell aktiven Simple-Calendar-Kalender als PDNC-Kalender und übernimmt kompatible Notizen oder Ereignisse.

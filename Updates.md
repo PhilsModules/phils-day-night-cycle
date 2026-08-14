@@ -1,3 +1,44 @@
+## v6.0.0 - The Living Atmosphere & Dynamic Zoom Engine
+
+- **🌦️ Living Atmosphere & Dynamic Altitude Zoom:**
+  - **High-Altitude Overview for Large Maps:** When viewing regional maps, continents, or large city maps (e.g. Absalom with 500 ft or 1,000 ft grids) from a distance, microscopic raindrops are automatically hidden. Instead of a cluttered screen, you see majestic storm fronts and cloud covers rolling across the land from above.
+  - **Seamless Ground-Level Transitions:** When zooming in to inspect streets, buildings, or ships, fine raindrops and ground droplet splashes smoothly fade into view, bringing the local scene to life.
+- **🌤️ Cinematic Cloud Deck Breakthrough & Moving Ground Shadows:**
+  - **Volumetric Clouds from Above:** From high altitude, thick and fluffy cloud tops drift realistically across the landscape.
+  - **Descending Below the Clouds:** As you zoom in, your camera passes through the cloud layer. The white cloud tops gently fade away so that rooms, furniture, and tokens remain completely visible and unobstructed.
+  - **Realistic Moving Ground Shadows:** Underneath the cloud layer, soft ambient cloud shadows glide across the ground, roofs, and fields—just like real clouds passing in front of the sun.
+  - **Clean Tactical Battle Maps:** Standard 5 ft combat battle maps remain bright and clear, without dark cloud patches drifting across rooms or floors.
+- **🎨 Atmospheric Rainy Day Mood:**
+  - Rainy and stormy weather now applies a smooth overcast slate daylight effect across outdoor areas, capturing the authentic mood of a stormy day.
+  - Fully compatible with indoor weather suppression: building interiors, taverns, and caves remain warm, bright, and dry.
+- **🎚️ Adjustable Particle & Effect Size (Live Preview Slider):**
+  - Added a new slider in the module settings (*Weather Effect & Particle Size / Partikel- & Effektgröße*) to adjust the size of raindrops, snowflakes, and splashes from 40% to 300%.
+  - Moving the slider updates the effect live on your active map in real time, so you can immediately dial in your preferred look.
+- **🎯 Viewport-Focused Rain & Sharp Raindrop Physics:**
+  - **Delicate Raindrops at Any Zoom:** Raindrops automatically adapt to your camera magnification. Even when zooming deep into a single room or building, raindrops stay needle-thin and fast-falling instead of becoming unnaturally thick.
+  - **Dense Viewport Rain:** Rather than scattering rain across unseen miles of a giant map, the weather engine concentrates the rainfall directly within your visible screen area. Wherever you pan or zoom, you always enjoy a dense, atmospheric rain shower right where the action is happening.
+- **🌍 Universal Grid & Unit Normalization:**
+  - The weather engine automatically understands all map scales and grid units (feet, miles, kilometers, meters, leagues, yards, and hexes), ensuring weather visuals adapt seamlessly to any map from small taverns to entire continents.
+- **⚙️ Customizable World Map Threshold:**
+  - Added a world setting (*Macro Map Grid Threshold*) allowing GMs to choose the exact grid distance (default: 20 ft) where tactical battle map rain switches to high-altitude storm fronts.
+- **🛡️ Scene Transition & Weather Preset Stability:**
+  - Improved weather effect loading when switching scenes and enhanced custom weather mixer configurations.
+
+## v5.2.0 - Core Architecture Modernization, Application Optimization & Stability
+
+- **🏗️ Architecture Modernization & Modularization:** 
+  - Extracted the *Time Machine* (`TimeMachineApp`) into its own dedicated ES-Module component for a cleaner, faster, and more modular codebase.
+  - Modernized internal database initialization to current Foundry V10–V14 document standards for seamless background persistence.
+- **⚡ Native DOM & ApplicationV2 Performance:** 
+  - Refactored calendar context menus and dynamic UI components from legacy jQuery wrappers to modern, native DOM APIs for improved responsiveness and a lighter memory footprint.
+  - Streamlined real-time lighting and darkness calculations, removing redundant tick logging in production environments for smoother frame rates.
+- **🛡️ Robust API & Settings Integration:** 
+  - Strengthened Pathfinder 2e clock synchronization with safe setting existence validation, avoiding unhandled setting errors.
+  - Corrected ApplicationV2 instance resolution across calendar and weather HUD dialogs.
+- **🌐 Localization Polish:** 
+  - Added dedicated English and German translation keys for Moon Lighting settings and Moon Phase configuration dialogs.
+
+
 ## v5.1.9 - Toggle Macro Repair & Macro Directory Folder Organization
 
 - **⏰ Reliable Clock Toggle Macro:** Fixed an issue where the clock visibility macro stopped hiding and showing the clock widget. The macro now works reliably across all scenes.
