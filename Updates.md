@@ -1,3 +1,105 @@
+## v7.1.0 - Streamlined Clock Widget, Interactive HUD Controls & World Presets
+
+- **🌧️ Client-Side Weather Canvas Mute (Right-Click Weather Icon):**
+  - **One-Click Display Pause:** Right-clicking the weather icon on the widget now instantly mutes weather particles and atmospheric shaders on your own screen only. This is perfect if you need maximum battle map clarity or performance during intense encounters.
+  - **Uninterrupted World Simulation:** The global world simulation, temperature progression, calendar time, and regional biomes continue running smoothly in the background.
+  - **Fine Status Slash:** A fine, static red diagonal slash across the weather icon clearly signals when canvas effects are hidden on your display.
+
+- **🌡️ Dedicated Weather Preview Window & Panorama Sky (Right-Click Temperature):**
+  - **Quick Preview Window:** Right-clicking the temperature readout instantly opens or closes the floating, animated Weather HUD window.
+  - **Watch the Weather Anywhere:** Even if you choose to mute canvas effects on your battle map, you can keep the compact preview window open to enjoy falling precipitation and drifting clouds in real time.
+  - **Panoramic Mountain Horizons:** The preview window now renders drifting cloud formations gracefully in the upper sky above the mountain horizon, leaving the valleys and majestic peaks below crystal clear and unobstructed.
+  - **Wind-Driven Sky Movement & Tilting Precipitation:** Clouds drift naturally across the panoramic view in real-time alignment with the prevailing wind, while raindrops and snowflakes descend from the sky and tilt realistically according to live wind velocity.
+  - **Live Indicator Glow:** The temperature readout glows in warm amber whenever the preview window is active on your screen.
+
+- **🏛️ Integrated Dungeon Mode & Unblocked Celestial Arc:**
+  - **Middle-Row Placement:** I moved the Dungeon Mode toggle directly into the middle row of the clock widget between the digital time and the weather indicator (`[🕒 11:00] • [🏛️] • [🌧️ 10.5°C] [↓]`).
+  - **Clear Celestial Arc:** The old corner icon has been removed, leaving the rising sun and celestial moon arc completely free and unobstructed.
+  - **Dynamic Atmosphere Glow:** When an indoor or dungeon scene is active, the gate icon shines in warm amber with a soft firelight glow. For outdoor scenes, it rests in subtle antique gold.
+  - **Gamemaster Security:** The dungeon toggle remains strictly restricted to Gamemasters; players see an even cleaner, ultra-slim widget.
+
+- **✨ Unified First-Time Setup Assistant:**
+  - **Single Cohesive Window:** Starting a new world or launching the setup assistant now presents one unified, beautiful setup window instead of multiple overlapping dialogues.
+  - **Smart Game System Detection:** The assistant automatically recognizes your game world (such as Pathfinder 2e, D&D 5e, or Cosmere) and offers a tailored world preset badge with recommended calendars, celestial moons, and canonical holidays.
+  - **Campaign Data Safety Shield:** When configuring existing worlds, an active safety shield assures Gamemasters that all recorded sessions and rolled weather history remain completely untouched, with automatic one-click backup protection.
+
+- **📦 World Preset Sharing & Seamless Cross-Foundry Portability:**
+  - **One-Click Preset Export:** Gamemasters can now export their full campaign configuration—including calendar dates, multi-moon celestial bodies, holidays, climate zones, and units—into a portable preset file with a single click.
+  - **Instant Preset Import:** Easily import your custom presets into any second Foundry server or new campaign world to instantly recreate your favorite setting without manual re-configuration.
+
+- **💬 Clean Floating Tooltips:**
+  - **Smooth Overlay Protection:** Polished all pop-up information windows into clean, floating tooltips that will never cover or block your clock controls.
+  - **Clear Story & Action Hierarchy:** The atmospheric weather narration is presented prominently at the top, while quick-action hints (such as right-clicking to toggle canvas effects or open the preview window) are cleanly separated at the bottom in subtle italics.
+
+---
+
+## v7.0.1 - Comprehensive English Language & Menu Polish
+
+- **🌐 Complete English Language Support:**
+  - **First-Time Setup Assistant (Startup Wizard):** The startup wizard now welcomes you fully in English when Foundry is set to English. All date and time settings, master time explanations, calendar options, and Pathfinder 2e synchronization prompts display clean, natural English text.
+  - **Weather Configuration & Custom Climates:** The weather configuration window has been completely bilingualized. Preview buttons, wind directions, speed guidelines, sample descriptions, and input tooltips now appear in your selected language.
+  - **Module Settings & Category Tabs:** All category navigation tabs (General & Display, Clock, Weather & Biomes, etc.), headers, action buttons, and feature overviews now dynamically adapt to English or German.
+  - **Quick Time Jumps & Calendar Synchronization:** Quick step buttons (+1 Day, +1 Hour, +10 Minutes, etc.) and calendar synchronization dialogues now display fully localized text.
+  - **Feature Showcase (Patchnotes):** The update overview window now opens in English for English-speaking Gamemasters.
+
+---
+
+## v7.0.0 - The Living Atmosphere & Grand Weather Physics Breakthrough
+
+- **🌪️ Revolutionary 360° Wind & Precipitation Physics (Real-Time Kinematics):**
+  - **True 360° Wind-Driven Trajectory:** Falling rain, sleet, and snow are no longer rigid vertical video loops. Every single drop is dynamically driven across the battle map along the real-time 360° wind vector and Beaufort velocity (e.g. a howling southwest storm propels rain diagonally from bottom-left to top-right, while a calm tropical shower descends steep and heavy).
+  - **Organic Directional Ground Splashes:** Raindrops terminate precisely at their terrain impact coordinates, exploding into fine water droplets distributed naturally along the drop's flight vector.
+  - **Needle-Fine Clarity at Any Zoom:** Drops stay luminous, needle-thin water streaks from micro 5 ft tactical battle maps up to 20,000-pixel regional overviews without pixelation or blur.
+  - **Native Foundry Weather Suppression:** Replaces rigid default Foundry VTT weather overlays with the custom dynamic rendering engine.
+  - **Rebalanced Weather Intensities:** Calibrated particle presets for light drizzle, steady rain, torrential downpours, gale gusts, cloudbursts, gentle snowfall, and blizzards.
+
+- **☁️ Volumetric Cloud Deck Breakthrough & Living Cloud Shadows:**
+  - **Cinematic High-Altitude Cloud Decks:** On regional and world maps, the camera hovers above thick, volumetric 3D cloud formations and drifting storm fronts.
+  - **Seamless Cloud Deck Breakthrough:** As the GM or players zoom down into tactical encounters, the camera **smoothly breaks through the cloud ceiling**—the white cloud bodies gracefully dissolve so that tokens, roofs, rooms, and combat grids remain 100% visible, crisp, and unobstructed!
+  - **Synchronized Cloud-Rain Coupling (Natural Rain Lulls):** Rain falls realistically where cloud shadows pass overhead! As cloud fronts drift across the map, localized downpours sweep over the terrain and give way to organic rain pauses and breaking sunlight.
+  - **Solar Arc Cloud Shadow Engine:** Ambient cloud shadows drift across the terrain at angles and intensities driven in real time by the Solar Arc clock widget's sun position.
+  - **Atmospheric Overcast Day-Grading:** Rainstorms automatically apply a smooth overcast slate daylight grade with indoor suppression masking for bright, warm building interiors and caves.
+
+- **🎭 Complete Rewrite of All 15 Biomes in `climate-data-de.js` & `climate-data-en.js`:**
+  - **1,200 Handcrafted Weather Events (60 Season Datasets):** All 15 global climate zones (`ice_cap`, `marine_west_coast`, `humid_subtropical`, `tundra`, `semiarid`, `dry_savanna`, `boreal_forest`, `cold_desert`, `wet_savanna`, `humid_continental`, `hot_desert`, `tropical_rainforest`, `temperate_rainforest`, `thorn_savanna`, `highland`) featuring 4 seasons with 20 distinct weather events each have been completely rewritten from scratch in both English and German.
+  - **4,800 Unique Narrative Narrator Reports (1,200 Per Genre Style):**
+    - 🏰 **Fantasy / Historical:** Atmospheric town crier, herald, and caravan addresses directed to citizens, wanderers, nomads, and travelers (*"Hear ye, all citizens, wanderers, and travelers..."*).
+    - 📻 **Modern / Realistic:** Authentic, precise weather forecast phrasing featuring natural temperature ranges, wind velocities, and atmospheric conditions.
+    - 🤖 **Sci-Fi / Cyberpunk:** Tech-functional atmospheric telemetry, particle scans, and radiation logs.
+    - 📜 **Classic:** Evocative, single-sentence scene descriptions designed for rapid GM inspiration during table play.
+  - **✨ 100% Text Uniqueness (0 Duplicates):** Rigorous automated scans verify 0 duplicate entries across all 4,800 reports with clean natural punctuation.
+  - **1-Click Welcome Chat Card:** Gamemasters receive an interactive private welcome chat card upon session launch to configure their preferred narrator style instantly with one click.
+
+- **⚡ Multi-Pulse Thunderstorms & Lightning with Flash Shield Accessibility:**
+  - **Natural Thunder Pauses:** Lightning strikes feature organic intervals (14 to 20 seconds) with rumbling thunder and rain lulls rather than disorienting rapid strobes.
+  - **Cinematic Violet-Blue Sky Illumination:** Harsh blinding white flashes are replaced with a soft, cinematic violet-blue ambient illumination.
+  - **Main & Secondary Discharges:** Realistic multi-strike lightning with micro-flashes and subtle intra-cloud sheet lightning.
+  - **Photo-Sensitive Flash Shield Mode (Accessibility):** Players with light sensitivities or epilepsy can disable screen flashes individually in client settings while retaining full rain, storm audio, and cloud visuals.
+
+- **🧭 Live Wind Compass in Clock Widget & Calendar Integration:**
+  - **Dynamic Wind Arrow in Widget:** An elegant golden compass arrow beside the temperature and date displays live wind direction and Beaufort wind speed.
+  - **Visual Intensity Tiers:** Gentle breezes glow in soft gold, brisk winds in warm amber, and gales in vivid warning red.
+  - **Automatic Calendar Logging:** Wind direction and velocity are automatically logged in daily calendar chronicles.
+
+- **🚀 Hardware Performance Profiles & Viewport-Focused Rendering:**
+  - **Viewport Culling Engine:** Particles and splashes are calculated strictly within the visible camera viewport, maintaining smooth 60+ FPS on massive 20,000-pixel canvas maps.
+  - **4 Selectable Hardware Profiles:**
+    - 🚀 **Ultra / Cinema (135% Density):** Maximum particle saturation for powerful gaming desktops.
+    - ⚖️ **Balanced (100% Density • Default):** Optimal visual fidelity for standard computers.
+    - 🥔 **Laptop / Battery Saver (45% Density):** Lightweight rendering for older hardware and mobile laptops.
+    - ⚡ **Atmosphere Only (0% Particles):** Disables active particle meshes, keeping ambient cloud shadows, color grading, and lighting intact.
+
+- **🗂️ Modern Settings Hub, Toolbar Filters & Scope Badges:**
+  - **7 Structured Categories:** Reorganized all module settings into 7 distinct categories with a sleek horizontal toolbar navigation (Clock & Display, Day & Night, Weather & Atmosphere, Calendar & Time, Accessibility & Performance, Permissions, Wizards & Tools).
+  - **Compact Hero Banner & What's New Showcase:** Fast 1-click access to the modern Feature Showcase modal and the guided setup wizard.
+  - **Micro Scope Badges:** Unobtrusive, ultra-compact `👑 GM` / `👤 Client` badges directly beside labels.
+
+- **🧹 Cleanup, Production Optimization & Polish:**
+  - Fully validated syntax, JSON structures, removed legacy developer tools, and cleaned all sentence-connector dashes across all 4,800 weather texts.idated syntax, JSON structures, and instant scene transition performance.
+
+---
+
+
 ## v6.0.0 - The Living Atmosphere & Dynamic Zoom Engine
 
 - **🌦️ Living Atmosphere & Dynamic Altitude Zoom:**
