@@ -1,3 +1,32 @@
+## v7.2.0 - Interactive Canvas Weather & Cloud Calibrator
+
+- **🎛️ Interactive Weather & Cloud Calibrator (On-Canvas Tool):**
+  - **Left Toolbar Integration:** I've added a dedicated "Phil's Weather & Atmosphere" tool group to Foundry's main left toolbar (alongside Token, Measurement, and Lighting controls), with a quick-access shortcut directly inside the Lighting controls.
+  - **Intuitive Cloud Deck Breakthrough & Draggable Altitude Pin:** Gamemasters now have complete visual control over high-altitude cloud cover! The live camera altitude bar now features an integrated, draggable red pin directly on the track—slide the pin across the gauge to tune your breakthrough altitude, or zoom your camera to the height where you want the sky to clear and click **"Set Current Zoom as Breakthrough"**. Watch the dense cloud deck part into dynamic ground shadows as you zoom in towards the ground.
+  - **Flexible Cloud Modes:** Choose between Dynamic Altitude (clouds open up as you zoom in), Always Cloud Deck (clouds remain continuously visible above the map for mountain peaks or airship battles), Ground Shadows Only, or Disabled.
+  - **Real-Time Particle Sizing:** Moving the particle size slider now instantly updates raindrops, snowflakes, and splashes on your active battle map in the current frame—no menus to save, no reloads required!
+  - **One-Click Grid Alignment:** A dedicated "Match Grid Resolution" button automatically calculates the ideal physical droplet scale based on your map's grid pixel resolution, ensuring rain looks natural whether on 70px classic maps or 4K high-res battlefields.
+  - **Per-Scene Customization with Global Defaults:** Save your visual calibrations permanently for the active scene with a single click, or apply them as the default for all future maps in your world.
+
+- **☀️ Strict Battle Map Boundaries & Day-Aware Atmospheric Visuals:**
+  - **Clean Map Edges:** Sun rays, sunbeams, auroras (northern lights), divine light shafts, heatwaves, rainbows, halos, underwater ripples, and ambient lightning flashes are now strictly constrained to the borders of your active battle map. Atmospheric visual effects no longer spill or bleed into the dark canvas padding outside the map.
+  - **Sunbeams Follow the Sun:** Golden sun rays now only appear when the sky is bright. As the world grows dim — through the darkness slider or the natural day/night cycle — the light shafts gently fade and extinguish, just like real sunlight retreating at dusk. They will never burn through a midnight sky again.
+  - **Northern Lights Appear Only After Dark:** The aurora borealis is a creature of the night. The shimmering polar curtains now awaken only as true darkness falls, growing gradually brighter as the scene dims, and vanishing completely in daylight. This means auroras and sun rays are mutually exclusive — as it should be in nature.
+  - **Calmer, More Realistic Northern Lights:** The aurora effect has been completely retuned. The curtains are now narrower, more delicate, and confined to the upper portion of the battlemap — simulating the distant, overhead shimmer of real polar light rather than filling the entire sky. Colors are softer and more muted, drifting at a slow, peaceful pace instead of racing across the scene.
+  - **Fluid Real-Time Camera Tracking:** As you zoom and pan across the battlefield, all atmospheric lighting effects track your map dimensions continuously in real time, ensuring that brilliant sunlight and weather moods stay perfectly confined to the playable scenery.
+
+---
+
+
+## v7.1.1 - Calendar Event Cleanup & Real-Time Synchronization Polish
+
+- **📅 Seamless Calendar Event Deletion & Cleanup:**
+  - Deleting linked milestones or quests now instantly and completely clears all associated events from the calendar, leaving no orphaned entries behind.
+  - Both the overarching month calendar view and the detailed single-day window now refresh immediately in real time upon any event deletion or update.
+  - Enhanced title and time recognition ensures that deadlines and events with custom time stamps (e.g. `14:00`) are cleanly tracked and cleaned up.
+
+---
+
 ## v7.1.0 - Streamlined Clock Widget, Interactive HUD Controls & World Presets
 
 - **🌧️ Client-Side Weather Canvas Mute (Right-Click Weather Icon):**
