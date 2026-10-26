@@ -3,7 +3,7 @@
 # Phil's Day and Night Cycle
 
 ![Foundry v14 Compatible](https://img.shields.io/badge/Foundry-v14-brightgreen?style=flat-square) ![Foundry v12 Compatible](https://img.shields.io/badge/Foundry-v12-green?style=flat-square) ![License](https://img.shields.io/badge/License-GPLv3_%2F_CC_BY--NC--ND-blue?style=flat-square)
-[![Version](https://img.shields.io/badge/Version-7.2.0-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
+[![Version](https://img.shields.io/badge/Version-7.3.1-blue?style=flat-square)](https://github.com/PhilsModules/phils-day-night-cycle/releases) [![Patreon](https://img.shields.io/badge/SUPPORT-Patreon-ff424d?style=flat-square&logo=patreon)](https://www.patreon.com/PhilsModules)
 
 <br>
 
@@ -94,6 +94,7 @@ Phil's Day and Night Cycle adds a visually appealing clock that automatically sy
 - **⚡ Multi-Pulse Thunderstorms with Flash Shield Mode (Accessibility):** Organic lightning intervals (14–20s) with rumbling thunder, cinematic soft violet-blue sky glow, and a dedicated individual client toggle to disable screen flashing for photosensitive players.
 - **🧭 Live Wind Compass in Clock Widget & Calendar Integration:** Real-time rotating wind compass in the clock widget with Beaufort color coding and automatic daily chronicle weather logging.
 - **🚀 Hardware Performance Profiles & Viewport-Focused Rendering:** Viewport culling engine concentrates particles strictly in the visible camera viewport, maintaining smooth 60+ FPS on massive 20,000-pixel canvas maps across 4 selectable hardware profiles (Ultra 135%, Balanced 100%, Laptop Saver 45%, Atmosphere Only 0%).
+- **🎉 Canonical Lore Holidays & Yearly Repeating Festivities (v7.2.1):** All major canonical holidays and festivals for Golarion, Harptos, and Roshar are now pre-configured with annual recurrence, dedicated amber festival cards, and rich narrative lore descriptions in English and German.
 - **🎛️ Interactive On-Canvas Weather & Cloud Calibrator (v7.2.0):** A dedicated tool group on Foundry's left toolbar lets you tune clouds, sun rays, rain particles, and cloud breakthrough height in real time with live sliders — directly on the canvas, no menus required. Save per-scene or apply as global defaults with a single click.
 - **☀️ Day-Aware Sunbeams & Night-Only Aurora (v7.2.0):** Golden sun rays now fade and extinguish as scene darkness rises — they never burn through a midnight sky. The aurora borealis awakens only after true darkness falls and vanishes completely in daylight, making sunbeams and northern lights mutually exclusive as nature intended. Aurora curtains are now narrower, softer, and confined to the upper portion of the battlemap for a realistic distant shimmer.
 - **🗺️ Strict Battlemap Boundaries for All Atmospheric Effects (v7.2.0):** Sun rays, auroras, rainbows, heat waves, divine light shafts, halos, underwater ripples, and ambient lightning are now strictly clipped to the active battlemap borders — no bleed into the dark canvas padding.
